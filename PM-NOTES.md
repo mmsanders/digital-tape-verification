@@ -47,3 +47,11 @@ Authorized pre-DRAFT-3 work has begun:
 - tests/SUITE-3-INVARIANTS.md: parameterised run-based invariant scaffold, including corrected free-space semantics and the new re-spool/promote invariants.
 
 Independent-review boundary remains in force: CI/tooling/host tooling/firmware/docs requests may be reviewed; engine behavior may be reviewed only after verifier-authored tests for that behavior have landed. A marked engine PR outside that boundary must be declined without reading its diff and escalated to PM.
+
+## 2026-09-01 — Pre-DRAFT-3 capability completion audit
+
+Completed every deliverable that PM Decisions 001-R authorizes before DRAFT-3. The initial block-device scaffold is now paired with a generic exhaustive crash runner. A clean trace is replayed for every individual block in batched writes with 0 through 512 landed bytes, and at every flush failure. Each case resets the fixture, simulates the operation and power cut, remounts, invokes independent invariant hooks, and emits a deterministic case record. The self-test's two writes/two flushes produce 1,029 passing cases.
+
+The Suite 3 document now specifies parameterized geometry, consecutive-run bounds, generator/replay/shrinking obligations, independent-oracle rules, corrected free-space reachability, and re-spool/promote crash properties. Exact media decoding and operation adapters remain intentionally unimplemented until DRAFT-3 supplies their normative definitions.
+
+See CAPABILITY-STATUS.md for the complete audit. The only remaining items are input-blocked: DRAFT-3 adversarial review and WP-10/WP-11 acceptance tests from spec/acceptance.md.
