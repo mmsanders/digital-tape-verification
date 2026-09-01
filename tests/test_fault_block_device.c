@@ -30,6 +30,13 @@ int main(void)
     assert(fault_dev_read(&dev, 0u, 1u, output) == 0);
     assert(output[0] == 0x11u);
 
+    fault_dev_set_write_through(&dev, true);
+    assert(fault_dev_write(&dev, 0u, 1u, input) == 0);
+    fault_dev_power_cut(&dev);
+    assert(fault_dev_read(&dev, 0u, 1u, output) == 0);
+    assert(output[0] == 0x22u);
+    fault_dev_set_write_through(&dev, false);
+
     assert(fault_dev_write(&dev, 0u, 1u, input) == 0);
     assert(fault_dev_flush(&dev) == 0);
     fault_dev_power_cut(&dev);
