@@ -38,7 +38,7 @@ int main(void)
 
     fault_dev_disarm(&dev);
     plan.kind = FAULT_BEFORE_BLOCK;
-    plan.block_write_ordinal = dev.block_writes_seen + 1u;
+    plan.target_ordinal = dev.block_writes_seen + 1u;
     plan.torn_bytes = 0u;
     fault_dev_arm(&dev, plan);
     assert(fault_dev_write(&dev, 1u, 2u, input) != 0);
@@ -48,7 +48,7 @@ int main(void)
 
     fault_dev_power_cut(&dev);
     plan.kind = FAULT_TORN_BLOCK;
-    plan.block_write_ordinal = dev.block_writes_seen;
+    plan.target_ordinal = dev.block_writes_seen;
     plan.torn_bytes = 17u;
     fault_dev_arm(&dev, plan);
     assert(fault_dev_write(&dev, 2u, 1u, input) != 0);
@@ -57,6 +57,16 @@ int main(void)
     assert(durable[2u * FAULT_BLOCK_SIZE + 17u] == 0x11u);
     assert(working[2u * FAULT_BLOCK_SIZE + 16u] == 0x22u);
     assert(working[2u * FAULT_BLOCK_SIZE + 17u] == 0x11u);
+
+    fault_dev_power_cut(&dev);
+    fault_dev_reset_trace(&dev);
+    plan.kind = FAULT_FLUSH;
+    plan.target_ordinal = 1u;
+    plan.torn_bytes = 0u;
+    fault_dev_arm(&dev, plan);
+    assert(fault_dev_flush(&dev) == 0);
+    assert(fault_dev_flush(&dev) != 0);
+    assert(dev.flushes_seen == 2u);
 
     return 0;
 }
