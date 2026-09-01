@@ -29,6 +29,7 @@ typedef struct {
     uint64_t flushes_seen;
     fault_plan plan;
     bool fault_fired;
+    bool write_through;
 } fault_block_device;
 
 int fault_dev_init(fault_block_device *dev,
@@ -39,6 +40,7 @@ int fault_dev_init(fault_block_device *dev,
 void fault_dev_arm(fault_block_device *dev, fault_plan plan);
 void fault_dev_disarm(fault_block_device *dev);
 void fault_dev_reset_trace(fault_block_device *dev);
+void fault_dev_set_write_through(fault_block_device *dev, bool enabled);
 void fault_dev_power_cut(fault_block_device *dev);
 
 int fault_dev_read(void *ctx, uint32_t lba, uint32_t count, void *dst);
