@@ -59,6 +59,13 @@ void fault_dev_reset_trace(fault_block_device *dev)
     }
 }
 
+void fault_dev_set_write_through(fault_block_device *dev, bool enabled)
+{
+    if (dev != NULL) {
+        dev->write_through = enabled;
+    }
+}
+
 void fault_dev_power_cut(fault_block_device *dev)
 {
     if (dev != NULL) {
@@ -113,6 +120,9 @@ int fault_dev_write(void *ctx, uint32_t lba, uint32_t count, const void *src)
             }
         }
         memcpy(dev->working + offset, block, FAULT_BLOCK_SIZE);
+        if (dev->write_through) {
+            memcpy(dev->durable + offset, block, FAULT_BLOCK_SIZE);
+        }
     }
     return 0;
 }
