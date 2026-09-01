@@ -20,3 +20,19 @@ After each successful operation, and after remount at every injected write/flush
 12. Sequence and superblock-generation comparisons remain correct at their specified exhaustion boundary; do not infer modular wrap semantics unless DRAFT-3 explicitly permits them.
 
 Required generated edge cases include empty timelines, one-frame runs, exact chunk boundaries, maximum-length runs, final-chunk partial runs, arithmetic maxima, fragmented B layouts, runs whose first chunk is valid but last chunk is out of range, and run ends immediately below/at/above `a_high_water`.
+
+## Generator obligations
+
+- Seed must be explicit and printed/reported with every failure so a generated edit sequence is exactly replayable.
+- Geometry is input data: `total_chunks`, `nominal_length_s`, high-water mark, entry capacity, and sequence/generation proximity to exhaustion are varied independently within DRAFT-3-valid bounds.
+- Generated operations must include reset, overwrite, overdub, splice, re-spool, promote, remount, and no-op/boundary operations once their DRAFT-3 state matrix is available.
+- Invalid-media generation is a separate family from valid edit sequences. It must mutate one invariant at a time, repair CRCs where needed, and assert rejection before out-of-range I/O or media repair.
+- Shrinking must preserve the failure: first remove operations, then entries/runs, then frames/chunks, then geometry, while retaining the same violated invariant.
+
+## Oracle separation
+
+The property oracle must not call engine helpers or reuse engine parsing/arithmetic. It independently decodes little-endian fields, checks CRCs, expands run coverage with overflow-checked arithmetic, and renders reference PCM when audio equivalence is asserted. This prevents the same defect from appearing in both implementation and test oracle.
+
+## Crash-state quantification
+
+For each generated operation, use the clean trace to enumerate every block-write outcome: zero bytes landed, every torn prefix 1..511, and the full 512-byte block landed, plus every flush failure. After simulated power loss, remount only from durable media and run the complete invariant set. Sampling is not acceptable for the per-operation I/O trace.
