@@ -16,7 +16,7 @@ typedef enum {
 
 typedef struct {
     fault_kind kind;
-    uint64_t block_write_ordinal;
+    uint64_t target_ordinal;
     uint16_t torn_bytes;
 } fault_plan;
 
@@ -38,6 +38,7 @@ int fault_dev_init(fault_block_device *dev,
                    uint32_t block_count);
 void fault_dev_arm(fault_block_device *dev, fault_plan plan);
 void fault_dev_disarm(fault_block_device *dev);
+void fault_dev_reset_trace(fault_block_device *dev);
 void fault_dev_power_cut(fault_block_device *dev);
 
 int fault_dev_read(void *ctx, uint32_t lba, uint32_t count, void *dst);
