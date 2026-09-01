@@ -33,3 +33,17 @@ No clarification from the user is required for the current spec-review pass.
 ## 2026-08-31 — Startup note (superseded)
 
 At verification startup the required spec documents were not yet available. They have now been received as DRAFT-1 review copies; see above.
+
+## 2026-09-01 — PM Decisions 001-R received and controlling
+
+Received PM Decisions 001 and the superseding PM Decisions 001-R. I am treating 001-R as controlling. PM accepted all 22 DRAFT-1 findings in some form: sixteen as written, three with a different fix, two moot, and one as a charter defect rather than a spec defect. No finding was rejected.
+
+Per 001-R, I have stopped reviewing DRAFT-1 and will wait for full replacement DRAFT-3 specs. When they arrive, review priority is: re-spool destination disjointness, two-phase promote, duplicate's WRITE_IN_PROGRESS protocol, and superblock generation/recovery. WP-10/WP-11 acceptance criteria remain outstanding and are expected in spec/acceptance.md with DRAFT-3.
+
+Authorized pre-DRAFT-3 work has begun:
+
+- tests/fault_block_device.[ch]: caller-owned C99 block simulator with per-block fault ordinals, unflushed-vs-durable media, power-cut rollback, before-block failure, torn-block persistence, and flush failure.
+- tests/test_fault_block_device.c: strict-C99 self-test; compiled with -std=c99 -Wall -Wextra -Werror -pedantic and passed locally.
+- tests/SUITE-3-INVARIANTS.md: parameterised run-based invariant scaffold, including corrected free-space semantics and the new re-spool/promote invariants.
+
+Independent-review boundary remains in force: CI/tooling/host tooling/firmware/docs requests may be reviewed; engine behavior may be reviewed only after verifier-authored tests for that behavior have landed. A marked engine PR outside that boundary must be declined without reading its diff and escalated to PM.
