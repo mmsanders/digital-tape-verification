@@ -50,6 +50,15 @@ void fault_dev_disarm(fault_block_device *dev)
     fault_dev_arm(dev, plan);
 }
 
+void fault_dev_reset_trace(fault_block_device *dev)
+{
+    if (dev != NULL) {
+        dev->block_writes_seen = 0u;
+        dev->flushes_seen = 0u;
+        dev->fault_fired = false;
+    }
+}
+
 void fault_dev_power_cut(fault_block_device *dev)
 {
     if (dev != NULL) {
@@ -87,7 +96,7 @@ int fault_dev_write(void *ctx, uint32_t lba, uint32_t count, const void *src)
         const uint8_t *block = input + (size_t)i * FAULT_BLOCK_SIZE;
         uint64_t ordinal = dev->block_writes_seen++;
 
-        if (!dev->fault_fired && ordinal == dev->plan.block_write_ordinal) {
+        if (!dev->fault_fired && ordinal == dev->plan.target_ordinal) {
             if (dev->plan.kind == FAULT_BEFORE_BLOCK) {
                 dev->fault_fired = true;
                 return -1;
@@ -115,11 +124,13 @@ int fault_dev_flush(void *ctx)
     if (dev == NULL) {
         return -1;
     }
-    ++dev->flushes_seen;
-    if (!dev->fault_fired && dev->plan.kind == FAULT_FLUSH) {
+    if (!dev->fault_fired && dev->plan.kind == FAULT_FLUSH &&
+        dev->flushes_seen == dev->plan.target_ordinal) {
+        ++dev->flushes_seen;
         dev->fault_fired = true;
         return -1;
     }
+    ++dev->flushes_seen;
     memcpy(dev->durable, dev->working, dev->storage_len);
     return 0;
 }
