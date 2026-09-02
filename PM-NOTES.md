@@ -55,3 +55,23 @@ Completed every deliverable that PM Decisions 001-R authorizes before DRAFT-3. T
 The Suite 3 document now specifies parameterized geometry, consecutive-run bounds, generator/replay/shrinking obligations, independent-oracle rules, corrected free-space reachability, and re-spool/promote crash properties. Exact media decoding and operation adapters remain intentionally unimplemented until DRAFT-3 supplies their normative definitions.
 
 See CAPABILITY-STATUS.md for the complete audit. The only remaining items are input-blocked: DRAFT-3 adversarial review and WP-10/WP-11 acceptance tests from spec/acceptance.md.
+
+## 2026-09-02 — PM Decisions 002 and DRAFT-3 review
+
+Received and preserved verifier-side copies of PM Decisions 002, `tapefs-v1.md` DRAFT-3, `engine-api.md` DRAFT-3, and `acceptance.md` DRAFT-1. Everything previously listed as missing has now been delivered.
+
+The clean whole-document adversarial pass is filed at `findings/spec-review-draft3.md`. It reports 4 blockers, 11 majors, and 1 question. The format is not ready for freeze. Highest-priority findings are:
+
+1. `last_chunk_id` can wrap in u32 before the Side A/store bounds checks (`V3-001`, blocker).
+2. Promote phase 2 can overwrite chunks still referenced by the live B index (`V3-002`, blocker).
+3. Re-spool's downward second pass is not necessarily disjoint from the first-pass live copy (`V3-003`, blocker).
+4. Geometry equality permits the last audio chunk to overlap the mirror superblock (`V3-004`, blocker).
+5. Index-slot generation selection is absent, so mount/recovery is not deterministic (`V3-005`).
+6. WP-10's universal oracle contradicts format, promote, duplicate, and the intentional overwrite leak model (`V3-013`, `V3-014`).
+7. WP-11 still mandates a mutation of the preroll cache that DRAFT-3 deleted (`V3-015`).
+
+WP-10 is therefore not mechanically testable as written. WP-11's runner, fixture, byte-difference, and live-mutation requirements are testable, but the seventh mutation needs a current target.
+
+The verifier-owned fault block device and exhaustive crash runner remain valid against `engine-api` §3 and pass strict C99 self-tests. `tests/WP10-PLAN.md` and `tests/WP11-PLAN.md` now map the delivered criteria to executable infrastructure and identify only the assertions blocked by open spec findings. The Software Lead's stated `dev_sim` is not yet present under `Digital-Tape/main/tests/`, so no implementation adapter was inspected or imported.
+
+I have not opened `engine/`, an engine implementation branch, an engine implementation diff, or engine implementation issues during this pass.

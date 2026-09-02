@@ -1,10 +1,18 @@
 # spec/tapefs-v1.md — TAPEFS v1.0
 
-**Status:** DRAFT-1, issued for adversarial review. Not frozen.
-**Owner:** Program Manager. Changes require PM sign-off.
-**Issued:** 31 Aug 2026
+**Revision:** DRAFT-3 · **Issued:** 2 Sep 2026 · **Status:** for adversarial review; not frozen
+**Owner:** Program Manager. Changes require PM sign-off (escalation trigger #1).
+**Supersedes:** DRAFT-1 (31 Aug). Incorporates verification findings V-001…V-022, issues #3, #4, #14, and Michael's answers to Q-002, Q-003, Q-004.
 
 This is the on-media format for a Digital Tape Player cartridge. It is normative and byte-exact. Where it is ambiguous, that is a defect — report it.
+
+---
+
+## 0. Two design rules that govern everything below
+
+**Rule 1 — The engine computes. The caller owns anything that needs entropy, hardware knowledge, or memory beyond the engine's budget.** The cartridge UUID, the format epoch, the warm-start buffer, and the block device's geometry are all supplied by the caller. The engine never generates identity, never reads a clock, and never trusts `block_count`.
+
+**Rule 2 — Identity and validity are written last, after the content they describe.** Every operation that changes what a cartridge *is* — format, duplicate, promote — writes the audio and the index first and the superblock that makes them valid last. A cartridge interrupted mid-operation is therefore recognisably unfinished, never silently wrong.
 
 ---
 
@@ -12,88 +20,126 @@ This is the on-media format for a Digital Tape Player cartridge. It is normative
 
 | Name | Value |
 |---|---|
-| `SAMPLE_RATE` | 44100 Hz |
-| `CHANNELS` | 2 (interleaved, L then R) |
+| `SAMPLE_RATE` | 44 100 Hz |
+| `CHANNELS` | 2, interleaved L then R |
 | `SAMPLE_FORMAT` | signed 16-bit little-endian |
 | `FRAME_BYTES` | 4 |
 | `BYTE_RATE` | 176 400 B/s |
-| `BLOCK_BYTES` | 512 (one SD block; the addressable unit) |
+| `BLOCK_BYTES` | 512 |
 | `CHUNK_BYTES` | 524 288 (512 KiB) |
 | `CHUNK_FRAMES` | 131 072 |
-| `CHUNK_BLOCKS` | 1024 |
-| `CHUNK_SECONDS` | 2.97233… |
-| `INDEX_SLOT_BYTES` | 65 536 (64 KiB, 128 blocks) |
-| `TAPE_MAX_ENTRIES` | 4096 |
+| `CHUNK_BLOCKS` | 1 024 |
+| `CHUNK_SECONDS` | 2.972154195… (= 131 072 / 44 100) |
+| `INDEX_SLOT_BYTES` | 65 536 (128 blocks) |
+| `INDEX_ENTRY_BYTES` | 12 |
+| `TAPE_MAX_ENTRIES` | 4 096 (occupies blocks 1–96 of a slot) |
 
-All multi-byte integers are little-endian. All CRCs are CRC-32/ISO-HDLC (IEEE 802.3): polynomial 0x04C11DB7 reflected to 0xEDB88320, init 0xFFFFFFFF, reflect in/out, final XOR 0xFFFFFFFF.
+All multi-byte integers are little-endian. All CRCs are CRC-32/ISO-HDLC: polynomial 0xEDB88320 (reflected), init 0xFFFFFFFF, reflect in and out, final XOR 0xFFFFFFFF.
 
 ---
 
-## 2. Media layout
+## 2. Tape lengths
 
-A cartridge card carries an MBR with two partitions.
+A cartridge's length is a **format-time parameter**, not a format constant. `nominal_length_s` in the superblock records it and every region size is derived from it at format time (ADR-008).
+
+| Designation | `nominal_length_s` | Side A store | Chunks | Copy at high-speed 4-bit (~22 MB/s) |
+|---|---|---|---|---|
+| **C-60 — the standard cartridge** | 3 600 | 635 MB | 1 211 | ~29 s |
+| C-90 | 5 400 | 953 MB | 1 817 | ~43 s |
+| C-120 | 7 200 | 1 270 MB | 2 422 | ~58 s |
+
+**C-60 is the standard.** It meets the 30-second copy requirement on the plain 3.3 V high-speed interface with no UHS-I switching and with a write rate every V30 card guarantees. Longer cartridges are permitted by the format and are expected to exist; they copy more slowly and the label says what they are. Nothing in this format closes off longer lengths, and nothing in it should.
+
+`nominal_length_s` is what the label says. It is not a limit on Side B's timeline (§9.1).
+
+---
+
+## 3. Media layout
+
+The card carries an MBR with two partitions. **Provisioning the MBR and partition 1 is `tapectl`'s job, not the engine's.** Every `tape_dev` the engine sees is a block view of partition 2 alone; LBA 0 below is the first block of partition 2.
 
 | # | Type | Size | Contents |
 |---|---|---|---|
-| 1 | 0x0C (FAT32 LBA) | 16 MiB | `README.TXT` explaining what the card is, plus optional label art. Never read by the device. Exists so a card plugged into a computer shows something human. |
-| 2 | 0xDA (non-FS data) | remainder | TAPEFS. |
-
-All LBAs below are relative to the start of partition 2.
+| 1 | 0x0C FAT32 | 16 MiB | `README.TXT` and optional label art. Never read by the device. |
+| 2 | 0xDA | remainder | TAPEFS |
 
 | LBA | Blocks | Region |
 |---|---|---|
-| 0 | 8 | Superblock, primary (only block 0 is used; 1–7 reserved) |
+| 0 | 8 | Superblock, primary. Block 0 used; 1–7 reserved, zero. |
 | 8 | 128 | Index slot **A0** |
 | 136 | 128 | Index slot **A1** |
 | 264 | 128 | Index slot **B0** |
 | 392 | 128 | Index slot **B1** |
-| 520 | 1024 | Preroll cache |
-| 1544 | 504 | Reserved (alignment padding) |
-| 2048 | `total_chunks × 1024` | Chunk store. Chunk *N* begins at LBA `2048 + N × 1024`. |
-| *last block of partition* | 1 | Superblock, mirror |
+| 520 | 1 528 | Reserved, zero (alignment padding) |
+| 2 048 | `total_chunks × 1024` | Chunk store. Chunk *N* begins at `lba_chunk_base + N × 1024`. |
+| *last block* | 1 | Superblock, mirror |
 
-The chunk store base is at a 1 MiB offset, which is erase-block aligned on every card this device supports.
+There is no preroll cache. Instant-on is not a format feature (§12).
 
 ---
 
-## 3. Superblock (512 bytes)
+## 4. Superblock (512 bytes)
 
 | Offset | Size | Field | Notes |
 |---|---|---|---|
 | 0 | 8 | `magic` | `54 41 50 45 46 53 00 01` — `"TAPEFS\0\x01"` |
 | 8 | 2 | `version_major` | 1 |
 | 10 | 2 | `version_minor` | 0 |
-| 12 | 16 | `cartridge_uuid` | RFC 4122 v4 |
-| 28 | 4 | `sample_rate` | 44100 |
-| 32 | 2 | `channels` | 2 |
-| 34 | 2 | `bits_per_sample` | 16 |
-| 36 | 4 | `chunk_bytes` | 524288 |
-| 40 | 4 | `nominal_length_s` | 5400. **Informational only** — the number on the label. Not a limit. |
-| 44 | 4 | `total_chunks` | Capacity of the chunk store |
-| 48 | 4 | `a_high_water` | Chunk ids `[0, a_high_water)` belong to Side A and are immutable |
-| 52 | 4 | `preroll_frames` | Valid frames in the preroll cache |
-| 56 | 4 | `index_slot_bytes` | 65536 |
-| 60 | 4 | `lba_index_a0` | 8 |
-| 64 | 4 | `lba_index_a1` | 136 |
-| 68 | 4 | `lba_index_b0` | 264 |
-| 72 | 4 | `lba_index_b1` | 392 |
-| 76 | 4 | `lba_preroll` | 520 |
+| 12 | 4 | `sb_generation` | Incremented on every superblock write. See §4.1 |
+| 16 | 1 | `state` | 0 = `VALID`, 1 = `WRITE_IN_PROGRESS`. See §9.5 |
+| 17 | 3 | *reserved* | zero |
+| 20 | 16 | `cartridge_uuid` | Caller-supplied. RFC 4122 v4 by convention; the engine only stores it |
+| 36 | 4 | `sample_rate` | 44100 |
+| 40 | 2 | `channels` | 2 |
+| 42 | 2 | `bits_per_sample` | 16 |
+| 44 | 4 | `chunk_bytes` | 524288 |
+| 48 | 4 | `nominal_length_s` | Label value. §2 |
+| 52 | 4 | `total_chunks` | Capacity of the chunk store |
+| 56 | 4 | `a_high_water` | Chunk ids `[0, a_high_water)` are Side A, immutable |
+| 60 | 4 | `index_slot_bytes` | 65536 |
+| 64 | 4 | `lba_index_a0` | 8 |
+| 68 | 4 | `lba_index_a1` | 136 |
+| 72 | 4 | `lba_index_b0` | 264 |
+| 76 | 4 | `lba_index_b1` | 392 |
 | 80 | 4 | `lba_chunk_base` | 2048 |
 | 84 | 4 | `lba_superblock_mirror` | partition size − 1 |
-| 88 | 32 | `label` | UTF-8, NUL-padded. Advisory; the physical label is authoritative |
-| 120 | 4 | `format_epoch` | Unix time of format. Informational |
-| 124 | 380 | *reserved* | Zero |
+| 88 | 32 | `label` | UTF-8, NUL-padded. Advisory; the printed label is authoritative |
+| 120 | 4 | `format_epoch` | Caller-supplied Unix time at format. Informational |
+| 124 | 384 | *reserved* | zero |
 | 508 | 4 | `crc32` | Over bytes 0…507 |
 
-**There is no stored free-space pointer.** See §6.
+**Forward compatibility.** Bytes 0–19 — magic, both version fields, `sb_generation`, `state` — are frozen across all future major versions. A v1 reader must be able to read them from v2 media in order to refuse it correctly.
 
-The primary superblock is authoritative. The mirror is read only when the primary fails magic, version or CRC; on a successful fallback the engine rewrites the primary from the mirror. If both fail, the cartridge does not mount.
+### 4.1 Two-copy protocol
+
+Both superblocks carry `sb_generation`. **Every superblock update writes the mirror first, flushes, then writes the primary, flushes.** Each write is a single 512-byte block.
+
+On mount, read both. A copy is *structurally valid* iff its magic matches and its CRC verifies. Then:
+
+- Neither valid → `TAPE_ERR_BAD_MAGIC` or `TAPE_ERR_CRC`.
+- Exactly one valid → use it. On a **writable** device, rewrite the other from it. On a read-only device (`write == NULL`), use it without repair; `tape_get_info` reports `needs_repair`.
+- Both valid, different `sb_generation` → use the higher.
+- Both valid, equal `sb_generation` → they must be byte-identical. If not, `TAPE_ERR_INCONSISTENT`.
+
+**Only then** check `version_major`. If it is not 1 → `TAPE_ERR_VERSION`, and the engine touches nothing. An unsupported version is not corruption and must never trigger repair; that is how an old reader would downgrade new media. `version_minor` > 0 → mount read-only.
+
+**Then** check `state`. `WRITE_IN_PROGRESS` → `TAPE_ERR_INCOMPLETE`. The cartridge is an interrupted duplicate; the remedy is to run the duplicate again.
+
+**Then** validate geometry, before any further I/O:
+
+- `sample_rate`, `channels`, `bits_per_sample`, `chunk_bytes`, `index_slot_bytes` equal the constants in §1;
+- the six `lba_*` fields equal the values in §3, and `lba_superblock_mirror == block_count − 1`;
+- `a_high_water ≤ total_chunks`;
+- `lba_chunk_base + total_chunks × 1024 ≤ block_count`, computed in 64-bit;
+- `total_chunks ≥ 1`.
+
+`block_count` comes from the caller and is **untrusted input** — geometry checks exist to protect against it as much as against the card. Any failure → `TAPE_ERR_GEOMETRY`.
 
 ---
 
-## 4. Index slot (65 536 bytes)
+## 5. Index slot (65 536 bytes = 128 blocks)
 
-Header, 64 bytes:
+**Block 0 is the header and nothing else.** Bytes 64–511 are reserved and must be zero.
 
 | Offset | Size | Field |
 |---|---|---|
@@ -102,95 +148,91 @@ Header, 64 bytes:
 | 12 | 1 | `side` — 0 = A, 1 = B |
 | 13 | 3 | *reserved*, zero |
 | 16 | 4 | `entry_count` (≤ `TAPE_MAX_ENTRIES`) |
-| 20 | 8 | `total_frames` (u64) — sum of all `frame_count` values |
+| 20 | 8 | `total_frames` (u64) — sum of `frame_count` over all entries |
 | 28 | 32 | *reserved*, zero |
-| 60 | 4 | `crc32` |
+| 60 | 4 | `crc32` — over bytes 0…59 concatenated with the entry array |
 
-`crc32` is computed over bytes 0…59 of this header **concatenated with** the entry array, `entry_count × 12` bytes beginning at offset 64. Bytes beyond the entry array are undefined and not covered.
+**The entry array begins at byte 512 — block 1.** Entry *i* is at byte `512 + 12 × i`. Bytes beyond `512 + 12 × entry_count` are undefined and not CRC-covered.
 
-Entry, 12 bytes, at offset `64 + 12 × i`:
+### 5.1 Entry — a run over consecutive chunks
 
 | Offset | Size | Field |
 |---|---|---|
-| 0 | 4 | `chunk_id` |
-| 4 | 4 | `start_frame` — 0 … 131071 |
-| 8 | 4 | `frame_count` — 1 … 131072 |
+| 0 | 4 | `first_chunk_id` |
+| 4 | 4 | `start_frame` — 0 … 131 071, offset into the first chunk |
+| 8 | 4 | `frame_count` — ≥ 1; **may exceed `CHUNK_FRAMES`** |
 
-Entries are ordered by timeline position. Timeline position of entry *i* is the sum of `frame_count` over entries 0…*i*−1. **Seek is therefore O(n) over a prefix sum**; implementations may cache the prefix array, which is not part of the on-media format.
+A run occupies chunk ids `first_chunk_id, first_chunk_id + 1, …, last_chunk_id` where
 
-`sequence` is monotonic **per cartridge**, shared across all four slots. It increments by one on every commit to either side.
+```
+last_chunk_id = first_chunk_id + (start_frame + frame_count − 1) / CHUNK_FRAMES
+```
+
+(integer division). Frames are laid out contiguously across the run: the first chunk contributes frames `start_frame …`, every subsequent chunk contributes all 131 072 of its frames, and the last is truncated by `frame_count`.
+
+**Consequence:** a freshly formatted or freshly re-spooled side is **one entry**. Entries are consumed by edits, not by tape length. Each splice costs two entries (one split, one insert), so a side that starts as one entry has room for roughly **2 000 splices** before re-spool. (Earlier documents said 4 000; that counted entries, not splices.)
+
+Entries are ordered by timeline position. The timeline position of entry *i* is the sum of `frame_count` over entries `0 … i−1`. Implementations may cache a prefix-sum array; it is not part of the on-media format.
+
+`sequence` is monotonic **per cartridge**, shared across all four slots, incremented on every commit to either side.
+
+### 5.2 Validity
+
+A slot is **valid** iff all of:
+
+- `magic` matches; `side` matches the slot's assignment; `entry_count ≤ TAPE_MAX_ENTRIES`; `crc32` verifies;
+- `total_frames` equals the sum of `frame_count` over the entries;
+- every entry has `frame_count ≥ 1`, `start_frame < CHUNK_FRAMES`, and `last_chunk_id < total_chunks`;
+- **for Side A:** every entry has `last_chunk_id < a_high_water`.
+
+The Side A check is against the *last* chunk of each run, not the first. This is the invariant that keeps the sandbox out of the music, and an off-by-one at the end of a run is the way it would fail.
 
 ---
 
-## 5. Chunks
+## 6. Chunks
 
-A chunk is 131 072 frames of raw interleaved PCM. No header, no footer, no padding.
+A chunk is 131 072 frames of raw interleaved PCM. No header, no padding. A chunk written partially still occupies a full slot; bytes beyond the referenced range are **undefined, not zero**.
 
-A chunk written partially — the last one of a recording — still occupies a full chunk slot. Bytes beyond the referenced range are **undefined, not zero**.
-
-> **Consequence for testing.** "Side A is byte-identical" must be evaluated over *referenced frames only*, reconstructed through the index. A raw region compare will produce false failures on the tail chunk. This is the correct definition, not a concession.
+> Any comparison of "Side A is unchanged" must be over *referenced frames*, reconstructed through the index. A raw region compare produces false failures on the tail chunk of a run.
 
 ---
 
-## 6. Allocation, and why nothing tracks free space
+## 7. Allocation
 
-Chunk ids partition as follows:
+Chunk ids partition as:
 
 - `[0, a_high_water)` — Side A. Immutable. No runtime code path writes here.
 - `[a_high_water, free_next)` — allocated to Side B.
 - `[free_next, total_chunks)` — free.
 
-**`free_next` is derived at mount time, never stored:**
+**`free_next` is derived at mount, never stored:**
 
 ```
-free_next = max(entry.chunk_id + 1  for entry in B_live_index)
-            floored at a_high_water
+free_next = max over live-B entries of (last_chunk_id + 1), floored at a_high_water
 ```
 
-This is the single most important structural decision in the format, and it is worth stating why. Because allocation is a bump pointer over a value derived from the *committed* index, chunks written during an operation that never committed are, by construction, above `free_next` on the next mount — and are silently reused. **The aborted-write leak class does not exist.** There is nothing to reclaim and nothing to garbage-collect.
+Allocation is a bump pointer over that value and hands out **contiguous runs**. Because it is derived from the *committed* index, chunks written by an operation that never committed are above `free_next` on the next mount and are simply reused. The aborted-write leak class does not exist.
 
-One leak source remains and is bounded: chunks superseded by an overwrite, which sit below the live maximum and stay allocated. These are reclaimed by re-spool (§9), which rewrites Side B compactly from `a_high_water` upward.
+Chunks superseded by an overwrite sit below the live maximum and remain allocated until re-spool (§9.4) reclaims them. That is the only leak source, and it is bounded.
 
 ---
 
-## 7. The commit protocol
+## 8. The commit protocol
 
-This is the load-bearing mechanism of the whole design.
+An index slot is 128 blocks and cannot be written atomically. Atomicity is by ordering:
 
-An index slot is 128 blocks and **cannot** be written atomically. Atomicity is achieved by ordering, not by size:
-
-1. Allocate chunks by bumping `free_next` in memory. Write chunk data to the card.
-2. **Flush** — chunk data must reach media before step 3 begins. On SD this means waiting for the card to leave the busy state, not merely for the controller to accept the blocks.
-3. Write the entry array into blocks 1…127 of the **inactive** slot for this side.
+1. Write chunk data for the operation.
+2. **Flush.**
+3. Write the entry array into blocks 1 … ⌈`entry_count` × 12 / 512⌉ of the **inactive** slot for this side.
 4. **Flush.**
-5. Write block 0 of that slot — the 64-byte header, zero-padded to 512 — carrying the new `sequence`, `entry_count`, `total_frames`, and the CRC covering the entries just written.
+5. Write block 0 of that slot — the 64-byte header, zero-padded to 512 — with the new `sequence`, `entry_count`, `total_frames`, and the CRC over the entries just written. **This is the commit point.**
+6. **Flush.** `tape_commit` returns success only after this flush succeeds. If it fails, return `TAPE_ERR_IO`; the on-media state is indeterminate until remount, at which point the ordinary mount rules resolve it.
 
-**Step 5 is the commit.** It is a single 512-byte block write.
+Before step 5, block 0 holds the previous generation's header, whose CRC does not match the new entries; a crash before step 5 leaves an invalid slot and mount falls back to the other one. A crash during step 5 leaves a header that fails its own CRC, with the same result.
 
-Before step 5, block 0 still holds the previous generation's header, whose stored CRC will not match the newly written entries. A crash at any point before step 5 therefore leaves a slot that fails validation, and mount falls back to the other slot — which is untouched and still describes the pre-operation state. A crash *during* step 5 leaves a header that fails its own CRC, with the same result.
+**Flush** means the data has reached media: on SD, the card has left the busy state, not merely accepted the blocks.
 
-**The assumption this rests on:** that a 512-byte SD block write is atomic under power loss — it either lands entirely or not at all. This is true of essentially every SD card in practice and is not universally guaranteed by the specification. It should be tested against real media, not inherited. See §12.
-
----
-
-## 8. Mount
-
-1. Read the primary superblock. Validate magic, `version_major`, CRC. On failure read the mirror; on success from the mirror, rewrite the primary. If both fail → `TAPE_ERR_BAD_MAGIC` / `TAPE_ERR_CRC`.
-2. `version_major` ≠ 1 → refuse, `TAPE_ERR_VERSION`. `version_minor` > 0 → mount **read-only**.
-3. For each side, read both slots. A slot is **valid** iff all of:
-   - `magic` matches;
-   - `side` matches the slot's assignment;
-   - `entry_count` ≤ `TAPE_MAX_ENTRIES`;
-   - `crc32` verifies;
-   - `total_frames` equals the sum of `frame_count` across entries;
-   - every entry satisfies `frame_count ≥ 1`, `start_frame + frame_count ≤ 131072`, `chunk_id < total_chunks`;
-   - **for side A only:** every `chunk_id < a_high_water`.
-4. The **live** slot is the valid slot with the higher `sequence`.
-5. If both slots for a side are valid **with equal `sequence`** → that side does not mount; `TAPE_ERR_INCONSISTENT`. This state is unreachable via §7 and indicates a media fault or an implementation bug. It is not recovered from silently, on purpose.
-6. If neither slot is valid → `TAPE_ERR_NO_VALID_INDEX` for that side. Side A in this state means the cartridge is unusable. Side B in this state is recoverable by `tape_reset_side_b`.
-7. Derive `free_next` per §6.
-
-**Sequence exhaustion.** `sequence` is u32. At one commit per second that is 136 years. On reaching 0xFFFFFFFE the engine returns `TAPE_ERR_SEQUENCE_EXHAUSTED` and refuses further commits. It does not wrap.
+**The assumption:** a 512-byte SD block write is atomic under power loss. True of essentially all cards in practice; not universally guaranteed. It is tested against real media in WP-19, not inherited. See §13.
 
 ---
 
@@ -198,80 +240,113 @@ Before step 5, block 0 still holds the previous generation's header, whose store
 
 ### 9.1 Record — overwrite, overdub, splice
 
-All three allocate fresh chunks and commit per §7. None modifies a chunk in place.
+All three allocate fresh chunks and commit per §8. None modifies a chunk in place.
 
-- **Overwrite** replaces the timeline from the current position with new input. Index entries wholly covered are dropped; a partially covered entry is trimmed by adjusting `start_frame`/`frame_count`.
-- **Overdub** reads existing frames, adds the input sample-wise, and writes the result to new chunks. Addition is performed at 32-bit and **soft-clipped** to 16-bit — never wrapped. Wraparound in headphones on a child is a safety issue, not an audio-quality one.
-- **Splice** inserts at the current position, pushing everything after it later. The entry containing the insertion point is split into two; new entries for the inserted material go between them.
+- **Overwrite** replaces the timeline from the current position. Entries wholly covered are dropped; a partially covered entry is trimmed.
+- **Overdub** reads existing frames, adds input sample-wise at `int32`, and **clamps** to `[−32768, 32767]` — a saturating clamp, never a wrap. Exact formula in `engine-api.md` §8.
+- **Splice** inserts at the current position, pushing everything after it later. The run containing the insertion point is split into two entries; new entries for the inserted material go between them.
 
-`nominal_length_s` is not a limit. Splice may extend the timeline past 90 minutes. The real limits are `total_chunks` and `TAPE_MAX_ENTRIES`.
+`nominal_length_s` is not a limit. Side B's timeline may exceed it. The limits are `total_chunks` and `TAPE_MAX_ENTRIES`.
 
-**Cartridge full mid-recording.** When allocation reaches `total_chunks`, `tape_feed` accepts fewer frames than offered and returns `TAPE_ERR_CARTRIDGE_FULL`. Chunks already written stay pending until the caller calls `tape_commit`. The intended firmware behaviour is to stop the transport, pop the buttons, and commit — **the child keeps everything they recorded up to the moment it filled.**
+**Cartridge full.** `tape_feed` reserves capacity before accepting frames (`engine-api.md` §7) and returns `TAPE_ERR_CARTRIDGE_FULL` with a short accept when allocation would pass `total_chunks`. Frames already accepted remain owed and are committed normally. **The child keeps everything recorded up to the moment it filled.**
 
-**Index full.** Splice that would exceed `TAPE_MAX_ENTRIES` returns `TAPE_ERR_INDEX_FULL`. Recovery is re-spool, which coalesces adjacent entries that are contiguous in the chunk store. If re-spool cannot bring the count below the cap, the cartridge has reached its edit limit — a defined, reportable state rather than a corruption.
+**Index full.** An operation that would exceed `TAPE_MAX_ENTRIES` returns `TAPE_ERR_INDEX_FULL` and commits nothing. `tape_status` exposes `entries_free` so firmware can show headroom before the wall (Q-003: the record light runs green → yellow → red, and at red the record button does not hold). Recovery is re-spool.
 
 ### 9.2 Reset Side B
 
-Copy the live Side A index content into Side B's inactive slot, with `side` = 1 and `sequence` + 1, and commit per §7. Touches no audio. Completes in well under a second.
+Copy the live Side A index into Side B's inactive slot with `side` = 1 and `sequence` + 1; commit per §8. Moves no audio. Sub-second.
 
 ### 9.3 Promote Side B to Side A
 
-The only destructive operation in the format, and the only multi-step one.
+The only destructive operation on Side A. Two phases, each individually crash-safe under §8 and §4.1:
 
-1. Build a compacted copy of Side B's timeline into fresh chunks beginning at `free_next`; call that range `[S, E)`.
-2. Write and commit a new Side A index referencing `[S, E)`, `sequence` + 1.
-3. Write a new superblock with `a_high_water = E`. Single block, atomic.
-4. Write and commit a new Side B index identical to the new A index, `sequence` + 2.
-5. Regenerate the preroll cache.
+**Phase 1.** Write B's timeline, compacted, to free chunks beginning at `free_next` → range `[S, E)`. Commit a new A index referencing `[S, E)` as one entry. Write the superblock with `a_high_water = E` (mirror, then primary).
 
-**Recovery.** A crash between 2 and 3 leaves a Side A index referencing chunk ids ≥ `a_high_water`, which §8.3 rejects — so mount falls back to A's previous generation and the promote simply did not happen. A crash between 3 and 4 leaves A new and B stale; both are internally valid, so the cartridge mounts and plays. B's old chunks now sit below `a_high_water` and are immutable; the space is recovered on the next re-spool. This is inconsistent but not corrupt, and the spec accepts it.
+**Phase 2.** Write the same timeline again to `[0, len)`. Commit a new A index referencing `[0, len)`. Write the superblock with `a_high_water = len`. Commit a new B index identical to A.
+
+**Recovery.** A crash in phase 1 before its superblock write leaves an A index referencing chunks ≥ `a_high_water`, which §5.2 rejects; mount falls back to A's previous generation and the promote did not happen. A crash after phase 1's superblock but before phase 2 completes leaves a valid, playable cartridge whose Side A lives high and whose space below is stranded; re-running promote completes phase 2.
+
+**Invariant after a completed promote:** `a_high_water == ⌈len / CHUNK_FRAMES⌉` and the cartridge contains no unreachable allocated space.
+
+Promote invalidates any device-side stored position for (this UUID, Side A) — §11.
 
 ### 9.4 Re-spool
 
-Rewrites Side B's chunks into linear timeline order starting at `a_high_water`, coalescing adjacent entries, then commits a new index. Reclaims superseded chunks. Preserves audio bit-exactly — only layout changes.
+Rewrites Side B's timeline as one contiguous run and commits a new index, reclaiming superseded chunks.
 
-Interruptible: it performs no commit until the rewrite is complete, so an interrupted re-spool leaves the previous index live and the partial work above `free_next`, to be reused.
+**The rule that makes it safe:** re-spool writes only to a destination region **disjoint from every chunk the live index references**, then commits. The engine chooses the lowest such region: `[a_high_water, …)` when that is disjoint from the live set, otherwise `[free_next, …)`. On a fragmented cartridge that is two passes — up, then down — each crash-safe.
+
+**Precondition:** free space ≥ the timeline length, else `TAPE_ERR_CARTRIDGE_FULL`. A nearly full cartridge cannot be re-spooled.
+
+Re-spool preserves rendered audio bit-exactly. It is incremental and interruptible; it commits nothing until the destination is fully written, so an interrupted re-spool leaves the previous index live and partial work above `free_next` for reuse.
 
 ### 9.5 Duplicate
 
-Whole-cartridge copy, always source slot → work slot.
+Whole-cartridge copy, source slot → work slot. The destination is **erased**; that is what dubbing over a tape does, and it is announced by the first block written.
 
-**The destination is assigned a freshly generated `cartridge_uuid`.** A copy is a different cartridge. Reproducing the UUID would make two physical objects claim one identity, and any device-side state keyed by UUID — including the resume-position table in §10 — would silently merge them.
+1. Write the destination superblock with `state = WRITE_IN_PROGRESS` (mirror, then primary). From here the destination does not mount as audio.
+2. Write Side A's chunks, then A's index, then B's index (B mirrors A). All under §8.
+3. Write the destination superblock with `state = VALID`, the **caller-supplied fresh `cartridge_uuid`**, the caller-supplied `format_epoch`, and the source's `nominal_length_s` and geometry. Mirror, then primary. **This is the commit and the identity assignment, and it is last** (Rule 2).
+
+A crash anywhere between 1 and 3 leaves `TAPE_ERR_INCOMPLETE` on mount — an unfinished copy, not corruption. Re-run to finish.
+
+A copy is a different cartridge. Reproducing the UUID would make two physical objects claim one identity, and device-side state keyed by UUID (§11) would silently merge them.
+
+### 9.6 Format
+
+`tape_format` receives the UUID, epoch, label and `nominal_length_s` from the caller and writes, byte-exactly:
+
+| Region | State |
+|---|---|
+| Both superblocks | `state = VALID`, `sb_generation = 1`, `a_high_water = 0` |
+| A0 | Valid, empty: `sequence` = 1, `side` = 0, `entry_count` = 0, `total_frames` = 0, CRC over the header only |
+| A1 | **Invalid:** all 512 bytes of block 0 zero |
+| B0 | Valid, empty: `sequence` = 2, `side` = 1 |
+| B1 | **Invalid:** all 512 bytes of block 0 zero |
+
+Exactly one valid generation per side; the partner deliberately invalid. `TAPE_ERR_INCONSISTENT` therefore stays unreachable through normal operation.
 
 ---
 
-## 10. What the cartridge does *not* store
+## 10. Sequence exhaustion
 
-**Playback position is not stored on the cartridge.** It cannot be: the source slot is read-only, so a cartridge played there has no writable surface. Resume position lives in the device's own flash as a table of `{cartridge_uuid → frame_position}` covering the most recently used ~64 cartridges, evicted least-recently-used. The engine exposes position as an in/out parameter at mount and unmount (`spec/engine-api.md` §5) and never writes it to media.
-
-This is why §9.5 assigns a fresh UUID on copy.
+`sequence` and `sb_generation` are u32. At one commit per second that is 136 years. On reaching 0xFFFFFFFE the engine returns `TAPE_ERR_SEQUENCE_EXHAUSTED` and refuses further commits. Neither wraps.
 
 ---
 
-## 11. Preroll cache
+## 11. What the cartridge does not store
 
-Holds the first `preroll_frames` frames of **Side A's** timeline, reconstructed through A's index, laid out linearly. Capacity 131 072 frames (2.97 s). Regenerated on format and on promote.
+**Playback position.** The source slot is read-only, so a cartridge played there has no writable surface. Position lives in the **device's** flash as a table keyed by `(cartridge_uuid, side)` → `position_frames` (u32), holding the ~64 most recently used entries with least-recently-used eviction. The engine reports position at unmount and accepts it at mount; it never writes it to media. Firmware checkpoints on a cadence and resumes 2 s early — `spec/acceptance.md`. Promote clears the (UUID, A) entry; reset B clears the (UUID, B) entry.
 
-Its purpose is instant-on: playback begins from this region while the card completes initialisation, which costs 100–500 ms.
+**The position table is the UUID's only sanctioned consumer.** Adding another is an escalation, because every consumer is a new place where duplicate identities cause harm.
 
-Side B has no preroll cache. Selecting Side B pays normal mount latency. The justification is that Side A is what a child presses play on cold, and Side B is what they are already in the middle of using — and that maintaining a B preroll would add a 512 KiB rewrite to every commit. **This is a judgement call and a reasonable thing to challenge.**
+Michael has accepted the consequence (Q-004): a tape resumes where *this player* left it, not where the tape was last played.
 
 ---
 
-## 12. Assumptions this format inherits
+## 12. Instant-on is not a format feature
 
-Stated explicitly so they can be attacked rather than assumed.
+Two firmware mechanisms, neither on the card:
 
-1. A 512-byte SD block write is atomic under power loss (§7). Needs testing against real media, not just simulation.
-2. A flush that returns success means data has reached media, not merely the card's controller.
-3. Card wear from re-spool and promote is acceptable at family-use write volumes.
+1. **Wake from sleep with a cartridge mounted.** The caller-supplied play ring is retained across sleep and `tape_mount` accepts it as a warm-start buffer; rendering begins from it while `tape_service` re-establishes the card.
+2. **Cold insert.** Card initialisation begins on the cartridge-detect switch, not on the play press. A child's hand takes longer to reach play than the card takes to come up.
+
+Guardrail 04 (wake to audio < 100 ms) is enforced in `firmware/`, measured there, and tested there.
+
+---
+
+## 13. Assumptions this format inherits
+
+1. A 512-byte SD block write is atomic under power loss (§8). Tested on real media in WP-19 using the fault-injection harness's torn-write mode as the comparison.
+2. A flush that returns success means data has reached media.
+3. Card wear from re-spool and promote is acceptable at family write volumes.
 4. A cartridge is never mounted by two hosts concurrently.
-5. `total_chunks` fits in u32 — true to 2 TiB of chunk store.
+5. `block_count` may be wrong; §4.1's geometry checks are the defence.
 
 ---
 
-## 13. Open items before freeze
+## 14. Open before freeze
 
-- The resume-position resolution in §10 and the fresh-UUID rule in §9.5 are a **proposal**, not a decision. Both are open for challenge.
-- The Side-B-has-no-preroll decision in §11.
-- `TAPE_MAX_ENTRIES` = 4096 is set by the engine's static memory budget, not by any media constraint. If review shows heavy splicing exhausts it in ordinary use, the budget is the thing to revisit.
+- The Side-B-has-no-warm-start asymmetry: `tape_mount` warm-start applies to whichever side was mounted at sleep. Confirm this reads correctly in `engine-api.md`.
+- Whether `TAPE_ERR_INCOMPLETE` should carry enough information for firmware to distinguish "interrupted copy" from "interrupted promote". Currently both are recoverable by re-running the operation, and the distinction may not matter.
+- Michael's note that a child may lose patience with a 43-second C-90 copy — flagged for the LED-row behaviour in firmware, not a format concern.
