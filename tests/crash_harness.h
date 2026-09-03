@@ -34,6 +34,8 @@ typedef struct {
 typedef int (*crash_prepare_fn)(void *ctx);
 typedef int (*crash_operation_fn)(void *ctx);
 typedef int (*crash_remount_fn)(void *ctx);
+typedef int (*crash_remount_allowed_fn)(void *ctx,
+                                        const crash_case_result *result);
 typedef uint32_t (*crash_validate_fn)(void *ctx,
                                       const crash_case_result *result);
 typedef void (*crash_report_fn)(void *ctx,
@@ -45,6 +47,7 @@ typedef struct {
     crash_prepare_fn prepare;
     crash_operation_fn operate;
     crash_remount_fn remount;
+    crash_remount_allowed_fn remount_allowed;
     crash_validate_fn validate;
     crash_report_fn report;
 } crash_scenario;
@@ -52,6 +55,10 @@ typedef struct {
 /*
  * Runs a clean baseline, then every block-write outcome (0..512 landed
  * bytes) and every flush failure observed in that baseline. No allocation.
+ * remount_allowed is optional. When absent, only remount_result == 0 is
+ * accepted. A WP-10 operation oracle supplies it for explicitly permitted
+ * non-mounting outcomes such as interrupted duplicate/format.
+ *
  * Returns 0 when infrastructure and all invariants pass, 1 when one or more
  * cases violate invariants/remount, and -1 for invalid setup/nonrepeatable I/O.
  */

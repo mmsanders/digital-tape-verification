@@ -75,3 +75,25 @@ WP-10 is therefore not mechanically testable as written. WP-11's runner, fixture
 The verifier-owned fault block device and exhaustive crash runner remain valid against `engine-api` §3 and pass strict C99 self-tests. `tests/WP10-PLAN.md` and `tests/WP11-PLAN.md` now map the delivered criteria to executable infrastructure and identify only the assertions blocked by open spec findings. The Software Lead's stated `dev_sim` is not yet present under `Digital-Tape/main/tests/`, so no implementation adapter was inspected or imported.
 
 I have not opened `engine/`, an engine implementation branch, an engine implementation diff, or engine implementation issues during this pass.
+
+## 2026-09-03 — PM Decisions 003 and DRAFT-4 review
+
+Received and preserved PM Decisions 003 and the DRAFT-4 TapeFS, engine API, and acceptance documents. PM accepted every DRAFT-3 finding. The directed DRAFT-4 adversarial pass is filed at `findings/spec-review-draft4.md` and reports **1 blocker, 12 majors, and 1 question**.
+
+The freeze blocker is `V4-001`: TapeFS mounts `version_minor > 0` read-only, but the engine state matrix defines write permission only as `dev.write != NULL`. On a physically writable device, v1 mutators are therefore authorized against newer-minor media, defeating the compatibility barrier.
+
+Highest-priority remaining findings:
+
+1. The entry non-overlap scalar “equivalence” is false and circular during B-slot validation (`V4-002`).
+2. Promote omits reachable crash states after phase-2 A/B commits, and the A-old/B-phase1 state can make the documented re-run path fail for lack of a second staging run (`V4-003`, `V4-004`).
+3. Empty Side B has no re-spool result (`V4-005`), and raw-device format/duplicate lack a complete geometry preflight before destructive writes (`V4-006`).
+4. Long operations require repeated calls while the state matrix forbids those calls; commit-in-progress/abort is likewise unreachable through the synchronous API (`V4-007`, `V4-008`).
+5. Positive position saturation underflows for a step larger than the timeline, and the fetch/update phase contradicts seek-to-frame semantics (`V4-009`, `V4-010`).
+
+WP-10 now has the correct per-operation shape but is not final-testable until the promote, re-spool, raw-geometry, and blank-format allowed states are completed. WP-11's live mutation list is now suitable, but byte-exact fixtures cannot be frozen until the render phase and portable negative interpolation semantics are resolved.
+
+The verifier crash harness now supports a scenario-specific remount predicate, so `TAPE_ERR_INCOMPLETE` and the single permitted blank-format `TAPE_ERR_BAD_MAGIC` state can be accepted without weakening other scenarios. Its strict-C99 exhaustive self-test still passes 1,029 cases.
+
+The Side-A-only duplicate product decision is coherent and testable; I do not recommend escalating it to Michael absent a contrary product requirement.
+
+I have not opened `engine/`, an engine implementation branch, an engine implementation diff, an implementation issue, or an unlanded implementation artifact during this pass.

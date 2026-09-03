@@ -13,6 +13,7 @@ typedef struct {
     uint64_t prepares;
     uint64_t remounts;
     uint64_t reports;
+    uint64_t remount_checks;
 } fixture;
 
 static int prepare(void *opaque)
@@ -44,7 +45,7 @@ static int remount(void *opaque)
 {
     fixture *f = (fixture *)opaque;
     ++f->remounts;
-    return 0;
+    return 7; /* Scenario-specific non-mounting outcome. */
 }
 
 static uint32_t validate(void *opaque, const crash_case_result *result)
@@ -52,6 +53,13 @@ static uint32_t validate(void *opaque, const crash_case_result *result)
     fixture *f = (fixture *)opaque;
     (void)f;
     return result->kind == CRASH_BASELINE && result->operation_result != 0;
+}
+
+static int remount_allowed(void *opaque, const crash_case_result *result)
+{
+    fixture *f = (fixture *)opaque;
+    ++f->remount_checks;
+    return result->remount_result == 7;
 }
 
 static void report(void *opaque, const crash_case_result *result)
@@ -78,6 +86,7 @@ int main(void)
     scenario.prepare = prepare;
     scenario.operate = operate;
     scenario.remount = remount;
+    scenario.remount_allowed = remount_allowed;
     scenario.validate = validate;
     scenario.report = report;
 
@@ -89,6 +98,7 @@ int main(void)
     assert(stats.cases_failed == 0u);
     assert(f.prepares == stats.cases_run);
     assert(f.remounts == stats.cases_run);
+    assert(f.remount_checks == stats.cases_run);
     assert(f.reports == stats.cases_run);
     return 0;
 }
