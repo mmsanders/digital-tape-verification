@@ -97,3 +97,20 @@ The verifier crash harness now supports a scenario-specific remount predicate, s
 The Side-A-only duplicate product decision is coherent and testable; I do not recommend escalating it to Michael absent a contrary product requirement.
 
 I have not opened `engine/`, an engine implementation branch, an engine implementation diff, an implementation issue, or an unlanded implementation artifact during this pass.
+
+## 2026-09-04 — PM Decisions 004/007 and DRAFT-5 review
+
+Received PM Decisions 004, PM Decisions 007, the DRAFT-5 three-file bundle, and its `spec/VERSION.md` manifest. All three supplied hashes match. The independent convergence assessment was read solely as PM context and was not treated as normative or copied into this repository.
+
+The clean DRAFT-5 pass is filed at `findings/spec-review-draft5.md`: **2 blockers and 13 majors**. Both blockers are in the later behaviour-freeze scope:
+
+1. A long-operation I/O error returns the instance to ordinary Mounted-idle while media generation remains indeterminate, permitting a subsequent mutator to overwrite a generation that may be live (`V5-001`).
+2. Duplicate of a valid empty Side A erases the destination, writes zero-length entries forbidden by the format, commits `VALID`, and can return success with an unmountable cartridge (`V5-002`).
+
+No blocker was found in the Phase 0 candidate sections, so PM-004's narrow blocker-only signature condition is clear. Those sections still contain eight major defects, including reverse-from-end phase, C99 integer-promotion, warm-pointer safety, absent-B operation state, and an impossible `tape_tell` error result. Golden PCM remains blocked.
+
+WP-10, WP-11, and WP-12a are each **not testable as written for final acceptance**. Their implementation-independent infrastructure remains valid; the exact blockers are mapped in the findings file and the updated plans.
+
+At review time, canonical `mmsanders/Digital-Tape` `main` still carried TapeFS DRAFT-3, engine API DRAFT-3, acceptance DRAFT-1, and no `spec/VERSION.md`. The exact DRAFT-5 files here are courtesy copies until the mechanical canonical-bundle PR lands.
+
+I have not inspected engine implementation, an implementation branch/diff, implementation issues, or unlanded implementation artifacts.
