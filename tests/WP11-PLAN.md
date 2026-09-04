@@ -1,6 +1,6 @@
-# WP-11 golden-suite and mutation plan — DRAFT-4
+# WP-11 golden-suite and mutation plan — DRAFT-5
 
-Status: runner, fixture policy, diagnostics, golden families, and all seven mutation targets are defined. Candidate fixture generation may begin, but byte-exact playback fixtures must not be frozen until V4-010/V4-013 settle sample phase and portable negative interpolation.
+Status: runner, fixture policy, diagnostics, golden families, and all seven mutation targets are defined. Byte-exact playback fixtures must not be frozen until the DRAFT-5 reverse phase, C99 promotion, warm-pointer, and exhaustive-proof findings are dispositioned (V5-005/V5-006/V5-007/V5-012).
 
 ## One-command runner
 
@@ -20,12 +20,12 @@ On a PCM mismatch, emit first differing frame/channel, expected/actual values, s
 
 ## Golden families
 
-- 1.0x playback from stream start and immediately after seek, final-frame `b = a`, run boundaries ±1, exact start/end, and reverse.
+- 1.0x playback from stream start and immediately after seek, final-frame `b = a`, run boundaries ±1, exact start/end, and reverse. The reverse-from-end fixture uses a non-linear multi-frame signal so a one-subframe phase shift cannot hide behind a constant last sample.
 - Every scrub-rate table value as an instantaneous `tape_set_rate` input; firmware owns the time ramp.
 - Maximum positive/negative rates on one-frame and short timelines, specifically covering V4-009.
 - Overwrite, overdub, and splice at t=0, mid-run, exact run boundary, and end.
 - Overdub extrema: `32767+32767`, `-32768+-32768`, opposite signs, and one-LSB boundaries.
-- Warm-start matches and independent UUID, side, start, end, zero-length, and overflow mismatches.
+- Warm-start matches and independent descriptor-NULL, data-NULL, UUID, side, start, end, zero-length, byte-short, and overflow mismatches.
 - File-backed/service-ring rendering byte identity.
 
 ## Mutation gate
@@ -42,8 +42,9 @@ Each mutation is applied independently and must make the suite fail for the inte
 
 ## Current freeze boundary
 
-- V4-010 must specify whether the current position is fetched before or after advancement; otherwise seek goldens differ by one frame.
-- V4-013 must replace implementation-defined negative signed shift with portable floor arithmetic or constrain every supported compiler.
-- V4-011 must define checked warm-range containment before mutation 7 has one normative oracle.
+- V5-005: reverse from `max_pos` snaps to a subframe rather than the last frame position, shifting all later −1.0× samples.
+- V5-006: `b - a` occurs before the widening cast and is undefined on a 16-bit-`int` C99 target.
+- V5-007: optional warm metadata is dereferenced before the NULL guard and a NULL data pointer can pass validation.
+- V5-012: the claimed full-domain exhaustive gate is approximately 5.63×10^14 pairs and has no finite construction/proof rule.
 
-Stable overwrite saturation fixtures and runner/diagnostic code can proceed independently of those three points.
+Stable overwrite saturation fixtures, the verifier's mathematical floor-division oracle, and a finite all-delta/five-boundary-phase sweep can proceed independently. That sweep is evidence, not a claim to satisfy V5-012's undefined full-domain gate.
