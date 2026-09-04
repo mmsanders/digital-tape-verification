@@ -43,3 +43,17 @@ The harness self-test observes two block writes and two flushes and runs 1,029 c
 | Maintain test independence | Complete | No engine implementation, branch, diff, issue, or unlanded artifact was inspected. |
 
 The DRAFT-4 documents are stable enough for generic harness and stable-operation oracle work, but not for freezing promote crash outcomes or byte-exact variable-rate playback fixtures.
+
+## PM Decisions 004/007 update — 4 Sep 2026
+
+| PM direction | Status | Evidence / boundary |
+|---|---|---|
+| Authenticate and preserve DRAFT-5 | Complete | `spec/VERSION.md` hashes match all three supplied files; exact verifier-side courtesy copies are under `spec/`. |
+| Attack `promote_stage`, both-side mount, duplicate, and long-operation rows first | Complete | `findings/spec-review-draft5.md` begins with these state/crash paths and then records the whole-document pass. |
+| Confirm WP-10/WP-11/WP-12a testability | Complete; all three need correction | The findings file gives separate mechanical verdicts and `tests/WP10-PLAN.md` / `tests/WP11-PLAN.md` map the remaining seams. |
+| Phase 0 blocker gate | Clear, with majors | No blocker in `tapefs` §§1–8 or `engine-api` §§2–8/§12; eight major findings remain in or cross those sections. |
+| Later behaviour freeze | Blocked | V5-001 and V5-002 are cartridge-corruption/loss paths; first-green WP-10 cannot gate the current text. |
+| Advance independent WP-11 arithmetic work | Advanced | The oracle remains implementation-independent and now exhaustively covers all 131,071 sample deltas at five boundary phases. |
+| Maintain test independence | Complete | No implementation source, implementation diff/branch/issue, or unlanded artifact was inspected. |
+
+Canonical `Digital-Tape/main` had not yet received DRAFT-5 when checked; the verifier files are explicitly non-authoritative courtesy copies until it does.
