@@ -24,7 +24,7 @@ int16_t audio_oracle_interpolate(int16_t a, int16_t b, uint32_t phase)
     int64_t remainder = product % denominator;
     int64_t value;
 
-    /* C99 division truncates toward zero. DRAFT-4 requires floor. */
+    /* C99 division truncates toward zero. DRAFT-5 requires floor. */
     if (product < 0 && remainder != 0) {
         --quotient;
     }
