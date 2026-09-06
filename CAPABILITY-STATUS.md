@@ -1,59 +1,34 @@
-# Capability status — PM Decisions 002
+# Capability status — DRAFT-6 / PM Decisions 005 and 008
 
-Date: 2 Sep 2026
+Date: 5 Sep 2026
 
-This matrix records the DRAFT-3 review and the verifier-owned work that can proceed before PM disposition.
+This file is the current verifier capability/status snapshot. Historical pass details remain in `PM-NOTES.md` and the versioned findings files.
 
-| PM direction | Status | Evidence / boundary |
+| Area | Status | Evidence / boundary |
 |---|---|---|
-| Treat 001-R as superseding 001 | Complete | `PM-NOTES.md` records 001-R as controlling. No further DRAFT-1 review is underway. |
-| Preserve full replacement inputs | Complete | PM Decisions 002, both DRAFT-3 specs, and DRAFT-1 acceptance criteria are stored under `pm/` and `spec/`. |
-| Prioritize new DRAFT-3 recovery text | Complete | The review began with run extents, re-spool, promote, superblocks, duplicate, the state matrix, and exact arithmetic as directed. |
-| Build crash-injection harness structure | Complete for the specification-independent layer | `tests/crash_harness.[ch]` traces a clean run and exhaustively replays every 0..512-byte block outcome and every flush failure through reset, power cut, remount, validation, and reporting callbacks. |
-| Build fault-injecting block device | Complete | `tests/fault_block_device.[ch]` is allocation-free C99, works inside multi-block writes, supports both flush-required and write-through durability, models flush and power cut, and persists torn prefixes. |
-| Develop Suite 3 invariant list | Complete at the current spec-stable boundary | `tests/SUITE-3-INVARIANTS.md` now uses DRAFT-3 names/layout and records the exact oracle points blocked by findings. |
-| Maintain on-request independent PR review | Complete and live | The watcher requires the exact marker in PR description/discussion and deduplicates by head SHA. It reviews tooling/firmware/docs, or engine behavior only after verifier-authored coverage lands. Otherwise it declines without reading the diff and requires PM for exceptions. |
-| File directly where PM can read | Complete | Status and findings remain in this repository; `PM-NOTES.md` is the handoff log. |
-| Review DRAFT-3 and acceptance criteria | Complete for this PM pass | `findings/spec-review-draft3.md` contains 4 blockers, 11 majors, and 1 question, including explicit WP-10/WP-11 testability findings. |
-| Implement WP-10 crash infrastructure | Complete below the operation-adapter seam | `fault_block_device.[ch]`, `crash_harness.[ch]`, self-tests, and `WP10-PLAN.md` provide exhaustive per-block/torn/flush enumeration. Final state oracles wait on the filed contradictions. |
-| Implement WP-11 runner/golden structure | In progress at the spec-stable boundary | `tests/Makefile` gives the one-command strict-C99 runner and `WP11-PLAN.md` fixes fixture, diagnostic, golden-family, and mutation obligations. Fixtures/adapters wait on arithmetic/state dispositions. |
+| DRAFT-6 source authentication | Complete | The three supplied DRAFT-6 files hash exactly to canonical `mmsanders/Digital-Tape` `main` `spec/VERSION.md`. Canonical `main` is the authority; the older verifier-side DRAFT-5 courtesy bundle is retained as historical input rather than silently overwritten. |
+| DRAFT-6 adversarial review | Complete; freeze not recommended | `findings/spec-review-draft6.md` records **0 blockers and 9 majors** after the PM-directed pass and clean whole-document pass. |
+| Phase-0 freeze gate | **Not met** | Six majors (`V6-001`…`V6-006`) touch the candidate. PM-005 requires zero blockers **and zero majors** in candidate sections. |
+| `engine-api` §§6.2, 6.3, 8 | Clean in this pass | Independent transport/interpolation traces found no defect. The arithmetic/phase prerequisite for golden PCM is clear, subject to the existing human-listening and PM-approval fixture policy. |
+| WP-10 | **Not testable as written** | `V6-002`, `V6-003`, `V6-007`, `V6-008` prevent one mechanical headroom/crash-state oracle. `tests/WP10-PLAN.md` preserves all executable infrastructure and isolates the blocked predicates. |
+| WP-11 | **Testable as written** | `tests/WP11-PLAN.md` now maps the finite 1,572,852-boundary-pair + 10,000,000-seeded-pair portability gate, two-toolchain requirement, independent arithmetic oracle, golden families, and mutation obligations. |
+| WP-12a | **Not testable as written** | `V6-009` makes callback re-entry contradictory; `tests/WP12A-PLAN.md` isolates that predicate while retaining the executable 45-cell/33-B, zero-budget and FAULTED tests. |
+| Crash-injection harness | Complete below the implementation adapter seam | `tests/fault_block_device.[ch]` and `tests/crash_harness.[ch]` support every 0…512-byte torn outcome, flush failures, reset/power-cut/remount, and both flush-required/write-through durability modes. |
+| Audio oracle | Ready for DRAFT-6 WP-11 | `tests/audio_oracle.c` independently widens arithmetic and implements mathematical floor without relying on engine helpers. |
+| Independent PR review lane | Live | `procedures/independent-pr-review.md` remains separate from pre-test verification; implementation details learned there must not shape unwritten verifier expectations. |
+| Implementation-blindness | Preserved | This DRAFT-6 pass did not open `engine/`, implementation branches/diffs/issues, or unlanded implementation artifacts. Only the canonical spec publication point was consulted to establish authority and hashes. |
+| PM handoff index | Current | `PM-NOTES.md` now includes the DRAFT-6 result and testability verdicts; PM-005 and PM-008 are preserved under `pm/`. |
 
-## Verification of the infrastructure
+## Current verifier work that may proceed
 
-The following pass with no output:
+- Build and run the DRAFT-6 WP-11 portability/golden machinery from independent expectations.
+- Prepare WP-10 fixtures and enumeration for all non-contradictory states, including the new DRAFT-6 counter/durability regressions, without encoding the four disputed predicates as truth.
+- Build the WP-12a callback driver and state/I/O recorder, but do not assert a final callback result oracle until `V6-009` is dispositioned.
+- Continue independent PR review only under `procedures/independent-pr-review.md` and its implementation-separation rules.
 
-```sh
-make -C tests check
-```
+## Current stop conditions
 
-The harness self-test observes two block writes and two flushes and runs 1,029 cases: one clean baseline, 513 outcomes per written block, and one failure at each flush.
-
-## PM Decisions 003 update — 3 Sep 2026
-
-| PM direction | Status | Evidence / boundary |
-|---|---|---|
-| Preserve PM-003 and DRAFT-4 inputs | Complete | `pm/verification-lead-003.md` and all three `spec/` files are verifier-side copies of the supplied documents. |
-| Run the last pre-freeze adversarial pass | Complete; freeze not recommended | `findings/spec-review-draft4.md`: 1 blocker, 12 majors, 1 question. |
-| Attack entry non-overlap first | Complete | V4-002 proves the advertised scalar equivalence accepts overlapping physical frames and is circular for B validation. |
-| Enumerate promote boundaries | Complete | V4-003 identifies the missing post-step-7 and post-step-8 states; V4-004 identifies the exact-tail rerun failure after phase-1 B commit. |
-| Review re-spool and duplicate product semantics | Complete | V4-005 covers empty re-spool; V4-006 covers raw-device geometry. Side-A-only duplicate is accepted as coherent and testable. |
-| Review state matrix and position arithmetic | Complete | V4-001 and V4-007…V4-013 cover effective read-only state, incremental continuation, commit/abort reachability, saturation, sample phase, warm-range arithmetic, invalid state admission, and signed-shift portability. |
-| Confirm WP-10/WP-11 testability | Complete | Both plans now contain a DRAFT-4 testability verdict and exact remaining blockers. |
-| Build WP-10 structure | Advanced | `crash_harness` now accepts a scenario-specific remount predicate, enabling the operation-specific `INCOMPLETE`/`BAD_MAGIC` outcomes while retaining strict default behavior. |
-| Maintain test independence | Complete | No engine implementation, branch, diff, issue, or unlanded artifact was inspected. |
-
-The DRAFT-4 documents are stable enough for generic harness and stable-operation oracle work, but not for freezing promote crash outcomes or byte-exact variable-rate playback fixtures.
-
-## PM Decisions 004/007 update — 4 Sep 2026
-
-| PM direction | Status | Evidence / boundary |
-|---|---|---|
-| Authenticate and preserve DRAFT-5 | Complete | `spec/VERSION.md` hashes match all three supplied files; exact verifier-side courtesy copies are under `spec/`. |
-| Attack `promote_stage`, both-side mount, duplicate, and long-operation rows first | Complete | `findings/spec-review-draft5.md` begins with these state/crash paths and then records the whole-document pass. |
-| Confirm WP-10/WP-11/WP-12a testability | Complete; all three need correction | The findings file gives separate mechanical verdicts and `tests/WP10-PLAN.md` / `tests/WP11-PLAN.md` map the remaining seams. |
-| Phase 0 blocker gate | Clear, with majors | No blocker in `tapefs` §§1–8 or `engine-api` §§2–8/§12; eight major findings remain in or cross those sections. |
-| Later behaviour freeze | Blocked | V5-001 and V5-002 are cartridge-corruption/loss paths; first-green WP-10 cannot gate the current text. |
-| Advance independent WP-11 arithmetic work | Advanced | The oracle remains implementation-independent and now exhaustively covers all 131,071 sample deltas at five boundary phases. |
-| Maintain test independence | Complete | No implementation source, implementation diff/branch/issue, or unlanded artifact was inspected. |
-
-Canonical `Digital-Tape/main` had not yet received DRAFT-5 when checked; the verifier files are explicitly non-authoritative courtesy copies until it does.
+- Do **not** recommend the Phase-0 signature while any of `V6-001`…`V6-006` remains major or blocker.
+- Do **not** claim a green final WP-10 while `V6-002`, `V6-003`, `V6-007`, or `V6-008` remains unresolved.
+- Do **not** claim a green final WP-12a while `V6-009` remains unresolved.
+- Do **not** inspect engine implementation to resolve any normative ambiguity above.

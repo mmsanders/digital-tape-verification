@@ -114,3 +114,17 @@ WP-10, WP-11, and WP-12a are each **not testable as written for final acceptance
 At review time, canonical `mmsanders/Digital-Tape` `main` still carried TapeFS DRAFT-3, engine API DRAFT-3, acceptance DRAFT-1, and no `spec/VERSION.md`. The exact DRAFT-5 files here are courtesy copies until the mechanical canonical-bundle PR lands.
 
 I have not inspected engine implementation, an implementation branch/diff, implementation issues, or unlanded implementation artifacts.
+
+## 2026-09-05 — PM Decisions 005/008 and DRAFT-6 review
+
+Received PM Decisions 005 and 008 and the DRAFT-6 three-file bundle. The supplied TapeFS, engine API, and acceptance files hash exactly to the manifest now published on canonical `mmsanders/Digital-Tape` `main`; canonical `main` was therefore used as authority and the verifier-side DRAFT-5 courtesy bundle was left intact as historical input rather than silently overwritten.
+
+The directed-then-clean DRAFT-6 pass is filed at `findings/spec-review-draft6.md`: **0 blockers and 9 majors**. Six majors touch the Phase-0 freeze candidate (`V6-001` through `V6-006`), so PM-005's raised gate — no blocker and no major in the candidate — is **not met** and I do not recommend signature.
+
+Highest-priority defects are degraded-B recovery of the equal-sequence state (`V6-001`), branch-insensitive and undefined shared sequence headroom (`V6-002`, `V6-003`), `sb_generation` monotonicity contradicting ordinary index-only updates (`V6-004`), an unreachable side-switch acceptance precondition (`V6-005`), and duplicate-destination failure having no conforming return state when the source was Playing (`V6-006`). The later behaviour scope also has incomplete final-primary durability rows and a one-valid-copy boundary-fallback contradiction (`V6-007`, `V6-008`), plus the callback-reentry contradiction in WP-12a (`V6-009`).
+
+**WP-10 is not testable as written** (`V6-002`, `V6-003`, `V6-007`, `V6-008`). **WP-11 is testable as written.** **WP-12a is not testable as written** (`V6-009`). The existing verifier-owned crash and audio-oracle infrastructure remains implementation-independent.
+
+`engine-api` §§6.2, 6.3 and 8 survived independent numerical traces, including reverse −0.5×/−1.0×/−2.0×, extreme rates, empty/one-frame timelines, and the specified floor interpolation identity. No finding is filed against those sections. The DRAFT-6 arithmetic/phase prerequisite for golden PCM is therefore clear; fixture promotion remains subject to the existing human-listening and PM-approval policy.
+
+I did not open `engine/`, an engine implementation branch or diff, implementation issues, or any unlanded implementation artifact during this pass.
