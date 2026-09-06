@@ -7,7 +7,12 @@ static void record_case(const crash_scenario *scenario,
                         crash_run_stats *stats,
                         crash_case_result *result)
 {
-    if (result->remount_result != 0) {
+    int remount_allowed = result->remount_result == 0;
+
+    if (scenario->remount_allowed != NULL) {
+        remount_allowed = scenario->remount_allowed(scenario->ctx, result);
+    }
+    if (!remount_allowed) {
         ++result->invariant_failures;
     }
     result->invariant_failures += scenario->validate(scenario->ctx, result);
