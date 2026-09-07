@@ -128,3 +128,15 @@ Highest-priority defects are degraded-B recovery of the equal-sequence state (`V
 `engine-api` §§6.2, 6.3 and 8 survived independent numerical traces, including reverse −0.5×/−1.0×/−2.0×, extreme rates, empty/one-frame timelines, and the specified floor interpolation identity. No finding is filed against those sections. The DRAFT-6 arithmetic/phase prerequisite for golden PCM is therefore clear; fixture promotion remains subject to the existing human-listening and PM-approval policy.
 
 I did not open `engine/`, an engine implementation branch or diff, implementation issues, or any unlanded implementation artifact during this pass.
+
+
+## 7 September 2026 — Phase-0 independent mount tranche delivered
+
+See `findings/phase0-mount-tranche-2026-09-07.md` and `tests/mount_draft8/COVERAGE.md`.
+289 independently authored candidate mount cases are ready for test-first integration;
+ten package self-tests and the existing strict-C99 suite pass. Negative/missing-engine
+controls fail explicitly. **No product-engine run and no WP-06/WP-07 acceptance.**
+VT8-001 identifies remaining allocator/running-sequence observability dependencies.
+The source, exact fixture hashes, runner/adapter instructions and all evidence are in
+`tests/mount_draft8/`. Publish completed status and source together on verification main.
+PR #20 remains held for every uncovered behaviour. Implementation blindness preserved.

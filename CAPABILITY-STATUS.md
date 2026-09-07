@@ -1,6 +1,6 @@
-# Capability status — surge DRAFT-8 third cut
+# Capability status — DRAFT-8 independent mount tranche
 
-Date: 6 Sep 2026
+Date: 7 Sep 2026
 
 This is the current Verification Lead status snapshot. Canonical product specs remain `mmsanders/Digital-Tape` `main`; the DRAFT-8 material below is an authenticated **surge candidate**, not a claim of PM issuance. Historical pass details remain under `findings/` and `PM-NOTES.md`.
 
@@ -21,6 +21,22 @@ This is the current Verification Lead status snapshot. Canonical product specs r
 | Hardware safety audit | **Contract auditable; no result yet** | Procedure, instrument/calibration, ambient conditions, raw readings, derivation, and measurement uncertainty remain required. No raw measurement package was reviewed in this round. |
 | Crash-injection infrastructure | **Complete below implementation adapter seam** | Verifier-owned torn-write/flush-failure/power-cut infrastructure remains independent of engine implementation. |
 | Implementation blindness | **Preserved** | This pass did not inspect `engine/`, implementation branches/diffs/issues, PR #20 implementation details, or unlanded implementation artifacts. |
+
+## Independent mount tranche — 7 September 2026
+
+**Ready for mechanical test integration; no engine execution or package acceptance.**
+`findings/phase0-mount-tranche-2026-09-07.md` is the PM return. Source, adapter contract,
+289 deterministic fixtures, full coverage matrix and raw evidence are in
+`tests/mount_draft8/`. Ten package self-tests and the legacy C99 harness pass;
+the negative engine control is red and missing-engine execution fails explicitly.
+
+Coverage is mount admission/selection, interval validity, both-side/degraded-B/stage
+classification, repair and mount-derived ownership/free space. Allocator decisions,
+running sequence consumption, actual writes/edits/reset/recovery, PCM and full WP-07
+10,000 random edit sequences remain unaccepted. **VT8-001** documents the public-API
+observability dependency. Product main remains DRAFT-7 at the checked head
+`ed5efd834aa8f7a96bc8ef811569b2687d919526`; candidate issuance/authentication and
+test-first integration remain the acting authority's next steps.
 
 ## Current verifier work that may proceed
 
