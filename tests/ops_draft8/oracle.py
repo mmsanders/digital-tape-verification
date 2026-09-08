@@ -163,9 +163,13 @@ def free_next(m: Media) -> int:
 
 def make_cases():
     blocks=LBA_CHUNK_BASE+16*1024+1; s=sb(blocks=blocks)
+    # Reset: A0 live at 10; A1 is structurally valid at 900 but semantically invalid for A
+    # because its side byte is B. B0/B1 are both semantically valid at equal sequence 500 -> degraded-B.
     reset=Media(blocks,s,s,(
         idx(0,[(0,0,128)],10), idx(1,[(1,0,64)],900),
         idx(1,[(0,0,128)],500), idx(1,[(1,0,128)],500)))
+    # Record: B0 live at 20 and only references A-owned chunk 0, hence free_next==H==3.
+    # A1 again carries an issued structural sequence 700 while being semantically invalid for A.
     record=Media(blocks,s,s,(
         idx(0,[(0,0,128)],10), idx(1,[(1,0,64)],700),
         idx(1,[(0,0,128)],20), invalid_slot()))
@@ -191,6 +195,7 @@ def check(case: Case, post: Media, events: list[dict]) -> list[str]:
     pre=case.pre; sbpre=select_sb(pre); sbpost=select_sb(post)
     req(pre.blocks==post.blocks,'block_count changed')
     pre_seq=cartridge_sequence(pre)
+    # Frozen all-slot definition is itself an oracle precondition.
     if case.id=='VT8-001-RB-ALLSLOT':
         req(pre_seq==900,'fixture lost high structural sequence')
         req(live_slot(pre,0)==0,'fixture A0 not live')
@@ -203,8 +208,9 @@ def check(case: Case, post: Media, events: list[dict]) -> list[str]:
         req(parse_entries(post.slots[2])==parse_entries(pre.slots[0]),'reset_b did not copy live A entries')
         req(live_slot(post,1)==2,'reset_b result not live after recovery')
         req(free_next(post)==struct.unpack_from('<I',sbpost,56)[0],'reset_b free_next should equal H')
+        # No audio or superblock writes. §8 ordering: B0 entries, flush, B0 header, flush.
         for e in _writes(events):
-            l=e['lba']; c=e['count']
+            l=e['lba']; c=e['count'];
             req(l < LBA_CHUNK_BASE,'reset_b moved/wrote chunk data')
             req(not (l<=0<l+c or l<=post.blocks-1<l+c),'reset_b wrote superblock at stage 0')
         b0h=LBA_B0
@@ -228,11 +234,13 @@ def check(case: Case, post: Media, events: list[dict]) -> list[str]:
         req(parse_entries(post.slots[3])==[(0,0,128),(3,0,128)],'record splice index/allocation not at derived free_next')
         req(live_slot(post,1)==3,'record commit not live')
         req(free_next(post)==4,'post-record free_next not advanced to 4')
+        # Every service audio write must be within newly allocated chunk 3, hence >= H.
         lo,hi=_chunk_bounds(pre,fn)
         svc=_writes(events,'service')
         req(bool(svc),'record service produced no audio write observation')
         for e in svc:
             req(e['lba']>=lo and e['lba']+e['count']<=hi,'record audio write outside derived allocation chunk')
+        # Commit itself is metadata only and exactly two flushes for a non-empty commit.
         cw=_writes(events,'commit')
         req(all(e['lba']<LBA_CHUNK_BASE for e in cw),'commit wrote chunk data')
         cf=[e for e in events if e.get('phase')=='commit' and e.get('op')=='flush']
@@ -242,6 +250,7 @@ def check(case: Case, post: Media, events: list[dict]) -> list[str]:
         ent=[i for i,e in enumerate(events) if e.get('phase')=='commit' and e.get('op')=='write' and e['lba']<=b1h+1<e['lba']+e['count']]
         req(bool(hdr) and bool(ent),'record commit missing B1 entry/header writes')
         if hdr and ent: req(ent[0] < hdr[0],'record header written before entries')
+        # Strong WP-10 structural uniqueness check after commit.
         ss=[structural_sequence(x) for x in post.slots]; ss=[x for x in ss if x is not None]
         req(len(ss)==len(set(ss)),'post-record structurally valid slots share sequence')
     else:
