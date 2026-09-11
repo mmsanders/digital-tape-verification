@@ -140,3 +140,27 @@ VT8-001 identifies remaining allocator/running-sequence observability dependenci
 The source, exact fixture hashes, runner/adapter instructions and all evidence are in
 `tests/mount_draft8/`. Publish completed status and source together on verification main.
 PR #20 remains held for every uncovered behaviour. Implementation blindness preserved.
+
+## 11 September 2026 — raw mount observations dispositioned; VT8-001 ready
+
+Canonical product input was `mmsanders/Digital-Tape/main` at
+`4c273ce57ce6848762b00b8990b0b29a3dc9f74b`. Verification decoded both committed
+gzip JSONL streams and independently recomputed all verdicts from regenerated
+fixtures and raw adapter stdout using the unchanged verifier oracle. The before run
+is 274/289 with the stated fifteen failures; the after run is 289/289. There were no
+record-count, ID/order, fixture-hash, allowed-result, observation-parse or
+stored-versus-recomputed verdict defects.
+
+The positive disposition is limited to `tests/mount_draft8/COVERAGE.md`. It does not
+accept PR #20, allocation, running-sequence consumption, recording, warm start,
+state transitions, operations, crash safety, PCM or hardware. Full evidence and
+immutable hashes are in
+`findings/mount-observation-disposition-2026-09-11.md`.
+
+The existing verifier-owned `tests/ops_draft8/` source at
+`a91138667673fcf19dc9e83c9034322b982b1771` was reproduced: its oracle accepted two
+conforming observations and caught all six targeted mutations; runner plumbing was
+2/2 against the clearly labeled synthetic adapter. It is ready for exact mechanical
+import before corresponding implementation acceptance. PM/Software next supplies
+the public-API adapter and raw product observations. All other product and safety
+holds remain unchanged. No prohibited implementation material was inspected.
