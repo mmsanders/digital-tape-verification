@@ -23,6 +23,7 @@ check: all
 	$(BUILD_DIR)/test_crash_harness
 	$(BUILD_DIR)/test_audio_oracle
 	python3 ops_draft8/selftest.py
+	python3 playback_draft8/selftest.py
 
 clean:
 	rm -f $(BUILD_DIR)/test_fault_block_device $(BUILD_DIR)/test_crash_harness
