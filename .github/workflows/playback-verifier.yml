@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Verify deterministic fixture regeneration
+        working-directory: tests/playback_draft8
+        run: python3 generate_fixture.py
       - name: Verify package manifest hash
         working-directory: tests/playback_draft8
         run: |

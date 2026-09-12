@@ -4,6 +4,7 @@ from __future__ import annotations
 import copy, gzip, json, shutil, subprocess, sys, tempfile
 from pathlib import Path
 import oracle
+import generate_fixture
 from oracle import VerificationError
 
 HERE = Path(__file__).resolve().parent
@@ -24,6 +25,8 @@ def run_checked(raw, obs, outs):
     return r
 
 def main():
+    generate_fixture.check_checked_in()
+    print("PASS deterministic fixture/candidate-PCM regeneration")
     pkg = oracle.load_package(HERE)
     raw = gzip.decompress((HERE / pkg["fixture"]["archive"]).read_bytes())
     fx = oracle.verify_fixture(raw)
@@ -87,6 +90,10 @@ def main():
         rc=subprocess.run([sys.executable,str(HERE/"replay.py"),str(changed)],stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
         if rc==0: raise AssertionError("tampered evidence replay escaped")
         print("CAUGHT tampered evidence")
+        changed_identity=td/"changed-identity"; shutil.copytree(ev,changed_identity); p=changed_identity/"manifest.json"; manifest=json.loads(p.read_text()); manifest["oracle_sha256"]="0"*64; p.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
+        rc=subprocess.run([sys.executable,str(HERE/"replay.py"),str(changed_identity)],stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
+        if rc==0: raise AssertionError("tampered verifier identity escaped")
+        print("CAUGHT tampered verifier identity")
 
     print("SELFTEST PASS: three families + required negative controls + provenance/replay controls")
     return 0

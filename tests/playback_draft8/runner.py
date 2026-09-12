@@ -133,6 +133,7 @@ def main() -> int:
         "source_commit": args.source_commit,
         "source_tree": args.source_tree,
         "package_manifest_sha256": sha256_file(PACKAGE_DIR / "package.json"),
+        "generator_sha256": sha256_file(PACKAGE_DIR / "generate_fixture.py"),
         "oracle_sha256": sha256_file(PACKAGE_DIR / "oracle.py"),
         "runner_sha256": sha256_file(PACKAGE_DIR / "runner.py"),
         "replay_sha256": sha256_file(PACKAGE_DIR / "replay.py"),

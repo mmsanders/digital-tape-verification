@@ -5,6 +5,7 @@ import argparse, gzip, json
 from pathlib import Path
 from oracle import VerificationError, check_run, load_package, sha256_file
 
+PACKAGE_DIR = Path(__file__).resolve().parent
 OUTPUT_NAMES = {
     "forward_1x": "forward-1x.pcm",
     "seek_boundaries": "seek-boundaries.pcm",
@@ -27,6 +28,17 @@ def replay(evidence: Path) -> dict:
         raise VerificationError("wrong evidence schema")
     if manifest.get("assignment") != "P1-R2-V":
         raise VerificationError("wrong evidence assignment")
+    for key, name in (
+        ("generator_sha256", "generate_fixture.py"),
+        ("oracle_sha256", "oracle.py"),
+        ("runner_sha256", "runner.py"),
+        ("replay_sha256", "replay.py"),
+    ):
+        if manifest.get(key) != sha256_file(PACKAGE_DIR / name):
+            raise VerificationError(f"verifier source hash mismatch: {name}")
+    for key in ("source_commit", "source_tree"):
+        if not isinstance(manifest.get(key), str) or not manifest[key]:
+            raise VerificationError(f"missing evidence provenance: {key}")
     expected_files = manifest.get("files")
     if not isinstance(expected_files, dict):
         raise VerificationError("manifest missing file hashes")
