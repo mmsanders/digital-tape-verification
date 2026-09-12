@@ -2,6 +2,7 @@
 """Run VT8 public-operation observations and persist a replayable evidence bundle."""
 from __future__ import annotations
 import argparse
+import gzip
 import hashlib
 import json
 import shutil
@@ -83,6 +84,7 @@ def run_package(*, adapter: Path, evidence_dir: Path, spec_dir: Path,
         for case in make_cases():
             cdir = evidence_dir / 'cases' / case.id; cdir.mkdir(parents=True)
             inp = cdir / 'input.vo08'; out = cdir / 'output.vo08'
+            inp_gz = cdir / 'input.vo08.gz'; out_gz = cdir / 'output.vo08.gz'
             stdout_p = cdir / 'stdout.txt'; stderr_p = cdir / 'stderr.txt'
             observation_p = cdir / 'observation.json'; result_p = cdir / 'result.json'
             inp.write_bytes(case.pre.encode())
@@ -123,20 +125,25 @@ def run_package(*, adapter: Path, evidence_dir: Path, spec_dir: Path,
                 _write_json(observation_p, {'format': OBS_FORMAT, 'runner_error': str(exc)})
                 errors.append('adapter execution failed: ' + str(exc))
 
+            inp_raw = inp.read_bytes()
+            inp_gz.write_bytes(gzip.compress(inp_raw, mtime=0)); inp.unlink()
             files = {
-                'input': {'path': str(inp.relative_to(evidence_dir)), 'sha256': file_sha(inp)},
+                'input': {'path': str(inp_gz.relative_to(evidence_dir)), 'sha256': file_sha(inp_gz),
+                          'raw_sha256': sha256_bytes(inp_raw)},
                 'stdout': {'path': str(stdout_p.relative_to(evidence_dir)), 'sha256': file_sha(stdout_p)},
                 'stderr': {'path': str(stderr_p.relative_to(evidence_dir)), 'sha256': file_sha(stderr_p)},
                 'observation': {'path': str(observation_p.relative_to(evidence_dir)), 'sha256': file_sha(observation_p)},
             }
             if out.is_file():
-                files['output'] = {'path': str(out.relative_to(evidence_dir)), 'sha256': file_sha(out)}
+                out_raw = out.read_bytes(); out_gz.write_bytes(gzip.compress(out_raw, mtime=0)); out.unlink()
+                files['output'] = {'path': str(out_gz.relative_to(evidence_dir)), 'sha256': file_sha(out_gz),
+                                   'raw_sha256': sha256_bytes(out_raw)}
             status = 'FAIL' if errors else 'PASS'
             result = {
                 'id': case.id, 'operation': case.operation, 'adapter_kind': adapter_kind,
                 'returncode': returncode, 'status': status, 'errors': errors,
-                'pre_sha256': files['input']['sha256'],
-                'post_sha256': files.get('output', {}).get('sha256'),
+                'pre_sha256': files['input']['raw_sha256'],
+                'post_sha256': files.get('output', {}).get('raw_sha256'),
             }
             _write_json(result_p, result)
             files['result'] = {'path': str(result_p.relative_to(evidence_dir)), 'sha256': file_sha(result_p)}

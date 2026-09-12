@@ -3,6 +3,7 @@
 from __future__ import annotations
 import copy
 import hashlib
+import json
 import shutil
 import struct
 import tempfile
@@ -57,15 +58,12 @@ def main():
     p,e,calls=synth_observation(rec); s=list(p.slots); s[3]=idx(1,[(0,0,128),(0,64,128)],701)
     expect_fail(rec,Media(p.blocks,p.primary,p.mirror,tuple(s)),e,calls,'record overlapping committed index')
 
-    # P1-R1-V01 and durability ordering.
     p,e,calls=synth_observation(rec); bad=[e[0], e[1], e[2], e[4], e[3], e[5]]
     expect_fail(rec,p,bad,calls,'V01 commit flush ordering')
     p,e,calls=synth_observation(rec); bad=copy.deepcopy(e); bad.insert(2,{'phase':'service','op':'write','lba':bad[0]['lba'],'count':1,'rc':0})
     expect_fail(rec,p,bad,calls,'record chunk-data durability barrier')
-    # P1-R1-V02: whole-trace inspection catches illegal feed I/O below H.
     p,e,calls=synth_observation(rec); bad=copy.deepcopy(e); bad.insert(0,{'phase':'feed','op':'write','lba':LBA_CHUNK_BASE,'count':1,'rc':0})
     expect_fail(rec,p,bad,calls,'V02 feed write below H')
-    # Callback and public-result controls.
     p,e,calls=synth_observation(rec); bad=copy.deepcopy(e); bad[0]['lba']=rec.pre.blocks
     expect_fail(rec,p,bad,calls,'callback out of range')
     p,e,calls=synth_observation(rec); bad=copy.deepcopy(e); bad[0]['rc']=-1
@@ -94,12 +92,12 @@ def main():
         if rc: raise AssertionError(('offline replay did not pass', errs))
 
         miss=td/'missing'; shutil.copytree(evdir, miss)
-        (miss/'cases'/rb.id/'input.vo08').unlink()
+        (miss/'cases'/rb.id/'input.vo08.gz').unlink()
         rc,_=replay_bundle(miss, expected)
         if rc == 0: raise AssertionError('missing evidence escaped replay')
         print('CAUGHT missing replay evidence')
         tamp=td/'tampered'; shutil.copytree(evdir, tamp)
-        out=tamp/'cases'/rec.id/'output.vo08'; b=bytearray(out.read_bytes()); b[-1]^=1; out.write_bytes(b)
+        out=tamp/'cases'/rec.id/'output.vo08.gz'; b=bytearray(out.read_bytes()); b[-1]^=1; out.write_bytes(b)
         rc,_=replay_bundle(tamp, expected)
         if rc == 0: raise AssertionError('tampered evidence escaped replay')
         print('CAUGHT tampered replay evidence')

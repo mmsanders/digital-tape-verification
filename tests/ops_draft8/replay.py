@@ -2,6 +2,7 @@
 """Offline replay of a VT8 evidence bundle. No engine or adapter execution occurs."""
 from __future__ import annotations
 import argparse
+import gzip
 import json
 from pathlib import Path
 
@@ -25,6 +26,19 @@ def _checked_file(root: Path, desc: dict, label: str) -> Path:
     if digest != desc['sha256']:
         raise ValueError(f'{label}: evidence hash mismatch for {desc["path"]}')
     return p
+
+
+def _checked_media(root: Path, desc: dict, label: str) -> bytes:
+    p = _checked_file(root, desc, label)
+    if not isinstance(desc.get('raw_sha256'), str):
+        raise ValueError(f'{label}: missing raw media hash')
+    try:
+        raw = gzip.decompress(p.read_bytes())
+    except Exception as exc:
+        raise ValueError(f'{label}: invalid gzip media archive: {exc}') from exc
+    if sha256_bytes(raw) != desc['raw_sha256']:
+        raise ValueError(f'{label}: decompressed raw media hash mismatch')
+    return raw
 
 
 def replay_bundle(root: Path, expected_hashes: dict[str, str] | None = None) -> tuple[int, list[str]]:
@@ -61,15 +75,15 @@ def replay_bundle(root: Path, expected_hashes: dict[str, str] | None = None) -> 
             cid = entry['id']; case = case_map[cid]
             try:
                 files = entry.get('files', {})
-                inp = _checked_file(root, files.get('input'), cid+' input')
-                out = _checked_file(root, files.get('output'), cid+' output')
+                inp_raw = _checked_media(root, files.get('input'), cid+' input')
+                out_raw = _checked_media(root, files.get('output'), cid+' output')
                 obs_p = _checked_file(root, files.get('observation'), cid+' observation')
                 _checked_file(root, files.get('stdout'), cid+' stdout')
                 _checked_file(root, files.get('stderr'), cid+' stderr')
                 result_p = _checked_file(root, files.get('result'), cid+' result')
-                if Media.decode(inp.read_bytes()) != case.pre:
+                if Media.decode(inp_raw) != case.pre:
                     raise ValueError('input media differs from independently generated fixture')
-                post = Media.decode(out.read_bytes())
+                post = Media.decode(out_raw)
                 obs = _load_json(obs_p)
                 if obs.get('format') != OBS_FORMAT:
                     raise ValueError('observation format mismatch')
@@ -82,7 +96,7 @@ def replay_bundle(root: Path, expected_hashes: dict[str, str] | None = None) -> 
                     raise ValueError('saved verdict does not match offline recomputation')
                 if entry.get('status') != expected_status or entry.get('errors') != errors:
                     raise ValueError('manifest verdict does not match offline recomputation')
-                if result.get('pre_sha256') != files['input']['sha256'] or result.get('post_sha256') != files['output']['sha256']:
+                if result.get('pre_sha256') != files['input']['raw_sha256'] or result.get('post_sha256') != files['output']['raw_sha256']:
                     raise ValueError('saved media hash binding mismatch')
                 print(cid + ': REPLAY ' + expected_status)
                 if errors:

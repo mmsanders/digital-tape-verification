@@ -69,7 +69,7 @@ python3 tests/ops_draft8/runner.py \
 python3 tests/ops_draft8/replay.py /path/to/evidence
 ```
 
-The evidence directory persists the raw input/final VO08 envelopes, adapter stdout
+The evidence directory persists the exact raw input/final VO08 envelopes as deterministic gzip archives (with both archive and decompressed-raw SHA-256 bindings), adapter stdout
 and stderr, complete callback/public-call observations, per-case verdicts, adapter
 identity/build/source provenance, exact spec bytes and a hash-bound manifest. Replay
 recomputes the verdict without invoking the engine or adapter. Synthetic evidence is
