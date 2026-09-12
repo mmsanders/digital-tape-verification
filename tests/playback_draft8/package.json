@@ -35,7 +35,16 @@
       "frames": 8,
       "path": "golden/seek-boundaries.pcm",
       "sha256": "a79ea302572d626d46dbf2662f3fb18666b2ddb03843c2b1ef51042736597cda",
-      "targets": [0,1,4,5,6,8,9,10]
+      "targets": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ]
     }
   },
   "product_input_commit": "7fe9942a847c6decfa40ea75aa08d16ea730bb39",
