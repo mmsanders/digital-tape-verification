@@ -11,5 +11,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run independent playback package selftest
+      - name: Authenticate package and fixture
+        working-directory: tests/playback_draft8
+        run: |
+          python3 - <<'PY'
+          import gzip
+          from pathlib import Path
+          import oracle
+          here = Path('.')
+          pkg = oracle.load_package(here)
+          raw = gzip.decompress((here / pkg['fixture']['archive']).read_bytes())
+          oracle.verify_fixture(raw)
+          exp = oracle.expected_outputs(raw)
+          for family, rec in pkg['goldens'].items():
+              assert (here / rec['path']).read_bytes() == exp[family]
+          print('PASS package/fixture/golden authentication')
+          PY
+      - name: Run synthetic public-call observation
+        working-directory: tests/playback_draft8
+        run: |
+          tmp=$(mktemp -d)
+          python3 - <<'PY' "$tmp"
+          import gzip, pathlib, sys
+          import oracle
+          here = pathlib.Path('.')
+          pkg = oracle.load_package(here)
+          pathlib.Path(sys.argv[1], 'fixture.vo08').write_bytes(gzip.decompress((here / pkg['fixture']['archive']).read_bytes()))
+          PY
+          python3 _synthetic_adapter.py --fixture "$tmp/fixture.vo08" --out-dir "$tmp/out"
+          python3 - <<'PY' "$tmp"
+          import json, pathlib, sys
+          import oracle
+          d = pathlib.Path(sys.argv[1]); raw=(d/'fixture.vo08').read_bytes(); out=d/'out'
+          obs=json.loads((out/'observation.json').read_text())
+          outputs={'forward_1x':(out/'forward-1x.pcm').read_bytes(),'seek_boundaries':(out/'seek-boundaries.pcm').read_bytes(),'reverse_neg1x':(out/'reverse-neg1x.pcm').read_bytes()}
+          assert oracle.check_run(raw,obs,outputs)['pass']
+          print('PASS synthetic observation')
+          PY
+      - name: Run full negative-control and replay selftest
         run: python3 tests/playback_draft8/selftest.py
