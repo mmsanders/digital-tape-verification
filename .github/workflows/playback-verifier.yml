@@ -11,42 +11,75 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Authenticate package and fixture
+      - name: Verify package manifest hash
         working-directory: tests/playback_draft8
         run: |
           python3 - <<'PY'
-          import gzip
+          import hashlib, oracle
+          b=open('package.json','rb').read()
+          assert hashlib.sha256(b).hexdigest() == oracle.PACKAGE_MANIFEST_SHA256
+          print('PASS package.json hash')
+          PY
+      - name: Authenticate DRAFT-8 spec bytes
+        if: always()
+        working-directory: tests/playback_draft8
+        run: python3 -c "import oracle; oracle.authenticate_specs(__import__('pathlib').Path('spec')); print('PASS specs')"
+      - name: Authenticate declared file hashes
+        if: always()
+        working-directory: tests/playback_draft8
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          m=json.load(open('package.json'))
+          h=lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          assert h(m['fixture']['archive']) == m['fixture']['archive_sha256']
+          assert h(m['fixture']['metadata']) == m['fixture']['metadata_sha256']
+          for r in m['goldens'].values(): assert h(r['path']) == r['sha256']
+          print('PASS declared file hashes')
+          PY
+      - name: Decompress and authenticate raw VO08
+        if: always()
+        working-directory: tests/playback_draft8
+        run: |
+          python3 - <<'PY'
+          import gzip, hashlib, json
+          from pathlib import Path
+          m=json.load(open('package.json')); raw=gzip.decompress(Path(m['fixture']['archive']).read_bytes())
+          assert len(raw)==m['fixture']['raw_bytes']
+          assert hashlib.sha256(raw).hexdigest()==m['fixture']['raw_sha256']
+          print('PASS raw VO08 hash/size')
+          PY
+      - name: Verify fixture structure and candidate PCM
+        if: always()
+        working-directory: tests/playback_draft8
+        run: |
+          python3 - <<'PY'
+          import gzip, json
           from pathlib import Path
           import oracle
-          here = Path('.')
-          pkg = oracle.load_package(here)
-          raw = gzip.decompress((here / pkg['fixture']['archive']).read_bytes())
-          oracle.verify_fixture(raw)
-          exp = oracle.expected_outputs(raw)
-          for family, rec in pkg['goldens'].items():
-              assert (here / rec['path']).read_bytes() == exp[family]
-          print('PASS package/fixture/golden authentication')
+          m=json.load(open('package.json')); raw=gzip.decompress(Path(m['fixture']['archive']).read_bytes())
+          oracle.verify_fixture(raw); exp=oracle.expected_outputs(raw)
+          for family, rec in m['goldens'].items(): assert Path(rec['path']).read_bytes() == exp[family]
+          print('PASS fixture structure/candidate PCM')
           PY
       - name: Run synthetic public-call observation
+        if: success()
         working-directory: tests/playback_draft8
         run: |
           tmp=$(mktemp -d)
           python3 - <<'PY' "$tmp"
-          import gzip, pathlib, sys
-          import oracle
-          here = pathlib.Path('.')
-          pkg = oracle.load_package(here)
-          pathlib.Path(sys.argv[1], 'fixture.vo08').write_bytes(gzip.decompress((here / pkg['fixture']['archive']).read_bytes()))
+          import gzip, json, pathlib, sys
+          m=json.load(open('package.json')); pathlib.Path(sys.argv[1], 'fixture.vo08').write_bytes(gzip.decompress(pathlib.Path(m['fixture']['archive']).read_bytes()))
           PY
           python3 _synthetic_adapter.py --fixture "$tmp/fixture.vo08" --out-dir "$tmp/out"
           python3 - <<'PY' "$tmp"
-          import json, pathlib, sys
-          import oracle
-          d = pathlib.Path(sys.argv[1]); raw=(d/'fixture.vo08').read_bytes(); out=d/'out'
-          obs=json.loads((out/'observation.json').read_text())
+          import json, pathlib, sys, oracle
+          d=pathlib.Path(sys.argv[1]); out=d/'out'; obs=json.loads((out/'observation.json').read_text())
           outputs={'forward_1x':(out/'forward-1x.pcm').read_bytes(),'seek_boundaries':(out/'seek-boundaries.pcm').read_bytes(),'reverse_neg1x':(out/'reverse-neg1x.pcm').read_bytes()}
-          assert oracle.check_run(raw,obs,outputs)['pass']
+          assert oracle.check_run((d/'fixture.vo08').read_bytes(),obs,outputs)['pass']
           print('PASS synthetic observation')
           PY
       - name: Run full negative-control and replay selftest
+        if: success()
         run: python3 tests/playback_draft8/selftest.py
