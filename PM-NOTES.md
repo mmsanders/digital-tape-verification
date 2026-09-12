@@ -164,3 +164,24 @@ conforming observations and caught all six targeted mutations; runner plumbing w
 import before corresponding implementation acceptance. PM/Software next supplies
 the public-API adapter and raw product observations. All other product and safety
 holds remain unchanged. No prohibited implementation material was inspected.
+
+## 12 September 2026 — first DRAFT-8 playback/golden tranche ready
+
+Issue #4's bounded independent package is complete for exactly +1.0x byte-exact
+forward playback, first-frame-after-seek at every three-run boundary and +/-1, and
+exact -1.0x reverse from end. Completed verifier source is
+`afa7f280efa5d2dfeb966c44a2eff369b3e30f73`; its `tests/playback_draft8/` tree is
+`8293d51cae969ae044aa33872708dffe2fff9c3a`.
+
+The partial package's checked-in gzip was corrupt. Deterministic regeneration restores
+the exact raw/archive hashes already declared by the authenticated manifest, without
+changing oracle or candidate PCM expectations. The package self-test passes all three
+synthetic public-call families and rejects wrong seek-first-frame, run-boundary
+off-by-one, reverse-grid drift, render I/O, wrong public seek, fixture/PCM/spec tamper,
+missing/tampered evidence and verifier-identity tamper. The saved 3/3 synthetic bundle
+replays offline.
+
+This is ready for PM review, not product acceptance. No product engine was run and no
+implementation material was inspected. Candidate PCM remains unaccepted pending a
+separately issued Michael listening step; all PR #20, WP-10, remaining WP-11, WP-12a,
+hardware/card, fabrication, charging, purchase and Michael-approval holds remain.

@@ -1,6 +1,6 @@
 # Capability status — Phase 0 frozen / Phase-1 verification return
 
-Date: 11 Sep 2026
+Date: 12 Sep 2026
 
 Canonical `mmsanders/Digital-Tape/main` has now **frozen the signed Phase-0 DRAFT-8 scope**. This status distinguishes that signed paper/ABI/media contract from still-open operations, implementation acceptance, WP-10/WP-11 completion and hardware qualification.
 
@@ -14,6 +14,7 @@ Canonical `mmsanders/Digital-Tape/main` has now **frozen the signed Phase-0 DRAF
 | Mount tranche source integrity | **Confirmed** | Product `tests/mount_draft8/run.py` is byte-identical to verifier publication (`891d737c…`). Coverage still excludes allocation/sequence consumption/warm-start/state transitions/operations. |
 | 289-case product observation | **Independently dispositioned green within mount scope** | Raw gzip JSONL was decoded and every verdict recomputed from regenerated verifier fixtures and raw adapter stdout: 274/289 before, 289/289 after, with zero integrity/verdict mismatches. See `findings/mount-observation-disposition-2026-09-11.md`. This accepts only `tests/mount_draft8/COVERAGE.md`, not PR #20 or excluded behaviour. |
 | VT8-001 next tranche | **Published and self-tested; ready for mechanical import** | Exact source is `tests/ops_draft8/` at verifier commit `a91138667673fcf19dc9e83c9034322b982b1771`: `VT8-001-RB-ALLSLOT` and `VT8-001-REC-ALLOCSEQ`; public operation/media observations only. Oracle accepts 2 conforming synthetic observations and catches 6 targeted mutations; runner plumbing is 2/2 against the labeled synthetic adapter. No product run or acceptance yet. |
+| First playback/golden tranche | **Ready for PM review; candidate bytes only** | Completed source commit `afa7f280efa5d2dfeb966c44a2eff369b3e30f73`, `tests/playback_draft8/` tree `8293d51cae969ae044aa33872708dffe2fff9c3a`. Deterministic regeneration restores the manifest-authenticated VO08 and candidate PCM; three synthetic public-call families pass and all targeted provenance/playback/replay controls fail closed. No product run or human listening. |
 | WP-10 | **Mechanically specified; not complete green** | Operations/state remain unfrozen until actual full WP-10. V7-001 two-interruption closure remains mandatory. |
 | WP-11 | **Oracle work may proceed; goldens absent** | Arithmetic/portability contract is frozen/testable; human-listened committed fixtures still outstanding. |
 | WP-12a | **Testable; not yet complete** | State-matrix/re-entry/FAULTED contract remains a follow-on tranche. |
@@ -22,8 +23,9 @@ Canonical `mmsanders/Digital-Tape/main` has now **frozen the signed Phase-0 DRAF
 
 ## Development recommendation
 
-**READY FOR PM REVIEW.** The 289-case mount observations are independently disposed
-green only within their documented boundary. Import exact VT8-001 verifier source
-before allocator/running-sequence implementation acceptance, then return product-run
-observations to Verification. Continue WP-11/WP-10/WP-12a independently; do not
-treat clean mount coverage as approval of excluded behavior.
+**READY FOR PM REVIEW.** The first playback/golden tranche is complete only for its
+three documented families and verifier plumbing. Review the immutable P1-R2-V return;
+product execution and Michael's WP-11 listening remain separate assignments. The
+289-case mount disposition and VT8-001 readiness remain unchanged. Continue
+WP-11/WP-10/WP-12a independently and do not treat synthetic or mount coverage as
+approval of excluded behavior.
