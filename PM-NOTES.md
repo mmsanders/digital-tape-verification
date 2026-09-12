@@ -185,3 +185,20 @@ This is ready for PM review, not product acceptance. No product engine was run a
 implementation material was inspected. Candidate PCM remains unaccepted pending a
 separately issued Michael listening step; all PR #20, WP-10, remaining WP-11, WP-12a,
 hardware/card, fabrication, charging, purchase and Michael-approval holds remain.
+
+## 12 September 2026 — P1-R4 playback evidence correction ready
+
+Issue #5's correction is published from source commit
+`d565403907ecea331a5dcf63efbd1c08d8bd732e`, playback tree
+`aaa6dde86c9a0bdffa2b375361049ac670e26467`. Offline replay now rejects the PM's
+manifest-only synthetic/product relabel and adapter-ID change, missing source/build
+provenance, and missing/nonzero adapter exit. Runner execution is bounded; timeout
+and nonzero failure records are retained. A sentinel control proves a nonempty
+evidence directory is rejected without changing or deleting its bytes.
+
+Deterministic regeneration, package self-tests, the existing verifier suite, and
+saved 3/3 synthetic replay pass. Fixture, PCM, package, and spec bytes are unchanged.
+The full command/evidence record and exclusions are in
+`findings/p1-r4-playback-evidence-hardening-return-2026-09-12.md`. No product code or
+product adapter was inspected or run, and every prior acceptance/safety/physical hold
+remains.
