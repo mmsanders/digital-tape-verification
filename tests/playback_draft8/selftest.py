@@ -24,6 +24,28 @@ def run_checked(raw, obs, outs):
         raise VerificationError("PCM mismatch")
     return r
 
+def replay_rc(path):
+    return subprocess.run(
+        [sys.executable, str(HERE / "replay.py"), str(path)],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    ).returncode
+
+def runner_cmd(evidence, adapter_cmd=None, adapter_source=None, timeout="2"):
+    adapter_source = adapter_source or str(HERE / "_synthetic_adapter.py")
+    adapter_cmd = adapter_cmd or f"{sys.executable} {HERE/'_synthetic_adapter.py'}"
+    return [
+        sys.executable, str(HERE / "runner.py"),
+        "--adapter-cmd", adapter_cmd,
+        "--adapter-kind", "synthetic",
+        "--adapter-id", "verifier-synthetic-public-api-model-v1",
+        "--adapter-source", adapter_source,
+        "--adapter-build", "python3 source; self-test declaration",
+        "--adapter-timeout-seconds", timeout,
+        "--source-commit", "SELFTEST-DECLARED",
+        "--source-tree", "SELFTEST-DECLARED",
+        "--evidence-dir", str(evidence),
+    ]
+
 def main():
     generate_fixture.check_checked_in()
     print("PASS deterministic fixture/candidate-PCM regeneration")
@@ -74,28 +96,85 @@ def main():
         must_fail("tampered authenticated spec bytes", lambda: oracle.load_package(tamper))
 
         ev = td / "evidence"
-        cmd=[sys.executable,str(HERE/"runner.py"),"--adapter-cmd",f"{sys.executable} {HERE/'_synthetic_adapter.py'}",
-             "--adapter-kind","synthetic","--adapter-id","verifier-synthetic-public-api-model-v1",
-             "--adapter-source",str(HERE/"_synthetic_adapter.py"),"--source-commit","SELFTEST",
-             "--source-tree","SELFTEST","--evidence-dir",str(ev)]
+        cmd = runner_cmd(ev)
         subprocess.run(cmd,check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         subprocess.run([sys.executable,str(HERE/"replay.py"),str(ev)],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-        print("PASS offline saved-evidence replay")
+        print("PASS conforming synthetic offline saved-evidence replay")
+
+        relabel=td/"manifest-relabel"; shutil.copytree(ev,relabel); p=relabel/"manifest.json"
+        manifest=json.loads(p.read_text()); manifest["adapter"]["kind"]="product"
+        p.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
+        if replay_rc(relabel)==0: raise AssertionError("manifest-only synthetic/product relabel escaped")
+        print("CAUGHT manifest-only synthetic/product relabel")
+
+        changed_id=td/"manifest-id"; shutil.copytree(ev,changed_id); p=changed_id/"manifest.json"
+        manifest=json.loads(p.read_text()); manifest["adapter"]["id"]="different-adapter-id"
+        p.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
+        if replay_rc(changed_id)==0: raise AssertionError("manifest-only adapter ID change escaped")
+        print("CAUGHT manifest-only adapter ID mismatch")
+
+        for field in ("source", "build"):
+            missing_provenance=td/("missing-adapter-"+field); shutil.copytree(ev,missing_provenance)
+            p=missing_provenance/"manifest.json"; manifest=json.loads(p.read_text())
+            manifest["adapter"].pop(field)
+            p.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
+            if replay_rc(missing_provenance)==0:
+                raise AssertionError(f"missing adapter {field} provenance escaped")
+            print("CAUGHT missing adapter", field, "provenance")
 
         missing=td/"missing"; shutil.copytree(ev,missing); (missing/"output/seek-boundaries.pcm").unlink()
-        rc=subprocess.run([sys.executable,str(HERE/"replay.py"),str(missing)],stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
-        if rc==0: raise AssertionError("missing evidence replay escaped")
+        if replay_rc(missing)==0: raise AssertionError("missing evidence replay escaped")
         print("CAUGHT missing evidence")
         changed=td/"changed"; shutil.copytree(ev,changed); p=changed/"output/reverse-neg1x.pcm"; d=bytearray(p.read_bytes()); d[0]^=1; p.write_bytes(d)
-        rc=subprocess.run([sys.executable,str(HERE/"replay.py"),str(changed)],stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
-        if rc==0: raise AssertionError("tampered evidence replay escaped")
+        if replay_rc(changed)==0: raise AssertionError("tampered evidence replay escaped")
         print("CAUGHT tampered evidence")
         changed_identity=td/"changed-identity"; shutil.copytree(ev,changed_identity); p=changed_identity/"manifest.json"; manifest=json.loads(p.read_text()); manifest["oracle_sha256"]="0"*64; p.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
-        rc=subprocess.run([sys.executable,str(HERE/"replay.py"),str(changed_identity)],stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
-        if rc==0: raise AssertionError("tampered verifier identity escaped")
+        if replay_rc(changed_identity)==0: raise AssertionError("tampered verifier identity escaped")
         print("CAUGHT tampered verifier identity")
 
-    print("SELFTEST PASS: three families + required negative controls + provenance/replay controls")
+        missing_exit=td/"missing-exit"; shutil.copytree(ev,missing_exit)
+        (missing_exit/"output/adapter-exit.txt").unlink()
+        p=missing_exit/"manifest.json"; manifest=json.loads(p.read_text())
+        manifest["files"].pop("output/adapter-exit.txt")
+        p.write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n")
+        if replay_rc(missing_exit)==0: raise AssertionError("missing adapter exit escaped")
+        print("CAUGHT missing recorded adapter exit")
+
+        nonzero_adapter=td/"nonzero_adapter.py"
+        nonzero_adapter.write_text("#!/usr/bin/env python3\nimport sys\nprint('intentional nonzero control')\nsys.exit(7)\n")
+        nonzero=td/"nonzero-evidence"
+        rc=subprocess.run(runner_cmd(nonzero, f"{sys.executable} {nonzero_adapter}", str(nonzero_adapter)),stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
+        if rc != 1: raise AssertionError(f"nonzero adapter runner returned {rc}, expected 1")
+        manifest=json.loads((nonzero/"manifest.json").read_text())
+        result=json.loads((nonzero/"result.json").read_text())
+        assert (nonzero/"output/adapter-exit.txt").read_text()=="7\n"
+        assert manifest["execution"]["outcome"]=="exited" and manifest["execution"]["exit_code"]==7
+        assert result["error"]=="adapter exit 7"
+        if replay_rc(nonzero)==0: raise AssertionError("nonzero adapter exit escaped replay")
+        print("CAUGHT nonzero adapter exit with retained failure record")
+
+        timeout_adapter=td/"timeout_adapter.py"
+        timeout_adapter.write_text("#!/usr/bin/env python3\nimport time\nprint('starting timeout control', flush=True)\ntime.sleep(5)\n")
+        timedout=td/"timeout-evidence"
+        rc=subprocess.run(runner_cmd(timedout, f"{sys.executable} {timeout_adapter}", str(timeout_adapter), "0.05"),stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
+        if rc != 1: raise AssertionError(f"timeout runner returned {rc}, expected 1")
+        manifest=json.loads((timedout/"manifest.json").read_text())
+        result=json.loads((timedout/"result.json").read_text())
+        assert (timedout/"output/adapter-exit.txt").read_text()=="TIMEOUT\n"
+        assert manifest["execution"]["outcome"]=="timeout" and manifest["execution"]["exit_code"] is None
+        assert result["error"].startswith("adapter timeout after ")
+        if replay_rc(timedout)==0: raise AssertionError("timed-out adapter escaped replay")
+        print("CAUGHT bounded adapter timeout with retained failure record")
+
+        retained=td/"retained-evidence"; retained.mkdir(); sentinel=retained/"sentinel.bin"
+        sentinel_bytes=b"PREEXISTING-EVIDENCE-MUST-SURVIVE\x00\xff"; sentinel.write_bytes(sentinel_bytes)
+        rc=subprocess.run(runner_cmd(retained),stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode
+        if rc != 2: raise AssertionError(f"nonempty destination runner returned {rc}, expected 2")
+        if sentinel.read_bytes()!=sentinel_bytes or list(retained.iterdir()) != [sentinel]:
+            raise AssertionError("runner changed a nonempty evidence destination")
+        print("PASS nonempty evidence destination rejected with existing bytes retained")
+
+    print("SELFTEST PASS: three families + identity/exit/provenance/replay/retention controls")
     return 0
 
 if __name__ == "__main__":

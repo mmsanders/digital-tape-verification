@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed offline replay for a saved P1-R2-V playback evidence bundle."""
+"""Fail-closed offline replay for a saved P1-R4-V playback evidence bundle."""
 from __future__ import annotations
 import argparse, gzip, json
 from pathlib import Path
@@ -24,9 +24,9 @@ def replay(evidence: Path) -> dict:
     if not manifest_path.is_file():
         raise VerificationError("missing evidence manifest")
     manifest = json.loads(manifest_path.read_text())
-    if manifest.get("schema") != "playback-draft8-evidence-v1":
+    if manifest.get("schema") != "playback-draft8-evidence-v2":
         raise VerificationError("wrong evidence schema")
-    if manifest.get("assignment") != "P1-R2-V":
+    if manifest.get("assignment") != "P1-R4-V":
         raise VerificationError("wrong evidence assignment")
     for key, name in (
         ("generator_sha256", "generate_fixture.py"),
@@ -39,6 +39,22 @@ def replay(evidence: Path) -> dict:
     for key in ("source_commit", "source_tree"):
         if not isinstance(manifest.get(key), str) or not manifest[key]:
             raise VerificationError(f"missing evidence provenance: {key}")
+    adapter = manifest.get("adapter")
+    if not isinstance(adapter, dict):
+        raise VerificationError("missing adapter identity")
+    if adapter.get("kind") not in {"synthetic", "product"}:
+        raise VerificationError("missing synthetic/product adapter kind")
+    for key in ("id", "source", "build"):
+        if not isinstance(adapter.get(key), str) or not adapter[key].strip():
+            raise VerificationError(f"missing adapter {key} provenance")
+    execution = manifest.get("execution")
+    if not isinstance(execution, dict):
+        raise VerificationError("missing adapter execution record")
+    if execution.get("outcome") != "exited" or execution.get("exit_code") != 0:
+        raise VerificationError("adapter execution was not a successful zero exit")
+    timeout_seconds = execution.get("timeout_seconds")
+    if not isinstance(timeout_seconds, (int, float)) or isinstance(timeout_seconds, bool) or timeout_seconds <= 0:
+        raise VerificationError("invalid adapter timeout provenance")
     expected_files = manifest.get("files")
     if not isinstance(expected_files, dict):
         raise VerificationError("manifest missing file hashes")
@@ -51,6 +67,12 @@ def replay(evidence: Path) -> dict:
         if actual_files[rel] != want:
             raise VerificationError(f"evidence hash mismatch: {rel}")
 
+    exit_path = evidence / "output/adapter-exit.txt"
+    if not exit_path.is_file():
+        raise VerificationError("missing recorded adapter exit")
+    if exit_path.read_text() != "0\n":
+        raise VerificationError("recorded adapter exit is not zero")
+
     package = load_package(evidence / "input")
     if manifest.get("package_manifest_sha256") != sha256_file(evidence / "input/package.json"):
         raise VerificationError("manifest package hash mismatch")
@@ -59,6 +81,13 @@ def replay(evidence: Path) -> dict:
     if not obs_path.is_file():
         raise VerificationError("missing observation.json")
     observation = json.loads(obs_path.read_text())
+    observed_adapter = observation.get("adapter")
+    if not isinstance(observed_adapter, dict):
+        raise VerificationError("observation missing adapter identity")
+    if observed_adapter.get("kind") != adapter["kind"]:
+        raise VerificationError("observation adapter kind disagrees with manifest")
+    if observed_adapter.get("id") != adapter["id"]:
+        raise VerificationError("observation adapter id disagrees with manifest")
     outputs = {}
     for family, name in OUTPUT_NAMES.items():
         p = evidence / "output" / name

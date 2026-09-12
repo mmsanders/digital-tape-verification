@@ -12,7 +12,9 @@
 | PB8-A08 | Portable signed-floor interpolation rule; integral +/-1.0x remains grid aligned | §8; WP-11 | off-grid reverse differs |
 | PB8-A09 | Public call results, rates, seeks, render counts and service completion match scripts | §§6.2,6.3 | wrong seek call |
 | PB8-A10 | Whole callback trace is successful in-range reads only during mount/service | §§3,6.3 | injected render I/O |
-| PB8-A11 | Offline replay authenticates every evidence file and verifier source identity before recomputing exact verdict | WP-11 | missing/tampered evidence; verifier-identity tamper |
+| PB8-A11 | Offline replay hash-binds every evidence file and records declared verifier source identity before recomputing exact verdict | WP-11 | missing/tampered evidence; verifier-source-hash tamper |
 | PB8-A12 | Mismatch identifies first frame/channel/values/delta/count/peak and can emit diff WAV | WP-11 | PCM mutations |
+| PB8-A13 | Manifest adapter kind/ID equals observation kind/ID; source/build declarations exist; execution record and retained exit file prove zero exit | WP-11 evidence integrity | manifest-only kind relabel; manifest-only ID change; missing/nonzero exit |
+| PB8-A14 | Runner never erases a nonempty evidence destination and bounds adapter execution while preserving failure diagnostics | WP-11 evidence retention | sentinel retention; timeout record |
 
 Explicitly excluded: rate ramps; zero/one-frame/extreme-rate boundaries; `tape_set_side`; warm descriptors; recording; crash/recovery; long operations/state matrix; performance; human listening. Fixture creation is not golden acceptance; this package makes no product claim until separately run and dispositioned.
