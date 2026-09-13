@@ -1,4 +1,4 @@
-# DRAFT-8 complete playback tranche — P1-R6-V
+# Corrected DRAFT-8 complete playback tranche — P1-R8-V
 
 Independent Verification sibling to the preserved P1-R4 package at verifier commit
 `7a22cbb4447c40c51b7c8b2282a685ed30a46ba6`, tree
@@ -6,10 +6,13 @@ Independent Verification sibling to the preserved P1-R4 package at verifier comm
 PM-issued exact scrub, and side-switch families without changing any earlier path.
 
 `generate_fixture.py` reconstructs three VO08 fixtures and both 88,200-frame scrub
-candidate PCM files from authenticated product inputs. Run it without `--write` to
-reject drift. `selftest.py` runs these ten families, targeted mutations, the retained
-P1-R4 controls, saved synthetic evidence, and offline replay. Synthetic results and
-candidate PCM are not product execution, listening, WP-11 goldens, or acceptance.
+candidate PCM files from authenticated product inputs. P1-R8 corrects exactly three
+expectations: reverse `INT32_MIN` emits frame 0, reverse-from-end snaps to the last
+frame grid point, and post-side-switch short renders return `TAPE_ERR_UNDERRUN` (18).
+Run the generator without `--write` to reject drift. `selftest.py` runs all ten
+families, named F-1/F-2/F-3 controls, the retained P1-R4 controls, saved synthetic
+evidence, and offline replay. Synthetic results and candidate PCM are not product
+execution, listening, WP-11 goldens, or acceptance.
 
 Commands: `python3 generate_fixture.py`; `python3 selftest.py`; and
-`python3 replay.py evidence/p1-r6-synthetic` from this directory.
+`python3 replay.py evidence/p1-r8-synthetic` from this directory.

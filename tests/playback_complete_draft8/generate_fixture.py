@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministically build P1-R6 playback fixtures and verifier candidate PCM."""
+"""Deterministically build corrected P1-R8 playback fixtures and candidate PCM."""
 from __future__ import annotations
 import argparse, gzip, hashlib, io, json, struct, zlib
 from pathlib import Path
@@ -54,9 +54,10 @@ def gz(b):
     return o.getvalue()
 def interp(a,b,f):
     d=(b-a)*f; q=(d>>32) if d>=0 else -(((-d)+0xffffffff)>>32); return a+q
-def render(start,rates):
+def render(start,rates,*,grid_snap=True):
     pos=start<<32; maxpos=LONG_N<<32; out=[]
-    if rates[0]<0 and pos>=maxpos: pos=maxpos-1
+    if rates[0]<0 and pos>=maxpos:
+        pos=((LONG_N-1)<<32) if grid_snap else maxpos-1
     for rate,count in zip(rates,COUNTS):
         step=rate*65536
         for _ in range(count):
@@ -83,7 +84,7 @@ def main():
     if a.print_records: print(json.dumps(manifest_records(files),indent=2,sort_keys=True)); return 0
     if a.write:
         for n,b in files.items(): p=HERE/n; p.parent.mkdir(parents=True,exist_ok=True); p.write_bytes(b)
-    check(files); print("PASS deterministic P1-R6 fixture/candidate regeneration")
+    check(files); print("PASS deterministic corrected P1-R8 fixture/candidate regeneration")
     for n,r in manifest_records(files).items(): print(n,r["bytes"],r["sha256"])
     return 0
 if __name__=="__main__": raise SystemExit(main())

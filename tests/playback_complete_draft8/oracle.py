@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent oracle for P1-R6 boundary, exact scrub, and side-switch behavior."""
+"""Corrected independent oracle for P1-R8 playback behavior."""
 from __future__ import annotations
 import gzip, hashlib, json
 from pathlib import Path
@@ -49,7 +49,7 @@ def expected_outputs():
     return {
       "one_intmax":gen.pcm((gen.frame(0),)),
       "reverse_zero":gen.pcm((gen.frame(0),)),
-      "intmin":gen.pcm((gen.frame(1),)),
+      "intmin":gen.pcm((gen.frame(1),gen.frame(0))),
       "scrub_forward":(HERE/"candidate/scrub-forward.pcm").read_bytes(),
       "scrub_reverse":(HERE/"candidate/scrub-reverse.pcm").read_bytes(),
       "side_playing":gen.pcm((gen.frame(gen.LONG_N-1),gen.frame(0,1))),
@@ -71,7 +71,7 @@ def validate(obs,outputs):
     for fam,rate,seek,total in (("one_intmax",2147483647,None,1),("reverse_zero",-65536,None,gen.LONG_N),("intmin",-2147483648,1,gen.LONG_N)):
         calls=cases[fam]["calls"]; callbacks(cases[fam],calls); p=0; c(calls[p],"tape_mount",side="A",resume_frame=0,warm=None); p+=1
         if seek is not None: c(calls[p],"tape_seek",frame=seek); p+=1
-        c(calls[p],"tape_set_rate",rate_q16_16=rate); p=service_seq(calls,p+1); c(calls[p],"tape_render",requested=2,rendered=1); p+=1
+        c(calls[p],"tape_set_rate",rate_q16_16=rate); p=service_seq(calls,p+1); c(calls[p],"tape_render",requested=2,rendered=2 if fam=="intmin" else 1); p+=1
         tell(calls[p],1 if fam=="one_intmax" else 0); p+=1; status(calls[p],fam=="one_intmax",fam!="one_intmax"); p+=1; c(calls[p],"tape_unmount"); req(p==len(calls)-1,"boundary trailing calls")
 
     for fam,rates,start in (("scrub_forward",gen.RATES,0),("scrub_reverse",tuple(-x for x in gen.RATES),gen.LONG_N)):
@@ -91,7 +91,7 @@ def validate(obs,outputs):
         else: c(calls[p],"tape_set_rate",rate_q16_16=0); p+=1
         c(calls[p],"tape_set_side",side="B",rate_q16_16=65536 if playing else 0); p+=1; tell(calls[p],0); p+=1; status(calls[p],False,False); p+=1; info(calls[p],gen.SIDE_B_N,False); p+=1
         if not playing: c(calls[p],"tape_set_rate",rate_q16_16=65536); p+=1
-        c(calls[p],"tape_render",result=6,requested=1,rendered=0); p=service_seq(calls,p+1); c(calls[p],"tape_render",requested=1,rendered=1); p+=1; c(calls[p],"tape_unmount"); req(p==len(calls)-1,"side trailing calls")
+        c(calls[p],"tape_render",result=18,requested=1,rendered=0); p=service_seq(calls,p+1); c(calls[p],"tape_render",requested=1,rendered=1); p+=1; c(calls[p],"tape_unmount"); req(p==len(calls)-1,"side trailing calls")
 
     exp=expected_outputs(); verdict={"pass":True,"families":{}}
     for fam,name in OUTPUTS.items():
