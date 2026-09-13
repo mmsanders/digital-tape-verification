@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'tests/playback_draft8/**'
+      - 'tests/playback_complete_draft8/**'
       - 'tests/Makefile'
       - '.github/workflows/playback-verifier.yml'
   workflow_dispatch:
@@ -86,3 +87,6 @@ jobs:
       - name: Run full negative-control and replay selftest
         if: success()
         run: python3 tests/playback_draft8/selftest.py
+      - name: Run complete boundary, scrub, and side-switch tranche
+        if: success()
+        run: python3 tests/playback_complete_draft8/selftest.py
