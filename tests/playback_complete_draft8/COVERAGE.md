@@ -1,4 +1,4 @@
-# P1-R6 coverage and exclusions
+# Corrected P1-R8 coverage and exclusions
 
 Ten families cover: empty at zero and nonzero rates; non-empty stopped at an interior
 position; one frame at `INT32_MAX`; reverse from zero; reverse at `INT32_MIN`; exact
@@ -12,7 +12,9 @@ Targeted mutations: empty-check ordering; zero-rate drift; INT32_MAX overshoot;
 reverse-from-zero skip; INT32_MIN wrap; changed scrub rate; changed scrub row count;
 reverse start; service-time-as-render-time cadence; side-switch refusal while Playing;
 position retained; endpoint flag retained; warm flag retained; rate lost; stale Side-A
-PCM. Package/spec/WP-08/fixture/PCM tamper, adapter identity/provenance/exit/timeout,
+PCM. Named F-1/F-2/F-3 controls additionally reject dropping frame 0 by setting
+`at_start` on the landing step, the DRAFT-5 off-grid reverse candidate, and result 6
+(`TAPE_ERR_GEOMETRY`) in either post-side-switch underrun. Package/spec/WP-08/fixture/PCM tamper, adapter identity/provenance/exit/timeout,
 nonempty-destination and offline replay controls are also exercised; the earlier
 P1-R4 self-test remains mandatory and unchanged.
 

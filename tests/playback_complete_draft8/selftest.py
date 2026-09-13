@@ -18,7 +18,7 @@ def runner_cmd(ev,cmd=None,source=None,timeout="3"):
 def main():
     oracle.authenticate(); print("PASS authenticated frozen DRAFT-8/WP-08/corrected package and deterministic regeneration")
     subprocess.run([sys.executable,str(PRIOR/"selftest.py")],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE); print("PASS retained P1-R4 three-family + 18-control self-test")
-    with tempfile.TemporaryDirectory(prefix="p1-r6-selftest-") as td_s:
+    with tempfile.TemporaryDirectory(prefix="p1-r8-selftest-") as td_s:
         td=Path(td_s); out=td/"out"; out.mkdir(); subprocess.run([sys.executable,str(HERE/"_synthetic_adapter.py"),"--fixture-dir",str(HERE/"fixtures"),"--out-dir",str(out)],check=True,stdout=subprocess.PIPE)
         obs=json.loads((out/"observation.json").read_text()); outs={f:(out/n).read_bytes() for f,n in oracle.OUTPUTS.items()}; validate(obs,outs); print("PASS ten-family synthetic public-call/callback observation")
         def mut(label,edit):

@@ -1,4 +1,4 @@
-# P1-R6 public adapter contract
+# Corrected P1-R8 public adapter contract
 
 The runner invokes `<adapter> --fixture-dir DIR --out-dir DIR`. DIR contains exact
 `long.vo08.gz`, `one.vo08.gz`, `empty.vo08.gz`, and `fixture.json` inputs. The adapter
@@ -12,8 +12,9 @@ Scrub uses every authenticated WP-08 row. Each row is set-rate, then repeated
 service(1024) through `more_work=false`, then 128-frame render requests plus the exact
 remainder. Empty/zero/extreme and side-switch scripts are executable in `oracle.py`.
 No callback may be filtered; render, seek, rate, status, info, tell and side-switch
-perform no media I/O. The pre-service side-switch render must retain result 6
-(`TAPE_ERR_UNDERRUN`) and zero frames.
+perform no media I/O. The pre-service side-switch render must retain result 18
+(`TAPE_ERR_UNDERRUN`) and zero frames; result 6 is `TAPE_ERR_GEOMETRY` and is
+rejected by the F-3 control.
 
 Adapter kind/ID, source/build declarations, finite execution, zero exit, verifier
 commit/tree and all evidence bytes are hash-bound. A product adapter must identify as

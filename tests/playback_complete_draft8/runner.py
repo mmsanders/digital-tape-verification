@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Execute an adapter and retain hash-bound P1-R6 playback evidence."""
+"""Execute an adapter and retain hash-bound corrected P1-R8 playback evidence."""
 from __future__ import annotations
 import argparse,json,shlex,shutil,subprocess,tempfile
 from pathlib import Path
@@ -24,7 +24,7 @@ def main():
     except (oracle.VerificationError,OSError) as e: print("RUNNER FAIL:",e); return 2
     (ev/"output").mkdir(); (ev/"input/package").mkdir(parents=True); copy_package(ev/"input/package")
     execution={"outcome":"exited","exit_code":None,"timeout_seconds":a.adapter_timeout_seconds}
-    with tempfile.TemporaryDirectory(prefix="p1-r6-playback-") as td_s:
+    with tempfile.TemporaryDirectory(prefix="p1-r8-playback-") as td_s:
         td=Path(td_s); out=td/"out"; out.mkdir()
         cmd=shlex.split(a.adapter_cmd)+["--fixture-dir",str(HERE/"fixtures"),"--out-dir",str(out)]
         try:
@@ -46,6 +46,6 @@ def main():
                 except (oracle.VerificationError,ValueError,KeyError,json.JSONDecodeError) as e: result={"pass":False,"families":{},"error":str(e)}
         (ev/"result.json").write_text(json.dumps(result,indent=2,sort_keys=True)+"\n")
     sf=Path(a.adapter_source); source_file={"path":str(sf),"sha256":shafile(sf)} if sf.is_file() else None
-    manifest={"schema":"playback-complete-draft8-evidence-v1","assignment":"P1-R6-V","source_commit":a.source_commit,"source_tree":a.source_tree,"package_manifest_sha256":shafile(HERE/"package.json"),"oracle_sha256":shafile(HERE/"oracle.py"),"runner_sha256":shafile(HERE/"runner.py"),"replay_sha256":shafile(HERE/"replay.py"),"adapter":{"kind":a.adapter_kind,"id":a.adapter_id,"command":a.adapter_cmd,"source":a.adapter_source,"source_file":source_file,"build":a.adapter_build},"execution":execution,"files":hashes(ev)}
-    (ev/"manifest.json").write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n"); print("PASS" if result["pass"] else "FAIL","P1-R6 playback evidence",ev); return 0 if result["pass"] else 1
+    manifest={"schema":"playback-complete-draft8-evidence-v1","assignment":"P1-R8-V","source_commit":a.source_commit,"source_tree":a.source_tree,"package_manifest_sha256":shafile(HERE/"package.json"),"oracle_sha256":shafile(HERE/"oracle.py"),"runner_sha256":shafile(HERE/"runner.py"),"replay_sha256":shafile(HERE/"replay.py"),"adapter":{"kind":a.adapter_kind,"id":a.adapter_id,"command":a.adapter_cmd,"source":a.adapter_source,"source_file":source_file,"build":a.adapter_build},"execution":execution,"files":hashes(ev)}
+    (ev/"manifest.json").write_text(json.dumps(manifest,indent=2,sort_keys=True)+"\n"); print("PASS" if result["pass"] else "FAIL","P1-R8 corrected playback evidence",ev); return 0 if result["pass"] else 1
 if __name__=="__main__": raise SystemExit(main())
