@@ -1,5 +1,5 @@
 {
-  "assignment": "P1-R8-V",
+  "assignment": "P1-R13-V",
   "generated_files": {
     "candidate/scrub-forward.pcm": {"bytes": 352800, "sha256": "41e882e74e3c64d929fcc76ad47b52f72ce9ed1541e971497b3c9a04fb46006b"},
     "candidate/scrub-reverse.pcm": {"bytes": 352800, "sha256": "5f1794e8dcd7c1b3e2c390a1aef33039f5b88b20f682c56c4aa6f94051bd8fa1"},
@@ -20,6 +20,6 @@
     "engine-api.md": "537eadc423e1a7bde726d689206b8fe93bef164d57e48e8ff71e07eaf8a7e3a1",
     "tapefs-v1.md": "3bffa0ec46d7ba3779b02cbee6fac1edaf5094553f78270ee379759655147cbb"
   },
-  "status": "corrected verifier candidate PCM; synthetic only; not product-run, listened, or accepted",
+  "status": "P1-R13 per-render service cadence corrected; verifier candidate PCM remains synthetic only, not product-run, listened, or accepted",
   "wp08_sha256": "ff519e960ed3db6e401baebd12f33d5527f83f0e4dfec12484f498470198a96a"
 }

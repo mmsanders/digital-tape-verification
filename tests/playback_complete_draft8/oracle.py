@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Corrected independent oracle for P1-R8 playback behavior."""
+"""Corrected independent oracle for P1-R13 playback behavior."""
 from __future__ import annotations
 import gzip, hashlib, json
 from pathlib import Path
@@ -78,9 +78,10 @@ def validate(obs,outputs):
         calls=cases[fam]["calls"]; callbacks(cases[fam],calls); p=0; c(calls[p],"tape_mount",side="A",resume_frame=0,warm=None); p+=1
         if start: c(calls[p],"tape_seek",frame=start); p+=1
         for rate,count in zip(rates,gen.COUNTS):
-            c(calls[p],"tape_set_rate",rate_q16_16=rate); p=service_seq(calls,p+1)
+            c(calls[p],"tape_set_rate",rate_q16_16=rate); p+=1
             remaining=count
             while remaining:
+                p=service_seq(calls,p)
                 n=min(128,remaining); c(calls[p],"tape_render",requested=n,rendered=n); remaining-=n; p+=1
         c(calls[p],"tape_unmount"); req(p==len(calls)-1,"scrub trailing calls")
 

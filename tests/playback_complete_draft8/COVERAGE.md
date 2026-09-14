@@ -7,6 +7,10 @@ Assertions bind zero/short counts, `TAPE_OK` versus underrun, tell/status/info s
 endpoint clamps, every signed rate and render subdivision, service completion, rate
 retention, position/flags/warm reset, ring invalidation, first Side-B PCM, and complete
 callback legality. Candidate scrub output is 88,200 stereo s16le frames per direction.
+Each of the 698 scrub renders per direction requires an immediately preceding finite
+`tape_service(1024)` sequence ending with `more_work == false`. Named P1-R13-V01
+controls independently reconstruct and reject the old once-per-row cadence in forward
+and reverse traces.
 
 Targeted mutations: empty-check ordering; zero-rate drift; INT32_MAX overshoot;
 reverse-from-zero skip; INT32_MIN wrap; changed scrub rate; changed scrub row count;
