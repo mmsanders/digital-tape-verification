@@ -8,28 +8,35 @@ records. Their old DRAFT-6 blocker/status claims are superseded by issued DRAFT-
 must not be used as current acceptance authority. Useful harness ideas remain
 provenance only; new assertions cite current DRAFT-8 bytes.
 
-1. **Playback + independent goldens (WP-08/WP-11).** First establish byte-exact
-   independent PCM fixtures and transport boundary cases against DRAFT-8 Engine API
-   §§6/8. Include seek→render phase, reverse endpoints/rates, side switching, warm
-   descriptor negatives, and cross-target byte identity. Human listening remains a
-   separate Michael step before golden acceptance.
-2. **Recording breadth + random edit sequences.** After the current two-case adapter
-   is mechanically importable, add overwrite/overdub/splice families, zero-frame
-   commit, full/index-full/short-accept boundaries, stage clearing, sequence
-   exhaustion, interval/ownership invariants and seeded random edit histories. Reuse
-   whole-trace callback/range/result evidence rather than implementation state.
-3. **Complete crash closure (WP-10).** With each operation oracle independently
-   authored, enumerate write/flush boundaries in both durability modes, remount from
-   durable bytes only, and classify exact permitted states. Explicitly include the
-   DRAFT-8 V7-001 **two-interruption** partner-first closure, stage clearing/resume,
-   format/duplicate identity boundary, generation/sequence exhaustion, and FAULTED
-   barriers. Operations/state do not freeze before the actual complete green run.
-4. **Long operations + state matrix (WP-12a).** After operation semantics/crash states
-   above are executable, cover budget/continuation identity, zero budget, stable
-   argument mismatch, allowed concurrent render/service, progress-callback reentry,
-   BUSY cells, I/O failure to FAULTED and both normative exclusions. Tie every state
-   cell to current DRAFT-8 API text rather than DRAFT-6 labels.
+Independent surge packages now published (draft PRs, not accepted):
 
-This order minimizes circular oracles: playback expectations precede goldens,
-recording semantics precede crash classification, and operation outcomes precede the
-full continuation/state matrix.
+- `tests/record_draft8/` — structural overwrite/overdub/splice families including
+  empty-B and exact-run-boundary splice, multi-chunk overwrite, six refusal/abort rows,
+  the full 3 modes × start/middle/end zero-accepted-commit matrix with a tail-render
+  probe, and mountable stage-1 refusal/clear cases
+- `tests/respool_draft8/` — empty / two-pass / full / degraded / stage-1 clear
+- `tests/slot_draft8/` — source-slot A/B playback, mutators, format RO
+- `tests/format_dup_draft8/` — format/dup preconditions including order and
+  `block_count ∈ {0,1,LBA_CHUNK_BASE}`, empty-promote
+- `tests/transport_draft8/` — set_side transition + eight warm-start negatives
+
+Still outstanding for WP-09 itself: real-product observations, golden/listened PCM,
+product-level overdub saturation evidence, and the seeded 10 000-edit property history.
+The already-full `accepted==0` capacity boundary is covered; a later capacity/property
+tranche should also exercise a positive short accept followed by service+commit if the
+public buffering contract admits that request shape.
+
+Everything below stacks on the independent operation oracles and was not started:
+
+1. **WP-11 goldens / listening.** Human listening remains a separate Michael step.
+   Warm-start *use* (accepted descriptor) needs those goldens.
+2. **Complete crash closure (WP-10).** Write/flush boundaries in both durability
+   modes, remount from durable bytes only, V7-001 two-interruption partner-first,
+   format/dup identity-assignment commits, generation/sequence exhaustion crash
+   rows, FAULTED barriers. Operations/state do not freeze before that green run.
+3. **Long operations + state matrix (WP-12a).** Budget/continuation identity,
+   zero budget, stable argument mismatch, re-entry, BUSY cells, I/O → FAULTED
+   and both normative exclusions.
+
+This order minimizes circular oracles. WP-10 and WP-12a build on the operation
+oracles above and are not started from this surge cut.
