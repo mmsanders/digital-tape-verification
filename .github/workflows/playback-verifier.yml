@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'tests/playback_draft8/**'
+      - 'tests/format_dup_draft8/**'
       - 'tests/playback_complete_draft8/**'
       - 'tests/Makefile'
       - '.github/workflows/playback-verifier.yml'
@@ -84,6 +85,9 @@ jobs:
           assert oracle.check_run((d/'fixture.vo08').read_bytes(),obs,outputs)['pass']
           print('PASS synthetic observation')
           PY
+      - name: Run format/dup refusal oracle selftest
+        if: success()
+        run: python3 tests/format_dup_draft8/selftest.py
       - name: Run full negative-control and replay selftest
         if: success()
         run: python3 tests/playback_draft8/selftest.py
