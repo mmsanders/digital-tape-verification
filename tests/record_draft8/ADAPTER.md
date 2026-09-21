@@ -42,7 +42,7 @@ live B0 `[(0,0,256)]` at sequence 20, B1 empty. `a_high_water == free_next == 3`
 
 ## Scripts
 
-All cases start:
+Happy-path cases start:
 
 1. fresh instance; `tape_mount(B)`;
 2. `tape_seek(CASE.seek)`;
@@ -56,6 +56,10 @@ Then:
   unmount; remount B. Zero block events.
 - `WP09-ARMED-BUSY`: after arm, `tape_seek(0)` and `tape_set_rate(1.0×)` must
   both return `TAPE_ERR_BUSY`; `tape_abort`; unmount. Zero block events.
+- `WP09-RO-SIDE-A`: mount Side A; `tape_arm(overwrite)` → `TAPE_ERR_READ_ONLY`; unmount. Zero events.
+- `WP09-SEQ-EXHAUSTED` / `WP09-INDEX-FULL` / `WP09-STAGE-REFUSE`: mount B, seek 0, arm must return the named error; unmount. Zero events.
+- `WP09-CART-FULL`: mount B, seek 0, arm overwrite succeeds; `tape_feed(64)` → `TAPE_ERR_CARTRIDGE_FULL` with `accepted==0`; abort; unmount.
+- `WP09-ABORT-DISARM`: mount B, seek 128, arm, abort `TAPE_OK`; unmount. Zero events.
 
 Modes: overwrite cases use `TAPE_REC_OVERWRITE`, overdub `TAPE_REC_OVERDUB`,
 splice `TAPE_REC_SPLICE`.
