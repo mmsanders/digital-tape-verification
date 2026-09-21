@@ -1,3 +1,5 @@
+> **Historical Surge checkpoint.** Superseded for current WP-09 scope by the temp Verification repair on PR #21. Use `tests/record_draft8/README.md` and `COVERAGE.md` as the current package boundary; this file is retained as provenance only.
+
 # SURGE record — WP-09 refusal slice + format/dup refusals (21 Sep 2026)
 
 Independent coverage only. Not acceptance. Not a merge.
