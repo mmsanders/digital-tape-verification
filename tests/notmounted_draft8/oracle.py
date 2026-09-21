@@ -151,9 +151,21 @@ def check(case:Case,observation:dict)->list[str]:
         unmounts=_calls(observation,"setup","tape_unmount")
         req(len(mounts)==1 and mounts[0].get("result")=="TAPE_OK","after-case setup mount missing/failed")
         req(len(unmounts)==1 and unmounts[0].get("result")=="TAPE_OK","after-case setup unmount missing/failed")
+        if mounts:
+            req(mounts[0].get("side")=="A","after-case setup mounted wrong side")
+        req(
+            [(c.get("phase"),c.get("fn")) for c in calls] ==
+            [("setup","tape_init"),("setup","tape_mount"),("setup","tape_unmount"),("probe",case.target)],
+            "after-case call order/shape mismatch",
+        )
     else:
         req(not _calls(observation,"setup","tape_mount"),"before-case unexpectedly mounted")
         req(not _calls(observation,"setup","tape_unmount"),"before-case unexpectedly unmounted")
+        req(
+            [(c.get("phase"),c.get("fn")) for c in calls] ==
+            [("setup","tape_init"),("probe",case.target)],
+            "before-case call order/shape mismatch",
+        )
 
     probes=[c for c in calls if c.get("phase")=="probe"]
     req(len(probes)==1,"expected exactly one isolated probe call")
