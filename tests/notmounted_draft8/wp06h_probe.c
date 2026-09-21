@@ -126,7 +126,7 @@ static tape_result call_target(target_t target,tape *t,const tape_dev *dst,
   tape_status_t status;
   tape_info info;
   uint64_t pos=0;
-  uint8_t uuid[16]={0};
+  uint8_t uuid[16]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
   tape_result r=TAPE_ERR_INVALID_ARG;
   memset(&status,0,sizeof(status)); memset(&info,0,sizeof(info));
   switch(target) {
