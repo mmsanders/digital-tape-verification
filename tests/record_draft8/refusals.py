@@ -3,11 +3,12 @@
 
 Authored from Engine API §7 / §10 and TapeFS §4.5 / §8 / §9.1.
 Does not inspect product implementation. Does not depend on acceptance
-of the eight happy-path families.
+of the happy-path record families.
 """
 from __future__ import annotations
 
 import struct
+import zlib
 
 from oracle import (
     Media,
@@ -35,6 +36,26 @@ def _flushes(events):
     return [e for e in events if e.get("op") == "flush"]
 
 
+def _stage1_resume_fixture(*, exhausted: bool) -> Media:
+    """Construct an actual §9.3.3 row-1 stage-1 cartridge.
+
+    A and B are byte-identical at staging run S=3, len=1 and H=S+len=4.
+    The A1 slot remains semantically invalid for A but is structurally valid;
+    when exhausted=True it carries SEQ_CAP so cartridge_sequence is exhausted
+    without disturbing the stage oracle.
+    """
+    pre = base_fixture()
+    chunks = derived_total_chunks(60)
+    staged = bytearray(sb(generation=7, high=4, chunks=chunks, stage=1))
+    struct.pack_into("<I", staged, 128, 3)  # promote_staging_chunk = S
+    struct.pack_into("<I", staged, 508, zlib.crc32(staged[:508]))
+    slots = list(pre.slots)
+    slots[0] = idx(0, [(3, 0, 128)], 10)
+    slots[1] = idx(1, [(1, 0, 64)], SEQ_CAP if exhausted else 700)
+    slots[2] = idx(1, [(3, 0, 128)], 20)
+    return Media(pre.blocks, bytes(staged), bytes(staged), tuple(slots))
+
+
 def refusal_cases():
     """Return (id, pre, mode, mount_side, expect) tuples."""
     pre = base_fixture()
@@ -53,10 +74,7 @@ def refusal_cases():
     packed_slots[2] = idx(1, packed_entries, 20)
     packed = Media(pre.blocks, pre.primary, pre.mirror, tuple(packed_slots))
 
-    staged = sb(generation=7, high=3, chunks=chunks, stage=1)
-    staged_slots = list(pre.slots)
-    staged_slots[1] = idx(1, [(1, 0, 64)], SEQ_CAP)
-    staged_exh = Media(pre.blocks, staged, staged, tuple(staged_slots))
+    staged_exh = _stage1_resume_fixture(exhausted=True)
 
     return [
         ("WP09-RO-SIDE-A", pre, "overwrite", "A", "TAPE_ERR_READ_ONLY"),
@@ -89,10 +107,19 @@ def fixture_ok(cid, pre):
         if live_slot(pre, 1) != 2:
             errors.append("full fixture lost live B")
     if cid == "WP09-STAGE-REFUSE":
-        if struct.unpack_from("<I", select_sb(pre), 124)[0] != 1:
+        selected = select_sb(pre)
+        if struct.unpack_from("<I", selected, 124)[0] != 1:
             errors.append("stage-refuse fixture promote_stage is not 1")
+        if struct.unpack_from("<I", selected, 128)[0] != 3:
+            errors.append("stage-refuse fixture staging chunk is not 3")
+        if struct.unpack_from("<I", selected, 56)[0] != 4:
+            errors.append("stage-refuse fixture H is not S+len")
         if cartridge_sequence(pre) != SEQ_CAP:
             errors.append("stage-refuse fixture sequence is not exhausted")
+        if live_slot(pre, 0) != 0 or live_slot(pre, 1) != 2:
+            errors.append("stage-refuse fixture lost live A/B")
+        if parse_entries(pre.slots[0]) != [(3, 0, 128)] or parse_entries(pre.slots[2]) != [(3, 0, 128)]:
+            errors.append("stage-refuse fixture does not match §9.3.3 row 1")
     return errors
 
 
@@ -110,38 +137,45 @@ def check_refusal(cid, pre, mode, mount_side, expect, post, events, calls):
     req(post.slots == pre.slots, "index slot bytes changed")
 
     mounts = [c for c in calls if c.get("fn") == "tape_mount"]
-    req(bool(mounts) and mounts[0].get("result") == "TAPE_OK", "mount did not succeed")
-    req(mounts[0].get("side") == mount_side, "mounted the wrong side")
+    req(len(mounts) == 1 and mounts[0].get("result") == "TAPE_OK", "mount did not succeed")
+    req(bool(mounts) and mounts[0].get("side") == mount_side, "mounted the wrong side")
 
     if cid == "WP09-RO-SIDE-A":
         arms = [c for c in calls if c.get("fn") == "tape_arm"]
-        req(bool(arms) and arms[0].get("result") == expect and arms[0].get("mode") == mode, "Side-A arm was not READ_ONLY")
+        req(len(arms) == 1 and arms[0].get("result") == expect and arms[0].get("mode") == mode, "Side-A arm was not READ_ONLY")
         req(not any(c.get("fn") == "tape_feed" for c in calls), "Side-A refusal fed frames")
     elif cid in ("WP09-SEQ-EXHAUSTED", "WP09-INDEX-FULL", "WP09-STAGE-REFUSE"):
         arms = [c for c in calls if c.get("fn") == "tape_arm"]
-        req(bool(arms) and arms[0].get("result") == expect and arms[0].get("mode") == mode, "arm refusal mismatch")
+        req(len(arms) == 1 and arms[0].get("result") == expect and arms[0].get("mode") == mode, "arm refusal mismatch")
         req(not any(c.get("fn") == "tape_feed" for c in calls), "refused arm still fed")
         if cid == "WP09-STAGE-REFUSE":
             req(struct.unpack_from("<I", post.primary, 124)[0] == 1, "stage-clearing write ran on a refusal")
     elif cid == "WP09-CART-FULL":
         arms = [c for c in calls if c.get("fn") == "tape_arm"]
-        req(bool(arms) and arms[0].get("result") == "TAPE_OK" and arms[0].get("mode") == mode, "full-cartridge arm should succeed")
+        req(len(arms) == 1 and arms[0].get("result") == "TAPE_OK" and arms[0].get("mode") == mode, "full-cartridge arm should succeed")
         feeds = [c for c in calls if c.get("fn") == "tape_feed"]
         req(
-            bool(feeds)
+            len(feeds) == 1
             and feeds[0].get("result") == expect
+            and feeds[0].get("requested") == 64
             and feeds[0].get("accepted") == 0
-            and feeds[0].get("events_from_call", 0) == 0,
+            and "events_from_call" in feeds[0]
+            and feeds[0].get("events_from_call") == 0,
             "cartridge-full short-accept missing",
         )
+        req(not any(e.get("phase") == "feed" for e in events), "cartridge-full tape_feed issued raw block I/O")
         aborts = [c for c in calls if c.get("fn") == "tape_abort"]
-        req(bool(aborts) and aborts[0].get("result") == "TAPE_OK", "full-cartridge abort missing")
+        req(len(aborts) == 1 and aborts[0].get("result") == "TAPE_OK", "full-cartridge abort missing")
     elif cid == "WP09-ABORT-DISARM":
         arms = [c for c in calls if c.get("fn") == "tape_arm"]
-        req(bool(arms) and arms[0].get("result") == "TAPE_OK", "abort case arm failed")
+        req(len(arms) == 1 and arms[0].get("result") == "TAPE_OK", "abort case arm failed")
         aborts = [c for c in calls if c.get("fn") == "tape_abort"]
-        req(bool(aborts) and aborts[0].get("result") == "TAPE_OK", "abort was not TAPE_OK")
+        req(len(aborts) == 1 and aborts[0].get("result") == "TAPE_OK", "abort was not TAPE_OK")
         req(not any(c.get("fn") == "tape_commit" for c in calls), "abort case committed")
+
+    unmounts = [c for c in calls if c.get("fn") == "tape_unmount"]
+    req(len(unmounts) == 1 and unmounts[0].get("result") == "TAPE_OK",
+        "refusal/abort did not leave a state that can unmount")
     return err
 
 
