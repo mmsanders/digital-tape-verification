@@ -103,7 +103,8 @@ def v11_media(partner:str="equal")->Media:
         mirror=sb(generation=6,minor=1)
     elif partner=="invalid":
         m=bytearray(sb(generation=6,minor=1))
-        m[508:512]=b"\x00\x00\x00\x00"
+        stored=struct.unpack_from("<I",m,508)[0]
+        struct.pack_into("<I",m,508,stored ^ 0xFFFFFFFF)
         mirror=bytes(m)
     else:
         raise ValueError(partner)
