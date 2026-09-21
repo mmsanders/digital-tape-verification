@@ -60,7 +60,8 @@ def main():
         wrapper=Path(td)/"synthetic"
         wrapper.write_text(
             "#!/usr/bin/env python3\n"
-            "import runpy\n"
+            "import runpy, sys\n"
+            f"sys.path.insert(0, {str(ROOT)!r})\n"
             f"runpy.run_path({str(ROOT/'_synthetic_adapter.py')!r}, run_name='__main__')\n"
         )
         os.chmod(wrapper,0o755)
