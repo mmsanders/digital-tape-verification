@@ -1,17 +1,14 @@
-# WP-06a remaining mutator assertion matrix
+# WP-06a effective-writability assertion matrix
 
-Mount admission of v1.1 (`writable == false`) already lives in
-`tests/mount_draft8/`. This package covers the mutator and repair-skip rows
-that package explicitly deferred.
-
-| ID | Assertion | Basis | Control |
+| ID | Assertion | Basis | Negative control |
 |---|---|---|---|
-| W06A-A01 | Writable device + valid v1.1 mounts `TAPE_OK` | TapeFS §4.3; Engine API §3.1 | mount result |
-| W06A-A02 | `tape_info.writable == false`, `version_minor == 1` | Engine API §3.1, §5 | writable-true mutation |
-| W06A-A03 | Torn partner: `needs_repair == true`, zero writes (repair skipped) | TapeFS §4.1 phase 4; WP-06a | needs_repair hidden |
-| W06A-A04 | `arm` / `reset_b` / `promote` / `respool` are `TAPE_ERR_READ_ONLY` | Engine API §3.1, §10 W; acceptance WP-06a | arm-allowed |
-| W06A-A05 | `feed` / `commit` are `TAPE_ERR_BUSY` (never armed) | Engine API §10 idle row; WP-06a | feed returned READ_ONLY |
-| W06A-A06 | Zero writes and flushes on every row | invariant 23 | write mutation |
+| W06A-A01 | A device with a real non-NULL write callback carrying valid v1.1 media mounts `TAPE_OK` | TapeFS §4.3; Engine API §3.1 | non-product/non-writable-device observation refused |
+| W06A-A02 | Every mounted case reports `writable == false`, `version_minor == 1` | Engine API §3.1, §5 | writable=true; minor=0 |
+| W06A-A03 | Healthy v1.1: arm/reset_b/promote/respool return `TAPE_ERR_READ_ONLY` | Engine API §3.1, §10 W; WP-06a | arm/reset accepted |
+| W06A-A04 | Healthy v1.1 idle feed/commit return `TAPE_ERR_BUSY` | Engine API §10; WP-06a | feed READ_ONLY |
+| W06A-A05 | Invalid-partner and valid-stale-partner v1.1 mounts skip repair and report `needs_repair=true` | TapeFS §4.1 phase 4, §4.3 | needs_repair hidden |
+| W06A-A06 | Zero `dev_write` callback invocations in every case | acceptance WP-06a, invariant 23 | injected write event |
+| W06A-A07 | Requested side and required public call are actually exercised | verifier adapter contract | wrong side; omitted target |
+| W06A-A08 | Final verifier media is byte-identical to input | consequence of zero-write contract | media mutation |
 
-Excluded: source-slot `write == NULL` (WP-36), format/dup raw-device gating,
-crash, continuation, listened PCM.
+Flush callbacks are logged but not treated as an independent WP-06a failure; the issued criterion says zero `dev_write` calls. Excluded: WP-36 source-slot behavior, raw format/dup gating, crash/continuation coverage, and product-source acceptance.
