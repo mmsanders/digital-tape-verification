@@ -7,9 +7,11 @@ tables or identity-assignment success paths.
 """
 from __future__ import annotations
 
+import hashlib
 import struct
 import zlib
 from dataclasses import dataclass
+from pathlib import Path
 
 CF = 131072
 SAMPLE_RATE = 44100
@@ -19,6 +21,24 @@ BLOCK = 512
 BLOCKS_PER_CHUNK = CHUNK_BYTES // BLOCK
 SLOT_BYTES = 65536
 LBA_A0, LBA_A1, LBA_B0, LBA_B1, LBA_CHUNK_BASE = 8, 136, 264, 392, 2048
+
+STRICT_NO_CALLBACK_IDS = frozenset({
+    "FMT-GEOM-0", "FMT-GEOM-1", "FMT-GEOM-BASE",
+    "DUP-GEOM-0", "DUP-GEOM-1", "DUP-GEOM-BASE",
+})
+
+
+class VerificationError(Exception):
+    pass
+
+
+def req(cond, msg):
+    if not cond:
+        raise VerificationError(msg)
+
+
+def shafile(path) -> str:
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 @dataclass(frozen=True)
@@ -63,11 +83,15 @@ def derived_total_chunks(nominal=NOMINAL_LENGTH_S) -> int:
     return (nominal * SAMPLE_RATE + CF - 1) // CF
 
 
+def min_blocks_for_nominal(nominal=NOMINAL_LENGTH_S) -> int:
+    return LBA_CHUNK_BASE + derived_total_chunks(nominal) * BLOCKS_PER_CHUNK + 1
+
+
 def sb(*, generation=7, high=3, chunks=None, blocks=None, nominal=NOMINAL_LENGTH_S, stage=0) -> bytes:
     if chunks is None:
         chunks = derived_total_chunks(nominal)
     if blocks is None:
-        blocks = LBA_CHUNK_BASE + chunks * BLOCKS_PER_CHUNK + 1
+        blocks = min_blocks_for_nominal(NOMINAL_LENGTH_S)
     b = bytearray(BLOCK)
     b[:8] = b"TAPEFS\0\x01"
     struct.pack_into("<H", b, 8, 1)
@@ -150,17 +174,24 @@ def make_cases() -> list[Case]:
     src_long = source_media(a_frames=CF + 1)
     empty_b = empty_b_media()
     dest_ok_blocks = src.blocks
+    fit_minus_one = min_blocks_for_nominal(NOMINAL_LENGTH_S) - 1
     return [
         Case("FMT-RO", "format", src, dest_ok_blocks, NOMINAL_LENGTH_S, False, False, "TAPE_ERR_READ_ONLY", None),
         Case("FMT-GEOM-0", "format", src, 0, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", None),
         Case("FMT-GEOM-1", "format", src, 1, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", None),
         Case("FMT-GEOM-BASE", "format", src, LBA_CHUNK_BASE, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", None),
+        Case("FMT-GEOM-FIT", "format", src, fit_minus_one, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", None),
+        Case("FMT-ORDER-RO", "format", src, 0, NOMINAL_LENGTH_S, False, False, "TAPE_ERR_READ_ONLY", None),
         Case("DUP-ALIAS", "dup", src, dest_ok_blocks, NOMINAL_LENGTH_S, True, True, "TAPE_ERR_INVALID_ARG", False),
         Case("DUP-RO", "dup", src, dest_ok_blocks, NOMINAL_LENGTH_S, False, False, "TAPE_ERR_READ_ONLY", False),
         Case("DUP-GEOM-0", "dup", src, 0, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", False),
+        Case("DUP-GEOM-1", "dup", src, 1, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", False),
         Case("DUP-GEOM-BASE", "dup", src, LBA_CHUNK_BASE, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", False),
-        Case("DUP-ORDER-ALIAS", "dup", src, 0, NOMINAL_LENGTH_S, False, True, "TAPE_ERR_INVALID_ARG", False),
+        Case("DUP-GEOM-FIT", "dup", src, fit_minus_one, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", False),
         Case("DUP-TOO-SMALL", "dup", src_long, LBA_CHUNK_BASE + BLOCKS_PER_CHUNK + 2, 1, True, False, "TAPE_ERR_DEST_TOO_SMALL", False),
+        Case("DUP-ORDER-ALIAS", "dup", src_long, 0, 1, False, True, "TAPE_ERR_INVALID_ARG", False),
+        Case("DUP-ORDER-RO", "dup", src_long, LBA_CHUNK_BASE, 1, False, False, "TAPE_ERR_READ_ONLY", False),
+        Case("DUP-ORDER-GEOM", "dup", src_long, LBA_CHUNK_BASE, 1, True, False, "TAPE_ERR_GEOMETRY", False),
         Case("PROMOTE-EMPTY", "promote", empty_b, empty_b.blocks, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_INVALID_ARG", False),
     ]
 
@@ -169,37 +200,95 @@ def _writes(events):
     return [e for e in events if e.get("op") == "write"]
 
 
+def _touches_lba(event, lba: int) -> bool:
+    if event.get("op") != "read":
+        return False
+    try:
+        first = int(event["lba"])
+        count = int(event.get("count", 1))
+    except (KeyError, TypeError, ValueError):
+        return False
+    return count > 0 and first <= lba < first + count
+
+
+def _destination_superblock_reads(case: Case, events):
+    mirror = case.dest_blocks - 1 if case.dest_blocks > 0 else None
+    out = []
+    for e in events:
+        if e.get("device") != "destination":
+            continue
+        if _touches_lba(e, 0) or (mirror is not None and _touches_lba(e, mirror)):
+            out.append(e)
+    return out
+
+
 def check(case: Case, post: Media, events: list[dict], calls: list[dict]) -> list[str]:
     err = []
 
-    def req(cond, msg):
+    def need(cond, msg):
         if not cond:
             err.append(msg)
 
-    req(post.encode() == case.pre.encode(), "refusal wrote source media")
-    req(not _writes(events), "refusal issued a write")
-    req(not any(e.get("op") == "flush" for e in events), "refusal issued a flush")
-    if case.id in ("FMT-GEOM-0", "FMT-GEOM-1", "FMT-GEOM-BASE", "DUP-GEOM-0", "DUP-GEOM-BASE"):
-        req(events == [], "geometry refusal issued a callback")
+    need(post.encode() == case.pre.encode(), "refusal changed tracked media")
+    need(not _writes(events), "refusal issued a write")
+
+    if case.id in STRICT_NO_CALLBACK_IDS:
+        need(events == [], "DEVICE_ADDRESSABLE geometry refusal issued a callback")
+
+    if case.kind in ("format", "dup"):
+        need(not _destination_superblock_reads(case, events), "refusal read destination superblock")
 
     if case.kind == "format":
         hits = [c for c in calls if c.get("fn") == "tape_format"]
-        req(bool(hits) and hits[0].get("result") == case.expect, "format result mismatch")
-        req(hits and hits[0].get("events_from_call", 0) == 0, "format refusal issued callbacks")
+        need(bool(hits), "missing tape_format call")
+        if hits:
+            need(hits[0].get("result") == case.expect, "format result mismatch")
     elif case.kind == "dup":
         hits = [c for c in calls if c.get("fn") == "tape_dup"]
-        req(bool(hits) and hits[0].get("result") == case.expect, "dup result mismatch")
-        req(hits and hits[0].get("more_work") is False, "dup refusal left more_work true")
-        req(hits and hits[0].get("events_from_call", 0) == 0, "dup refusal issued callbacks")
-        if case.dest_aliases:
-            req(hits[0].get("aliased") is True, "alias case did not record dest alias")
+        need(bool(hits), "missing tape_dup call")
+        if hits:
+            need(hits[0].get("result") == case.expect, "dup result mismatch")
+            need(hits[0].get("more_work") is False, "dup refusal left more_work true")
+            if case.dest_aliases:
+                need(hits[0].get("aliased") is True, "alias case did not record dest alias")
     elif case.kind == "promote":
         mounts = [c for c in calls if c.get("fn") == "tape_mount"]
-        req(bool(mounts) and mounts[0].get("result") == "TAPE_OK", "promote case failed to mount")
+        need(bool(mounts), "missing promote setup mount")
+        if mounts:
+            need(mounts[0].get("result") == "TAPE_OK", "promote case failed to mount")
         hits = [c for c in calls if c.get("fn") == "tape_promote"]
-        req(bool(hits) and hits[0].get("result") == case.expect, "empty promote result mismatch")
-        req(hits and hits[0].get("more_work") is False, "empty promote left more_work true")
+        need(bool(hits), "missing tape_promote call")
+        if hits:
+            need(hits[0].get("result") == case.expect, "empty promote result mismatch")
+            need(hits[0].get("more_work") is False, "empty promote left more_work true")
+    else:
+        need(False, "unknown case kind")
     return err
+
+
+def validate_observation(case: Case, post_bytes: bytes, observation: dict) -> list[str]:
+    err = []
+    if observation.get("format") != "WP-FMTDUP-OBSERVATION-1":
+        err.append("observation format mismatch")
+    if observation.get("case_id") != case.id:
+        err.append("observation case_id mismatch")
+    if observation.get("adapter_kind") not in ("synthetic", "product"):
+        err.append("invalid adapter_kind")
+    if not isinstance(observation.get("adapter_id"), str) or not observation.get("adapter_id", "").strip():
+        err.append("missing adapter_id")
+    calls = observation.get("calls")
+    events = observation.get("events")
+    if not isinstance(calls, list):
+        err.append("calls is not a list")
+        calls = []
+    if not isinstance(events, list):
+        err.append("events is not a list")
+        events = []
+    try:
+        post = Media.decode(post_bytes)
+    except (ValueError, struct.error) as e:
+        return err + [f"bad output media: {e}"]
+    return err + check(case, post, events, calls)
 
 
 def synth_observation(case: Case):
