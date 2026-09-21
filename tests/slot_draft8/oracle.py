@@ -139,6 +139,8 @@ def check(case:Case,post:Media,observation:dict)->list[str]:
     unmount=_calls(calls,"tape_unmount")
     req(len(init)==1 and init[0].get("result")=="TAPE_OK","tape_init missing/failed")
     req(len(mount)==1 and mount[0].get("result")=="TAPE_OK","source-slot mount missing/failed")
+    if mount:
+        req(mount[0].get("side")==case.mount_side,"wrong side mounted")
     req(len(info)==1 and info[0].get("result")=="TAPE_OK","tape_get_info missing/failed")
     if info:
         req(info[0].get("writable") is False,"writable was not false")
