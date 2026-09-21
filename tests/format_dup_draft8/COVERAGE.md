@@ -1,16 +1,27 @@
 # Format / dup / empty-promote refusal matrix
 
-| ID | Assertion | Basis | Control |
+| ID | Cases | Assertion | Basis / control |
 |---|---|---|---|
-| FMT-A01 | format RO writes nothing | TapeFS §9.6; Engine API inv. 18 | format write mutation |
-| FMT-A02 | format `block_count∈{0,1}` is GEOMETRY with zero callbacks | TapeFS §2.1, §9.6; V8C-001 | geom-0 callback |
-| DUP-A01 | aliasing is INVALID_ARG before any write | TapeFS §9.5 item 1 | alias allowed |
-| DUP-A02 | dest `write==NULL` is READ_ONLY, zero writes | TapeFS §9.5 item 2 | conforming |
-| DUP-A03 | dest `block_count==0` is GEOMETRY, zero callbacks | TapeFS §9.5 item 3 | conforming |
-| DUP-A04 | dest too small for source A is DEST_TOO_SMALL, zero writes | TapeFS §9.5 item 4 | too-small allowed |
-| PR-A01 | empty Side B promote is INVALID_ARG, more_work false, zero writes | Engine API inv. 22 / 30; TapeFS §9.3 | empty promote wrote / succeeded |
+| FMT-A01 | `FMT-RO` | read-only format returns `READ_ONLY`, zero writes | TapeFS §9.6; invariant 18 |
+| FMT-A02 | `FMT-GEOM-0/1/BASE` | `DEVICE_ADDRESSABLE` failures return `GEOMETRY`, zero callbacks | TapeFS §2.1/§9.6; WP-06d; callback mutation controls |
+| FMT-A03 | `FMT-GEOM-FIT` | addressable but undersized geometry still returns `GEOMETRY` | `GEOMETRY_OK` line 3; result/write controls |
+| FMT-A04 | `FMT-ORDER-RO` | read-only is evaluated before geometry | TapeFS §9.6 ordered preconditions |
+| DUP-A01 | `DUP-ALIAS` | aliasing returns `INVALID_ARG`, `more_work=false`, zero writes | TapeFS §9.5 item 1 |
+| DUP-A02 | `DUP-RO` | read-only destination returns `READ_ONLY`, zero writes | TapeFS §9.5 item 2 |
+| DUP-A03 | `DUP-GEOM-0/1/BASE` | `DEVICE_ADDRESSABLE` failures return `GEOMETRY`, zero callbacks | TapeFS §2.1/§9.5 item 3; WP-06d |
+| DUP-A04 | `DUP-GEOM-FIT` | addressable but undersized geometry still returns `GEOMETRY` | `GEOMETRY_OK` line 3 |
+| DUP-A05 | `DUP-TOO-SMALL` | geometry passes but source timeline does not fit → `DEST_TOO_SMALL` | TapeFS §9.5 item 4 |
+| DUP-A06 | `DUP-ORDER-ALIAS/RO/GEOM` | complete 1→2→3→4 error precedence is executable | TapeFS §9.5 normative order; V4-006 |
+| RAW-A01 | all format/dup refusals | zero writes and no destination-superblock classification read | TapeFS §9.5 item 5 / §9.6 classification after refusals |
+| PR-A01 | `PROMOTE-EMPTY` | empty Side B → `INVALID_ARG`, `more_work=false`, zero writes | Engine API invariants 22/30; TapeFS §9.3 |
 
-Excluded: template/fallback step-1 writes, identity-assignment commits,
-WP-10 crash tables, two-interruption partner-first, generation-exhausted
-zeroing outcomes, destination remount classification, long-operation
-continuation (WP-12a), product observations.
+The oracle intentionally does **not** impose zero callbacks on every refusal.
+Only the exact `block_count ∈ {0,1,LBA_CHUNK_BASE}` geometry cases carry the
+explicit zero-callback acceptance requirement. Other refusal rows assert zero
+writes plus the ordering consequence that raw destination-superblock
+classification has not begun.
+
+The package includes an executable product runner and hash-bound offline replay.
+It remains a narrow tranche: crash tables, success-path cartridge construction,
+generation-exhausted fallback behavior, remount classification, and WP-12a
+continuation/state-machine coverage stay excluded.
