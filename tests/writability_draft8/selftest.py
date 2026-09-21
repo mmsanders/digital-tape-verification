@@ -35,8 +35,17 @@ def main():
     expect_fail(arm,post,bad,"dev_write observed")
     expect_fail(arm,post,mutate_call(obs,"tape_get_info",writable=True),"writable true")
     expect_fail(arm,post,mutate_call(obs,"tape_get_info",version_minor=0),"minor zero")
+    bad=copy.deepcopy(obs); bad["device_write_nonnull"]=False
+    expect_fail(arm,post,bad,"device write callback NULL")
     expect_fail(arm,post,mutate_call(obs,"tape_mount",side="A"),"wrong side")
     expect_fail(arm,post,mutate_call(obs,"tape_arm",result="TAPE_OK"),"arm accepted")
+    reset=cases["W06A-RESET-B"]; rpost,robs=synth_observation(reset)
+    expect_fail(reset,rpost,mutate_call(robs,"tape_reset_side_b",result="TAPE_OK"),"reset accepted")
+    # Flush-only activity is recorded but is not an independent WP-06a failure:
+    # the issued acceptance criterion is zero dev_write calls.
+    flush_only=copy.deepcopy(obs); flush_only["events"].append({"op":"flush","lba":0,"count":0})
+    if check(arm,post,flush_only):
+        raise AssertionError("oracle invented a zero-flush WP-06a requirement")
     missing=copy.deepcopy(obs)
     missing["calls"]=[c for c in missing["calls"] if c.get("fn")!="tape_arm"]
     expect_fail(arm,post,missing,"arm omitted")
