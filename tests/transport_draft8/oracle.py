@@ -57,8 +57,8 @@ class WarmSpec:
     valid_frames: int | None
     start_frame: int | None
     resume_frame: int
-    uuid_match: bool | None
-    side_match: bool | None
+    uuid_hex: str | None
+    warm_side: str | None
     expect_used: bool
 
 
@@ -159,18 +159,18 @@ def warm_specs() -> list[tuple[str, WarmSpec]]:
     # case to collapse to the first cold-path condition.
     return [
         ("WARM-NULL", WarmSpec(False, None, None, None, None, 40, None, None, False)),
-        ("WARM-DATA-NULL", WarmSpec(True, False, 64, 16, 32, 40, True, True, False)),
-        ("WARM-ZERO-FRAMES", WarmSpec(True, True, 64, 0, 32, 32, True, True, False)),
-        ("WARM-SHORT-BUF", WarmSpec(True, True, 63, 16, 32, 40, True, True, False)),
-        ("WARM-PAST-END", WarmSpec(True, True, 64, 16, 250, 250, True, True, False)),
+        ("WARM-DATA-NULL", WarmSpec(True, False, 64, 16, 32, 40, UUID.hex(), "A", False)),
+        ("WARM-ZERO-FRAMES", WarmSpec(True, True, 64, 0, 32, 32, UUID.hex(), "A", False)),
+        ("WARM-SHORT-BUF", WarmSpec(True, True, 63, 16, 32, 40, UUID.hex(), "A", False)),
+        ("WARM-PAST-END", WarmSpec(True, True, 64, 16, 250, 250, UUID.hex(), "A", False)),
         # Mandatory V4-011 checked-64-bit shape. 32-bit start+count would wrap.
-        ("WARM-U32-OVERFLOW", WarmSpec(True, True, 64, 16, 0xFFFFFFF8, 250, True, True, False)),
-        ("WARM-RESUME-OUT", WarmSpec(True, True, 64, 16, 32, 48, True, True, False)),
-        ("WARM-UUID", WarmSpec(True, True, 64, 16, 32, 40, False, True, False)),
-        ("WARM-SIDE", WarmSpec(True, True, 64, 16, 32, 40, True, False, False)),
+        ("WARM-U32-OVERFLOW", WarmSpec(True, True, 64, 16, 0xFFFFFFF8, 250, UUID.hex(), "A", False)),
+        ("WARM-RESUME-OUT", WarmSpec(True, True, 64, 16, 32, 48, UUID.hex(), "A", False)),
+        ("WARM-UUID", WarmSpec(True, True, 64, 16, 32, 40, ("ff" * 16), "A", False)),
+        ("WARM-SIDE", WarmSpec(True, True, 64, 16, 32, 40, UUID.hex(), "B", False)),
         # Metadata-positive anchor. This does not assert PCM identity; it only
         # proves a descriptor satisfying every predicate reaches "use".
-        ("WARM-VALID-METADATA", WarmSpec(True, True, 64, 16, 32, 40, True, True, True)),
+        ("WARM-VALID-METADATA", WarmSpec(True, True, 64, 16, 32, 40, UUID.hex(), "A", True)),
     ]
 
 
@@ -257,7 +257,8 @@ def _check_new_side_state(calls, events, req, *, rate_after_switch: bool):
         and infos[0].get("warm_start_used") is False
         and infos[0].get("total_frames") == 64
         and infos[0].get("entry_count") == 1
-        and infos[0].get("entries_free") == TAPE_MAX_ENTRIES - 1,
+        and infos[0].get("entries_free") == TAPE_MAX_ENTRIES - 1
+        and infos[0].get("side_b_valid") is True,
         "set_side did not expose new-side metadata/cold-ring state",
     )
 
@@ -321,16 +322,16 @@ def _check_warm(case: Case, calls, req):
         req(m.get("warm_data_bytes") == spec.data_bytes, "warm data_bytes mismatch")
         req(m.get("warm_valid_frames") == spec.valid_frames, "warm valid_frames mismatch")
         req(m.get("warm_start_frame") == spec.start_frame, "warm start_frame mismatch")
-        req(m.get("warm_uuid_match") is spec.uuid_match, "warm uuid predicate mismatch")
-        req(m.get("warm_side_match") is spec.side_match, "warm side predicate mismatch")
+        req(m.get("warm_uuid_hex") == spec.uuid_hex, "warm uuid argument mismatch")
+        req(m.get("warm_side") == spec.warm_side, "warm side argument mismatch")
     else:
         for key in (
             "warm_data_present",
             "warm_data_bytes",
             "warm_valid_frames",
             "warm_start_frame",
-            "warm_uuid_match",
-            "warm_side_match",
+            "warm_uuid_hex",
+            "warm_side",
         ):
             req(key not in m, "NULL warm case exposed descriptor fields")
 
@@ -494,8 +495,8 @@ def _warm_mount_record(case: Case) -> dict:
                 "warm_data_bytes": spec.data_bytes,
                 "warm_valid_frames": spec.valid_frames,
                 "warm_start_frame": spec.start_frame,
-                "warm_uuid_match": spec.uuid_match,
-                "warm_side_match": spec.side_match,
+                "warm_uuid_hex": spec.uuid_hex,
+                "warm_side": spec.warm_side,
             }
         )
     return m
