@@ -1,0 +1,51 @@
+name: Verification package selftests
+
+on:
+  pull_request:
+    paths:
+      - 'tests/*_draft8/**'
+      - '.github/workflows/verifier-package-selftests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tests/*_draft8/**'
+      - '.github/workflows/verifier-package-selftests.yml'
+  workflow_dispatch:
+
+jobs:
+  package-selftests:
+    name: verifier package selftests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          python3 --version
+          cc --version | head -1
+          make --version | head -1
+
+      - name: Run every verifier package self-test
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+
+          packages=(tests/*_draft8)
+          if [ "${#packages[@]}" -eq 0 ]; then
+            echo "::error::No tests/*_draft8 verifier packages found"
+            exit 1
+          fi
+
+          for package in "${packages[@]}"; do
+            echo "::group::${package}"
+            if [ -f "${package}/selftest.py" ]; then
+              python3 "${package}/selftest.py"
+            elif [ -f "${package}/Makefile" ] && grep -Eq '^[[:space:]]*check[[:space:]]*:' "${package}/Makefile"; then
+              make -C "${package}" check
+            else
+              echo "::error file=${package}::Verifier package has no selftest.py or Makefile check target"
+              exit 1
+            fi
+            echo "::endgroup::"
+          done
