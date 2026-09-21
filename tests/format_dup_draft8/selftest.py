@@ -3,59 +3,94 @@ from __future__ import annotations
 
 import copy
 
-from oracle import check, make_cases, synth_observation
+from oracle import Media, STRICT_NO_CALLBACK_IDS, check, make_cases, synth_observation
 
 
-def expect_fail(case, post, ev, calls, label):
-    errors = check(case, post, ev, calls)
+def expect_fail(case, post, events, calls, label):
+    errors = check(case, post, events, calls)
     if not errors:
         raise AssertionError("mutation escaped: " + label)
-    print("CAUGHT", label, "=>", errors[0])
+
+
+def tested_call(case, calls):
+    fn = {"format": "tape_format", "dup": "tape_dup", "promote": "tape_promote"}[case.kind]
+    return next(c for c in calls if c.get("fn") == fn)
 
 
 def main():
     cases = {c.id: c for c in make_cases()}
     print("PASS fixture construction:", ", ".join(cases))
+
     for case in cases.values():
-        post, ev, calls = synth_observation(case)
-        errors = check(case, post, ev, calls)
+        post, events, calls = synth_observation(case)
+        errors = check(case, post, events, calls)
         if errors:
             raise AssertionError((case.id, errors))
-        print("PASS conforming", case.id)
 
-    ro = cases["FMT-RO"]
-    post, ev, calls = synth_observation(ro)
-    expect_fail(ro, post, [{"op": "write", "lba": 0, "count": 1, "phase": "format"}], calls, "format RO wrote")
+        bad = copy.deepcopy(calls)
+        tested_call(case, bad)["result"] = "TAPE_OK"
+        expect_fail(case, post, events, bad, case.id + " wrong result")
 
-    g0 = cases["FMT-GEOM-0"]
-    post, ev, calls = synth_observation(g0)
-    expect_fail(g0, post, [{"op": "read", "lba": 0, "count": 1, "phase": "format"}], calls, "geom-0 issued callback")
+        expect_fail(
+            case,
+            post,
+            [{"op": "write", "device": "destination", "lba": 8, "count": 1}],
+            calls,
+            case.id + " wrote",
+        )
+
+        if case.kind in ("dup", "promote"):
+            bad = copy.deepcopy(calls)
+            tested_call(case, bad)["more_work"] = True
+            expect_fail(case, post, events, bad, case.id + " more_work true")
+
+        fn = tested_call(case, calls)["fn"]
+        bad = [c for c in copy.deepcopy(calls) if c.get("fn") != fn]
+        expect_fail(case, post, events, bad, case.id + " missing tested call")
+
+    case = cases["FMT-RO"]
+    post, events, calls = synth_observation(case)
+    p = bytearray(post.primary)
+    p[100] ^= 1
+    changed = Media(post.blocks, bytes(p), post.mirror, post.slots)
+    expect_fail(case, changed, events, calls, "tracked media changed")
+
+    for cid in STRICT_NO_CALLBACK_IDS:
+        case = cases[cid]
+        post, events, calls = synth_observation(case)
+        expect_fail(
+            case,
+            post,
+            [{"op": "read", "device": "destination", "lba": 7, "count": 1}],
+            calls,
+            cid + " callback",
+        )
+
+    case = cases["FMT-RO"]
+    post, events, calls = synth_observation(case)
+    allowed = [{"op": "read", "device": "destination", "lba": 7, "count": 1}]
+    if check(case, post, allowed, calls):
+        raise AssertionError("FMT-RO incorrectly constrained to zero callbacks")
+
+    for cid in ("FMT-RO", "FMT-GEOM-FIT", "DUP-ALIAS", "DUP-RO", "DUP-GEOM-FIT", "DUP-TOO-SMALL"):
+        case = cases[cid]
+        post, events, calls = synth_observation(case)
+        expect_fail(
+            case,
+            post,
+            [{"op": "read", "device": "destination", "lba": 0, "count": 1}],
+            calls,
+            cid + " read destination superblock",
+        )
 
     alias = cases["DUP-ALIAS"]
-    post, ev, calls = synth_observation(alias)
+    post, events, calls = synth_observation(alias)
     bad = copy.deepcopy(calls)
-    for c in bad:
-        if c.get("fn") == "tape_dup":
-            c["result"] = "TAPE_OK"
-    expect_fail(alias, post, ev, bad, "alias dup allowed")
-
-    small = cases["DUP-TOO-SMALL"]
-    post, ev, calls = synth_observation(small)
-    bad = copy.deepcopy(calls)
-    for c in bad:
-        if c.get("fn") == "tape_dup":
-            c["result"] = "TAPE_OK"
-    expect_fail(small, post, ev, bad, "too-small dup allowed")
-
-    empty = cases["PROMOTE-EMPTY"]
-    post, ev, calls = synth_observation(empty)
-    expect_fail(empty, post, [{"op": "write", "lba": 8, "count": 1, "phase": "promote"}], calls, "empty promote wrote")
-    bad = copy.deepcopy(calls)
-    for c in bad:
-        if c.get("fn") == "tape_promote":
-            c["result"] = "TAPE_OK"
-            c["more_work"] = False
-    expect_fail(empty, post, ev, bad, "empty promote succeeded")
+    tested_call(alias, bad)["aliased"] = False
+    expect_fail(alias, post, events, bad, "alias flag false")
+    errors = check(alias, post, events, [c for c in calls if c.get("fn") != "tape_dup"])
+    if not errors:
+        raise AssertionError("missing dup call escaped")
 
     print("PASS all format/dup/empty-promote refusal self-tests")
 
