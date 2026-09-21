@@ -474,16 +474,11 @@ def _verify_passes(case: Case, events: list[dict], err: list[str]) -> None:
                 continue
             if e.get("lba", -1) >= LBA_CHUNK_BASE:
                 data_writes.append((gi, e))
-            elif (
-                e.get("lba", -1) >= slot_lba + 1
-                and e.get("lba", -1) + e.get("count", 0) <= slot_lba + SLOT_BLOCKS
-            ):
+            elif e.get("lba") == slot_lba + 1 and e.get("count") == 1:
                 entry_writes.append((gi, e))
             elif e.get("lba") == slot_lba and e.get("count") == 1:
                 pass  # expected commit header
-            elif not (case.expect_stage_clear and _touches_lba(e, 0)) and not (
-                case.expect_stage_clear and _touches_lba(e, case.pre.blocks - 1)
-            ):
+            else:
                 err.append(f"pass {pass_no} wrote unexpected metadata LBA {e.get('lba')}")
 
         req(bool(data_writes), f"pass {pass_no} copied no timeline blocks")
