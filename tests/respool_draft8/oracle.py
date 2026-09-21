@@ -479,6 +479,8 @@ def _verify_passes(case: Case, events: list[dict], err: list[str]) -> None:
                 and e.get("lba", -1) + e.get("count", 0) <= slot_lba + SLOT_BLOCKS
             ):
                 entry_writes.append((gi, e))
+            elif e.get("lba") == slot_lba and e.get("count") == 1:
+                pass  # expected commit header
             elif not (case.expect_stage_clear and _touches_lba(e, 0)) and not (
                 case.expect_stage_clear and _touches_lba(e, case.pre.blocks - 1)
             ):
