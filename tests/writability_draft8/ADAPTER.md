@@ -6,7 +6,7 @@ The package supplies `wp06a_probe.c`. Software's integration task is mechanical:
 wp06a_probe CASE_ID INPUT.vo08 OUTPUT.vo08
 ```
 
-Stdout must contain one `WP06A-OBSERVATION-2` JSON object. The probe itself sets the source `tape_dev.write` to a **real non-NULL callback** and records every block-device callback. Do not substitute a NULL source slot (that is WP-36), suppress callbacks, rewrite expected results, or replace the verifier probe with product-side logic.
+Stdout must contain one `WP06A-OBSERVATION-2` JSON object. The probe itself sets the source `tape_dev.write` to a **real non-NULL callback** and records every block-device callback; trace overflow is explicitly reported and is a verifier failure. Do not substitute a NULL source slot (that is WP-36), suppress callbacks, rewrite expected results, or replace the verifier probe with product-side logic.
 
 The verifier envelope is not a product file format: `VO08`, little-endian `u32 block_count`, primary 512-byte superblock, mirror 512-byte superblock, then A0/A1/B0/B1 65536-byte slots. These map to their normative partition LBAs. Other reads are zero-filled; these cases must refuse before mutation and do not test PCM.
 
