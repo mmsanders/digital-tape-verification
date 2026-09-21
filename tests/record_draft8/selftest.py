@@ -132,6 +132,29 @@ def main():
                 raise AssertionError("mutation escaped: refusal cleared promote_stage")
             print("CAUGHT refusal cleared promote_stage =>", expect_fail_r[0])
 
+    from extra import check_extra, extra_cases, fixture_ok as extra_fixture_ok, synth_extra
+
+    for cid, pre, mode, side, seek, feed, kind in extra_cases():
+        ferr = extra_fixture_ok(cid, pre)
+        if ferr:
+            raise AssertionError((cid, ferr))
+        post, ev, calls = synth_extra(cid, pre, mode, side, seek, feed, kind)
+        errors = check_extra(cid, pre, mode, side, seek, feed, kind, post, ev, calls)
+        if errors:
+            raise AssertionError((cid, errors))
+        print("PASS conforming", cid)
+        if cid == "WP09-OW-MULTICHUNK":
+            ev_bad = [e for e in ev if not (e.get("phase") == "service" and e.get("lba", 0) >= 2048 + 4 * 1024)]
+            extra_err = check_extra(cid, pre, mode, side, seek, feed, kind, post, ev_bad, calls)
+            if not extra_err:
+                raise AssertionError("mutation escaped: multi-chunk missed chunk 4")
+            print("CAUGHT multi-chunk missed chunk 4 =>", extra_err[0])
+        if cid == "WP09-STAGE-CLEAR":
+            extra_err = check_extra(cid, pre, mode, side, seek, feed, kind, pre, ev, calls)
+            if not extra_err:
+                raise AssertionError("mutation escaped: stage-clear left stage 1")
+            print("CAUGHT stage-clear left stage 1 =>", extra_err[0])
+
     print("PASS all WP-09 record self-tests")
 
 
