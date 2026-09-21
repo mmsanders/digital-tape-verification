@@ -1,3 +1,5 @@
+> **Historical Surge checkpoint.** Superseded for current WP-09 scope by the temp Verification repair on PR #21. Use `tests/record_draft8/README.md` and `COVERAGE.md` as the current package boundary; this file is retained as provenance only.
+
 # Surge WP-09 record tranche — 21 September 2026
 
 From: surge support, Michael-directed via Digital-Tape #138.
