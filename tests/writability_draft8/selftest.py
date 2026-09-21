@@ -37,6 +37,8 @@ def main():
     expect_fail(arm,post,mutate_call(obs,"tape_get_info",version_minor=0),"minor zero")
     bad=copy.deepcopy(obs); bad["device_write_nonnull"]=False
     expect_fail(arm,post,bad,"device write callback NULL")
+    bad=copy.deepcopy(obs); bad["event_overflow"]=True
+    expect_fail(arm,post,bad,"callback trace overflow")
     expect_fail(arm,post,mutate_call(obs,"tape_mount",side="A"),"wrong side")
     expect_fail(arm,post,mutate_call(obs,"tape_arm",result="TAPE_OK"),"arm accepted")
     reset=cases["W06A-RESET-B"]; rpost,robs=synth_observation(reset)
