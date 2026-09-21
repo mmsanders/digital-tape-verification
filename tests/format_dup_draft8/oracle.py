@@ -154,9 +154,12 @@ def make_cases() -> list[Case]:
         Case("FMT-RO", "format", src, dest_ok_blocks, NOMINAL_LENGTH_S, False, False, "TAPE_ERR_READ_ONLY", None),
         Case("FMT-GEOM-0", "format", src, 0, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", None),
         Case("FMT-GEOM-1", "format", src, 1, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", None),
+        Case("FMT-GEOM-BASE", "format", src, LBA_CHUNK_BASE, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", None),
         Case("DUP-ALIAS", "dup", src, dest_ok_blocks, NOMINAL_LENGTH_S, True, True, "TAPE_ERR_INVALID_ARG", False),
         Case("DUP-RO", "dup", src, dest_ok_blocks, NOMINAL_LENGTH_S, False, False, "TAPE_ERR_READ_ONLY", False),
         Case("DUP-GEOM-0", "dup", src, 0, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", False),
+        Case("DUP-GEOM-BASE", "dup", src, LBA_CHUNK_BASE, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_GEOMETRY", False),
+        Case("DUP-ORDER-ALIAS", "dup", src, 0, NOMINAL_LENGTH_S, False, True, "TAPE_ERR_INVALID_ARG", False),
         Case("DUP-TOO-SMALL", "dup", src_long, LBA_CHUNK_BASE + BLOCKS_PER_CHUNK + 2, 1, True, False, "TAPE_ERR_DEST_TOO_SMALL", False),
         Case("PROMOTE-EMPTY", "promote", empty_b, empty_b.blocks, NOMINAL_LENGTH_S, True, False, "TAPE_ERR_INVALID_ARG", False),
     ]
@@ -176,7 +179,7 @@ def check(case: Case, post: Media, events: list[dict], calls: list[dict]) -> lis
     req(post.encode() == case.pre.encode(), "refusal wrote source media")
     req(not _writes(events), "refusal issued a write")
     req(not any(e.get("op") == "flush" for e in events), "refusal issued a flush")
-    if case.id in ("FMT-GEOM-0", "FMT-GEOM-1", "DUP-GEOM-0"):
+    if case.id in ("FMT-GEOM-0", "FMT-GEOM-1", "FMT-GEOM-BASE", "DUP-GEOM-0", "DUP-GEOM-BASE"):
         req(events == [], "geometry refusal issued a callback")
 
     if case.kind == "format":
