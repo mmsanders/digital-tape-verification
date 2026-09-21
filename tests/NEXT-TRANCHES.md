@@ -13,11 +13,13 @@ provenance only; new assertions cite current DRAFT-8 bytes.
    §§6/8. Include seek→render phase, reverse endpoints/rates, side switching, warm
    descriptor negatives, and cross-target byte identity. Human listening remains a
    separate Michael step before golden acceptance.
-2. **Recording breadth + random edit sequences.** After the current two-case adapter
-   is mechanically importable, add overwrite/overdub/splice families, zero-frame
-   commit, full/index-full/short-accept boundaries, stage clearing, sequence
-   exhaustion, interval/ownership invariants and seeded random edit histories. Reuse
-   whole-trace callback/range/result evidence rather than implementation state.
+2. **Recording breadth + random edit sequences.** `tests/record_draft8/` on
+   `surge/wp09-record-tranche` publishes eight public-API families (overwrite mid/end,
+   overdub mid, splice t=0/mid/end, empty commit, armed BUSY) plus the §8 saturation
+   clamp. Still outstanding: full/index-full/short-accept boundaries, stage clearing,
+   sequence exhaustion, multi-chunk edits, random 10 000-edit histories, and product
+   observations. Reuse whole-trace callback/range/result evidence rather than
+   implementation state.
 3. **Complete crash closure (WP-10).** With each operation oracle independently
    authored, enumerate write/flush boundaries in both durability modes, remount from
    durable bytes only, and classify exact permitted states. Explicitly include the
