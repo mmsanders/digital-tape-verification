@@ -10,16 +10,23 @@ provenance only; new assertions cite current DRAFT-8 bytes.
 
 Independent surge packages now published (draft PRs, not accepted):
 
-- `tests/record_draft8/` — eight families, six refusals, multi-chunk, empty-B
-  splice, empty commit in all three modes, successful stage-1 clear on arm
+- `tests/record_draft8/` — structural overwrite/overdub/splice families including
+  empty-B and exact-run-boundary splice, multi-chunk overwrite, six refusal/abort rows,
+  the full 3 modes × start/middle/end zero-accepted-commit matrix with a tail-render
+  probe, and mountable stage-1 refusal/clear cases
 - `tests/respool_draft8/` — empty / two-pass / full / degraded / stage-1 clear
 - `tests/slot_draft8/` — source-slot A/B playback, mutators, format RO
 - `tests/format_dup_draft8/` — format/dup preconditions including order and
   `block_count ∈ {0,1,LBA_CHUNK_BASE}`, empty-promote
 - `tests/transport_draft8/` — set_side transition + eight warm-start negatives
 
-Still outstanding and **not stacked** only in the sense of product observations
-and 10 000-edit histories. Everything below **does stack** and was not started:
+Still outstanding for WP-09 itself: real-product observations, golden/listened PCM,
+product-level overdub saturation evidence, and the seeded 10 000-edit property history.
+The already-full `accepted==0` capacity boundary is covered; a later capacity/property
+tranche should also exercise a positive short accept followed by service+commit if the
+public buffering contract admits that request shape.
+
+Everything below stacks on the independent operation oracles and was not started:
 
 1. **WP-11 goldens / listening.** Human listening remains a separate Michael step.
    Warm-start *use* (accepted descriptor) needs those goldens.
