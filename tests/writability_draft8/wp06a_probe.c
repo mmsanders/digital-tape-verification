@@ -28,6 +28,7 @@ typedef struct {
   uint32_t blocks;
   event_t events[MAX_EVENTS];
   size_t nevents;
+  int event_overflow;
 } device_t;
 
 static uint32_t u32le(const unsigned char *p) {
@@ -42,6 +43,8 @@ static void event(device_t *d,const char *op,uint32_t lba,uint32_t count,int rc)
     d->events[d->nevents].count=count;
     d->events[d->nevents].rc=rc;
     d->nevents++;
+  } else {
+    d->event_overflow=1;
   }
 }
 
@@ -249,7 +252,8 @@ int main(int argc,char **argv) {
   fclose(g);
 
   printf("{\"format\":\"WP06A-OBSERVATION-2\",\"adapter_kind\":\"product\","
-         "\"device_write_nonnull\":true,\"calls\":[");
+         "\"device_write_nonnull\":true,\"event_overflow\":%s,\"calls\":[",
+         d->event_overflow?"true":"false");
   printf("{\"fn\":\"tape_init\",\"result\":\"%s\"}",rname(init));
   if(have_mount) {
     printf(",{\"fn\":\"tape_mount\",\"result\":\"%s\",\"side\":\"%s\"}",
