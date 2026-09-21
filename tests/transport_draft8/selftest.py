@@ -176,8 +176,8 @@ def main():
         "WARM-PAST-END": {"warm_start_frame": 32},
         "WARM-U32-OVERFLOW": {"warm_start_frame": 32},
         "WARM-RESUME-OUT": {"resume_frame": 40},
-        "WARM-UUID": {"warm_uuid_match": True},
-        "WARM-SIDE": {"warm_side_match": True},
+        "WARM-UUID": {"warm_uuid_hex": "000102030405060708090a0b0c0d0e0f"},
+        "WARM-SIDE": {"warm_side": "A"},
     }
     for cid, changes in warm_mutations.items():
         case = cases[cid]
@@ -206,7 +206,7 @@ def main():
     post, ev, calls = synth_observation(side)
     bad = copy.deepcopy(calls)
     mount = next(c for c in bad if c.get("fn") == "tape_mount")
-    mount["warm_uuid_match"] = False
+    mount["warm_uuid_hex"] = "ff" * 16
     expect_fail(side, post, ev, bad, "side case also failed UUID predicate")
 
     # A rendered frame must remain device-I/O-free.
