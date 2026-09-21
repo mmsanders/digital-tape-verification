@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import copy
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
 from oracle import Media,check,make_cases,synth_observation
 
 def expect_fail(case,post,obs,label):
@@ -13,6 +18,8 @@ def mutate_call(obs,fn,**changes):
     out=copy.deepcopy(obs)
     next(c for c in out["calls"] if c.get("fn")==fn).update(changes)
     return out
+
+ROOT=Path(__file__).resolve().parent
 
 def main():
     cases={c.id:c for c in make_cases()}
@@ -44,6 +51,21 @@ def main():
     expect_fail(repair,post,bad,"repair flush")
     mutated=Media(post.blocks,post.primary,bytes([1])+post.mirror[1:],post.slots)
     expect_fail(repair,mutated,obs,"media mutation")
+
+    # Negative control for the assertion/crash observation path: any adapter
+    # process failure must make runner.py fail the case.
+    with tempfile.TemporaryDirectory(prefix="wp36-runner-control-") as td:
+        fake=Path(td)/"fail_adapter.py"
+        fake.write_text("#!/usr/bin/env python3\\nraise SystemExit(134)\\n")
+        os.chmod(fake,0o755)
+        log=Path(td)/"run.jsonl"
+        r=subprocess.run([
+            sys.executable,str(ROOT/"runner.py"),"--adapter",str(fake),
+            "--case","WP36-SRC-A","--log",str(log)
+        ])
+        if r.returncode==0:
+            raise AssertionError("runner accepted crashing adapter")
+        print("CAUGHT adapter assertion/crash exit")
 
     print("PASS all WP-36 source-slot self-tests")
 
