@@ -93,6 +93,45 @@ def main():
     ev3[0] = {"phase": "service", "op": "write", "lba": 8, "count": 1}
     expect_fail(rec, post, ev3, calls, "service write below H")
 
+    from refusals import check_refusal, fixture_ok, refusal_cases, synth_refusal
+    import copy as _copy
+    import struct as _struct
+    import zlib as _zlib
+
+    for cid, pre, mode, side, expect in refusal_cases():
+        ferr = fixture_ok(cid, pre)
+        if ferr:
+            raise AssertionError((cid, ferr))
+        post, ev, calls = synth_refusal(cid, pre, mode, side, expect)
+        errors = check_refusal(cid, pre, mode, side, expect, post, ev, calls)
+        if errors:
+            raise AssertionError((cid, errors))
+        print("PASS conforming", cid)
+        if cid == "WP09-RO-SIDE-A":
+            bad = _copy.deepcopy(calls)
+            for item in bad:
+                if item.get("fn") == "tape_arm":
+                    item["result"] = "TAPE_OK"
+            expect_fail_r = check_refusal(cid, pre, mode, side, expect, post, ev, bad)
+            if not expect_fail_r:
+                raise AssertionError("mutation escaped: Side-A arm allowed")
+            print("CAUGHT Side-A arm allowed =>", expect_fail_r[0])
+        if cid == "WP09-CART-FULL":
+            expect_fail_r = check_refusal(cid, pre, mode, side, expect, post, [{"op": "write", "lba": 2048, "count": 1, "phase": "feed"}], calls)
+            if not expect_fail_r:
+                raise AssertionError("mutation escaped: full feed wrote")
+            print("CAUGHT full feed wrote =>", expect_fail_r[0])
+        if cid == "WP09-STAGE-REFUSE":
+            mutated = bytearray(post.primary)
+            _struct.pack_into("<I", mutated, 124, 0)
+            _struct.pack_into("<I", mutated, 508, _zlib.crc32(mutated[:508]))
+            from oracle import Media as _Media
+            bad_post = _Media(post.blocks, bytes(mutated), post.mirror, post.slots)
+            expect_fail_r = check_refusal(cid, pre, mode, side, expect, bad_post, ev, calls)
+            if not expect_fail_r:
+                raise AssertionError("mutation escaped: refusal cleared promote_stage")
+            print("CAUGHT refusal cleared promote_stage =>", expect_fail_r[0])
+
     print("PASS all WP-09 record self-tests")
 
 

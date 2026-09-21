@@ -1,8 +1,8 @@
 # WP-09 — independent DRAFT-8 record tranche
 
 Verifier-owned package authored from the frozen DRAFT-8 contract without
-inspection of product implementation. It covers eight public record cases and
-is **not** full WP-09 / WP-11 acceptance.
+inspection of product implementation. It covers eight public record families
+plus six refusal/abort rows and is **not** full WP-09 / WP-11 acceptance.
 
 Normative DRAFT-8 SHA-256 values:
 
@@ -25,18 +25,18 @@ Frozen geometry is the same 60-second / 21-chunk / 23,553-block medium used by
 | `WP09-SP-END` | seek 256, splice 64 frames (append) |
 | `WP09-EMPTY-COMMIT` | arm overwrite, commit with zero accepted frames |
 | `WP09-ARMED-BUSY` | seek and set_rate while armed must be BUSY |
+| `WP09-RO-SIDE-A` | mount A, arm → `TAPE_ERR_READ_ONLY` |
+| `WP09-SEQ-EXHAUSTED` | `cartridge_sequence = 0xFFFFFFFD`, arm → `TAPE_ERR_SEQUENCE_EXHAUSTED` |
+| `WP09-INDEX-FULL` | 4096 live-B entries, splice-arm → `TAPE_ERR_INDEX_FULL` |
+| `WP09-CART-FULL` | `free_next == total_chunks`; arm OK; feed short-accept 0 |
+| `WP09-ABORT-DISARM` | arm, abort, zero writes |
+| `WP09-STAGE-REFUSE` | `promote_stage = 1` + exhaustion; refusal leaves stage |
 
 ## Self-test
 
 ```sh
 python3 tests/record_draft8/selftest.py
 ```
-
-Accepts eight conforming synthetic observations, rejects targeted mutations
-(kept overwrite tail, truncated overdub, dropped splice suffix, empty-commit
-write, armed seek allowed, live-only sequence base, missing commit flushes,
-service write below `a_high_water`), and proves the Engine API §8 saturation
-clamp.
 
 A synthetic green run is package evidence only. It is not product acceptance
 and not a listened golden.
