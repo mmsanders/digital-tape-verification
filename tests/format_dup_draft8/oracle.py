@@ -91,7 +91,7 @@ def sb(*, generation=7, high=3, chunks=None, blocks=None, nominal=NOMINAL_LENGTH
     if chunks is None:
         chunks = derived_total_chunks(nominal)
     if blocks is None:
-        blocks = min_blocks_for_nominal(NOMINAL_LENGTH_S)
+        blocks = min_blocks_for_nominal(nominal)
     b = bytearray(BLOCK)
     b[:8] = b"TAPEFS\0\x01"
     struct.pack_into("<H", b, 8, 1)
