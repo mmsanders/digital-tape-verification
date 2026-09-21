@@ -336,6 +336,14 @@ def check(case: Case, post: Media, events: list[dict], calls: list[dict]) -> lis
         if not x:
             err.append(msg)
 
+    def touches(e, lba):
+        return (
+            e.get("op") == "write"
+            and isinstance(e.get("lba"), int)
+            and isinstance(e.get("count"), int)
+            and e["lba"] <= lba < e["lba"] + e["count"]
+        )
+
     pre = case.pre
     req(pre.blocks == post.blocks, "block_count changed")
     req(cartridge_sequence(pre) == 700, "fixture lost high structural sequence")
@@ -343,34 +351,72 @@ def check(case: Case, post: Media, events: list[dict], calls: list[dict]) -> lis
     req(post.primary == pre.primary and post.mirror == pre.mirror, "ordinary recording changed superblock")
     req(post.slots[0] == pre.slots[0] and post.slots[1] == pre.slots[1], "record changed Side A slots")
 
+    # Ordinary stage-0 recording must not even issue a superblock write. Comparing
+    # final bytes alone would miss a redundant same-byte write.
+    for e in _writes(events):
+        req(not touches(e, 0) and not touches(e, pre.blocks - 1), "ordinary recording issued superblock write")
+
     mounts = call_named(calls, "tape_mount")
-    req(bool(mounts) and mounts[0].get("result") == "TAPE_OK", "mount did not succeed")
+    req(bool(mounts) and mounts[0].get("result") == "TAPE_OK" and mounts[0].get("side") == "B", "mount did not succeed on Side B")
     seeks = call_named(calls, "tape_seek")
     req(bool(seeks) and seeks[0].get("frame") == case.seek and seeks[0].get("result") == "TAPE_OK", "scripted seek mismatch")
     arms = call_named(calls, "tape_arm")
     req(bool(arms) and arms[0].get("result") == "TAPE_OK" and arms[0].get("mode") == MODES[case.id], "arm mismatch")
 
     if case.id == "WP09-ARMED-BUSY":
-        busy = [c for c in calls if c.get("fn") in case.busy_calls and c.get("phase") == "armed"]
-        req(len(busy) >= 2, "armed BUSY script missing seek/set_rate probes")
-        req(all(c.get("result") == "TAPE_ERR_BUSY" for c in busy), "seek/set_rate while armed were not BUSY")
-        req(not _writes(events), "armed BUSY probes wrote media")
+        armed_seek = [c for c in calls if c.get("fn") == "tape_seek" and c.get("phase") == "armed"]
+        armed_rate = [c for c in calls if c.get("fn") == "tape_set_rate" and c.get("phase") == "armed"]
+        req(len(armed_seek) == 1 and armed_seek[0].get("result") == "TAPE_ERR_BUSY" and armed_seek[0].get("frame") == 0,
+            "armed seek probe missing or not BUSY")
+        req(len(armed_rate) == 1 and armed_rate[0].get("result") == "TAPE_ERR_BUSY" and armed_rate[0].get("rate_q16_16") == 65536,
+            "armed set_rate probe missing or not BUSY")
+        req(not events, "armed BUSY/abort path issued block I/O")
         req(post.slots == pre.slots, "armed BUSY changed an index slot")
+        aborts = call_named(calls, "tape_abort")
+        req(len(aborts) == 1 and aborts[0].get("result") == "TAPE_OK", "armed BUSY abort failed")
+        unmounts = call_named(calls, "tape_unmount")
+        req(len(unmounts) == 1 and unmounts[0].get("result") == "TAPE_OK", "armed BUSY abort did not disarm for unmount")
         return err
 
     if not case.expect_commit_io:
-        req(not _writes(events) and not any(e.get("op") == "flush" for e in events), "empty commit performed I/O")
-        req(post.slots == pre.slots, "empty commit changed index bytes")
+        req(not _writes(events) and not any(e.get("op") == "flush" for e in events), "empty commit/tail probe performed write or flush")
+        req(post.encode() == pre.encode(), "empty commit changed media bytes")
         req(cartridge_sequence(post) == 700, "empty commit advanced sequence")
         commits = call_named(calls, "tape_commit")
-        req(bool(commits) and commits[0].get("result") == "TAPE_OK", "empty commit was not TAPE_OK")
+        req(len(commits) == 1 and commits[0].get("result") == "TAPE_OK", "empty commit was not TAPE_OK")
+        probe = min(case.seek, case.expected_total - 1) if case.expected_total else 0
+        tail_seek = [c for c in calls if c.get("fn") == "tape_seek" and c.get("phase") == "tail-seek"]
+        tail_rate = [c for c in calls if c.get("fn") == "tape_set_rate" and c.get("phase") == "tail-rate"]
+        tail_service = [c for c in calls if c.get("fn") == "tape_service" and c.get("phase") == "tail-service"]
+        tail_render = [c for c in calls if c.get("fn") == "tape_render" and c.get("phase") == "tail-render"]
+        req(len(tail_seek) == 1 and tail_seek[0].get("result") == "TAPE_OK" and tail_seek[0].get("frame") == probe,
+            "empty commit tail seek missing")
+        req(bool(tail_rate) and tail_rate[0].get("result") == "TAPE_OK" and tail_rate[0].get("rate_q16_16") == 65536,
+            "empty commit tail rate missing")
+        req(bool(tail_service) and all(x.get("result") == "TAPE_OK" for x in tail_service) and tail_service[-1].get("more_work") is False,
+            "empty commit tail service did not complete")
+        req(len(tail_render) == 1 and tail_render[0].get("result") == "TAPE_OK"
+            and tail_render[0].get("requested") == 1 and tail_render[0].get("rendered") == 1
+            and "events_from_call" in tail_render[0] and tail_render[0].get("events_from_call") == 0,
+            "empty commit tail did not render one frame without block I/O")
+        req(not any(e.get("phase") == "tail-render" for e in events), "tape_render issued block I/O")
+        unmounts = call_named(calls, "tape_unmount")
+        remounts = [c for c in mounts[1:] if c.get("phase") == "remount"]
+        req(len(unmounts) == 1 and unmounts[0].get("result") == "TAPE_OK", "empty commit unmount failed")
+        req(len(remounts) == 1 and remounts[0].get("result") == "TAPE_OK" and remounts[0].get("side") == "B", "empty commit remount failed")
         return err
 
     feeds = call_named(calls, "tape_feed")
-    req(bool(feeds) and feeds[0].get("accepted") == case.feed and feeds[0].get("result") == "TAPE_OK", "feed accepted-count mismatch")
-    req(all(c.get("events_from_call", 0) == 0 for c in feeds), "tape_feed issued block I/O")
+    req(len(feeds) == 1 and feeds[0].get("requested") == case.feed and feeds[0].get("accepted") == case.feed
+        and feeds[0].get("result") == "TAPE_OK", "feed request/accepted-count mismatch")
+    req(len(feeds) == 1 and "events_from_call" in feeds[0] and feeds[0].get("events_from_call") == 0,
+        "tape_feed callback count missing or nonzero")
+    req(not any(e.get("phase") == "feed" for e in events), "tape_feed issued raw block I/O")
+    services = call_named(calls, "tape_service")
+    req(bool(services) and all(x.get("result") == "TAPE_OK" for x in services) and services[-1].get("more_work") is False,
+        "tape_service did not run to completion")
     commits = call_named(calls, "tape_commit")
-    req(bool(commits) and commits[0].get("result") == "TAPE_OK", "non-empty commit was not TAPE_OK")
+    req(len(commits) == 1 and commits[0].get("result") == "TAPE_OK", "non-empty commit was not TAPE_OK")
 
     req(post.slots[2] == pre.slots[2], "record changed live-B source slot instead of inactive B1")
     req(structural_sequence(post.slots[3]) == 701, "record commit did not consume all-slot max + 1")
@@ -385,28 +431,31 @@ def check(case: Case, post: Media, events: list[dict], calls: list[dict]) -> lis
     req(bool(svc), "record service produced no audio write observation")
     for e in svc:
         req(e["lba"] >= lo and e["lba"] + e["count"] <= hi, "record audio write outside derived allocation chunk")
-    cw = _writes(events, "commit")
-    req(all(e["lba"] < LBA_CHUNK_BASE for e in cw), "commit wrote chunk data")
-    cf = [e for e in events if e.get("phase") == "commit" and e.get("op") == "flush"]
-    req(len(cf) == 2, "non-empty commit did not perform exactly two flushes")
-    hdr = [
-        i
-        for i, e in enumerate(events)
-        if e.get("phase") == "commit" and e.get("op") == "write" and e["lba"] <= LBA_B1 < e["lba"] + e["count"]
-    ]
-    ent = [
-        i
-        for i, e in enumerate(events)
-        if e.get("phase") == "commit" and e.get("op") == "write" and e["lba"] <= LBA_B1 + 1 < e["lba"] + e["count"]
-    ]
-    req(bool(hdr) and bool(ent), "record commit missing B1 entry/header writes")
-    if hdr and ent:
-        req(ent[0] < hdr[0], "record header written before entries")
+
+    commit_events = [(i, e) for i, e in enumerate(events) if e.get("phase") == "commit"]
+    commit_writes = [(i, e) for i, e in commit_events if e.get("op") == "write"]
+    flush_pos = [i for i, e in commit_events if e.get("op") == "flush"]
+    req(len(flush_pos) == 2, "non-empty commit did not perform exactly two flushes")
+    for _, e in commit_writes:
+        req(e.get("lba", -1) >= LBA_B1 and e.get("lba", -1) + e.get("count", 0) <= LBA_B1 + SLOT_BYTES // BLOCK,
+            "commit wrote outside inactive B1 slot")
+    ent_pos = [i for i, e in commit_writes if touches(e, LBA_B1 + 1) and not touches(e, LBA_B1)]
+    hdr_pos = [i for i, e in commit_writes if e.get("lba") == LBA_B1 and e.get("count") == 1]
+    req(bool(ent_pos) and len(hdr_pos) == 1, "record commit missing entry/header writes")
+    if len(flush_pos) == 2 and ent_pos and len(hdr_pos) == 1:
+        req(max(ent_pos) < flush_pos[0] < hdr_pos[0] < flush_pos[1],
+            "record commit order is not entries -> flush -> header -> flush")
+        req(all(i < flush_pos[1] for i, _ in commit_writes), "record commit wrote after final flush")
+
     ss = [structural_sequence(x) for x in post.slots]
     ss = [x for x in ss if x is not None]
     req(len(ss) == len(set(ss)), "post-record structurally valid slots share sequence")
-    return err
 
+    unmounts = call_named(calls, "tape_unmount")
+    remounts = [c for c in mounts[1:] if c.get("phase") == "remount"]
+    req(len(unmounts) == 1 and unmounts[0].get("result") == "TAPE_OK", "record unmount failed")
+    req(len(remounts) == 1 and remounts[0].get("result") == "TAPE_OK" and remounts[0].get("side") == "B", "record remount failed")
+    return err
 
 def synth_calls(case: Case) -> list[dict]:
     calls = [
@@ -437,10 +486,20 @@ def synth_calls(case: Case) -> list[dict]:
         )
         calls.append({"phase": "service", "fn": "tape_service", "result": "TAPE_OK", "more_work": False})
     calls.append({"phase": "commit", "fn": "tape_commit", "result": "TAPE_OK"})
+    if not case.expect_commit_io:
+        probe = min(case.seek, case.expected_total - 1) if case.expected_total else 0
+        calls.extend(
+            [
+                {"phase": "tail-seek", "fn": "tape_seek", "result": "TAPE_OK", "frame": probe},
+                {"phase": "tail-rate", "fn": "tape_set_rate", "result": "TAPE_OK", "rate_q16_16": 65536},
+                {"phase": "tail-service", "fn": "tape_service", "result": "TAPE_OK", "more_work": False},
+                {"phase": "tail-render", "fn": "tape_render", "result": "TAPE_OK", "requested": 1, "rendered": 1, "events_from_call": 0},
+                {"phase": "tail-stop", "fn": "tape_set_rate", "result": "TAPE_OK", "rate_q16_16": 0},
+            ]
+        )
     calls.append({"phase": "unmount", "fn": "tape_unmount", "result": "TAPE_OK"})
     calls.append({"phase": "remount", "fn": "tape_mount", "result": "TAPE_OK", "side": "B"})
     return calls
-
 
 def synth_post(case: Case):
     p = case.pre
