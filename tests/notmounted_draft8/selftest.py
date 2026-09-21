@@ -34,7 +34,12 @@ def main():
     bad=copy.deepcopy(obs); bad["calls"][-1]["result"]="TAPE_OK"
     expect_fail(tell,bad,"tell before mount succeeded")
     bad=copy.deepcopy(obs); bad["calls"][-1]["out_frame_after"]=0
-    expect_fail(tell,bad,"tell sentinel overwritten")
+    expect_fail(tell,bad,"tell sentinel overwritten before mount")
+
+    tell_after=case_by_id(cases,"NM-AFTER-TELL")
+    obs_after=synth_observation(tell_after)
+    bad=copy.deepcopy(obs_after); bad["calls"][-1]["out_frame_after"]=0
+    expect_fail(tell_after,bad,"tell sentinel overwritten after unmount")
 
     seek=case_by_id(cases,"NM-AFTER-SEEK")
     obs=synth_observation(seek)
@@ -42,6 +47,8 @@ def main():
     expect_fail(seek,bad,"seek after unmount succeeded")
     bad=copy.deepcopy(obs); bad["calls"]=[c for c in bad["calls"] if not (c.get("phase")=="setup" and c.get("fn")=="tape_unmount")]
     expect_fail(seek,bad,"after-case omitted setup unmount")
+    bad=copy.deepcopy(obs); bad["calls"][1],bad["calls"][2]=bad["calls"][2],bad["calls"][1]
+    expect_fail(seek,bad,"after-case setup order wrong")
 
     arm=case_by_id(cases,"NM-BEFORE-ARM")
     obs=synth_observation(arm)
