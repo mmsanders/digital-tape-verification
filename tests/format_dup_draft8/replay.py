@@ -9,6 +9,8 @@ from pathlib import Path
 
 import oracle
 
+HERE = Path(__file__).resolve().parent
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -31,6 +33,8 @@ def main():
         oracle.req(m["oracle_sha256"] == oracle.shafile(ev / "input/package/oracle.py"), "oracle identity")
         oracle.req(m["runner_sha256"] == oracle.shafile(ev / "input/package/runner.py"), "runner identity")
         oracle.req(m["replay_sha256"] == oracle.shafile(ev / "input/package/replay.py"), "replay identity")
+        oracle.req(m["oracle_sha256"] == oracle.shafile(HERE / "oracle.py"), "local oracle identity")
+        oracle.req(m["replay_sha256"] == oracle.shafile(HERE / "replay.py"), "local replay identity")
 
         cases = {c.id: c for c in oracle.make_cases()}
         replayed = {"pass": True, "cases": {}}
