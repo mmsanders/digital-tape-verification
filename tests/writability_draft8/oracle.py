@@ -137,6 +137,7 @@ def check(case:Case,post:Media,observation:dict)->list[str]:
 
     req(observation.get("format")=="WP06A-OBSERVATION-2","wrong observation format")
     req(observation.get("device_write_nonnull") is True,"device write callback was not non-NULL")
+    req(observation.get("event_overflow") is False,"callback trace overflow")
     events=observation.get("events")
     calls=observation.get("calls")
     req(isinstance(events,list),"events missing/not a list")
@@ -188,6 +189,7 @@ def synth_observation(case:Case):
         "format":"WP06A-OBSERVATION-2",
         "adapter_kind":"synthetic",
         "device_write_nonnull":True,
+        "event_overflow":False,
         "calls":calls,
         "events":[],
     }
