@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import copy
+from pathlib import Path
 import struct
+import subprocess
+import sys
 import zlib
 
 from oracle import Media, check, idx, make_cases, overdub_saturate, synth_observation
@@ -255,6 +258,13 @@ def main():
             # candidate write before the first flush violates §4.6.
             ev_bad[arm_positions[1]], ev_bad[arm_positions[2]] = ev_bad[arm_positions[2]], ev_bad[arm_positions[1]]
             expect_fail_extra(check_extra, args, post, ev_bad, calls, "stage-clear candidate before partner flush")
+
+    replay = Path(__file__).resolve().parent / "replay_product_evidence.py"
+    evidence = Path(__file__).resolve().parent / "evidence" / "p1-r25-product" / "observations.jsonl"
+    proc = subprocess.run([sys.executable, str(replay), str(evidence)], text=True)
+    if proc.returncode != 0:
+        raise AssertionError("P1-R25 product evidence replay failed")
+    print("PASS P1-R25 product evidence replay")
 
     print("PASS all WP-09 record self-tests")
 
