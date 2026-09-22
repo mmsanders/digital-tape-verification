@@ -89,6 +89,20 @@ def main():
         if item.get("fn") == "tape_set_rate" and item.get("phase") == "armed":
             item["result"] = "TAPE_OK"
     expect_fail(busy, post, ev, mutated, "armed set_rate allowed")
+    # Mount callbacks are legitimate and must remain visible; only the armed
+    # probes, abort, and unmount must be callback-free in this case.
+    mount_reads = [{"phase": "mount", "op": "read", "lba": 0, "count": 1}]
+    if check(busy, post, mount_reads, calls):
+        raise AssertionError("verifier still rejects required mount reads")
+    print("PASS armed BUSY permits recorded mount reads")
+    for phase in ("armed", "abort", "unmount"):
+        expect_fail(
+            busy,
+            post,
+            [{"phase": phase, "op": "read", "lba": 0, "count": 1}],
+            calls,
+            f"armed BUSY {phase} issued block I/O",
+        )
 
     rec = cases["WP09-SP-END"]
     post, ev, calls = synth_observation(rec)
