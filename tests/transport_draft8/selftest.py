@@ -2,6 +2,9 @@
 from __future__ import annotations
 
 import copy
+from pathlib import Path
+import subprocess
+import sys
 
 from oracle import check, fixture_contract_errors, make_cases, synth_observation
 
@@ -221,6 +224,12 @@ def main():
 
     bad_unmount = mutate_first(calls, "tape_unmount", "unmount", result="TAPE_ERR_BUSY")
     expect_fail(playing, post, ev, bad_unmount, "terminal unmount failed")
+
+    replay = Path(__file__).resolve().parent / "replay_product_evidence.py"
+    proc = subprocess.run([sys.executable, str(replay)], text=True)
+    if proc.returncode != 0:
+        raise AssertionError("P1-R25 transport product evidence replay failed")
+    print("PASS P1-R25 transport product evidence replay")
 
     print("PASS all transport extra self-tests")
 
