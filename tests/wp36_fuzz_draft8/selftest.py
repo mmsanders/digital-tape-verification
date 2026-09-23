@@ -4,6 +4,8 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
+import shlex
+import sys
 import tempfile
 
 from generator import (
@@ -26,6 +28,21 @@ def need(cond, msg):
         raise AssertionError(msg)
 
 
+def synth_proxy(directory: Path) -> Path:
+    """Create an executable proxy without requiring an executable git file mode."""
+    proxy = directory / "synthetic-adapter"
+    proxy.write_text(
+        "#!/bin/sh\nexec "
+        + shlex.quote(sys.executable)
+        + " "
+        + shlex.quote(str(SYNTH))
+        + ' "$@"\n',
+        encoding="utf-8",
+    )
+    proxy.chmod(0o700)
+    return proxy
+
+
 def main() -> None:
     census, digest = census_and_digest()
     errors = validate_generator_census(census)
@@ -41,7 +58,9 @@ def main() -> None:
     print("PASS sequence reproducer determinism")
 
     with tempfile.TemporaryDirectory(prefix="wp36-self-ok-") as td:
-        summary = run_session(SYNTH, Path(td), sequence_count=32, acceptance=False)
+        path = Path(td)
+        adapter = synth_proxy(path)
+        summary = run_session(adapter, path / "evidence", sequence_count=32, acceptance=False)
         need(summary["completed_sequences"] == 32, "protocol smoke did not complete")
     print("PASS streaming protocol smoke")
 
@@ -50,11 +69,13 @@ def main() -> None:
     try:
         with tempfile.TemporaryDirectory(prefix="wp36-self-crash-") as td:
             path = Path(td)
+            adapter = synth_proxy(path)
+            evidence = path / "evidence"
             try:
-                run_session(SYNTH, path, sequence_count=16, acceptance=False)
+                run_session(adapter, evidence, sequence_count=16, acceptance=False)
                 raise AssertionError("runner accepted assertion/crash")
             except RunFailure:
-                repro = path / "failure-reproducer.json"
+                repro = evidence / "failure-reproducer.json"
                 need(repro.is_file(), "crash did not retain a failure reproducer")
                 need(json.loads(repro.read_text())["seq_index"] == 7, "wrong crash reproducer sequence")
     finally:
@@ -68,8 +89,10 @@ def main() -> None:
     os.environ["WP36_SYNTH_MODE"] = "nonnull"
     try:
         with tempfile.TemporaryDirectory(prefix="wp36-self-null-") as td:
+            path = Path(td)
+            adapter = synth_proxy(path)
             try:
-                run_session(SYNTH, Path(td), sequence_count=1, acceptance=False)
+                run_session(adapter, path / "evidence", sequence_count=1, acceptance=False)
                 raise AssertionError("runner accepted non-NULL source binding")
             except RunFailure as exc:
                 need("not literal NULL" in str(exc), "wrong non-NULL rejection")
