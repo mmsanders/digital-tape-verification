@@ -38,6 +38,43 @@ _spec.loader.exec_module(BASE)
 def pattern_bytes(tag: int, size: int) -> bytes:
     return bytes(((tag + i * 17 + (i >> 8) * 29) & 0xFF) for i in range(size))
 
+def pattern_block(tag: int, block_ordinal: int) -> bytes:
+    """512 bytes from the same deterministic stream at a block offset."""
+    base = block_ordinal * BASE.BLOCK
+    return bytes(
+        ((tag + (base + i) * 17 + ((base + i) >> 8) * 29) & 0xFF)
+        for i in range(BASE.BLOCK)
+    )
+
+def target_before_block(case: dict) -> bytes:
+    """Verifier-owned raw destination bytes immediately before a targeted copy write."""
+    ordinal = case["injection"]["write_ordinal"]
+    if case["fixture"] == "v3_003" and case["pass"] == "pass1":
+        # Pass-1 destination [12,14) is unallocated and deliberately non-audio.
+        return pattern_block(90, ordinal)
+    if case["fixture"] == "v3_003" and case["pass"] == "pass2":
+        # Reclaimed [10,12) still contains the old timeline bytes.
+        return pattern_block(10, ordinal)
+    if case["fixture"] == "no_lower_run" and case["pass"] == "pass1":
+        return pattern_block(91, ordinal)
+    raise ValueError("no canonical target block for case")
+
+def source_block_known(case: dict) -> tuple[bytes | None, bytes]:
+    """Return (whole expected block when normative, known logical prefix).
+
+    The V3-003 timeline fills whole chunks, so every copied block is independently
+    known. The no-lower-run fixture has only 10 stereo frames (40 bytes); bytes
+    after that logical payload in its sole destination block are intentionally
+    unspecified by TapeFS, so only the prefix is normative.
+    """
+    ordinal = case["injection"]["write_ordinal"]
+    if case["fixture"] == "v3_003":
+        block = pattern_block(10, ordinal)
+        return block, block
+    if case["fixture"] == "no_lower_run" and ordinal == 0:
+        return None, pattern_bytes(31, 40)
+    raise ValueError("no canonical source block for case")
+
 V3_AUDIO_SHA256 = hashlib.sha256(pattern_bytes(10, 2 * BASE.CHUNK_BYTES)).hexdigest()
 LIVE_A_SHA256 = hashlib.sha256(pattern_bytes(77, 512)).hexdigest()
 DECLINE_AUDIO_SHA256 = hashlib.sha256(pattern_bytes(31, 40)).hexdigest()
