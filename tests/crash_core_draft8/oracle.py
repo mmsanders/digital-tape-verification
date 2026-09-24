@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+from functools import lru_cache
 from typing import Any
 
 from fixture import (
@@ -50,14 +51,13 @@ def _same_metadata(a: dict, b: dict) -> bool:
     )
 
 
+@lru_cache(maxsize=None)
+def _fixture_snapshot_cached(family: str, variant: str, seed: str | None) -> dict:
+    return compact_snapshot(fixture_bytes(family, variant, seed=seed))
+
+
 def _fixture_snapshot(case: dict) -> dict:
-    return compact_snapshot(
-        fixture_bytes(
-            case["family"],
-            case["variant"],
-            seed=case.get("seed"),
-        )
-    )
+    return _fixture_snapshot_cached(case["family"], case["variant"], case.get("seed"))
 
 
 def _slot_blocks(slot: bytes) -> tuple[bytes, bytes]:
