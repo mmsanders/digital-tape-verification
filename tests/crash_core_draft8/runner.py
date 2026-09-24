@@ -61,6 +61,21 @@ def _parse_json(line: str, label: str) -> dict:
     return obj
 
 
+def validate_handshake(hello: dict) -> list[str]:
+    errors = []
+    if not isinstance(hello, dict):
+        return ["handshake is not an object"]
+    if hello.get("format") != ADAPTER_FORMAT:
+        errors.append("wrong adapter handshake format")
+    if hello.get("adapter_kind") != "product":
+        errors.append("non-product adapter")
+    if hello.get("caseset_sha256") != EXPECTED_CASESET_SHA256:
+        errors.append("case-set identity mismatch")
+    if hello.get("fixture_sha256") != all_fixture_digests():
+        errors.append("fixture identities mismatch")
+    return errors
+
+
 def _baseline_key(case: dict) -> str:
     key = f"{case['scope']}:{case['family']}:{case['variant']}"
     if "seed" in case:
@@ -158,14 +173,9 @@ def run_session(
             completed = 0
             try:
                 hello = _parse_json(_readline(proc.stdout, timeout_s), "adapter handshake")
-                if hello.get("format") != ADAPTER_FORMAT:
-                    raise RunFailure("wrong adapter handshake format")
-                if hello.get("adapter_kind") != "product":
-                    raise RunFailure("non-product adapter refused")
-                if hello.get("caseset_sha256") != EXPECTED_CASESET_SHA256:
-                    raise RunFailure("adapter case-set identity mismatch")
-                if hello.get("fixture_sha256") != all_fixture_digests():
-                    raise RunFailure("adapter fixture identities mismatch")
+                handshake_errors = validate_handshake(hello)
+                if handshake_errors:
+                    raise RunFailure("adapter handshake invalid: " + "; ".join(handshake_errors))
 
                 for current_case in iter_cases():
                     if case_limit is not None and completed >= case_limit:
