@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import struct
+
 from fixture import (
     BASE, DECLINE_AUDIO_SHA256, LIVE_A_SHA256, V3_AUDIO_SHA256,
     clean_cases, compact, empty_at, functional_fixture_errors,
+    source_block_known, target_before_block,
 )
 from oracle import (
     COLUMNS, FAULTED_ALLOWED, RESPOOL_ALLOWED, OracleError, case_id,
-    expected_layout, expected_target_lba, transaction_media,
+    expected_metadata_post, expected_target_lba, transaction_media,
     validate_clean_case, validate_crash_observation, validate_longop_contract,
     validate_zero_needed_empty,
 )
 from planner import (
-    EXPECTED_CASESET_SHA256, EXPECTED_TOTAL_CASES, case_counts,
-    caseset_digest, iter_cases, validate_planner,
+    EXPECTED_CASESET_SHA256, EXPECTED_TOTAL_CASES, iter_cases,
+    planner_summary, validate_summary,
 )
 
 def need(cond, msg):
@@ -29,35 +32,98 @@ def expect_reject(fn, needle=None):
         return
     raise AssertionError("negative control was accepted")
 
-def find_case(fixture, pass_name, mode, target, kind, ordinal=None):
+def _matches(c, s):
+    if c["fixture"] != s["fixture"] or c["pass"] != s["pass"]:
+        return False
+    if c["mode"] != s["mode"] or c["target"] != s["target"]:
+        return False
+    inj = c["injection"]
+    for key in ("kind", "write_ordinal", "flush_ordinal", "landed_bytes"):
+        if key in s and inj.get(key) != s[key]:
+            return False
+    return True
+
+def collect_cases(specs):
+    """One planner traversal obtains all representative/negative-control cases."""
+    found = [None] * len(specs)
+    remaining = len(specs)
     for c in iter_cases():
-        if (
-            c["fixture"] == fixture and c["pass"] == pass_name
-            and c["mode"] == mode and c["target"] == target
-            and c["injection"]["kind"] == kind
-        ):
-            if ordinal is None or c["injection"].get("write_ordinal") == ordinal:
-                return c
-    raise AssertionError("case not found")
+        for i, s in enumerate(specs):
+            if found[i] is None and _matches(c, s):
+                found[i] = c
+                remaining -= 1
+        if remaining == 0:
+            break
+    need(remaining == 0, "representative planner case missing")
+    return found
+
+def _write_durable(case, before: bytes, intended: bytes) -> bytes:
+    inj = case["injection"]
+    if inj["kind"] == "before_write":
+        return before
+    if inj["kind"] == "torn_write":
+        n = inj["landed_bytes"]
+        return intended[:n] + before[n:]
+    if inj["kind"] == "after_write":
+        return intended if case["mode"] == "write_through" else before
+    raise AssertionError("not a write case")
+
+def _metadata_target_blocks(case, pre, committed):
+    if case["fixture"] == "v3_003" and case["pass"] == "pass1":
+        slot = 3
+    elif case["fixture"] == "v3_003" and case["pass"] == "pass2":
+        slot = 2
+    elif case["fixture"] == "no_lower_run" and case["pass"] == "pass1":
+        slot = 3
+    else:
+        raise AssertionError("unknown pass")
+    block_index = 1 if case["target"] == "entry_block" else 0
+    lo = block_index * BASE.BLOCK
+    hi = lo + BASE.BLOCK
+    return pre.slots[slot][lo:hi], committed.slots[slot][lo:hi]
+
+def _remount_info(post):
+    sbx = BASE.select_sb(post)
+    live = BASE.live_slot(post, 1)
+    need(live is not None, "synthetic post has no live B")
+    entries = BASE.parse_entries(post.slots[live])
+    total_chunks = struct.unpack_from("<I", sbx, 52)[0]
+    free_next = BASE.free_next(post)
+    return {
+        "uuid_hex": sbx[20:36].hex(),
+        "total_chunks": total_chunks,
+        "free_chunks": total_chunks - free_next,
+        "entry_count": len(entries),
+        "total_frames": sum(e[2] for e in entries),
+        "side_b_valid": True,
+    }
 
 def synthetic_crash(case):
     pre, committed = transaction_media(case)
-    layout = expected_layout(case)
-    post = pre
-    # "post_pass1" is the committed image for pass 1, but it is the PRE-pass
-    # image for pass 2. Select the transaction's committed image only when its
-    # independently parsed layout is the layout expected at this injection.
-    if layout == __import__("fixture").layout_name(case["fixture"], committed):
-        post = committed
+    post = expected_metadata_post(case)
 
     lba = expected_target_lba(case)
     target_event = {"target": case["target"]}
+    target_block = None
     if lba is None:
         target_event.update({"op": "flush"})
     else:
         target_event.update({"op": "write", "lba": lba, "count": 1})
+        if case["target"] == "chunk_copy":
+            before = target_before_block(case)
+            whole, prefix = source_block_known(case)
+            intended = whole if whole is not None else prefix + bytes([0xD7]) * (BASE.BLOCK - len(prefix))
+        else:
+            before, intended = _metadata_target_blocks(case, pre, committed)
+        durable = _write_durable(case, before, intended)
+        target_block = {
+            "before_hex": before.hex(),
+            "intended_hex": intended.hex(),
+            "durable_hex": durable.hex(),
+        }
 
     hashes = {"live_a": LIVE_A_SHA256}
+    layout = __import__("fixture").layout_name(case["fixture"], post)
     if case["fixture"] == "v3_003":
         if case["pass"] == "pass1":
             hashes["source_10_12"] = V3_AUDIO_SHA256
@@ -72,18 +138,23 @@ def synthetic_crash(case):
         if layout == "post_pass1":
             hashes["copy_10_frames"] = DECLINE_AUDIO_SHA256
 
-    return {
+    obs = {
         "format": "WP10-RESPOOL-OBSERVATION-1",
         "case_id": case_id(case),
         "injection_fired": True,
         "fresh_remount_from_durable_only": True,
         "actual_remount_result": "TAPE_OK",
+        "remount_side": "B",
+        "remount_info": _remount_info(post),
         "pre_snapshot": compact(pre),
         "post_snapshot": compact(post),
         "target_event": target_event,
         "live_a_sha256": LIVE_A_SHA256,
         "raw_region_sha256": hashes,
     }
+    if target_block is not None:
+        obs["target_block"] = target_block
+    return obs
 
 def row_observation(*, faulted=False):
     allowed = FAULTED_ALLOWED if faulted else RESPOOL_ALLOWED
@@ -149,25 +220,22 @@ def longop_observation():
     }
 
 def main():
-    errors = validate_planner()
+    summary = planner_summary()
+    errors = validate_summary(summary)
     need(not errors, "planner: " + "; ".join(errors))
-    need(case_counts()["total"] == EXPECTED_TOTAL_CASES, "planner total")
-    need(caseset_digest() == EXPECTED_CASESET_SHA256, "planner digest")
+    need(summary["total"] == EXPECTED_TOTAL_CASES, "planner total")
+    need(summary["sha256"] == EXPECTED_CASESET_SHA256, "planner digest")
     print("PASS planner", EXPECTED_TOTAL_CASES, EXPECTED_CASESET_SHA256)
 
     errors = functional_fixture_errors()
     need(not errors, "fixtures: " + "; ".join(errors))
     print("PASS verifier-owned fixture premises and pinned base oracle")
 
-    # Full clean WP-12 shapes, excluding the stage-clear transaction already accepted
-    # in Verification #69.
     for c in clean_cases():
         post, events, calls = BASE.synth_observation(c)
         validate_clean_case(c, post, events, calls)
     print("PASS clean WP-12 functional/headroom shapes")
 
-    # Empty respool consumes neither counter. Test the normal cap and deliberately
-    # crafted reserved values for both sequence and sb_generation.
     for seq, generation in ((0xFFFFFFFD, 7), (0xFFFFFFFF, 0xFFFFFFFF)):
         pre = empty_at(seq, generation)
         validate_zero_needed_empty(
@@ -176,38 +244,66 @@ def main():
         )
     print("PASS zero-needed empty counter boundaries")
 
-    representatives = [
-        find_case("v3_003", "pass1", "flush_required", "chunk_copy", "after_write", 700),
-        find_case("v3_003", "pass1", "write_through", "entry_block", "torn_write", 0),
-        find_case("v3_003", "pass1", "write_through", "header_block", "after_write", 1),
-        find_case("v3_003", "pass2", "flush_required", "chunk_copy", "before_write", 0),
-        find_case("v3_003", "pass2", "write_through", "header_block_flush", "at_flush"),
-        find_case("no_lower_run", "pass1", "flush_required", "entry_block_flush", "at_flush"),
-        find_case("no_lower_run", "pass1", "write_through", "header_block", "after_write", 1),
+    specs = [
+        {"fixture":"v3_003","pass":"pass1","mode":"flush_required","target":"chunk_copy",
+         "kind":"torn_write","write_ordinal":700,"landed_bytes":257},
+        {"fixture":"v3_003","pass":"pass1","mode":"write_through","target":"chunk_copy",
+         "kind":"torn_write","write_ordinal":123,"landed_bytes":31},
+        {"fixture":"v3_003","pass":"pass1","mode":"write_through","target":"entry_block",
+         "kind":"torn_write","write_ordinal":0,"landed_bytes":129},
+        {"fixture":"v3_003","pass":"pass1","mode":"write_through","target":"header_block",
+         "kind":"after_write","write_ordinal":1,"landed_bytes":512},
+        {"fixture":"v3_003","pass":"pass2","mode":"flush_required","target":"chunk_copy",
+         "kind":"torn_write","write_ordinal":0,"landed_bytes":17},
+        {"fixture":"v3_003","pass":"pass2","mode":"write_through","target":"header_block_flush",
+         "kind":"at_flush","flush_ordinal":2},
+        {"fixture":"no_lower_run","pass":"pass1","mode":"flush_required","target":"chunk_copy",
+         "kind":"torn_write","write_ordinal":0,"landed_bytes":39},
+        {"fixture":"no_lower_run","pass":"pass1","mode":"write_through","target":"header_block",
+         "kind":"after_write","write_ordinal":1,"landed_bytes":512},
     ]
+    representatives = collect_cases(specs)
     for case in representatives:
         validate_crash_observation(case, synthetic_crash(case))
-    print("PASS representative crash/raw-layout oracles across pass/mode/target classes")
+    print("PASS representative exact torn/raw-layout/free_next oracles")
 
     longop = longop_observation()
     validate_longop_contract(longop)
     print("PASS complete respool/Faulted state rows and long-operation contract")
 
-    # Required negative controls.
+    # Negative: Side-A raw bytes change.
     case = representatives[0]
     obs = synthetic_crash(case)
     obs["raw_region_sha256"]["live_a"] = "0" * 64
     expect_reject(lambda: validate_crash_observation(case, obs), "Side A")
     print("PASS overlap/live-set corruption negative control")
 
-    case = find_case("v3_003", "pass1", "flush_required", "header_block", "after_write", 1)
+    # Negative: exact torn destination prefix is wrong by one byte.
+    case = representatives[1]
     obs = synthetic_crash(case)
-    _, committed = transaction_media(case)
-    obs["post_snapshot"] = compact(committed)
-    expect_reject(lambda: validate_crash_observation(case, obs), "selected layout")
+    bad = bytearray.fromhex(obs["target_block"]["durable_hex"])
+    bad[0] ^= 0x01
+    obs["target_block"]["durable_hex"] = bytes(bad).hex()
+    expect_reject(lambda: validate_crash_observation(case, obs), "durable bytes")
+    print("PASS torn-copy durable-prefix negative control")
+
+    # Negative: freshly remounted public allocator view reports the wrong frontier.
+    case = representatives[4]
+    obs = synthetic_crash(case)
+    obs["remount_info"]["free_chunks"] -= 1
+    expect_reject(lambda: validate_crash_observation(case, obs), "free_next")
+    print("PASS remount free_next negative control")
+
+    # Negative: substitute pre-pass metadata where a write-through header committed.
+    case = representatives[3]
+    obs = synthetic_crash(case)
+    pre, _ = transaction_media(case)
+    obs["post_snapshot"] = compact(pre)
+    expect_reject(lambda: validate_crash_observation(case, obs), "durable metadata")
     print("PASS stale/illegal layout-selection negative control")
 
-    case = find_case("v3_003", "pass2", "write_through", "chunk_copy", "after_write", 0)
+    # Negative: pass 2 writes to the wrong physical destination.
+    case = representatives[4]
     obs = synthetic_crash(case)
     obs["target_event"]["lba"] += 2 * BASE.BLOCKS_PER_CHUNK
     expect_reject(lambda: validate_crash_observation(case, obs), "destination")
