@@ -262,6 +262,15 @@ def _validate_trace(case: dict, obs: dict) -> None:
     for i, got in enumerate(flushes):
         _need(got.get("ordinal") == i, "baseline flush ordinal mismatch")
 
+    if case["family"] == "stage_clear":
+        _need(baseline.get("post_clear_reached") is True,
+              "stage-clear baseline did not reach first post-clear write")
+        expected_kind = "index" if case["variant"] == "reset_b" else "chunk"
+        _need(baseline.get("post_clear_next_kind") == expected_kind,
+              "stage-clear baseline reached wrong post-clear write class")
+        _need(baseline.get("post_clear_write_landed") is False,
+              "stage-clear baseline allowed post-clear probe write to land")
+
     _need(obs.get("injection_fired") is True, "planned injection point was skipped")
     fired = obs.get("fired_at")
     _need(isinstance(fired, dict), "missing fired_at provenance")
