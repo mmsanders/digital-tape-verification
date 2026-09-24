@@ -135,12 +135,16 @@ def validate_crash_observation(case: dict, obs: dict):
     # Exact committed metadata is required when the new header is durable; otherwise
     # the old live layout must remain selectable. Torn metadata may exist only in the
     # inactive slot and can never become the selected layout.
-    if layout.startswith("post_"):
+    # Compare exact selected metadata to this transaction's committed image only
+    # when the selected layout is actually the commit of THIS pass. During pass 2,
+    # post_pass1 is the valid pre-pass state.
+    committed_layout = layout_name(case["fixture"], committed)
+    if layout == committed_layout:
         live = BASE.live_slot(got_post, 1)
         expected_live = BASE.live_slot(committed, 1)
         need(live is not None and expected_live is not None, "committed B missing")
         need(got_post.slots[live][:1024] == committed.slots[expected_live][:1024],
-             "selected post-pass metadata is not exact")
+             "selected committed-pass metadata is not exact")
 
     _assert_disjoint_target(case)
     target = obs.get("target_event", {})
