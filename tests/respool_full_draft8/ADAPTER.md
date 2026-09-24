@@ -13,24 +13,47 @@ inspection.
 ## Product adapter boundary
 
 The later Software binding exposes **raw observations only**. It must not emit
-"old/new", "valid", "safe", "passes", overlap verdicts, or any other result that
-duplicates verifier logic.
+"old/new", "valid", "safe", "passes", overlap verdicts, an expected `free_next`,
+or any other result that duplicates verifier logic.
 
 For each planner case it returns one `WP10-RESPOOL-OBSERVATION-1` object containing:
 
 - the exact planner case identity and confirmation that the planned injection fired;
 - `fresh_remount_from_durable_only=true`;
-- the raw remount return code;
-- a pre- and post-crash compact snapshot: exact primary/mirror 512-byte
+- the raw remount return code and `remount_side = "B"`;
+- the immediate post-remount raw `tape_info` fields:
+  `uuid`, `total_chunks`, `free_chunks`, `entry_count`,
+  `total_frames`, and `side_b_valid`;
+- a pre- and post-crash compact metadata snapshot: exact primary/mirror 512-byte
   superblocks plus the first two blocks of all four index slots;
 - the exact targeted device event (write LBA/count or flush);
+- for every write-target case, exact 512-byte `target_block` observations:
+  `before_hex`, the write callback's `intended_hex`, and the durable
+  post-crash `durable_hex`;
 - SHA-256 observations of verifier-designated raw audio regions and the Side-A
   control region.
 
+### Public allocator observation
+
+Frozen DRAFT-8 `tape_info` does **not** contain a `free_next` member. It exposes
+`total_chunks` and `free_chunks`. Do not invent a private/public
+`tape_info.free_next` field to satisfy the acceptance prose.
+
+Verification independently derives:
+
+```
+reported_free_next = tape_info.total_chunks - tape_info.free_chunks
+expected_free_next = max(a_high_water, max(live-B last + 1))
+```
+
+from the fresh remount and the raw selected B index, then requires equality after
+**every injection**. The UUID, B validity, entry count and total frames bind that
+`tape_info` observation to the same fresh remount whose raw metadata was supplied.
+
 A failing observation is retained with `reproducer.retain_failure` as
-`WP10-RESPOOL-FAILURE-1`, including the exact planner case, injection coordinate,
-pre/post metadata snapshots, target event and raw-region hashes. That record is enough
-to diagnose the chunk/index/superblock state without reading implementation source.
+`WP10-RESPOOL-FAILURE-1`, including the exact planner case/injection coordinate,
+pre/post metadata snapshots, target event, target block bytes for write cases,
+post-remount `tape_info`, and raw-region hashes.
 
 ## Dual-image crash device
 
@@ -40,25 +63,51 @@ The product binding uses separate working and durable images.
 - In `write_through`, a successful write changes working and durable bytes.
 - In `flush_required`, a successful write changes working only.
 - A successful flush makes all preceding working writes durable.
-- A torn one-block metadata write copies exactly the requested prefix (1…511 bytes)
-  into working **and durable** bytes, then faults.
+- A torn **one-block write of any kind, including copied audio**, copies exactly the
+  requested prefix (1…511 bytes) of the intended 512-byte payload into both working
+  **and durable** bytes, leaves the suffix equal to the pre-write durable block, and
+  then faults.
 - `before_write` lands no target byte.
 - `after_write` permits the full write to return, then cuts power before the
-  following flush. Therefore the write is durable only in `write_through`.
+  following flush. Therefore the full block is durable only in `write_through`.
 - `at_flush` fails/cuts before that flush changes durability. Preceding writes may
   already be durable in `write_through`.
 - After every injected interruption, destroy the running instance and working image.
   Remount a fresh instance initialized only from durable bytes.
 
+For a targeted write the adapter supplies raw block bytes; Verification, not Software,
+computes the permitted durable result. For V3-003 copied blocks the intended 512-byte
+payload is independently known from the verifier fixture. For the no-lower-run
+fixture only the first 40 logical payload bytes of its partial block are normative;
+the remaining write-buffer tail is observed raw and then used by the exact fault
+model, never interpreted as logical audio.
+
+## Verifier-owned raw destination preimages
+
+The imported fixture contract initializes the targeted unallocated destinations
+deterministically so torn-prefix behavior is independently checkable:
+
+- V3-003 pass-1 [12,14): verifier pattern tag 90;
+- V3-003 pass-2 [10,12): the old timeline bytes remain in place, verifier pattern
+  tag 10;
+- no-lower-run pass-1 chunk 10: verifier pattern tag 91.
+
+An adapter whose `before_hex` differs from those verifier-owned bytes is rejected
+before durability is considered.
+
 ## Crash targets
 
-The canonical planner contains 22,562 cases and no runtime sampling switches.
+The canonical planner contains **4,209,696 cases** and has no runtime sampling
+switches.
 
-For each pass, every copied chunk block has a before-write and after-write interruption
-point, and the data flush is faulted. Each targeted one-block metadata write—the
-entry-array block and index-header commit—has before-write, **all 511 nontrivial torn
-prefixes**, after-write and following-flush fault coverage. Both durability modes run
-every case.
+Every copied 512-byte audio block and every targeted 512-byte metadata block receives:
+
+- before-write / landed 0;
+- torn-write / every landed prefix **1…511**;
+- after-write / landed 512;
+
+in **both** durability modes. The data flush, entry-array flush and header flush are
+also faulted in both modes. Torn lengths may not be sampled or collapsed.
 
 The corrected V3-003 fixture is fixed at H=10, live B=[10,12), len=2,
 free_next=12:
@@ -67,9 +116,9 @@ free_next=12:
 2. pass 2 copies back to [10,12) and commits B0 sequence 702.
 
 The pass-2 campaign begins from the committed pass-1 durable image. Every pass-2
-observation must expose the raw SHA-256 of [12,14), allowing the verifier to prove
-that the operation never destroys the only live pass-1 copy while writing reclaimed
-[10,12).
+observation exposes the raw SHA-256 of [12,14), allowing Verification to prove that
+no pass-2 interruption destroys the only live pass-1 copy while reclaimed [10,12)
+is being written.
 
 The no-lower-run fixture keeps the existing verifier-owned ten-fragment source and
 compacts to chunk 10 once; pass 2 must decline.
@@ -131,9 +180,10 @@ argument.
 Software must not:
 
 - inspect or modify verifier expectations based on product behavior;
-- collapse durable bytes into an adapter verdict;
-- skip planner cases or torn lengths;
+- collapse durable bytes or allocator values into an adapter verdict;
+- skip planner cases, copied-block coordinates, or torn lengths;
 - reuse the live engine instance after simulated power loss;
+- add a non-frozen `free_next` API instead of observing frozen `free_chunks`;
 - substitute the previously accepted narrow 8/8 clean re-spool evidence for this
   crash/state campaign;
 - include promote, format/duplicate, or §8 stage-clear acceptance in this tranche.
