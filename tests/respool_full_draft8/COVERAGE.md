@@ -6,7 +6,7 @@ Authority is frozen DRAFT-8 at:
 - engine-api SHA-256 `537eadc423e1a7bde726d689206b8fe93bef164d57e48e8ff71e07eaf8a7e3a1`
 - acceptance SHA-256 `7f78fba7b66b4fc6e96d15399c62468249bb30fbccbb59bf9f57b4532f56b6b7`
 
-No product implementation was consulted in authoring this package.
+No product implementation was consulted in authoring or correcting this package.
 
 ## WP-12 functional shapes
 
@@ -28,38 +28,66 @@ Covered by verifier-owned fixtures and the pinned independent raw metadata oracl
 
 ## WP-10 re-spool crash enumeration
 
-Planner total: **22,562** deterministic cases.
+Planner total: **4,209,696** deterministic cases.
 
 | Dimension | Count |
 |---|---:|
-| flush_required | 11,281 |
-| write_through | 11,281 |
-| V3-003 pass 1 | 10,250 |
-| V3-003 pass 2 | 10,250 |
-| no-lower-run pass 1 | 2,062 |
-| chunk-copy interruption points | 16,388 |
+| flush_required | 2,104,848 |
+| write_through | 2,104,848 |
+| V3-003 pass 1 | 2,103,306 |
+| V3-003 pass 2 | 2,103,306 |
+| no-lower-run pass 1 | 3,084 |
+| chunk-copy before/torn(1…511)/after | 4,203,522 |
 | data-flush faults | 6 |
-| entry-block before/torn/after | 3,078 |
+| entry-block before/torn(1…511)/after | 3,078 |
 | entry-block flush faults | 6 |
-| header before/torn/after | 3,078 |
+| header before/torn(1…511)/after | 3,078 |
 | header flush faults | 6 |
 
 Canonical case-set SHA-256:
-`bc3e4cff6f61888faf9c5b97ccd136e9fec4417ef9cab4a46d084b4aae7ec444`.
+`02c52de7a7c51a6ffafe5c9d5afad9c23032b72fc11aaf206bb27a9c9506d3e1`.
 
-Every copied block has before/after interruption coverage. Every targeted one-block
-metadata write has before, all torn prefixes 1…511, after, and its following flush
-fault. Every case is run in both durability modes and requires a fresh remount from
-durable bytes only.
+Every copied audio block and every targeted metadata block has before, **all torn
+prefixes 1…511**, and after-write coverage in both durability modes. Every following
+data/entry/header flush is also faulted. No torn lengths are sampled.
 
-The raw oracle permits only the valid pre-pass or valid post-pass selected layout.
-Torn/new inactive metadata may exist but may not be selected. A selected post-pass
-index must be byte-exact to the verifier-generated commit. Side A remains unchanged.
+The verifier models exact durable 512-byte target blocks:
 
-For pass 2, **every injection**, including destination writes into reclaimed [10,12),
-must retain the raw SHA-256 of the sole live pass-1 audio at [12,14). A committed
-pass 2 additionally requires [10,12) to hash identically. This is the explicit proof
-that a pass-2 crash cannot destroy the only live copy created in pass 1.
+- torn writes place the exact intended prefix into the durable block in both
+  durability modes and preserve the exact pre-write suffix;
+- after-write is durable only in write-through mode;
+- V3-003 copy payloads are independently known from verifier fixture bytes;
+- the no-lower-run partial block independently fixes its 40 logical bytes while
+  retaining the raw observed tail solely for fault modeling;
+- metadata post-crash snapshots are modeled byte-exactly, including invalid inactive
+  slots produced by torn entry/header writes.
+
+Every case requires a fresh remount from durable bytes only. The raw oracle permits
+only the selected layout implied by those exact bytes. Side A remains unchanged.
+
+For pass 2, **every injection**, including all 511 torn lengths at every destination
+block in reclaimed [10,12), must retain the raw SHA-256 of the sole live pass-1 audio
+at [12,14). A committed pass 2 additionally requires [10,12) to hash identically.
+This explicitly proves a pass-2 crash cannot destroy the only live copy from pass 1.
+
+### Universal post-injection free_next assertion
+
+Frozen `tape_info` exposes `total_chunks` and `free_chunks`, not a public
+`free_next` member. After every crash injection the adapter must call
+`tape_get_info` on the **fresh Side-B remount** and expose raw:
+
+- UUID;
+- total_chunks;
+- free_chunks;
+- entry_count;
+- total_frames;
+- side_b_valid.
+
+Verification binds those fields to the same raw remounted cartridge, computes the
+runtime frontier as `total_chunks - free_chunks`, independently derives invariant
+12's `max(H, max(live-B last+1))` from raw selected metadata, and requires equality.
+This catches an engine that selects valid media but derives its runtime allocation
+frontier incorrectly without inventing a non-frozen API field.
 
 ## Counter/headroom boundaries
 
@@ -75,19 +103,16 @@ Covered:
 - ordinary stage-0 re-spool commits advance cartridge sequence while leaving
   superblock bytes/sb_generation unchanged.
 
-The last item is important to issue wording: frozen TapeFS §4.5 explicitly classifies
-a two-pass-capable geometry with only one sequence remaining as the **one-commit
-branch**. It does **not** permit refusing that case one-short of two commits. The
-package follows the frozen rule and treats a refusal there as a defect. Only a branch
-that needs its first/only commit and is one short refuses with zero writes.
+Frozen TapeFS §4.5 explicitly classifies a two-pass-capable geometry with only one
+sequence remaining as the **one-commit branch**. It does not permit refusing that
+case one-short of two commits. PM review explicitly confirmed this interpretation.
 
 §8 stage-clear crash closure is excluded because Verification #69 already accepted it.
 This tranche uses stage-0 media for its crash campaign.
 
 ## WP-12a re-spool row
 
-The package requires all 15 columns of the Respool-in-progress row, exactly once per
-fresh equivalent fixture:
+The package requires all 15 columns of the Respool-in-progress row:
 
 - 11 B cells => TAPE_ERR_BUSY, zero block operations, operation identity unchanged;
 - render, service, status/info/tell and matching respool continuation are allowed;
@@ -111,22 +136,21 @@ The package also requires the full 15-column Faulted row:
 Two requested generic long-operation checks have no re-spool call surface:
 
 1. `tape_respool(t, block_budget, more_work)` has no stable continuation argument
-   besides the two fields DRAFT-8 explicitly allows to change. There is no
-   "changed continuation argument" to mutate.
-2. Re-spool has no progress callback parameter. DRAFT-8 says callback re-entry is
-   triggered by the current `tape_progress_fn` surface, exposed by promote/duplicate,
-   not respool. A respool-originated callback re-entry test would require inventing
-   non-frozen API.
+   besides the two fields DRAFT-8 explicitly allows to change.
+2. Re-spool has no progress callback parameter. DRAFT-8's callback no-reentry rule
+   applies to the current `tape_progress_fn` surface, exposed by promote/duplicate,
+   not respool.
 
-The verifier asserts those surfaces are absent so a product adapter cannot silently
-invent them.
+PM review explicitly confirmed both N/A interpretations.
 
 ## Negative controls
 
 Synthetic self-tests prove the package goes red for:
 
-- Side-A/live-set corruption (overlap control);
-- an illegal/stale layout selection at a flush-required header boundary;
+- Side-A/live-set corruption;
+- a wrong durable prefix for a torn copied-audio block;
+- a wrong fresh-remount allocation frontier (`free_chunks`/derived `free_next`);
+- illegal/stale metadata selection;
 - a wrong pass-2 destination;
 - BUSY terminating/restarting the in-progress operation;
 - a FAULTED-row call leaking through and performing media I/O.
