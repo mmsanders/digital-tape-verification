@@ -2,9 +2,12 @@
 """Independent raw-media and state-machine oracle for issue #72."""
 from __future__ import annotations
 
+import struct
+
 from fixture import (
     BASE, DECLINE_AUDIO_SHA256, LIVE_A_SHA256, V3_AUDIO_SHA256,
-    decline_case, from_compact, layout_name, v3_case,
+    decline_case, from_compact, layout_name, source_block_known,
+    target_before_block, v3_case,
 )
 
 COLUMNS = (
@@ -48,20 +51,6 @@ def transaction_media(case: dict):
         return c.pre, BASE.with_slot(c.pre, p.slot, BASE.idx(1, list(p.entries), p.sequence))
     raise OracleError("unknown crash transaction")
 
-def expected_layout(case: dict) -> str:
-    durable_header = (
-        case["mode"] == "write_through"
-        and case["target"] in ("header_block", "header_block_flush")
-        and case["injection"]["kind"] in ("after_write", "at_flush")
-    )
-    if case["fixture"] == "v3_003":
-        if case["pass"] == "pass1":
-            return "post_pass1" if durable_header else "pre"
-        return "post_pass2" if durable_header else "post_pass1"
-    if case["fixture"] == "no_lower_run":
-        return "post_pass1" if durable_header else "pre"
-    raise OracleError("unknown expected layout")
-
 def _pass_geometry(case: dict):
     if case["fixture"] == "v3_003" and case["pass"] == "pass1":
         return 12, 14, 3
@@ -97,6 +86,138 @@ def _assert_disjoint_target(case: dict):
     elif case["fixture"] == "no_lower_run":
         need(chunk not in set(range(11, 21)), "decline pass overlap with live B")
 
+def _with_slot_block(m, slot: int, block_index: int, data: bytes):
+    need(len(data) == BASE.BLOCK, "slot replacement is not one block")
+    slots = list(m.slots)
+    b = bytearray(slots[slot])
+    off = block_index * BASE.BLOCK
+    b[off:off + BASE.BLOCK] = data
+    slots[slot] = bytes(b)
+    return BASE.Media(m.blocks, m.primary, m.mirror, tuple(slots))
+
+def _slot_block(m, slot: int, block_index: int) -> bytes:
+    off = block_index * BASE.BLOCK
+    return m.slots[slot][off:off + BASE.BLOCK]
+
+def _durable_write_result(case: dict, before: bytes, intended: bytes) -> bytes:
+    need(len(before) == BASE.BLOCK and len(intended) == BASE.BLOCK,
+         "write model requires one-block images")
+    inj = case["injection"]
+    kind = inj["kind"]
+    if kind == "before_write":
+        return before
+    if kind == "torn_write":
+        landed = inj["landed_bytes"]
+        need(1 <= landed < BASE.BLOCK, "invalid torn prefix")
+        # Torn prefixes are physically landed and therefore durable in BOTH modes.
+        return intended[:landed] + before[landed:]
+    if kind == "after_write":
+        need(inj["landed_bytes"] == BASE.BLOCK, "after_write is not full block")
+        return intended if case["mode"] == "write_through" else before
+    raise OracleError("not a block-write injection")
+
+def expected_metadata_post(case: dict):
+    """Exact durable metadata after the injection; chunk bytes are observed separately."""
+    pre, committed = transaction_media(case)
+    target = case["target"]
+    _, _, slot = _pass_geometry(case)
+    old_entry, new_entry = _slot_block(pre, slot, 1), _slot_block(committed, slot, 1)
+    old_header, new_header = _slot_block(pre, slot, 0), _slot_block(committed, slot, 0)
+
+    if target in ("chunk_copy", "chunk_flush"):
+        return pre
+    if target == "entry_block":
+        return _with_slot_block(pre, slot, 1, _durable_write_result(case, old_entry, new_entry))
+    if target == "entry_block_flush":
+        # The entry write completed; an interrupted flush makes it durable only
+        # on write-through media.
+        data = new_entry if case["mode"] == "write_through" else old_entry
+        return _with_slot_block(pre, slot, 1, data)
+    if target == "header_block":
+        # Entry bytes were successfully flushed before the header write begins.
+        m = _with_slot_block(pre, slot, 1, new_entry)
+        return _with_slot_block(m, slot, 0, _durable_write_result(case, old_header, new_header))
+    if target == "header_block_flush":
+        m = _with_slot_block(pre, slot, 1, new_entry)
+        data = new_header if case["mode"] == "write_through" else old_header
+        return _with_slot_block(m, slot, 0, data)
+    raise OracleError("unknown metadata target")
+
+def expected_layout(case: dict) -> str:
+    layout = layout_name(case["fixture"], expected_metadata_post(case))
+    if layout is None:
+        raise OracleError("expected durable metadata has no permitted live layout")
+    return layout
+
+def _validate_target_block(case: dict, obs: dict, pre, committed):
+    """Exact one-block durability model for every write target."""
+    if case["target"] not in ("chunk_copy", "entry_block", "header_block"):
+        need("target_block" not in obs or obs.get("target_block") in (None, {}),
+             "flush case supplied a write-target block")
+        return
+
+    raw = obs.get("target_block")
+    need(isinstance(raw, dict), "missing raw target-block observation")
+    try:
+        before = bytes.fromhex(raw["before_hex"])
+        intended = bytes.fromhex(raw["intended_hex"])
+        durable = bytes.fromhex(raw["durable_hex"])
+    except (KeyError, ValueError, TypeError) as exc:
+        raise OracleError("malformed raw target-block observation") from exc
+    need(len(before) == len(intended) == len(durable) == BASE.BLOCK,
+         "target-block observation is not exactly 512 bytes")
+
+    if case["target"] == "chunk_copy":
+        need(before == target_before_block(case), "chunk target preimage drift")
+        whole, prefix = source_block_known(case)
+        if whole is not None:
+            need(intended == whole, "chunk copy payload is not verifier source block")
+        else:
+            need(intended.startswith(prefix), "partial-timeline copy payload prefix mismatch")
+    else:
+        _, _, slot = _pass_geometry(case)
+        block_index = 1 if case["target"] == "entry_block" else 0
+        need(before == _slot_block(pre, slot, block_index),
+             "metadata target preimage drift")
+        need(intended == _slot_block(committed, slot, block_index),
+             "metadata write payload drift")
+
+    expected = _durable_write_result(case, before, intended)
+    need(durable == expected, "target block durable bytes violate injection model")
+
+def _validate_remount_info(got_post, obs: dict):
+    """Bind the universal free_next invariant to the public frozen tape_info API.
+
+    DRAFT-8 tape_info exposes total_chunks/free_chunks rather than a free_next field.
+    The runtime frontier is therefore observed as total_chunks - free_chunks and
+    independently compared with the raw-media-derived invariant-12 value.
+    """
+    need(obs.get("remount_side") == "B", "fresh crash remount was not Side B")
+    info = obs.get("remount_info")
+    need(isinstance(info, dict), "missing raw post-crash tape_info")
+
+    sbx = BASE.select_sb(got_post)
+    expected_uuid = sbx[20:36].hex()
+    total_chunks = struct.unpack_from("<I", sbx, 52)[0]
+    live = BASE.live_slot(got_post, 1)
+    need(live is not None, "post-crash Side B is not selectable")
+    entries = BASE.parse_entries(got_post.slots[live])
+    total_frames = sum(e[2] for e in entries)
+
+    need(info.get("uuid_hex") == expected_uuid, "tape_info UUID not bound to remounted cartridge")
+    need(info.get("side_b_valid") is True, "tape_info reports invalid Side B")
+    need(info.get("total_chunks") == total_chunks, "tape_info total_chunks mismatch")
+    need(info.get("entry_count") == len(entries), "tape_info entry_count mismatch")
+    need(info.get("total_frames") == total_frames, "tape_info total_frames mismatch")
+
+    free_chunks = info.get("free_chunks")
+    need(isinstance(free_chunks, int) and 0 <= free_chunks <= total_chunks,
+         "tape_info free_chunks out of range")
+    reported_free_next = total_chunks - free_chunks
+    expected_free_next = BASE.free_next(got_post)
+    need(reported_free_next == expected_free_next,
+         "fresh-remount free_next invariant mismatch")
+
 def validate_clean_case(case, post, events, calls):
     need(case.id != "WP12-STAGE-CLEAR", "stage-clear closure belongs to accepted #69")
     errors = BASE.check(case, post, events, calls)
@@ -122,6 +243,10 @@ def validate_crash_observation(case: dict, obs: dict):
     got_pre = from_compact(obs["pre_snapshot"])
     got_post = from_compact(obs["post_snapshot"])
     need(got_pre.encode() == pre.encode(), "pre-snapshot fixture drift")
+
+    expected_post = expected_metadata_post(case)
+    need(got_post.encode() == expected_post.encode(),
+         "durable metadata bytes differ from exact injection model")
     need(got_post.primary == pre.primary and got_post.mirror == pre.mirror,
          "ordinary stage-0 respool changed superblock")
     need(got_post.slots[0] == pre.slots[0] and got_post.slots[1] == pre.slots[1],
@@ -132,12 +257,6 @@ def validate_crash_observation(case: dict, obs: dict):
     want = expected_layout(case)
     need(layout == want, f"selected layout {layout!r} != {want!r}")
 
-    # Exact committed metadata is required when the new header is durable; otherwise
-    # the old live layout must remain selectable. Torn metadata may exist only in the
-    # inactive slot and can never become the selected layout.
-    # Compare exact selected metadata to this transaction's committed image only
-    # when the selected layout is actually the commit of THIS pass. During pass 2,
-    # post_pass1 is the valid pre-pass state.
     committed_layout = layout_name(case["fixture"], committed)
     if layout == committed_layout:
         live = BASE.live_slot(got_post, 1)
@@ -156,6 +275,9 @@ def validate_crash_observation(case: dict, obs: dict):
     else:
         need(target.get("op") == "flush", "planned flush target not observed")
 
+    _validate_target_block(case, obs, pre, committed)
+    _validate_remount_info(got_post, obs)
+
     hashes = obs.get("raw_region_sha256", {})
     need(hashes.get("live_a") == LIVE_A_SHA256, "raw Side A hash mismatch")
     if case["fixture"] == "v3_003":
@@ -164,8 +286,6 @@ def validate_crash_observation(case: dict, obs: dict):
             if layout == "post_pass1":
                 need(hashes.get("copy_12_14") == V3_AUDIO_SHA256, "pass1 committed copy not bit-identical")
         else:
-            # Central pass-2 safety proof: every pass-2 injection retains the sole
-            # pass-1 live copy at [12,14), regardless of reclaimed-destination bytes.
             need(hashes.get("pass1_12_14") == V3_AUDIO_SHA256,
                  "pass2 destroyed/changed the sole live pass1 copy")
             if layout == "post_pass2":
