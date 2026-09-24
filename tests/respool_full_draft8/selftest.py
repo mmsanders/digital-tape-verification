@@ -44,7 +44,10 @@ def synthetic_crash(case):
     pre, committed = transaction_media(case)
     layout = expected_layout(case)
     post = pre
-    if layout.startswith("post_"):
+    # "post_pass1" is the committed image for pass 1, but it is the PRE-pass
+    # image for pass 2. Select the transaction's committed image only when its
+    # independently parsed layout is the layout expected at this injection.
+    if layout == __import__("fixture").layout_name(case["fixture"], committed):
         post = committed
 
     lba = expected_target_lba(case)
