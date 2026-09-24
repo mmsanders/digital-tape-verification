@@ -16,7 +16,7 @@ from planner import EXPECTED_CASESET_SHA256
 
 def _baseline(case: dict) -> dict:
     tx = _transaction(case)
-    return {
+    out = {
         "writes": [
             {
                 "ordinal": i,
@@ -29,6 +29,15 @@ def _baseline(case: dict) -> dict:
         ],
         "flushes": [{"ordinal": 0}, {"ordinal": 1}],
     }
+    if case["family"] == "stage_clear":
+        out.update(
+            {
+                "post_clear_reached": True,
+                "post_clear_next_kind": "index" if case["variant"] == "reset_b" else "chunk",
+                "post_clear_write_landed": False,
+            }
+        )
+    return out
 
 
 def _pre_snapshot(case: dict) -> dict:
