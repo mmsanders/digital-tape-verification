@@ -28,25 +28,33 @@ Canonical case-set SHA-256:
 
 c493e77dff948df48d9c67c51ef4b68f0a61d2e02615b2d08760a594e79dc4e3
 
+## Raw-observation boundary
+
+The product adapter supplies only concrete observations: raw media bytes, opaque operation tokens, numeric progress/event counters, exact arguments, direct transport/rate/position/ring facts, callback counts/depth, public call results, block traces, render bytes, and ordered call sequences.
+
+It must not supply verifier conclusions. oracle.py rejects semantic verdict fields and independently derives operation survival/no-restart, no-work-on-BUSY, unchanged source state, callback non-recursion, continued audio, same-function completion, and terminal cartridge identity.
+
+This correction preserves planner case membership, ordering, census, and digest.
+
 ## Self-test
 
 Run:
 
     python3 tests/format_dup_identity_draft8/selftest.py
 
-The self-test checks exact census/digest, mandatory raw shapes, partner ordering, generation-2 barrier path, exhaustion zeroing, representative exact durable-byte/remount outcomes, final identity boundary, all contract cases, and negative controls for skipped injection, reversed order, wrong durability, identity drift, BUSY termination, callback recursion, destination-failure source quarantine, and zero-budget progress.
+The self-test checks exact census/digest, mandatory raw shapes, partner ordering, generation-2 barrier path, exhaustion zeroing, representative exact durable-byte/remount outcomes, final identity boundary, all 43 contract cases, and negative controls for skipped injection, reversed order, wrong durability, identity drift, BUSY raw-progress mutation, forbidden product-side verdict fields, callback recursion counters, changed rate/ring bytes, silent post-failure render, zero-budget progress, argument-shape drift, and operation-token restart.
 
 The repository-wide Verification package selftests workflow discovers this directory automatically through tests/*_draft8/selftest.py.
 
 ## Later product binding
 
-Read ADAPTER.md first. The product adapter may emit only raw bytes and public-API facts. It may not decide which semantic crash class is acceptable.
+Read ADAPTER.md first. The product adapter may emit only raw bytes and concrete public/API facts. It may not decide which semantic crash or WP-12a class is acceptable.
 
 Production runner:
 
     python3 tests/format_dup_identity_draft8/runner.py [required provenance and adapter arguments]
 
-See runner.py --help for the exact required arguments. Production has no sampling or count override.
+See runner.py --help for exact required arguments. Production has no sampling or count override.
 
 ## Scope boundary
 

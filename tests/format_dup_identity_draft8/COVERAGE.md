@@ -47,8 +47,16 @@
 | R29-B-LONG-08 | Re-entrant BUSY never terminates operation; next ordinary continuation advances |
 | R29-B-LONG-09 | Destination write failure from Playing does not FAULT source or alter rate/position/ring and audio continues |
 | R29-B-LONG-10 | Already-FAULTED source returns FAULTED from duplicate with zero block operations |
+| R29-B-LONG-11 | Product adapter emits only raw/public facts; Verification derives all continuity/state/audio verdicts and rejects derived verdict fields |
+| R29-B-LONG-12 | Negative controls mutate raw rate/ring/progress/callback-depth/token facts and must be caught independently |
 
 The complete project-wide 45-cell WP-12a matrix is the three 15-column in-progress rows. This tranche fully exercises duplicate's own 15-column row; promote and re-spool rows are deliberately not duplicated here.
+
+## Raw-observation independence boundary
+
+The WP-12a product binding may expose opaque operation tokens, exact progress/event counters, exact arguments, transport/rate/position/ring facts, callback entry/depth counts, raw call sequences, raw block traces, render bytes, and terminal raw media.
+
+It may not expose precomputed conclusions such as operation-survived, work-advanced, restart-count, unchanged-rate/ring, audio-continues, source-faulted, recursed, or final-identity judgments. The verifier rejects those semantic fields and computes each disposition from the raw facts.
 
 ## Exact planner census
 
@@ -65,6 +73,8 @@ Grand total: 57,611.
 Canonical case-set SHA-256:
 
 c493e77dff948df48d9c67c51ef4b68f0a61d2e02615b2d08760a594e79dc4e3
+
+The PM-return raw-schema correction does not alter planner membership, ordering, census, or digest.
 
 ## Explicit exclusions
 

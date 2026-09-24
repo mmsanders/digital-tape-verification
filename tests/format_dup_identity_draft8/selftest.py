@@ -16,9 +16,11 @@ from planner import (
     EXPECTED_TOTAL_CASES, caseset_digest, counts, iter_cases, validate_planner,
 )
 
+
 def need(c, m):
     if not c:
         raise AssertionError(m)
+
 
 def reject(fn, label):
     try:
@@ -26,6 +28,7 @@ def reject(fn, label):
     except VerificationError:
         return
     raise AssertionError("negative control escaped: " + label)
+
 
 def find(**want):
     for c in iter_cases():
@@ -41,6 +44,7 @@ def find(**want):
         if ok:
             return c
     raise AssertionError("case not found " + repr(want))
+
 
 def main():
     need(not validate_planner(), "planner validation failed")
@@ -145,8 +149,9 @@ def main():
             validate_case(case, expected_observation(case))
             contract += 1
     need(contract == EXPECTED_CONTRACT_CASES, "contract census")
-    print("PASS duplicate WP-12a row/re-entry/refusal contract census", contract)
+    print("PASS duplicate WP-12a raw-fact contract census", contract)
 
+    # Crash-oracle negative controls.
     case = reps[1]
     obs = expected_observation(case)
     obs["injection_fired"] = False
@@ -178,27 +183,53 @@ def main():
     obs["actual_remount_result"] = inspect_snapshot(obs["post_snapshot"])["mount_result"]
     reject(lambda: validate_case(case, obs), "identity sequence drift")
 
+    # Binding-boundary negative controls: raw mismatches must be detected by
+    # Verification rather than accepted through product-side verdict booleans.
     case = find(scope="contract", family="dup_in_progress_row", column="seek")
     obs = expected_observation(case)
-    obs["operation_running_after"] = False
-    reject(lambda: validate_case(case, obs), "BUSY terminated operation")
+    obs["after_probe"]["progress_blocks"] += 1
+    reject(lambda: validate_case(case, obs), "BUSY advanced raw progress")
+
+    case = find(scope="contract", family="dup_in_progress_row", column="seek")
+    obs = expected_observation(case)
+    obs["operation_running_after"] = True
+    reject(lambda: validate_case(case, obs), "derived adapter verdict field")
 
     case = find(scope="contract", family="callback_reentry", column="dup")
     obs = expected_observation(case)
-    obs["result"] = "TAPE_OK"
-    obs["recursed"] = True
-    reject(lambda: validate_case(case, obs), "callback re-entry")
+    obs["callback_after"]["callback_entry_count"] = 2
+    obs["callback_after"]["callback_max_depth"] = 2
+    reject(lambda: validate_case(case, obs), "callback recursion raw counters")
 
     case = find(scope="contract", family="destination_failure_playing")
     obs = expected_observation(case)
-    obs["source_faulted"] = True
-    obs["transport_after"] = "Mounted, idle"
-    reject(lambda: validate_case(case, obs), "destination failure faulted source")
+    obs["source_after"]["rate_q16_16"] += 1
+    reject(lambda: validate_case(case, obs), "destination failure changed raw rate")
+
+    case = find(scope="contract", family="destination_failure_playing")
+    obs = expected_observation(case)
+    obs["source_after"]["ring"]["content_sha256"] = "22" * 32
+    reject(lambda: validate_case(case, obs), "destination failure changed raw ring digest")
+
+    case = find(scope="contract", family="destination_failure_playing")
+    obs = expected_observation(case)
+    obs["render_after_failure"]["output_hex"] = "00000000"
+    reject(lambda: validate_case(case, obs), "destination failure stopped audible output")
 
     case = find(scope="contract", family="zero_budget", variant="continuation")
     obs = expected_observation(case)
-    obs["work_advanced"] = True
-    reject(lambda: validate_case(case, obs), "zero budget advanced")
+    obs["after"]["progress_blocks"] += 1
+    reject(lambda: validate_case(case, obs), "zero budget advanced raw progress")
+
+    case = find(scope="contract", family="changed_argument", argument="new_uuid")
+    obs = expected_observation(case)
+    obs["call_args"]["epoch"] += 1
+    reject(lambda: validate_case(case, obs), "multiple fixed continuation args changed")
+
+    case = find(scope="contract", family="small_budget_completion", variant="dup")
+    obs = expected_observation(case)
+    obs["call_sequence"][1]["operation_token"] = "restarted-op"
+    reject(lambda: validate_case(case, obs), "small-budget operation token restart")
 
     case = reps[5]
     obs = expected_observation(case)
@@ -208,8 +239,10 @@ def main():
         "actual_remount_result", "raw_oracle_result",
     ):
         need(rep.get(k) is not None, "reproducer missing " + k)
-    print("PASS negative controls and raw failure reproducer")
+
+    print("PASS raw-observation boundary negative controls and crash reproducer")
     print("PASS all R29 format/duplicate identity + duplicate long-op self-tests")
+
 
 if __name__ == "__main__":
     main()
