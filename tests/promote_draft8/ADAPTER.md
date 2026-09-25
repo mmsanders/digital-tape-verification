@@ -2,7 +2,10 @@
 
 This directory is an independent verifier-owned DRAFT-8 package for Digital-Tape-Verification issue #70. A later Software round may import the exact publication tree byte-for-byte and add only a mechanical binding.
 
-The product adapter may emit raw media bytes, direct public API results, opaque operation tokens, numeric progress/callback counters, exact call arguments, exact block callback traces, raw render bytes, raw position-table values, and raw counter values. It may not emit verifier conclusions.
+The product adapter may emit raw media bytes, direct public API results, non-causal
+adapter labels, numeric progress/callback counters, exact call arguments, exact
+block callback traces, raw render bytes, caller-model position values, and raw
+counter values. It may not emit verifier conclusions.
 
 The verifier recursively rejects pre-disposed fields such as operation-running, work-advanced, state-changed, recursion/no-recursion, audio-continues, source-faulted, row-matched, positions-cleared, headroom-ok, completed, or no-second-copy judgments.
 
@@ -14,7 +17,7 @@ The verifier package is authored only from the frozen authority named in README.
 
 The production adapter starts once and emits one JSON object:
 
-- `format: PROMOTE-ADAPTER-1`
+- `format: PROMOTE-ADAPTER-2`
 - `adapter_kind: product`
 - stable non-empty `adapter_id`
 - `caseset_sha256: 8732af9434437d0411731b3e4909a2ca9a1278778e5d9c8947642cec7b793442`
@@ -41,7 +44,7 @@ The adopt-in-place fixture has an already-compacted B run at chunk 3 and exact t
 
 ## Crash observation
 
-For every crash case emit `PROMOTE-OBSERVATION-1` containing:
+For every crash case emit `PROMOTE-OBSERVATION-2` containing:
 
 - verifier case index and scope;
 - `injection_fired=true`;
@@ -53,13 +56,19 @@ For every crash case emit `PROMOTE-OBSERVATION-1` containing:
 
 A snapshot contains:
 
+- the exact device `block_count`;
 - primary and mirror superblock blocks;
 - block 0 and block 1 of A0/A1/B0/B1;
 - the exact first 512-byte audio block of every fixture chunk.
 
 Those bytes are sufficient for every verifier fixture because all referenced audio lies within that first block.
 
-The verifier independently parses CRCs, selects superblocks and index slots, enforces Side-A water-line validity and interval disjointness, applies the §9.3.3 stage oracle, checks the global structural `sequence` uniqueness rule, and reconstructs the referenced PCM.
+The verifier independently performs phase-0 device admission, then ordered phase-2
+version/state/geometry admission (including truthful nominal-length-derived chunk
+count, frame cap, fixed layout, mirror LBA and capacity) before selecting index
+slots. It then enforces Side-A water-line validity and interval disjointness,
+applies the §9.3.3 stage oracle, checks global structural `sequence` uniqueness,
+and reconstructs the referenced PCM.
 
 ## Fault device / durability
 
@@ -163,9 +172,14 @@ The repeated row-4 case emits raw staging starts, `free_next` values, and chunk-
 
 ## Stored positions
 
-For full path, step-5 decline, resume at step 8, resume at step 9, and NOTHING-TO-DO, emit the raw device-side position-table values after every promote call.
+The frozen public API has no device-side position-table surface. For full path,
+step-5 decline, resume at step 8, resume at step 9, and NOTHING-TO-DO, emit the
+caller-owned stored-position model immediately before and after every promote call.
+Label it `position_table_owner: caller-model`; do not attribute it to the engine.
 
-Verification requires A/B entries to remain unchanged on every `more_work=true` continuation and to be absent/cleared only on the terminal `TAPE_OK, more_work=false` call.
+Verification models the caller clearing A/B entries only after observing terminal
+`TAPE_OK, more_work=false`; nonterminal continuations preserve them. This tests the
+acceptance workflow without inventing a frozen engine API.
 
 ## Branch-exact headroom
 
@@ -197,13 +211,17 @@ The counter-domain case exposes before/after numeric values proving that an inde
 
 An in-progress operation snapshot contains only:
 
-- opaque `operation_token`;
+- an optional non-causal adapter label;
 - exact numeric `progress_blocks`;
-- exact cumulative own-device event count.
+- exact cumulative own-device event count;
+- exact cumulative chronological chunk-region write LBAs.
 
 For all fifteen matrix columns, expose that snapshot before/after, exact public result, and exact block trace.
 
-The eleven BUSY columns are followed by an ordinary promote continuation with raw before/after snapshots. Verification derives no-work-on-BUSY, operation survival, forward progress, and no restart.
+The eleven BUSY columns are followed by an ordinary promote continuation with raw
+before/after snapshots. Verification requires BUSY to leave the trace unchanged and
+the continuation to preserve the prior trace as a prefix, advance raw progress, and
+not repeat an already-written chunk LBA. Adapter-label equality is not evidence.
 
 Render exposes rendered count and exact PCM bytes. Service exposes its block trace. The grouped status/info/tell cell exposes all three public results.
 
@@ -232,22 +250,30 @@ For every matrix column, from inside a progress callback emit:
 - callback entry count;
 - maximum callback depth;
 - nested public result and block trace;
-- next ordinary continuation before/after snapshots.
+- next ordinary continuation before/after snapshots, including cumulative raw
+  chunk-write LBAs.
 
-Render and status/info/tell remain allowed. Every other same-instance call, including matching promote and service, must return BUSY. Verification derives no recursion/state mutation and survival of the original operation.
+Render and status/info/tell remain allowed. Every other same-instance call,
+including matching promote and service, must return BUSY. Verification derives no
+recursion/state mutation and externally observable continuation from unchanged then
+prefix-extended raw traces, not from adapter-label equality.
 
 ## Small-budget completion
 
 Emit the ordered sequence of every promote call:
 
 - function identity;
-- budget;
+- budget, exactly 1;
 - result;
 - `more_work`;
-- opaque operation token;
-- progress before/after.
+- optional non-causal adapter label;
+- progress before/after;
+- cumulative chronological chunk-write LBAs before/after.
 
-Also emit terminal raw media. Verification derives same-function continuation, at least one nonterminal call, one terminal call, token continuity, forward progress, and final promoted layout.
+Also emit terminal raw media. Verification derives same-function budget-1
+continuation, at least one nonterminal call, one terminal call, forward progress,
+exact trace-prefix continuity with no repeated chunk LBA, and final promoted
+layout. It makes no private engine-identity claim.
 
 ## Failure retention
 

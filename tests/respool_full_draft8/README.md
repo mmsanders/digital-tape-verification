@@ -1,6 +1,7 @@
 # Full re-spool DRAFT-8 verifier
 
-Independent verifier-first publication for Digital-Tape-Verification issue #72:
+Independent verifier-first publication for Digital-Tape-Verification issue #72,
+corrected and republished under issue #76:
 full WP-12 re-spool shapes, exhaustive WP-10 pass crash durability, counter
 boundaries, and the re-spool row of WP-12a.
 
@@ -15,6 +16,11 @@ boundaries, and the re-spool row of WP-12a.
 The package pins the previously published independent
 `tests/respool_draft8/oracle.py` by Git blob SHA
 `3c63f190e87915f410a199128e1a08590b8ee6bd`; it does not import product code.
+
+Issue #76 removes causal reliance on adapter-fabricated operation labels. Long-
+operation continuation is now tested at `block_budget=1` with cumulative raw
+chunk-region write traces; unchanged BUSY traces, exact prefix extension, no
+repeated copied LBA, and terminal raw media are the verifier-owned observations.
 
 ## Contents
 

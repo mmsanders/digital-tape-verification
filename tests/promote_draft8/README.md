@@ -1,6 +1,7 @@
 # DRAFT-8 full promote crash/resume + promote long-operation verifier
 
-Independent verifier-first publication for Digital-Tape-Verification issue #70 (P1-R29-VER-A).
+Independent verifier-first publication for Digital-Tape-Verification issue #70
+(P1-R29-VER-A), corrected and republished under issue #76.
 
 This package is authored from the frozen DRAFT-8 specification bundle and verifier-owned prior patterns. It contains no product implementation code and performs no product disposition.
 
@@ -31,6 +32,14 @@ The promoted timeline has exactly 128 stereo s16 frames, which is exactly 512 by
 DRAFT-8 permits the remainder of a partially referenced chunk to be undefined. A compact copy of this fixture therefore has one required data-block write. The package is exhaustive over every write in this valid full transaction, including all 511 nontrivial torn prefixes. It does not sample a longer data copy.
 
 The fragmented allocating seed still exercises real compaction: its first 64 frames come from chunk 1 and its second 64 frames from chunk 2; phase 1 compacts them into chunk 3 and phase 2 compacts them to chunk 0.
+
+Issue #76 corrects the compact media labels to truthful DRAFT-8 geometry: the
+four-chunk fixtures use 9 seconds and the eight-chunk fixtures use 21 seconds. The
+independent parser now applies phase-0 capacity and ordered phase-2 version/state/
+geometry admission before any index selection. Operation labels are retained only
+as non-causal adapter metadata; budget-1 continuation uses cumulative raw chunk-
+write traces. Stored positions are explicitly caller-owned model state because the
+frozen public engine API exposes no device-side position table.
 
 ## Planner
 

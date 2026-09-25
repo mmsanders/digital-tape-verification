@@ -114,13 +114,16 @@ This tranche uses stage-0 media for its crash campaign.
 
 The package requires all 15 columns of the Respool-in-progress row:
 
-- 11 B cells => TAPE_ERR_BUSY, zero block operations, operation identity unchanged;
+- 11 B cells => TAPE_ERR_BUSY, zero block operations, and unchanged cumulative raw
+  chunk-write trace;
 - render, service, status/info/tell and matching respool continuation are allowed;
-- matching continuation advances the same operation;
-- repeated small budgets reach completion without restart;
+- matching continuation advances raw progress while preserving the prior trace as
+  an exact prefix and without repeating a copied chunk LBA;
+- repeated block_budget=1 calls reach completion with one cumulative, non-repeating
+  raw chunk-write trace;
 - block_budget=0 is INVALID_ARG with no work/state loss on initiation and continuation;
-- an unrelated BUSY call cannot terminate the operation; the next continuation
-  advances the same operation;
+- an unrelated BUSY call cannot terminate the externally observed work; the next
+  continuation advances the raw trace;
 - own-media write **and** flush failure on continuation terminate more_work and enter
   FAULTED.
 
@@ -152,7 +155,8 @@ Synthetic self-tests prove the package goes red for:
 - a wrong fresh-remount allocation frontier (`free_chunks`/derived `free_next`);
 - illegal/stale metadata selection;
 - a wrong pass-2 destination;
-- BUSY terminating/restarting the in-progress operation;
+- BUSY mutating the raw trace, or a constant-label continuation repeating an
+  already-copied chunk LBA;
 - a FAULTED-row call leaking through and performing media I/O.
 
 ## Exclusions / no duplicate acceptance

@@ -8,7 +8,7 @@ from oracle import expected_observation
 from planner import EXPECTED_CASESET_SHA256
 
 print(json.dumps({
-    "format": "PROMOTE-ADAPTER-1",
+    "format": "PROMOTE-ADAPTER-2",
     "adapter_kind": "synthetic",
     "adapter_id": "verifier-synthetic-only",
     "caseset_sha256": EXPECTED_CASESET_SHA256,

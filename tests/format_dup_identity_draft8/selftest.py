@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import copy, struct
+import copy, struct, zlib
 
 from fixture import (
     BLOCK, FRESH_FORMAT_UUID, FRESH_DUP_UUID,
@@ -46,6 +46,23 @@ def find(**want):
     raise AssertionError("case not found " + repr(want))
 
 
+def mutate_geometry(snap, *, nominal=None, total_chunks=None, version=None, state=None):
+    out = copy.deepcopy(snap)
+    for key in ("primary_hex", "mirror_hex"):
+        raw = bytearray.fromhex(out[key])
+        if nominal is not None:
+            struct.pack_into("<I", raw, 48, nominal)
+        if total_chunks is not None:
+            struct.pack_into("<I", raw, 52, total_chunks)
+        if version is not None:
+            struct.pack_into("<H", raw, 8, version)
+        if state is not None:
+            raw[16] = state
+        struct.pack_into("<I", raw, 508, zlib.crc32(raw[:508]) & 0xFFFFFFFF)
+        out[key] = raw.hex()
+    return out
+
+
 def main():
     need(not validate_planner(), "planner validation failed")
     c = counts()
@@ -73,6 +90,24 @@ def main():
         got = inspect_snapshot(initial_snapshot(name))["mount_result"]
         need(got == result, f"{name} initial classification {got}")
     print("PASS mandatory raw destination fixture classifications")
+
+    seed = initial_snapshot("healthy_pair")
+    need(inspect_snapshot(seed)["mount_result"] == "TAPE_OK", "9s/4 seed")
+    need(inspect_snapshot(mutate_geometry(seed, nominal=60))["mount_result"] == "TAPE_ERR_GEOMETRY", "60s/4 escaped")
+    need(inspect_snapshot(mutate_geometry(seed, nominal=100000))["mount_result"] == "TAPE_ERR_GEOMETRY", "frame cap escaped")
+    need(inspect_snapshot(mutate_geometry(seed, total_chunks=5))["mount_result"] == "TAPE_ERR_GEOMETRY", "stored/derived mismatch escaped")
+    short = copy.deepcopy(seed)
+    short["block_count"] -= 1
+    need(inspect_snapshot(short)["mount_result"] == "TAPE_ERR_GEOMETRY", "short device escaped")
+    precedence = copy.deepcopy(seed)
+    precedence["block_count"] = 1
+    precedence["primary_hex"] = "00" * 512
+    precedence["mirror_hex"] = "00" * 512
+    got = inspect_snapshot(precedence)
+    need(got["mount_result"] == "TAPE_ERR_GEOMETRY" and got.get("phase") == 0, "phase-0 precedence")
+    need(inspect_snapshot(mutate_geometry(seed, nominal=60, version=2))["mount_result"] == "TAPE_ERR_VERSION", "version precedence")
+    need(inspect_snapshot(mutate_geometry(seed, nominal=60, state=1))["mount_result"] == "TAPE_ERR_INCOMPLETE", "state precedence")
+    print("PASS truthful 9s/4 geometry and phase-0/admission red controls")
 
     shapes = raw_shapes()
     for op in ("format", "dup"):
@@ -228,8 +263,9 @@ def main():
 
     case = find(scope="contract", family="small_budget_completion", variant="dup")
     obs = expected_observation(case)
-    obs["call_sequence"][1]["operation_token"] = "restarted-op"
-    reject(lambda: validate_case(case, obs), "small-budget operation token restart")
+    obs["call_sequence"][1]["chunk_write_lbas_after"] = [2048, 2048]
+    obs["call_sequence"][2]["chunk_write_lbas_before"] = [2048, 2048]
+    reject(lambda: validate_case(case, obs), "constant-token repeated-copy restart")
 
     case = reps[5]
     obs = expected_observation(case)

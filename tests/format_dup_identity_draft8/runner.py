@@ -58,7 +58,7 @@ def run_session(adapter_cmd: str, evidence_dir: Path, *, adapter_id: str,
     }
     try:
         hello = read_json_line(proc, selector, timeout_s)
-        if hello.get("format") != "FMTDUP-ID-ADAPTER-1":
+        if hello.get("format") != "FMTDUP-ID-ADAPTER-2":
             raise VerificationError("adapter handshake format")
         if hello.get("adapter_kind") != expected_kind:
             raise VerificationError("adapter kind")
