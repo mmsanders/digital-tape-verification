@@ -30,6 +30,7 @@ FORBIDDEN_DERIVED_KEYS = frozenset({
     "state_changed", "recursed", "audio_continues", "source_faulted",
     "same_operation", "restart_count", "row_matched", "positions_cleared",
     "headroom_ok", "completed", "no_second_copy", "unique_stage_row",
+    "promote_faulted_while_playing",
 })
 
 
@@ -270,9 +271,10 @@ def _op_state(token="promote-op-1", progress=10, events=100, chunk_writes=(2048,
 def _render_probe():
     return {
         "fn": "tape_render",
+        "rate_q16_16": 0,
         "result": "TAPE_OK",
-        "rendered": 2,
-        "output_hex": "0100020003000400",
+        "rendered": 0,
+        "output_hex": "",
         "block_events": [],
     }
 
@@ -485,7 +487,7 @@ def expected_contract_observation(case):
 
     elif fam == "own_device_failure":
         o.update({
-            "transport_before": "Playing",
+            "state_before": "Promote in progress",
             "operation_before": _op_state(),
             "call": {"fn": "tape_promote", "result": "TAPE_ERR_IO", "more_work": False},
             "own_device_events": [{"op": "write", "lba": 2048, "count": 1, "rc": 5}],
@@ -497,6 +499,7 @@ def expected_contract_observation(case):
         o["column"] = c
         if c == "render":
             o["probe"] = {
+                "fixture_state_before_fault": "Playing",
                 "calls": [
                     {"result": "TAPE_OK", "ring_frames_before": 4, "ring_frames_after": 2, "rendered": 2, "output_hex": "0100020003000400"},
                     {"result": "TAPE_OK", "ring_frames_before": 2, "ring_frames_after": 0, "rendered": 2, "output_hex": "0500060007000800"},
@@ -589,13 +592,14 @@ def _events(events, label):
     return events
 
 
-def _validate_render(p, label):
+def _validate_stopped_render(p, label):
     need(isinstance(p, dict), f"{label} missing")
     need(p.get("fn") == "tape_render", f"{label} fn")
+    need(p.get("rate_q16_16") == 0, f"{label} rate")
     need(p.get("result") == "TAPE_OK", f"{label} result")
-    need(isinstance(p.get("rendered"), int) and p["rendered"] > 0, f"{label} rendered")
+    need(p.get("rendered") == 0, f"{label} rendered")
     raw = bytes.fromhex(p.get("output_hex", ""))
-    need(raw and any(raw), f"{label} silent/empty")
+    need(raw == b"", f"{label} output")
     need(p.get("block_events") == [], f"{label} media touched")
 
 
@@ -753,7 +757,7 @@ def _validate_contract(case, obs):
         else:
             _same_state(before, after, c)
             if c == "render":
-                _validate_render(obs["probe"], "row render")
+                _validate_stopped_render(obs["probe"], "row render")
             elif c == "status_info_tell":
                 _validate_status(obs["probe"], "row status")
             else:
@@ -772,7 +776,7 @@ def _validate_contract(case, obs):
         _advance(obs["before"], obs["after"], "mutable continuation")
 
     elif fam == "own_device_failure":
-        need(obs.get("transport_before") == "Playing", "failure pre transport")
+        need(obs.get("state_before") == "Promote in progress", "failure pre state")
         need(obs["call"].get("result") == "TAPE_ERR_IO" and obs["call"].get("more_work") is False, "failure termination")
         events = _events(obs.get("own_device_events"), "failure events")
         need(any(e.get("op") in ("write", "flush") and e.get("rc", 0) != 0 for e in events), "no own-device fault")
@@ -785,6 +789,7 @@ def _validate_contract(case, obs):
             need(p.get("result") == "TAPE_ERR_FAULTED" and p.get("block_events") == [], f"FAULTED {c}")
         elif c == "render":
             calls = p.get("calls")
+            need(p.get("fixture_state_before_fault") == "Playing", "faulted ring fixture")
             need(isinstance(calls, list) and len(calls) >= 3, "faulted render sequence")
             need(calls[-1]["result"] == "TAPE_ERR_UNDERRUN" and calls[-1]["ring_frames_before"] == 0, "ring did not drain")
             need(p.get("block_events") == [], "faulted render media")
@@ -804,7 +809,7 @@ def _validate_contract(case, obs):
         need(before["callback_entry_count"] == after["callback_entry_count"] == 1, "callback re-entered")
         need(before["callback_max_depth"] == after["callback_max_depth"] == 1, "callback recursed")
         if c == "render":
-            _validate_render(obs["nested_call"], "callback render")
+            _validate_stopped_render(obs["nested_call"], "callback render")
         elif c == "status_info_tell":
             _validate_status(obs["nested_call"], "callback status")
         else:
