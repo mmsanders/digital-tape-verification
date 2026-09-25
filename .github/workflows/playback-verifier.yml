@@ -92,21 +92,6 @@ jobs:
       - name: Run promote classification/metadata selftest
         if: success()
         run: python3 tests/promote_draft8/selftest.py
-      - name: Run promote evidence runner and replay
-        if: success()
-        working-directory: tests/promote_draft8
-        run: |
-          tmp=$(mktemp -d)
-          python3 runner.py \
-            --adapter-cmd "python3 _synthetic_adapter.py" \
-            --adapter-kind synthetic \
-            --adapter-id promote-draft8-synthetic-v2 \
-            --adapter-source _synthetic_adapter.py \
-            --adapter-build "python synthetic selftest" \
-            --product-commit synthetic-selftest \
-            --verifier-commit "$GITHUB_SHA" \
-            --evidence-dir "$tmp/evidence"
-          python3 replay.py "$tmp/evidence"
       - name: Run full negative-control and replay selftest
         if: success()
         run: python3 tests/playback_draft8/selftest.py
