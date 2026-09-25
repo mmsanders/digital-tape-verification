@@ -75,14 +75,18 @@ The package covers:
 - all fifteen promote-in-progress state-matrix columns;
 - all eleven BUSY cells with an unchanged raw chunk-write trace followed by a
   continuation that prefix-extends progress without repeating a copied chunk LBA;
-- allowed render/service/status-info-tell/matching-promote cells;
+- allowed render/service/status-info-tell/matching-promote cells, with ordinary and
+  callback-nested Promote render fixed to retained rate 0, `TAPE_OK`, zero rendered
+  frames, empty PCM and zero device I/O;
 - block_budget=0 on initiation and continuation;
 - promote's complete allowed mutable continuation-argument surface;
-- own-device write/flush failure → terminal IO + FAULTED;
+- own-device write/flush failure from **Promote in progress** → terminal IO + FAULTED;
 - all fifteen Faulted-row cells: eleven FAULTED refusals plus render, status/info/tell, abort, unmount;
 - Faulted service performs zero block operations;
 - Faulted abort clears raw frames_owed without media I/O and Faulted overrides armed state;
-- render drains raw ring state and then underruns;
+- render drains raw ring state and then underruns; a separate Playing fixture may
+  supply this Faulted-row observation, which is state-matrix coverage and not proof
+  that Promote can enter Faulted while Playing;
 - all fifteen callback re-entry columns with only render and status/info/tell matrix cells exempt;
 - next ordinary continuation survives callback BUSY and advances the cumulative raw
   trace; adapter-label equality is non-causal;

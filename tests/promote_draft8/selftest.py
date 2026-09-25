@@ -250,10 +250,38 @@ def main():
     obs["operation_running_after"] = True
     reject(lambda: validate_case(case, obs), "product-side derived verdict")
 
+    # R31 frozen-contract corrections: each superseded expectation must go red.
+    case = find(scope="contract", family="promote_in_progress_row", column="render")
+    obs = expected_observation(case)
+    obs["probe"].update({
+        "rate_q16_16": 0x00010000,
+        "rendered": 2,
+        "output_hex": "0100020003000400",
+    })
+    reject(lambda: validate_case(case, obs), "promote-row playing render")
+
+    case = find(scope="contract", family="callback_reentry", column="render")
+    obs = expected_observation(case)
+    obs["nested_call"].update({
+        "rate_q16_16": 0x00010000,
+        "rendered": 2,
+        "output_hex": "0100020003000400",
+    })
+    reject(lambda: validate_case(case, obs), "callback playing render")
+
     case = find(scope="contract", family="own_device_failure")
+    obs = expected_observation(case)
+    obs["state_before"] = "Playing"
+    reject(lambda: validate_case(case, obs), "own-device failure from Playing")
+
     obs = expected_observation(case)
     obs["transport_after"] = "Mounted, idle"
     reject(lambda: validate_case(case, obs), "own-device failure escaped FAULTED")
+
+    case = find(scope="contract", family="faulted_row", column="render")
+    obs = expected_observation(case)
+    obs["promote_faulted_while_playing"] = True
+    reject(lambda: validate_case(case, obs), "faulted row claimed promote-playing causation")
 
     case = find(scope="contract", family="faulted_row", column="service")
     obs = expected_observation(case)

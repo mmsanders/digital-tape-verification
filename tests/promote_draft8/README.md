@@ -41,6 +41,13 @@ as non-causal adapter metadata; budget-1 continuation uses cumulative raw chunk-
 write traces. Stored positions are explicitly caller-owned model state because the
 frozen public engine API exposes no device-side position table.
 
+Issue #78 corrects the frozen Promote-in-progress oracle without changing planner
+membership: Promote begins from *Mounted, idle*, so ordinary and callback-nested
+render retain rate 0 and return `TAPE_OK` with zero frames, empty PCM and no device
+I/O. Own-device failure begins in **Promote in progress**. The Faulted ring-drain
+cell may use a separate Playing fixture and proves only the frozen Faulted row, not
+a Promote-while-Playing path.
+
 ## Planner
 
 - raw crash injections: **44,204**

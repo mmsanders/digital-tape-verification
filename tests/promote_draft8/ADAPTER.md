@@ -223,7 +223,12 @@ before/after snapshots. Verification requires BUSY to leave the trace unchanged 
 the continuation to preserve the prior trace as a prefix, advance raw progress, and
 not repeat an already-written chunk LBA. Adapter-label equality is not evidence.
 
-Render exposes rendered count and exact PCM bytes. Service exposes its block trace. The grouped status/info/tell cell exposes all three public results.
+Promote can start only from *Mounted, idle*, so its retained rate in this row is
+necessarily zero. Render exposes raw `rate_q16_16`, rendered count, exact PCM bytes
+and block trace; require rate 0, `TAPE_OK`, `rendered == 0`, empty PCM and no device
+I/O. This is the stopped-render rule, not a non-silent-audio requirement. Service
+exposes its block trace. The grouped status/info/tell cell exposes all three public
+results.
 
 Zero-budget cases expose the same raw snapshots and block trace. Promote has no fixed continuation arguments beyond the instance itself; its allowed mutable arguments are exactly block_budget, more_work pointer, callback, and user pointer, and the allowed-mutables case changes all four while exposing raw progress.
 
@@ -236,11 +241,18 @@ For an own-device write/flush failure on continuation emit:
 - promote result and `more_work`;
 - post-call transport state.
 
-Verification requires the I/O error to terminate the operation and put the instance in FAULTED.
+The pre-failure state is **Promote in progress**, not Playing. Verification requires
+the I/O error to terminate that operation and put the instance in FAULTED.
 
 Then exercise all fifteen Faulted-row columns. The eleven forbidden calls must expose `TAPE_ERR_FAULTED` and an empty block trace. The four allowed matrix cells are render, status/info/tell, abort, and unmount.
 
-For render, expose successive ring frame counts, results, rendered counts and raw output through the final underrun. For abort, expose raw `frames_owed` before/after, the armed-state fact, and an empty block trace. This lets Verification derive ring drain, abort cleanup, and Faulted precedence over armed state.
+For render, a separate Playing fixture may create the retained ring before an
+own-device failure. Expose that raw pre-fault fixture state, successive ring frame
+counts, results, rendered counts and raw output through the final underrun. This row
+covers frozen Faulted behavior only; it does **not** prove that Promote can enter
+Faulted while Playing. For abort, expose raw `frames_owed` before/after, the armed-state
+fact, and an empty block trace. This lets Verification derive ring drain, abort cleanup,
+and Faulted precedence over armed state.
 
 ## Callback re-entry
 
@@ -253,7 +265,9 @@ For every matrix column, from inside a progress callback emit:
 - next ordinary continuation before/after snapshots, including cumulative raw
   chunk-write LBAs.
 
-Render and status/info/tell remain allowed. Every other same-instance call,
+Nested render follows the same stopped-render rule as the ordinary Promote-in-progress
+row: retained rate 0, `TAPE_OK`, zero rendered frames, empty PCM and no device I/O.
+Status/info/tell also remain allowed. Every other same-instance call,
 including matching promote and service, must return BUSY. Verification derives no
 recursion/state mutation and externally observable continuation from unchanged then
 prefix-extended raw traces, not from adapter-label equality.
