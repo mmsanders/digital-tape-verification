@@ -115,7 +115,7 @@ def expected_crash_observation(case):
     post = expected_snapshot(case)
     state = inspect_snapshot(post)
     obs = {
-        "format": "FMTDUP-ID-OBSERVATION-1",
+        "format": "FMTDUP-ID-OBSERVATION-2",
         "case_index": case["case_index"],
         "scope": "crash",
         "injection_fired": True,
@@ -145,11 +145,12 @@ FORBIDDEN_DERIVED_KEYS = frozenset({
 })
 
 
-def _op_state(token="dup-op-1", progress=10, dest_events=100):
+def _op_state(token="dup-op-1", progress=10, dest_events=100, chunk_writes=(2048,)):
     return {
         "operation_token": token,
         "progress_blocks": progress,
         "destination_event_count": dest_events,
+        "chunk_write_lbas": list(chunk_writes),
     }
 
 
@@ -205,7 +206,7 @@ def expected_contract_observation(case):
     """
     fam = case["family"]
     o = {
-        "format": "FMTDUP-ID-OBSERVATION-1",
+        "format": "FMTDUP-ID-OBSERVATION-2",
         "case_index": case["case_index"],
         "scope": "contract",
         "family": fam,
@@ -262,7 +263,9 @@ def expected_contract_observation(case):
     elif fam == "zero_budget":
         v = case["variant"]
         token = None if v == "initiate" else "dup-op-1"
-        before = _op_state(token=token, progress=0 if token is None else 10, dest_events=0 if token is None else 100)
+        before = _op_state(token=token, progress=0 if token is None else 10,
+                           dest_events=0 if token is None else 100,
+                           chunk_writes=() if token is None else (2048,))
         o.update({
             "variant": v,
             "before": before,
@@ -390,16 +393,19 @@ def expected_contract_observation(case):
                     "fn": "tape_dup", "block_budget": 1, "result": "TAPE_OK", "more_work": True,
                     "operation_token": "dup-op-1", "progress_before": 0, "progress_after": 1,
                     "destination_event_count_before": 0, "destination_event_count_after": 1,
+                    "chunk_write_lbas_before": [], "chunk_write_lbas_after": [2048],
                 },
                 {
                     "fn": "tape_dup", "block_budget": 1, "result": "TAPE_OK", "more_work": True,
                     "operation_token": "dup-op-1", "progress_before": 1, "progress_after": 2,
                     "destination_event_count_before": 1, "destination_event_count_after": 2,
+                    "chunk_write_lbas_before": [2048], "chunk_write_lbas_after": [2048, 3072],
                 },
                 {
                     "fn": "tape_dup", "block_budget": 1, "result": "TAPE_OK", "more_work": False,
                     "operation_token": "dup-op-1", "progress_before": 2, "progress_after": 3,
                     "destination_event_count_before": 2, "destination_event_count_after": 3,
+                    "chunk_write_lbas_before": [2048, 3072], "chunk_write_lbas_after": [2048, 3072, 4096],
                 },
             ],
             "terminal_snapshot": _terminal_dup_snapshot(),
@@ -433,14 +439,12 @@ def _require_int(v, label, minimum=0):
 
 def _state(v, label, allow_none_token=False):
     need(isinstance(v, dict), f"{label} not object")
-    token = v.get("operation_token")
-    if allow_none_token and token is None:
-        pass
-    else:
-        need(isinstance(token, str) and token, f"{label}.operation_token missing")
     _require_int(v.get("progress_blocks"), f"{label}.progress_blocks")
     _require_int(v.get("destination_event_count"), f"{label}.destination_event_count")
-    return v
+    writes = v.get("chunk_write_lbas")
+    need(isinstance(writes, list) and all(isinstance(x, int) and not isinstance(x, bool) and x >= LBA_CHUNK_BASE for x in writes), f"{label}.chunk_write_lbas")
+    need(len(writes) == len(set(writes)), f"{label} repeated chunk write")
+    return {"progress_blocks": v["progress_blocks"], "destination_event_count": v["destination_event_count"], "chunk_write_lbas": writes}
 
 
 def _same_state(a, b, label, allow_none_token=False):
@@ -452,12 +456,12 @@ def _same_state(a, b, label, allow_none_token=False):
 def _advance(a, b, label):
     a = _state(a, label + ".before")
     b = _state(b, label + ".after")
-    need(a["operation_token"] == b["operation_token"], f"{label} operation token changed/restarted")
     need(b["progress_blocks"] > a["progress_blocks"], f"{label} did not advance")
     need(
         b["destination_event_count"] >= a["destination_event_count"],
         f"{label} destination event count regressed",
     )
+    need(b["chunk_write_lbas"][:len(a["chunk_write_lbas"])] == a["chunk_write_lbas"], f"{label} chunk-write trace rewound")
 
 
 def _events(v, label):
@@ -546,15 +550,13 @@ def _validate_dup_row(case, obs):
         _same_state(before, after, f"{c} BUSY")
         cont = obs.get("next_continuation")
         _validate_continuation(cont, f"{c} next continuation")
-        need(cont["before"] == after, f"{c} continuation did not resume exact state")
-        need(cont["after"]["operation_token"] == before["operation_token"], f"{c} restarted operation")
+        _same_state(cont["before"], after, f"{c} continuation state")
         return
 
     if c == "dup":
         need(isinstance(probe, dict) and probe.get("fn") == "tape_dup", "dup probe")
         need(probe.get("result") == "TAPE_OK" and probe.get("more_work") is True, "dup continuation")
         _advance(before, after, "matching duplicate continuation")
-        need(after["operation_token"] == before["operation_token"], "matching continuation restarted")
         return
 
     _same_state(before, after, c)
@@ -582,10 +584,8 @@ def _validate_zero_budget(case, obs):
     need(call.get("block_events") == [], "zero-budget call touched media")
     need(before == after, "zero-budget call changed operation state")
     if v == "initiate":
-        need(before["operation_token"] is None, "zero-budget initiation created operation")
         need(call.get("more_work") is False, "zero-budget initiation more_work")
     else:
-        need(isinstance(before["operation_token"], str), "zero-budget continuation lost operation")
         need(call.get("more_work") is True, "zero-budget continuation lost more_work")
 
 
@@ -676,11 +676,7 @@ def _validate_callback_reentry(case, obs):
 
     cont = obs.get("next_continuation")
     _validate_continuation(cont, "post-callback continuation")
-    need(cont["before"] == after["operation"], "post-callback continuation state mismatch")
-    need(
-        cont["after"]["operation_token"] == before["operation"]["operation_token"],
-        "callback BUSY terminated/restarted operation",
-    )
+    _same_state(cont["before"], after["operation"], "post-callback continuation state")
 
 
 def _validate_faulted_source(obs):
@@ -695,21 +691,15 @@ def _validate_faulted_source(obs):
 def _validate_small_budget(obs):
     seq = obs.get("call_sequence")
     need(isinstance(seq, list) and len(seq) >= 2, "small-budget call sequence too short")
-    token = None
     saw_nonterminal = False
     prev_progress = None
     prev_events = None
     for i, row in enumerate(seq):
         need(isinstance(row, dict), f"call_sequence[{i}] not object")
         need(row.get("fn") == "tape_dup", "small-budget used another function")
-        _require_int(row.get("block_budget"), f"call_sequence[{i}].block_budget", 1)
+        need(row.get("block_budget") == 1, f"call_sequence[{i}].block_budget not 1")
         need(row.get("result") == "TAPE_OK", "small-budget call failed")
         need(isinstance(row.get("more_work"), bool), "small-budget more_work not bool")
-        t = row.get("operation_token")
-        need(isinstance(t, str) and t, "small-budget operation token missing")
-        if token is None:
-            token = t
-        need(t == token, "small-budget operation restarted")
         pb = _require_int(row.get("progress_before"), f"call_sequence[{i}].progress_before")
         pa = _require_int(row.get("progress_after"), f"call_sequence[{i}].progress_after")
         eb = _require_int(row.get("destination_event_count_before"), f"call_sequence[{i}].events_before")
@@ -719,6 +709,13 @@ def _validate_small_budget(obs):
         if prev_progress is not None:
             need(pb == prev_progress, "small-budget progress chain discontinuity")
             need(eb == prev_events, "small-budget event-count chain discontinuity")
+            need(row.get("chunk_write_lbas_before") == seq[i-1].get("chunk_write_lbas_after"), "small-budget chunk-write chain discontinuity")
+        before_writes = row.get("chunk_write_lbas_before")
+        after_writes = row.get("chunk_write_lbas_after")
+        need(isinstance(before_writes, list) and isinstance(after_writes, list), "small-budget chunk-write trace missing")
+        need(all(isinstance(v, int) and not isinstance(v, bool) and v >= LBA_CHUNK_BASE for v in before_writes + after_writes), "small-budget chunk-write trace malformed")
+        need(after_writes[:len(before_writes)] == before_writes, "small-budget chunk-write trace rewound")
+        need(len(after_writes) == len(set(after_writes)), "small-budget chunk copy restarted/repeated")
         prev_progress, prev_events = pa, ea
         if row["more_work"]:
             saw_nonterminal = True
@@ -726,6 +723,8 @@ def _validate_small_budget(obs):
             need(row["more_work"] is True, "small-budget terminated before final call")
     need(saw_nonterminal, "small budget never produced nonterminal continuation")
     need(seq[-1]["more_work"] is False, "small-budget terminal call still has more_work")
+    writes = seq[-1].get("chunk_write_lbas_after")
+    need(isinstance(writes, list) and len(writes) == len(set(writes)), "small-budget chunk copy restarted/repeated")
 
     snap = obs.get("terminal_snapshot")
     need(isinstance(snap, dict), "small-budget terminal raw snapshot missing")
@@ -769,7 +768,7 @@ def _validate_contract(case, obs):
 
 def validate_case(case, obs):
     need(isinstance(obs, dict), "observation not object")
-    need(obs.get("format") == "FMTDUP-ID-OBSERVATION-1", "observation format")
+    need(obs.get("format") == "FMTDUP-ID-OBSERVATION-2", "observation format")
     need(obs.get("case_index") == case["case_index"], "case index")
     need(obs.get("scope") == case["scope"], "scope")
 

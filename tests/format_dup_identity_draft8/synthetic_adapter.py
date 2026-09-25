@@ -7,7 +7,7 @@ from planner import EXPECTED_CASESET_SHA256
 
 def main():
     print(json.dumps({
-        "format": "FMTDUP-ID-ADAPTER-1",
+        "format": "FMTDUP-ID-ADAPTER-2",
         "adapter_kind": "synthetic",
         "adapter_id": "verifier-synthetic-r29",
         "caseset_sha256": EXPECTED_CASESET_SHA256,

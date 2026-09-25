@@ -3,7 +3,8 @@
 from __future__ import annotations
 import struct, zlib
 from fixture import (
-    BLOCK, MAGIC_SB, MAGIC_IDX, FRESH_FORMAT_UUID, FRESH_DUP_UUID,
+    BLOCK, CHUNK_FRAMES, CHUNK_BLOCKS, LBA_CHUNK_BASE, LBA_A0, LBA_A1,
+    LBA_B0, LBA_B1, MAGIC_SB, MAGIC_IDX, FRESH_FORMAT_UUID, FRESH_DUP_UUID,
     FORMAT_A0, FORMAT_B0, DUP_A0, DUP_B0,
 )
 
@@ -38,8 +39,21 @@ def parse_superblock(raw):
         "generation": struct.unpack_from("<I", raw, 12)[0],
         "state": raw[16],
         "uuid": raw[20:36],
+        "sample_rate": struct.unpack_from("<I", raw, 36)[0],
+        "channels": struct.unpack_from("<H", raw, 40)[0],
+        "bits_per_sample": struct.unpack_from("<H", raw, 42)[0],
+        "chunk_bytes": struct.unpack_from("<I", raw, 44)[0],
+        "nominal_length_s": struct.unpack_from("<I", raw, 48)[0],
         "total_chunks": struct.unpack_from("<I", raw, 52)[0],
         "a_high_water": struct.unpack_from("<I", raw, 56)[0],
+        "index_slot_bytes": struct.unpack_from("<I", raw, 60)[0],
+        "lba_index_a0": struct.unpack_from("<I", raw, 64)[0],
+        "lba_index_a1": struct.unpack_from("<I", raw, 68)[0],
+        "lba_index_b0": struct.unpack_from("<I", raw, 72)[0],
+        "lba_index_b1": struct.unpack_from("<I", raw, 76)[0],
+        "lba_chunk_base": struct.unpack_from("<I", raw, 80)[0],
+        "lba_superblock_mirror": struct.unpack_from("<I", raw, 84)[0],
+        "promote_stage": struct.unpack_from("<I", raw, 124)[0],
     }
 
 def select_superblock(snapshot):
@@ -81,16 +95,41 @@ def _head(snapshot, key):
 
 def inspect_snapshot(snapshot):
     need(snapshot.get("format") == "FMTDUP-ID-RAW-1", "snapshot format")
+    block_count = snapshot.get("block_count")
+    if not isinstance(block_count, int) or isinstance(block_count, bool) or block_count <= LBA_CHUNK_BASE:
+        return {"mount_result": "TAPE_ERR_GEOMETRY", "phase": 0}
     sel = select_superblock(snapshot)
     if sel["result"] != "TAPE_OK":
         return {"mount_result": sel["result"], "superblock": sel}
     sb = sel["selected"]
     if sb["version_major"] != 1:
         return {"mount_result": "TAPE_ERR_VERSION", "superblock": sel}
-    if sb["state"] not in (0, 1):
+    if sb["state"] not in (0, 1) or sb["promote_stage"] not in (0, 1):
         return {"mount_result": "TAPE_ERR_UNSUPPORTED_STATE", "superblock": sel}
     if sb["state"] == 1:
         return {"mount_result": "TAPE_ERR_INCOMPLETE", "superblock": sel}
+
+    nominal = sb["nominal_length_s"]
+    frames = nominal * 44100
+    derived_chunks = (frames + CHUNK_FRAMES - 1) // CHUNK_FRAMES if nominal else 0
+    fixed = (
+        sb["sample_rate"] == 44100 and sb["channels"] == 2
+        and sb["bits_per_sample"] == 16 and sb["chunk_bytes"] == 524288
+        and sb["index_slot_bytes"] == 65536
+        and (sb["lba_index_a0"], sb["lba_index_a1"], sb["lba_index_b0"], sb["lba_index_b1"])
+            == (LBA_A0, LBA_A1, LBA_B0, LBA_B1)
+        and sb["lba_chunk_base"] == LBA_CHUNK_BASE
+        and sb["lba_superblock_mirror"] == block_count - 1
+    )
+    capacity_fits = (
+        nominal > 0 and frames <= 0xFFFFFFFF and 0 < derived_chunks <= 0xFFFFFFFF
+        and LBA_CHUNK_BASE + derived_chunks * CHUNK_BLOCKS <= block_count - 1
+    )
+    if (
+        not fixed or not capacity_fits or sb["total_chunks"] != derived_chunks
+        or sb["a_high_water"] > sb["total_chunks"]
+    ):
+        return {"mount_result": "TAPE_ERR_GEOMETRY", "superblock": sel}
 
     a = _head(snapshot, "a0_head_hex")
     b = _head(snapshot, "b0_head_hex")

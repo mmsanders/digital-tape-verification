@@ -11,6 +11,7 @@ CHUNK_FRAMES = 131072
 CHUNK_BLOCKS = CHUNK_BYTES // BLOCK
 LBA_A0, LBA_A1, LBA_B0, LBA_B1, LBA_CHUNK_BASE = 8, 136, 264, 392, 2048
 TOTAL_CHUNKS = 4
+NOMINAL_LENGTH_S = 9
 BLOCK_COUNT = LBA_CHUNK_BASE + TOTAL_CHUNKS * CHUNK_BLOCKS + 1
 LBA_MIRROR = BLOCK_COUNT - 1
 MAGIC_SB = b"TAPEFS\0\x01"
@@ -24,7 +25,7 @@ def crc32(b):
     return zlib.crc32(b) & 0xffffffff
 
 def superblock(*, generation=1, state=0, version_major=1, uuid=OLD_UUID_A,
-               high=1, nominal=60, promote_stage=0, promote_chunk=0, salt=0):
+               high=1, nominal=NOMINAL_LENGTH_S, promote_stage=0, promote_chunk=0, salt=0):
     b = bytearray(BLOCK)
     b[:8] = MAGIC_SB
     struct.pack_into("<H", b, 8, version_major)
@@ -147,6 +148,7 @@ def initial_snapshot(shape_name: str):
     s = raw_shapes()[shape_name]
     return {
         "format": "FMTDUP-ID-RAW-1",
+        "block_count": BLOCK_COUNT,
         "primary_hex": s.primary.hex(),
         "mirror_hex": s.mirror.hex(),
         "a0_head_hex": OLD_A0.hex(),

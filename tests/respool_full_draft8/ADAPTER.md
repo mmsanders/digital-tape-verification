@@ -16,7 +16,7 @@ The later Software binding exposes **raw observations only**. It must not emit
 "old/new", "valid", "safe", "passes", overlap verdicts, an expected `free_next`,
 or any other result that duplicates verifier logic.
 
-For each planner case it returns one `WP10-RESPOOL-OBSERVATION-1` object containing:
+For each planner case it returns one `WP10-RESPOOL-OBSERVATION-2` object containing:
 
 - the exact planner case identity and confirmation that the planned injection fired;
 - `fresh_remount_from_durable_only=true`;
@@ -145,14 +145,15 @@ consulted.
 ## WP-12a raw state observations
 
 For each of the 15 matrix columns, use a fresh equivalent fixture so calls such as
-unmount do not affect later cells. Emit result code, block-operation count, and an
-opaque operation token before/after. The token is observation only: it identifies
-whether the same in-progress operation survived a BUSY call; it is not a product
-concept or pass/fail verdict.
+unmount do not affect later cells. Emit result code, the complete chronological
+block trace, and the cumulative chronological list of chunk-region write LBAs
+before and after the call. An adapter label may also be retained, but it is not
+engine-sourced operation identity and Verification gives it no causal weight.
 
 The binding additionally emits:
 
-- repeated small-budget respool calls through terminal more_work=false;
+- repeated **block_budget=1** respool calls through terminal more_work=false,
+  retaining the cumulative chunk-write list before and after every call;
 - budget-zero initiation and continuation observations, including before/after state;
 - an interfering BUSY call followed by an ordinary continuation;
 - separate continuation write-failure and flush-failure observations;
@@ -174,6 +175,16 @@ surface is `tape_progress_fn`; only promote and duplicate expose it. Therefore t
 is no respool-originated progress callback in which to re-enter respool. The adapter
 must report these surfaces as absent, not create a private callback or private
 argument.
+
+### Continuation/no-restart evidence
+
+The verifier derives only externally observable continuity. A BUSY call must leave
+the complete operation trace unchanged; each ordinary continuation must preserve
+the prior trace as an exact prefix, advance raw progress, and never repeat an
+already-written chunk-region LBA. The terminal call must produce the exact raw media
+required by the fixture. Constant adapter labels do not prove continuity. If a path
+has no observable chunk-region write with which to distinguish restart, private
+engine identity remains unobserved and no broader no-restart claim is made.
 
 ## Forbidden binding behavior
 

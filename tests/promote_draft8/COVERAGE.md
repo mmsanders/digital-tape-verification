@@ -53,7 +53,9 @@ Terminal position clearing is exercised for:
 4. resume at step 9;
 5. NOTHING TO DO.
 
-Raw position-table values must remain present on every nonterminal continuation and clear on the terminal `TAPE_OK / more_work=false` call only.
+The frozen engine API exposes no position table. Caller-model position values must
+remain present on every nonterminal continuation and are cleared by the caller only
+after terminal `TAPE_OK / more_work=false`; no engine-side clearing claim is made.
 
 ## Promote headroom / counters
 
@@ -71,7 +73,8 @@ The case set includes all eight non-zero promote branches at their exact thresho
 The package covers:
 
 - all fifteen promote-in-progress state-matrix columns;
-- all eleven BUSY cells with a following raw continuation proving survival/no restart;
+- all eleven BUSY cells with an unchanged raw chunk-write trace followed by a
+  continuation that prefix-extends progress without repeating a copied chunk LBA;
 - allowed render/service/status-info-tell/matching-promote cells;
 - block_budget=0 on initiation and continuation;
 - promote's complete allowed mutable continuation-argument surface;
@@ -81,8 +84,15 @@ The package covers:
 - Faulted abort clears raw frames_owed without media I/O and Faulted overrides armed state;
 - render drains raw ring state and then underruns;
 - all fifteen callback re-entry columns with only render and status/info/tell matrix cells exempt;
-- next ordinary continuation survives callback BUSY and advances same opaque operation token;
-- repeated same-function small-budget completion through a terminal raw promoted snapshot.
+- next ordinary continuation survives callback BUSY and advances the cumulative raw
+  trace; adapter-label equality is non-causal;
+- repeated same-function block_budget=1 completion through a terminal raw promoted
+  snapshot with no repeated chunk-region write.
+
+Phase-0 and ordered phase-2 admission are independently exercised before index
+selection: device size, version, state, nominal-length frame cap, stored/derived
+chunk equality, fixed fields, mirror LBA, capacity and A waterline. Fixtures use
+truthful 9-second/four-chunk and 21-second/eight-chunk geometry.
 
 ## Exact planner census
 
@@ -123,7 +133,7 @@ Contract-family census:
 - stage oracle: 5
 - rerun rows: 11
 - rerun specials: 2
-- stored positions: 5
+- caller-model stored positions: 5
 - exact-headroom success: 8
 - one-short headroom: 14
 - headroom specials: 3

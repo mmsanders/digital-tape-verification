@@ -56,7 +56,11 @@ def superblock(
     struct.pack_into("<H", b, 40, 2)
     struct.pack_into("<H", b, 42, 16)
     struct.pack_into("<I", b, 44, 524288)
-    struct.pack_into("<I", b, 48, 60)
+    # These compact verifier fixtures carry a truthful label.  Nine seconds
+    # derives four chunks; twenty-one seconds derives eight chunks under the
+    # frozen ceiling formula in TapeFS section 2.
+    nominal_length_s = {4: 9, 8: 21}[total_chunks]
+    struct.pack_into("<I", b, 48, nominal_length_s)
     struct.pack_into("<I", b, 52, total_chunks)
     struct.pack_into("<I", b, 56, h)
     struct.pack_into("<I", b, 60, 65536)
@@ -237,6 +241,7 @@ def snapshot(media):
     out = {
         "format": "PROMOTE-RAW-SNAPSHOT-1",
         "total_chunks": total,
+        "block_count": block_count(total),
         "primary_hex": b[0].hex(),
         "mirror_hex": b[mirror_lba(total)].hex(),
     }

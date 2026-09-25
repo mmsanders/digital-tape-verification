@@ -241,7 +241,7 @@ def expected_crash_observation(case):
     a = inspect_snapshot(post, "A")
     b = inspect_snapshot(post, "B")
     obs = {
-        "format": "PROMOTE-OBSERVATION-1",
+        "format": "PROMOTE-OBSERVATION-2",
         "case_index": case["case_index"],
         "scope": "crash",
         "pre_snapshot": pre,
@@ -258,11 +258,12 @@ def expected_crash_observation(case):
     return obs
 
 
-def _op_state(token="promote-op-1", progress=10, events=100):
+def _op_state(token="promote-op-1", progress=10, events=100, chunk_writes=(2048,)):
     return {
         "operation_token": token,
         "progress_blocks": progress,
         "own_device_event_count": events,
+        "chunk_write_lbas": list(chunk_writes),
     }
 
 
@@ -295,7 +296,7 @@ FAULTED_ALLOWED = frozenset({"render", "status_info_tell", "abort", "unmount"})
 def expected_contract_observation(case):
     fam = case["family"]
     o = {
-        "format": "PROMOTE-OBSERVATION-1",
+        "format": "PROMOTE-OBSERVATION-2",
         "case_index": case["case_index"],
         "scope": "contract",
         "family": fam,
@@ -344,17 +345,21 @@ def expected_contract_observation(case):
 
     elif fam == "stored_position":
         calls = []
+        table = {"A": 111, "B": 222}
         if case["variant"] != "nothing_to_do":
             calls.append({
                 "result": "TAPE_OK", "more_work": True,
-                "position_table": {"A": 111, "B": 222},
+                "caller_table_before": dict(table),
+                "caller_table_after": dict(table),
             })
         calls.append({
             "result": "TAPE_OK", "more_work": False,
-            "position_table": {"A": None, "B": None},
+            "caller_table_before": dict(table),
+            "caller_table_after": {"A": None, "B": None},
         })
         o.update({
             "variant": case["variant"],
+            "position_table_owner": "caller-model",
             "position_table_before": {"A": 111, "B": 222},
             "calls": calls,
         })
@@ -532,9 +537,9 @@ def expected_contract_observation(case):
     elif fam == "small_budget_completion":
         o.update({
             "call_sequence": [
-                {"fn": "tape_promote", "budget": 1, "result": "TAPE_OK", "more_work": True, "operation_token": "promote-op-1", "progress_before": 0, "progress_after": 1},
-                {"fn": "tape_promote", "budget": 1, "result": "TAPE_OK", "more_work": True, "operation_token": "promote-op-1", "progress_before": 1, "progress_after": 2},
-                {"fn": "tape_promote", "budget": 1, "result": "TAPE_OK", "more_work": False, "operation_token": "promote-op-1", "progress_before": 2, "progress_after": 3},
+                {"fn": "tape_promote", "budget": 1, "result": "TAPE_OK", "more_work": True, "operation_token": "adapter-label", "progress_before": 0, "progress_after": 1, "chunk_write_lbas_before": [], "chunk_write_lbas_after": [2048]},
+                {"fn": "tape_promote", "budget": 1, "result": "TAPE_OK", "more_work": True, "operation_token": "adapter-label", "progress_before": 1, "progress_after": 2, "chunk_write_lbas_before": [2048], "chunk_write_lbas_after": [2048, 3072]},
+                {"fn": "tape_promote", "budget": 1, "result": "TAPE_OK", "more_work": False, "operation_token": "adapter-label", "progress_before": 2, "progress_after": 3, "chunk_write_lbas_before": [2048, 3072], "chunk_write_lbas_after": [2048, 3072, 4096]},
             ],
             "terminal_snapshot": completed_snapshot(),
         })
@@ -552,14 +557,12 @@ def expected_observation(case):
 
 def _state(v, label, allow_none=False):
     need(isinstance(v, dict), f"{label} missing")
-    token = v.get("operation_token")
-    if not allow_none:
-        need(isinstance(token, str) and token, f"{label} token")
-    else:
-        need(token is None or isinstance(token, str), f"{label} token")
     for k in ("progress_blocks", "own_device_event_count"):
         need(isinstance(v.get(k), int) and not isinstance(v.get(k), bool) and v[k] >= 0, f"{label}.{k}")
-    return v
+    writes = v.get("chunk_write_lbas")
+    need(isinstance(writes, list) and all(isinstance(x, int) and not isinstance(x, bool) and x >= 2048 for x in writes), f"{label}.chunk_write_lbas")
+    need(len(writes) == len(set(writes)), f"{label} repeated chunk write")
+    return {"progress_blocks": v["progress_blocks"], "own_device_event_count": v["own_device_event_count"], "chunk_write_lbas": writes}
 
 
 def _same_state(a, b, label, allow_none=False):
@@ -571,9 +574,9 @@ def _same_state(a, b, label, allow_none=False):
 def _advance(a, b, label):
     a = _state(a, label + ".before")
     b = _state(b, label + ".after")
-    need(a["operation_token"] == b["operation_token"], f"{label} restarted")
     need(b["progress_blocks"] > a["progress_blocks"], f"{label} no progress")
     need(b["own_device_event_count"] >= a["own_device_event_count"], f"{label} event regression")
+    need(b["chunk_write_lbas"][:len(a["chunk_write_lbas"])] == a["chunk_write_lbas"], f"{label} chunk-write trace rewound")
 
 
 def _events(events, label):
@@ -667,16 +670,21 @@ def _validate_contract(case, obs):
 
     elif fam == "stored_position":
         need(obs.get("variant") == case["variant"], "position variant")
+        need(obs.get("position_table_owner") == "caller-model", "position table falsely attributed to engine")
         before = obs.get("position_table_before")
         need(before == {"A": 111, "B": 222}, "position seed")
         calls = obs.get("calls")
         need(isinstance(calls, list) and calls, "position calls")
-        for c in calls[:-1]:
-            need(c.get("more_work") is True, "nonterminal flag")
-            need(c.get("position_table") == before, "position cleared before terminal")
-        terminal = calls[-1]
-        need(terminal.get("result") == "TAPE_OK" and terminal.get("more_work") is False, "terminal call")
-        need(terminal.get("position_table") == {"A": None, "B": None}, "terminal positions not cleared")
+        current = before
+        for i, c in enumerate(calls):
+            need(c.get("caller_table_before") == current, f"caller table chain {i}")
+            terminal = c.get("result") == "TAPE_OK" and c.get("more_work") is False
+            expected_after = {"A": None, "B": None} if terminal else current
+            need(c.get("caller_table_after") == expected_after, f"caller model transition {i}")
+            if i < len(calls) - 1:
+                need(c.get("more_work") is True, "nonterminal flag")
+            current = expected_after
+        need(calls[-1].get("result") == "TAPE_OK" and calls[-1].get("more_work") is False, "terminal call")
 
     elif fam in ("headroom_exact", "headroom_short"):
         branch = case["branch"]
@@ -737,9 +745,8 @@ def _validate_contract(case, obs):
             _same_state(before, after, "BUSY")
             cont = obs.get("next_continuation")
             need(cont["call"].get("fn") == "tape_promote" and cont["call"].get("result") == "TAPE_OK", "next continuation")
-            need(cont["before"] == after, "continuation state mismatch")
+            _same_state(cont["before"], after, "continuation state")
             _advance(cont["before"], cont["after"], "next continuation")
-            need(cont["after"]["operation_token"] == before["operation_token"], "BUSY restarted op")
         elif c == "promote":
             need(obs["probe"].get("result") == "TAPE_OK", "matching continuation")
             _advance(before, after, "matching continuation")
@@ -803,20 +810,28 @@ def _validate_contract(case, obs):
         else:
             need(obs["nested_call"].get("result") == "TAPE_ERR_BUSY" and obs["nested_call"].get("block_events") == [], "callback BUSY")
         cont = obs["next_continuation"]
-        need(cont["before"] == after["operation"], "post-callback state")
+        _same_state(cont["before"], after["operation"], "post-callback state")
         _advance(cont["before"], cont["after"], "post-callback continuation")
-        need(cont["after"]["operation_token"] == before["operation"]["operation_token"], "callback restarted op")
 
     elif fam == "small_budget_completion":
         seq = obs.get("call_sequence")
         need(isinstance(seq, list) and len(seq) >= 2, "small-budget sequence")
-        token = seq[0].get("operation_token")
-        need(all(x.get("fn") == "tape_promote" and x.get("operation_token") == token for x in seq), "same function/token")
+        need(all(x.get("fn") == "tape_promote" and x.get("budget") == 1 for x in seq), "same function/budget-1")
         need(any(x.get("more_work") is True for x in seq[:-1]), "no nonterminal call")
         need(seq[-1].get("more_work") is False, "no terminal call")
         for a, b in zip(seq, seq[1:]):
             need(a["progress_after"] == b["progress_before"], "progress discontinuity")
+            need(a["chunk_write_lbas_after"] == b["chunk_write_lbas_before"], "chunk-write trace discontinuity")
         need(all(x["progress_after"] > x["progress_before"] for x in seq), "no progress")
+        for x in seq:
+            before_writes = x.get("chunk_write_lbas_before")
+            after_writes = x.get("chunk_write_lbas_after")
+            need(isinstance(before_writes, list) and isinstance(after_writes, list), "chunk-write trace missing")
+            need(all(isinstance(v, int) and not isinstance(v, bool) and v >= 2048 for v in before_writes + after_writes), "chunk-write trace malformed")
+            need(after_writes[:len(before_writes)] == before_writes, "chunk-write trace rewound")
+            need(len(after_writes) == len(set(after_writes)), "chunk copy restarted/repeated")
+        writes = seq[-1].get("chunk_write_lbas_after")
+        need(isinstance(writes, list) and len(writes) == len(set(writes)), "chunk copy restarted/repeated")
         _validate_terminal_promoted(obs.get("terminal_snapshot"))
 
     else:
@@ -825,7 +840,7 @@ def _validate_contract(case, obs):
 
 def validate_case(case, obs):
     need(isinstance(obs, dict), "observation object")
-    need(obs.get("format") == "PROMOTE-OBSERVATION-1", "observation format")
+    need(obs.get("format") == "PROMOTE-OBSERVATION-2", "observation format")
     need(obs.get("case_index") == case["case_index"], "case index")
     need(obs.get("scope") == case["scope"], "scope")
 

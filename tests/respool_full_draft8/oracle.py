@@ -233,7 +233,7 @@ def validate_zero_needed_empty(pre, post, events: list, call: dict):
     need(post.encode() == pre.encode(), "empty zero-needed branch changed media")
 
 def validate_crash_observation(case: dict, obs: dict):
-    need(obs.get("format") == "WP10-RESPOOL-OBSERVATION-1", "observation format")
+    need(obs.get("format") == "WP10-RESPOOL-OBSERVATION-2", "observation format")
     need(obs.get("case_id") == case_id(case), "case identity")
     need(obs.get("injection_fired") is True, "planned injection skipped")
     need(obs.get("fresh_remount_from_durable_only") is True, "remount did not use durable bytes only")
@@ -308,24 +308,37 @@ def _row_map(row: list[dict]) -> dict:
     need(set(out) == set(COLUMNS), "15-column row incomplete")
     return out
 
+
+def _trace(value: dict, before_key: str, after_key: str, label: str):
+    before = value.get(before_key)
+    after = value.get(after_key)
+    need(isinstance(before, list) and isinstance(after, list), f"{label} raw copy trace missing")
+    need(all(isinstance(x, int) and not isinstance(x, bool) and x >= 2048 for x in before + after), f"{label} raw copy trace malformed")
+    need(len(before) == len(set(before)) and len(after) == len(set(after)), f"{label} repeated chunk write/restart")
+    return before, after
+
+
+def _trace_advanced(value: dict, label: str):
+    before, after = _trace(value, "chunk_write_lbas_before", "chunk_write_lbas_after", label)
+    need(after[:len(before)] == before, f"{label} raw copy trace rewound")
+
 def validate_respool_in_progress_row(row: list[dict]):
     cells = _row_map(row)
     need(len(RESPOOL_BUSY) == 11 and len(RESPOOL_ALLOWED) == 4, "respool row cardinality")
-    token = cells["respool"].get("operation_token_before")
     for name in RESPOOL_BUSY:
         c = cells[name]
         need(c.get("result") == "TAPE_ERR_BUSY", f"{name} did not return BUSY")
         need(c.get("block_ops") == 0, f"{name} BUSY performed block operations")
-        need(c.get("operation_token_before") == token == c.get("operation_token_after"),
-             f"{name} BUSY terminated/restarted operation")
+        before, after = _trace(c, "chunk_write_lbas_before", "chunk_write_lbas_after", name)
+        need(before == after,
+             f"{name} BUSY changed raw copy trace")
     for name in RESPOOL_ALLOWED:
         c = cells[name]
         need(c.get("result") == "TAPE_OK", f"{name} not allowed in respool row")
     cont = cells["respool"]
-    need(cont.get("operation_token_before") == cont.get("operation_token_after") == token,
-         "matching continuation changed operation identity")
     need(cont.get("progress_after", 0) > cont.get("progress_before", -1),
          "matching continuation did not advance")
+    _trace_advanced(cont, "matching continuation")
 
 def validate_faulted_row(row: list[dict]):
     cells = _row_map(row)
@@ -343,14 +356,17 @@ def validate_longop_contract(obs: dict):
 
     calls = obs["small_budget_calls"]
     need(len(calls) >= 2, "small-budget campaign did not continue")
-    token = calls[0].get("operation_token")
-    need(all(c.get("result") == "TAPE_OK" and c.get("operation_token") == token for c in calls),
-         "small-budget continuation restarted/failed")
-    need(all(c.get("block_budget", 0) > 0 for c in calls), "small-budget campaign used zero budget")
+    need(all(c.get("result") == "TAPE_OK" for c in calls), "small-budget continuation failed")
+    need(all(c.get("block_budget") == 1 for c in calls), "small-budget campaign did not cover budget 1")
     need(all(c.get("more_work") is True for c in calls[:-1]) and calls[-1].get("more_work") is False,
          "small-budget campaign did not terminate exactly once")
     need(all(calls[i]["progress_after"] > calls[i]["progress_before"] for i in range(len(calls))),
          "small-budget call failed to advance")
+    for i, call in enumerate(calls):
+        _trace_advanced(call, f"small-budget[{i}]")
+        if i:
+            need(call.get("progress_before") == calls[i-1].get("progress_after"), "small-budget progress discontinuity")
+            need(call.get("chunk_write_lbas_before") == calls[i-1].get("chunk_write_lbas_after"), "small-budget trace discontinuity")
 
     for z in obs["zero_budget"]:
         need(z.get("block_budget") == 0 and z.get("result") == "TAPE_ERR_INVALID_ARG",
@@ -364,10 +380,13 @@ def validate_longop_contract(obs: dict):
     nxt = obs["busy_then_continue"]["continuation"]
     need(busy.get("result") == "TAPE_ERR_BUSY" and busy.get("block_ops") == 0,
          "interfering BUSY call")
-    need(busy.get("operation_token_before") == busy.get("operation_token_after") == nxt.get("operation_token"),
-         "BUSY terminated/restarted operation")
+    busy_before, busy_after = _trace(busy, "chunk_write_lbas_before", "chunk_write_lbas_after", "BUSY")
+    need(busy_before == busy_after,
+         "BUSY changed raw copy trace")
     need(nxt.get("result") == "TAPE_OK" and nxt.get("progress_after") > nxt.get("progress_before"),
-         "ordinary continuation did not resume same operation")
+         "ordinary continuation did not advance the raw trace")
+    need(nxt.get("chunk_write_lbas_before") == busy_after, "BUSY continuation trace discontinuity")
+    _trace_advanced(nxt, "BUSY continuation")
 
     failures = obs["own_device_failures"]
     need({f.get("failure") for f in failures} == {"write", "flush"}, "write+flush fault coverage incomplete")

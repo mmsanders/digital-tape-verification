@@ -139,7 +139,7 @@ def synthetic_crash(case):
             hashes["copy_10_frames"] = DECLINE_AUDIO_SHA256
 
     obs = {
-        "format": "WP10-RESPOOL-OBSERVATION-1",
+        "format": "WP10-RESPOOL-OBSERVATION-2",
         "case_id": case_id(case),
         "injection_fired": True,
         "fresh_remount_from_durable_only": True,
@@ -171,9 +171,12 @@ def row_observation(*, faulted=False):
             "block_ops": 0,
             "operation_token_before": token,
             "operation_token_after": token,
+            "chunk_write_lbas_before": [2048],
+            "chunk_write_lbas_after": [2048],
         }
         if not faulted and name == "respool":
-            cell.update({"progress_before": 4, "progress_after": 5})
+            cell.update({"progress_before": 4, "progress_after": 5,
+                         "chunk_write_lbas_after": [2048, 3072]})
         row.append(cell)
     return row
 
@@ -183,11 +186,14 @@ def longop_observation():
         "faulted_row": row_observation(faulted=True),
         "small_budget_calls": [
             {"result": "TAPE_OK", "block_budget": 1, "more_work": True,
-             "operation_token": "op-small", "progress_before": 0, "progress_after": 1},
+             "operation_token": "adapter-label", "progress_before": 0, "progress_after": 1,
+             "chunk_write_lbas_before": [], "chunk_write_lbas_after": [2048]},
             {"result": "TAPE_OK", "block_budget": 1, "more_work": True,
-             "operation_token": "op-small", "progress_before": 1, "progress_after": 2},
-            {"result": "TAPE_OK", "block_budget": 2, "more_work": False,
-             "operation_token": "op-small", "progress_before": 2, "progress_after": 4},
+             "operation_token": "adapter-label", "progress_before": 1, "progress_after": 2,
+             "chunk_write_lbas_before": [2048], "chunk_write_lbas_after": [2048, 3072]},
+            {"result": "TAPE_OK", "block_budget": 1, "more_work": False,
+             "operation_token": "adapter-label", "progress_before": 2, "progress_after": 4,
+             "chunk_write_lbas_before": [2048, 3072], "chunk_write_lbas_after": [2048, 3072, 4096]},
         ],
         "zero_budget": [
             {"phase": "initiation", "block_budget": 0, "result": "TAPE_ERR_INVALID_ARG",
@@ -199,10 +205,12 @@ def longop_observation():
             "busy": {
                 "result": "TAPE_ERR_BUSY", "block_ops": 0,
                 "operation_token_before": "op-busy", "operation_token_after": "op-busy",
+                "chunk_write_lbas_before": [2048], "chunk_write_lbas_after": [2048],
             },
             "continuation": {
                 "result": "TAPE_OK", "operation_token": "op-busy",
                 "progress_before": 6, "progress_after": 7,
+                "chunk_write_lbas_before": [2048], "chunk_write_lbas_after": [2048, 3072],
             },
         },
         "own_device_failures": [
@@ -311,8 +319,13 @@ def main():
 
     bad = longop_observation()
     seek = next(c for c in bad["in_progress_row"] if c["call"] == "seek")
-    seek["operation_token_after"] = "restarted"
-    expect_reject(lambda: validate_longop_contract(bad), "terminated/restarted")
+    seek["chunk_write_lbas_after"] = [2048, 3072]
+    expect_reject(lambda: validate_longop_contract(bad), "BUSY changed raw copy trace")
+
+    bad = longop_observation()
+    bad["small_budget_calls"][1]["chunk_write_lbas_after"] = [2048, 2048]
+    bad["small_budget_calls"][2]["chunk_write_lbas_before"] = [2048, 2048]
+    expect_reject(lambda: validate_longop_contract(bad), "repeated chunk")
     print("PASS false-BUSY-termination negative control")
 
     bad = longop_observation()

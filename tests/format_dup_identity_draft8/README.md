@@ -1,6 +1,7 @@
 # DRAFT-8 format/duplicate raw identity + duplicate long-operation verifier
 
-Independent verifier-first publication for Digital-Tape-Verification issue #71.
+Independent verifier-first publication for Digital-Tape-Verification issue #71,
+corrected and republished under issue #76.
 
 This package was authored blind to the current engine implementation from the frozen DRAFT-8 specification bundle. It publishes fixtures, an independent raw-media parser/oracle, an exhaustive deterministic crash planner, the duplicate WP-12a contract oracle, self-tests/negative controls, a raw-only mechanical adapter contract, and a later product-evidence runner.
 
@@ -30,11 +31,19 @@ c493e77dff948df48d9c67c51ef4b68f0a61d2e02615b2d08760a594e79dc4e3
 
 ## Raw-observation boundary
 
-The product adapter supplies only concrete observations: raw media bytes, opaque operation tokens, numeric progress/event counters, exact arguments, direct transport/rate/position/ring facts, callback counts/depth, public call results, block traces, render bytes, and ordered call sequences.
+The product adapter supplies only concrete observations: raw media bytes, non-
+causal adapter labels, numeric progress/event counters, exact arguments, direct
+transport/rate/position/ring facts, callback counts/depth, public call results,
+block traces, render bytes, and ordered call sequences.
 
-It must not supply verifier conclusions. oracle.py rejects semantic verdict fields and independently derives operation survival/no-restart, no-work-on-BUSY, unchanged source state, callback non-recursion, continued audio, same-function completion, and terminal cartridge identity.
+It must not supply verifier conclusions. oracle.py rejects semantic verdict fields
+and independently derives externally observable continuation from raw trace-prefix
+facts, no-work-on-BUSY, unchanged source state, callback non-recursion, continued
+audio, same-function completion, and terminal cartridge identity.
 
-This correction preserves planner case membership, ordering, census, and digest.
+This correction also uses truthful 9-second/four-chunk fixture geometry and ordered
+phase-0/phase-2 admission before index selection. It preserves planner case
+membership, ordering, census, and digest.
 
 ## Self-test
 
@@ -42,7 +51,13 @@ Run:
 
     python3 tests/format_dup_identity_draft8/selftest.py
 
-The self-test checks exact census/digest, mandatory raw shapes, partner ordering, generation-2 barrier path, exhaustion zeroing, representative exact durable-byte/remount outcomes, final identity boundary, all 43 contract cases, and negative controls for skipped injection, reversed order, wrong durability, identity drift, BUSY raw-progress mutation, forbidden product-side verdict fields, callback recursion counters, changed rate/ring bytes, silent post-failure render, zero-budget progress, argument-shape drift, and operation-token restart.
+The self-test checks exact census/digest, mandatory raw shapes, partner ordering,
+generation-2 barrier path, exhaustion zeroing, representative exact durable-byte/
+remount outcomes, final identity boundary, all 43 contract cases, and negative
+controls for skipped injection, reversed order, wrong durability, identity drift,
+BUSY raw-progress mutation, forbidden product-side verdict fields, callback
+recursion counters, changed rate/ring bytes, silent post-failure render, zero-budget
+progress, argument-shape drift, and a constant-label repeated-copy restart.
 
 The repository-wide Verification package selftests workflow discovers this directory automatically through tests/*_draft8/selftest.py.
 

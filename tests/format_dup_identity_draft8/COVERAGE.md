@@ -37,24 +37,27 @@
 
 | ID | Verifier assertion |
 |---|---|
-| R29-B-LONG-01 | Small budget completes by repeated calls to the same tape_dup |
+| R29-B-LONG-01 | block_budget=1 completes by repeated calls to tape_dup with a cumulative raw chunk-write trace |
 | R29-B-LONG-02 | Complete 15-column duplicate-in-progress row |
-| R29-B-LONG-03 | All 11 BUSY cells leave the same operation running and do not restart it |
+| R29-B-LONG-03 | All 11 BUSY cells leave raw progress/event/chunk-write state unchanged; continuation prefix-extends it without repeated copied LBAs |
 | R29-B-LONG-04 | block_budget=0 is INVALID_ARG on initiating and continuation calls, no state/work change |
 | R29-B-LONG-05 | Fixed continuation args: destination ctx, UUID, epoch, nominal length |
 | R29-B-LONG-06 | Only budget/more_work/callback/user may vary |
 | R29-B-LONG-07 | Callback re-entry: read-only/render exemptions; every other tested same-instance call BUSY |
-| R29-B-LONG-08 | Re-entrant BUSY never terminates operation; next ordinary continuation advances |
+| R29-B-LONG-08 | Re-entrant BUSY leaves the raw trace unchanged; next ordinary continuation advances it |
 | R29-B-LONG-09 | Destination write failure from Playing does not FAULT source or alter rate/position/ring and audio continues |
 | R29-B-LONG-10 | Already-FAULTED source returns FAULTED from duplicate with zero block operations |
 | R29-B-LONG-11 | Product adapter emits only raw/public facts; Verification derives all continuity/state/audio verdicts and rejects derived verdict fields |
-| R29-B-LONG-12 | Negative controls mutate raw rate/ring/progress/callback-depth/token facts and must be caught independently |
+| R29-B-LONG-12 | Negative controls mutate raw rate/ring/progress/callback-depth facts and make a constant-label continuation repeat a copied LBA |
 
 The complete project-wide 45-cell WP-12a matrix is the three 15-column in-progress rows. This tranche fully exercises duplicate's own 15-column row; promote and re-spool rows are deliberately not duplicated here.
 
 ## Raw-observation independence boundary
 
-The WP-12a product binding may expose opaque operation tokens, exact progress/event counters, exact arguments, transport/rate/position/ring facts, callback entry/depth counts, raw call sequences, raw block traces, render bytes, and terminal raw media.
+The WP-12a product binding may expose non-causal adapter labels, exact progress/
+event counters, exact arguments, transport/rate/position/ring facts, callback entry/
+depth counts, raw call sequences, cumulative chunk-write traces, render bytes, and
+terminal raw media. Label equality never proves engine continuity.
 
 It may not expose precomputed conclusions such as operation-survived, work-advanced, restart-count, unchanged-rate/ring, audio-continues, source-faulted, recursed, or final-identity judgments. The verifier rejects those semantic fields and computes each disposition from the raw facts.
 
@@ -75,6 +78,11 @@ Canonical case-set SHA-256:
 c493e77dff948df48d9c67c51ef4b68f0a61d2e02615b2d08760a594e79dc4e3
 
 The PM-return raw-schema correction does not alter planner membership, ordering, census, or digest.
+
+Phase-0 and ordered phase-2 admission are exercised before index selection using
+truthful 9-second/four-chunk geometry, including the frame cap, stored/derived chunk
+equality, fixed layout, mirror LBA, capacity, A waterline, and version/state
+precedence.
 
 ## Explicit exclusions
 

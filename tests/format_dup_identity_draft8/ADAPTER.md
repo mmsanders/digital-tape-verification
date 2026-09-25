@@ -2,7 +2,9 @@
 
 This directory is an independent verifier-owned package. A later Software round may bind the exact publication tree to the Digital-Tape public API, but must not change fixtures, planner order/count/digest, durability semantics, expected bytes, parser, or oracle.
 
-The product adapter is mechanical only. It may report raw bytes, opaque operation identifiers, numeric counters, callback traces, block-device events, and direct public/API state observations. It must not report verifier conclusions.
+The product adapter is mechanical only. It may report raw bytes, non-causal adapter
+labels, numeric counters, callback traces, block-device events, and direct public/
+API state observations. It must not report verifier conclusions.
 
 oracle.py recursively rejects derived verdict fields such as operation-running/work-advanced/restart judgments; unchanged-rate/position/ring judgments; audio-continues or source-faulted judgments; state-changed/recursed judgments; same-function/nonterminal/terminal summary judgments; and decoded final-identity verdicts. Verification derives those properties itself from the concrete observations below.
 
@@ -12,15 +14,21 @@ This package was authored from frozen DRAFT-8 specifications only. Product imple
 
 ## Streaming protocol
 
-Run one adapter process. Its initial JSON handshake must contain format FMTDUP-ID-ADAPTER-1, adapter_kind product, a stable adapter_id, caseset_sha256 c493e77dff948df48d9c67c51ef4b68f0a61d2e02615b2d08760a594e79dc4e3, and raw_observation_only true.
+Run one adapter process. Its initial JSON handshake must contain format FMTDUP-ID-ADAPTER-2, adapter_kind product, a stable adapter_id, caseset_sha256 c493e77dff948df48d9c67c51ef4b68f0a61d2e02615b2d08760a594e79dc4e3, and raw_observation_only true.
 
-The verifier streams every canonical case and expects one FMTDUP-ID-OBSERVATION-1 object per case. Production has no sampling, case-count, torn-length, durability-mode, or scenario override. EOF, timeout, malformed JSON, case drift, or process failure is failure.
+The verifier streams every canonical case and expects one FMTDUP-ID-OBSERVATION-2 object per case. Production has no sampling, case-count, torn-length, durability-mode, or scenario override. EOF, timeout, malformed JSON, case drift, or process failure is failure.
 
 ## Raw crash observations
 
 For scope=crash, return the verifier case index, injection_fired=true, verifier-format pre_snapshot and post_snapshot, target_baseline from the clean execution, actual_remount_result from a fresh product instance initialized from durable bytes only, and actual_selected_uuid when that mount succeeds.
 
-A raw snapshot contains exact hex for primary superblock, mirror superblock, A0 block-0 header, and B0 block-0 header, each 512 bytes. Do not replace those bytes with decoded claims. The verifier independently checks magic/CRC, primary/mirror selection, version/state admission, UUID, sb_generation, A0/B0 identity, and final sequence numbers.
+A raw snapshot contains exact device `block_count` plus exact hex for primary
+superblock, mirror superblock, A0 block-0 header, and B0 block-0 header, each 512
+bytes. Do not replace those facts with decoded claims. Before index selection the
+verifier independently applies phase-0 device capacity and ordered phase-2 version,
+state, nominal-derived frame/chunk, fixed-field, mirror-LBA, capacity, and A-waterline
+admission. It then checks magic/CRC, primary/mirror selection, UUID,
+`sb_generation`, A0/B0 identity, and final sequence numbers.
 
 ### Clean target baseline
 
@@ -46,7 +54,11 @@ The first five exercise the ordinary WIP-template path. The last two exercise th
 
 ## Raw WP-12a observation vocabulary
 
-An in-progress duplicate observation uses an opaque operation snapshot with operation_token, progress_blocks, and destination_event_count. The token is not a verdict. Verification compares it across probes/continuations to detect restart. Likewise, the counters are facts; Verification decides whether work did or did not advance.
+An in-progress duplicate observation contains an optional adapter label,
+`progress_blocks`, `destination_event_count`, and the cumulative chronological list
+of destination chunk-region write LBAs. The label is not engine-sourced identity
+and Verification gives it no causal weight. Verification derives work/no-work and
+externally observable continuation from counters and trace-prefix facts.
 
 Block-device traces contain chronological raw callback events. Reads/writes include LBA/count; callbacks include their raw return code where relevant.
 
@@ -56,13 +68,18 @@ Exercise all fifteen Engine API state-matrix columns against a duplicate already
 
 For every row provide the operation snapshot immediately before and immediately after the probe plus the exact probe call/result and its block-event trace.
 
-For the eleven BUSY columns additionally provide an ordinary matching duplicate continuation after the probe, with raw before/after operation snapshots and its public return/more_work. Verification derives that BUSY did no media work, token/progress/event count did not change during BUSY, and the next duplicate call advances the same token rather than starting a new operation.
+For the eleven BUSY columns additionally provide an ordinary matching duplicate
+continuation after the probe, with raw before/after snapshots and its public return/
+more_work. Verification requires BUSY to leave counters and the complete trace
+unchanged; the next call must preserve the prior trace as an exact prefix, advance,
+and never repeat a copied chunk LBA.
 
 For matching dup, report the continuation result/more_work, block trace, and raw before/after operation snapshots. Verification derives that it advanced.
 
 For render, report public result, rendered-frame count, raw output bytes, and block trace. The seeded fixture is non-silent. Verification derives that rendering remained usable and touched no media.
 
-For service, report result and complete block trace. Verification verifies the duplicate operation token/progress itself did not advance through service.
+For service, report result and complete block trace. Verification verifies that raw
+progress/event/chunk-write state did not advance through service.
 
 For the grouped status/info/tell cell, report all three public calls/results, tell position, and the block trace.
 
@@ -82,7 +99,9 @@ Each planner case changes exactly one fixed argument, or changes only mutable ar
 
 From inside a duplicate progress callback, exercise the same fifteen columns. Emit the raw operation snapshot before/after nested call; numeric callback-entry count before/after; numeric maximum callback recursion depth before/after; exact nested public call result and block trace; for render/status-info-tell their same raw observations described above; and the next ordinary duplicate continuation with raw before/after operation snapshots and result/more_work.
 
-Verification derives that callback entry count/depth did not increase, nested BUSY calls did no work, and the next ordinary continuation advanced the same operation token.
+Verification derives that callback entry count/depth did not increase, nested BUSY
+calls did no work, and the next ordinary continuation prefix-extended the raw trace
+without repeating a copied chunk LBA.
 
 ## Destination failure while Playing
 
@@ -94,9 +113,16 @@ Verification derives that source transport stayed Playing, rate/position/ring ar
 
 ## Small-budget completion
 
-Emit the actual ordered duplicate call sequence. Every element contains function identity, budget, public result, more_work, operation token, progress before/after, and destination event count before/after.
+Emit the actual ordered duplicate call sequence. Every element contains function
+identity, budget exactly 1, public result, `more_work`, optional non-causal adapter
+label, progress and destination event count before/after, and cumulative
+chronological chunk-write LBAs before/after.
 
-Also emit the terminal raw media snapshot, not a decoded identity object. Verification derives same-function continuation, at least one nonterminal call, one terminal call, token continuity/no restart, forward progress, and final sb_generation=1 / A0=1 / B0=2 identity from raw media.
+Also emit the terminal raw media snapshot, not a decoded identity object.
+Verification derives same-function budget-1 continuation, at least one nonterminal
+call, one terminal call, forward progress, exact trace-prefix continuity with no
+repeated chunk LBA, and final sb_generation=1 / A0=1 / B0=2 identity from raw media.
+It makes no private engine-identity claim.
 
 ## Already-FAULTED source
 

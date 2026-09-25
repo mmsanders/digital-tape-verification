@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import copy
+import struct
+import zlib
 
 from fixture import (
     index_blocks, scenario_initial, snapshot, stage_fixture, target_baseline, transaction,
@@ -55,6 +57,23 @@ def find(**want):
     raise AssertionError("case not found " + repr(want))
 
 
+def mutate_geometry(snap, *, nominal=None, total_chunks=None, version=None, state=None):
+    out = copy.deepcopy(snap)
+    for key in ("primary_hex", "mirror_hex"):
+        raw = bytearray.fromhex(out[key])
+        if nominal is not None:
+            struct.pack_into("<I", raw, 48, nominal)
+        if total_chunks is not None:
+            struct.pack_into("<I", raw, 52, total_chunks)
+        if version is not None:
+            struct.pack_into("<H", raw, 8, version)
+        if state is not None:
+            raw[16] = state
+        struct.pack_into("<I", raw, 508, zlib.crc32(raw[:508]) & 0xFFFFFFFF)
+        out[key] = raw.hex()
+    return out
+
+
 def main():
     need(validate_planner() == [], "planner validation")
     c = counts()
@@ -88,6 +107,30 @@ def main():
         need(got["mount_result"] == want[0], f"{variant} mount")
         need(got.get("resume_rows", []) == want[1], f"{variant} rows")
     print("PASS §9.3.3 exact-one stage oracle including S==0 and unmatched refusal")
+
+    # Frozen TapeFS section 4.1 phase-2 admission: the compact fixtures must
+    # carry truthful labels and the parser must refuse before index selection
+    # when stored/derived geometry or device capacity disagrees.
+    four = snapshot(scenario_initial("first_use_s0"))
+    eight = snapshot(scenario_initial("fresh_alloc_full"))
+    need(inspect_snapshot(four)["mount_result"] == "TAPE_OK", "9s/4 seed")
+    need(inspect_snapshot(eight)["mount_result"] == "TAPE_OK", "21s/8 seed")
+    need(inspect_snapshot(mutate_geometry(four, nominal=60))["mount_result"] == "TAPE_ERR_GEOMETRY", "60s/4 escaped")
+    need(inspect_snapshot(mutate_geometry(eight, nominal=60))["mount_result"] == "TAPE_ERR_GEOMETRY", "60s/8 escaped")
+    need(inspect_snapshot(mutate_geometry(four, nominal=100000))["mount_result"] == "TAPE_ERR_GEOMETRY", "frame cap escaped")
+    need(inspect_snapshot(mutate_geometry(four, total_chunks=5))["mount_result"] == "TAPE_ERR_GEOMETRY", "stored/derived mismatch escaped")
+    short = copy.deepcopy(four)
+    short["block_count"] -= 1
+    need(inspect_snapshot(short)["mount_result"] == "TAPE_ERR_GEOMETRY", "short device escaped")
+    precedence = copy.deepcopy(four)
+    precedence["block_count"] = 1
+    precedence["primary_hex"] = "00" * 512
+    precedence["mirror_hex"] = "00" * 512
+    got = inspect_snapshot(precedence)
+    need(got["mount_result"] == "TAPE_ERR_GEOMETRY" and got.get("phase") == 0, "phase-0 precedence")
+    need(inspect_snapshot(mutate_geometry(four, nominal=60, version=2))["mount_result"] == "TAPE_ERR_VERSION", "version precedence")
+    need(inspect_snapshot(mutate_geometry(four, nominal=60, state=1))["mount_result"] == "TAPE_ERR_INCOMPLETE", "state precedence")
+    print("PASS truthful 9s/4 + 21s/8 geometry and phase-0/admission red controls")
 
     rows_seen = set()
     representative = {}
@@ -175,8 +218,12 @@ def main():
     # Stored position and headroom controls.
     case = find(scope="contract", family="stored_position", variant="full_path")
     obs = expected_observation(case)
-    obs["calls"][0]["position_table"] = {"A": None, "B": None}
+    obs["calls"][0]["caller_table_after"] = {"A": None, "B": None}
     reject(lambda: validate_case(case, obs), "positions cleared on nonterminal continuation")
+
+    obs = expected_observation(case)
+    obs["position_table_owner"] = "engine"
+    reject(lambda: validate_case(case, obs), "positions attributed to engine")
 
     case = find(scope="contract", family="headroom_short", branch="fresh_alloc_run", counter="sequence")
     obs = expected_observation(case)
@@ -226,8 +273,9 @@ def main():
 
     case = find(scope="contract", family="small_budget_completion")
     obs = expected_observation(case)
-    obs["call_sequence"][1]["operation_token"] = "restarted"
-    reject(lambda: validate_case(case, obs), "small-budget restart")
+    obs["call_sequence"][1]["chunk_write_lbas_after"] = [2048, 2048]
+    obs["call_sequence"][2]["chunk_write_lbas_before"] = [2048, 2048]
+    reject(lambda: validate_case(case, obs), "constant-token repeated-copy restart")
 
     rep_case = representative[7]
     rep_obs = expected_observation(rep_case)
