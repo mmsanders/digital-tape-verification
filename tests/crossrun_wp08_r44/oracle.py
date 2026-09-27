@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 import struct
+import zlib
 from dataclasses import dataclass
 
 SEED = 0xA51CE55D
@@ -36,6 +37,50 @@ def fixture():
     frames = [f for run in runs for f in run]
     need(len(frames) == 17 and len(set(frames)) == 17, "nonconstant fixture")
     return runs, frames
+
+
+def raw_fixture(snapshot):
+    """Decode the mounted media without trusting adapter logical-frame labels."""
+    need(set(snapshot) == {"superblock", "B0", "B1", "chunks"}, "raw fixture fields")
+    sb = bytes.fromhex(snapshot["superblock"])
+    need(len(sb) == 512 and sb[:8] == b"TAPEFS\0\x01" and
+         zlib.crc32(sb[:508]) == struct.unpack_from("<I", sb, 508)[0], "raw superblock/CRC")
+    total_chunks = struct.unpack_from("<I", sb, 52)[0]
+    valid = []
+    for name in ("B0", "B1"):
+        image = snapshot[name]
+        need(set(image) == {"header", "entries"}, "raw index fields")
+        h = bytes.fromhex(image["header"])
+        e = bytes.fromhex(image["entries"])
+        need(len(h) == 512, "raw index header length")
+        if h[:8] != b"TAPEIDX\x01":
+            continue
+        count = struct.unpack_from("<I", h, 16)[0]
+        if count > 4096 or len(e) != count * 12 or zlib.crc32(h[:60] + e) != struct.unpack_from("<I", h, 60)[0]:
+            continue
+        need(h[12] == 1, "B index side")
+        seq = struct.unpack_from("<I", h, 8)[0]
+        total = struct.unpack_from("<Q", h, 20)[0]
+        entries = [struct.unpack_from("<III", e, 12 * j) for j in range(count)]
+        need(total == sum(v[2] for v in entries), "index total frames")
+        valid.append((seq, name, entries))
+    need(bool(valid), "no raw B index")
+    if len(valid) == 2:
+        need(valid[0][0] != valid[1][0], "equal-sequence raw B")
+    _, _, entries = max(valid)
+    need(len(entries) == 4 and [e[2] for e in entries] == list(RUN_LENGTHS), "raw four-run mapping")
+    need(all(start == 0 and n > 0 and first < total_chunks for first, start, n in entries),
+         "run/chunk geometry")
+    need(len({first for first, _, _ in entries}) == 4, "physical run overlap")
+    expected_lbas = {str(2048 + first * 1024) for first, _, _ in entries}
+    need(isinstance(snapshot["chunks"], dict) and set(snapshot["chunks"]) == expected_lbas,
+         "raw chunk block mapping")
+    frames = []
+    for first, _, n in entries:
+        b = bytes.fromhex(snapshot["chunks"][str(2048 + first * 1024)])
+        need(len(b) == 512 and 4 * n <= len(b), "raw chunk block length")
+        frames.extend(struct.unpack_from("<hh", b, 4 * j) for j in range(n))
+    return entries, frames
 
 
 @dataclass(frozen=True)
@@ -121,10 +166,10 @@ def schedules(count):
 
 
 def check(case, obs):
-    runs, frames = fixture()
+    _, generated = fixture()
     need(obs.get("schema") == "wp08-r44-v1" and obs.get("case") == case.id, "schema/case")
-    need(obs.get("fixture_sha256") == hashlib.sha256(pcm(frames)).hexdigest(), "fixture digest")
-    need(obs.get("run_lengths") == list(RUN_LENGTHS), "run partition")
+    entries, frames = raw_fixture(obs["raw_media"])
+    need(frames == generated, "raw mounted PCM differs from seeded fixture")
     need(obs.get("seek") == case.seek and obs.get("rate") == case.rate, "seek/rate")
     variants = obs.get("variants")
     need(isinstance(variants, dict) and set(variants) == set(schedules(case.count)), "subdivision variants")
@@ -135,9 +180,19 @@ def check(case, obs):
         budget = {"whole": 256, "single": 1, "uneven": 7}[label]
         need(v.get("service_budget") == budget, "service subdivision")
         services = v.get("services")
-        need(isinstance(services, list) and services and all(s.get("budget") == budget and
-             0 <= s.get("blocks", -1) <= budget and s.get("result") == "TAPE_OK" for s in services),
-             "service budget/callback trace")
+        need(isinstance(services, list) and bool(services), "missing service calls")
+        for service in services:
+            events = service.get("events")
+            need(isinstance(events, list) and service.get("budget") == budget and
+                 service.get("result") == "TAPE_OK", "service public result/trace")
+            blocks = 0
+            for event in events:
+                need(event.get("op") in ("read", "write", "flush"), "unknown callback")
+                if event["op"] in ("read", "write"):
+                    need(isinstance(event.get("lba"), int) and isinstance(event.get("count"), int)
+                         and event["count"] >= 1, "block callback details")
+                    blocks += event["count"]
+            need(blocks <= budget, "service exceeded block budget in raw callbacks")
         need(services[-1].get("more_work") is False, "service did not complete")
         actual = v.get("renders")
         need(isinstance(actual, list) and len(actual) == len(schedule), "render call count")
