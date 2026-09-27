@@ -124,13 +124,13 @@ Across all crash targets:
 - after-write/partner cases: 86;
 - flush-fault cases: 86.
 
-Contract/headroom/re-run cases: **107**.
+Contract/headroom/re-run cases: **103**.
 
-Grand total: **44,311**.
+Grand total: **44,307**.
 
 Canonical case-set SHA-256:
 
-`8732af9434437d0411731b3e4909a2ca9a1278778e5d9c8947642cec7b793442`
+`71be17545262d3b35fed9213b9305f71e4c8956693fbf4ec8f6d06f9f7ba80aa`
 
 Contract-family census:
 
@@ -138,9 +138,9 @@ Contract-family census:
 - rerun rows: 11
 - rerun specials: 2
 - caller-model stored positions: 5
-- exact-headroom success: 8
-- one-short headroom: 14
-- headroom specials: 3
+- exact-headroom success: 7
+- one-short headroom: 12
+- headroom specials: 2
 - zero-needed reserved counters: 4
 - shared sequence: 1
 - counter domains: 1

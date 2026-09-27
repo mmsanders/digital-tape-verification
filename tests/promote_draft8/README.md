@@ -1,7 +1,7 @@
 # DRAFT-8 full promote crash/resume + promote long-operation verifier
 
 Independent verifier-first publication for Digital-Tape-Verification issue #70
-(P1-R29-VER-A), corrected and republished under issue #76.
+(P1-R29-VER-A), corrected under issues #76, #78 and #84.
 
 This package is authored from the frozen DRAFT-8 specification bundle and verifier-owned prior patterns. It contains no product implementation code and performs no product disposition.
 
@@ -17,7 +17,7 @@ This package is authored from the frozen DRAFT-8 specification bundle and verifi
 
 - `fixture.py`: byte-exact verifier media and target write plans
 - `media.py`: independent superblock/index parser, selection, stage oracle and PCM reconstruction
-- `planner.py`: deterministic exhaustive 44,311-case manifest
+- `planner.py`: deterministic exhaustive 44,307-case manifest
 - `oracle.py`: dual-image durability simulator, recovery/rerun/headroom/WP-12a validators
 - `selftest.py`: positive self-tests and deliberately red negative controls
 - `runner.py`: later product evidence runner
@@ -48,14 +48,24 @@ I/O. Own-device failure begins in **Promote in progress**. The Faulted ring-drai
 cell may use a separate Playing fixture and proves only the frozen Faulted row, not
 a Promote-while-Playing path.
 
+Issue #84 removes four impossible FRESH-allocating `S < len` headroom cases.
+For a valid live-B index, §5.1 makes its physical-frame intervals disjoint;
+because every interval lies below `free_next`, their total frame count is at
+most `free_next * CHUNK_FRAMES`. Therefore allocating `S = free_next` always
+satisfies `S >= ceil(total_frames / CHUNK_FRAMES) = len`. Reachable decline is
+still covered by first-use/adopt-in-place and RESUME at step 5. The correction
+also gives the row-4 exact-tail case a four-chunk seed whose only free chunk was
+already consumed, and reconciles the shared-sequence fixture membership as
+A=10/8, B=500/499 without changing the structural maximum or 501…504 commits.
+
 ## Planner
 
 - raw crash injections: **44,204**
-- contract/headroom/re-run: **107**
-- total: **44,311**
+- contract/headroom/re-run: **103**
+- total: **44,307**
 - flush-required: **22,102 crash cases**
 - write-through: **22,102 crash cases**
-- canonical SHA-256: `8732af9434437d0411731b3e4909a2ca9a1278778e5d9c8947642cec7b793442`
+- canonical SHA-256: `71be17545262d3b35fed9213b9305f71e4c8956693fbf4ec8f6d06f9f7ba80aa`
 
 See COVERAGE.md for the phase census.
 
@@ -67,7 +77,12 @@ Run:
 
 The repository's verifier-package workflow discovers `tests/*_draft8/selftest.py` automatically.
 
-The self-test authenticates the exact planner census/digest, target write plans, all three stage-oracle rows plus the S=0 uniqueness and unmatched refusal, all eleven recovery rows, all promote two-interruption closure seeds, every contract family, and negative controls that make each major oracle go red.
+The self-test authenticates the exact planner census/digest, target write plans,
+all three stage-oracle rows plus the S=0 uniqueness and unmatched refusal, all
+eleven recovery rows, all promote two-interruption closure seeds, every contract
+family, the allocating-branch reachability proof, exact-tail geometry and
+shared-sequence membership, with negative controls that make each major oracle
+go red.
 
 ## Later binding
 

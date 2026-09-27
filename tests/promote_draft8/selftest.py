@@ -5,18 +5,21 @@ import struct
 import zlib
 
 from fixture import (
-    index_blocks, scenario_initial, snapshot, stage_fixture, target_baseline, transaction,
+    CHUNK_FRAMES, index_blocks, scenario_initial, snapshot, stage_fixture,
+    target_baseline, transaction,
 )
 from media import (
-    MediaError, inspect_snapshot, require_unique_structural_sequences, resume_rows,
+    MediaError, free_next, inspect_snapshot, require_unique_structural_sequences,
+    resume_rows,
 )
 from oracle import (
     VerificationError, completed_snapshot, expected_observation, expected_recovery_row,
-    failure_reproducer, rerun_seed_snapshot, validate_case,
+    exact_tail_seed_snapshot, failure_reproducer, prefix_snapshot,
+    rerun_seed_snapshot, validate_case,
 )
 from planner import (
     EXPECTED_CASESET_SHA256, EXPECTED_CONTRACT_CASES, EXPECTED_CRASH_CASES,
-    EXPECTED_TOTAL_CASES, counts, iter_cases, validate_planner,
+    EXPECTED_TOTAL_CASES, HEADROOM_BRANCHES, counts, iter_cases, validate_planner,
 )
 
 
@@ -132,6 +135,26 @@ def main():
     need(inspect_snapshot(mutate_geometry(four, nominal=60, state=1))["mount_result"] == "TAPE_ERR_INCOMPLETE", "state precedence")
     print("PASS truthful 9s/4 + 21s/8 geometry and phase-0/admission red controls")
 
+    # On valid allocating media, §5.1's disjoint live-B physical intervals all
+    # lie below free_next. Their total length is therefore at most
+    # free_next*CHUNK_FRAMES, so len=ceil(total_frames/CHUNK_FRAMES) <= S.
+    alloc = snapshot(scenario_initial("fresh_alloc_full"))
+    alloc_info = inspect_snapshot(alloc, "A")
+    alloc_len = (alloc_info["B"]["selected"]["total_frames"] + CHUNK_FRAMES - 1) // CHUNK_FRAMES
+    need(free_next(alloc) >= alloc_len, "valid allocating S<len")
+    need("fresh_alloc_decline" not in HEADROOM_BRANCHES, "unreachable allocating-decline branch returned")
+    need("fresh_adopt_decline" in HEADROOM_BRANCHES and "resume5_decline" in HEADROOM_BRANCHES,
+         "reachable decline coverage lost")
+    first = inspect_snapshot(snapshot(scenario_initial("first_use_s0")), "A")
+    first_len = (first["B"]["selected"]["total_frames"] + CHUNK_FRAMES - 1) // CHUNK_FRAMES
+    need(first["B"]["selected"]["entries"][0][0] == 0 < first_len, "first-use adopt decline lost")
+    resume_decline = prefix_snapshot("first_use_s0", 4)
+    resume_info = inspect_snapshot(resume_decline, "A")
+    need(resume_info["resume_rows"] == [1]
+         and resume_info["sb"]["selected"]["promote_staging_chunk"] == 0 < first_len,
+         "resume-at-step-5 decline lost")
+    print("PASS allocating S<len rejection and reachable adopt/RESUME decline coverage")
+
     rows_seen = set()
     representative = {}
     for case in iter_cases():
@@ -189,6 +212,17 @@ def main():
     obs["post_snapshot"]["chunk0_hex"]["3"] = bytes(raw).hex()
     reject(lambda: validate_case(case, obs), "durable raw-byte drift")
 
+    closure_case = find(scope="crash", scenario="closure", phase="step4",
+                        seed="primary_current_mirror_stale", mode="flush_required",
+                        inj_kind="before_partner", inj_landed_bytes=0)
+    obs = expected_observation(closure_case)
+    obs["setup_events"][0]["rc"] = 0
+    reject(lambda: validate_case(closure_case, obs), "closure repair landed")
+
+    obs = expected_observation(closure_case)
+    obs["run_start_snapshot"]["primary_hex"] = "00" * 512
+    reject(lambda: validate_case(closure_case, obs), "step-4 closure not reached in flight")
+
     # The running sequence rule must catch a second structurally valid slot using
     # an already-issued sequence, even when that slot is not §5.2-live.
     bad = copy.deepcopy(completed_snapshot())
@@ -207,8 +241,13 @@ def main():
 
     case = find(scope="contract", family="rerun_special", variant="exact_tail_capacity")
     obs = expected_observation(case)
+    need(obs["seed_snapshot"] == exact_tail_seed_snapshot(), "exact-tail seed identity")
     obs["call_result"] = "TAPE_ERR_CARTRIDGE_FULL"
     reject(lambda: validate_case(case, obs), "false full at exact tail")
+
+    obs = expected_observation(case)
+    obs["block_count"] = 10241
+    reject(lambda: validate_case(case, obs), "roomy device mislabeled exact tail")
 
     case = find(scope="contract", family="rerun_special", variant="repeated_between3_4")
     obs = expected_observation(case)
@@ -239,6 +278,15 @@ def main():
     obs = expected_observation(case)
     obs["index_commit_sequences"][0] = 11
     reject(lambda: validate_case(case, obs), "side-local sequence base")
+
+    obs = expected_observation(case)
+    obs["structural_sequences_before"]["A1"] = 9
+    reject(lambda: validate_case(case, obs), "shared-sequence membership drift")
+
+    case = find(scope="contract", family="counter_domains")
+    obs = expected_observation(case)
+    obs["calls"][1]["block_events"][0]["kind"] = "superblock"
+    reject(lambda: validate_case(case, obs), "counter span trusted adapter label")
 
     # WP-12a independence controls.
     case = find(scope="contract", family="promote_in_progress_row", column="seek")
@@ -282,6 +330,10 @@ def main():
     obs = expected_observation(case)
     obs["promote_faulted_while_playing"] = True
     reject(lambda: validate_case(case, obs), "faulted row claimed promote-playing causation")
+
+    obs = expected_observation(case)
+    obs["probe"]["calls"][0]["ring_window_frames_after"] = 0
+    reject(lambda: validate_case(case, obs), "faulted ring window accounting")
 
     case = find(scope="contract", family="faulted_row", column="service")
     obs = expected_observation(case)

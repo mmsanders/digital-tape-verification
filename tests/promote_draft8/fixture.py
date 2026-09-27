@@ -129,8 +129,11 @@ def _base_blocks(total_chunks, sb):
 
 
 def scenario_initial(scenario: str):
-    if scenario == "fresh_alloc_full":
-        total = 8
+    if scenario in ("fresh_alloc_full", "fresh_alloc_exact_tail"):
+        # The canonical crash matrix keeps the roomy eight-chunk cartridge.
+        # The dedicated exact-tail rerun starts with exactly one free chunk:
+        # H=2, live B ending at chunk 2, free_next=3, len=1, total=4.
+        total = 4 if scenario == "fresh_alloc_exact_tail" else 8
         blocks = _base_blocks(total, superblock(10, 2, 0, 0, total_chunks=total))
         _put_slot(blocks, "A0", 10, [(0, 0, 128)])
         _put_slot(blocks, "A1", 8, [(0, 0, 128)])
@@ -188,8 +191,8 @@ def _sb_update(phase_prefix, generation, h, stage, staging, total_chunks):
 
 
 def transaction(scenario: str):
-    if scenario == "fresh_alloc_full":
-        total = 8
+    if scenario in ("fresh_alloc_full", "fresh_alloc_exact_tail"):
+        total = 4 if scenario == "fresh_alloc_exact_tail" else 8
         out = [_write("phase1_copy", "audio", _chunk_lba(3), PROMOTED_BLOCK)]
         out += _index_commit("step2_a", "A1", 501, [(3, 0, 128)])
         out += _index_commit("step3_b", "B1", 502, [(3, 0, 128)])

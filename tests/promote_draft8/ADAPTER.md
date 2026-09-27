@@ -1,6 +1,6 @@
 # R29-A promote product-binding contract
 
-This directory is an independent verifier-owned DRAFT-8 package for Digital-Tape-Verification issue #70. A later Software round may import the exact publication tree byte-for-byte and add only a mechanical binding.
+This directory is an independent verifier-owned DRAFT-8 package for Digital-Tape-Verification issue #70, finally corrected under issue #84. A later Software round may import the exact publication tree byte-for-byte and add only a mechanical binding.
 
 The product adapter may emit raw media bytes, direct public API results, non-causal
 adapter labels, numeric progress/callback counters, exact call arguments, exact
@@ -20,10 +20,10 @@ The production adapter starts once and emits one JSON object:
 - `format: PROMOTE-ADAPTER-2`
 - `adapter_kind: product`
 - stable non-empty `adapter_id`
-- `caseset_sha256: 8732af9434437d0411731b3e4909a2ca9a1278778e5d9c8947642cec7b793442`
+- `caseset_sha256: 71be17545262d3b35fed9213b9305f71e4c8956693fbf4ec8f6d06f9f7ba80aa`
 - `raw_observation_only: true`
 
-The verifier then streams all 44,311 canonical cases in order. There is no production sampling, case-count override, durability override, torn-length override, or phase override.
+The verifier then streams all 44,307 canonical cases in order. There is no production sampling, case-count override, durability override, torn-length override, or phase override.
 
 ## Verifier-owned media
 
@@ -40,7 +40,10 @@ The principal allocating fixture has:
 - shared cartridge sequence base 500;
 - a full promote path that stages at chunk 3 and then compacts to chunk 0.
 
-The adopt-in-place fixture has an already-compacted B run at chunk 3 and exact tail capacity. The first-use fixture models format → first recording into B at chunk 0 → promote, giving `S == 0`.
+The adopt-in-place fixture has an already-compacted B run at chunk 3. The
+dedicated row-4 exact-tail seed uses a four-chunk cartridge whose only free tail
+chunk was consumed by the durable phase-1 copy. The first-use fixture models
+format → first recording into B at chunk 0 → promote, giving `S == 0`.
 
 ## Crash observation
 
@@ -166,7 +169,11 @@ Expected new compact-copy counts on the rerun are:
 - rows 3–6: 1;
 - rows 7–11: 0.
 
-The exact-tail case is row 4 on a four-chunk cartridge. It must finish with only the low phase-2 copy; a `TAPE_ERR_CARTRIDGE_FULL` is a failure.
+The exact-tail case is row 4 on a four-chunk cartridge: before the interrupted
+phase 1 it had `free_next=3`, `len=1`, and exactly one free chunk; the row-4 seed
+has `free_next=total_chunks=4` and `block_count=6145`. It must finish by adopting
+the durable run at chunk 3 and making only the low phase-2 copy; a
+`TAPE_ERR_CARTRIDGE_FULL` is a failure.
 
 The repeated row-4 case emits raw staging starts, `free_next` values, and chunk-write LBAs across at least three retries. Verification derives whether successive staging runs were consumed.
 
@@ -188,7 +195,6 @@ For every §4.5 promote branch, expose the raw starting `cartridge_sequence`, `s
 | Branch | sequence | sb_generation |
 |---|---:|---:|
 | fresh allocating, S≥len | 4 | 2 |
-| fresh allocating, S<len | 2 | 2 |
 | fresh adopt, S≥len | 3 | 2 |
 | fresh adopt, S<len | 1 | 2 |
 | resume step 5, S≥len | 2 | 1 |
@@ -197,13 +203,25 @@ For every §4.5 promote branch, expose the raw starting `cartridge_sequence`, `s
 | resume step 9 | 0 | 1 |
 | NOTHING TO DO | 0 | 0 |
 
-The canonical cases include exact-boundary success, one-short refusal independently for each non-zero counter requirement, FRESH decline at sequence 0xFFFFFFFB, RESUME-decline at 0xFFFFFFFC, the historical FRESH-allocating 0xFFFFFFFC hazard, and zero-needed NOTHING-TO-DO at 0xFFFFFFFE/0xFFFFFFFF for each counter.
+The FRESH-allocating `S < len` row is not a reachable branch on valid media:
+§5.1's disjoint live-B physical intervals all lie below `free_next`, so
+`total_frames <= free_next * CHUNK_FRAMES`, hence allocating `S=free_next >= len`.
+The planner rejects any reintroduction of that branch. Reachable decline remains
+covered by first-use/adopt-in-place (`S=0`) and RESUME at step 5.
+
+The canonical cases include exact-boundary success, one-short refusal
+independently for every reachable non-zero counter requirement,
+RESUME-decline at 0xFFFFFFFC, the historical FRESH-allocating 0xFFFFFFFC hazard,
+and zero-needed NOTHING-TO-DO at 0xFFFFFFFE/0xFFFFFFFF for each counter.
 
 A refusing case must emit an empty block trace.
 
 ## Shared sequence / counter domains
 
-The shared-sequence case exposes all four structurally valid starting sequences: A=10/9, B=500/499. Verification requires promote commits 501, 502, 503, 504.
+The shared-sequence case exposes the fixture's exact four structurally valid
+starting sequences: A=10/8, B=500/499. The corrected membership changes 9→8;
+the structural maximum remains 500 and Verification still requires promote
+commits 501, 502, 503, 504.
 
 The counter-domain case exposes before/after numeric values proving that an index-only commit advances sequence but not `sb_generation`, while a superblock-only update advances `sb_generation` but not sequence.
 
