@@ -5,8 +5,9 @@ import copy
 import hashlib
 
 from fixture import (
-    BLOCK, PROMOTED_BLOCK, OLD_A_BLOCK, closure_initial, freeze_media,
-    scenario_initial, snapshot, stage_fixture, target_baseline, transaction,
+    BLOCK, CHUNK_FRAMES, PROMOTED_BLOCK, OLD_A_BLOCK, closure_initial,
+    freeze_media, mirror_lba, scenario_initial, snapshot, stage_fixture,
+    target_baseline, transaction,
 )
 from media import (
     MediaError, free_next, inspect_snapshot, logical_fingerprint,
@@ -257,11 +258,27 @@ def expected_crash_observation(case):
         "actual_mount_A": a["mount_result"],
         "actual_mount_B": b["mount_result"],
     }
+    if case["scenario"] == "closure":
+        obs.update({
+            "setup_mount_result": "TAPE_OK",
+            "setup_events": [{"op": "write", "lba": 0, "count": 1, "rc": 5}],
+            "run_start_snapshot": closure_run_start_snapshot(case["phase"], case["seed"]),
+        })
     if a["mount_result"] == "TAPE_OK":
         obs["actual_audio_A_sha256"] = render_sha256(post, "A")
     if b["mount_result"] == "TAPE_OK":
         obs["actual_audio_B_sha256"] = render_sha256(post, "B")
     return obs
+
+
+def closure_run_start_snapshot(phase, seed):
+    info = closure_initial(phase, seed)
+    if phase != "step4":
+        return snapshot(info["media"])
+    base = _copy_media(scenario_initial("fresh_alloc_full"))
+    for lba in (0, mirror_lba(8)):
+        base["blocks"][lba][:] = info["media"]["blocks"][lba]
+    return snapshot(freeze_media(base))
 
 
 def _op_state(token="promote-op-1", progress=10, events=100, chunk_writes=(2048,)):
@@ -427,6 +444,16 @@ def expected_contract_observation(case):
 
     elif fam == "counter_domains":
         o.update({
+            "calls": [
+                {"sequence_before": 500, "sequence_after": 500, "sb_generation_before": 10, "sb_generation_after": 10,
+                 "block_events": [{"op": "write", "kind": "index_entries", "lba": 137, "count": 1, "rc": 0}]},
+                {"sequence_before": 500, "sequence_after": 501, "sb_generation_before": 10, "sb_generation_after": 10,
+                 "block_events": [{"op": "write", "kind": "index_header", "lba": 136, "count": 1, "rc": 0}]},
+                {"sequence_before": 501, "sequence_after": 501, "sb_generation_before": 10, "sb_generation_after": 11,
+                 "block_events": [{"op": "write", "kind": "superblock", "lba": 10240, "count": 1, "rc": 0}]},
+                {"sequence_before": 501, "sequence_after": 501, "sb_generation_before": 11, "sb_generation_after": 11,
+                 "block_events": [{"op": "write", "kind": "superblock", "lba": 0, "count": 1, "rc": 0}]},
+            ],
             "index_only": {"sequence_before": 500, "sequence_after": 501, "sb_generation_before": 10, "sb_generation_after": 10},
             "superblock_only": {"sequence_before": 501, "sequence_after": 501, "sb_generation_before": 10, "sb_generation_after": 11},
         })
@@ -497,11 +524,15 @@ def expected_contract_observation(case):
         o["column"] = c
         if c == "render":
             o["probe"] = {
+                "fixture_mount_result": "TAPE_OK",
                 "fixture_state_before_fault": "Playing",
+                "ring_frames_at_fault": 4,
+                "fault_call": {"fn": "tape_arm", "result": "TAPE_ERR_IO", "block_events": [{"op": "write", "lba": 0, "count": 1, "rc": 5}]},
+                "state_after_fault": "FAULTED",
                 "calls": [
-                    {"result": "TAPE_OK", "ring_frames_before": 4, "ring_frames_after": 2, "rendered": 2, "output_hex": "0100020003000400"},
-                    {"result": "TAPE_OK", "ring_frames_before": 2, "ring_frames_after": 0, "rendered": 2, "output_hex": "0500060007000800"},
-                    {"result": "TAPE_ERR_UNDERRUN", "ring_frames_before": 0, "ring_frames_after": 0, "rendered": 0, "output_hex": ""},
+                    {"result": "TAPE_OK", "ring_frames_before": 4, "ring_frames_after": 2, "ring_window_frames_after": 3, "rendered": 2, "output_hex": "0100020003000400"},
+                    {"result": "TAPE_OK", "ring_frames_before": 2, "ring_frames_after": 0, "ring_window_frames_after": 1, "rendered": 2, "output_hex": "0500060007000800"},
+                    {"result": "TAPE_ERR_UNDERRUN", "ring_frames_before": 0, "ring_frames_after": 0, "ring_window_frames_after": 1, "rendered": 0, "output_hex": ""},
                 ],
                 "block_events": [],
             }
@@ -590,6 +621,27 @@ def _events(events, label):
     return events
 
 
+def _counter_span(calls, start_kind, end_kind, label):
+    need(isinstance(calls, list), f"{label} calls")
+
+    def wrote(call, kind):
+        events = _events(call.get("block_events"), label + " events")
+        return any(e.get("op") == "write" and e.get("kind") == kind
+                   and e.get("rc") == 0 for e in events)
+
+    for i, call in enumerate(calls):
+        if wrote(call, start_kind):
+            for later in calls[i + 1:]:
+                if wrote(later, end_kind):
+                    return {
+                        "sequence_before": call.get("sequence_before"),
+                        "sequence_after": later.get("sequence_after"),
+                        "sb_generation_before": call.get("sb_generation_before"),
+                        "sb_generation_after": later.get("sb_generation_after"),
+                    }
+    raise VerificationError(label + " raw span missing")
+
+
 def _validate_stopped_render(p, label):
     need(isinstance(p, dict), f"{label} missing")
     need(p.get("fn") == "tape_render", f"{label} fn")
@@ -659,7 +711,7 @@ def _validate_contract(case, obs):
             need(obs.get("block_count") == seed["block_count"] == 6145, "tail block count")
             need(seed["total_chunks"] == 4 and free_next(seed) == 4, "tail not exactly exhausted")
             seed_b = inspect_snapshot(seed, "A")["B"]["selected"]
-            need((seed_b["total_frames"] + 131071) // 131072 == 1, "tail len")
+            need((seed_b["total_frames"] + CHUNK_FRAMES - 1) // CHUNK_FRAMES == 1, "tail len")
             need(obs.get("call_result") == "TAPE_OK", "tail false full")
             events = _events(obs.get("block_events"), "tail events")
             chunk_writes = [e for e in events if e.get("op") == "write" and e.get("kind") == "chunk"]
@@ -728,8 +780,9 @@ def _validate_contract(case, obs):
         need(obs.get("index_commit_sequences") == [501, 502, 503, 504], "running sequence base")
 
     elif fam == "counter_domains":
-        i = obs.get("index_only")
-        s = obs.get("superblock_only")
+        calls = obs.get("calls")
+        i = _counter_span(calls, "index_entries", "index_header", "index-only")
+        s = _counter_span(calls, "superblock", "superblock", "superblock-only")
         need(i["sequence_after"] == i["sequence_before"] + 1, "index sequence")
         need(i["sb_generation_after"] == i["sb_generation_before"], "index advanced sb generation")
         need(s["sequence_after"] == s["sequence_before"], "sb update advanced sequence")
@@ -790,8 +843,28 @@ def _validate_contract(case, obs):
             need(p.get("result") == "TAPE_ERR_FAULTED" and p.get("block_events") == [], f"FAULTED {c}")
         elif c == "render":
             calls = p.get("calls")
+            need(p.get("fixture_mount_result") == "TAPE_OK", "faulted ring mount")
             need(p.get("fixture_state_before_fault") == "Playing", "faulted ring fixture")
+            need(isinstance(p.get("ring_frames_at_fault"), int) and p["ring_frames_at_fault"] > 0, "faulted ring empty")
+            fault = p.get("fault_call")
+            need(isinstance(fault, dict) and fault.get("fn") == "tape_arm"
+                 and fault.get("result") == "TAPE_ERR_IO", "faulted ring cause")
+            need(any(e.get("op") == "write" and e.get("rc", 0) != 0
+                     for e in _events(fault.get("block_events"), "faulted ring fault events")),
+                 "faulted ring missing write failure")
+            need(p.get("state_after_fault") == "FAULTED", "faulted ring state")
             need(isinstance(calls, list) and len(calls) >= 3, "faulted render sequence")
+            for call in calls:
+                before = call.get("ring_frames_before")
+                after = call.get("ring_frames_after")
+                window = call.get("ring_window_frames_after")
+                rendered = call.get("rendered")
+                need(all(isinstance(v, int) and not isinstance(v, bool) and v >= 0
+                         for v in (before, after, window, rendered)), "faulted ring counters")
+                need(after + rendered == before, "faulted ring accounting")
+                need(window in (after, after + 1), "faulted interpolation window")
+                need(len(bytes.fromhex(call.get("output_hex", ""))) == rendered * 4,
+                     "faulted render bytes")
             need(calls[-1]["result"] == "TAPE_ERR_UNDERRUN" and calls[-1]["ring_frames_before"] == 0, "ring did not drain")
             need(p.get("block_events") == [], "faulted render media")
         elif c == "status_info_tell":
@@ -888,6 +961,14 @@ def validate_case(case, obs):
             }, "A referenced audio corrupted")
     else:
         info = closure_initial(case["phase"], case["seed"])
+        need(obs.get("setup_mount_result") == "TAPE_OK", "closure setup mount")
+        setup = _events(obs.get("setup_events"), "closure setup events")
+        need(any(e.get("op") == "write" and e.get("rc") == 5 for e in setup),
+             "closure repair write not refused")
+        need(not any(e.get("op") == "write" and e.get("rc") == 0 for e in setup),
+             "closure repair landed")
+        need(obs.get("run_start_snapshot") == closure_run_start_snapshot(case["phase"], case["seed"]),
+             "closure run start")
         if a["mount_result"] == "TAPE_OK":
             generation = a["sb"]["selected"]["sb_generation"]
             need(generation >= info["current_generation"], "stale-generation rollback after closure interruption")

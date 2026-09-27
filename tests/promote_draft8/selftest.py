@@ -212,6 +212,17 @@ def main():
     obs["post_snapshot"]["chunk0_hex"]["3"] = bytes(raw).hex()
     reject(lambda: validate_case(case, obs), "durable raw-byte drift")
 
+    closure_case = find(scope="crash", scenario="closure", phase="step4",
+                        seed="primary_current_mirror_stale", mode="flush_required",
+                        inj_kind="before_partner", inj_landed_bytes=0)
+    obs = expected_observation(closure_case)
+    obs["setup_events"][0]["rc"] = 0
+    reject(lambda: validate_case(closure_case, obs), "closure repair landed")
+
+    obs = expected_observation(closure_case)
+    obs["run_start_snapshot"]["primary_hex"] = "00" * 512
+    reject(lambda: validate_case(closure_case, obs), "step-4 closure not reached in flight")
+
     # The running sequence rule must catch a second structurally valid slot using
     # an already-issued sequence, even when that slot is not §5.2-live.
     bad = copy.deepcopy(completed_snapshot())
@@ -272,6 +283,11 @@ def main():
     obs["structural_sequences_before"]["A1"] = 9
     reject(lambda: validate_case(case, obs), "shared-sequence membership drift")
 
+    case = find(scope="contract", family="counter_domains")
+    obs = expected_observation(case)
+    obs["calls"][1]["block_events"][0]["kind"] = "superblock"
+    reject(lambda: validate_case(case, obs), "counter span trusted adapter label")
+
     # WP-12a independence controls.
     case = find(scope="contract", family="promote_in_progress_row", column="seek")
     obs = expected_observation(case)
@@ -314,6 +330,10 @@ def main():
     obs = expected_observation(case)
     obs["promote_faulted_while_playing"] = True
     reject(lambda: validate_case(case, obs), "faulted row claimed promote-playing causation")
+
+    obs = expected_observation(case)
+    obs["probe"]["calls"][0]["ring_window_frames_after"] = 0
+    reject(lambda: validate_case(case, obs), "faulted ring window accounting")
 
     case = find(scope="contract", family="faulted_row", column="service")
     obs = expected_observation(case)
