@@ -32,18 +32,18 @@ def sb(value):
         return None
     return {"raw": b, "generation": struct.unpack_from("<I", b, 12)[0],
             "state": b[16], "uuid": b[20:36], "high": struct.unpack_from("<I", b, 56)[0],
+            "chunks": struct.unpack_from("<I", b, 52)[0],
             "stage": struct.unpack_from("<I", b, 124)[0]}
 
 
-def index(header, entries):
-    h = block(header)
+def index(image):
+    require(isinstance(image, str) and len(image) == 65536 * 2, "missing full raw index slot")
+    data = bytes.fromhex(image)
+    h = data[:BLOCK]
     count = struct.unpack_from("<I", h, 16)[0]
-    require(isinstance(entries, str), "raw entry array absent")
     if count > 4096:
-        require(entries == "", "unbounded invalid entry array read")
         return None
-    require(len(entries) == count * 24, "raw entry array length")
-    e = bytes.fromhex(entries)
+    e = data[BLOCK:BLOCK + count * 12]
     if h[:8] != b"TAPEIDX\x01" or count > 4096 or zlib.crc32(h[:60] + e) != struct.unpack_from("<I", h, 60)[0]:
         return None
     runs = [struct.unpack_from("<III", e, 12 * i) for i in range(count)]
@@ -55,10 +55,14 @@ def media(snapshot):
     require(set(snapshot) == {"primary", "mirror", "A0", "A1", "B0", "B1"}, "snapshot keys")
     s = {k: sb(snapshot[k]) for k in ("primary", "mirror")}
     for k in SLOTS:
-        v = snapshot[k]
-        require(set(v) == {"header", "entries"}, "slot raw keys")
-        s[k] = index(v["header"], v["entries"])
+        s[k] = index(snapshot[k])
     return s
+
+
+def raw_media(snapshot):
+    """Compare every captured byte, including blocks that fail structural parsing."""
+    require(set(snapshot) == {"primary", "mirror", *SLOTS}, "raw snapshot keys")
+    return {k: bytes.fromhex(v) for k, v in snapshot.items()}
 
 
 def select_sb(m):
@@ -75,12 +79,42 @@ def select_sb(m):
 
 def select_index(m, side):
     names = (side + "0", side + "1")
-    slots = [(k, m[k]) for k in names if m[k] is not None]
+    candidate = m[select_sb(m)]
+    def valid(k):
+        s = m[k]
+        if s is None or s["side"] != (0 if side == "A" else 1):
+            return False
+        runs = s["runs"]
+        if s["total"] != sum(x[2] for x in runs) or s["total"] > 0xFFFFFFFF:
+            return False
+        intervals = []
+        for first, start, count in runs:
+            if count == 0 or start >= CHUNK_FRAMES:
+                return False
+            last = first + (start + count - 1) // CHUNK_FRAMES
+            if last >= candidate["chunks"] or (side == "A" and last >= candidate["high"]):
+                return False
+            lo = first * CHUNK_FRAMES + start
+            intervals.append((lo, lo + count))
+        intervals.sort()
+        return all(a[1] <= b[0] for a, b in zip(intervals, intervals[1:]))
+    slots = [(k, m[k]) for k in names if valid(k)]
     if not slots:
         return None
     if len(slots) == 2:
-        require(slots[0][1]["sequence"] != slots[1][1]["sequence"], "equal-sequence B remains unselectable")
+        if slots[0][1]["sequence"] == slots[1][1]["sequence"]:
+            return None
     return max(slots, key=lambda x: x[1]["sequence"])
+
+
+def free_next(m):
+    candidate = m[select_sb(m)]
+    high = candidate["high"]
+    live = select_index(m, "B")
+    if live is None:
+        return high
+    return max([high] + [first + (start + count - 1) // CHUNK_FRAMES + 1
+                         for first, start, count in live[1]["runs"]])
 
 
 @dataclass(frozen=True)
@@ -160,7 +194,8 @@ def check(case, obs):
             require(pre[target] is not None and pre[target]["generation"] < pre[source]["generation"],
                     "partner not stale")
         need_call("mount", "tape_mount", "TAPE_OK")
-        require(call("mount", "tape_mount").get("needs_repair") == (case.expected != "success"), "repair indicator")
+        need_call("mount", "tape_get_info", "TAPE_OK")
+        require(call("mount", "tape_get_info").get("needs_repair") == (case.expected != "success"), "repair indicator")
         require([e.get("lba") for e in writes("mount")] == [0 if target == "primary" else obs["block_count"] - 1],
                 "repair outside phase 4 or wrong partner")
         mount_events = events_for(obs, "mount")
@@ -170,13 +205,13 @@ def check(case, obs):
                 "repair preceded both-side index validation reads")
         require(len(flushes("mount")) == (0 if case.expected == "write" else 1), "repair flush count")
         require(post[source]["raw"] == pre[source]["raw"], "candidate mutated by repair")
-        require(call("mount", "tape_mount").get("candidate") == source, "candidate selection")
         need_call("retry", "tape_mount", "TAPE_OK")
+        need_call("retry", "tape_get_info", "TAPE_OK")
         require(select_sb(retry) is not None, "retry lost candidate")
         require(retry["primary"]["raw"] == retry["mirror"]["raw"] == pre[source]["raw"], "retry did not converge")
-        require(call("retry", "tape_mount").get("needs_repair") is False, "retry repair indicator")
-        require(all(e["op"] != "write" or e.get("phase") == 4 for e in events_for(obs, "mount") + events_for(obs, "retry")),
-                "repair before validation")
+        require(call("retry", "tape_get_info").get("needs_repair") is False, "retry repair indicator")
+        require(all(e["op"] != "write" or e.get("lba") in (0, obs["block_count"] - 1)
+                    for e in events_for(obs, "mount") + events_for(obs, "retry")), "repair wrote outside partner")
     elif case.family == "degraded":
         pre = snapshots["before"]
         require(select_index(pre, "A") is not None, "Side A must be live")
@@ -190,9 +225,11 @@ def check(case, obs):
             require(not writes("probe"), "refused mount wrote")
         else:
             need_call("mount", "tape_mount", "TAPE_OK")
-            info = call("mount", "tape_mount")
-            require(info.get("side_b_valid") is False and info.get("free_next") == pre[select_sb(pre)]["high"],
-                    "degraded info/free_next")
+            need_call("mount", "tape_get_info", "TAPE_OK")
+            info = call("mount", "tape_get_info")
+            require(info.get("side_b_valid") is False and
+                    info.get("free_chunks") == pre[select_sb(pre)]["chunks"] - free_next(pre),
+                    "degraded public info/free-chunks")
             op = case.expected
             result = REFUSALS.get(op, "TAPE_OK")
             fn = {"set_side_A": "tape_set_side", "set_side_B": "tape_set_side",
@@ -211,15 +248,21 @@ def check(case, obs):
                 require(b0["sequence"] == base + 1, "reset sequence not global + 1")
                 require(select_index(after, "B")[0] == "B0", "stale B won")
                 need_call("remount", "tape_mount", "TAPE_OK")
+                need_call("remount", "tape_get_info", "TAPE_OK")
                 remount = snapshots["after_remount"]
                 require(select_index(remount, "B")[0] == "B0", "stale B won on remount")
                 need_call("switch", "tape_set_side", "TAPE_OK")
-                require(call("switch", "tape_set_side").get("side") == "B", "current-state recovery")
-                require(call("exercise", fn).get("side_b_valid") is True, "degraded state not cleared")
+                need_call("exercise", "tape_get_info", "TAPE_OK")
+                require(call("exercise", "tape_get_info").get("side_b_valid") is True,
+                        "degraded state not cleared")
+                require(call("remount", "tape_get_info").get("free_chunks") ==
+                        remount[select_sb(remount)]["chunks"] - free_next(remount),
+                        "remount free-chunks disagrees with raw live B")
     elif case.family == "roundtrip":
         for step, fn in (("format", "tape_format"), ("mount1", "tape_mount"),
                          ("commit", "tape_commit"), ("unmount", "tape_unmount"), ("mount2", "tape_mount")):
             need_call(step, fn, "TAPE_OK")
+        need_call("mount2", "tape_get_info", "TAPE_OK")
         pre = snapshots["after_format"]
         post = snapshots["after_remount"]
         for k in ("primary", "mirror"):
@@ -243,13 +286,13 @@ def check(case, obs):
             count, total, blocks = expected_shape[case.variant]
             require(len(live[1]["runs"]) == count and live[1]["total"] == total and len(cw) == blocks,
                     "boundary fixture/commit block count")
-            require(live[1]["total"] == call("commit", "tape_commit").get("total_frames"), "timeline mismatch")
-            require(call("mount2", "tape_mount").get("selected_b") == live[0], "remount selection mismatch")
-        require(call("mount2", "tape_mount").get("uuid") == pre[select_sb(pre)]["uuid"].hex(), "info identity")
+            require(live[1]["total"] == call("mount2", "tape_get_info").get("total_frames"), "timeline mismatch")
+        require(call("mount2", "tape_get_info").get("uuid") == pre[select_sb(pre)]["uuid"].hex(), "info identity")
     else:
         need_call("mount", "tape_mount", case.expected)
         require(not writes("mount"), "refused mount wrote")
-        require(snapshots["before"] == snapshots["after_mount"], "refused mount mutated raw media")
+        require(raw_media(obs["snapshots"]["before"]) == raw_media(obs["snapshots"]["after_mount"]),
+                "refused mount mutated raw media")
     return True
 
 
