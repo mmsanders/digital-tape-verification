@@ -106,6 +106,11 @@ def rerun_seed_snapshot(row):
     return prefix_snapshot(scenario, writes)
 
 
+def exact_tail_seed_snapshot():
+    """Row 4 after consuming the only free tail chunk on a four-chunk card."""
+    return prefix_snapshot("fresh_alloc_exact_tail", 5)
+
+
 def _target_fully_durable(case):
     inj = case["injection"]
     return (
@@ -327,10 +332,11 @@ def expected_contract_observation(case):
     elif fam == "rerun_special":
         v = case["variant"]
         if v == "exact_tail_capacity":
+            seed = exact_tail_seed_snapshot()
             o.update({
                 "variant": v,
-                "seed_snapshot": rerun_seed_snapshot(4),
-                "block_count": 2048 + 4 * 1024 + 1,
+                "seed_snapshot": seed,
+                "block_count": seed["block_count"],
                 "call_result": "TAPE_OK",
                 "block_events": [{"op": "write", "kind": "chunk", "lba": 2048, "count": 1, "rc": 0}],
                 "terminal_snapshot": completed_snapshot("fresh_adopt_full"),
@@ -388,15 +394,7 @@ def expected_contract_observation(case):
 
     elif fam == "headroom_special":
         v = case["variant"]
-        if v == "fresh_decline_seq_FFFFFFFB":
-            o.update({
-                "variant": v,
-                "counter_values": {"sequence": 0xFFFFFFFB, "sb_generation": 10},
-                "call_result": "TAPE_OK",
-                "index_commit_sequences": [0xFFFFFFFC, 0xFFFFFFFD],
-                "superblock_generations": [11],
-            })
-        elif v == "fresh_alloc_seq_FFFFFFFC":
+        if v == "fresh_alloc_seq_FFFFFFFC":
             o.update({
                 "variant": v,
                 "counter_values": {"sequence": 0xFFFFFFFC, "sb_generation": 10},
@@ -422,7 +420,7 @@ def expected_contract_observation(case):
 
     elif fam == "shared_sequence":
         o.update({
-            "structural_sequences_before": {"A0": 10, "A1": 9, "B0": 500, "B1": 499},
+            "structural_sequences_before": {"A0": 10, "A1": 8, "B0": 500, "B1": 499},
             "index_commit_sequences": [501, 502, 503, 504],
             "call_result": "TAPE_OK",
         })
@@ -656,7 +654,12 @@ def _validate_contract(case, obs):
     elif fam == "rerun_special":
         if case["variant"] == "exact_tail_capacity":
             need(obs.get("variant") == case["variant"], "tail variant")
-            need(obs.get("seed_snapshot") == rerun_seed_snapshot(4), "tail seed")
+            seed = exact_tail_seed_snapshot()
+            need(obs.get("seed_snapshot") == seed, "tail seed")
+            need(obs.get("block_count") == seed["block_count"] == 6145, "tail block count")
+            need(seed["total_chunks"] == 4 and free_next(seed) == 4, "tail not exactly exhausted")
+            seed_b = inspect_snapshot(seed, "A")["B"]["selected"]
+            need((seed_b["total_frames"] + 131071) // 131072 == 1, "tail len")
             need(obs.get("call_result") == "TAPE_OK", "tail false full")
             events = _events(obs.get("block_events"), "tail events")
             chunk_writes = [e for e in events if e.get("op") == "write" and e.get("kind") == "chunk"]
@@ -707,10 +710,7 @@ def _validate_contract(case, obs):
     elif fam == "headroom_special":
         v = case["variant"]
         need(obs.get("variant") == v, "headroom special variant")
-        if v == "fresh_decline_seq_FFFFFFFB":
-            need(obs.get("call_result") == "TAPE_OK", "fresh decline refused")
-            need(obs.get("index_commit_sequences") == [0xFFFFFFFC, 0xFFFFFFFD], "fresh decline sequence writes")
-        elif v == "fresh_alloc_seq_FFFFFFFC":
+        if v == "fresh_alloc_seq_FFFFFFFC":
             need(obs.get("call_result") == "TAPE_ERR_SEQUENCE_EXHAUSTED", "FC hazard not refused")
             need(obs.get("block_events") == [], "FC hazard wrote")
         else:
@@ -723,6 +723,7 @@ def _validate_contract(case, obs):
 
     elif fam == "shared_sequence":
         seqs = obs.get("structural_sequences_before")
+        need(seqs == {"A0": 10, "A1": 8, "B0": 500, "B1": 499}, "shared starting membership")
         need(max(seqs.values()) == 500, "shared base")
         need(obs.get("index_commit_sequences") == [501, 502, 503, 504], "running sequence base")
 

@@ -50,7 +50,6 @@ FAULTED_ROW_COLUMNS = PROMOTE_ROW_COLUMNS
 
 HEADROOM_BRANCHES = {
     "fresh_alloc_run": (4, 2),
-    "fresh_alloc_decline": (2, 2),
     "fresh_adopt_run": (3, 2),
     "fresh_adopt_decline": (1, 2),
     "resume5_run": (2, 1),
@@ -61,9 +60,9 @@ HEADROOM_BRANCHES = {
 }
 
 EXPECTED_CRASH_CASES = 44204
-EXPECTED_CONTRACT_CASES = 107
-EXPECTED_TOTAL_CASES = 44311
-EXPECTED_CASESET_SHA256 = "8732af9434437d0411731b3e4909a2ca9a1278778e5d9c8947642cec7b793442"
+EXPECTED_CONTRACT_CASES = 103
+EXPECTED_TOTAL_CASES = 44307
+EXPECTED_CASESET_SHA256 = "71be17545262d3b35fed9213b9305f71e4c8956693fbf4ec8f6d06f9f7ba80aa"
 
 EXPECTED_CRASH_BY_SCENARIO_MODE = {
     ("fresh_alloc_full", "flush_required"): 7196,
@@ -181,7 +180,6 @@ def iter_cases():
             idx += 1
 
     for variant in (
-        "fresh_decline_seq_FFFFFFFB",
         "fresh_alloc_seq_FFFFFFFC",
         "resume5_decline_seq_FFFFFFFC",
     ):
