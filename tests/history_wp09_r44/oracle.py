@@ -76,7 +76,7 @@ def apply(timeline, edit):
     return out
 
 
-def parse_index(raw):
+def parse_index(raw, total_chunks=None):
     need(set(raw) == {"header", "entries"}, "raw index fields")
     h = bytes.fromhex(raw["header"])
     need(len(h) == 512 and h[:8] == b"TAPEIDX\x01", "index header")
@@ -89,6 +89,8 @@ def parse_index(raw):
     intervals = []
     for first, start, frames in runs:
         need(frames > 0 and start < CHUNK_FRAMES, "index run bound")
+        if total_chunks is not None:
+            need(first + (start + frames - 1) // CHUNK_FRAMES < total_chunks, "index chunk bound")
         intervals.append((first * CHUNK_FRAMES + start, first * CHUNK_FRAMES + start + frames))
     intervals.sort()
     need(all(a[1] <= b[0] for a, b in zip(intervals, intervals[1:])), "index interval overlap")
@@ -104,12 +106,12 @@ def parse_superblock(raw):
     return struct.unpack_from("<I", b, 52)[0], struct.unpack_from("<I", b, 56)[0]
 
 
-def live_b(raw_slots):
+def live_b(raw_slots, total_chunks):
     need(set(raw_slots) == {"B0", "B1"}, "both raw B slots required")
     valid = []
     for name in ("B0", "B1"):
         try:
-            parsed = parse_index(raw_slots[name])
+            parsed = parse_index(raw_slots[name], total_chunks)
         except (AssertionError, ValueError):
             continue
         if parsed[0] == 1:
@@ -165,7 +167,8 @@ def check(records):
             need(cp.get("after_remount") is (i % (2 * INTERVAL) == 0), "remount schedule")
             need(cp.get("render_pcm") == pcm(timeline).hex(), "stale/wrong rendered PCM")
             need(cp.get("render_block_events") == [], "render performed block I/O")
-            selected, (side, observed_seq, total, runs) = live_b(cp["raw_slots"])
+            chunks, high = parse_superblock(cp["raw_superblock"])
+            selected, (side, observed_seq, total, runs) = live_b(cp["raw_slots"], chunks)
             need(side == 1 and total == len(timeline), "raw live B index/timeline mismatch")
             public = cp.get("public_info")
             need(isinstance(public, dict) and public.get("total_frames") == total and
@@ -173,7 +176,6 @@ def check(records):
             if seq is not None:
                 need(observed_seq == seq + INTERVAL, "commit sequence gap/restart")
             seq = observed_seq
-            chunks, high = parse_superblock(cp["raw_superblock"])
             next_from_raw = max([high] + [a + (s + n - 1) // CHUNK_FRAMES + 1 for a, s, n in runs])
             need(public.get("total_chunks") == chunks and 0 <= public.get("free_chunks", -1) <= chunks - next_from_raw,
                  "public free space exceeds raw live index bound")
