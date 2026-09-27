@@ -20,6 +20,15 @@ def slot(sequence, length):
     return {"header": h.hex(), "entries": e.hex()}
 
 
+def superblock():
+    b = bytearray(512)
+    b[:8] = b"TAPEFS\0\x01"
+    struct.pack_into("<I", b, 52, 20000)
+    struct.pack_into("<I", b, 56, 3)
+    struct.pack_into("<I", b, 508, zlib.crc32(b[:508]))
+    return b.hex()
+
+
 def make_records():
     timeline = []
     for edit in edits():
@@ -36,13 +45,17 @@ def make_records():
                           {"step": "commit", "op": "flush", "ordinal": 5}]}
         if i % INTERVAL == 0:
             content = pcm(timeline)
-            side = "B0" if i % 2 == 0 else "B1"
             obs["checkpoint"] = {"id": i, "after_remount": i % (2 * INTERVAL) == 0,
                                  "render_pcm": content.hex(), "render_block_events": [],
                                  "pcm_sha256": hashlib.sha256(content).hexdigest(),
-                                 "raw_index": slot(i + 2, len(timeline)),
-                                 "selected_slot": side, "selected_lba": 264 if side == "B0" else 392,
-                                 "free_next": 1}
+                                 "raw_superblock": superblock(),
+                                 "raw_slots": {"B0": slot(i + 2, len(timeline)),
+                                               "B1": slot(i + 1, 1)},
+                                 "public_info": {"total_frames": len(timeline), "entry_count": int(bool(timeline)),
+                                                 "total_chunks": 20000,
+                                                 "free_chunks": 19997 if i % (2 * INTERVAL) == 0 else 19997 - i},
+                                 "mount_events": [{"op": "read", "lba": lba} for lba in (0, 19999, 8, 136, 264, 392)]
+                                 if i % (2 * INTERVAL) == 0 else []}
         yield obs
 
 
@@ -56,6 +69,9 @@ def mutate_at(records, at, fn):
 
 def run():
     result = check(iter(make_records()))
+    spoofed = mutate_at(make_records(), 800, lambda x: x["checkpoint"].update(
+        selected_slot="B1", selected_lba=392, free_next=0))
+    check(iter(spoofed))  # private adapter labels carry no authority
     def wrap_sample(x):
         raw = x["checkpoint"]["render_pcm"]
         x["checkpoint"]["render_pcm"] = ("0080" if raw[:4] != "0080" else "ff7f") + raw[4:]
@@ -69,6 +85,9 @@ def run():
         ("stale render digest", 1600, lambda x: x["checkpoint"].update(pcm_sha256="0" * 64)),
         ("final flush reordered", 2000, lambda x: x["events"][-1].update(ordinal=3)),
         ("silent restart", 2400, lambda x: x.update(id=1)),
+        ("stale raw B winner", 2800, lambda x: x["checkpoint"]["raw_slots"].update(B1=slot(9999, 1))),
+        ("over-budget public free space", 3200, lambda x: x["checkpoint"]["public_info"].update(free_chunks=20000)),
+        ("missing remount B read", 4000, lambda x: x["checkpoint"].update(mount_events=[])),
     ]
     for name, at, fn in controls:
         try:

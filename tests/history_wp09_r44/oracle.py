@@ -97,6 +97,29 @@ def parse_index(raw):
     return h[12], struct.unpack_from("<I", h, 8)[0], total, runs
 
 
+def parse_superblock(raw):
+    b = bytes.fromhex(raw)
+    need(len(b) == 512 and b[:8] == b"TAPEFS\0\x01", "raw superblock")
+    need(zlib.crc32(b[:508]) == struct.unpack_from("<I", b, 508)[0], "superblock CRC")
+    return struct.unpack_from("<I", b, 52)[0], struct.unpack_from("<I", b, 56)[0]
+
+
+def live_b(raw_slots):
+    need(set(raw_slots) == {"B0", "B1"}, "both raw B slots required")
+    valid = []
+    for name in ("B0", "B1"):
+        try:
+            parsed = parse_index(raw_slots[name])
+        except (AssertionError, ValueError):
+            continue
+        if parsed[0] == 1:
+            valid.append((name, parsed))
+    need(bool(valid), "no selectable B slot")
+    if len(valid) == 2:
+        need(valid[0][1][1] != valid[1][1][1], "equal-sequence B slots")
+    return max(valid, key=lambda item: item[1][1])
+
+
 def plan_digest():
     h = hashlib.sha256()
     for edit in edits():
@@ -142,15 +165,26 @@ def check(records):
             need(cp.get("after_remount") is (i % (2 * INTERVAL) == 0), "remount schedule")
             need(cp.get("render_pcm") == pcm(timeline).hex(), "stale/wrong rendered PCM")
             need(cp.get("render_block_events") == [], "render performed block I/O")
-            side, observed_seq, total, runs = parse_index(cp["raw_index"])
-            need(side == 1 and total == len(timeline), "live B index/timeline mismatch")
-            need(cp.get("selected_slot") in ("B0", "B1"), "missing live slot selection")
-            need(cp.get("selected_lba") == {"B0": 264, "B1": 392}[cp["selected_slot"]], "slot mismatch")
+            selected, (side, observed_seq, total, runs) = live_b(cp["raw_slots"])
+            need(side == 1 and total == len(timeline), "raw live B index/timeline mismatch")
+            public = cp.get("public_info")
+            need(isinstance(public, dict) and public.get("total_frames") == total and
+                 public.get("entry_count") == len(runs), "public info disagrees with selected raw B")
             if seq is not None:
                 need(observed_seq == seq + INTERVAL, "commit sequence gap/restart")
             seq = observed_seq
-            need(cp.get("free_next", 0) >= max((a + (s + n - 1) // CHUNK_FRAMES + 1 for a, s, n in runs), default=0),
-                 "allocator overlaps live run")
+            chunks, high = parse_superblock(cp["raw_superblock"])
+            next_from_raw = max([high] + [a + (s + n - 1) // CHUNK_FRAMES + 1 for a, s, n in runs])
+            need(public.get("total_chunks") == chunks and 0 <= public.get("free_chunks", -1) <= chunks - next_from_raw,
+                 "public free space exceeds raw live index bound")
+            if cp["after_remount"]:
+                need(public["free_chunks"] == chunks - next_from_raw, "remount did not rederive free_next")
+                reads = cp.get("mount_events")
+                need(isinstance(reads, list) and {264, 392} <=
+                     {e.get("lba") for e in reads if e.get("op") == "read"},
+                     "remount lacks both raw B-slot reads")
+            else:
+                need(cp.get("mount_events") == [], "unexpected remount trace")
             need(cp.get("pcm_sha256") == hashlib.sha256(pcm(timeline)).hexdigest(), "checkpoint digest")
         else:
             need("checkpoint" not in obs, "unexpected checkpoint")
