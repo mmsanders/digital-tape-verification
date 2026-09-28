@@ -177,6 +177,11 @@ def check(case, obs):
     require(all(set(c) >= {"step", "fn", "result"} for c in calls), "call shape")
     writes = lambda step: [e for e in events_for(obs, step) if e["op"] == "write"]
     flushes = lambda step: [e for e in events_for(obs, step) if e["op"] == "flush"]
+    def write_count(event):
+        count = event.get("count", 1)
+        require(isinstance(count, int) and not isinstance(count, bool) and count > 0,
+                "invalid callback block count")
+        return count
     call = lambda step, fn: next((c for c in calls if c["step"] == step and c["fn"] == fn), None)
     need_call = lambda step, fn, result: require(call(step, fn) is not None and call(step, fn)["result"] == result,
                                          f"{step} {fn} result")
@@ -233,7 +238,8 @@ def check(case, obs):
             op = case.expected
             result = REFUSALS.get(op, "TAPE_OK")
             fn = {"set_side_A": "tape_set_side", "set_side_B": "tape_set_side",
-                  "status_info_tell": "tape_get_info", "dup_source": "tape_dup"}.get(op, "tape_" + op)
+                  "status_info_tell": "tape_get_info", "dup_source": "tape_dup",
+                  "reset_b": "tape_reset_side_b"}.get(op, "tape_" + op)
             need_call("exercise", fn, result)
             if op in REFUSALS or op in ("set_side_A", "seek", "set_rate", "render", "status_info_tell"):
                 require(not writes("exercise"), "read/refusal wrote")
@@ -273,18 +279,22 @@ def check(case, obs):
             require(not writes("commit") and not flushes("commit"), "empty commit I/O")
         else:
             cw, cf = writes("commit"), flushes("commit")
-            require(len(cw) <= 97 and len(cf) == 2, "commit budget/final flush")
-            require(cw and cw[-1].get("lba") in SLOTS.values(), "header must commit last")
+            written_blocks = sum(write_count(e) for e in cw)
+            require(written_blocks <= 97 and len(cf) == 2, "commit budget/final flush")
+            require(cw and cw[-1].get("lba") in SLOTS.values() and write_count(cw[-1]) == 1,
+                    "header must commit last")
             require(cf[-1].get("ordinal", -1) > cw[-1].get("ordinal", 0), "no final flush after header")
-            require(all(e.get("lba") != 0 and e.get("lba") != obs["block_count"] - 1 for e in cw),
+            require(all(isinstance(e.get("lba"), int) and e["lba"] > 0
+                        and e["lba"] + write_count(e) <= obs["block_count"] - 1 for e in cw),
                     "commit wrote superblock")
             if case.variant == "max-entries":
-                require(len(cw) == 97, "maximal commit not exercised")
+                require(written_blocks == 97, "maximal commit not exercised")
             live = select_index(post, "B")
             expected_shape = {"one-frame": (1, 1, 2), "chunk-boundary": (1, 131073, 2),
                               "entry-block-boundary": (43, 43, 3), "max-entries": (4096, 4096, 97)}
             count, total, blocks = expected_shape[case.variant]
-            require(len(live[1]["runs"]) == count and live[1]["total"] == total and len(cw) == blocks,
+            require(len(live[1]["runs"]) == count and live[1]["total"] == total
+                    and written_blocks == blocks,
                     "boundary fixture/commit block count")
             require(live[1]["total"] == call("mount2", "tape_get_info").get("total_frames"), "timeline mismatch")
         require(call("mount2", "tape_get_info").get("uuid") == pre[select_sb(pre)]["uuid"].hex(), "info identity")

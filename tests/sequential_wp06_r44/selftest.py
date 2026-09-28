@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synthetic protocol probes, including five deliberately bad observations."""
+"""Synthetic protocol probes, including multi-block callback red controls."""
 import copy
 import struct
 import zlib
@@ -88,7 +88,8 @@ def observation(case):
         c("mount", "tape_get_info", side_b_valid=False, free_chunks=97)
         op = case.expected
         fn = {"set_side_A": "tape_set_side", "set_side_B": "tape_set_side",
-              "status_info_tell": "tape_get_info", "dup_source": "tape_dup"}.get(op, "tape_" + op)
+              "status_info_tell": "tape_get_info", "dup_source": "tape_dup",
+              "reset_b": "tape_reset_side_b"}.get(op, "tape_" + op)
         c("exercise", fn, REFUSALS.get(op, "TAPE_OK"))
         if op == "reset_b":
             seq = 11 if case.variant == "invalid" else 21
@@ -114,8 +115,8 @@ def observation(case):
                     [(0, 0, 1 if case.variant == "one-frame" else 131073)])
             s["B1"] = slot(1, 3, runs)
             count = 97 if case.variant == "max-entries" else 3 if case.variant == "entry-block-boundary" else 2
-            for i in range(count - 1):
-                e("commit", "write", lba=393 + i)
+            # Entry arrays are intentionally one multi-block device callback.
+            e("commit", "write", lba=393, count=count - 1)
             e("commit", "flush")
             e("commit", "write", lba=392)
             e("commit", "flush")
@@ -148,14 +149,22 @@ def run():
         o["snapshots"]["after_mount"]["A1"] = "01" + o["snapshots"]["after_mount"]["A1"][2:]
         o["calls"][0].update(candidate="primary", phase=4, selected_b="B0")
     by_id = {c.id: c for c in plan}
+    def wrong_reset_function(o):
+        call = next(c for c in o["calls"] if c["step"] == "exercise"
+                    and c["fn"] == "tape_reset_side_b")
+        call["fn"] = "tape_reset_b"
+    def over_budget_multiblock(o):
+        write = next(e for e in o["events"] if e["step"] == "commit" and e["op"] == "write")
+        write["count"] += 1
     controls = [
         ("repair-invalid-primary-write", lambda o: o["events"].insert(0, {"step":"mount", "op":"write", "lba":0, "ordinal":0})),
         ("degraded-divergent-reset_b", lambda o: o["snapshots"]["after_remount"].update(B0=blank())),
         ("roundtrip-one-frame", lambda o: o["events"].pop()),
-        ("roundtrip-max-entries", lambda o: o["events"].insert(0, {"step":"commit", "op":"write", "lba":394, "ordinal":0})),
+        ("roundtrip-max-entries", over_budget_multiblock),
         ("refusal-bad-A-with-partner", lambda o: o["events"].append({"step":"mount", "op":"write", "lba":0, "ordinal":1})),
         ("refusal-bad-stage-with-partner", lambda o: o["snapshots"]["after_mount"].update(primary=("00" + o["snapshots"]["after_mount"]["primary"][2:]))),
         ("refusal-bad-A-with-partner", invalid_byte_and_spoof),
+        ("degraded-invalid-reset_b", wrong_reset_function),
     ]
     for key, mutate in controls:
         obs = observation(by_id[key])
