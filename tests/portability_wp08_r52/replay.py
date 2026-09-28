@@ -26,7 +26,8 @@ def main():
         raise AssertionError("cross-toolchain public evidence diverged")
     records = parse_jsonl(gcc_raw)
     planned = json.loads((directory / "plan.json").read_text())
-    if planned != [vector.public() for vector in vectors()]:
+    canonical = lambda value: json.dumps(value, sort_keys=True, separators=(",", ":"))
+    if canonical(planned) != canonical([vector.public() for vector in vectors()]):
         raise AssertionError("plan file differs from executable plan")
     here = Path(__file__).resolve().parent
     expected = {
