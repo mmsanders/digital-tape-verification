@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 
 from oracle import check, parse_jsonl
+from mutants import MUTANTS, legacy_model, record_for
+from oracle import model
 from toolchains import collect, emit
 from vectors import vectors
 
@@ -59,6 +61,17 @@ def run_controls(raw):
 
     for name, vector, record in controls:
         expect_red(name, vector, record)
+
+    regression = "reverse-end-acceptance-0-1000-2000"
+    for name, config in MUTANTS.items():
+        affected = [v.id for v in plan if legacy_model(v, **config) != model(v)]
+        if regression not in affected:
+            raise AssertionError("mutant does not reach acceptance regression: " + name)
+        for case in affected:
+            vector, record = by_id[case]
+            expect_red(f"{name} on {case}",
+                       vector, record_for(vector, legacy_model(vector, **config), record))
+        controls.append((name, None, None))
 
     def require_same(left, right):
         if left != right:

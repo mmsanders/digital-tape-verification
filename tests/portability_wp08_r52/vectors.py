@@ -47,6 +47,8 @@ def vectors():
         Vector("start-reverse", EXTREMA_UP, (2, 1, 3), 0, -ONE_RATE, 3),
         Vector("beyond-intmax-forward", EXTREMA_UP, (2, 1, 3), 99, 0x7FFFFFFF, 3),
         Vector("end-reverse-grid", EXTREMA_UP, (2, 1, 3), 6, -ONE_RATE, 4),
+        Vector("reverse-end-acceptance-0-1000-2000",
+               ((0, 0), (1000, 1000), (2000, 2000)), (3,), 3, -ONE_RATE, 4),
         Vector("extrema-up-half", EXTREMA_UP, (2, 1, 3), 0, 32768, 8),
         Vector("extrema-down-half", EXTREMA_DOWN, (1, 3, 2), 0, 32768, 8),
         Vector("extrema-up-quarter", EXTREMA_UP, (2, 2, 2), 0, 16384, 8),
@@ -70,7 +72,7 @@ def vectors():
         Vector("multirun-large-positive-fraction", MULTI, (3, 4, 2, 3), 2, 0x40010000, 4),
         Vector("multirun-large-negative-fraction", MULTI, (3, 4, 2, 3), 10, -0x40010000, 4),
     ]
-    assert len(out) == 40 and len({v.id for v in out}) == 40
+    assert len(out) == 41 and len({v.id for v in out}) == 41
     assert all(sum(v.runs) == len(v.frames) for v in out)
     return out
 

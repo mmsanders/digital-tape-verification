@@ -40,7 +40,7 @@ def model(vector: Vector):
         at_end = True
     elif step != 0:
         if step < 0 and position >= max_pos:
-            position = max_pos - 1
+            position = (len(frames) - 1) * ONE
         for _ in range(vector.requested):
             if step > 0 and position >= max_pos:
                 at_end = True
@@ -59,12 +59,20 @@ def model(vector: Vector):
                     position += step
             else:
                 at_end = False
-                distance = -step
-                if position <= distance:
-                    position, at_start = 0, True
+                if position == 0:
+                    at_start = True
                 else:
-                    position -= distance
+                    position = max(0, position + step)
     return emitted, position >> 32, at_start, at_end
+
+
+# Hand-written from acceptance.md WP-08 (V5-005); never derived from model().
+LITERAL_GOLDENS = {
+    "reverse-end-acceptance-0-1000-2000": {
+        "pcm_hex": pcm_hex([(2000, 2000), (1000, 1000), (0, 0)]),
+        "rendered": 3, "tell": 0, "at_start": True, "at_end": False,
+    },
+}
 
 
 def check(vector: Vector, observation):
@@ -95,6 +103,11 @@ def check(vector: Vector, observation):
     need(observation.get("tell") == tell, "tell")
     need(observation.get("at_start") is at_start and observation.get("at_end") is at_end,
          "endpoint flags")
+    literal = LITERAL_GOLDENS.get(vector.id)
+    if literal is not None:
+        for key, value in literal.items():
+            need(observation.get(key) == value and type(observation.get(key)) is type(value),
+                 "literal acceptance golden: " + key)
     return True
 
 
@@ -103,6 +116,7 @@ def parse_jsonl(raw):
     plan = vectors()
     need(len(records) == len(plan), "case census")
     need([r.get("case") for r in records] == [v.id for v in plan], "case order")
+    need(set(LITERAL_GOLDENS) <= {v.id for v in plan}, "literal golden census")
     for vector, observation in zip(plan, records):
         check(vector, observation)
     return records

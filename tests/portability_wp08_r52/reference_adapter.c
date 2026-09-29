@@ -47,7 +47,7 @@ static void run(const struct vector *v) {
     if (v->frame_count == 0) {
         at_end = true;
     } else if (step != 0) {
-        if (step < 0 && position >= max_pos) position = max_pos - 1;
+        if (step < 0 && position >= max_pos) position = (uint64_t)(v->frame_count - 1) << 32;
         for (uint32_t n = 0; n < v->requested; ++n) {
             if (step > 0 && position >= max_pos) { at_end = true; break; }
             if (step < 0 && at_start) break;
@@ -66,7 +66,8 @@ static void run(const struct vector *v) {
             } else {
                 uint64_t distance = (uint64_t)(-step);
                 at_end = false;
-                if (position <= distance) { position = 0; at_start = true; }
+                if (position == 0) at_start = true;
+                else if (position <= distance) position = 0;
                 else position -= distance;
             }
         }

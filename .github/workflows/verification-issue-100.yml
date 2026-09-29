@@ -25,7 +25,8 @@ jobs:
           python3 replay.py ci-evidence
           (cd ci-evidence && sha256sum -c SHA256SUMS)
           diff -r evidence ci-evidence
-      - uses: actions/upload-artifact@v4
+      - if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: wp08-r52-two-toolchain-evidence
           path: tests/portability_wp08_r52/ci-evidence

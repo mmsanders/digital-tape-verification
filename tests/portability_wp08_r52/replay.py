@@ -43,7 +43,7 @@ def main():
     if any(manifest.get(key) != value for key, value in expected.items()):
         raise AssertionError("manifest binding")
     if manifest.get("schema") != "wp08-portability-r52-manifest-v1" or \
-            manifest.get("verdict") != "PASS" or manifest.get("red_controls_killed", 0) < 9:
+            manifest.get("verdict") != "PASS" or manifest.get("red_controls_killed", 0) < 12:
         raise AssertionError("manifest verdict/controls")
     for family in ("gcc", "clang"):
         identity = manifest.get(family, {}).get("identity", "")
