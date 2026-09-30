@@ -8,7 +8,7 @@ byte-identical.
 read authenticates it.
 
 Issue and inputs:
-- Verification #121 → #122, body as of 2026-09-30T16:59:31Z, with no scope comments.
+- Verification #122, body as of 2026-09-30T16:59:31Z, with no scope comments.
 - Issuer: PM Product #305. This PR supersedes held #316.
 - Inputs: Product main `66c6abc6` and Verification main `0ac2f8ed`.
 - `engine/` sources were compiled by each toolchain and executed, but never opened.
