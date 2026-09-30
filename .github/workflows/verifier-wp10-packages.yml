@@ -1,0 +1,45 @@
+name: WP-10 verifier packages
+
+# The draft8 workflow only globs tests/*_draft8. The R53/R54 WP-10 packages import pinned draft8 models
+# from their siblings, so they are exercised here: ledger/backlog audit, self-test, and offline replay of
+# the committed synthetic evidence against its manifest.
+
+on:
+  pull_request:
+    paths:
+      - 'tests/wp10_*/**'
+      - 'tests/crash_core_draft8/**'
+      - 'tests/format_dup_identity_draft8/**'
+      - '.github/workflows/verifier-wp10-packages.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tests/wp10_*/**'
+      - '.github/workflows/verifier-wp10-packages.yml'
+  workflow_dispatch:
+
+jobs:
+  wp10-package:
+    name: ${{ matrix.package }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [wp10_backlog_r53, wp10_final_r54]
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 --version
+      - name: Audit
+        working-directory: tests/${{ matrix.package }}
+        run: python3 -B audit.py
+      - name: Self-test
+        working-directory: tests/${{ matrix.package }}
+        run: python3 -B selftest.py
+      - name: Offline replay of committed synthetic evidence
+        working-directory: tests/${{ matrix.package }}
+        run: |
+          set -euo pipefail
+          src=$(python3 -c "import hashlib;print(hashlib.sha256(open('synthetic_adapter.py','rb').read().replace(b'\r\n',b'\n')).hexdigest())")
+          python3 -B replay.py evidence/synthetic/observations.jsonl.gz \
+            --manifest evidence/synthetic/manifest.json --adapter-kind synthetic --adapter-source-sha "$src"
