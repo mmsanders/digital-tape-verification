@@ -8,6 +8,8 @@ on:
   pull_request:
     paths:
       - 'tests/wp10_*/**'
+      - 'tests/strengthen_r55/**'
+      - 'tests/capacity_wp09_r52/**'
       - 'tests/crash_core_draft8/**'
       - 'tests/format_dup_identity_draft8/**'
       - '.github/workflows/verifier-wp10-packages.yml'
@@ -15,6 +17,8 @@ on:
     branches: [main]
     paths:
       - 'tests/wp10_*/**'
+      - 'tests/strengthen_r55/**'
+      - 'tests/capacity_wp09_r52/**'
       - '.github/workflows/verifier-wp10-packages.yml'
   workflow_dispatch:
 
@@ -26,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [wp10_backlog_r53, wp10_final_r54]
+        package: [wp10_backlog_r53, wp10_final_r54, strengthen_r55]
     steps:
       - uses: actions/checkout@v4
       - run: python3 --version
@@ -43,3 +47,16 @@ jobs:
           src=$(python3 -c "import hashlib;print(hashlib.sha256(open('synthetic_adapter.py','rb').read().replace(b'\r\n',b'\n')).hexdigest())")
           python3 -B replay.py evidence/synthetic/observations.jsonl.gz \
             --manifest evidence/synthetic/manifest.json --adapter-kind synthetic --adapter-source-sha "$src"
+
+  capacity-wp09-r52:
+    name: capacity_wp09_r52 (#99, #126 maintenance)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test
+        working-directory: tests/capacity_wp09_r52
+        run: python3 -B selftest.py
+      - name: Committed synthetic evidence matches its checksums
+        working-directory: tests/capacity_wp09_r52/evidence
+        run: sha256sum -c SHA256SUMS
