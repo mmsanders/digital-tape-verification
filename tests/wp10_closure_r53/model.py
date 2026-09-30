@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Verifier-owned model for the WP-10 R53 format/duplicate crash rows (DRAFT-9).
 
-Transactions are transcribed from tapefs Â§9.5/Â§9.6.  Superblock and WIP-template
+Transactions are transcribed from tapefs §9.5/§9.6.  Superblock and WIP-template
 bytes come from the accepted R29-B builders, pinned by Git blob identity.  The
-mount classifier follows tapefs Â§4.1/Â§4.2/Â§5.2/Â§5.3; selftest cross-checks it
-against the Â§9.5/Â§9.6 permitted-outcome tables.
+mount classifier follows tapefs §4.1/§4.2/§5.2/§5.3; selftest cross-checks it
+against the §9.5/§9.6 permitted-outcome tables.
 """
 from __future__ import annotations
 
@@ -86,7 +86,7 @@ def destination(shape):
     img["B0h"], img["B0e"] = index_blocks(1, 101, [(0, 0, 128)])
     if shape == "reusable_stale":
         # A different album's live index at a far higher sequence in slot 1 (acceptance WP-10
-        # "reusable destination" (iii)); only Â§9.5/Â§9.6 step 2 prevents it winning Â§5.3.
+        # "reusable destination" (iii)); only §9.5/§9.6 step 2 prevents it winning §5.3.
         img["A1h"], img["A1e"] = index_blocks(0, 500, [(0, 32, 64)])
         img["B1h"], img["B1e"] = index_blocks(1, 501, [(0, 32, 64)])
     elif shape != "reusable_good":
@@ -111,7 +111,7 @@ def final_sb(op, frames):
 
 
 def transaction(scenario, mutant=None):
-    """Ordered ('w', block-name, bytes) / ('f',) operations of tapefs Â§9.5 / Â§9.6."""
+    """Ordered ('w', block-name, bytes) / ('f',) operations of tapefs §9.5 / §9.6."""
     op, frames, shape, _ = SCENARIOS[scenario]
     ops = []
     if shape != "blank":
@@ -149,7 +149,7 @@ def writes_and_flushes(ops):
 # ------------------------------------------------------- crash durability model
 
 def possible_images(scenario, inject, mode, mutant=None):
-    """All durable images a conforming device may hold at the crash (tapefs Â§8.1).
+    """All durable images a conforming device may hold at the crash (tapefs §8.1).
 
     inject: ("write", k, landed 0..512) or ("flush", j).  Torn prefixes are durable in
     both modes; a completed write is durable at once in write-through, and only after
@@ -273,7 +273,7 @@ def classify(img, requested_side, writable):
     vp, vm = _sb_valid(p), _sb_valid(m)
     if not vp and not vm:
         magic = p[:8] == B.MAGIC_SB or m[:8] == B.MAGIC_SB
-        # tapefs Â§4.1 allows BAD_MAGIC or CRC here; Â§9.5/Â§9.6 and WP-10 name only BAD_MAGIC.
+        # tapefs §4.1 allows BAD_MAGIC or CRC here; §9.5/§9.6 and WP-10 name only BAD_MAGIC.
         return {"result": ("TAPE_ERR_BAD_MAGIC", "TAPE_ERR_CRC") if magic else ("TAPE_ERR_BAD_MAGIC",),
                 "pm_finding_crc": magic}
     gp = struct.unpack_from("<I", p, 12)[0] if vp else -1

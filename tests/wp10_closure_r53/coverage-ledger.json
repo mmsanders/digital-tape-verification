@@ -39,7 +39,7 @@
         "DUP-REUSABLE-STALE": 13358,
         "FMT-REUSABLE-STALE": 8220
       },
-      "why_uncovered": "R29-B injects only at the four superblock writes; the slot-zeroing, chunk-copy and A0/B0 commit writes of Â§9.5/Â§9.6 steps 2-3 and their flushes are never crash targets, and no fixture holds a different album's higher-sequence slot-1 index (acceptance WP-10 duplicate destination shape (iii)).",
+      "why_uncovered": "R29-B injects only at the four superblock writes; the slot-zeroing, chunk-copy and A0/B0 commit writes of §9.5/§9.6 steps 2-3 and their flushes are never crash targets, and no fixture holds a different album's higher-sequence slot-1 index (acceptance WP-10 duplicate destination shape (iii)).",
       "absorbs": [
         "acceptance WP-10 'Duplicate, destination shape' regression (iii): reusable destination pre-loaded with a different cartridge's valid index at sequence 500; the mounted audio must be the source's"
       ]
@@ -323,7 +323,7 @@
         "R29-B",
         "R29-C"
       ],
-      "cases": "C10-14 and each package's raw Â§5.2 parser"
+      "cases": "C10-14 and each package's raw §5.2 parser"
     },
     {
       "id": "WP10.universal.index_only_ops_advance_sequence_not_generation",
@@ -526,7 +526,7 @@
       "id": "WP10.contract.blank_neither_valid_crc_vs_bad_magic",
       "status": "unreachable under DRAFT-9",
       "pm_finding": true,
-      "citation": "tapefs Â§4.1 phase 1: 'Neither valid -> TAPE_ERR_BAD_MAGIC or TAPE_ERR_CRC' gives no rule between the two. tapefs Â§9.5/Â§9.6 blank rows and acceptance WP-10 ('Format, blank media') permit only TAPE_ERR_BAD_MAGIC. A torn step-4 mirror write on blank media that lands >= 8 bytes leaves magic present with a bad CRC, where a conforming Â§4.1 engine may answer TAPE_ERR_CRC. 3,024 crash cases in this package reach that state; the oracle admits {BAD_MAGIC, CRC} there only and counts every CRC answer. The WP-10 literal is unobservable-as-mandatory until PM rules."
+      "citation": "tapefs §4.1 phase 1: 'Neither valid -> TAPE_ERR_BAD_MAGIC or TAPE_ERR_CRC' gives no rule between the two. tapefs §9.5/§9.6 blank rows and acceptance WP-10 ('Format, blank media') permit only TAPE_ERR_BAD_MAGIC. A torn step-4 mirror write on blank media that lands >= 8 bytes leaves magic present with a bad CRC, where a conforming §4.1 engine may answer TAPE_ERR_CRC. 3,024 crash cases in this package reach that state; the oracle admits {BAD_MAGIC, CRC} there only and counts every CRC answer. The WP-10 literal is unobservable-as-mandatory until PM rules."
     }
   ]
 }

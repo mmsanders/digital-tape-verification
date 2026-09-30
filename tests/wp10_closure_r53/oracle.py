@@ -141,7 +141,7 @@ def check(case, obs, findings, trust_trace=False):
         need(obs.get("fired") is True, "planned injection did not fire")
         if not trust_trace:
             need(obs.get("trace_sha256") == sha(canonical(trace_events(planned_prefix(case["scenario"], inject))).encode()),
-                 "write/flush trace differs from the tapefs Â§9.5/Â§9.6 order")
+                 "write/flush trace differs from the tapefs §9.5/§9.6 order")
         images = {durable_digest(i): i for i in M.possible_images(case["scenario"], inject, case["mode"])}
         img = images.get(obs.get("durable_sha256"))
         need(img is not None, "durable media is not a state the durability model permits")
