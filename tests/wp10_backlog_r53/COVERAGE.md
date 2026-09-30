@@ -3,7 +3,7 @@
 | Row | Criterion | Injection points (exhaustive) | Controls |
 |---|---|---|---|
 | 1 | Acceptance WP-10 "Duplicate, destination shape" (ii): a layout-preserving copy is rejected by construction | DUP-FRAG-BLANK 11,302 + DUP-FRAG-REUSABLE 13,358 = **24,660** (12,330 per mode) + 2 completions | `layout_preserving`, `fragment_order`, both with and without trace binding |
-| 2 | Universal assertion: `free_next == max(a_high_water, live-B last+1)` after every injection, for C69 and R29-B | C69 **28,760 / 28,760**; R29-B **26,392 / 57,568** (the rest cannot remount) = **55,152** (27,570 flush-required, 27,582 write-through) | `frontier_other_generation`, `ignores_a_high_water`, `format_empty_b_frontier` |
+| 2 | Universal assertion: `free_next == max(a_high_water, live-B last+1)` after every injection, for C69 and R29-B | C69 **28,760 / 28,760**; R29-B **26,392 / 57,568** (the rest cannot remount) = **55,152** (27,570 flush-required, 27,582 write-through) | `frontier_other_generation`, `ignores_a_high_water`, `format_empty_b_frontier`; C69 snapshot (#124): `c69_post_metadata_diverges`, `c69_post_chunk_diverges`, `c69_pre_metadata_drift`, `c69_setup_alters_live_chunk` |
 | 3 | Recording session: injections at `tape_service` audio writes before commit, overwrite / overdub / splice | Per mode and durability mode: 3 one-block writes × 513 + one per observed flush (synthetic 1,542 × 6 = **9,252**) | `service_writes_live_chunk`, `service_commits_index`, `service_missing_final_flush`, `frontier_counts_uncommitted_audio` |
 
 ## Row 1
@@ -28,8 +28,11 @@ The frontier is observed only where it exists: on an injection whose durable sta
 each accepted case, the oracle rebuilds that case's durable post-crash state with the campaign's own
 pinned model (`crash_core_draft8.oracle.expected_snapshot` or
 `format_dup_identity_draft8.oracle.expected_snapshot`). It binds the Product observation to that
-state by the snapshot's SHA-256, derives the frontier from the selected superblock and live-B index,
-and requires `tape_get_info` `free_chunks == total_chunks − frontier`.
+state, derives the frontier from the selected superblock and live-B index, and requires
+`tape_get_info` `free_chunks == total_chunks − frontier`.
+
+- **R29-B** is bound by the SHA-256 of the whole compact post-crash snapshot.
+- **C69** is bound exactly as the accepted C69 oracle binds it (corrected in #124, below).
 
 - Degraded-B uses `a_high_water` (tapefs §4.2 step 4).
 - Superseded chunks are never counted, because only live-B entries enter the maximum.
@@ -37,6 +40,43 @@ and requires `tape_get_info` `free_chunks == total_chunks − frontier`.
   They are not re-run, because the assertion cannot observe them.
 
 This row adds an assertion; it does not re-accept either campaign.
+
+### #124 correction: C69 snapshot binding
+
+The #110 publication hashed the **whole** expected C69 snapshot, simulated from the **fixture**. That
+bound two things the accepted C69 campaign (`crash_core_draft8/oracle.py` `validate_case`) does not:
+
+1. `image_sha256`. `expected_snapshot` deep-copies its `pre` and never recomputes this field, so it
+   carried the fixture image's digest forward stale. The accepted `_raw_parts` omits it.
+2. The fixture's chunk digests. The accepted campaign simulates from the **observed** pre-snapshot, in
+   which `record_commit` setup has lawfully written the fed audio into pending chunk 2
+   (`_expected_pre_metadata`).
+
+A correct engine therefore failed every C69 case except the 292 whose durable image never changed and
+that are not `record_commit` (28 `reset_b` first, 84 `stage_clear` first, 180 `stage_clear` closure).
+That is exactly the 28,468 / 28,760 PM upheld on Product #329.
+
+C69 observations now carry pre/post metadata digests and chunk digests (schema v2, `ADAPTER.md`). The
+check is the accepted campaign's own:
+
+- pre metadata equals the fixture, and only `record_commit`'s chunk 2 may differ from it;
+- post metadata equals `expected_snapshot` from that pre-state;
+- post chunk digests equal pre.
+
+The self-test proves, on all 28,760 C69 cases, that simulating from the fixture's metadata equals
+simulating from any observed pre-state with those constraints. It also runs one real-bytes case per C69
+shape (lawful chunk-2 audio, true `image_sha256`). The #110 binding rejects each of these wrongly and the
+corrected binding accepts each. Four new controls must each still kill a real divergence, with an exact
+kill census:
+
+| Control | Kills |
+|---|---|
+| post-crash metadata byte | 28,760 C69 cases |
+| post-crash chunk digest | 28,760 C69 cases |
+| pre-operation metadata drift | 28,760 C69 cases |
+| setup altering live chunk 0 | the 6,168 `record_commit` cases |
+
+The `free_chunks` frontier assertion, R29-B, row 1, row 3 and the case set are unchanged.
 
 ## Row 3
 
