@@ -22,7 +22,47 @@ PM finding, **V-R54-03**. There is no Product binding yet.
 
 ## Publication
 
-`tests/wp10_final_r54`, identities in the return comment on #118. The package covers these rows and cases:
+Package: `tests/wp10_final_r54` at commit **`7c0410e0042d00c05b72affccd4de0a03ce8abd6`**, subtree
+**`598ebcd8f0914040558f565809b90bdb22bb8221`**. The commit lives on `claude/wizardly-bardeen-4asv8m` and
+reaches `main` through PR #125.
+
+| File | SHA-256 |
+|---|---|
+| `oracle.py` | `b720b5b1…4c851b` |
+| `model.py` | `7714fe5e…fea66a` |
+| `selftest.py` | `c1b24b0b…3abda2` |
+| `synthetic_adapter.py` | `a11391bd…8f231c` |
+| `replay.py` | `a7221191…0efa72` |
+| `audit.py` | `33262544…b8e17e` |
+| `ADAPTER.md` | `f861b2d9…8e5d4df` |
+| `coverage-ledger.json` | `4ab66f55…4ce80c` |
+
+`deps.py` is `e424efda…` and is byte-identical to the #110 copy. `dupmodel.py` is the #116 `model.py`, blob
+`53d0b75e`.
+
+Synthetic evidence: gzip `222524428680ad785912a2e8ba90a8689edf5d61daef70c27e30a9387df8aa7b` (3,053,266 B,
+under `tests/`, outside the `docs/` 1 MiB gate); manifest `a54a5fa1…bba36`. Case set
+`159b4ac64a5e653df2625a025f5f8cf13bcb90fed9a11905a1733f7a97167cd1`.
+
+**Runs, reproduced from a clean checkout of `7c0410e`:**
+
+- `audit.py`: PASS. The ledger has 62 rows.
+- `replay.py`: PASS on 207,584 observations. The `findings` counter
+  `v_r54_03_resurrected_previous_superblock` reads 48.
+- `selftest.py`: PASS in 4 min 42 s.
+  - The identity census covers 298,604 permitted re-run images. The finding is forced in exactly 48 cells.
+  - The clean synthetic run passes 207,584 of 207,584.
+  - All 9 controls are killed:
+    - rows 1–2: exact kill sets of 3, 6, 3, 5 and 1 cases;
+    - row 3: `commits_before_copying` in 5 fixtures and `pass1_onto_live_b` in 1;
+    - row 4: `rerun_skips_barrier` kills 173,654 cases, and still 173,613 with trace binding off;
+      `rerun_final_keeps_old_uuid` kills 16,448, and 16,112 with trace binding off.
+
+**CI.** A new workflow, `.github/workflows/verifier-wp10-packages.yml`, runs audit, self-test and replay
+for `tests/wp10_backlog_r53` and `tests/wp10_final_r54` on PRs. It does not change the draft8 workflow,
+which only globs `*_draft8`.
+
+The package covers these rows and cases:
 
 | Row | Cases | Controls killed |
 |---|---|---|
