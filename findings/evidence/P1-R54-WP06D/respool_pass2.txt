@@ -1,0 +1,19 @@
+# chunk-copy lines elided: 2,049 single-block writes to chunks 4..6 (2 x 1024 + 1)
+block_count 14337 total_chunks 12
+   4111 flush None 
+   4112 write 393 1
+   4113 flush None 
+   4114 write 392 1
+   4115 flush None 
+baseline PASS
+  pass 2 -> [0,3) killed: write to chunks [0] intersects the then-live set (invariant 10)
+  pass 2 -> [1,4) killed: pass-2 write below a_high_water
+  pass 2 -> [2,5) killed: write to chunks [4] intersects the then-live set (invariant 10)
+  pass 2 -> [3,6) killed: write to chunks [4] intersects the then-live set (invariant 10)
+  pass 2 -> [4,7) killed: write to chunks [4] intersects the then-live set (invariant 10)
+  pass 2 -> [5,8) killed: write to chunks [5] intersects the then-live set (invariant 10)
+  pass 2 -> [6,9) killed: write to chunks [6] intersects the then-live set (invariant 10)
+  pass 2 -> [7,10) killed: pass-2 destination is not a strictly lower run of len
+  pass 2 -> [8,11) killed: pass-2 destination is not a strictly lower run of len
+  pass 2 -> [9,12) killed: pass-2 destination is not a strictly lower run of len
+10/10 injected pass-2 destinations rejected
