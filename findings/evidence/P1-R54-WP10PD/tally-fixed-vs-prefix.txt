@@ -1,0 +1,33 @@
+== fixed-retained: 57539 cases, 0 fail
+== pre-fix-054d27ab: 57539 cases, 6171 fail
+   ('DUP-EMPTY-BLANK', 'complete') 1 first: None 57532
+   ('DUP-EMPTY-BLANK', 'crash') 3084 first: ['write', 5, 0] 2565
+   ('DUP-EMPTY-BLANK', 'empty_family') 1 first: None 57538
+   ('DUP-EMPTY-REUSABLE', 'complete') 1 first: None 57533
+   ('DUP-EMPTY-REUSABLE', 'crash') 3084 first: ['write', 7, 0] 11807
+   reason: 6168 write/flush trace differs from the tapefs Â§9.5/Â§9.6 order
+   reason: 3 complete-run trace
+
+== (a) planned empty-source dup trace (model.transaction DUP-EMPTY-BLANK):
+   w A0h lba=8
+   w A1h lba=136
+   w B0h lba=264
+   w B1h lba=392
+   f  
+   w A0h lba=8
+   w B0h lba=264
+   f  
+   w M lba=6144
+   f  
+   w P lba=0
+   f  
+empty_family index 57538 trace 8c17fab74bd6e44398bba28b9ec5d9789114e6a349caa87fc437da346433f5e4 == planned
+mount_B {'fn': 'tape_mount', 'side': 'B', 'result': 'TAPE_OK'}
+family [{"fn": "tape_promote", "result": "TAPE_ERR_INVALID_ARG", "more_work": false, "block_events": []}, {"fn": "tape_respool", "result": "TAPE_OK", "more_work": false, "block_events": []}, {"fn": "tape_arm", "result": "TAPE_OK", "block_events": []}, {"fn": "tape_commit", "result": "TAPE_OK", "block_events": []}]
+call {'fn': 'tape_dup', 'result': 'TAPE_OK', 'more_work': False}
+complete DUP-EMPTY-BLANK {'fn': 'tape_dup', 'result': 'TAPE_OK', 'more_work': False} trace True
+complete DUP-EMPTY-REUSABLE {'fn': 'tape_dup', 'result': 'TAPE_OK', 'more_work': False} trace True
+complete DUP-REUSABLE-STALE {'fn': 'tape_dup', 'result': 'TAPE_OK', 'more_work': False} trace True
+complete FMT-REUSABLE-STALE {'fn': 'tape_format', 'result': 'TAPE_OK'} trace True
+complete FMT-BLANK {'fn': 'tape_format', 'result': 'TAPE_OK'} trace True
+complete DUP-BLANK {'fn': 'tape_dup', 'result': 'TAPE_OK', 'more_work': False} trace True
