@@ -136,9 +136,11 @@ def check_render(case, obs, plan):
 def _injected_index(case, calls):
     rule = case["inject"]
     flat = [(ci, ei, e) for ci, c in enumerate(calls) for ei, e in enumerate(c["events"])]
-    if rule["rule"] == "first_of_call":
-        want = [(ci, ei) for ci, ei, e in flat if ci == rule["call"] and e["op"] == rule["op"]]
-        need(want, "planned injection point never reached")
+    if rule["rule"] == "first_on_continuation":
+        # engine-api §9/§6 budget blocks of work, reads included, so no call index is fixed:
+        # the fault goes on the first own-device write/flush of any continuation (call >= 1).
+        want = [(ci, ei) for ci, ei, e in flat if ci >= 1 and e["op"] == rule["op"]]
+        need(want, "no own-device " + rule["op"] + " was reached on a continuation call")
         return want[0]
     if rule["rule"] == "first_after_write":
         seen = None
@@ -164,6 +166,7 @@ def check_fault(case, obs, plan):
         _events(c.get("events"), f"{op}[{i}]")
     ci, ei = _injected_index(case, calls)
     need(ci >= 1, "failure was not on a continuation call")
+    need(obs.get("fault_call_index") == ci, "fault_call_index does not name the failing continuation")
     need(ci == len(calls) - 1, "calls continued after the failing continuation")
     for i, c in enumerate(calls[:ci]):
         need(c.get("result") == "TAPE_OK" and c.get("more_work") is True, f"{op}[{i}] before failure")

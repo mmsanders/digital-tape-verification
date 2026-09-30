@@ -20,7 +20,7 @@
      "rows": ["WP12.completed_pass.renders_bit_identical"]},
     {"id": "F-RESPOOL-WRITE", "kind": "fault", "op": "respool", "fixture": "respool_v3_003",
      "mount_side": "B", "block_budget": 64,
-     "inject": {"op": "write", "rule": "first_of_call", "call": 1},
+     "inject": {"op": "write", "rule": "first_on_continuation"},
      "rows": ["WP12a.faulted.row_on_continuation_faulted_instance"]},
     {"id": "F-RESPOOL-HEADER-FLUSH", "kind": "fault", "op": "respool", "fixture": "respool_v3_003",
      "mount_side": "B", "block_budget": 64,
@@ -28,11 +28,11 @@
      "rows": ["WP12a.faulted.row_on_continuation_faulted_instance"]},
     {"id": "F-PROMOTE-WRITE", "kind": "fault", "op": "promote", "fixture": "promote_fresh_alloc_full",
      "mount_side": "B", "block_budget": 1,
-     "inject": {"op": "write", "rule": "first_of_call", "call": 1},
+     "inject": {"op": "write", "rule": "first_on_continuation"},
      "rows": ["WP12a.faulted.row_on_continuation_faulted_instance"]},
     {"id": "F-PROMOTE-FLUSH", "kind": "fault", "op": "promote", "fixture": "promote_fresh_alloc_full",
      "mount_side": "B", "block_budget": 1,
-     "inject": {"op": "flush", "rule": "first_of_call", "call": 1},
+     "inject": {"op": "flush", "rule": "first_on_continuation"},
      "rows": ["WP12a.promote.continuation_flush_failure_faults",
               "WP12a.faulted.row_on_continuation_faulted_instance"]}
   ]

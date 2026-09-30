@@ -22,6 +22,7 @@ MUTANTS = {
     "arm_after_header_flush": "V5-001: arm+feed permitted after pass-1 header flush failure",
     "service_touches_media": "tape_service performs a device read while FAULTED",
     "failure_keeps_more_work": "failing continuation leaves more_work set",
+    "fault_on_initiating_call": "the injected write/flush lands on the initiating call (call 0)",
 }
 CF = F.CF
 
@@ -120,25 +121,31 @@ def _ev(op, lba=None, rc=0):
 
 
 def _respool_calls(case):
-    budget = case["block_budget"]
+    # Reads count against block_budget too (engine-api §9: blocks of work per call).
+    pairs = case["block_budget"] // 2
     src, dst = 2048 + 10 * 1024, 2048 + 12 * 1024
-    calls = [[e for k in range(i, i + budget) for e in (_ev("read", src + k), _ev("write", dst + k))]
-             for i in range(0, 2048, budget)]
+    calls = [[e for k in range(i, i + pairs) for e in (_ev("read", src + k), _ev("write", dst + k))]
+             for i in range(0, 2048, pairs)]
     calls.append([_ev("flush"), _ev("write", F.LBA_B1 + 1), _ev("flush"), _ev("write", F.LBA_B1), _ev("flush")])
     return calls
 
 
 def _promote_calls():
-    return [[_ev("write", w["lba"]), _ev("flush")] for w in F.PF.transaction("fresh_alloc_full")]
+    # Budget 1: B's two source runs are read on calls 0 and 1; the first write is on call 2.
+    reads = [[_ev("read", 2048 + 1 * 1024)], [_ev("read", 2048 + 2 * 1024)]]
+    return reads + [[_ev("write", w["lba"]), _ev("flush")] for w in F.PF.transaction("fresh_alloc_full")]
 
 
 def _fail(case, schedule):
     rule = case["inject"]
-    if rule["rule"] == "first_of_call":
-        call = schedule[rule["call"]]
-        idx = next(i for i, e in enumerate(call) if e["op"] == rule["op"])
-        call[idx] = dict(call[idx], rc=5)
-        return rule["call"], idx
+    if rule["rule"] == "first_on_continuation":
+        for ci, call in enumerate(schedule):
+            if ci == 0:
+                continue
+            for i, e in enumerate(call):
+                if e["op"] == rule["op"]:
+                    call[i] = dict(e, rc=5)
+                    return ci, i
     for ci, call in enumerate(schedule):
         for i, e in enumerate(call):
             if e["op"] == "write" and e["lba"] == rule["lba"]:
@@ -151,7 +158,11 @@ def _fail(case, schedule):
 def fault_observation(case, plan, mutant=None):
     op = case["op"]
     schedule = _respool_calls(case) if op == "respool" else _promote_calls()
-    ci, ei = _fail(case, schedule)
+    if mutant == "fault_on_initiating_call" and case["inject"]["rule"] == "first_on_continuation":
+        schedule[0] = [_ev(case["inject"]["op"], 2048 + 5 * 1024, rc=5)]
+        ci, ei = 0, 0
+    else:
+        ci, ei = _fail(case, schedule)
     calls = []
     for i, events in enumerate(schedule[:ci + 1]):
         last = i == ci
@@ -190,7 +201,7 @@ def fault_observation(case, plan, mutant=None):
     return {"schema": SCHEMA, "case": case["id"],
             "fixture_metadata_sha256": F.fixture_metadata_sha256(case["fixture"]),
             "mount": {"fn": "tape_mount", "side": case["mount_side"], "result": "TAPE_OK"},
-            "calls": calls, "device_sha256_at_fault": digest,
+            "calls": calls, "fault_call_index": ci, "device_sha256_at_fault": digest,
             "device_sha256_before_unmount": after, "probe": probe}
 
 

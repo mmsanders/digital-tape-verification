@@ -17,6 +17,7 @@ EXPECTED_KILLS = {
                               "F-PROMOTE-WRITE", "F-PROMOTE-FLUSH"},
     "failure_keeps_more_work": {"F-RESPOOL-WRITE", "F-RESPOOL-HEADER-FLUSH",
                                 "F-PROMOTE-WRITE", "F-PROMOTE-FLUSH"},
+    "fault_on_initiating_call": {"F-RESPOOL-WRITE", "F-PROMOTE-WRITE", "F-PROMOTE-FLUSH"},
 }
 
 

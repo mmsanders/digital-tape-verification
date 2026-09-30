@@ -42,7 +42,10 @@ Call `tape_mount(mount_side)`, then call the long operation repeatedly with the 
 `{op, lba, count, rc}`, or `{op, rc}` for a flush, for every real callback. The simulator returns
 non-zero at exactly one callback:
 
-- `first_of_call`: the first callback of kind `op` issued during call number `call` (0-based).
+- `first_on_continuation`: the first own-device callback of kind `op` issued on any continuation
+  call (0-based call index ≥ 1), whichever call that is. engine-api §9/§6 count reads as budgeted
+  work, so no call index is fixed. Record that call's index as top-level `fault_call_index`.
+  A fault on the initiating call (index 0) does not satisfy the row.
 - `first_after_write`: the first flush after the write of `count` block(s) at `lba` (392 is B1's
   header block: the V5-001 pass-1 header flush).
 
