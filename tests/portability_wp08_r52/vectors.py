@@ -98,6 +98,7 @@ def write_header(path):
                   f'    .fixture_sha256 = "{v.fixture_sha256()}",',
                   f"    .frame_count = {len(v.frames)}u,",
                   f"    .pcm = {{{pcm}}},",
+                  f"    .run_count = {len(v.runs)}u, .runs = {{{', '.join(f'{r}u' for r in v.runs) or '0u'}}},",
                   f"    .seek = {v.seek}ull, .rate = {v.rate}, .requested = {v.requested}u",
                   "  },"]
     lines += ["};", ""]

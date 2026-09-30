@@ -37,7 +37,20 @@ all referenced PCM bytes.  Then:
 
 Record symbolic public results, arguments, returned counts, tell, `at_start`,
 `at_end`, exact little-endian PCM bytes, and every callback caused by each
-public call.  `tape_render` must have an explicit empty callback list.  The
+public call, unfiltered, as `{"op", "lba", "count", "rc"}` for a read or write
+and `{"op": "flush", "rc"}` for a flush.  Record the fixture device's
+`block_count` at the top level of each observation.
+
+The callback rule for each call:
+
+- **`tape_mount` and `tape_service`** may read media, as a device-backed mount
+  and ring fill must (tapefs §4.1/§4.2, engine-api §6). They must perform zero
+  writes and zero flushes, and every read must lie inside `block_count`. Mount
+  must read both superblock copies (tapefs §4.1 phase 1).
+- **`tape_seek`, `tape_set_rate` and `tape_render`** must each have an explicit
+  empty callback list.
+
+The
 reference evidence uses the compact schema emitted by `reference_adapter.c`;
 the Product binding may add raw-media fields, but may not omit or rewrite the
 fields consumed by `oracle.py`.

@@ -5,12 +5,17 @@
 #include <stdio.h>
 
 #define MAX_FRAMES 12
+#define MAX_RUNS 4
+#define LBA_CHUNK_BASE 2048u
+#define CHUNK_BLOCKS 1024u
 
 struct vector {
     const char *id;
     const char *fixture_sha256;
     uint32_t frame_count;
     int16_t pcm[MAX_FRAMES][2];
+    uint32_t run_count;
+    uint32_t runs[MAX_RUNS];
     uint64_t seek;
     int32_t rate;
     uint32_t requested;
@@ -73,18 +78,33 @@ static void run(const struct vector *v) {
         }
     }
 
-    printf("{\"at_end\":%s,\"at_start\":%s,\"case\":\"%s\",",
-           at_end ? "true" : "false", at_start ? "true" : "false", v->id);
+    /* Reference fixture: each physical run in its own chunk, so a device-backed
+       mount reads both superblocks and all four index slots, and service reads
+       one block per run (none on an empty timeline). */
+    const uint32_t chunks = v->run_count ? v->run_count : 1u;
+    const uint32_t block_count = LBA_CHUNK_BASE + chunks * CHUNK_BLOCKS + 1u;
+    static const uint32_t slot_lba[4] = {8u, 136u, 264u, 392u};
+
+    printf("{\"at_end\":%s,\"at_start\":%s,\"block_count\":%" PRIu32 ",\"case\":\"%s\",",
+           at_end ? "true" : "false", at_start ? "true" : "false", block_count, v->id);
     printf("\"fixture_sha256\":\"%s\",\"pcm_hex\":\"", v->fixture_sha256);
     for (uint32_t n = 0; n < rendered; ++n) {
         emit_s16le(output[n][0]); emit_s16le(output[n][1]);
     }
     printf("\",\"rendered\":%" PRIu32 ",\"schema\":\"wp08-portability-r52-v1\",", rendered);
     printf("\"tell\":%" PRIu64 ",\"trace\":[", position >> 32);
-    printf("{\"block_events\":[],\"fn\":\"tape_mount\",\"result\":\"TAPE_OK\"},");
+    printf("{\"block_events\":[{\"count\":1,\"lba\":0,\"op\":\"read\",\"rc\":0},"
+           "{\"count\":1,\"lba\":%" PRIu32 ",\"op\":\"read\",\"rc\":0}", block_count - 1u);
+    for (uint32_t s = 0; s < 4u; ++s)
+        printf(",{\"count\":2,\"lba\":%" PRIu32 ",\"op\":\"read\",\"rc\":0}", slot_lba[s]);
+    printf("],\"fn\":\"tape_mount\",\"result\":\"TAPE_OK\"},");
     printf("{\"block_events\":[],\"fn\":\"tape_seek\",\"frame\":%" PRIu64 ",\"result\":\"TAPE_OK\"},", v->seek);
     printf("{\"block_events\":[],\"fn\":\"tape_set_rate\",\"rate_q16_16\":%" PRId32 ",\"result\":\"TAPE_OK\"},", v->rate);
-    printf("{\"block_events\":[],\"budget\":7,\"fn\":\"tape_service\",\"more_work\":false,\"result\":\"TAPE_OK\"},");
+    printf("{\"block_events\":[");
+    for (uint32_t r = 0; r < v->run_count; ++r)
+        printf("%s{\"count\":1,\"lba\":%" PRIu32 ",\"op\":\"read\",\"rc\":0}", r ? "," : "",
+               LBA_CHUNK_BASE + r * CHUNK_BLOCKS);
+    printf("],\"budget\":7,\"fn\":\"tape_service\",\"more_work\":false,\"result\":\"TAPE_OK\"},");
     printf("{\"block_events\":[],\"fn\":\"tape_render\",\"rendered\":%" PRIu32 ",\"requested\":%" PRIu32 ",\"result\":\"TAPE_OK\"},", rendered, v->requested);
     printf("{\"fn\":\"tape_tell\",\"value\":%" PRIu64 "},", position >> 32);
     printf("{\"at_end\":%s,\"at_start\":%s,\"fn\":\"tape_status\",\"result\":\"TAPE_OK\"}]}\n",

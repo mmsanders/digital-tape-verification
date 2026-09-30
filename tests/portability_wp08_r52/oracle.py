@@ -75,21 +75,52 @@ LITERAL_GOLDENS = {
 }
 
 
+LBA_CHUNK_BASE = 2048
+
+
+def read_only_events(events, block_count, call):
+    """Playback setup may read media (tapefs §4.1/§4.2, engine-api §6) but never write or flush."""
+    need(isinstance(events, list), f"{call} callback list missing")
+    reads = []
+    for e in events:
+        need(isinstance(e, dict), f"{call} malformed callback")
+        need(e.get("op") != "write", f"{call} wrote media during playback setup")
+        need(e.get("op") != "flush", f"{call} flushed during playback setup")
+        need(e.get("op") == "read" and set(e) == {"op", "lba", "count", "rc"}, f"{call} unknown callback {e}")
+        lba, n, rc = e["lba"], e["count"], e["rc"]
+        need(all(isinstance(x, int) and not isinstance(x, bool) for x in (lba, n, rc)), f"{call} read fields")
+        need(rc == 0 and n >= 1 and 0 <= lba and lba + n <= block_count,
+             f"{call} read [{lba}, {lba + n}) outside the {block_count}-block fixture or failed")
+        reads.append((lba, n))
+    return reads
+
+
 def check(vector: Vector, observation):
     need(observation.get("schema") == "wp08-portability-r52-v1", "schema")
     need(observation.get("case") == vector.id, "case identity")
     need(observation.get("fixture_sha256") == vector.fixture_sha256(), "fixture identity")
     trace = observation.get("trace")
     need(isinstance(trace, list) and len(trace) == 7, "public trace census")
-    expected_prefix = [
-        {"fn": "tape_mount", "result": "TAPE_OK", "block_events": []},
+    block_count = observation.get("block_count")
+    need(isinstance(block_count, int) and not isinstance(block_count, bool)
+         and block_count > LBA_CHUNK_BASE, "fixture block_count not DEVICE_ADDRESSABLE")
+    mount, service = trace[0], trace[3]
+    need({k: v for k, v in mount.items() if k != "block_events"} ==
+         {"fn": "tape_mount", "result": "TAPE_OK"}, "mount trace")
+    mount_reads = read_only_events(mount.get("block_events"), block_count, "tape_mount")
+    # tapefs §4.1 phase 1: selection reads both superblock copies.
+    need(any(lba <= 0 < lba + n for lba, n in mount_reads) and
+         any(lba <= block_count - 1 < lba + n for lba, n in mount_reads),
+         "tape_mount did not read both superblock copies")
+    need(trace[1:3] == [
         {"fn": "tape_seek", "frame": vector.seek, "result": "TAPE_OK", "block_events": []},
         {"fn": "tape_set_rate", "rate_q16_16": vector.rate,
          "result": "TAPE_OK", "block_events": []},
-        {"fn": "tape_service", "budget": 7, "result": "TAPE_OK",
-         "more_work": False, "block_events": []},
-    ]
-    need(trace[:4] == expected_prefix, "setup trace")
+    ], "seek/set_rate trace")
+    need({k: v for k, v in service.items() if k != "block_events"} ==
+         {"fn": "tape_service", "budget": 7, "result": "TAPE_OK", "more_work": False},
+         "service trace")
+    read_only_events(service.get("block_events"), block_count, "tape_service")
     expected_pcm, tell, at_start, at_end = model(vector)
     rendered = len(expected_pcm)
     need(trace[4] == {"fn": "tape_render", "requested": vector.requested,

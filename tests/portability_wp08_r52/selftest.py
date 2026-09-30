@@ -62,6 +62,29 @@ def run_controls(raw):
     for name, vector, record in controls:
         expect_red(name, vector, record)
 
+    def write_during_mount(r):
+        r["trace"][0]["block_events"].append({"count": 1, "lba": 0, "op": "write", "rc": 0})
+
+    def flush_during_service(r):
+        r["trace"][3]["block_events"].append({"op": "flush", "rc": 0})
+
+    def read_on_render(r):
+        r["trace"][4]["block_events"].append({"count": 1, "lba": 2048, "op": "read", "rc": 0})
+
+    def out_of_range_read(r):
+        r["trace"][0]["block_events"].append({"count": 1, "lba": r["block_count"], "op": "read", "rc": 0})
+
+    def mount_skips_superblock(r):
+        r["trace"][0]["block_events"] = [e for e in r["trace"][0]["block_events"] if e.get("lba") != 0]
+
+    for mutate in (write_during_mount, flush_during_service, read_on_render,
+                   out_of_range_read, mount_skips_superblock):
+        for vector in plan:
+            bad = copy.deepcopy(by_id[vector.id][1])
+            mutate(bad)
+            expect_red(f"{mutate.__name__} on {vector.id}", vector, bad)
+        controls.append((mutate.__name__, None, None))
+
     regression = "reverse-end-acceptance-0-1000-2000"
     for name, config in MUTANTS.items():
         affected = [v.id for v in plan if legacy_model(v, **config) != model(v)]
