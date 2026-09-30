@@ -1,0 +1,33 @@
+name: Verifier WP-06 closure package
+
+on:
+  pull_request:
+    paths:
+      - 'tests/wp06_closure_r52/**'
+      - '.github/workflows/verifier-wp06-closure-r52.yml'
+  push:
+    branches:
+      - 'verification/issue-108-*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wp06-closure:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit, self-test and offline replay
+        working-directory: tests/wp06_closure_r52
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 audit.py
+          python3 selftest.py
+          adapter_sha=$(sha256sum synthetic_adapter.py | cut -c1-64)
+          python3 replay.py evidence/synthetic/observations.jsonl.gz \
+            --manifest evidence/synthetic/manifest.json \
+            --adapter-kind synthetic --adapter-source-sha "${adapter_sha}"
+          cmp <(python3 synthetic_adapter.py) <(gunzip -c evidence/synthetic/observations.jsonl.gz)

@@ -25,7 +25,7 @@ def load_plan():
 
 
 def plan_sha256():
-    return hashlib.sha256((ROOT / "gap_plan.json").read_bytes()).hexdigest()
+    return hashlib.sha256((ROOT / "gap_plan.json").read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def raw(value, size):
@@ -176,16 +176,110 @@ def check(case, obs):
         require(remounted_b is not None, "remount has no live B")
         require(remounted_b[1]["raw"] == select_slot(after, "B")[1]["raw"], "remount selected another B")
     else:
-        live_b = select_slot(before, "B")
-        require(live_b is not None and high_water(live_b[1]) > sb["high"], "fixture lacks recorded B")
-        floor = high_water(live_b[1])
-        require(need_call(obs, "mount", "tape_mount", "TAPE_OK").get("side") == "A", "not mounted A")
-        fn = "tape_promote" if "PROMOTE" in cid else "tape_respool"
-        need_call(obs, "exercise", fn, "TAPE_OK")
-        chunk_writes = [e for e in writes(obs, "exercise") if e.get("lba", 0) >= CHUNK_BASE]
-        require(chunk_writes, "operation copied no chunk")
-        require(all((e["lba"] - CHUNK_BASE)//1024 >= floor for e in chunk_writes),
-                "allocation overwrote live B")
+        check_floor_row(case, obs, before, sb)
+
+SLOT_HEADERS = {lba: name for name, lba in SLOT_LBA.items()}
+
+
+def slot_from_bytes(b):
+    if b[:8] != b"TAPEIDX":
+        return None
+    count = struct.unpack_from("<I", b, 16)[0]
+    if count > 4096:
+        return None
+    entries = b[BLOCK:BLOCK + count * 12]
+    if zlib.crc32(b[:60] + entries) != struct.unpack_from("<I", b, 60)[0]:
+        return None
+    return {"raw": b[:BLOCK] + entries, "sequence": struct.unpack_from("<I", b, 8)[0], "side": b[12],
+            "runs": [struct.unpack_from("<III", entries, 12 * i) for i in range(count)]}
+
+
+def run_chunks(slot):
+    out = set()
+    for first, start, count in (slot["runs"] if slot else []):
+        out.update(range(first, first + (start + count - 1) // CHUNK_FRAMES + 1))
+    return out
+
+
+def live_set(slots):
+    live = set()
+    for side in ("A", "B"):
+        chosen = select_slot(slots, side)
+        if chosen:
+            live |= run_chunks(chosen[1])
+    return live
+
+
+def write_chunks(e):
+    first = (e["lba"] - CHUNK_BASE) // 1024
+    last = (e["lba"] + e.get("count", 1) - 1 - CHUNK_BASE) // 1024
+    return set(range(first, last + 1))
+
+
+def check_floor_row(case, obs, before, sb):
+    """WP-06f live-B floor, per PM ruling on #108 (tapefs §9.3.1-§9.3.2, §9.4; invariant 10)."""
+    cid = case["id"]
+    live_b = select_slot(before, "B")
+    require(live_b is not None and high_water(live_b[1]) > sb["high"], "fixture lacks recorded B")
+    floor = high_water(live_b[1])
+    # §9.4 lets pass 1 land on any run >= a_high_water disjoint from the live set; "allocates above"
+    # the live-B frontier is then forced only when live B occupies every chunk in [a_high_water, floor).
+    require(set(range(sb["high"], floor)) <= run_chunks(live_b[1]),
+            "fixture: live B must densely occupy [a_high_water, floor) so the floor is spec-forced")
+    total = sum(r[2] for r in live_b[1]["runs"])
+    length = -(-total // CHUNK_FRAMES)
+    require(need_call(obs, "mount", "tape_mount", "TAPE_OK").get("side") == "A", "not mounted A")
+    promote = "PROMOTE" in cid
+    if promote:
+        require(not (len(live_b[1]["runs"]) == 1 and live_b[1]["runs"][0][1] == 0),
+                "fixture must take the allocating (non-adopt) phase-1 path")
+    need_call(obs, "exercise", "tape_promote" if promote else "tape_respool", "TAPE_OK")
+
+    slots = {name: bytearray(bytes.fromhex(obs["snapshots"]["before"][name])) for name in SLOT_LBA}
+    parsed = {name: slot_from_bytes(bytes(b)) for name, b in slots.items()}
+    events = [e for e in obs["events"] if e["step"] == "exercise" and e["op"] == "write"]
+    commits, chunk_log, sb_writes = [], [], []
+    for e in events:
+        lba = e["lba"]
+        if lba >= CHUNK_BASE and lba != obs["block_count"] - 1:
+            touched = write_chunks(e)
+            require(not (touched & live_set(parsed)),
+                    f"write to chunks {sorted(touched)} intersects the then-live set (invariant 10)")
+            chunk_log.append((len(commits), len(sb_writes), touched))
+            continue
+        if lba in (0, obs["block_count"] - 1):
+            sb_writes.append((len(commits), lba))
+            continue
+        name = next((n for n, base in SLOT_LBA.items() if base <= lba < base + SLOT_BYTES // BLOCK), None)
+        require(name is not None, f"write at LBA {lba} outside superblocks, index slots and chunks")
+        data = raw(e.get("data"), BLOCK)
+        off = (lba - SLOT_LBA[name]) * BLOCK
+        slots[name][off:off + BLOCK] = data
+        parsed[name] = slot_from_bytes(bytes(slots[name]))
+        if lba in SLOT_HEADERS:
+            require(parsed[name] is not None, f"index header write to {name} is not a valid commit")
+            commits.append(name[0])
+
+    require(commits, "operation committed no index")
+    phase1 = [c for n, _, c in chunk_log if n == 0]
+    require(phase1, "no phase-1/pass-1 allocation before the first index commit")
+    p1 = set().union(*phase1)
+    require(min(p1) >= floor, f"phase-1/pass-1 allocation at chunk {min(p1)} below live-B floor {floor}")
+    require(p1 == set(range(min(p1), min(p1) + length)), "phase-1/pass-1 destination is not one run of len")
+    later = [(n, k, c) for n, k, c in chunk_log if n > 0]
+    if promote:
+        require(commits[:2] == ["A", "B"], "phase 1 must commit A then B before phase 2")
+        require(later, "promote performed no phase 2")
+        require(all(n >= 2 and k >= 2 for n, k, _ in later),
+                "phase-2 write before phase-1 A/B commits and step-4 superblock")
+        p2 = set().union(*(c for _, _, c in later))
+        require(p2 == set(range(length)), f"phase-2 destination {sorted(p2)} is not [0, {length})")
+    else:
+        require(all(ch >= sb["high"] for _, _, c in later for ch in c), "pass-2 write below a_high_water")
+        if later:
+            p2 = set().union(*(c for _, _, c in later))
+            require(p2 == set(range(min(p2), min(p2) + length)) and min(p2) < min(p1),
+                    "pass-2 destination is not a strictly lower run of len")
 
 
 def check_all(observations):

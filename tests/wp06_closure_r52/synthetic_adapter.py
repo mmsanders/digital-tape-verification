@@ -11,6 +11,7 @@ import zlib
 from oracle import BLOCK, CHUNK_BASE, SLOT_BYTES, load_plan
 
 N = CHUNK_BASE + 64 * 1024 + 1
+CF = 131072
 
 
 def superblock(stage=0, staging=0, high=2, chunks=64, generation=10):
@@ -68,6 +69,9 @@ def observation(case):
         m = base(stage=1, divergent=True)
     elif cid == "E-RESPOOL-FULL":
         m = base(stage=1, high=2, b_runs=((4, 0, 60*131072),))
+    elif cid.startswith("F-LIVEB-"):
+        # Live B densely fills [a_high_water=2, floor=5): fragmented, so promote cannot adopt in place.
+        m = base(high=2, b_runs=((2, 0, CF), (3, 0, CF), (4, 0, 100)))
     else:
         m = base(stage=1 if cid.startswith("E-") else 0)
     o["snapshots"]["before"] = copy.deepcopy(m)
@@ -108,8 +112,36 @@ def observation(case):
         o["snapshots"]["after_remount"] = copy.deepcopy(m)
         call("switch", "tape_set_side")
     else:
-        call("exercise", "tape_promote" if "PROMOTE" in cid else "tape_respool", more_work=False)
-        event("exercise", "write", lba=CHUNK_BASE + 5*1024)
+        promote = "PROMOTE" in cid
+        total = 2 * CF + 100
+        def chunks(first, n):
+            for c in range(first, first + n):
+                event("exercise", "write", lba=CHUNK_BASE + c * 1024, count=1024)
+            event("exercise", "flush")
+        def commit(name, side, seq, runs):
+            b = bytes.fromhex(slot(side, seq, runs))
+            base_lba = {"A0": 8, "A1": 136, "B0": 264, "B1": 392}[name]
+            event("exercise", "write", lba=base_lba + 1, data=b[BLOCK:2 * BLOCK].hex()); event("exercise", "flush")
+            event("exercise", "write", lba=base_lba, data=b[:BLOCK].hex()); event("exercise", "flush")
+        def sbw(**kw):
+            data = superblock(**kw)
+            event("exercise", "write", lba=N - 1, data=data); event("exercise", "flush")
+            event("exercise", "write", lba=0, data=data); event("exercise", "flush")
+        if promote:
+            chunks(5, 3)                                   # phase 1: S = free_next = 5
+            commit("A1", 0, 22, [(5, 0, total)])
+            commit("B1", 1, 23, [(5, 0, total)])
+            sbw(stage=1, staging=5, high=8, generation=11)
+            chunks(0, 3)                                   # phase 2: [0, len) now disjoint
+            commit("A0", 0, 24, [(0, 0, total)])
+            commit("B0", 1, 25, [(0, 0, total)])
+            sbw(stage=0, staging=0, high=3, generation=12)
+        else:
+            chunks(5, 3)                                   # pass 1: lowest lawful run >= H
+            commit("B1", 1, 22, [(5, 0, total)])
+            chunks(2, 3)                                   # pass 2: into the run pass 1 freed
+            commit("B0", 1, 23, [(2, 0, total)])
+        call("exercise", "tape_promote" if promote else "tape_respool", more_work=False)
     return o
 
 
