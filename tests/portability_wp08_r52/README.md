@@ -35,6 +35,6 @@ This package does not inspect or accept Product implementation.
 | Engine API | `383817326705d98bda6a96480f8185e911113927d35c53c02d1458adb72baea6` |
 | acceptance | `ae77d13c868fd39a882b5bd3ebf459557792432ce895bc7bf58be7fc2c33825d` |
 
-Normative anchors are Engine API Â§Â§6.1â€“6.3 and Â§8.  The oracle uses unbounded
+Normative anchors are Engine API §§6.1–6.3 and §8.  The oracle uses unbounded
 Python integers to avoid inheriting C signed-shift, overflow, or rounding
 behavior.  `plan.json` and the manifest bind the exact census and source.
