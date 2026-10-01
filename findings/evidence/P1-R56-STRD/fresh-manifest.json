@@ -1,0 +1,13 @@
+{
+  "adapter_kind": "product",
+  "adapter_source_sha256": "18ed238934df525909d886c8d4d6f2c15a05f351a47601b72e67c837ef123558",
+  "case_count": 40,
+  "caseset_sha256": "9ee1c5d6083dda0e9fd3f331a56dbc4903d659a157daa91615ff30212101ebea",
+  "evidence_sha256": "81735b11f2183a984d5b1b151b3b14b8ae4bfde028e4d034dd3435f893b4d57e",
+  "product_commit": "f2bff1f93a089e0f46ae3817efc410e1e81564d3",
+  "product_tree": "f3bf97544d57e1d2ab779b0d37d0ed982c260e32",
+  "row1": 12,
+  "row2": 1,
+  "row3": 27,
+  "schema": "strengthen-r55-manifest-v1"
+}

@@ -1,0 +1,9 @@
+clean: 40/40 PASS
+killed v1_copy_block0_only: 10 killed, expected exactly 10 (row 1)
+killed v2_pass2_commit_before_data: 1 killed, expected exactly 1 (row 2)
+killed v3_pass2_below_high_water: 1 killed, expected exactly 1 (row 2)
+killed v4_superblock_write: 1 killed, expected exactly 1 (row 2)
+killed v5_a1_valid_seq5: 27 killed, expected exactly 27 (row 3)
+  A0 header[0:24] 544150454944580101000000000000000000000000000000
+killed v6_a0_not_empty: 27 killed, expected exactly 27 (row 3)
+ALL CONTROLS ON EXACT SETS

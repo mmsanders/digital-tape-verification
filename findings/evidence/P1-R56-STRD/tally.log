@@ -1,0 +1,19 @@
+rows {1: 12, 2: 1, 3: 27}
+mount {'fn': 'tape_mount', 'result': 'TAPE_OK', 'side': 'A'}
+calls [{'block_budget': 64, 'fn': 'tape_respool', 'more_work': False, 'result': 'TAPE_OK'}]
+  write 6144 1 
+  flush None None 
+  write 393 1 data
+  flush None None 
+  write 392 1 data
+  flush None None 
+  write 4096 1 
+  flush None None 
+  write 265 1 data
+  flush None None 
+  write 264 1 data
+  flush None None 
+mount_B_after {'info': {'entry_count': 1, 'total_frames': 20}, 'pcm_sha256': '02ecadf9378a4b8a4e9f7ff7e806c493dea00ede1820c11f0041516882ca3fd6', 'result': 'TAPE_OK'}
+row1 [(128, 'blank', 'TAPE_OK', {'entry_count': 1, 'total_frames': 128}, {'entry_count': 1, 'total_frames': 128}), (128, 'healthy_pair', 'TAPE_OK', {'entry_count': 1, 'total_frames': 128}, {'entry_count': 1, 'total_frames': 128}), (129, 'blank', 'TAPE_OK', {'entry_count': 1, 'total_frames': 129}, {'entry_count': 1, 'total_frames': 129}), (129, 'healthy_pair', 'TAPE_OK', {'entry_count': 1, 'total_frames': 129}, {'entry_count': 1, 'total_frames': 129}), (1000, 'blank', 'TAPE_OK', {'entry_count': 1, 'total_frames': 1000}, {'entry_count': 1, 'total_frames': 1000}), (1000, 'healthy_pair', 'TAPE_OK', {'entry_count': 1, 'total_frames': 1000}, {'entry_count': 1, 'total_frames': 1000}), (131072, 'blank', 'TAPE_OK', {'entry_count': 1, 'total_frames': 131072}, {'entry_count': 1, 'total_frames': 131072}), (131072, 'healthy_pair', 'TAPE_OK', {'entry_count': 1, 'total_frames': 131072}, {'entry_count': 1, 'total_frames': 131072}), (131073, 'blank', 'TAPE_OK', {'entry_count': 1, 'total_frames': 131073}, {'entry_count': 1, 'total_frames': 131073}), (131073, 'healthy_pair', 'TAPE_OK', {'entry_count': 1, 'total_frames': 131073}, {'entry_count': 1, 'total_frames': 131073}), (262221, 'blank', 'TAPE_OK', {'entry_count': 1, 'total_frames': 262221}, {'entry_count': 1, 'total_frames': 262221}), (262221, 'healthy_pair', 'TAPE_OK', {'entry_count': 1, 'total_frames': 262221}, {'entry_count': 1, 'total_frames': 262221})]
+row3 raw_before keys [('A0', 'A1', 'B0', 'B1', 'mirror', 'primary')]
+row3 A0 headers distinct 1 A1 distinct 1
