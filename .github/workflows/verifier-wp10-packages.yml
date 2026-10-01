@@ -1,6 +1,6 @@
 name: WP-10 verifier packages
 
-# The draft8 workflow only globs tests/*_draft8. The R53/R54 WP-10 packages (and the #126 and #129 packages,
+# The draft8 workflow only globs tests/*_draft8. The R53/R54 WP-10 packages (and the #126, #129 and #130 packages,
 # which reuse the #118 builders) import pinned models from their siblings, so they are exercised here: ledger/backlog audit, self-test, and offline replay of
 # the committed synthetic evidence against its manifest.
 
@@ -10,6 +10,7 @@ on:
       - 'tests/wp10_*/**'
       - 'tests/strengthen_r55/**'
       - 'tests/wp08_mapping_r56/**'
+      - 'tests/wp09_gaps_r56/**'
       - 'tests/capacity_wp09_r52/**'
       - 'tests/crash_core_draft8/**'
       - 'tests/format_dup_identity_draft8/**'
@@ -20,6 +21,7 @@ on:
       - 'tests/wp10_*/**'
       - 'tests/strengthen_r55/**'
       - 'tests/wp08_mapping_r56/**'
+      - 'tests/wp09_gaps_r56/**'
       - 'tests/capacity_wp09_r52/**'
       - '.github/workflows/verifier-wp10-packages.yml'
   workflow_dispatch:
@@ -32,7 +34,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [wp10_backlog_r53, wp10_final_r54, strengthen_r55, wp08_mapping_r56]
+        package: [wp10_backlog_r53, wp10_final_r54, strengthen_r55, wp08_mapping_r56, wp09_gaps_r56]
     steps:
       - uses: actions/checkout@v4
       - run: python3 --version
