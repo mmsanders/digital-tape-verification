@@ -1,0 +1,12 @@
+exhaustion_candidate last fallback zero hits P
+   ('flush_required', 'P') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
+   ('write_through', 'P') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
+exhaustion_equal_divergent last fallback zero hits P
+   ('flush_required', 'P') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
+   ('write_through', 'P') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
+exhaustion_mirror_only last fallback zero hits M
+   ('flush_required', 'M') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
+   ('write_through', 'M') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
+exhaustion_mirror_candidate last fallback zero hits M
+   ('flush_required', 'M') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
+   ('write_through', 'M') pairs 85 L1 range (1, 12) L2 for L1=1: [1, 2, 3] ... 12 | every pair has L1<=L2<=12: False
