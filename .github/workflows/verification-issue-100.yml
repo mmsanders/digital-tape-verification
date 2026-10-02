@@ -1,0 +1,34 @@
+name: Verification issue 100 two-toolchain evidence
+
+on:
+  push:
+    branches:
+      - verification/issue-100-playback-portability
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  evidence:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate exact GCC and Clang evidence
+        working-directory: tests/portability_wp08_r52
+        run: python3 selftest.py --gcc gcc --clang clang --emit ci-evidence
+      - name: Offline replay
+        working-directory: tests/portability_wp08_r52
+        run: |
+          python3 replay.py ci-evidence
+          (cd ci-evidence && sha256sum -c SHA256SUMS)
+          diff -r evidence ci-evidence
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wp08-r52-two-toolchain-evidence
+          path: tests/portability_wp08_r52/ci-evidence
+          if-no-files-found: error
+          retention-days: 1
