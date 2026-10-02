@@ -1,0 +1,18 @@
+draft9 healthy_pair: one-int violations 0; distinct first states 87; two-int images 357396; two-int violations 0
+draft9 mirror_only: one-int violations 0; distinct first states 128; two-int images 525824; two-int violations 0
+draft9 generation_zero: one-int violations 0; distinct first states 128; two-int images 525824; two-int violations 0
+draft9 v2_only: one-int violations 0; distinct first states 129; two-int images 529932; two-int violations 0
+draft9 equal_divergent: one-int violations 0; distinct first states 189; two-int images 776412; two-int violations 0
+draft9 exhaustion_candidate: one-int violations 0; distinct first states 221; two-int images 653172; two-int violations 132
+   two-int violations by (mode, sb write ordinal, landed): [('flush_required', 10, 1), ('flush_required', 10, 2), ('flush_required', 10, 3), ('flush_required', 10, 4), ('flush_required', 10, 5), ('flush_required', 10, 6)] ... total 132
+draft9 exhaustion_equal_divergent: one-int violations 0; distinct first states 223; two-int images 659334; two-int violations 132
+   two-int violations by (mode, sb write ordinal, landed): [('flush_required', 10, 1), ('flush_required', 10, 2), ('flush_required', 10, 3), ('flush_required', 10, 4), ('flush_required', 10, 5), ('flush_required', 10, 6)] ... total 132
+draft9 blank: one-int violations 0; distinct first states 123; two-int images 349180; two-int violations 0
+draft9 exhaustion_mirror_only: one-int violations 0; distinct first states 172; two-int images 451880; two-int violations 132
+   two-int violations by (mode, sb write ordinal, landed): [('flush_required', 9, 1), ('flush_required', 9, 2), ('flush_required', 9, 3), ('flush_required', 9, 4), ('flush_required', 9, 5), ('flush_required', 9, 6)] ... total 132
+draft9 exhaustion_mirror_candidate: one-int violations 0; distinct first states 221; two-int images 653172; two-int violations 132
+   two-int violations by (mode, sb write ordinal, landed): [('flush_required', 9, 1), ('flush_required', 9, 2), ('flush_required', 9, 3), ('flush_required', 9, 4), ('flush_required', 9, 5), ('flush_required', 9, 6)] ... total 132
+draft9 residue_primary_torn: one-int violations 0; distinct first states 99; two-int images 250588; two-int violations 0
+draft9 residue_mirror_torn: one-int violations 0; distinct first states 99; two-int images 299884; two-int violations 0
+draft9 residue_foreign: one-int violations 0; distinct first states 1051; two-int images 3208348; two-int violations 0
+draft9 residue_ff_erased: one-int violations 0; distinct first states 1055; two-int images 3220672; two-int violations 0

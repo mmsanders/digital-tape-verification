@@ -1,0 +1,14 @@
+draft10 healthy_pair: one-int violations 0; distinct first states 87; two-int images 357396; two-int violations 0
+draft10 mirror_only: one-int violations 0; distinct first states 128; two-int images 525824; two-int violations 0
+draft10 generation_zero: one-int violations 0; distinct first states 128; two-int images 525824; two-int violations 0
+draft10 v2_only: one-int violations 0; distinct first states 129; two-int images 529932; two-int violations 0
+draft10 equal_divergent: one-int violations 0; distinct first states 189; two-int images 776412; two-int violations 0
+draft10 exhaustion_candidate: one-int violations 0; distinct first states 221; two-int images 844194; two-int violations 0
+draft10 exhaustion_equal_divergent: one-int violations 0; distinct first states 223; two-int images 852410; two-int violations 0
+draft10 blank: one-int violations 0; distinct first states 123; two-int images 441610; two-int violations 0
+draft10 exhaustion_mirror_only: one-int violations 0; distinct first states 172; two-int images 642902; two-int violations 0
+draft10 exhaustion_mirror_candidate: one-int violations 0; distinct first states 221; two-int images 844194; two-int violations 0
+draft10 residue_primary_torn: one-int violations 0; distinct first states 170; two-int images 634686; two-int violations 0
+draft10 residue_mirror_torn: one-int violations 0; distinct first states 170; two-int images 634686; two-int violations 0
+draft10 residue_foreign: one-int violations 0; distinct first states 1143; two-int images 4631770; two-int violations 0
+draft10 residue_ff_erased: one-int violations 0; distinct first states 1147; two-int images 4648202; two-int violations 0
