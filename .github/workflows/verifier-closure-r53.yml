@@ -1,0 +1,43 @@
+name: Verifier R53 closure packages
+
+on:
+  pull_request:
+    paths:
+      - 'tests/*_r53/**'
+      - 'tests/*_draft8/**'
+      - '.github/workflows/verifier-closure-r53.yml'
+  push:
+    branches:
+      - 'verification/issue-104-*'
+      - 'verification/issue-105-*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  closure:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit, self-test and offline replay every R53 closure package
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          packages=(tests/*_r53)
+          [ "${#packages[@]}" -gt 0 ] || { echo "::error::no R53 packages"; exit 1; }
+          python3 --version
+          for package in "${packages[@]}"; do
+            echo "::group::${package}"
+            cd "${package}"
+            python3 audit.py
+            python3 selftest.py
+            adapter_sha=$(sha256sum synthetic_adapter.py | cut -c1-64)
+            python3 replay.py evidence/synthetic/observations.jsonl.gz \
+              --manifest evidence/synthetic/manifest.json \
+              --adapter-kind synthetic --adapter-source-sha "${adapter_sha}"
+            cmp <(python3 synthetic_adapter.py | gunzip) <(gunzip -c evidence/synthetic/observations.jsonl.gz)
+            cd - >/dev/null
+            echo "::endgroup::"
+          done
