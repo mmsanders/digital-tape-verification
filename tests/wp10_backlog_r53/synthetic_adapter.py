@@ -2,6 +2,8 @@
 """Synthetic public-observation emitter for WP-10 backlog rows 1-3. Verifier self-test only."""
 from __future__ import annotations
 
+import copy
+import functools
 import gzip
 import hashlib
 import json
@@ -15,6 +17,9 @@ MUTANTS = {
     "layout_preserving": 1, "fragment_order": 1,
     # row 2
     "frontier_other_generation": 2, "ignores_a_high_water": 2, "format_empty_b_frontier": 2,
+    # row 2, C69 snapshot binding (#124): real post-crash divergences the corrected binding must still kill
+    "c69_post_metadata_diverges": 2, "c69_post_chunk_diverges": 2, "c69_pre_metadata_drift": 2,
+    "c69_setup_alters_live_chunk": 2,
     # row 3
     "service_writes_live_chunk": 3, "service_commits_index": 3, "service_missing_final_flush": 3,
     "frontier_counts_uncommitted_audio": 3,
@@ -58,6 +63,44 @@ def row1(case, mutant):
     return obs
 
 
+def setup_audio_image(image):
+    """Lawful record setup: tape_service has written the 384 fed frames into chunk 2 before commit."""
+    img = bytearray(image)
+    for k, lba in enumerate(O.REC_BLOCKS):
+        img[lba * O.C.fixture.BLOCK:(lba + 1) * O.C.fixture.BLOCK] = bytes(
+            ((i * 29 + 7 * k + 3) & 0xFF) for i in range(O.C.fixture.BLOCK))
+    return bytes(img)
+
+
+@functools.lru_cache(maxsize=None)
+def setup_chunk2_sha256(variant):
+    img = setup_audio_image(O.C.fixture.fixture_bytes("record_commit", variant))
+    return O.C.media.compact_snapshot(img)["chunk_sha256"]["2"]
+
+
+def _flip(hex_text):
+    return ("0" if hex_text[0] != "0" else "1") + hex_text[1:]
+
+
+def c69_snapshot_fields(case_index, mutant):
+    c = O._c69_cases()[case_index]
+    fixture = O.C.oracle._fixture_snapshot(c)
+    pre = copy.deepcopy(fixture)
+    if c["family"] == "record_commit":
+        pre["chunk_sha256"]["2"] = setup_chunk2_sha256(c["variant"])
+        if mutant == "c69_setup_alters_live_chunk":
+            pre["chunk_sha256"]["0"] = _flip(pre["chunk_sha256"]["0"])
+    post = O.C.oracle.expected_snapshot(c, pre)   # simulated from the observed pre-state, as C69 does
+    if mutant == "c69_post_metadata_diverges":
+        post["slots"]["B1"] = _flip(post["slots"]["B1"])
+    if mutant == "c69_post_chunk_diverges":
+        post["chunk_sha256"]["0"] = _flip(post["chunk_sha256"]["0"])
+    if mutant == "c69_pre_metadata_drift":
+        pre["primary_hex"] = _flip(pre["primary_hex"])
+    return {"pre_metadata_sha256": O.c69_metadata_sha256(pre), "pre_chunk_sha256": pre["chunk_sha256"],
+            "post_metadata_sha256": O.c69_metadata_sha256(post), "post_chunk_sha256": post["chunk_sha256"]}
+
+
 def row2(case, mutant):
     exp = O.row2_expectation(case["campaign"], case["case_index"])
     free = exp["free_chunks"]
@@ -67,10 +110,12 @@ def row2(case, mutant):
             free = 5 - 2 if free == 5 - 3 else 5 - 3
         if mutant == "ignores_a_high_water" and c["family"] in ("record_commit", "reset_b"):
             free += 1
-    elif mutant == "format_empty_b_frontier" and free == 4:
-        free = 3
-    return {"campaign": case["campaign"], "case_index": case["case_index"],
-            "post_snapshot_sha256": exp["post_snapshot_sha256"],
+        snapshots = c69_snapshot_fields(case["case_index"], mutant)
+    else:
+        if mutant == "format_empty_b_frontier" and free == 4:
+            free = 3
+        snapshots = {"post_snapshot_sha256": exp["post_snapshot_sha256"]}
+    return {"campaign": case["campaign"], "case_index": case["case_index"], **snapshots,
             "remount": {"side": exp["side"], "result": exp["result"], "total_chunks": exp["total_chunks"],
                         "free_chunks": free}}
 

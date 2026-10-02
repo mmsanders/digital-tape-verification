@@ -1,0 +1,6 @@
+RS-TWOPASS [('write', 5120), ('flush', None), ('write', 393), ('flush', None), ('write', 392), ('flush', None), ('write', 4096), ('flush', None), ('write', 265), ('flush', None), ('write', 264), ('flush', None)]
+RS-REFERENCES-A [('write', 4096), ('flush', None), ('write', 393), ('flush', None), ('write', 392), ('flush', None)]
+RS-FRAGMENTED [('write', 4096), ('flush', None), ('write', 393), ('flush', None), ('write', 392), ('flush', None), ('write', 3072), ('flush', None), ('write', 265), ('flush', None), ('write', 264), ('flush', None)]
+RS-CHUNK-CROSSING [('write', 6144), ('flush', None), ('write', 393), ('flush', None), ('write', 392), ('flush', None), ('write', 4096), ('flush', None), ('write', 265), ('flush', None), ('write', 264), ('flush', None)]
+RS-ONE-COMMIT [('write', 5120), ('flush', None), ('write', 393), ('flush', None), ('write', 392), ('flush', None)]
+floor holds on 5 Product row-3 clean traces

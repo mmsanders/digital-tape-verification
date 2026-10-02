@@ -1,0 +1,2 @@
+service reads one block per call: PASS 62
+service fills a 4096-frame window: PASS 62

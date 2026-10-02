@@ -1,0 +1,10 @@
+{
+  "adapter_kind": "product",
+  "adapter_source_sha256": "05d906fb14f224c77cd721cccfdc3be466faed0b0bcf73a02d98ad9f539098f3",
+  "case_count": 7,
+  "evidence_sha256": "5e611991603a66b9c5b78d310b2104df827f41564eaa2d960d1aac8bb18f7c0e",
+  "plan_sha256": "55e36eac067f3780789592bf8acffdb8860fd77e1a5a963be266ba35482497dc",
+  "product_commit": "c126515d631338b63798613025985f73c1a8d355",
+  "product_tree": "2a25a33c95f3e821640cf24abd31924b28404e58",
+  "schema": "wp12-r53-manifest-v1"
+}

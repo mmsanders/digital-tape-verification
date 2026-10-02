@@ -1,0 +1,18 @@
+{
+  "adapter_kind": "product",
+  "adapter_source_sha256": "726b04532a826b8246a1c86ea048fcd2fe3dafb3efb6b77005b71fd53dcedf19",
+  "by_mode": {
+    "flush_required": 28766,
+    "write_through": 28766
+  },
+  "case_count": 57539,
+  "caseset_sha256": "72717654d563905b8e76c79959757b0ae625a3f2353944c2818baf35ca83bf0e",
+  "crash_cases": 57532,
+  "evidence_sha256": "cbe3691a5d24a9a86056286b8fa1cdb0110a62a52cd49a6b62edd72427cb3438",
+  "findings": {
+    "blank_torn_magic_crc": 0
+  },
+  "product_commit": "691fbdb1bf3bf47cacb52b9c46947962f60e4dd2",
+  "product_tree": "523767cdb033b5acefe84bd48d2c1721824bcfe4",
+  "schema": "wp10-r53-manifest-v1"
+}

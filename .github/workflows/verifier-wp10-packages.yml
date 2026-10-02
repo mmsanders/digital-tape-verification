@@ -1,0 +1,66 @@
+name: WP-10 verifier packages
+
+# The draft8 workflow only globs tests/*_draft8. The R53/R54 WP-10 packages (and the #126, #129 and #130 packages,
+# which reuse the #118 builders) import pinned models from their siblings, so they are exercised here: ledger/backlog audit, self-test, and offline replay of
+# the committed synthetic evidence against its manifest.
+
+on:
+  pull_request:
+    paths:
+      - 'tests/wp10_*/**'
+      - 'tests/strengthen_r55/**'
+      - 'tests/wp08_mapping_r56/**'
+      - 'tests/wp09_gaps_r56/**'
+      - 'tests/capacity_wp09_r52/**'
+      - 'tests/crash_core_draft8/**'
+      - 'tests/format_dup_identity_draft8/**'
+      - '.github/workflows/verifier-wp10-packages.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tests/wp10_*/**'
+      - 'tests/strengthen_r55/**'
+      - 'tests/wp08_mapping_r56/**'
+      - 'tests/wp09_gaps_r56/**'
+      - 'tests/capacity_wp09_r52/**'
+      - '.github/workflows/verifier-wp10-packages.yml'
+  workflow_dispatch:
+
+jobs:
+  wp10-package:
+    name: ${{ matrix.package }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [wp10_backlog_r53, wp10_final_r54, strengthen_r55, wp08_mapping_r56, wp09_gaps_r56]
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 --version
+      - name: Audit
+        working-directory: tests/${{ matrix.package }}
+        run: python3 -B audit.py
+      - name: Self-test
+        working-directory: tests/${{ matrix.package }}
+        run: python3 -B selftest.py
+      - name: Offline replay of committed synthetic evidence
+        working-directory: tests/${{ matrix.package }}
+        run: |
+          set -euo pipefail
+          src=$(python3 -c "import hashlib;print(hashlib.sha256(open('synthetic_adapter.py','rb').read().replace(b'\r\n',b'\n')).hexdigest())")
+          python3 -B replay.py evidence/synthetic/observations.jsonl.gz \
+            --manifest evidence/synthetic/manifest.json --adapter-kind synthetic --adapter-source-sha "$src"
+
+  capacity-wp09-r52:
+    name: capacity_wp09_r52 (#99, #126 maintenance)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test
+        working-directory: tests/capacity_wp09_r52
+        run: python3 -B selftest.py
+      - name: Committed synthetic evidence matches its checksums
+        working-directory: tests/capacity_wp09_r52/evidence
+        run: sha256sum -c SHA256SUMS

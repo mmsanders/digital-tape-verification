@@ -1,0 +1,2 @@
+PASS 41 vectors under unchanged oracle; GCC==Clang; stream 8a2369d663a06cad91c205397d6a3a4e0af81706129328843b08613b09bcdd8b
+{'block_count=12289': 41, 'mount reads both sb': 41, 'service reads': 39, 'writes/flushes': 0, 'seek/rate/render callbacks': 0, 'service calls': 41}

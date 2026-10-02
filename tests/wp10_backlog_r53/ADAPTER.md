@@ -3,7 +3,7 @@
 Use public calls only and a caller-owned fault-injecting device. Do not import this oracle, read
 private engine state, or emit verdicts: the oracle rejects `verdict`, `passed`, `permitted`,
 `expected`, `outcome_ok`, `selected_copy`, `row_ok`, `free_next_ok` and `frontier`. Emit one
-`wp10-backlog-r53-observation-v1` object per `oracle.iter_cases()` entry, in order, as gzip JSONL.
+`wp10-backlog-r53-observation-v2` object per `oracle.iter_cases()` entry, in order, as gzip JSONL.
 Every object carries `schema`, `index`, `row` and `kind`.
 
 ## Row 1: fragmented dup onto a smaller destination
@@ -28,9 +28,22 @@ existing, already-disposed Product binding. After the fresh remount (C69: Side B
 Emit:
 
 - `campaign` and `case_index`;
-- `post_snapshot_sha256`: SHA-256 of that campaign's compact post-crash snapshot object, as canonical
-  compact sorted-key JSON;
-- `remount: {side, result, total_chunks, free_chunks}`.
+- `remount: {side, result, total_chunks, free_chunks}`;
+- for **R29-B**, unchanged: `post_snapshot_sha256`, the SHA-256 of that campaign's compact post-crash
+  snapshot object, as canonical compact sorted-key JSON;
+- for **C69** (changed in v2, #124), four fields taken from the accepted campaign's own compact
+  `pre_snapshot` (after setup, before the crash-scoped operation) and `post_snapshot` (the durable image
+  before remount), both `WP10-CORE-SNAPSHOT-1`:
+  - `pre_metadata_sha256` and `post_metadata_sha256`: SHA-256 of the canonical compact sorted-key JSON of
+    `{"primary_hex", "mirror_hex", "slots"}` copied from that snapshot;
+  - `pre_chunk_sha256` and `post_chunk_sha256`: that snapshot's `chunk_sha256` object, verbatim.
+
+  `image_sha256` is not emitted or compared, as in the accepted campaign. C69 `post_snapshot_sha256` is
+  no longer read.
+
+The C69 check is the accepted campaign's own: pre-operation metadata equals the fixture, and setup may
+change only the pending chunk 2 of `record_commit`; post-crash metadata equals the campaign's simulation
+from that pre-state; post chunk digests equal pre chunk digests.
 
 ## Row 3: recording service writes
 

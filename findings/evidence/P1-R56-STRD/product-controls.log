@@ -1,0 +1,14 @@
+row1 PASS 12
+row2 PASS 1
+row3 PASS 27
+failing cases: 0
+killed   case 0/row1_block_not_copied: raw destination frames [0, total_frames) differ from the source timeline (a block was not copied)
+killed   case 0/row1_side_a_wrong_audio: Side A of the copy does not render the source's audio
+killed   case 0/row1_side_b_extra_entry: Side B info {'entry_count': 2, 'total_frames': 128}
+killed   case 12/row2_pass2_declines: (c) pass 2 did not run and commit: B commits ['B1'] (a lawful lower run exists after pass 1)
+killed   case 12/row2_pass2_onto_live: (b) chunk write to [4] intersects the then-live set [0, 4]
+killed   case 12/row2_remount_wrong_audio: re-spooled Side B does not render bit-identically
+killed   case 13/row3_a0_at_sequence_3: fixture A0 is not an empty Side-A index at sequence 1
+killed   case 13/row3_a1_valid: fixture A1 is structurally valid
+killed   case 13/row3_a_slots_missing: raw_before must carry both superblocks and all four slots
+9/9 Product-evidence controls killed

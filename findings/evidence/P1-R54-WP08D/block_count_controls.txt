@@ -1,0 +1,3 @@
+block_count+1: 41/41 vectors rejected (e.g. tape_mount did not read both superblock copies)
+block_count-1: 41/41 vectors rejected (e.g. tape_mount read [12288, 12289) outside the 12288-block fixture or failed)
+block_count+4096: 41/41 vectors rejected (e.g. tape_mount did not read both superblock copies)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent oracle for WP-10 backlog rows 1-3 (Verification #110, DRAFT-9)."""
+"""Independent oracle for WP-10 backlog rows 1-3 (Verification #110, DRAFT-9; row-2 C69 corrected in #124)."""
 from __future__ import annotations
 
 import functools
@@ -9,7 +9,9 @@ import json
 import deps
 import dupfrag as D
 
-SCHEMA = "wp10-backlog-r53-observation-v1"
+# v2 (#124): row-2 C69 observations carry pre/post metadata digests and chunk digests instead of
+# relying on a whole-snapshot hash. Rows 1 and 3 and row-2 R29-B are unchanged.
+SCHEMA = "wp10-backlog-r53-observation-v2"
 MODES = ("flush_required", "write_through")
 RECORD_MODES = ("overwrite", "overdub", "splice")
 ROW1, ROW2, ROW3 = (D.ROW, "WP10.universal.free_next_after_every_injection",
@@ -154,12 +156,23 @@ def _c69_cases():
     return {c["case_index"]: c for c in C.planner.iter_cases()}
 
 
+def c69_metadata_sha256(snapshot):
+    """SHA-256 of a C69 compact snapshot's metadata parts: the accepted `_raw_parts` minus the chunk digests
+    (which row 2 carries separately) and never `image_sha256`, which the accepted oracle does not compare."""
+    return sha(canonical({k: snapshot[k] for k in ("primary_hex", "mirror_hex", "slots")}).encode())
+
+
 def c69_expectation(case_index):
     case = _c69_cases()[case_index]
-    post = C.oracle.expected_snapshot(case, C.oracle._fixture_snapshot(case))
+    fixture = C.oracle._fixture_snapshot(case)
+    # The C69 transactions write only superblock/index blocks, so the post-crash metadata depends only on the
+    # pre-operation metadata, which check_row2 requires to equal the fixture's (as the accepted campaign does).
+    post = C.oracle.expected_snapshot(case, fixture)
     side = "A" if case["family"] == "reset_b" and case["variant"] == "degraded_equal" else "B"
     st = C.media.inspect_snapshot(post, requested_side=side)
-    out = {"post_snapshot_sha256": sha(canonical(post).encode()), "side": side, "result": st["mount_result"],
+    out = {"fixture_metadata_sha256": c69_metadata_sha256(fixture), "fixture_chunk_sha256": fixture["chunk_sha256"],
+           "setup_may_write_chunk": "2" if case["family"] == "record_commit" else None,
+           "post_metadata_sha256": c69_metadata_sha256(post), "side": side, "result": st["mount_result"],
            "total_chunks": C.fixture.TOTAL_CHUNKS}
     if st["mount_result"] == "TAPE_OK":
         sb = st["superblock"]["selected"]
@@ -192,11 +205,38 @@ def row2_expectation(campaign, case_index):
     return c69_expectation(case_index) if campaign == "C69" else r29b_expectation(case_index)
 
 
+def _chunk_digests(value, keys, what):
+    need(isinstance(value, dict) and set(value) == set(keys), f"{what}: chunk digest set {value!r}")
+    need(all(isinstance(v, str) and len(v) == 64 for v in value.values()), f"{what}: chunk digest values")
+    return value
+
+
+def _check_c69_snapshots(obs, exp):
+    """Bind exactly what the accepted C69 campaign binds (crash_core_draft8/oracle.py `validate_case`):
+    `_expected_pre_metadata(case, pre)`, `_raw_parts(post) == _raw_parts(expected_snapshot(case, pre))` with
+    `pre` the observed pre-operation snapshot, and `require_chunk_hashes_equal(pre, post)`."""
+    keys = exp["fixture_chunk_sha256"]
+    pre_chunks = _chunk_digests(obs.get("pre_chunk_sha256"), keys, "pre-operation snapshot")
+    post_chunks = _chunk_digests(obs.get("post_chunk_sha256"), keys, "post-crash snapshot")
+    need(obs.get("pre_metadata_sha256") == exp["fixture_metadata_sha256"],
+         "pre-operation durable metadata differs from the accepted campaign's fixture")
+    lawful = exp["setup_may_write_chunk"]
+    for chunk, digest in keys.items():
+        if chunk != lawful:
+            need(pre_chunks[chunk] == digest, f"setup altered chunk {chunk}, which the accepted campaign forbids")
+    need(obs.get("post_metadata_sha256") == exp["post_metadata_sha256"],
+         "post-crash durable metadata is not the accepted campaign's simulation from the observed pre-state")
+    need(post_chunks == pre_chunks, "chunk-store digest set changed during a metadata-scoped crash")
+
+
 def check_row2(case, obs):
     exp = row2_expectation(case["campaign"], case["case_index"])
     need(obs.get("campaign") == case["campaign"] and obs.get("case_index") == case["case_index"], "campaign case")
-    need(obs.get("post_snapshot_sha256") == exp["post_snapshot_sha256"],
-         "post-crash durable snapshot is not the accepted campaign's state for this injection")
+    if case["campaign"] == "C69":
+        _check_c69_snapshots(obs, exp)
+    else:
+        need(obs.get("post_snapshot_sha256") == exp["post_snapshot_sha256"],
+             "post-crash durable snapshot is not the accepted campaign's state for this injection")
     m = obs.get("remount")
     need(isinstance(m, dict) and m.get("side") == exp["side"] and m.get("result") == exp["result"], "remount")
     need(m.get("total_chunks") == exp["total_chunks"], "total_chunks")

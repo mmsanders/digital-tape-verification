@@ -1,0 +1,9 @@
+{
+  "cc": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "engine_archive_sha256": "dceeb377648fec869cfc5cc04d4996d6a0f1481c237493045660cc61e05d6420",
+  "head": "4f062b76c47ca53a643a60827ef652c5ad20c065",
+  "platform": "Linux-6.18.44-fc-v50-x86_64-with-glibc2.39",
+  "product_commit": "4f062b76c47ca53a643a60827ef652c5ad20c065",
+  "product_tree": "ec6463d8fbaeb9f8f250377f67828e4e55646b3d",
+  "python": "3.11.15"
+}

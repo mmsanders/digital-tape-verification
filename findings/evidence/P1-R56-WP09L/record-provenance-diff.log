@@ -1,0 +1,6 @@
+/home/user/digital-tape-verification/tests/record_draft8/evidence/p1-r25-product/observations.jsonl a88850df6554df973fdda6071f65184fcd9012b8886c253dafbff4fc9e0966fc
+/tmp/claude-0/-home-user-digital-tape-verification/ab53a79a-d174-5de2-be7a-fce70cbabbe0/scratchpad/r130/c461.jsonl c461e9e00d47e6ae9c47827fbba68a2a796aed9b418f3aad94c6b34e3591db8f
+records 26 26 same case order True
+DIFF WP09-ARMED-BUSY .errors (['armed BUSY/abort path issued block I/O'], [])
+DIFF WP09-ARMED-BUSY .expected_blocked (True, False)
+engine trees: 9d3649d8 0d98ecb09f768309a951c31c3b5421b8699a25c2 e4858b8 0d98ecb09f768309a951c31c3b5421b8699a25c2 main 81ad8ec2a35506042a44cb031726291f4bcd19be
