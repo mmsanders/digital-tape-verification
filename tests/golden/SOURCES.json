@@ -69,5 +69,6 @@
       "frames": 44100,
       "gain": "unity"
     }
-  ]
+  ],
+  "download_user_agent": "Digital-Tape-Verification/1.0 (https://github.com/mmsanders/Digital-Tape-Verification; verifier fixture acquisition)"
 }

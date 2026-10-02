@@ -22,6 +22,8 @@ canonical WAV, identified by its hash, is the authoritative input. Future decode
 output never replaces it. `canonicalize.py` is an archival reproduction/check,
 and refuses conversion bytes with a different hash. Source fetching and release
 publication run in GitHub CI because the connector has no release-upload API.
+The identified download User-Agent is recorded in SOURCES.json; generic urllib
+requests receive HTTP 403 from Wikimedia. Exact URLs and hash checks are retained.
 
 Exact conversion per source, with ffmpeg 6.1.1-3ubuntu5 and Python 3.12.14:
 
