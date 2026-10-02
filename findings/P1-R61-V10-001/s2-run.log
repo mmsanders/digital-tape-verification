@@ -1,0 +1,6 @@
+68854 cases
+current engine/ tree 5bbe9b4e51fabf38eaf78c9ed26faf90b0b62495
+assembled 68854 observations: row1 4112, row2 64734, row3 8
+observations.jsonl 71735125 bytes 7491f304d85a78fb17d2668ce660de8ea3991c69a4320a1774c9c9ea55a3396f; gzip 1030914 bytes 934c8c863a173cceec6bea08c4e74bfa7e117beaf21660eb1699b027c172a8a7
+regenerated JSONL is byte-identical to the committed SHA-256
+PASS 68854 observations (row1 4112, row2 64734, row3 8); evidence 934c8c863a173cceec6bea08c4e74bfa7e117beaf21660eb1699b027c172a8a7

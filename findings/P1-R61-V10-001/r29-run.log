@@ -1,0 +1,19 @@
+PASS format/duplicate identity + duplicate long-op evidence 57611 c493e77dff948df48d9c67c51ef4b68f0a61d2e02615b2d08760a594e79dc4e3
+{
+  "adapter-stderr.txt_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "adapter_source_sha256": "341fcf488acfe23995d8135943b952ed9391d0be220bc4d08b53c78e10383b82",
+  "build_log_sha256": null,
+  "engine_archive_sha256": "188e9be1e6c4b7a81061536904f45ff809bc72358bd14fe5d0aff390327f83e1",
+  "failure-reproducer.json_sha256": null,
+  "manifest.json_sha256": "1403f729f196c6ffdf83d8483b9d7641935b4623ed972c9f2e28e051328de609",
+  "product_base": "7910ae3701fbfd94b5ea0558a69a29955da1dd5c",
+  "product_commit": "db31c2919523fa821cf665058f4f883bf7403aae",
+  "product_tree": "c8c19d5cc8db5086b24201f9cbb8eea31fcaf47f",
+  "runner_exit": 0,
+  "summary.json_sha256": "f6c50445689730b10328e57bc19ac52f32bcd6ff8879251eebc0f9b0a1137639",
+  "verifier_import_commit": "69496d184761a1b66d3d921e420f9725bdc6c5d1",
+  "verifier_publication": "50c47c1b9087de52f66d831ef2fe00cc02273087",
+  "verifier_tree": "f76ab23d17beb9212f8ee1d17d3d1875b74abc7d",
+  "worker_binary_sha256": "7b72bda01b1420489bd30f323ccdf099ab8777a506241fd932e5d46ad1bcbb15",
+  "worker_source_sha256": "c6a43b9d2df2668d11e036592142b79738e62502fdd01b974dc90d14b6d318cf"
+}

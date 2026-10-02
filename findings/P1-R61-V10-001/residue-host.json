@@ -1,0 +1,8 @@
+{
+  "cc": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "engine_archive_sha256": "188e9be1e6c4b7a81061536904f45ff809bc72358bd14fe5d0aff390327f83e1",
+  "head": "db31c2919523fa821cf665058f4f883bf7403aae",
+  "jobs": 5,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14"
+}

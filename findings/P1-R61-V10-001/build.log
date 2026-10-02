@@ -1,0 +1,41 @@
+make: Entering directory '/workspace/scratch/aac56db1f108/product/engine'
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/chunks.c -o chunks.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/commit.c -o commit.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/crc32.c -o crc32.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/mount.c -o mount.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/ops.c -o ops.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/play.c -o play.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/promote.c -o promote.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/raw_ops.c -o raw_ops.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/record.c -o record.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/respool.c -o respool.o
+cd ../build/engine/src && cc -I/workspace/scratch/aac56db1f108/product/engine/include -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os -fstack-usage -fcallgraph-info=su,da  \
+    -c /workspace/scratch/aac56db1f108/product/engine/src/tapefs.c -o tapefs.o
+ar rcs ../build/engine/libtape.a ../build/engine/src/chunks.o ../build/engine/src/commit.o ../build/engine/src/crc32.o ../build/engine/src/mount.o ../build/engine/src/ops.o ../build/engine/src/play.o ../build/engine/src/promote.o ../build/engine/src/raw_ops.o ../build/engine/src/record.o ../build/engine/src/respool.o ../build/engine/src/tapefs.o
+cc -Iinclude -Iport -Isrc -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os  -c port/dev_file.c -o ../build/engine/port/dev_file.o
+cc -Iinclude -Iport -Isrc -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os  -c port/dev_sd.c -o ../build/engine/port/dev_sd.o
+cc -Iinclude -Iport -Isrc -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -Os  -c port/dev_sim.c -o ../build/engine/port/dev_sim.o
+ar rcs ../build/engine/libtape_port.a ../build/engine/port/dev_file.o ../build/engine/port/dev_sd.o ../build/engine/port/dev_sim.o
+make: Leaving directory '/workspace/scratch/aac56db1f108/product/engine'
+make: Entering directory '/workspace/scratch/aac56db1f108/product/tests/wp10_residue_adapter'
+rm -rf build
+cc -I../../engine/include -DTAPE_PUBLIC_HEADER='"tape.h"' -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -O2 -Wno-deprecated-declarations wp10res_adapter.c ../../build/engine/libtape.a -lcrypto -o build/wp10res_adapter
+make: Leaving directory '/workspace/scratch/aac56db1f108/product/tests/wp10_residue_adapter'
+make: Entering directory '/workspace/scratch/aac56db1f108/product/tests/wp10_backlog_r54_adapter'
+rm -rf build
+cc -I../../engine/include -DTAPE_PUBLIC_HEADER='"tape.h"' -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -O2 -Wno-deprecated-declarations wp10r54_adapter.c ../../build/engine/libtape.a -lcrypto -o build/wp10r54_adapter
+make: Leaving directory '/workspace/scratch/aac56db1f108/product/tests/wp10_backlog_r54_adapter'
+make: Entering directory '/workspace/scratch/aac56db1f108/product/tests/wp10_final_adapter'
+rm -rf build
+cc -I../../engine/include -DTAPE_PUBLIC_HEADER='"tape.h"' -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -fno-common -g -O2 -Wno-deprecated-declarations wp10f_adapter.c ../../build/engine/libtape.a -lcrypto -o build/wp10f_adapter
+make: Leaving directory '/workspace/scratch/aac56db1f108/product/tests/wp10_final_adapter'

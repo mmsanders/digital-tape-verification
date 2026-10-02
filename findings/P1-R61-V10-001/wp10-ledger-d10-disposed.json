@@ -1,0 +1,638 @@
+{
+  "closure_basis": "Published DRAFT10 ledger closes when residue is bound, S1/S2 rebound and independently disposed; all earlier acceptance is carried within its exact original boundary. This reconciliation becomes effective with the issue-141 PASS disposition. PM product status/integration remains a separate action.",
+  "draft10_delta_sha256": "3d54eccb2b305d7584a3b45a6b31320ee546eb61c0e17ba00d3597835f14f847",
+  "exclusions": [
+    "WP11/listening",
+    "parked hardware",
+    "WP12/WP12a closure",
+    "physical media atomicity",
+    "production release/operations freeze"
+  ],
+  "issue": 141,
+  "open_rows": 0,
+  "product_commit": "db31c2919523fa821cf665058f4f883bf7403aae",
+  "product_tree": "c8c19d5cc8db5086b24201f9cbb8eea31fcaf47f",
+  "rows": [
+    {
+      "cases": "format x 7 raw shapes x 4 SB writes x (before, torn 1..511, after, flush) x 2 modes = 28,784",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.session.format.reusable_superblock_writes",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.format_dup.steps2_3.reusable_stale_slot1",
+      "package_ref": "R53-CLOSURE",
+      "prior_disposition": {
+        "issue": 119,
+        "path": "findings/P1-R54-WP10PD-PR318-DISPOSITION-2026-09-30.md",
+        "sha256": "d32f75b7448b7a8c81a20686b9fe43f4f971336944c24fe0a9b46c55243e707e"
+      },
+      "prior_status": "published; Product binding disposed PASS",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.format_dup.blank_media_table",
+      "package_ref": "R53-CLOSURE",
+      "prior_disposition": {
+        "issue": 119,
+        "path": "findings/P1-R54-WP10PD-PR318-DISPOSITION-2026-09-30.md",
+        "sha256": "d32f75b7448b7a8c81a20686b9fe43f4f971336944c24fe0a9b46c55243e707e"
+      },
+      "prior_status": "published; Product binding disposed PASS",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.session.load.mount_repair_write",
+      "package_ref": "R54-BACKLOG",
+      "prior_disposition": {
+        "issue": 120,
+        "path": "findings/P1-R54-WP10CD-PR330-DISPOSITION-2026-09-30.md",
+        "sha256": "ee110fba580d7b2e150fc706f14aa2155a1aaf9c72c081c77e25c83cb3b9a0fe"
+      },
+      "prior_status": "published; Product binding disposed PASS",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "render/seek/set_rate issue zero block-device calls, so no write boundary exists to inject; R29-B dup render cell asserts zero block events",
+      "evidence": [
+        "R25-TRANSPORT",
+        "R29-B"
+      ],
+      "id": "WP10.session.play_seek_scrub.no_change",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "record commit x 3 modes, 2,056 each",
+      "evidence": [
+        "C69"
+      ],
+      "id": "WP10.session.record_commit.overwrite_overdub_splice",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.session.record_audio_service_writes",
+      "package_ref": "R53-BACKLOG",
+      "prior_disposition": {
+        "issue": 127,
+        "path": "findings/P1-R55-WP10BD-PR335-DISPOSITION-2026-09-30.md",
+        "sha256": "366d0a6818c690627962efca9711b9908d7b9f03b22ad0330c1476b32d135164"
+      },
+      "prior_status": "published; Product binding pending",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "reset B healthy + degraded/equal-sequence (C10-07, C10-08), 2,056 each",
+      "evidence": [
+        "C69"
+      ],
+      "id": "WP10.session.reset_b_incl_degraded_third_outcome",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "V3-003 pass 1 + pass 2 + no-lower-run, every chunk/entry/header write and flush",
+      "evidence": [
+        "R29-C",
+        "C272"
+      ],
+      "id": "WP10.session.respool_both_passes",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-CRASH-01..16 over FRESH alloc, adopt-in-place and S=0 paths",
+      "evidence": [
+        "R29-A",
+        "C272"
+      ],
+      "id": "WP10.session.promote_all_9_3_4_boundaries",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "stage clear via arm/reset B/re-spool, 6,160 each incl. closure",
+      "evidence": [
+        "C69"
+      ],
+      "id": "WP10.session.stage_clear_arm_reset_respool",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "dup x 7 raw shapes x 4 SB writes x 2 modes = 28,784",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.session.duplicate_superblock_writes",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "steps 4 / 5-decline / 9 partner, flush, candidate, flush; before and after each (R29-A-CRASH-04/05)",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.promote.four_point_superblock_writes",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-CRASH-17/18: 3 updates x 4 seeds, 12,336 cases",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.v7_001.two_interruption.promote",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "C10-12/13: 4 seeds x 3 callers x 2 modes x 513, 12,312 cases",
+      "evidence": [
+        "C69"
+      ],
+      "id": "WP10.v7_001.two_interruption.stage_clear",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "every accepted campaign splits exactly 50/50 by mode; this package likewise (28,766 each)",
+      "evidence": [
+        "C69",
+        "R29-A",
+        "R29-B",
+        "R29-C"
+      ],
+      "id": "WP10.v5_010.both_durability_modes",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-CRASH-19 global structural max, running 501..504; C69 degraded reset writes 501 over A=10/B=500",
+      "evidence": [
+        "R29-A",
+        "C69"
+      ],
+      "id": "WP10.v6_003.shared_sequence_base",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "empty re-spool at cartridge_sequence 0xFFFFFFFD: TAPE_OK, zero writes",
+      "evidence": [
+        "R29-C",
+        "R25-RESPOOL"
+      ],
+      "id": "WP10.headroom.empty_respool_0xFFFFFFFD",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "RESUME-at-step-5 decline at 0xFFFFFFFC completes committing no index",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.headroom.resume_step5_decline_0xFFFFFFFC",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "FRESH allocating decline at 0xFFFFFFFB completes phase 1",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.headroom.fresh_decline_0xFFFFFFFB",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A 12 one-short + 2 specials; R29-C one-commit branch exhaustion",
+      "evidence": [
+        "R29-A",
+        "R29-C"
+      ],
+      "id": "WP10.headroom.one_short_converses",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "NOTHING-TO-DO at sequence and sb_generation 0xFFFFFFFE / 0xFFFFFFFF (4 cases)",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.headroom.zero_needed_reserved.promote",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.headroom.zero_needed_reserved.empty_respool_each_counter_each_value",
+      "package_ref": "R54-FINAL",
+      "prior_disposition": {
+        "issue": 128,
+        "path": "findings/P1-R55-WP10FD-PR336-DISPOSITION-2026-09-30.md",
+        "sha256": "9f0fb22a04a7e1372b28ef46341a6bb094e90d2d736da3084ad6d11c2f5ac291"
+      },
+      "prior_status": "published; Product binding pending",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "eight non-zero branches at threshold, 14 one-short refusals incl. sequence 0xFFFFFFFC",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.counters.v5_015.promote_every_branch",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "WP12-SEQ-EXHAUSTED, WP12-ONE-COMMIT",
+      "evidence": [
+        "R29-C",
+        "R25-RESPOOL"
+      ],
+      "id": "WP10.counters.v5_015.respool",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "WP09-A15 arm at 0xFFFFFFFD refuses, zero writes",
+      "evidence": [
+        "R25-WP09"
+      ],
+      "id": "WP10.counters.v5_015.arm_record",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.counters.v5_015.reset_b_and_stage_clear_generation",
+      "package_ref": "R54-FINAL",
+      "prior_disposition": {
+        "issue": 128,
+        "path": "findings/P1-R55-WP10FD-PR336-DISPOSITION-2026-09-30.md",
+        "sha256": "9f0fb22a04a7e1372b28ef46341a6bb094e90d2d736da3084ad6d11c2f5ac291"
+      },
+      "prior_status": "published; Product binding pending",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "exhaustion_candidate and exhaustion_equal_divergent shapes; zeroing fallback, no wrapped generation",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.counters.format_dup_generation_fallback",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "mirror-only (V6-008), generation 0, v2-only (V7-003), equal-divergent (V8C-003), exhaustion x equal-divergent (V8R2-001)",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.raw_admission.destination_shapes",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B-RAW-01; R25-FMTDUP RAW-A01",
+      "evidence": [
+        "R29-B",
+        "R25-FMTDUP"
+      ],
+      "id": "WP10.raw_admission.refusal_before_superblock_reads",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B-RAW-02..06, RAW-09, RAW-10",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.step1.performed_order_generation2_torn_first",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B-RAW-11..13",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.fallback.zero_nonselectable_first",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B-RAW-14/15 with and without headroom",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.equal_divergent_crash_oracle",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B-RAW-17/18: mirror, flush, primary, flush + every torn primary, both modes",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.v6_007.final_superblock_two_points.reusable",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.universal.free_next_after_every_injection",
+      "package_ref": "R53-BACKLOG",
+      "prior_disposition": {
+        "issue": 127,
+        "path": "findings/P1-R55-WP10BD-PR335-DISPOSITION-2026-09-30.md",
+        "sha256": "366d0a6818c690627962efca9711b9908d7b9f03b22ad0330c1476b32d135164"
+      },
+      "prior_status": "published; Product binding pending",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "C10-14 and each package's raw \u00c2\u00a75.2 parser",
+      "evidence": [
+        "C69",
+        "R29-A",
+        "R29-B",
+        "R29-C"
+      ],
+      "id": "WP10.universal.live_index_5_2_disjointness",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "C10-05/07; R29-A-CRASH-20; R29-C ordinary stage-0 commits",
+      "evidence": [
+        "C69",
+        "R29-A",
+        "R29-C"
+      ],
+      "id": "WP10.universal.index_only_ops_advance_sequence_not_generation",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "promote 4/5-decline/9 (R29-A-CRASH-16/20), stage clear (C10-11), format/dup step 1 generation 2 (R29-B-RAW-09)",
+      "evidence": [
+        "R29-A",
+        "C69",
+        "R29-B"
+      ],
+      "id": "WP10.universal.superblock_updates_advance_generation",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "M-repair-* 20 variants: invalid and stale lower-generation partner, generation retained, one partner block",
+      "evidence": [
+        "MOUNT"
+      ],
+      "id": "WP10.universal.repair_advanced_neither",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B-RAW-16",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.universal.identity_boundary_gen1_seq1_2",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-CRASH-14 after every FRESH injection",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.universal.no_shared_sequence_fresh_promote",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "C10-06, R29-A-CRASH-15, R29-C raw region hashes",
+      "evidence": [
+        "C69",
+        "R29-A",
+        "R29-C"
+      ],
+      "id": "WP10.universal.referenced_audio_intact",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-CRASH-07/08/09; MOUNT M-stage-row*/M-stage-unmatched-*",
+      "evidence": [
+        "R29-A",
+        "MOUNT"
+      ],
+      "id": "WP10.universal.promote_stage_invariant25_corrupt_case_degraded_exempt",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "C10-08",
+      "evidence": [
+        "C69"
+      ],
+      "id": "WP10.op.reset_b.third_outcome",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "every pass-2 injection preserves the sole live pass-1 copy; raw region hashes (post-crash tape_render not driven: backlog rank 9)",
+      "evidence": [
+        "R29-C"
+      ],
+      "id": "WP10.op.respool.pre_or_post_layout_never_overwritten",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.op.respool.post_crash_render",
+      "package_ref": "R54-FINAL",
+      "prior_disposition": {
+        "issue": 128,
+        "path": "findings/P1-R55-WP10FD-PR336-DISPOSITION-2026-09-30.md",
+        "sha256": "9f0fb22a04a7e1372b28ef46341a6bb094e90d2d736da3084ad6d11c2f5ac291"
+      },
+      "prior_status": "published; Product binding pending",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-CRASH-10..13",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.op.promote.eleven_rows",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-CRASH-03/09",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.op.promote.s_equals_0",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "5 caller-model stored-position cases",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.op.promote.stored_position",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-A-RERUN-01..05",
+      "evidence": [
+        "R29-A"
+      ],
+      "id": "WP10.op.promote.rerun_every_row_exact_tail_repeated_crash",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "entry refusal empty B; WP12-EMPTY",
+      "evidence": [
+        "R29-A",
+        "R25-RESPOOL"
+      ],
+      "id": "WP10.op.promote.empty_b_invalid_arg",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.dup.empty_source.every_boundary",
+      "package_ref": "R53-CLOSURE",
+      "prior_disposition": {
+        "issue": 119,
+        "path": "findings/P1-R54-WP10PD-PR318-DISPOSITION-2026-09-30.md",
+        "sha256": "d32f75b7448b7a8c81a20686b9fe43f4f971336944c24fe0a9b46c55243e707e"
+      },
+      "prior_status": "published; Product binding disposed PASS",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.dup.destination_shape.mounts_both_sides_high_label",
+      "package_ref": "R54-BACKLOG",
+      "prior_disposition": {
+        "issue": 120,
+        "path": "findings/P1-R54-WP10CD-PR330-DISPOSITION-2026-09-30.md",
+        "sha256": "ee110fba580d7b2e150fc706f14aa2155a1aaf9c72c081c77e25c83cb3b9a0fe"
+      },
+      "prior_status": "published; Product binding disposed PASS",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.dup.destination_shape.layout_preserving_rejected_c90_to_c60",
+      "package_ref": "R53-BACKLOG",
+      "prior_disposition": {
+        "issue": 127,
+        "path": "findings/P1-R55-WP10BD-PR335-DISPOSITION-2026-09-30.md",
+        "sha256": "366d0a6818c690627962efca9711b9908d7b9f03b22ad0330c1476b32d135164"
+      },
+      "prior_status": "published; Product binding pending",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B source_before/source_after raw source events; also asserted on every dup case here",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.dup.source_unchanged",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "R29-B crash oracle over the 7 shapes",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.dup.permitted_outcome_set.reusable",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "DUP-A01..A06 incl. block_count 0/1/LBA_CHUNK_BASE zero callbacks and 1->2->3->4 order",
+      "evidence": [
+        "R25-FMTDUP"
+      ],
+      "id": "WP10.dup.refusals_write_nothing_zero_callbacks_order",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "current_disposition": "Verification #141: 68854 DRAFT10 observations; 5110 changed traces only",
+      "id": "WP10.dup.rerun_completes",
+      "package_ref": "R54-BACKLOG",
+      "prior_disposition": {
+        "issue": 120,
+        "path": "findings/P1-R54-WP10CD-PR330-DISPOSITION-2026-09-30.md",
+        "sha256": "ee110fba580d7b2e150fc706f14aa2155a1aaf9c72c081c77e25c83cb3b9a0fe"
+      },
+      "prior_status": "published; Product binding disposed PASS",
+      "status": "accepted exact evidence (S2 rebound)"
+    },
+    {
+      "cases": "format x 7 raw shapes crash oracle",
+      "evidence": [
+        "R29-B"
+      ],
+      "id": "WP10.format.reusable_outcomes",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "cases": "FMT-A02..A04",
+      "evidence": [
+        "R25-FMTDUP"
+      ],
+      "id": "WP10.format.geometry_zero_callbacks",
+      "prior_status": "accepted exact evidence",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "id": "WP10.contract.blank_neither_valid_crc_vs_bad_magic",
+      "package_ref": "R53-CLOSURE",
+      "pm_ruling": "PM ruling carried since the #109 disposition: at a torn blank-mirror boundary both TAPE_ERR_BAD_MAGIC and TAPE_ERR_CRC conform. The R53 package asserts exactly that and counts CRC answers (0 on Product #318).",
+      "prior_disposition": {
+        "issue": 119,
+        "path": "findings/P1-R54-WP10PD-PR318-DISPOSITION-2026-09-30.md",
+        "sha256": "d32f75b7448b7a8c81a20686b9fe43f4f971336944c24fe0a9b46c55243e707e"
+      },
+      "prior_status": "published; Product binding disposed PASS",
+      "status": "accepted exact evidence (carried)"
+    },
+    {
+      "current_disposition": "Verification #141: 184980 unaffected package cases unchanged; 22604 retired and covered by residue R1",
+      "id": "WP10.dup.rerun_crash",
+      "origin": "Verification #116 finding: a re-run that skips the step-1 barrier ends byte-identical, so only a crash inside the re-run exposes it at outcome level.",
+      "package_ref": "R54-FINAL",
+      "prior_disposition": {
+        "issue": 128,
+        "path": "findings/P1-R55-WP10FD-PR336-DISPOSITION-2026-09-30.md",
+        "sha256": "9f0fb22a04a7e1372b28ef46341a6bb094e90d2d736da3084ad6d11c2f5ac291"
+      },
+      "prior_status": "published; Product binding pending",
+      "status": "accepted exact evidence (S1 carried/replaced)"
+    },
+    {
+      "current_disposition": "Verification #141: residue R1-R3, 8208 groups / 17025380 injections / 24672 closure reruns",
+      "id": "WP10.residue.destinations",
+      "status": "accepted exact evidence (new)"
+    }
+  ],
+  "rows_total": 63,
+  "schema": "verification-wp10-disposition-ledger-d10-v1",
+  "source_ledger_sha256": "4ab66f55a0689889a6f8fa5652b9bdee7a5f39fdf692cf38fd43927ef04ce80c",
+  "source_verification_main": "d99044b55ab17c09d5413040f3f4dc5ff27fd757"
+}
