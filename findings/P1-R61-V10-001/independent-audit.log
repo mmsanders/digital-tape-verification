@@ -1,0 +1,6 @@
+PASS identity / Structural Rule 1 / unchanged verifier trees and adapter; exact head db31c2919523fa821cf665058f4f883bf7403aae
+PASS S2: exactly 5110 changed rerun.trace_sha256 only; 63744 byte-identical; final media/mounts unchanged
+PASS S1: 22604 retired and changed; all 48 resurrected cells included; 184980 byte-identical
+PASS WP13 CI artifact member hashes, exact-head identity, DRAFT9 criteria / DRAFT10 issued reporting
+PASS WP13 16/16 exact candidate source inventory hashes; independent six-gate replay identical
+PASS independent supplementary audits

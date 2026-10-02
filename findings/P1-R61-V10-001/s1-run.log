@@ -1,0 +1,6 @@
+207584 cases
+current engine/ tree 5bbe9b4e51fabf38eaf78c9ed26faf90b0b62495
+assembled 207584 observations: {'cases': 207584, 'row1': 13, 'row2': 6, 'row3': 5, 'row4': 207560, 'row4_by_mode': {'flush_required': 103780, 'write_through': 103780}, 'row3_injections': 24672}
+observations.jsonl 209949281 bytes cbc6d8c2668c5fd860716a3553e5e4105e302c98cc9d746a96f43647f6d67eea; gzip 3036532 bytes 50bdcdc1ebc230b9aea909a37ef3207de0deb26c7599b347eb7d50ebdecc35c3
+fetch https://github.com/mmsanders/Digital-Tape/releases/download/evidence-p1-r55-wp10-final/wp10-final-r54-product-observations.jsonl.gz
+184980 cases byte-identical to the accepted stream; 22604 S1 cases retired by supersession 6cc313cf (22604 changed)

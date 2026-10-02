@@ -1,0 +1,7 @@
+  ok     issued bundle unmodified — goes green (green)
+  ok     one byte changed inside the WP-13 row — goes red (red: issued bundle DRAFT-10 WP-13 acceptance row is 8e384dcf8850d32e83ce8b881ca9ab03b9535e5ff9797e10f848e36130e2d492, not DRAFT-9's f4529484711ce086d3f9519b64d2fe33f4f85f04ef1fa21235de43ca3903c9b3; the DRAFT-9 WP-13 acceptance does not carry over)
+  ok     WP-13 row removed — goes red (red: /tmp/tmpv7rm49e8/row-missing/spec/acceptance.md has 0 WP-13 acceptance rows, expected exactly 1)
+  ok     WP-13 row duplicated — goes red (red: /tmp/tmpv7rm49e8/row-dup/spec/acceptance.md has 2 WP-13 acceptance rows, expected exactly 1)
+  ok     spec file differs from spec/VERSION.md manifest — goes red (red: spec/acceptance.md is 2a93adb4336ae4566e2eeb9214b648a0b222a19754fe15f615ec3b6c38e805cc, spec/VERSION.md says 50aa63bd751fdc6b4636de0eb48253887be19b7ec2841768449217b4e9b9e547)
+  ok     edit outside the WP-13 row, manifest updated — goes green (green)
+WP-13 carry-over negative control: PASS

@@ -1,0 +1,109 @@
+{
+  "format": "WP13-EMBEDDED-RESULT-1",
+  "gates": [
+    {
+      "errors": [],
+      "id": "WP13-G1",
+      "limit": 204800,
+      "measured": {
+        "bss_bytes": 0,
+        "data_bytes": 0,
+        "summed_bytes": 158776,
+        "tape_instance_size_bytes": 158776
+      },
+      "name": "RAM sum",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "id": "WP13-G2",
+      "limit": 32768,
+      "measured": {
+        "rodata_bytes": 1040
+      },
+      "name": ".rodata",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "id": "WP13-G3",
+      "limit": "none",
+      "measured": {
+        "forbidden_references": []
+      },
+      "name": "Allocator symbols",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "id": "WP13-G4",
+      "limit": 8192,
+      "measured": {
+        "max_path": [
+          "tape_mount",
+          "/home/runner/work/Digital-Tape/Digital-Tape/engine/src/mount.c:resolve_superblock.constprop.0",
+          "tape_sb_parse",
+          "tape_crc32",
+          "tape_crc32_update"
+        ],
+        "max_path_bytes": 1536
+      },
+      "name": "Maximum engine stack",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "id": "WP13-G5",
+      "limit": "only four named callback funnels in engine/src/dev.h",
+      "measured": {
+        "ambiguous_or_unresolved": [],
+        "call_expression_inventory_count": 436,
+        "permitted_callback_sites": [
+          {
+            "callback_type": null,
+            "path": "engine/src/dev.h",
+            "target": "tape_dev.flush",
+            "wrapper": "dev_flush"
+          },
+          {
+            "callback_type": "tape_progress_fn",
+            "path": "engine/src/dev.h",
+            "target": "tape_progress_fn",
+            "wrapper": "dev_progress"
+          },
+          {
+            "callback_type": null,
+            "path": "engine/src/dev.h",
+            "target": "tape_dev.read",
+            "wrapper": "dev_read"
+          },
+          {
+            "callback_type": null,
+            "path": "engine/src/dev.h",
+            "target": "tape_dev.write",
+            "wrapper": "dev_write"
+          }
+        ],
+        "source_inventory_count": 16,
+        "violations": []
+      },
+      "name": "Indirect-call confinement",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "id": "WP13-G6",
+      "limit": "no mutable engine-owned symbols",
+      "measured": {
+        "common_symbols": [],
+        "mutable_symbols": [],
+        "read_only_object_symbol_count": 3
+      },
+      "name": "Caller-owned mutable state",
+      "passed": true
+    }
+  ],
+  "overall_pass": true,
+  "schema_errors": [],
+  "tape_instance_size_bytes": 158776
+}
