@@ -1,0 +1,49 @@
+name: WP11 R63 independent publication
+on:
+  push:
+    branches: [verification/issue-143-stage1]
+  pull_request:
+    paths:
+      - 'tests/golden/**'
+      - 'tests/wp11_portability_r63/**'
+      - 'tests/wp11_ledgers_r63/**'
+      - '.github/workflows/verifier-wp11-r63.yml'
+permissions:
+  contents: read
+jobs:
+  independent:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tests/golden/model.py
+      - run: python3 tests/wp11_portability_r63/selftest.py
+      - run: python3 tests/wp11_ledgers_r63/audit.py
+      - run: cd tests/golden && sha256sum -c SHA256SUMS
+  source-assets:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Obtain pinned source bytes and verify canonical conversion
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          ffmpeg -version | head -3
+          python3 tests/golden/canonicalize.py build/wp11-sources --download
+      - name: Publish checksum-verified fixture assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          tag=wp11-r63-canonical-v1
+          if gh release view "$tag" >/dev/null 2>&1; then
+            mkdir -p build/existing-assets
+            gh release download "$tag" -D build/existing-assets
+            for name in music-original.flac voice-original.ogg music-canonical.wav voice-canonical.wav; do
+              cmp "build/existing-assets/$name" "build/wp11-sources/$name"
+            done
+          else
+            gh release create "$tag" --target "$GITHUB_SHA" --prerelease --title 'WP11 R63 canonical fixture assets' --notes 'Verifier-owned source fixtures for #143. SHA-256 and licence provenance are committed in tests/golden/SOURCES.json. This fixture archive is not a Product release.' build/wp11-sources/music-original.flac build/wp11-sources/voice-original.ogg build/wp11-sources/music-canonical.wav build/wp11-sources/voice-canonical.wav
+          fi

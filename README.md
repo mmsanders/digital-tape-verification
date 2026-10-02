@@ -2,6 +2,8 @@
 
 Verification Lead repository for Digital Tape.
 
+Current assignment: [Verification #143](https://github.com/mmsanders/Digital-Tape-Verification/issues/143), WP-11 independent publication followed by exact-head Software #366 disposition. Stage 1 package and paper ledger delta are in [the R63 publication](findings/P1-R63-WP11-STAGE1-PUBLICATION-2026-10-02.md); Product execution and Michael's listening remain pending.
+
 ## Publication rule
 
 `main` is the authoritative publication point for verifier findings, current status, PM handoff notes, and verifier-owned acceptance plans. **Completed findings must land on `main`; a review branch is never the only authoritative location of a completed pass.**
