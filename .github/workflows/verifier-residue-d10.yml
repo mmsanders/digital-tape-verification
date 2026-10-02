@@ -1,0 +1,35 @@
+name: Verifier DRAFT-10 residue package
+
+on:
+  pull_request:
+    paths:
+      - 'tests/wp10_residue_d10/**'
+      - 'tests/wp10_backlog_r54/**'
+      - 'tests/format_dup_identity_draft8/**'
+      - '.github/workflows/verifier-residue-d10.yml'
+  push:
+    branches:
+      - 'verification/issue-138-*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  residue:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit, self-test, and regenerate + replay the full synthetic stream
+        shell: bash
+        working-directory: tests/wp10_residue_d10
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 audit.py
+          python3 selftest.py
+          adapter_sha=$(sha256sum synthetic_adapter.py | cut -c1-64)
+          python3 synthetic_adapter.py | python3 replay.py - \
+            --manifest evidence/synthetic/manifest.json \
+            --adapter-kind synthetic --adapter-source-sha "${adapter_sha}"
