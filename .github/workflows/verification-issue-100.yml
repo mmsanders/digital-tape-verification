@@ -1,12 +1,13 @@
-name: Verification issue 100 two-toolchain evidence
+name: WP08 two-toolchain evidence
 
 on:
-  push:
-    branches:
-      - verification/issue-100-playback-portability
   pull_request:
     branches:
       - main
+    paths:
+      - 'tests/portability_wp08_r52/**'
+      - '.github/workflows/verification-issue-100.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read

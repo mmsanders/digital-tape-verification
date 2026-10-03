@@ -6,6 +6,21 @@ Provide a separate, opt-in code-review lane for pull requests targeting the main
 
 This lane is deliberately isolated from the Verification Lead's pre-test work. Implementation details learned by this reviewer must not be used to shape verification expectations or tests that have not yet been written.
 
+## Relationship to the current Verification workflow
+
+This procedure remains the optional advisory lane described in Product CLAUDE.md §3.
+It does not describe routine verifier publication or Stage 2 acceptance. Under
+ADR-157, normal verifier publications merge to Verification main before citation.
+Under ADR-158, a pre-routed assignment may have Verification dispose Software's
+exact candidate after independent authorship, then return to PM. Structural Rule 1
+still requires verifier-first history and byte-identical imports (ADR-159).
+
+Use the current [Verification charter](https://github.com/mmsanders/Digital-Tape/blob/main/docs/ROLES/verification.md)
+and live assignment for those operations. An advisory reviewer must confirm that
+engine behavior is already covered by landed independent tests before reading its
+diff. Uncovered behavior goes to PM without inspecting the implementation. No
+listener is installed or claimed active by this document.
+
 ## Trigger
 
 Review an open PR targeting `main` when the exact phrase `Request Independent Review` appears in the PR title, body, or discussion.

@@ -1,5 +1,10 @@
 # Phase 1 Verification — dependency-ordered next tranches
 
+**Historical, fulfilled Phase 1 proposal.** WP-10, WP-11 and WP-12a are complete
+as of 3 October 2026. The original text below is preserved as provenance; it is not
+a Phase 2 assignment or current acceptance authority. See [PLAN-STATUS](PLAN-STATUS.md)
+and [current capability status](../CAPABILITY-STATUS.md).
+
 **Planning status:** proposal after P1-R1-V only. These are not current assignments
 and do not authorize implementation inspection or product acceptance.
 

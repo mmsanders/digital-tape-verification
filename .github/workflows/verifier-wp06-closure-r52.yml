@@ -5,9 +5,6 @@ on:
     paths:
       - 'tests/wp06_closure_r52/**'
       - '.github/workflows/verifier-wp06-closure-r52.yml'
-  push:
-    branches:
-      - 'verification/issue-108-*'
   workflow_dispatch:
 
 permissions:

@@ -7,9 +7,6 @@ on:
       - 'tests/wp10_backlog_r54/**'
       - 'tests/format_dup_identity_draft8/**'
       - '.github/workflows/verifier-residue-d10.yml'
-  push:
-    branches:
-      - 'verification/issue-138-*'
   workflow_dispatch:
 
 permissions:

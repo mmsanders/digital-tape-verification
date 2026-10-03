@@ -6,7 +6,7 @@ Their DRAFT-6 blocker/status claims are superseded by the issued DRAFT-8 bundle 
 must not be used as current acceptance authority.
 
 The historical text remains immutable in Git history at that commit. Retain it only
-as provenance for harness ideas; re-derive every active assertion from authenticated
-DRAFT-8 bytes. Current plan status is in `tests/PLAN-STATUS.md`; the bounded
+as provenance for harness ideas; re-derive every active assertion from the authenticated
+current Product bundle (DRAFT-10 at 3 October 2026). Current plan status is in `tests/PLAN-STATUS.md`; the bounded
 Phase-1 forward proposal is `tests/NEXT-TRANCHES.md`. Neither file creates a new
 assignment; current work authority remains the open Verification issue.

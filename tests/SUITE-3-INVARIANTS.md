@@ -1,5 +1,10 @@
 # Suite 3 invariant checklist (DRAFT-5 review state)
 
+**Historical DRAFT-5 scaffold.** Its provisional blockers and revision claims
+are superseded at this 3 October 2026 cleanup. The original text below is preserved as provenance; it is not
+a Phase 2 assignment or current acceptance authority. See [PLAN-STATUS](PLAN-STATUS.md)
+and [current capability status](../CAPABILITY-STATUS.md).
+
 Status: reconciled to the DRAFT-5 review. Operation adapters remain provisional where `findings/spec-review-draft5.md` identifies incomplete allowed-state sets.
 
 Generate arbitrary, parameterised cartridge geometries and arbitrary valid edit sequences. Do not assume a 90-minute cartridge.

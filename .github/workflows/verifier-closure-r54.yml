@@ -6,9 +6,6 @@ on:
       - 'tests/*_r54/**'
       - 'tests/*_draft8/**'
       - '.github/workflows/verifier-closure-r54.yml'
-  push:
-    branches:
-      - 'verification/issue-116-*'
   workflow_dispatch:
 
 permissions:
