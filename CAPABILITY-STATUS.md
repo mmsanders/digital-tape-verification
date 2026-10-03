@@ -1,31 +1,32 @@
-# Capability status — Phase 0 frozen / Phase-1 verification return
+# Verification capability status
 
-Date: 12 Sep 2026
+**Snapshot: 3 October 2026.** Verification input `cdf89f5f0ab0aa8cc94c13fbf0f98fea484975a4`;
+Product input `594aa59048893b8009145517ce186205536ef93d`.
+This is a closure snapshot, not a live assignment. The authoritative ongoing phase
+and gate state is [Product STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md).
 
-Canonical `mmsanders/Digital-Tape/main` has now **frozen the signed Phase-0 DRAFT-8 scope**. This status distinguishes that signed paper/ABI/media contract from still-open operations, implementation acceptance, WP-10/WP-11 completion and hardware qualification.
-
-| Area | Status | Evidence / boundary |
+| Area | State | Independent basis |
 |---|---|---|
-| Phase-0 contract | **FROZEN on canonical main** | Input product commit `4c273ce57ce6848762b00b8990b0b29a3dc9f74b`; `docs/PHASE0-FREEZE.md` preserves Michael's signed scope. TapeFS §§1–8, Engine API §§2–8 and §12, and acceptance text are frozen at the authenticated DRAFT-8 hashes. |
-| Independent paper review | **Complete** | Third-cut review remains 0 blockers, 0 majors, 1 documentation question. V8R3-001 is retained as editorial debt rather than changing frozen bytes. |
-| Frozen bundle CI | **Green** | Current-main spec bundle, build, verifier mount-package self-check, guardrails, and gate-negative-control jobs are green. |
-| Current overall workflow | **Expected red: WP-11 hold** | Golden job fails because `tests/golden/MANIFEST` is absent. This is the declared verifier-owned WP-11 fixture hold, not a frozen-spec regression. |
-| Main protection | **Process risk open (VR-P1-001)** | Product `main` reports unprotected and repository ruleset enforcement disabled. Freeze is currently procedural + after-the-fact CI. Recommend enabling PR/required-check protection without changing spec bytes. |
-| Mount tranche source integrity | **Confirmed** | Product `tests/mount_draft8/run.py` is byte-identical to verifier publication (`891d737c…`). Coverage still excludes allocation/sequence consumption/warm-start/state transitions/operations. |
-| 289-case product observation | **Independently dispositioned green within mount scope** | Raw gzip JSONL was decoded and every verdict recomputed from regenerated verifier fixtures and raw adapter stdout: 274/289 before, 289/289 after, with zero integrity/verdict mismatches. See `findings/mount-observation-disposition-2026-09-11.md`. This accepts only `tests/mount_draft8/COVERAGE.md`, not PR #20 or excluded behaviour. |
-| VT8-001 next tranche | **Published and self-tested; ready for mechanical import** | Exact source is `tests/ops_draft8/` at verifier commit `a91138667673fcf19dc9e83c9034322b982b1771`: `VT8-001-RB-ALLSLOT` and `VT8-001-REC-ALLOCSEQ`; public operation/media observations only. Oracle accepts 2 conforming synthetic observations and catches 6 targeted mutations; runner plumbing is 2/2 against the labeled synthetic adapter. No product run or acceptance yet. |
-| First playback/golden tranche | **Corrected evidence package ready for PM review; candidate bytes only** | P1-R4 source commit `d565403907ecea331a5dcf63efbd1c08d8bd732e`, `tests/playback_draft8/` tree `aaa6dde86c9a0bdffa2b375361049ac670e26467`. Fixture/PCM/spec bytes and the three families are unchanged. Replay now binds manifest/observation adapter kind+ID, required source/build declarations, and zero exit; runner preserves nonempty destinations and records bounded timeout/nonzero failures. Saved 3/3 evidence is explicitly synthetic. No product run or human listening. |
-| WP-10 | **Mechanically specified; not complete green** | Operations/state remain unfrozen until actual full WP-10. V7-001 two-interruption closure remains mandatory. |
-| WP-11 | **Oracle work may proceed; goldens absent** | Arithmetic/portability contract is frozen/testable; human-listened committed fixtures still outstanding. |
-| WP-12a | **Testable; not yet complete** | State-matrix/re-entry/FAULTED contract remains a follow-on tranche. |
-| Hardware / media atomicity | **Not qualified** | No raw measurement package or card-atomicity acceptance audited here. |
-| Implementation boundary | **Preserved** | This return did not inspect engine implementation, PR #20 diff/discussion, private implementation tests or unlanded code. New implementation review is behavior-scoped only after independent tests land. |
+| WP-06 mount, device and index commits | COMPLETE | Verification #138: 40 accepted rows, 2 unreachable by spec, none open |
+| WP-07 allocator/COW | COMPLETE | Verification PR #67; Product #215 unchanged integration |
+| WP-08 playback/seek/scrub | COMPLETE | Verification #143; WP08-L04 exact-candidate confirmation; L01/L14 closed by Michael #367 |
+| WP-09 recording/editing | COMPLETE | Verification #143; L01 closed by Michael #367 |
+| WP-10 crash harness | COMPLETE | Verification #141: DRAFT-10 ledger, 63 rows, zero open |
+| WP-11 CLI/goldens | COMPLETE | Verification #143: 10/10 goldens, 11,572,876 comparisons per configuration, 7/7 mutations; Michael #367 |
+| WP-12/12a re-spool/long operations | COMPLETE | Verification #143 ledger: 31 covered + 2 unreachable + 3 vacuous, zero open |
+| WP-13 embedded readiness | COMPLETE | Verification #83; accepted DRAFT-9 carried to DRAFT-10 by Product #361 |
+| WP-36 slot capability | COMPLETE | Verification PR #57; Product #200 unchanged integration |
+| Product golden gate | GREEN | #369 disposed at `b61a9e9`, merged at `d93ca4e` with the same tree |
+| Product main protection | ACTIVE / STRICT | Product STATUS records ruleset 22084355; old VR-P1-001 unprotected snapshot is historical |
+| Operations freeze | Criteria met; declaration pending | PM at Phase 2 kickoff; completion does not itself declare the freeze |
+| Phase 2 | Not opened | Requires Michael's go; cleanup does not assign development |
+| Hardware/media/target/release | Excluded | Hardware parked through Phase 2; qualification and physical gates remain held |
 
-## Development recommendation
+The [Stage 2 disposition](findings/P1-R63-WP11-STAGE2-DISPOSITION-2026-10-03.md) preserves the completed #143 return and its
+subsequent listening closure. The [package index](tests/README.md) distinguishes
+original publication claims from final Phase 1 state. This refresh makes no new
+acceptance claim and performs no Product rerun.
 
-**READY FOR PM REVIEW.** The corrected playback/golden package is complete only for its
-three documented families and verifier plumbing. Review the immutable P1-R4-V return;
-product execution and Michael's WP-11 listening remain separate assignments. The
-289-case mount disposition and VT8-001 readiness remain unchanged. Continue
-WP-11/WP-10/WP-12a independently and do not treat synthetic or mount coverage as
-approval of excluded behavior.
+The superseded [12 September capability report](archive/CAPABILITY-STATUS-2026-09-12.md)
+is preserved byte-for-byte, with its SHA-256 in [the archive index](archive/README.md).
+Round findings retain their original hashes and exact coverage limits.

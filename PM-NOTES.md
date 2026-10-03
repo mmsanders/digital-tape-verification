@@ -1,4 +1,9 @@
-# PM Notes
+# PM Notes — historical log
+
+**Historical: 31 August–12 September 2026 (through P1-R4).** The instructions,
+holds and pending work below describe their entry dates, not current assignments.
+Later rounds are in [the findings index](findings/README.md); current closure is in
+[CAPABILITY-STATUS](CAPABILITY-STATUS.md). Use live role-labeled issues for work.
 
 ## 2026-08-31 — DRAFT-1 specifications received; adversarial review started
 

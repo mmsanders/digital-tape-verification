@@ -1,13 +1,34 @@
 name: WP11 R63 independent publication
 on:
   push:
-    branches: [verification/issue-143-stage1]
+    branches: [main]
+    paths:
+      - 'tests/golden/**'
+      - 'tests/wp11_portability_r63/**'
+      - 'tests/wp11_ledgers_r63/**'
+      - 'tests/wp12_closure_r53/**'
+      - 'tests/wp08_mapping_r56/**'
+      - 'tests/wp09_gaps_r56/**'
+      - 'findings/P1-R54-WP12D-PR328-DISPOSITION-2026-09-30.md'
+      - 'findings/P1-R57-W89D-DISPOSITION-2026-10-01.md'
+      - '.github/workflows/verifier-wp11-r63.yml'
   pull_request:
     paths:
       - 'tests/golden/**'
       - 'tests/wp11_portability_r63/**'
       - 'tests/wp11_ledgers_r63/**'
+      - 'tests/wp12_closure_r53/**'
+      - 'tests/wp08_mapping_r56/**'
+      - 'tests/wp09_gaps_r56/**'
+      - 'findings/P1-R54-WP12D-PR328-DISPOSITION-2026-09-30.md'
+      - 'findings/P1-R57-W89D-DISPOSITION-2026-10-01.md'
       - '.github/workflows/verifier-wp11-r63.yml'
+  workflow_dispatch:
+    inputs:
+      publish_source_assets:
+        description: 'After logged PM approval: regenerate, verify and publish pinned assets'
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -20,7 +41,7 @@ jobs:
       - run: python3 tests/wp11_ledgers_r63/audit.py
       - run: cd tests/golden && sha256sum -c SHA256SUMS
   source-assets:
-    if: github.event_name == 'push'
+    if: github.event_name == 'workflow_dispatch' && inputs.publish_source_assets
     runs-on: ubuntu-24.04
     permissions:
       contents: write

@@ -2,7 +2,7 @@ CC ?= cc
 CFLAGS ?= -std=c99 -Wall -Wextra -Werror -pedantic
 BUILD_DIR ?= build
 
-.PHONY: all check clean
+.PHONY: all check check-core check-infrastructure clean
 
 all: $(BUILD_DIR)/test_fault_block_device $(BUILD_DIR)/test_crash_harness $(BUILD_DIR)/test_audio_oracle
 
@@ -18,10 +18,15 @@ $(BUILD_DIR)/test_crash_harness: fault_block_device.c fault_block_device.h crash
 $(BUILD_DIR)/test_audio_oracle: audio_oracle.c audio_oracle.h test_audio_oracle.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) audio_oracle.c test_audio_oracle.c -o $@
 
-check: all
+# Legacy subset only; package-wide CI coverage is indexed in README.md.
+check: check-core
+
+check-infrastructure: all
 	$(BUILD_DIR)/test_fault_block_device
 	$(BUILD_DIR)/test_crash_harness
 	$(BUILD_DIR)/test_audio_oracle
+
+check-core: check-infrastructure
 	python3 ops_draft8/selftest.py
 	python3 format_dup_draft8/selftest.py
 	python3 promote_draft8/selftest.py

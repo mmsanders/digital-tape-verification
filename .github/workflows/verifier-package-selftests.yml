@@ -4,18 +4,29 @@ on:
   pull_request:
     paths:
       - 'tests/*_draft8/**'
+      - 'tests/*_draft9/**'
+      - 'tests/*_r44/**'
+      - 'tests/*.[ch]'
+      - 'tests/Makefile'
       - '.github/workflows/verifier-package-selftests.yml'
   push:
     branches: [main]
     paths:
       - 'tests/*_draft8/**'
+      - 'tests/*_draft9/**'
+      - 'tests/*_r44/**'
+      - 'tests/*.[ch]'
+      - 'tests/Makefile'
       - '.github/workflows/verifier-package-selftests.yml'
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   package-selftests:
     name: verifier package selftests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -25,15 +36,17 @@ jobs:
           cc --version | head -1
           make --version | head -1
 
-      - name: Run every verifier package self-test
+      - run: make -C tests check-infrastructure
+
+      - name: Run draft8, draft9 and R44 package self-tests
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
 
-          packages=(tests/*_draft8)
+          packages=(tests/*_draft8 tests/*_draft9 tests/*_r44)
           if [ "${#packages[@]}" -eq 0 ]; then
-            echo "::error::No tests/*_draft8 verifier packages found"
+            echo "::error::No draft8, draft9 or R44 verifier packages found"
             exit 1
           fi
 

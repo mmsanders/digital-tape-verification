@@ -1,0 +1,4 @@
+# Local self-test and fixture-tool output; publication trees remain unchanged.
+__pycache__/
+*.py[cod]
+/build/

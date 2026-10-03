@@ -6,10 +6,6 @@ on:
       - 'tests/*_r53/**'
       - 'tests/*_draft8/**'
       - '.github/workflows/verifier-closure-r53.yml'
-  push:
-    branches:
-      - 'verification/issue-104-*'
-      - 'verification/issue-105-*'
   workflow_dispatch:
 
 permissions:

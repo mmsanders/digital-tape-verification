@@ -1,10 +1,14 @@
 # Verification plan status
 
-`WP10-PLAN.md`, `WP11-PLAN.md`, and `WP12A-PLAN.md` are **historical DRAFT-6 design
-records**. Their embedded DRAFT-6 status statements and blocker IDs are not current
-acceptance claims after DRAFT-8 issuance. They are retained for provenance and useful
-harness ideas only.
+**3 October 2026: Phase 1 complete.** Current normative authority is the
+authenticated Product DRAFT-10 bundle. Phase 2 awaits Michael's go; this file is not
+an assignment. See [current capability status](../CAPABILITY-STATUS.md) and the
+[package index](README.md).
 
-Current normative authority is the authenticated DRAFT-8 bundle. Current bounded
-work comes only from the open Verification assignment issue. The dependency-ordered
-forward proposal is `NEXT-TRANCHES.md`; it is planning, not an automatic assignment.
+`WP10-PLAN.md`, `WP11-PLAN.md`, and `WP12A-PLAN.md` retain pointers to historical
+DRAFT-6 design records. `SUITE-3-INVARIANTS.md` is a DRAFT-5 scaffold.
+[NEXT-TRANCHES](NEXT-TRANCHES.md) is the fulfilled early-Phase-1 proposal, not a
+current backlog. Their old revision and blocker claims are superseded.
+
+New assertions must cite the authenticated current spec. Live bounded work comes
+from Michael or an open verification-lead issue, never from these historical plans.
