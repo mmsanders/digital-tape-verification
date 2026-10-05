@@ -14,6 +14,11 @@ closure is in [the Stage 2 addendum](../findings/P1-R63-WP11-STAGE2-DISPOSITION-
 
 ## Packages
 
+Phase 2 additions: [wp14_r1](wp14_r1/README.md) is the #146 independent preflight
+and **partial** WP14 publication. Contract recognition/loop conflicts block full
+Stage1; no candidate acceptance or physical witness is claimed. Original Phase1
+package bytes below remain unchanged.
+
 Numbers below are Verification issues/PRs unless prefixed Product. Follow
 [Product STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md) and [dated findings](../findings/README.md)
 for exact hashes, evidence and exclusions.
