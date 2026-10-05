@@ -24,6 +24,10 @@ explicitly names this repo. Keep original path text for provenance.
 
 ## Chronological records
 
+Phase 2: [P2-R1 WP14 preflight and paper reviews](P2-R1-WP14-PREFLIGHT-2026-10-05.md)
+records Verification #146's contract blockers, E1 recommendation and Q-P2-1(a)
+crash-model coverage gap. It grants no WP14 or batching acceptance.
+
 Dates come from the filename, or the original Git commit date when unnamed.
 New round reports use `P<phase>-R<round>-<scope>-<kind>-YYYY-MM-DD.md`;
 existing names/case stay stable to preserve citations. Evidence subdirectories and
