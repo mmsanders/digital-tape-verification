@@ -1,9 +1,11 @@
 # Michael's WP-14 real-card checklist — delivery for Product #386
 
-**Preparation only. Do not run provisioning yet:** E-1 needs Michael's approval,
-the contract preflight needs PM resolution, and Software must supply the tested
-binary plus the final device-safety binding. This is one owned PNY card, not media
-qualification. Provision erases that card. No WP-05 acquisition is authorized.
+**Awaiting tested release, not script-ready:** E-1 is approved and ADR-164 issued.
+Software must still supply the exact tested binary release and SHA-256 for each
+platform; those values are not available in #146. Fill them before execution.
+P2V-005 is a bare-image recognizer hold, separately tracked in the delta report.
+This is one owned PNY card, not media qualification. Provision erases that card.
+No WP-05 acquisition is authorized.
 
 Record before running:
 
@@ -64,8 +66,8 @@ cmp C60.wav B.wav
 shasum -a 256 C60.wav A.wav B.wav > roundtrip-hashes.txt
 ```
 
-Require verify 0/OK and exact WAV bytes/length on both sides under the PM-settled
-tail rule. Check Finder shows `README.TXT`, its label and the exact four lines.
+Require verify 0/OK and exact canonical WAV bytes/length including the final frame,
+with no tail tolerance. Check Finder shows `README.TXT`, its label and the exact four lines.
 Save its bytes and a screenshot. `verify` is read-only; it must not repair the card.
 
 ## macOS: ten deliberate pulls mid-load
@@ -106,7 +108,7 @@ After ten recorded trials, perform the successful C-60 round trip again and ejec
 the card for the Windows check. Timed manual pulls do not qualify atomicity or
 exhaustively exercise all crash boundaries.
 
-## Windows 10: same card, read-only verification/dump
+## Windows 10: verify the macOS card, then fresh provision/load
 
 Use an elevated PowerShell in the tested executable's folder. Identify the card
 by capacity/model/removal and confirm it is not the OS disk:
@@ -127,6 +129,36 @@ Get-FileHash C60.wav,windows-A.wav,windows-B.wav -Algorithm SHA256 | Out-File wi
 Replace N before invoking. Require verify 0/OK, both dump exits 0 and identical
 hashes/lengths against the **same input**. Confirm Explorer shows `README.TXT` and
 save a screenshot/its contents. Do not format when Windows offers to format an
-unknown partition. Save all records for Verification #146; Michael can also place
-the witness on Product #386. Windows provision/load and platform flush controls
-are still separate CI requirements; this witness alone does not establish them.
+unknown partition. Preserve these cross-platform outputs before reprovisioning.
+
+Then explicitly erase and provision this same identified test card using the
+tested Windows 10 binary. If a foreign volume is mounted, save the refusal and
+unmount only that card using Windows disk tools before retrying. Recheck N.
+
+```powershell
+$timer = [Diagnostics.Stopwatch]::StartNew()
+.\tapectl.exe provision $card --label PNY-C60 --length-s 3600 --erase $card *> windows-provision.txt
+$LASTEXITCODE | Out-File windows-provision-exit.txt
+$timer.Stop(); $timer.Elapsed.TotalSeconds | Out-File windows-provision-seconds.txt
+$timer.Restart()
+.\tapectl.exe load $card C60.wav *> windows-load.txt
+$LASTEXITCODE | Out-File windows-load-exit.txt
+$timer.Stop(); $timer.Elapsed.TotalSeconds | Out-File windows-load-seconds.txt
+```
+
+Require both exits 0; save UUID/epoch. Use Windows **Safely Remove Hardware**,
+physically remove/reinsert, identify N again, update `$card`, and run the same
+verify/dump/hash commands above with fresh output filenames. Require exact input
+hashes and lengths, verify 0/OK, and readable Explorer `README.TXT` with the exact
+four CRLF lines. Save README bytes and screenshot for this new Windows cartridge.
+
+For both OS runs, retain the tested native capture/trace artifact demonstrating
+the TAPEFS mirror access at the reported card size minus 512 bytes, beyond
+4,294,967,295. Card capacity alone is not evidence that this access occurred.
+Record the binary hash, platform build and native call in that artifact; if
+capture is unavailable, A6 remains held. Never enable test facts on a real card.
+
+Save all records for Verification #146; Michael can also place the witness on
+Product #386. Server 2025 CI is supplemental, not Windows 10 acceptance. Native
+flush negative controls are separate requirements; this physical witness does
+not by itself prove that they pass.

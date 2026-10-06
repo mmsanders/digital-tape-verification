@@ -2,7 +2,7 @@
 import struct
 import zlib
 from pathlib import Path
-from oracle import UUID, minimum_blocks, P1_START, P1_BLOCKS
+from oracle import UUID, minimum_blocks, P1_START, P1_BLOCKS, fat_time, mbr, P2_START
 
 BLOCKS=minimum_blocks(9)  # four chunks, not the old erroneous 60-second label
 def crc(data): return zlib.crc32(data)&0xffffffff
@@ -26,11 +26,16 @@ def index(side,sequence):
     struct.pack_into('<I',h,60,crc(h[:60]+e))
     return h,e.ljust(512,b'\0')
 
-def build(path,mutation='clean'):
+def build(path,mutation='clean',whole=False,sectors=None):
     blocks={0:sb(),BLOCKS-1:sb(),2048:bytes((i*17+3)&255 for i in range(512))}
     for side,base in ((0,8),(1,264)):
         h,e=index(side,side+1); blocks[base]=h; blocks[base+1]=e
-    if mutation=='torn-primary': blocks[0][32]^=1
+    if mutation=='crc-signature':
+        for lba in (0,BLOCKS-1):
+            struct.pack_into('<I',blocks[lba],120,267838)
+            struct.pack_into('<I',blocks[lba],508,crc(blocks[lba][:508]))
+        assert blocks[0][510:512]==b'\x55\xaa'
+    elif mutation=='torn-primary': blocks[0][32]^=1
     elif mutation=='both-superblocks-bad':
         blocks[0][32]^=1; blocks[BLOCKS-1][32]^=1
     elif mutation=='flipped-a-entry':
@@ -38,12 +43,15 @@ def build(path,mutation='clean'):
     elif mutation=='degraded-b': blocks[264]=bytes(512)
     elif mutation=='invalid-standby': blocks[136]=b'corrupt standby'.ljust(512,b'\0')
     elif mutation!='clean': raise ValueError(mutation)
+    shift=P2_START if whole else 0
+    sectors=sectors or BLOCKS+shift
     with Path(path).open('wb') as f:
-        f.truncate(BLOCKS*512)
-        for lba,data in blocks.items(): f.seek(lba*512); f.write(data)
+        f.truncate(sectors*512)
+        for lba,data in blocks.items(): f.seek((lba+shift)*512); f.write(data)
+        if whole: f.seek(0); f.write(mbr(sectors))
     return blocks
 
-def synthetic_fat(path, fat_sectors=32):
+def synthetic_fat(path, fat_sectors=32, epoch=315532800):
     """A legal alternate FAT allocation for testing the reader, never Product bytes."""
     boot=bytearray(512); boot[:3]=b'\xeb\x3c\x90'; boot[3:11]=b'VERIFIER'
     struct.pack_into('<H',boot,11,512)
@@ -57,6 +65,9 @@ def synthetic_fat(path, fat_sectors=32):
     fat=bytearray(fat_sectors*512); struct.pack_into('<HHH',fat,0,0xfff8,0xffff,0xffff)
     root=bytearray(16384); root[:11]=b'README  TXT'; root[11]=0x20
     struct.pack_into('<H',root,26,2); struct.pack_into('<I',root,28,len(readme))
+    time,date=fat_time(epoch)
+    struct.pack_into('<HHH',root,14,time,date,date)
+    struct.pack_into('<HH',root,22,time,date)
     with Path(path).open('wb') as f:
         f.truncate((P1_START+P1_BLOCKS)*512)
         f.seek(P1_START*512); f.write(boot)

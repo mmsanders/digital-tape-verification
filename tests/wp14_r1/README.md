@@ -1,37 +1,45 @@
-# WP14 P2-R1 independent preflight / partial package
+# WP14 P2-R1 amended independent package — progress publication
 
-Assignment: Verification #146. Read [COVERAGE](COVERAGE.md) before importing or
-claiming acceptance. Full Stage1 is blocked by the [preflight report](../../findings/P2-R1-WP14-PREFLIGHT-2026-10-05.md).
-Stage2 has not begun. Authored without reading WP14 implementation.
+Assignment: Verification #146; normative input Product ADR-164 merge
+`25b6439019396a54ce12e8298dd58f8a5d8a17e9`. Authored without reading the WP14
+implementation. Original paper report and historical evidence remain preserved.
+See [coverage](COVERAGE.md) and [delta preflight](../../findings/P2-R1-WP14-DELTA-2026-10-06.md).
+**Stage 1 is not complete, Stage 2 has not begun, no candidate accepted.**
 
 ```sh
-python3 tests/wp14_r1/selftest.py
 python3 tests/wp14_r1/check_pins.py
+python3 tests/wp14_r1/selftest.py
+python3 tests/wp14_r1/amendment_selftest.py
 ```
 
-The self-test proves oracle behavior and reproduces contract contradictions. It
-imports no Product code. Candidate checks use only public commands:
+These are verifier selftests, with zero Product runs. E-1 is now approved; the
+exact overlay and supplemental manifest are confirmed by `check_pins.py`.
+`spec/adr164/` contains exact amended document bytes. Frozen copies in `spec/`
+and the original `INPUTS.json` remain unchanged.
+
+After publication and Software's import/binding, run the candidate image suite:
 
 ```sh
-python3 tests/wp14_r1/runner.py /absolute/path/to/tapectl --proposed-e1 --full-c60 > candidate-image-evidence.json
+python3 tests/wp14_r1/runner.py /absolute/path/to/tapectl > candidate-image-evidence.json
+python3 tests/wp14_r1/native.py --platform linux /absolute/path/to/capture-transport > native-linux.json
 ```
 
-Do not interpret a green subset as WP14 PASS. E1 is opt-in as an unapproved
-proposal, not an issuance. The runner writes temporary **regular image files
-only**. Source/reference WAVs are the existing published golden package, unchanged;
-it uses all ten reference WAVs as round-trip inputs, not a golden regeneration.
-Full C60 needs roughly 2 GiB scratch space; the 64 GB image is sparse but can use
-up to its full apparent size on filesystems that do not preserve holes.
+Repeat native runs on macOS and Windows; see [transport requirements](NATIVE-TRANSPORT.md).
+The image runner writes temporary regular files only. It round-trips all ten
+unchanged reference WAV inputs on bare and provisioned images, plus a mandatory
+full C60. Exact WAV bytes and final frame are required; no regenerated goldens.
+Full C60 needs roughly 2 GiB scratch. The 64 GB target is sparse; a filesystem
+without hole preservation can consume its full apparent size.
 
-Mechanical adapter work still required from Software: facts-file format and seam
-symbol; loop identity allowance from PM; authentic write-open/write/OS-flush and
-NULL-binding observations; shipped-binary symbol absence with the test binary as
-negative control; real flush mutants and read-error injection; exact platform
-builds; engine/import identity and unchanged goldens/replays. `trace_audit` is
-independent expectations over observed events, not self-attestation by the target.
-Each observation must bind exact binary/head, platform and capture source.
+Missing transport is a binding dependency, not a skip that yields acceptance.
+Native results require authentic candidate capture, exact-head and binary hashes,
+actual no-op/non-NULL/policy mutants, and referenced service-read failure. The
+adapter captures facts and events; it does not supply expectations or PASS.
+Malformed provenance cannot count as killing a candidate control. Review raw
+capture against CI artifacts before any disposition; JSON labels are not proof.
 
-[REAL-CARD](REAL-CARD.md) is the requested checklist for Michael, held before
-destructive execution pending contract/owner approval and a tested binary. It
-contains the permitted-outcome recording procedure; it does not call all nonzero
-verify exits failures or qualify PNY atomicity.
+[Michael's real-card checklist](REAL-CARD.md) includes macOS provision/load,
+remove/reinsert, ten pulls, Windows 10 cross-platform readback **and fresh Windows
+provision/load**, README evidence and >4GiB access capture. Tested binary release
+hashes are still required before script-ready delivery. Physical and named-OS
+holds remain distinct from software CI. Server 2025 is supplemental.

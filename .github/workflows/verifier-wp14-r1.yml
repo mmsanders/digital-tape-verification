@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['tests/wp14_r1/**', 'findings/P2-R1-WP14-PREFLIGHT-2026-10-05.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['tests/wp14_r1/**', 'findings/P2-R1-WP14-PREFLIGHT-2026-10-05.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,4 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: python3 tests/wp14_r1/check_pins.py
       - run: python3 tests/wp14_r1/selftest.py
+      - run: python3 tests/wp14_r1/amendment_selftest.py
       - run: python3 tests/wp14_r1/runner.py --help
+      - run: python3 tests/wp14_r1/native.py --help
+      - run: python3 tests/wp14_r1/a8_identity.py --help
