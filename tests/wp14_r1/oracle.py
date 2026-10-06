@@ -2,6 +2,7 @@
 import hashlib
 import itertools
 import struct
+import datetime
 from pathlib import Path
 
 BLOCK = 512
@@ -37,10 +38,19 @@ def exact_recognition(data, sectors):
     expected = mbr(sectors)
     return len(data) == BLOCK and data[446:512] == expected[446:512]
 
+def candidate_recognition(data):
+    return len(data)==BLOCK and (data[510:512]==b'\x55\xaa' or any(data[446:508]))
+
+def safe_view(data, sectors):
+    start,count=struct.unpack_from('<II',data,470)
+    return start==P2_START and count>0 and start+count<=sectors
+
 def layout_findings(data, sectors, uuid=None):
-    """Validation oracle, not a replacement recognizer. Reachability is held."""
+    """ADR164 validation in mandated table order; recognition is separate."""
     assert len(data) == BLOCK
-    expected = mbr(sectors, uuid or UUID)
+    # No legal provisioned layout fits below P2_START. Keep validating corrupt
+    # candidates there; do not let the expected-layout constructor raise.
+    expected = mbr(max(sectors,P2_START+1), uuid or UUID)
     bad_types = any(data[i] != expected[i] for i in (450, 466))
     declared_end = sum(struct.unpack_from('<II', data, 470))
     truncated = declared_end > sectors
@@ -50,13 +60,13 @@ def layout_findings(data, sectors, uuid=None):
     # UUID may be unknown to a validation caller; A1 passes it explicitly.
     if uuid is None: masked[440:444] = want[440:444]
     out = []
+    if sectors<=P2_START or masked != want: out.append('MBR_LAYOUT')
     if bad_types: out.append('PARTITION_TYPE')
     if truncated: out.append('PARTITION_TRUNCATED')
-    if masked != want: out.append('MBR_LAYOUT')
     return out
 
 def policy(facts, provision=False, erase_matches=True):
-    checks = (not facts['whole'], not (facts['removable'] or facts['sd_bus']),
+    checks = (not facts['whole'], facts.get('virtual',False) or not (facts['removable'] or facts['sd_bus']),
               facts['bytes'] > 1 << 37, facts['holds_os'], facts['foreign_mount'],
               provision and not erase_matches)
     return next((name for name, fail in zip(REFUSALS, checks) if fail), None)
@@ -72,7 +82,12 @@ def permitted_subsets(base, writes):
         states.add(tuple(sorted(landed.items())))
     return states
 
-def fat16_readme(image, label):
+def fat_time(epoch):
+    dt=datetime.datetime.fromtimestamp(max(epoch,315532800),datetime.timezone.utc)
+    return ((dt.hour<<11)|(dt.minute<<5)|(dt.second//2),
+            ((dt.year-1980)<<9)|(dt.month<<5)|dt.day)
+
+def fat16_readme(image, label, epoch=None):
     """Read FAT16 independently; allow BPB choices the contract leaves free."""
     with Path(image).open('rb') as f:
         f.seek(P1_START * BLOCK); boot = f.read(BLOCK)
@@ -105,6 +120,11 @@ def fat16_readme(image, label):
         assert effective_labels == [b'DIGITALTAPE'], 'FAT volume label'
         assert len(entries) == 1 and entries[0][:11] == b'README  TXT'
         entry = entries[0]
+        if epoch is not None:
+            time,date=fat_time(epoch)
+            assert struct.unpack_from('<HH',entry,14)==(time,date), 'FAT creation UTC timestamp'
+            assert struct.unpack_from('<HH',entry,22)==(time,date), 'FAT modification UTC timestamp'
+            assert struct.unpack_from('<H',entry,18)[0]==date, 'FAT access UTC date'
         cluster = struct.unpack_from('<H', entry, 26)[0]
         length = struct.unpack_from('<I', entry, 28)[0]
         data_start = root_start + rootsecs
@@ -127,20 +147,49 @@ def trace_audit(trace):
         assert trace['exit'] == 3
         assert not any(e['kind'] in ('write_open', 'write') for e in events)
         assert trace['refusal'] in REFUSALS
-    if operation == 'verify':
+    if operation == 'verify' or (trace.get('target_kind')=='device' and operation in ('play','dump','scrub')):
         assert not any(e['kind'] in ('write_open', 'write') for e in events)
         bindings = [e for e in events if e['kind'] == 'engine_bind']
         if trace.get('engine_used', True): assert bindings
         assert all(e['write_is_null'] for e in bindings)
     pending = False
     for e in events:
+        if e['kind']=='read':
+            assert e['offset']>=0 and e['offset']+e['bytes']<=trace['target_bytes']
         if e['kind'] == 'write':
             assert e['issued_before_return'] and not e.get('coalesced', False)
             assert e['offset'] >= 0 and e['offset'] + e['bytes'] <= trace['target_bytes']
             pending = True
         if e['kind'] == 'flush' and e['success']:
-            assert e['os_call'] == {'linux':'fsync','macos':'F_FULLFSYNC','windows':'FlushFileBuffers'}[trace['platform']]
+            allowed={'linux':('fsync',),'macos':('F_FULLFSYNC',),'windows':('FlushFileBuffers',)}[trace['platform']]
+            if e['os_call']=='DKIOCSYNCHRONIZECACHE':
+                assert trace['platform']=='macos' and trace.get('target_kind')=='device'
+                assert e.get('fullfsync_unsupported') in ('ENOTTY','ENOTSUP')
+            else: assert e['os_call'] in allowed
             assert e['os_success'], 'flush reported success after OS failure'
             pending = False
     if trace.get('success') and operation in ('provision','load','promote','record','reset-b','respool'):
         assert not pending, 'successful command left writes unflushed'
+
+def provision_order(trace):
+    """A nonzero old MBR must be invalidated durably before partition writes."""
+    trace_audit(trace)
+    stages=[]; phase=-1; dirty=False
+    for event in trace['events']:
+        if event['kind']=='write':
+            off=event['offset']; end=off+event['bytes']
+            if off==0 and end==512:
+                data=bytes.fromhex(event['data_hex'])
+                assert len(data)==512
+                stage=0 if data==bytes(512) else 3
+            elif P2_START*512<=off and end<=trace['target_bytes']: stage=1
+            elif P1_START*512<=off and end<=(P1_START+P1_BLOCKS)*512: stage=2
+            else: raise AssertionError('write outside provision regions')
+            if stage!=phase:
+                assert not dirty, 'partition transition before durability barrier'
+                assert stage==phase+1, 'provision stages reordered or omitted'
+                phase=stage; stages.append(stage)
+            dirty=True
+        elif event['kind']=='flush' and event['success']:
+            dirty=False
+    assert stages==[0,1,2,3] and not dirty, 'incomplete successful provision'
