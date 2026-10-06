@@ -17,6 +17,9 @@ jobs:
       - run: python3 tests/wp14_r1/check_pins.py
       - run: python3 tests/wp14_r1/selftest.py
       - run: python3 tests/wp14_r1/amendment_selftest.py
+      - run: python3 tests/wp14_r1/completion_selftest.py
+      - run: python3 tests/wp14_r1/catalog.py
       - run: python3 tests/wp14_r1/runner.py --help
       - run: python3 tests/wp14_r1/native.py --help
       - run: python3 tests/wp14_r1/a8_identity.py --help
+      - run: python3 tests/wp14_r1/qualification.py --help

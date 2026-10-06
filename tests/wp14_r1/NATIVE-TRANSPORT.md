@@ -1,72 +1,131 @@
-# Mechanical native transport requested from Software #392
+# Mechanical native binding — Software #392, final authored protocol
 
-This is a verifier-owned request/observation protocol, not a claim that Software
-already implements these interfaces. Binding does not move expectations into
-Product. `native.py --platform OS TRANSPORT [ARGS...]` invokes
-`TRANSPORT [ARGS...] request.json response.json` for every applicable case.
+Use the verifier-owned request/response runner in native.py. Expectations stay
+in Verification; transport launches real binaries, creates only owned virtual
+targets, captures observations and retains raw artifacts. It supplies no verdict.
+Do not use physical user disks. No image substitute for a native device request.
 
-Use only temporary owned targets. Linux must execute actual loop-device cases in
-Linux CI even when the local runner has no free loop. Production rejects loops;
-test facts make them eligible. macOS/Windows must use their actual native port
-on owned virtual backing with test facts; pair with actual production virtual
-refusal. Never open physical user disks from this runner.
+Invocation: TRANSPORT [ARGS...] request.json response.json.
+native.py adds --head identity and a persistent --evidence-dir; capture all raw
+files there or other durable artifact paths, not the temporary backing directory.
+Head/binary/OS build/provenance mismatches and unrelated process failures cannot
+count as killing a mutant. No applicable case can be skipped.
 
-Each request identifies command, platform, backing path, target_bytes, facts,
-binary_kind, optional control, and expected observations. The seed has a truthful
-9-second TAPEFS cartridge. **Freshly provision a 64,000,000,000-byte sparse target
-before normal cases**, then load the published quiet source where audio is needed;
-the seed's small mirror is not a 64 GB formatted cartridge. Reset backing before
-each case. Fixture requests already contain a complete whole-image layout: bind
-those exact verifier bytes and their target_bytes, without reprovisioning. The
-ceiling-equality case uses a 128 GiB sparse target. geometry_too_small requests
-a 9-second label with partition 2 one sector short; preserve the existing target.
-provision-order uses a nonzero old MBR and captures both LBA0 write payloads in
-data_hex; mbr-first mutates only the publication order. unmount-error injects
-failed unmount of an otherwise allowed own partition 1. suppress-finding is a
-test-only host finding omission; do not change engine bytes for that mutant. Map commands mechanically using copied WP11/WP14 public syntax; use
-UUID 00112233445566778899aabbccddeeff and epoch 315532800 for reproducible provision.
-Use one-second overage source for capacity cases when added, and actual service
-reads of referenced chunk data for the read injection, never mount metadata.
+## Inputs/setup
 
-Facts map to the issued test-only facts file (`TAPECTL_TEST_FACTS`): whole,
-removable, sd_bus, bytes, holds_os, layout_ok; repeated mounted=partition:where.
-foreign_mount=true maps to a mounted foreign entry, otherwise none. `virtual`
-is an actual target/probe setup, not a newly invented facts-file key. Erase
-confirmation matches the logical target only when erase_matches is true; false
-uses another explicit name. Facts apply only to device paths. Do not inject
-facts into the production binary or assert that synthetic facts prove the OS
-probe works. Required production symbols/string gate checks both real binaries.
+Each request carries case, command, platform, backing, target_bytes, facts,
+binary_kind, erase_matches, control, independent expected fields, and optional
+fixture/roundtrip/source/label_seconds/new_uuid/new_epoch/new_label.
+request_sha256 is SHA256 of sorted-key JSON before adding request_sha256.
 
-Response fields:
+For normal cases freshly provision a 64,000,000,000-byte sparse native target
+and load quiet audio where needed. Linux: actual loop, eligible ONLY via test
+facts. macOS: hdiutil raw device. Windows: 64 GB virtual drive, not the old 8GiB
+VHD. Production virtual/loop refusals use the shipped binary without test facts.
+Probe uses actual platform facts without TAPECTL_TEST_FACTS, not injected facts.
 
-- case, platform, request_sha256 (SHA-256 of sorted-key JSON **before** adding
-  request_sha256), head_sha (40 lower hex), binary_sha256 (64 lower hex).
-- capture_origin="native-candidate", control_applied matching requested control
-  (null when absent), capture_artifacts: persistent raw artifact paths/URLs and
-  hashes, including exact command/build/capture configuration and provenance.
-- exit, stdout, stderr; trace for command cases. For symbols: binary_path and
-  authentic native symbol-table output in symbols; binary_path must persist for
-  immediate hash checking. Strip decoration only mechanically, never findings.
-- trace: operation, platform, target_kind, target_bytes, success, events in
-  observed order. Refusals additionally carry refusal, exit=3, engine_used=false
-  when no engine call occurred. Do not fabricate a binding on a refused path.
-- event kinds: write_open; engine_bind with write_is_null; read with offset,
-  bytes, success, phase and referenced_chunk for failure injection; write with
-  offset, bytes, issued_before_return and coalesced; flush with success,
-  os_success, os_call, and fullfsync_unsupported for raw macOS fallback only.
-  Offsets are actual **whole-target byte offsets**, not partition-relative.
+Fixture requests contain a complete verifier-built whole image at target_bytes.
+Bind its exact bytes without reprovisioning; the small mirror/geometry is truthful.
+All layout/empty-table/engine corruption is authored in prepare(), not the adapter.
+For roundtrip and capacity requests source points to verifier-owned WAV bytes
+with source_sha256. Honor label_seconds. Roundtrip requires real detach/reattach,
+then both-side dump, native NULL dump traces, and preserved output files.
+Return dumps={A:path,B:path}, dump_traces={A:trace,B:trace}, and reattached=true
+only with actual detach/reattach raw records. For native-exact-MBR-FAT-OS-README,
+return an authenticated sparse snapshot of target_bytes, os_readme containing
+read_via='native-filesystem', actual volume_label/path/content_hex, and a separate
+successful post-provision verify_trace/verify_exit/verify_output. This proves
+both sides mount after that provision, not merely during a later unrelated case.
 
-No-op-flush means a real controlled candidate callback returns success without
-its OS barrier; capture that omission. Non-NULL-binding means a real controlled
-binding, even when it writes nothing. Each isolated bypass mutates only the
-named safety rule; other rules stay valid. Flush-error injects actual barrier
-failure and must propagate nonzero. Referenced-read-error injects a port failure
-while verify services referenced audio. Controls/build changes must be test-only,
-absent in shipped binary, and retained as patch/config/build provenance. An
-unrelated process failure, missing record, forged JSON or wrong binary cannot
-count as the intended control. Verification reviews that causal linkage.
+Facts map only to issued keys whole/removable/sd_bus/bytes/holds_os/layout_ok and
+repeat mounted=partition:where. foreign_mount means a mounted foreign entry;
+mounted=['1:owned'] means an actual mounted own P1, using its real mount path.
+virtual is a real setup/probe state, not a new facts-file key. Empty facts means
+an empty test facts file with refusing defaults. Match --erase only when requested.
+Never inject facts into production or ordinary images. Actual probe/OS mount/read
+artifacts must prove the binding, not only self-reported booleans.
 
-Adapter stdout is not verdict input; write complete response.json and retain raw
-captures outside the runner's temporary directory. All runs must bind the final
-exact import/binding head announced in #146. No candidate accepted by this
-transport alone; platform CI and A8 identity/replays are separate mandatory gates.
+## Response and raw observations
+
+All responses: case, platform, head_sha (40 lower hex), binary_path,
+binary_sha256 (actual binary hash), os_build (exact native OS build), request_sha256,
+capture_origin='native-candidate', control_applied (requested profile or null),
+capture_artifacts=[{path,sha256},...] (all files persistent, verified by runner).
+Also exit/stdout/stderr and trace, except symbol-tool cases. Include actual build/
+compiler/configuration, command argv, source build identity and capture setup in
+raw artifacts. Resolve Software's raw short build ID to the authenticated full
+head; a dirty mutant build additionally requires exact patch/build provenance.
+
+Symbols: authentic native symbol output in symbols, symbol_tool_exit=0. The
+shipped binary must omit all advertised symbols/config strings; test build must
+contain all as the causal red control. Never replace failed/empty tool output with
+invented symbols. The inspection binary itself is hashed before any control verdict.
+
+Trace fields: operation, platform, target_kind='device', target_bytes, success,
+events in actual order; refusal/exit=3 for refusals; engine_used=false only when
+no engine call occurred (policy/probe/unsafe layout/NOT_PROVISIONED/LBA0 failure).
+Events:
+- open/write_open (actual OS opens, including failed attempts);
+- write: absolute whole-target offset/bytes, issued_before_return, coalesced,
+  actual payload data_hex or payload_path/payload_sha256/payload_offset when
+  provision replay needs it; never a reconstructed expected payload;
+- read: actual absolute offset/bytes/success; phase, side/frame and
+  referenced_chunk for service reads/faults. Capture ordinary reads for A6;
+  bind/block_count alone does not prove a >4GiB mirror access;
+- flush: success (reported), os_success (native result), os_call. Raw macOS
+  fallback requires actual fullfsync_unsupported='ENOTTY'/'ENOTSUP' observation;
+  never manufacture this cause from the fallback's name;
+- engine_bind: literal write_is_null, base_lba, blocks;
+- engine_mount: actual side A/B, cold and returned result;
+- engine_info: actual side, needs_repair, side_b_valid.
+
+The last two and service read context are mechanical observations at existing
+public API call sites, not new engine behavior/instrumentation. Retain raw
+wp14-trace-1 plus any additional authenticated capture. Normalization only renames/
+joins actual observations; it cannot invent absent reads, error causes or API calls.
+A failing mount is not subsequently serviced; closed findings match real engine
+observations in table order. LBA0 failure is IO, never fallback/mount.
+
+## Controls
+
+Direct advertised profiles: noop-flush, hidden-flush-error, nonnull-binding,
+read-error:2048. They mutate the actual test binary at the observed port/binding.
+Known chunk0 fixtures require full-read errors A and B frame0, not mount faults.
+No-op and hidden-error controls report success; non-NULL clean commands run
+successfully even when they write nothing. An unrelated process failure cannot
+kill these controls.
+
+Additional native-flush-error, unmount-error, target-read-error:0 describe actual
+test-only OS failure setups: return a real failed native barrier/unmount/read at
+that boundary and capture propagation. Software may bind an external syscall
+fault setup or test-only shim; preserve exact setup/patch/OS result. These are not
+production CLI commands nor permission for engine changes.
+
+A4 controls are actual isolated forbidden-facts cases paired with repaired cases,
+rather than preliminary invented guard-bypass mutations. A5 controls are actual
+corrupted fixtures plus clean/standby counterparts, not finding-suppression code.
+MBR order is checked on captured writes; no-op provision is its durability control.
+Independent reordered/missing-barrier transcript controls self-test that oracle.
+
+## Provision interruption replay
+
+provision-interruption-capture uses the supplied truthful small old image.
+Preserve an exact pre-command baseline copy, matching baseline_sha256; do not
+reprovision the seed first. Invoke provision with new_uuid/new_epoch/new_label
+and label_seconds. Return baseline and final_snapshot paths plus the full native
+write/flush transcript and replayable authenticated payloads. This is not a model
+or an expected journal supplied by Software.
+
+Verifier replays every actual successful flush epoch using none/all/first/last
+pending writes, compares the fully replayed state to the actual final snapshot,
+and dispatches child replay-* verify requests on native owned devices. Bind exact
+snapshot bytes, without reformatting/reprovisioning. Old/new must cold mount;
+zero-MBR devices must be NOT_PROVISIONED with no engine mount. New FAT/README is
+checked independently. Dynamic case census comes from actual legal flush count.
+
+This is representative destructive-provision outcome verification, not an
+exhaustive any-subset WP10 qualification or media-atomicity proof. Real pulls
+remain Michael's held physical work. Windows Server2025 remains supplemental.
+All static cases, candidate controls and generated replays must run at the final
+imported/bound head before software PASS. Raw assets over 1MiB go to CI/release
+storage with hashes, not source-tree commits.

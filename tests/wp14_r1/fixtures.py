@@ -30,11 +30,13 @@ def build(path,mutation='clean',whole=False,sectors=None):
     blocks={0:sb(),BLOCKS-1:sb(),2048:bytes((i*17+3)&255 for i in range(512))}
     for side,base in ((0,8),(1,264)):
         h,e=index(side,side+1); blocks[base]=h; blocks[base+1]=e
-    if mutation=='crc-signature':
+    if mutation in ('crc-signature','crc-signature-corrupt'):
         for lba in (0,BLOCKS-1):
             struct.pack_into('<I',blocks[lba],120,267838)
             struct.pack_into('<I',blocks[lba],508,crc(blocks[lba][:508]))
         assert blocks[0][510:512]==b'\x55\xaa'
+        if mutation=='crc-signature-corrupt':
+            blocks[0][36]^=1; blocks[BLOCKS-1][36]^=1
     elif mutation=='torn-primary': blocks[0][32]^=1
     elif mutation=='both-superblocks-bad':
         blocks[0][32]^=1; blocks[BLOCKS-1][32]^=1

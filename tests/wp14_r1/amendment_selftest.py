@@ -60,9 +60,10 @@ def main():
         s=blocks[0]
         assert s==blocks[BLOCKS-1] and crc(s[:508])==struct.unpack_from('<I',s,508)[0]
         assert geometry(9,BLOCKS) and not any(s[446:508])
-        assert s[510:512]==b'\x55\xaa' and candidate_recognition(s)
-        assert layout_findings(s,BLOCKS) # demonstrates contradictory branch, not a PASS expectation
-        checks.append('P2V005-valid-bare-CRC-collision')
+        assert s[510:512]==b'\x55\xaa' and candidate_recognition(s,'device')
+        # Historical delta witness retained; now covered by ADR165.
+        assert not candidate_recognition(s,'image')
+        checks.append('ADR165-valid-bare-CRC-collision')
         for kind in ('shipped','test'):
             binary=Path(temp)/kind; binary.write_bytes(b'native-code'+(b'TAPECTL_TEST_FACTS' if kind=='test' else b''))
             symbols='tapectl_test_facts_seam' if kind=='test' else 'main'
@@ -108,6 +109,6 @@ def main():
         bad=copy.deepcopy(provision); del bad['events'][1]
         assert fails(provision_order,bad); controls.append(platform+'-invalidation-barrier')
     print(json.dumps({'kind':'amendment-oracle-selftest','checks':checks,'controls_killed':controls,
-                      'native_product_runs':0,'P2V005':'conflict-reproduced'},indent=2))
+                      'native_product_runs':0,'P2V005':'ADR165-resolved'},indent=2))
 
 if __name__=='__main__': main()

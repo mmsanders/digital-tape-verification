@@ -38,8 +38,10 @@ def exact_recognition(data, sectors):
     expected = mbr(sectors)
     return len(data) == BLOCK and data[446:512] == expected[446:512]
 
-def candidate_recognition(data):
-    return len(data)==BLOCK and (data[510:512]==b'\x55\xaa' or any(data[446:508]))
+def candidate_recognition(data,target_kind='device'):
+    assert target_kind in ('device','image')
+    return len(data)==BLOCK and (any(data[446:508]) or
+                               (target_kind=='device' and data[510:512]==b'\x55\xaa'))
 
 def safe_view(data, sectors):
     start,count=struct.unpack_from('<II',data,470)
@@ -120,8 +122,10 @@ def fat16_readme(image, label, epoch=None):
         assert effective_labels == [b'DIGITALTAPE'], 'FAT volume label'
         assert len(entries) == 1 and entries[0][:11] == b'README  TXT'
         entry = entries[0]
+        assert not entry[11]&0x10, 'README is a file, not directory'
         if epoch is not None:
             time,date=fat_time(epoch)
+            assert entry[13]==0, 'FAT creation timestamp not floored to 2 seconds'
             assert struct.unpack_from('<HH',entry,14)==(time,date), 'FAT creation UTC timestamp'
             assert struct.unpack_from('<HH',entry,22)==(time,date), 'FAT modification UTC timestamp'
             assert struct.unpack_from('<H',entry,18)[0]==date, 'FAT access UTC date'
@@ -193,3 +197,22 @@ def provision_order(trace):
         elif event['kind']=='flush' and event['success']:
             dirty=False
     assert stages==[0,1,2,3] and not dirty, 'incomplete successful provision'
+
+def verify_observations(trace,layout,output):
+    """Closed findings and cold-mount/read order, from actual engine observations."""
+    mounts=[e for e in trace['events'] if e['kind']=='engine_mount']
+    assert [e['side'] for e in mounts]==['A','B']
+    assert all(e['cold'] for e in mounts)
+    infos=[e for e in trace['events'] if e['kind']=='engine_info']
+    successful=[e['side'] for e in mounts if e['result']=='TAPE_OK']
+    assert [e['side'] for e in infos]==successful
+    failed={e['side'] for e in mounts if e['result']!='TAPE_OK'}
+    services=[e for e in trace['events'] if e['kind']=='read' and e.get('phase')=='service']
+    assert not any(e['side'] in failed for e in services), 'full read after failed mount'
+    errors=[e for e in services if not e['success']]
+    assert [(e['side'],e['frame']) for e in errors]==sorted((e['side'],e['frame']) for e in errors)
+    findings=list(layout)+['MOUNT '+e['result'] for e in mounts if e['result']!='TAPE_OK']
+    if any(e['needs_repair'] for e in infos): findings.append('NEEDS_REPAIR')
+    if any(not e['side_b_valid'] for e in infos): findings.append('SIDE_B_DEGRADED')
+    findings+=['READ_ERROR SIDE '+e['side']+' FRAME '+str(e['frame']) for e in errors]
+    assert output==findings if findings else output==['OK']

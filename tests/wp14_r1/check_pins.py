@@ -20,6 +20,11 @@ assert overlay['base_sha256']==pins['sha256']['spec/tapefs-v1.md']
 assert overlay['overlay_sha256']==amended['sha256']['spec/adr164/SPEC-ERRATA.md']
 assert overlay['independent_paper_commit']==amended['verification_base']
 assert overlay['overlay_sha256']=='0cd814527f1c2a2e2d54de0f7a34e7195cb918262632e07d0b194831bade02a1'
+latest=json.loads((root/'ADR165-INPUTS.json').read_text())
+assert latest['product_commit']=='6f362f093435ab1a1501055b3bb1cdbe37a5b04c'
+for path,sha in latest['sha256'].items():
+    assert hashlib.sha256((root/path).read_bytes()).hexdigest()==sha,path
 print(json.dumps({'original_hashes_verified':len(pins['sha256']),
                   'amended_hashes_verified':len(amended['sha256']),
-                  'product_commit':amended['product_commit'],'E1_exact_overlay_confirmed':True}))
+                  'ADR165_hashes_verified':len(latest['sha256']),
+                  'product_commit':latest['product_commit'],'E1_exact_overlay_confirmed':True}))
