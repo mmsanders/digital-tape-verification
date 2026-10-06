@@ -3,13 +3,18 @@
 **Awaiting tested release, not script-ready:** E-1 is approved and ADR-164 issued.
 Software must still supply the exact tested binary release and SHA-256 for each
 platform; those values are not available in #146. Fill them before execution.
-P2V-005 is a bare-image recognizer hold, separately tracked in the delta report.
+P2V-005 is resolved by ADR165; the CRC witness is a package regression.
 This is one owned PNY card, not media qualification. Provision erases that card.
 No WP-05 acquisition is authorized.
 
 Record before running:
 
 - Exact tested Product commit, binary SHA-256 and compiler/build configuration.
+  Software must supply immutable release URLs/asset names for both platform
+  binaries at the final independently disposed head. Match those hashes locally
+  using `shasum -a 256 ./tapectl` (macOS) and
+  `Get-FileHash .\tapectl.exe -Algorithm SHA256` (Windows). Do not proceed on a
+  mismatch or substitute an unqualified informational-head build.
 - macOS `sw_vers`; Windows `winver` version/build. Save output, not "latest".
 - Card manufacturer part number, printed capacity, revision and CID, plus photos
   of the card/packaging. If the reader cannot expose CID, record unavailable;

@@ -1,45 +1,54 @@
-# WP14 P2-R1 amended independent package — progress publication
+# WP14 P2-R1 complete independent authored package
 
-Assignment: Verification #146; normative input Product ADR-164 merge
-`25b6439019396a54ce12e8298dd58f8a5d8a17e9`. Authored without reading the WP14
-implementation. Original paper report and historical evidence remain preserved.
-See [coverage](COVERAGE.md) and [delta preflight](../../findings/P2-R1-WP14-DELTA-2026-10-06.md).
-**Stage 1 is not complete, Stage 2 has not begun, no candidate accepted.**
+Verification #146; normative Product ADR165 merge
+`6f362f093435ab1a1501055b3bb1cdbe37a5b04c`. Authored without reading WP14
+implementation. E-1 and original paper work are carried, not repeated. See
+[coverage](COVERAGE.md), [transport](NATIVE-TRANSPORT.md) and the
+[final preflight](../../findings/P2-R1-WP14-AUTHORING-2026-10-06.md).
+Publication completes **test authoring**, not Product acceptance or native runs.
 
 ```sh
 python3 tests/wp14_r1/check_pins.py
 python3 tests/wp14_r1/selftest.py
 python3 tests/wp14_r1/amendment_selftest.py
+python3 tests/wp14_r1/completion_selftest.py
+python3 tests/wp14_r1/catalog.py
 ```
 
-These are verifier selftests, with zero Product runs. E-1 is now approved; the
-exact overlay and supplemental manifest are confirmed by `check_pins.py`.
-`spec/adr164/` contains exact amended document bytes. Frozen copies in `spec/`
-and the original `INPUTS.json` remain unchanged.
+These are verifier selftests, zero Product runs. INPUTS.json, ADR164-INPUTS.json
+and ADR165-INPUTS.json preserve all issued inputs and exact hashes. The frozen
+spec copies, E-1 overlay/manifest and previous evidence remain byte-identical.
+ADR165 resolves the collision inside this package; no separate collision tranche.
 
-After publication and Software's import/binding, run the candidate image suite:
+After Software's byte-identical import/binding, use the final exact head:
 
 ```sh
-python3 tests/wp14_r1/runner.py /absolute/path/to/tapectl > candidate-image-evidence.json
-python3 tests/wp14_r1/native.py --platform linux /absolute/path/to/capture-transport > native-linux.json
+python3 tests/wp14_r1/runner.py /absolute/path/to/tapectl --head FULL_SHA > image-linux.json
+python3 tests/wp14_r1/native.py --platform linux --head FULL_SHA --evidence-dir /absolute/path/to/capture /absolute/path/to/transport > native-linux.json
+python3 tests/wp14_r1/qualification.py --head FULL_SHA /absolute/path/to/six-json-bundle
 ```
 
-Repeat native runs on macOS and Windows; see [transport requirements](NATIVE-TRANSPORT.md).
-The image runner writes temporary regular files only. It round-trips all ten
-unchanged reference WAV inputs on bare and provisioned images, plus a mandatory
-full C60. Exact WAV bytes and final frame are required; no regenerated goldens.
-Full C60 needs roughly 2 GiB scratch. The 64 GB target is sparse; a filesystem
-without hole preservation can consume its full apparent size.
+Repeat image/native runs on macOS and Windows. Image census: 79 cases and
+11 causal output controls. Native census: Linux 97, macOS/Windows 96 applicable
+static requests each, plus all generated native provision-replay cases. The
+closed census gate rejects omitted cases, duplicates and missing replay.
+No inapplicable Linux path test is a Windows/macOS skipped case.
 
-Missing transport is a binding dependency, not a skip that yields acceptance.
-Native results require authentic candidate capture, exact-head and binary hashes,
-actual no-op/non-NULL/policy mutants, and referenced service-read failure. The
-adapter captures facts and events; it does not supply expectations or PASS.
-Malformed provenance cannot count as killing a candidate control. Review raw
-capture against CI artifacts before any disposition; JSON labels are not proof.
+All ten unchanged WP11 reference WAVs and mandatory full C60 run on bare and
+whole images, and native virtual targets; exact bytes/final frame, no tolerance.
+Only temporary regular files/owned virtual devices are used. Full C60 needs
+several GiB scratch; the 64 GB target is sparse, and can consume its full apparent
+size on a filesystem without holes. Capture payload/replay assets can exceed
+1 MiB: retain in CI/release assets with hashes, never commit them to the repo.
 
-[Michael's real-card checklist](REAL-CARD.md) includes macOS provision/load,
-remove/reinsert, ten pulls, Windows 10 cross-platform readback **and fresh Windows
-provision/load**, README evidence and >4GiB access capture. Tested binary release
-hashes are still required before script-ready delivery. Physical and named-OS
-holds remain distinct from software CI. Server 2025 is supplemental.
+Transport owns capture only; expectations/verdicts stay here. Actual no-op,
+hidden-error, non-NULL, native failure and referenced-service controls must run.
+Raw captures, OS builds, binary/head hashes and fault linkage must be authenticated,
+not accepted from JSON assertions. Git identity and unchanged Phase1/golden
+qualification are mandatory. Neither completeness nor oracle CI claims acceptance.
+
+[Michael's checklist](REAL-CARD.md) covers macOS provision/load/reinsert/README,
+ten pulls, Windows10 initial readback and fresh provision/load/reinsert, >4GiB
+capture. Tested release hashes are required before script-ready delivery.
+A1/A2/A3/A6 physical/named-OS holds survive software CI; Server2025 is supplemental,
+not Windows10 acceptance. Keep #146 open across stages.
