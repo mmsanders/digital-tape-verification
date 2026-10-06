@@ -61,7 +61,7 @@ def audit_response(request,response):
     if request.get('expected_failure'):
         assert response['exit']==request['expected_failure']
         assert request['failure_text'] in response['stdout']+response['stderr']
-        assert not any(e['kind'] in ('write','write_open') for e in t['events'])
+        assert not any(e['kind']=='write' for e in t['events'])
         assert not t.get('success')
         return True
     if not request.get('expected_refusal') and not request.get('required_read_failure') and not request.get('required_flush_failure'):

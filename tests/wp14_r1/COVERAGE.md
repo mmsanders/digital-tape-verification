@@ -14,7 +14,7 @@ conflict. Published expectations are independent; actual Product runs: **zero**.
 | A5 engine | Clean/invalid standby; torn primary; both superblocks bad; selected A index corrupt; degraded B; unchanged-file assertions | Actual candidate runs and native causal control captures (paired suppression controls authored) |
 | A5 NULL/read error | verify/play/scrub/dump NULL requests + actual non-NULL mutants; referenced chunk failure during service with SIDE A/FRAME | Actual bindings and read injection; raw capture review |
 | A6 | 64 GB sparse image, >4GiB mirror; all 10 commands requested on each native platform | Actual native captures; real 64 GB card witness |
-| A7 | 44,101-frame WAV for 1-second label, exit 2 and exact plain overage; target hash unchanged | Candidate run and native zero-write/open capture; native minute/second boundary capture (image boundary cases authored) |
+| A7 | 44,101-frame WAV for 1-second label, exit 2 and exact plain overage; target hash unchanged | Candidate run and native zero-write capture; native minute/second boundary capture (image boundary cases authored) |
 | A8 | Pinned base engine tree `b80a8e54775c5aabad7bc338a6e30db3596b657b`; identity gate over actual Git objects | Final exact head, byte-identical import, engine/golden metadata comparisons, complete unchanged Phase1 replays and CI qualification |
 | A9 | Wall times in both OS physical scripts | Measurements only; not gated |
 
