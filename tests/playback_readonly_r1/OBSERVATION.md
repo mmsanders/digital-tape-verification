@@ -1,6 +1,7 @@
-# Proposed source-independent observation boundary (not final package schema)
+# Final source-independent observation boundary — ADR-170
 
-This paper definition precedes Product changes. PM's P2READ-001 ruling is still needed.
+This definition precedes Product changes. PM resolved P2READ-001 in ADR-170 at
+Product merge `5e6d5fd6cfce64031ba12b37fc367145b5fe18dd`.
 It chooses no buffer layout, watermark or implementation algorithm.
 
 ## Device transport
@@ -28,6 +29,7 @@ Per-call uint64 monotonic counters, reset after cold mount, report:
 | warm_adoption_copy_bytes | Each byte copied from an accepted warm descriptor into play PCM storage |
 | retained_move_bytes | Each already valid PCM byte relocated within/between retained ranges |
 | mapping_entry_visits | Every actual entry inspection for playback mapping, prefix construction/search or lookup |
+| idle_loop_iterations | Every executed body iteration in playback-related engine loops reached by the call, including service/refill/mapping helpers; no name filtering |
 
 Direct reads into the final play ring incur no extra copy bytes. Counters count all
 intermediate copies, including scalar loops, not only calls named memcpy/memmove.
@@ -38,7 +40,21 @@ copies and recording stores are not playback-copy evidence.
 Use direct compile-time test instrumentation, with caller-owned/test-owned counters;
 no new public device callback, fifth funnel, private-state snapshot, runtime consumer
 API or shipping state. Observations must never drive a Product branch or change PCM.
-The final schema will include the PM-issued work inequality and its reset boundaries.
+Counter object keys are exactly these five names, unsigned 64-bit integer deltas
+for each API call. Counters are observed before/after the call and must not wrap.
+No public engine-state reset or callback is added. Cold traversal accumulation
+resets after mount; warm/mount/seek/side/rate/content episodes start before the
+initiating API, including its actual playback work. Mount-selection validation
+is not playback mapping and is outside the cold reset. Use the larger physical
+run/selected-side nonempty-entry count E; failed calls still report actual work.
+
+`oracle.Work` implements V<=4E+4B+32 for traversal, V<=2E+32 per seek,
+V<=4E+4B+4F+32 for fixed-direction/rate episodes, and zero I/O/mapping/PCM
+work with <=8 loop iterations for each repeated already-done idle service.
+B counts requested payload blocks, including redundant/failed requests; F counts
+requested render frames, including underruns. No instruction-count/target-deadline
+claim follows. Error runs retain extent/budget/PCM semantics and report counters;
+their no-error volume ceiling is not asserted.
 
 ## Required causal and absence evidence for the complete package
 
@@ -57,3 +73,9 @@ Check shipping preprocessor/object/link evidence for absence of the seam definit
 references and storage, including static/inlined sites; symbol absence alone cannot
 prove compiled-out instrumentation. Audit actual increment sites after the matching
 independent behavior tests are authored, preserving the independence order.
+
+The executable `controls.py` requires actual normal and zero `seam_work` operations
+with known 256/128/64 copy/move bytes and 9 visits/loop iterations, and an invented-zero
+counter control that fails. It also requires twelve real Product defect controls;
+`ADAPTER.md` specifies each causal action. Software supplies mechanical binding and
+actual-site instrumentation after publication, not expected verdicts or counter setters.
