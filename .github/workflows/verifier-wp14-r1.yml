@@ -14,17 +14,15 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Authenticate READ-1 preflight inputs (not a complete package)
+      - name: READ-1 independent publication (not Product acceptance)
         run: |
-          python3 - <<'PY'
-          import hashlib, json
-          from pathlib import Path
-          root = Path('tests/playback_readonly_r1')
-          pins = json.loads((root / 'INPUTS.json').read_text())
-          for path, expected in pins['sha256'].items():
-              assert hashlib.sha256((root / path).read_bytes()).hexdigest() == expected, path
-          print('READ-1 paper inputs verified; no Product acceptance')
-          PY
+          python3 -B tests/playback_readonly_r1/check_pins.py
+          python3 -B tests/playback_readonly_r1/selftest.py
+          python3 -B tests/playback_readonly_r1/cases.py
+          python3 -B tests/playback_readonly_r1/runner.py --help
+          python3 -B tests/playback_readonly_r1/controls.py --help
+          python3 -B tests/playback_readonly_r1/qualification.py --help
+          python3 -B tests/playback_readonly_r1/absence.py --help
       - run: python3 tests/wp14_r1/check_pins.py
       - run: python3 tests/wp14_r1/selftest.py
       - run: python3 tests/wp14_r1/amendment_selftest.py
