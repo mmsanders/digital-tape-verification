@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['tests/wp14_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/playback_readonly_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['tests/wp14_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/playback_readonly_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,6 +14,17 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+      - name: Authenticate READ-1 preflight inputs (not a complete package)
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('tests/playback_readonly_r1')
+          pins = json.loads((root / 'INPUTS.json').read_text())
+          for path, expected in pins['sha256'].items():
+              assert hashlib.sha256((root / path).read_bytes()).hexdigest() == expected, path
+          print('READ-1 paper inputs verified; no Product acceptance')
+          PY
       - run: python3 tests/wp14_r1/check_pins.py
       - run: python3 tests/wp14_r1/selftest.py
       - run: python3 tests/wp14_r1/amendment_selftest.py
