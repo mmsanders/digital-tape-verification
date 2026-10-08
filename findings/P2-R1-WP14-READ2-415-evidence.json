@@ -1,0 +1,177 @@
+{
+  "imports_history_and_old_bytes": "PASS",
+  "baseline_six_raw_old_and_fresh_oracles": "PASS",
+  "00-benign-comment_six_raw_old_and_fresh_oracles": "PASS",
+  "01-chunk-boundary-off-by-one": {
+    "actual_commit": "7d2805366b61507722e45e9bf0d53ae4bb8a835e",
+    "engine": "fc1d8de4684d6d470dbfd94eb13bf85b0e22ece2",
+    "root": "73feac5c77e3796262998a5da6068e752aee4c11",
+    "patch_source_commit_archive_authenticated": true,
+    "independent_causal_replay": "copy does not mount on Side A"
+  },
+  "02-index-commit-before-chunk-flush": {
+    "actual_commit": "f0307c9ff02d3e21bf155f31b03968680fa09b09",
+    "engine": "7de4baa62377da2331d68f83fb5c374c74d3320d",
+    "root": "c64d27d7fbbd8af1e2a653045cc9fc4c450fe46c",
+    "patch_source_commit_archive_authenticated": true,
+    "independent_causal_replay": "accepted prefix not durably flushed"
+  },
+  "03-sequence-not-incremented": {
+    "actual_commit": "874c4699649a23f9d4bcbda89dd702ad22b123af",
+    "engine": "52594db1582e6654d1408f348ee7fb52c2d094c3",
+    "root": "62e63fc98d1252c8be6edfb0d8a128fbd110618a",
+    "patch_source_commit_archive_authenticated": true
+  },
+  "04-crc-wrong-byte-range": {
+    "actual_commit": "3c079a20cee544852fdf5ec62d67cc93393a6547",
+    "engine": "22753a2b3d37115fd98f9d6a37856c0affda67f1",
+    "root": "11b05a38e951bda3ca85287560a5f222f395ae8f",
+    "patch_source_commit_archive_authenticated": true
+  },
+  "05-side-b-allocation-below-a-high-water": {
+    "actual_commit": "0125ad1ead8e437df0f5d14dfd07e272f5d99253",
+    "engine": "feaa5e5361e0c46ef3a2424741e916f33b1c5b75",
+    "root": "ec1e5a56923aa72fcd71bbd6fd1fdb8095bfa812",
+    "patch_source_commit_archive_authenticated": true,
+    "independent_causal_replay": {
+      "WP09-OW-MID": [
+        "record index shape mismatch",
+        "post-record free_next not advanced to 4",
+        "record audio write outside derived allocation chunk"
+      ],
+      "WP09-OW-END": [
+        "record index shape mismatch",
+        "post-record free_next not advanced to 4",
+        "record audio write outside derived allocation chunk"
+      ],
+      "WP09-OD-MID": [
+        "record index shape mismatch",
+        "post-record free_next not advanced to 4",
+        "record audio write outside derived allocation chunk"
+      ],
+      "WP09-SP-T0": [
+        "record index shape mismatch",
+        "post-record free_next not advanced to 4",
+        "record audio write outside derived allocation chunk"
+      ],
+      "WP09-SP-MID": [
+        "record index shape mismatch",
+        "post-record free_next not advanced to 4",
+        "record audio write outside derived allocation chunk"
+      ],
+      "WP09-SP-END": [
+        "record index shape mismatch",
+        "post-record free_next not advanced to 4",
+        "record audio write outside derived allocation chunk"
+      ],
+      "WP09-OW-MULTICHUNK": [
+        "multi-chunk index shape",
+        "multi-chunk free_next",
+        "missing chunk-4 write",
+        "multi-chunk service wrote outside chunks 3-4"
+      ],
+      "WP09-SP-EMPTY-B": [
+        "empty-B splice shape",
+        "empty-B splice wrote outside chunk 3"
+      ],
+      "WP09-SP-BOUNDARY": [
+        "exact-boundary splice shape",
+        "exact-boundary splice wrote outside chunk 3"
+      ]
+    }
+  },
+  "06-overdub-clamp-replaced-by-cast": {
+    "actual_commit": "a09c5a2866d58d5ec04619e6395e884b0f68ac45",
+    "engine": "24f9f20879a2695492cd9f9de92df94e0c164df2",
+    "root": "18011e1618c86955f39d8aec9e60a2d588c2d1b7",
+    "patch_source_commit_archive_authenticated": true
+  },
+  "07-warm-start-accepted-for-wrong-uuid": {
+    "actual_commit": "982810b7f6e94511440cdaf96ae476108435c2dc",
+    "engine": "3511e0932e31476ccafbd00d3a262cc04378ff9d",
+    "root": "aaef02ffb92b2bec1d83c0166acc49b6ff1ad4bc",
+    "patch_source_commit_archive_authenticated": true,
+    "transport_evidence_files": [
+      "transport-evidence/PROVENANCE.md",
+      "transport-evidence/observations.jsonl"
+    ]
+  },
+  "00-benign-comment": {
+    "actual_commit": "4b36067be24eefdb7dd144a09ee26e4a029feb96",
+    "engine": "e9db84dc5dc24b6ab2c7cb9e398526f9b2209a18",
+    "root": "0bf0e8ece856a9179c575f9d0a4230f6d8026137",
+    "patch_source_commit_archive_authenticated": true
+  },
+  "mutation_census": "PASS",
+  "qualification_routing": {
+    "classifier": "ALL",
+    "lane_members": [
+      "allocator-cow-package",
+      "wp36-fuzz-package",
+      "format-dup-identity-package",
+      "promote-package",
+      "crash-core-package",
+      "wp10-final-package",
+      "wp10-backlog-package",
+      "wp10-backlog-r54-package",
+      "wp10-residue-package",
+      "respool-full-functional",
+      "respool-full-crash",
+      "respool-full-aggregate",
+      "wp11-mutation-gate"
+    ],
+    "changed_job_blocks": [
+      "wp11-mutation-gate"
+    ],
+    "unchanged_job_blocks_sha256": {
+      "allocator-cow-package": "bedfaabcd14ce991c126570d5d034bc8f7dc36a7c10ad1e3ae90b6b868a4a55d",
+      "wp36-fuzz-package": "2f780192d9f37e87e96a91287509b44974adce041977ecfa5e31af6f0026e6a4",
+      "format-dup-identity-package": "eb48ce6c9ab73d549cf2bc583f71b143c3f50a38979b8121488c796b948702cd",
+      "promote-package": "433547db7d226dec051339e4d49ff52655392881083f575db92d896f6843c47e",
+      "crash-core-package": "313c032104307b2d0168531da6b52980dd6eb5ac826cd8abcc1c6f578a7ecbc2",
+      "wp10-final-package": "8d43b88b5bca420c8131a74f18273b8d92ceb2f61be7db554f6e76d66af01c2a",
+      "wp10-backlog-package": "1385f173a01bf3c3a859d5ee5da2572ba73c43650628fdbfe7f9967c137f79be",
+      "wp10-backlog-r54-package": "6d5ddcb9b7668cec891ff3693494c498d3e1076c67dca4e9866f291eb76228e4",
+      "wp10-residue-package": "3201f947e223f94f90fe74623460e7b95958a04e5fe8539f31d394ac115789df",
+      "respool-full-functional": "fa375eb00e12cbb2aa28a9201bbb61b751d498c71ef05fb7e4b0076530cfc89c",
+      "respool-full-crash": "16aa560b01a1942a67293da538a841d8d617a1f0c53101b249e54394326d1b7a",
+      "respool-full-aggregate": "f23be6b339cf89ce7739be48b317910431e703de53c1c13b16a7b24a8776f08a"
+    }
+  },
+  "archive": {
+    "file": "readopt-final.tar.gz",
+    "bytes": 10237370,
+    "sha256": "e5e8e2c9c8ca92498e2783406f5dae7fc3071b270a06e9fa2609a4b7b271064c"
+  },
+  "independent_actual_mutations": {
+    "07": {
+      "WARM-UUID": [
+        "mount warm_start_used mismatch",
+        "info.warm_start_used mismatch"
+      ]
+    },
+    "03-sequence-not-incremented": {
+      "actual_commit": "874c4699649a23f9d4bcbda89dd702ad22b123af",
+      "build_pass": true,
+      "causal_reason": "TAPE_ERR_NO_VALID_INDEX",
+      "behavior_exit": 1
+    },
+    "04-crc-wrong-byte-range": {
+      "actual_commit": "3c079a20cee544852fdf5ec62d67cc93393a6547",
+      "build_pass": true,
+      "causal_reason": "TAPE_ERR_CRC",
+      "behavior_exit": 1
+    },
+    "06-overdub-clamp-replaced-by-cast": {
+      "actual_commit": "a09c5a2866d58d5ec04619e6395e884b0f68ac45",
+      "build_pass": true,
+      "causal_reason": "FAIL  overdub",
+      "behavior_exit": 1
+    }
+  },
+  "candidate": {
+    "commit": "557728ac548ddc13bf745ff1df9002d3f390f498",
+    "root": "4f3bb3e7d5dd3b865755ef3e51f248d2e685de8b",
+    "engine": "d96b4245e04d74078f8938744b1394c3018516f7"
+  }
+}
