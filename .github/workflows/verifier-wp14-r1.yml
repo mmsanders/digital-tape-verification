@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['tests/wp14_r1/**', 'tests/playback_readonly_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['tests/wp14_r1/**', 'tests/playback_readonly_r1/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,6 +12,9 @@ jobs:
   preflight:
     name: WP14 oracle selftests (not Product acceptance)
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
       - name: READ-1 independent publication (not Product acceptance)
@@ -23,6 +26,13 @@ jobs:
           python3 -B tests/playback_readonly_r1/controls.py --help
           python3 -B tests/playback_readonly_r1/qualification.py --help
           python3 -B tests/playback_readonly_r1/absence.py --help
+      - name: READOPT epoch checker controls (not Product acceptance)
+        run: python3 -B tests/playback_regression_epoch/selftest.py
+      - name: Publish and fetch immutable READOPT evidence
+        if: github.repository == 'mmsanders/digital-tape-verification' && (github.head_ref == 'verification/146-readopt-epoch' || github.ref == 'refs/heads/main')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash tests/playback_regression_epoch/publish.sh
       - run: python3 tests/wp14_r1/check_pins.py
       - run: python3 tests/wp14_r1/selftest.py
       - run: python3 tests/wp14_r1/amendment_selftest.py
