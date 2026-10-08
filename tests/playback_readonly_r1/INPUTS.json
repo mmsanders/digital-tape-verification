@@ -11,7 +11,8 @@
     "authority/ADR170-PLAYBACK-PERFORMANCE-ADDENDUM.md": "85e9ea3aaff047de9118e0e1e0e7918de38263ed79641bd7a535f59e22fda496",
     "authority/engine-api.md": "aa042e41e35b02bf2bb6b3896e59340a947720c27dc5fc52a24d657ccd66b33a",
     "authority/tapefs-v1.md": "2a6a9f7b6fe1e5f9e3fe068b3c6460a81256276082bb7e336c01dbf1e9c17eba",
-    "authority/VERSION.md": "57483eb1ea873ec3c1ac07914172d2a927e5a425a2e34feb034c5d086c63b8c9"
+    "authority/VERSION.md": "57483eb1ea873ec3c1ac07914172d2a927e5a425a2e34feb034c5d086c63b8c9",
+    "authority/acceptance.md": "50aa63bd751fdc6b4636de0eb48253887be19b7ec2841768449217b4e9b9e547"
   },
   "publication_kind": "complete-authored-READ1-not-Product-acceptance",
   "historical_authority": {
@@ -19,5 +20,15 @@
     "product_main": "1f4285177876a048d761f40bd6d843fc9428512d",
     "preflight_merge": "f02f9b625acf72f762dfde5d2838cb4805b75938",
     "preflight_tree": "3845e84cbc9f1969c57e62295ff5733e1b2da423"
+  },
+  "authority_copy_repair": {
+    "source_repository": "mmsanders/Digital-Tape",
+    "source_commit": "9e902cf04b6d0c02363870fb9bc201e40239b509",
+    "source_path": "spec/acceptance.md",
+    "source_blob": "242f6a05f2a08698830fb266da583fdd90961e77",
+    "authorization": "ADR-171 / Product #413 merge 30a74442741fa02d221d283ec0c601ab0c1cc646; Verification #146",
+    "prior_publication_commit": "e5ee1608faa4ad0c15774e8155ddf32164355f1a",
+    "prior_publication_subtree": "f8b67c549499bea8d05ade53f7f49fcf3a356131",
+    "scope": "Add missing frozen authority copy and provenance pin only; preserve all existing test and authority bytes."
   }
 }
