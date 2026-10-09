@@ -1,0 +1,1637 @@
+{
+  "unchanged_reviewed_engine_host_tests_evidence": "PASS",
+  "candidate": {
+    "commit": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+    "root": "57c7df2159ebc80a7295a21245404186725436c8",
+    "engine": "d96b4245e04d74078f8938744b1394c3018516f7"
+  },
+  "baseline_six_exact_raw_and_reviewed_streams": "PASS",
+  "00-benign-comment_six_exact_raw_and_reviewed_streams": "PASS",
+  "01-chunk-boundary-off-by-one": {
+    "actual_commit": "db0787e90e45a06bb2ef53a5f9be913c6496acf1",
+    "root": "2a7a00fb610c5f7117f533dc134cabd8991484a7",
+    "engine": "fc1d8de4684d6d470dbfd94eb13bf85b0e22ece2",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "02-index-commit-before-chunk-flush": {
+    "actual_commit": "6ddd4edb9a55fe26dc81b2f2a1723804049e0e54",
+    "root": "8fd6b3bf087f7447b161404caf8e1f3c9864a621",
+    "engine": "7de4baa62377da2331d68f83fb5c374c74d3320d",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "03-sequence-not-incremented": {
+    "actual_commit": "a17f65c9e73038a5c43b00acdd4fe2471705277f",
+    "root": "afbb6cbb71835363f565400cb4f9d70bf7baf72b",
+    "engine": "52594db1582e6654d1408f348ee7fb52c2d094c3",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "04-crc-wrong-byte-range": {
+    "actual_commit": "dc2153b588d17598833df386785dd8ff49e6936a",
+    "root": "6d7d2dc36afbce2ba7387ee5ab71990d5110f5b3",
+    "engine": "22753a2b3d37115fd98f9d6a37856c0affda67f1",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "05-side-b-allocation-below-a-high-water": {
+    "actual_commit": "6a645336793948344e6e3190d074f239d505a5bf",
+    "root": "bd1c81e7e58bb479ebc4e7ad8561da22b24d19f9",
+    "engine": "feaa5e5361e0c46ef3a2424741e916f33b1c5b75",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "06-overdub-clamp-replaced-by-cast": {
+    "actual_commit": "2386904b7feba6dac043872db3f4c0b30b9da604",
+    "root": "f1962f2a1eec5a94ad4d3ee3a8950f9d2b95f81b",
+    "engine": "24f9f20879a2695492cd9f9de92df94e0c164df2",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "07-warm-start-accepted-for-wrong-uuid": {
+    "actual_commit": "55ea06ca61d8a77b21d04b0a34f8489fc107bfe0",
+    "root": "a585edbfa9bfd525dafd9489574929a37c593df5",
+    "engine": "3511e0932e31476ccafbd00d3a262cc04378ff9d",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "00-benign-comment": {
+    "actual_commit": "c5f6ce3061689d8b098d27ae9d5724f5f4c0008a",
+    "root": "4a3fbef0a9dcc42715d4ab0c7a6c0262eb383e92",
+    "engine": "e9db84dc5dc24b6ab2c7cb9e398526f9b2209a18",
+    "actual_source_archive_authenticated": true,
+    "same_independently_reviewed_mutant_engine": true
+  },
+  "mutation_census": "PASS",
+  "pr_ci": {
+    "runs": [
+      {
+        "id": 37867835017,
+        "name": "engine",
+        "event": "pull_request",
+        "attempt": 1,
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "conclusion": "success"
+      },
+      {
+        "id": 37867835025,
+        "name": "verifier publication",
+        "event": "pull_request",
+        "attempt": 1,
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "conclusion": "success"
+      },
+      {
+        "id": 37867834996,
+        "name": "repo hygiene",
+        "event": "pull_request",
+        "attempt": 1,
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "conclusion": "success"
+      },
+      {
+        "id": 37867834979,
+        "name": "evidence integrity",
+        "event": "pull_request",
+        "attempt": 1,
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "conclusion": "success"
+      },
+      {
+        "id": 37867835001,
+        "name": "READ-1 exact-head qualification",
+        "event": "pull_request",
+        "attempt": 1,
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "conclusion": "success"
+      }
+    ],
+    "jobs": 109,
+    "pass": 108,
+    "authorized_read1_skip": [
+      {
+        "id": 113618738968,
+        "name": "qualification",
+        "conclusion": "skipped",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835001/job/113618738968"
+      }
+    ],
+    "artifacts": 81,
+    "strict_required_contexts": [
+      "evidence gate can go red",
+      "evidence integrity",
+      "docs size and line budgets",
+      "hygiene gate can go red",
+      "cheap",
+      "regression",
+      "qualification"
+    ],
+    "respool_crash_shards": 48,
+    "complete_jobs": [
+      {
+        "id": 113618737847,
+        "name": "spec bundle matches VERSION.md",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618737847"
+      },
+      {
+        "id": 113618738047,
+        "name": "build (-Werror)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618738047"
+      },
+      {
+        "id": 113618738082,
+        "name": "lead-queue dashboard behaviour",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618738082"
+      },
+      {
+        "id": 113618738269,
+        "name": "classify changes into lanes",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618738269"
+      },
+      {
+        "id": 113618788503,
+        "name": "independent DRAFT-8 mount package self-checks (not engine acceptance)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788503"
+      },
+      {
+        "id": 113618788545,
+        "name": "independent WP-36 100k source-slot fuzz \u2014 debug real-product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788545"
+      },
+      {
+        "id": 113618788557,
+        "name": "independent promote package \u2014 synthetic self-checks, then product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788557"
+      },
+      {
+        "id": 113618788635,
+        "name": "independent WP-09 record package \u2014 synthetic self-checks, then product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788635"
+      },
+      {
+        "id": 113618788731,
+        "name": "independent transport/warm package \u2014 synthetic self-checks, then product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788731"
+      },
+      {
+        "id": 113618788744,
+        "name": "independent VT8-001 package self-checks (synthetic, not engine acceptance)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788744"
+      },
+      {
+        "id": 113618788788,
+        "name": "independent WP-06 R52 closure gaps \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788788"
+      },
+      {
+        "id": 113618788791,
+        "name": "independent WP-09 R52 capacity short accept \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788791"
+      },
+      {
+        "id": 113618788827,
+        "name": "independent WP-12/WP-12a R53 closure gaps \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788827"
+      },
+      {
+        "id": 113618788851,
+        "name": "independent WP-36 slot package \u2014 synthetic self-checks, then debug-assert product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788851"
+      },
+      {
+        "id": 113618788871,
+        "name": "independent writability package \u2014 synthetic self-checks, then 8-case product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788871"
+      },
+      {
+        "id": 113618788874,
+        "name": "independent WP-10 final backlog (#118) \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788874"
+      },
+      {
+        "id": 113618788883,
+        "name": "independent format/dup package \u2014 synthetic self-checks, then product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788883"
+      },
+      {
+        "id": 113618788970,
+        "name": "independent respool package \u2014 synthetic self-checks, then full 8-case product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618788970"
+      },
+      {
+        "id": 113618789013,
+        "name": "independent WP-13 embedded-readiness audit (DRAFT-9) \u2014 six-gate real-product evidence",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789013"
+      },
+      {
+        "id": 113618789020,
+        "name": "independent WP-09 R44 seeded record history \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789020"
+      },
+      {
+        "id": 113618789033,
+        "name": "independent WP-10 backlog rows 1-3 \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789033"
+      },
+      {
+        "id": 113618789039,
+        "name": "R29-B format/duplicate raw identity + dup long-op \u2014 exact canonical product campaign",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789039"
+      },
+      {
+        "id": 113618789045,
+        "name": "independent WP-10 core crash \u2014 bounded real-product campaign",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789045"
+      },
+      {
+        "id": 113618789051,
+        "name": "independent WP-06 R44 sequential \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789051"
+      },
+      {
+        "id": 113618789059,
+        "name": "independent not-mounted package \u2014 synthetic self-checks, then 34-case product observations",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789059"
+      },
+      {
+        "id": 113618789068,
+        "name": "independent WP-08 R52 two-toolchain playback \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789068"
+      },
+      {
+        "id": 113618789070,
+        "name": "independent full re-spool \u2014 clean/headroom + WP-12a product gate",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789070"
+      },
+      {
+        "id": 113618789118,
+        "name": "independent WP-08 R44 cross-run playback \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789118"
+      },
+      {
+        "id": 113618789121,
+        "name": "independent WP-10 R53 crash-injection gaps \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789121"
+      },
+      {
+        "id": 113618789126,
+        "name": "independent playback/golden package self-checks (synthetic, not engine acceptance)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789126"
+      },
+      {
+        "id": 113618789130,
+        "name": "independent #126 strengthening rows (strengthen_r55) \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789130"
+      },
+      {
+        "id": 113618789140,
+        "name": "independent WP-07 allocator/COW \u2014 fixed 10k real-product campaign",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789140"
+      },
+      {
+        "id": 113618789160,
+        "name": "independent WP-08 mapped-run rows (#129) \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789160"
+      },
+      {
+        "id": 113618789172,
+        "name": "independent #130 rows (overdub saturation, V-R55-01 trace floor) \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789172"
+      },
+      {
+        "id": 113618789186,
+        "name": "WP-11 mutation gate \u2014 seven mutations, each caught",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789186"
+      },
+      {
+        "id": 113618789190,
+        "name": "accepted bindings regenerate on the current engine \u2014 gate can go red",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789190"
+      },
+      {
+        "id": 113618789216,
+        "name": "independent WP-10 backlog r54 (repair crash, dup re-run, dup shape) \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789216"
+      },
+      {
+        "id": 113618789249,
+        "name": "WP-11 fixture release assets \u2014 fetched and sha256-verified",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789249"
+      },
+      {
+        "id": 113618789254,
+        "name": "independent complete playback package self-checks (synthetic, not engine acceptance)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789254"
+      },
+      {
+        "id": 113618789255,
+        "name": "tapectl \u2014 build, WAV unit tests, format/load/dump smoke",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789255"
+      },
+      {
+        "id": 113618789259,
+        "name": "WP-11 portability (narrow-int)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789259"
+      },
+      {
+        "id": 113618789289,
+        "name": "WP-11 portability (arm-m3)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789289"
+      },
+      {
+        "id": 113618789305,
+        "name": "WP-11 portability (host-gcc)",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789305"
+      },
+      {
+        "id": 113618789368,
+        "name": "independent WP-10 residue destinations (V10-001) \u2014 product replay",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618789368"
+      },
+      {
+        "id": 113618793512,
+        "name": "gates can go red",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618793512"
+      },
+      {
+        "id": 113618793577,
+        "name": "guardrail gates",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618793577"
+      },
+      {
+        "id": 113618793614,
+        "name": "scaffolding + verifier infrastructure",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618793614"
+      },
+      {
+        "id": 113618793654,
+        "name": "golden suite \u2014 WP-11 R63 references, byte-exact",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113618793654"
+      },
+      {
+        "id": 113619095682,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 0",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095682"
+      },
+      {
+        "id": 113619095684,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 5",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095684"
+      },
+      {
+        "id": 113619095695,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 4",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095695"
+      },
+      {
+        "id": 113619095703,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 7",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095703"
+      },
+      {
+        "id": 113619095709,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 1",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095709"
+      },
+      {
+        "id": 113619095711,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 2",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095711"
+      },
+      {
+        "id": 113619095719,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 5",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095719"
+      },
+      {
+        "id": 113619095728,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 4",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095728"
+      },
+      {
+        "id": 113619095731,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 1",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095731"
+      },
+      {
+        "id": 113619095732,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 0",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095732"
+      },
+      {
+        "id": 113619095741,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 4",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095741"
+      },
+      {
+        "id": 113619095748,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 7",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095748"
+      },
+      {
+        "id": 113619095749,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 7",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095749"
+      },
+      {
+        "id": 113619095750,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 3",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095750"
+      },
+      {
+        "id": 113619095752,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 3",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095752"
+      },
+      {
+        "id": 113619095754,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 7",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095754"
+      },
+      {
+        "id": 113619095758,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 2",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095758"
+      },
+      {
+        "id": 113619095765,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 3",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095765"
+      },
+      {
+        "id": 113619095768,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 6",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095768"
+      },
+      {
+        "id": 113619095769,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 5",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095769"
+      },
+      {
+        "id": 113619095775,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 6",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095775"
+      },
+      {
+        "id": 113619095777,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 3",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095777"
+      },
+      {
+        "id": 113619095781,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 4",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095781"
+      },
+      {
+        "id": 113619095795,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 4",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095795"
+      },
+      {
+        "id": 113619095801,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 5",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095801"
+      },
+      {
+        "id": 113619095802,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 6",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095802"
+      },
+      {
+        "id": 113619095819,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 2",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095819"
+      },
+      {
+        "id": 113619095820,
+        "name": "independent full re-spool crash \u2014 v3_003 pass1 write_through part 2",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095820"
+      },
+      {
+        "id": 113619095822,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 1",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095822"
+      },
+      {
+        "id": 113619095823,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 1",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095823"
+      },
+      {
+        "id": 113619095825,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 6",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095825"
+      },
+      {
+        "id": 113619095828,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 1",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095828"
+      },
+      {
+        "id": 113619095833,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 0",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095833"
+      },
+      {
+        "id": 113619095835,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 0",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095835"
+      },
+      {
+        "id": 113619095842,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 2",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095842"
+      },
+      {
+        "id": 113619095847,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 3",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095847"
+      },
+      {
+        "id": 113619095850,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 6",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095850"
+      },
+      {
+        "id": 113619095878,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 5",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095878"
+      },
+      {
+        "id": 113619095887,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 4",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095887"
+      },
+      {
+        "id": 113619095893,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 1",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095893"
+      },
+      {
+        "id": 113619095903,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 6",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095903"
+      },
+      {
+        "id": 113619095930,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 3",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095930"
+      },
+      {
+        "id": 113619095937,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 7",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095937"
+      },
+      {
+        "id": 113619095965,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 0",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095965"
+      },
+      {
+        "id": 113619095977,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 5",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095977"
+      },
+      {
+        "id": 113619095981,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 7",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095981"
+      },
+      {
+        "id": 113619095989,
+        "name": "independent full re-spool crash \u2014 v3_003 pass2 write_through part 0",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619095989"
+      },
+      {
+        "id": 113619096388,
+        "name": "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 2",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619096388"
+      },
+      {
+        "id": 113619241321,
+        "name": "regression",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619241321"
+      },
+      {
+        "id": 113619241533,
+        "name": "cheap",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113619241533"
+      },
+      {
+        "id": 113621381713,
+        "name": "independent full re-spool crash \u2014 exact 4,209,696-case aggregate",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113621381713"
+      },
+      {
+        "id": 113624066134,
+        "name": "qualification",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835017/job/113624066134"
+      },
+      {
+        "id": 113618737400,
+        "name": "verifier publication gate can go red",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835025/job/113618737400"
+      },
+      {
+        "id": 113618737616,
+        "name": "verifier publications on verification main",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835025/job/113618737616"
+      },
+      {
+        "id": 113618737235,
+        "name": "docs size and line budgets",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867834996/job/113618737235"
+      },
+      {
+        "id": 113618737676,
+        "name": "hygiene gate can go red",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867834996/job/113618737676"
+      },
+      {
+        "id": 113618737277,
+        "name": "evidence integrity",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867834979/job/113618737277"
+      },
+      {
+        "id": 113618737413,
+        "name": "evidence gate can go red",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867834979/job/113618737413"
+      },
+      {
+        "id": 113618737669,
+        "name": "authority-carry",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835001/job/113618737669"
+      },
+      {
+        "id": 113618737825,
+        "name": "epoch-binding",
+        "conclusion": "success",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835001/job/113618737825"
+      },
+      {
+        "id": 113618738968,
+        "name": "qualification",
+        "conclusion": "skipped",
+        "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867835001/job/113618738968"
+      }
+    ],
+    "complete_artifacts": [
+      {
+        "id": 11589840224,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-6",
+        "size_in_bytes": 601,
+        "digest": "sha256:697b05670a02e32ef8ea2fd4c64f2a39d493bb36e6005b9bd1bccf31e5c9da74",
+        "expired": false
+      },
+      {
+        "id": 11589750523,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-0",
+        "size_in_bytes": 602,
+        "digest": "sha256:b58dae391837212fded75fd8644ebbc4b913329e62024c26d53b72d0d56d8f11",
+        "expired": false
+      },
+      {
+        "id": 11589740545,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-1",
+        "size_in_bytes": 604,
+        "digest": "sha256:cb4978353256c8166e44e534599bfc8978fd6174633e225f0a184b387fa0b33e",
+        "expired": false
+      },
+      {
+        "id": 11589735675,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-2",
+        "size_in_bytes": 628,
+        "digest": "sha256:013274cb511372f2d87f3c8d77c10ab27a41c665537a381b224e3df610c1905a",
+        "expired": false
+      },
+      {
+        "id": 11589735150,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-1",
+        "size_in_bytes": 606,
+        "digest": "sha256:dd64fd03edd35dd20d2773620f2c1f7984b74971b453017da8ad3ee8f89cc5f7",
+        "expired": false
+      },
+      {
+        "id": 11589700520,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-2",
+        "size_in_bytes": 603,
+        "digest": "sha256:ce808681bb81aca44e2d97a7f97a3b39e991d567ea9e160480e3b8a4a00327c1",
+        "expired": false
+      },
+      {
+        "id": 11589685855,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-0",
+        "size_in_bytes": 602,
+        "digest": "sha256:ce6e9c18bfbec9237a56f19c8b6b615d84a31b475c4c826eef554171a4188329",
+        "expired": false
+      },
+      {
+        "id": 11589672847,
+        "name": "p1-r60-wp10-residue-product-evidence",
+        "size_in_bytes": 5815155,
+        "digest": "sha256:5488cd3b4432ef00dbea5ea4deb78839370ce775bfb23679b5238b8f2a9d37d6",
+        "expired": false
+      },
+      {
+        "id": 11589665619,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-3",
+        "size_in_bytes": 604,
+        "digest": "sha256:07733811b9564460da80ea878080717e0c71e03e91e31df5e3059e763b1af614",
+        "expired": false
+      },
+      {
+        "id": 11589661216,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-6",
+        "size_in_bytes": 609,
+        "digest": "sha256:138844bb074a77a10cf8c1543749cd6ae491a646c6da31b56a9d78452e964a21",
+        "expired": false
+      },
+      {
+        "id": 11589660745,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-5",
+        "size_in_bytes": 627,
+        "digest": "sha256:602326018eb4e30a44319649cf8c9feed125de37e5c9bbb04bc9ce72ad100e8e",
+        "expired": false
+      },
+      {
+        "id": 11589650818,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-5",
+        "size_in_bytes": 626,
+        "digest": "sha256:cd421b0438e1a1606dbed7e4a42c69735818591b31ec8b01d3cca941aff9b35b",
+        "expired": false
+      },
+      {
+        "id": 11589645019,
+        "name": "p1-r56-strengthen-r55-product-evidence",
+        "size_in_bytes": 220436,
+        "digest": "sha256:3045138980656e3fa335a6b43546c7c429e9c296421dca8e57b63aaf2e694af4",
+        "expired": false
+      },
+      {
+        "id": 11589610089,
+        "name": "readopt-record-exact-evidence",
+        "size_in_bytes": 57585,
+        "digest": "sha256:ced44a542a450c124ac305398c4ceaa2a9d25ce6a3df77f2b1522e12e0a0c717",
+        "expired": false
+      },
+      {
+        "id": 11589586075,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-2",
+        "size_in_bytes": 627,
+        "digest": "sha256:2d13bd351b8a60031ff58887e5d544f4aa0a39e2bbdd982cb6a27fb51909f91b",
+        "expired": false
+      },
+      {
+        "id": 11589575273,
+        "name": "p1-r29-respool-functional-evidence",
+        "size_in_bytes": 66123552,
+        "digest": "sha256:cb43b1ffb5fb4374c378a25abf20381c742e1ad03075b28e4d497e8cc2890d5c",
+        "expired": false
+      },
+      {
+        "id": 11589565178,
+        "name": "p1-r25-writability-product-evidence",
+        "size_in_bytes": 1710,
+        "digest": "sha256:8579236e45b1055930451a213134fe7b01d9795594632be401b248a3bb8703e5",
+        "expired": false
+      },
+      {
+        "id": 11589535430,
+        "name": "p1-r53-wp09-capacity-product-evidence",
+        "size_in_bytes": 2686533,
+        "digest": "sha256:99d7ef251ed0f8a75f3c5b6b06df2dce9089c2b9eddb0f89c01686337b23b42f",
+        "expired": false
+      },
+      {
+        "id": 11589525760,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-4",
+        "size_in_bytes": 603,
+        "digest": "sha256:f9d65ac942203921329e5f4e14a66d826cf43213bc975a8557dc5dfe0037ef6d",
+        "expired": false
+      },
+      {
+        "id": 11589501681,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-4",
+        "size_in_bytes": 609,
+        "digest": "sha256:ee4af31149f97169a84c7e918bb7bcd7e622522488b0ab1cdb1c42e201473eb1",
+        "expired": false
+      },
+      {
+        "id": 11589495455,
+        "name": "p1-r46-wp09-history-product-evidence",
+        "size_in_bytes": 2970393,
+        "digest": "sha256:25c1b34fa14fb07337837a42de62acbe30db4ccfb05081efc8ae56326a34ae13",
+        "expired": false
+      },
+      {
+        "id": 11589486343,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-1",
+        "size_in_bytes": 604,
+        "digest": "sha256:112eb3aeb3573e41f1fcca93c4d00ac9a090cea62556f37e0143a5625db6efe1",
+        "expired": false
+      },
+      {
+        "id": 11589480531,
+        "name": "p1-r54-wp12-closure-product-evidence",
+        "size_in_bytes": 8707,
+        "digest": "sha256:3b94b1cafcce5ddc6ad00caeb6e225d059d13293c29f3177eeaf30593cc73f81",
+        "expired": false
+      },
+      {
+        "id": 11589477030,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-0",
+        "size_in_bytes": 601,
+        "digest": "sha256:793db277e344b7430286cb0b1c066ea288014b650cfd3b21712c9e97cdecb1b3",
+        "expired": false
+      },
+      {
+        "id": 11589455784,
+        "name": "p1-r48-wp06-sequential-product-evidence",
+        "size_in_bytes": 608086,
+        "digest": "sha256:6ca218e1511a13743079d5732cb9384ea4643fadb17944e0e144b65dbbc40327",
+        "expired": false
+      },
+      {
+        "id": 11589451475,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-2",
+        "size_in_bytes": 609,
+        "digest": "sha256:99b7c947d0969fb36164cfb12b36abb36794d110761cedcc381549a2294ba1e2",
+        "expired": false
+      },
+      {
+        "id": 11589441817,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-5",
+        "size_in_bytes": 610,
+        "digest": "sha256:c040edf75ec1119a755a4ec18454d896077b340eb61f8f0ede9ff0ea8ab41ad1",
+        "expired": false
+      },
+      {
+        "id": 11589441604,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-3",
+        "size_in_bytes": 609,
+        "digest": "sha256:37caf7b89725a6ae89345be3d0492753348f62b0d222ec9b496e278d497221ce",
+        "expired": false
+      },
+      {
+        "id": 11589401690,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-7",
+        "size_in_bytes": 647,
+        "digest": "sha256:7d0620ae6c6c46ed747a675599bcb4eb0ef9b47f9712aafb7917f50bc5628a99",
+        "expired": false
+      },
+      {
+        "id": 11589366543,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-5",
+        "size_in_bytes": 609,
+        "digest": "sha256:a47e5c628bf967c4f867f618db646ebeb16cb2ef483930693020d7eb3a435183",
+        "expired": false
+      },
+      {
+        "id": 11589357386,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-1",
+        "size_in_bytes": 608,
+        "digest": "sha256:b8eba262cd981ab8f864b0018a634a78f5f813b692c98199b29c260cb9975ecb",
+        "expired": false
+      },
+      {
+        "id": 11589336386,
+        "name": "p1-r55-wp10-final-product-evidence",
+        "size_in_bytes": 1250237,
+        "digest": "sha256:1926212febbb453bfcbaca695894fdb65f4565e6c21fc9b35c43f8eb9714f794",
+        "expired": false
+      },
+      {
+        "id": 11589335931,
+        "name": "p1-r54-wp08-portability-product-evidence",
+        "size_in_bytes": 11005,
+        "digest": "sha256:cdde92e285ef5accd106b6e5d38ee6ce610c3257ff0a8a615e6f91a78e24f568",
+        "expired": false
+      },
+      {
+        "id": 11589306345,
+        "name": "wp11-mutation-gate-logs",
+        "size_in_bytes": 10149917,
+        "digest": "sha256:fb7ca03cbebd272eee3c0f5747dc8353c70908c733e179c13315a588268293fb",
+        "expired": false
+      },
+      {
+        "id": 11589295942,
+        "name": "p1-r54-wp06-closure-product-evidence",
+        "size_in_bytes": 124172,
+        "digest": "sha256:7d61313c2f410506504a74b10861e7a572ef39d5ea3cf952dc91e69fbf2ef346",
+        "expired": false
+      },
+      {
+        "id": 11589286821,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-6",
+        "size_in_bytes": 608,
+        "digest": "sha256:a84cebbeef17b526cb192c02f4f65346fd3bdb3ce6a1acc068e5871290a5f4dd",
+        "expired": false
+      },
+      {
+        "id": 11589267504,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-2",
+        "size_in_bytes": 606,
+        "digest": "sha256:4a167be6bf310766ce8b537968c85e4b5f4603a1d0f51e2fc6fcceb324f2ce40",
+        "expired": false
+      },
+      {
+        "id": 11589266604,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-3",
+        "size_in_bytes": 609,
+        "digest": "sha256:f8a169273b2f4e90271a05969673695a79b7bb1c23757eef69676bd881e6e6f3",
+        "expired": false
+      },
+      {
+        "id": 11589242090,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-7",
+        "size_in_bytes": 649,
+        "digest": "sha256:6def84de07cd31ec243901aea1998e6964759f03eb15d3dfc422658a9298a9e2",
+        "expired": false
+      },
+      {
+        "id": 11589241927,
+        "name": "p1-r27-wp10-core-crash-evidence",
+        "size_in_bytes": 13405,
+        "digest": "sha256:1e3f8afe4194ae95b23c719dbc364d8b8a6eafcbe13209767cea4484c8d0a0f4",
+        "expired": false
+      },
+      {
+        "id": 11589236350,
+        "name": "p1-r34-format-dup-identity-product-evidence",
+        "size_in_bytes": 16939,
+        "digest": "sha256:aed8a7e670d1d98b807519db4a8aab85f8e6779c551e8f99399bd45898a104c4",
+        "expired": false
+      },
+      {
+        "id": 11589227685,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-5",
+        "size_in_bytes": 609,
+        "digest": "sha256:392e48dd1e3769d8951feda4d6c6814f3fa18a71e7f4693ce33c5b3b787202b7",
+        "expired": false
+      },
+      {
+        "id": 11589222588,
+        "name": "p1-r55-wp10-backlog-product-evidence",
+        "size_in_bytes": 372775,
+        "digest": "sha256:f08b88611abea9d313d87897feb77335989762eb91e2be661aea4b9427afbebc",
+        "expired": false
+      },
+      {
+        "id": 11589216163,
+        "name": "p1-r25-transport-product-evidence",
+        "size_in_bytes": 2053,
+        "digest": "sha256:98fca2623dbaa37724461601bfd8ca604d82c05f8f196994507f8c2eb3639b82",
+        "expired": false
+      },
+      {
+        "id": 11589191393,
+        "name": "p1-r25-notmounted-product-evidence",
+        "size_in_bytes": 1808,
+        "digest": "sha256:3279fb2b79fa6702bf2f8973d938aa96d6ecebaa2184e9412f5d71ffddf52126",
+        "expired": false
+      },
+      {
+        "id": 11589182218,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-1",
+        "size_in_bytes": 599,
+        "digest": "sha256:cadd49c12138eb0e32a0bc93a872c87ac11e889d3efdbf20e40a61f924c64124",
+        "expired": false
+      },
+      {
+        "id": 11589175787,
+        "name": "p1-r34-wp13-draft9-embedded-readiness-evidence",
+        "size_in_bytes": 187738,
+        "digest": "sha256:72165ab1211cc41e9072f16cd9540d0eb8c1c12fed42733c7e04af9d5fbf0ddc",
+        "expired": false
+      },
+      {
+        "id": 11589166447,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-4",
+        "size_in_bytes": 609,
+        "digest": "sha256:8da1c683a983a47460d6fb29488b365da2dca57d261664fb0f8b91c81b6eff77",
+        "expired": false
+      },
+      {
+        "id": 11589166318,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-4",
+        "size_in_bytes": 606,
+        "digest": "sha256:8aa16eb86c0ef57c3e8003fcd08478e9d38b77bb752edb279fb6b2e4b896d306",
+        "expired": false
+      },
+      {
+        "id": 11589162769,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-6",
+        "size_in_bytes": 610,
+        "digest": "sha256:f8d9263abc7d3fef3f01b6aee1a6e37f333ad096c60e4c657494df1da1d4a294",
+        "expired": false
+      },
+      {
+        "id": 11589132797,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-3",
+        "size_in_bytes": 606,
+        "digest": "sha256:705da7585ed59cf6a8a220aa7da03d0151fed646680a592c99d1cbda22c8ae55",
+        "expired": false
+      },
+      {
+        "id": 11589093520,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-2",
+        "size_in_bytes": 609,
+        "digest": "sha256:fbfc590cf1372e76c8bea7d0ea81278e75530386de813ffe496609e983b23d86",
+        "expired": false
+      },
+      {
+        "id": 11589076986,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-7",
+        "size_in_bytes": 614,
+        "digest": "sha256:3b55719e8a2f3306d0168c564222b4d4e84779146fc73c5467d3a8d02ce1da8b",
+        "expired": false
+      },
+      {
+        "id": 11589051635,
+        "name": "p1-r27-wp07-allocator-cow-evidence",
+        "size_in_bytes": 55719,
+        "digest": "sha256:a77fe653850ffd6a15b7ab1336276dd87a38900fba859657afa6c4357d7b49b9",
+        "expired": false
+      },
+      {
+        "id": 11589036978,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-4",
+        "size_in_bytes": 603,
+        "digest": "sha256:658f819068ec289cd5e910c1476dde974d0f54f478f5cd0223484e94b8851ef9",
+        "expired": false
+      },
+      {
+        "id": 11589026767,
+        "name": "p1-r46-wp08-crossrun-product-evidence",
+        "size_in_bytes": 8454,
+        "digest": "sha256:e8425e46ce68d77c11267ca658446250173eed6930bdc29ec045edbed650fa87",
+        "expired": false
+      },
+      {
+        "id": 11588982910,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-1",
+        "size_in_bytes": 609,
+        "digest": "sha256:4df0a70836bc7527c4d7e571ca5289f96e957f344aa2f0e0c052fd405bcccc0d",
+        "expired": false
+      },
+      {
+        "id": 11588956831,
+        "name": "p1-r26-wp36-100k-product-evidence",
+        "size_in_bytes": 2638,
+        "digest": "sha256:2ccd1edbaf43940b3f9d6a89065784e1814c42dc01ee962aea01ce87076877d6",
+        "expired": false
+      },
+      {
+        "id": 11588952569,
+        "name": "p1-r29-respool-crash-v3_003-pass2-write_through-7",
+        "size_in_bytes": 651,
+        "digest": "sha256:2f312e363273c5f0ea6f8db870721e69100133ba7ce692e987aa5c0ff6df364f",
+        "expired": false
+      },
+      {
+        "id": 11588932034,
+        "name": "p1-r25-slot-product-evidence",
+        "size_in_bytes": 1815,
+        "digest": "sha256:c06f4ed95b431fcde473bf3bba61aa84651ac25c1bd89baf48537f7882d12dcf",
+        "expired": false
+      },
+      {
+        "id": 11588912981,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-0",
+        "size_in_bytes": 603,
+        "digest": "sha256:ae11105d545b1de877069eb10d36162c85dc2565268ebd475b39296cdccf6791",
+        "expired": false
+      },
+      {
+        "id": 11588874970,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-3",
+        "size_in_bytes": 603,
+        "digest": "sha256:acd226ce534e63f79b042dc0679a78b17285a310acb88da29be18b513f818b9a",
+        "expired": false
+      },
+      {
+        "id": 11588848234,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-4",
+        "size_in_bytes": 607,
+        "digest": "sha256:f9021e3a6f8d032cc57227fa49f8da0519b54e9a6eb84cc19517e69bcf48209b",
+        "expired": false
+      },
+      {
+        "id": 11588843906,
+        "name": "p1-r53-wp10-closure-product-evidence",
+        "size_in_bytes": 282635,
+        "digest": "sha256:51e31def3475360eb283196753d9fcd4407e9801381acc577732f81cbf7bc5e4",
+        "expired": false
+      },
+      {
+        "id": 11588794743,
+        "name": "p1-r29-respool-crash-v3_003-pass1-write_through-0",
+        "size_in_bytes": 599,
+        "digest": "sha256:1857012eba5d526f4cff4c9b81a2042355cfa9297ee21dfe815914120865da15",
+        "expired": false
+      },
+      {
+        "id": 11588779391,
+        "name": "p1-r38-promote-product-evidence",
+        "size_in_bytes": 40292,
+        "digest": "sha256:9cec8928c2c58e2620c694ca27fbe388113df6f7862bf3c653fdb1abb4552198",
+        "expired": false
+      },
+      {
+        "id": 11588749371,
+        "name": "p1-r57-wp09-gaps-product-evidence",
+        "size_in_bytes": 14563,
+        "digest": "sha256:62e267c89cf8f3fbd62cff5ccb322a3fd740469fcffc6fc19eadd0c0b5e6130b",
+        "expired": false
+      },
+      {
+        "id": 11588728362,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-7",
+        "size_in_bytes": 617,
+        "digest": "sha256:233c4f53610e543894c60efecaa2b53f47ce48cb117764bc747e398ce8921d60",
+        "expired": false
+      },
+      {
+        "id": 11588724929,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-0",
+        "size_in_bytes": 596,
+        "digest": "sha256:635e33f6d634028aa6531c8062266bece103fddafd6ccafcaac36a4d53687826",
+        "expired": false
+      },
+      {
+        "id": 11588689756,
+        "name": "p1-r60-wp10-backlog-r54-product-evidence",
+        "size_in_bytes": 466010,
+        "digest": "sha256:048d1fcf308a565a2f964f11a18639d56c8d12f63ae51e7575a5071e3a45e706",
+        "expired": false
+      },
+      {
+        "id": 11588684310,
+        "name": "p1-r57-wp08-mapping-product-evidence",
+        "size_in_bytes": 9519,
+        "digest": "sha256:d36ad8e55481bb50052fc71f73fbcd79010d188064642058eb8976b17f25eb50",
+        "expired": false
+      },
+      {
+        "id": 11588668320,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-5",
+        "size_in_bytes": 603,
+        "digest": "sha256:dfded818946b25f3cabf65e1316c9138d2bb7351dc2b5a96fd4bdc3be2f5800c",
+        "expired": false
+      },
+      {
+        "id": 11588664564,
+        "name": "p1-r25-respool-product-evidence",
+        "size_in_bytes": 37122,
+        "digest": "sha256:5b83f67cf076bc41819148aebaeaa2fefb0365e84fa20a8a3abf61ae7194a590",
+        "expired": false
+      },
+      {
+        "id": 11588659297,
+        "name": "p1-r25-format-dup-product-evidence",
+        "size_in_bytes": 53874,
+        "digest": "sha256:300d2f6a112a4be30504a0c64ba7b0ed5ad7157613fa185fa5924f0d3c6eec28",
+        "expired": false
+      },
+      {
+        "id": 11588648308,
+        "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-7",
+        "size_in_bytes": 642,
+        "digest": "sha256:295b1b0d6f0799e72e84662db4b16f32a8aa5a733298b5f0742fc837ea2732ff",
+        "expired": false
+      },
+      {
+        "id": 11588603668,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-3",
+        "size_in_bytes": 605,
+        "digest": "sha256:23cd938f6d9d6f8f516cec661a70cb7f1c89e7da3fe6d0876b17a6a6138e9d3d",
+        "expired": false
+      },
+      {
+        "id": 11588583806,
+        "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-6",
+        "size_in_bytes": 609,
+        "digest": "sha256:e037a08a63b0e50ef47599d5a25e167a606063a0fb1f2e601191247b2f03ca3e",
+        "expired": false
+      },
+      {
+        "id": 11588463904,
+        "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-6",
+        "size_in_bytes": 606,
+        "digest": "sha256:99c12238ac2a089ffbb262394640d6f1e248db63acf625ec6afc0200860c4f2f",
+        "expired": false
+      },
+      {
+        "id": 11588399691,
+        "name": "p1-r29-respool-full-evidence",
+        "size_in_bytes": 764,
+        "digest": "sha256:e2e1da2125d049f313bb760735e6e7383f77cade5c4f5e1b7d910588c06b3391",
+        "expired": false
+      },
+      {
+        "id": 11589356229,
+        "name": "readopt-final-causal-evidence",
+        "size_in_bytes": 10166506,
+        "digest": "sha256:9715d3df3a5b03287cc312f6085eed00506c71a520f6fe80da04a1c4625ae27b",
+        "expired": false
+      },
+      {
+        "id": 11588982339,
+        "name": "read1-authority-carry-binding",
+        "size_in_bytes": 5291,
+        "digest": "sha256:b6e0d56da7834a163637d351c4f8275abb9fece622eb2ed8bf4179a7d907eb9a",
+        "expired": false
+      }
+    ]
+  },
+  "separate_push_run": [
+    {
+      "id": 37867831170,
+      "name": "READ-1 exact-head qualification",
+      "event": "push",
+      "attempt": 1,
+      "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 113618725909,
+          "name": "epoch-binding",
+          "conclusion": "success",
+          "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+          "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867831170/job/113618725909"
+        },
+        {
+          "id": 113618726207,
+          "name": "authority-carry",
+          "conclusion": "success",
+          "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+          "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867831170/job/113618726207"
+        },
+        {
+          "id": 113618727196,
+          "name": "qualification",
+          "conclusion": "skipped",
+          "head_sha": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+          "html_url": "https://github.com/mmsanders/Digital-Tape/actions/runs/37867831170/job/113618727196"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11589196640,
+          "name": "readopt-final-causal-evidence",
+          "size_in_bytes": 10166536,
+          "digest": "sha256:48859b89ae1d06a6c1be07d434f8102c16904f0fdb046faa67f494faceaa394a",
+          "expired": false
+        },
+        {
+          "id": 11588744485,
+          "name": "read1-authority-carry-binding",
+          "size_in_bytes": 5291,
+          "digest": "sha256:1b787eb7c1b24e648f5c87b31c59af126d83d48fce8d3b6684cc1605dc946378",
+          "expired": false
+        }
+      ]
+    }
+  ],
+  "archive": {
+    "bytes": 10239375,
+    "sha256": "2afe1b50afade7055fd751c48a325b03616aa0dc54145bfacf84f49ea0315a3e"
+  },
+  "independent_disposition": "PASS",
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 0,
+        "dismiss_stale_reviews_on_push": false,
+        "required_reviewers": [],
+        "require_code_owner_review": true,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge",
+          "squash",
+          "rebase"
+        ]
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "evidence gate can go red",
+            "integration_id": 15368
+          },
+          {
+            "context": "evidence integrity",
+            "integration_id": 15368
+          },
+          {
+            "context": "docs size and line budgets",
+            "integration_id": 15368
+          },
+          {
+            "context": "hygiene gate can go red",
+            "integration_id": 15368
+          },
+          {
+            "context": "cheap",
+            "integration_id": 15368
+          },
+          {
+            "context": "regression",
+            "integration_id": 15368
+          },
+          {
+            "context": "qualification",
+            "integration_id": 15368
+          }
+        ]
+      }
+    }
+  ],
+  "ci_log_proof": {
+    "pin_control": [
+      "2026-10-09T01:03:07.4870721Z   18 passed, 0 broken",
+      "2026-10-09T01:03:10.5701680Z   ok     baseline (unmodified copy) \u2014 goes green on demand",
+      "2026-10-09T01:03:10.5703545Z   ok     rewrite and reseal one observation byte \u2014 goes red on demand",
+      "2026-10-09T01:03:10.5704281Z   ok     new unpinned retained bundle \u2014 goes red on demand",
+      "2026-10-09T01:03:10.5704780Z   ok     deleted pinned bundle \u2014 goes red on demand",
+      "2026-10-09T01:03:10.5705159Z   4 passed, 0 broken"
+    ],
+    "logs": [
+      {
+        "i": 0,
+        "lines": [
+          "2026-10-09T01:13:21.6165776Z PASS total=4209696 shards=48 caseset=02c52de7a7c51a6ffafe5c9d5afad9c23032b72fc11aaf206bb27a9c9506d3e1",
+          "2026-10-09T01:13:21.6166951Z aggregate_sha256=ed8df94f2359756726cab4752dad525b021059b39955527bf7e8a0c801e5d91d"
+        ]
+      },
+      {
+        "i": 1,
+        "lines": [
+          "2026-10-09T01:13:07.5395853Z PASS 8208 groups, 17025380 injections, 24672 closure re-runs; stream 7df707f197d9d944880af2b95932accc6ea8daca61a950f7161d34eda6a753ea",
+          "2026-10-09T01:22:51.7316548Z PASS 8208 groups, 17025380 injections, 24672 closure re-runs; stream 7df707f197d9d944880af2b95932accc6ea8daca61a950f7161d34eda6a753ea"
+        ]
+      },
+      {
+        "i": 2,
+        "lines": [
+          "2026-10-09T01:07:09.6218724Z {\"kind\": \"actual-original-observations-bound-by-exact-identities\", \"candidate_commit\": \"7d0f67629214cc5a41d24725d6c28cffdc59f031\", \"engine_tree\": \"d96b4245e04d74078f8938744b1394c3018516f7\", \"executed_commit\": \"dfe426d4569a53c64558ca84e24cb41881521821\", \"original_run\": 37799314742, \"original_release_tag\": \"evidence-read1-dfe426d4569a53c64558ca84e24cb41881521821\", \"archive_sha256\": \"4a626ca4605780287d03aca211de9a45250700bae857143800113bc715179add\", \"corrected_import_tree\": \"63098ee78ab67a0e12e9f414d2ad467276a77a8d\", \"original_provenance_sha256\": \"c6cd6d05a0519e1ea1911508deb0fa79e1fbbb44a9e3b48e1f8bc7700be94bf9\", \"original_run_manifest_sha256\": \"f5d70445631c453e689248944e114c1648ee6d0518a84fced33f68ac52fb203f\", \"original_control_manifest_sha256\": \"2c56795802f9872282cbeb479820529c9f275ef1ad2683027e344f3f7ab83793\", \"observation_sha256\": \"139c2427039bc35f71d9639e388d296451684c97ed98e0be97912207a9fcf7f8\", \"control_sha256\": \"17989e39da4526ef8540115c65c36aef74c088a37452bbff56ff1eb210e825a5\", \"binary_comparisons\": {\"instrumented_library_sha256\": \"82fb54b9b3597b51b22b2e842fec5c0ddc11edae1e9814b6b236e30d19d3bd0d\", \"adapter_sha256\": \"c8804df3b068ed1d20ff98f27daefb3891b554c7e8bd5486d6613334c50413ca\", \"shipping_library_sha256\": \"dcc4680ba69591183f66aa8a4a8355e4a4b2504548ac6e69301d4bf7bf1d6175\", \"shipping_adapter_sha256\": \"e8848450a58679e5f6140328dcb51c9767587fdfc28a22518d2111f893192171\"}, \"canonical_cases\": 59, \"corrected_oracle_replay_cases_identical\": true, \"new_full_campaign_executed\": false, \"independent_disposition\": \"required; this binding grants no acceptance or retained-regression waiver\"}"
+        ]
+      },
+      {
+        "i": 3,
+        "lines": [
+          "2026-10-09T01:23:02.7944659Z == qualification: PASS (13/13 ran) =="
+        ]
+      },
+      {
+        "i": 4,
+        "lines": [
+          "2026-10-09T01:03:30.8705789Z Complete job name: WP-11 mutation gate \u2014 seven mutations, each caught"
+        ]
+      }
+    ],
+    "pr": {
+      "head": "7d0f67629214cc5a41d24725d6c28cffdc59f031",
+      "base": "8ac879ad01a8699aa243e1fe85df8132a5ccc33e",
+      "mergeable": true,
+      "mergeable_state": "clean"
+    }
+  },
+  "software_inventory_canonical_sha256": "5d501258c08d7f8eb9eba6a840c57e5165af085a751fcb4f3fde66884d78492f",
+  "publication_parent": "3781f123c3120f60462c5726d8392556963e9e83",
+  "reused_independent_review": "Verification PR156",
+  "local_pin_control": "4 passed, 0 broken"
+}
