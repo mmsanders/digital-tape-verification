@@ -1,0 +1,1779 @@
+{
+  "disposition": "software/CI PASS; full WP14 acceptance held",
+  "head": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+  "root": "7b8204085582bf5422cc902d82c4c02a6998fd98",
+  "engine": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "base": "842eae65f65bec8baf469377f605a72d7acb6bd9",
+  "ordinary_execution": "156c79fc40f5a2ece128d936b0f11efba0e72e4d",
+  "ordinary_root_equals_candidate": true,
+  "publication_input": "f5fc69c15291dbc40f43690866d186d106459b43",
+  "a8": {
+    "kind": "A8-git-identity",
+    "publication": "56e25cc1736fdc62a6d9bc4e6cdc09d5f8cac1b2",
+    "candidate": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+    "import_commit": "7fed08a51dc866958e7f0c5031e4d002427c0059",
+    "verifier_tree": "e1ef171ffdd7464314b4b838a7d904b1a94f5409",
+    "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+    "golden_tree": {
+      "src": "89b5f4d085c75c299fdc72ed36611608a49fdbb5",
+      "ref": "15a7188955c120ba3deeef548a53edad9822d201",
+      "SHA256SUMS": "375b473b941434ad847377346a2dcdb94b3df873",
+      "SOURCES.json": "dcbb2c4ddfbf9ffddabb41fd99c0247dddc044a6",
+      "MANIFEST": "f04d1d2a7e257404526f800e845ebb6bd961b13f",
+      "model.py": "c230e833b8a5ec656f75d302ef8b059d4bf9ec91",
+      "canonicalize.py": "3b18c2f2b72fdf455bedafb9a9a5152a3075d074"
+    },
+    "accepted": false,
+    "remaining": "authenticate remote refs and full Phase1 replay/CI results; native cases and witnesses",
+    "pin_authority": "842eae65f65bec8baf469377f605a72d7acb6bd9",
+    "original_package_engine_tree": "b80a8e54775c5aabad7bc338a6e30db3596b657b"
+  },
+  "a8_old_engine_negative_control": "dbe6283 rejected: engine changed",
+  "canonical_inventory_sha256": "97caf55d2171e33606a9776011e35ce9f43d3216d81a228858405ffaa24984c9",
+  "api_job_and_artifact_inventory_matches": true,
+  "inventory": {
+    "schema": "software-392-finite-run-v1",
+    "repository": "mmsanders/Digital-Tape",
+    "pr": 390,
+    "assignment": 392,
+    "head": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+    "root": "7b8204085582bf5422cc902d82c4c02a6998fd98",
+    "engine": "d96b4245e04d74078f8938744b1394c3018516f7",
+    "base": "842eae65f65bec8baf469377f605a72d7acb6bd9",
+    "ordinary_execution": "156c79fc40f5a2ece128d936b0f11efba0e72e4d",
+    "ordinary_root_equals_candidate": true,
+    "wp14_execution": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+    "builds": {
+      "linux": {
+        "build": {
+          "head_sha": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+          "platform": "linux",
+          "run": "https://github.com/mmsanders/Digital-Tape/actions/runs/37881873450/attempts/1",
+          "runner_os": "ubuntu24",
+          "runner_image": "20261004.327.1",
+          "machine": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "binaries": {
+            "iocap.so": "087dab5574dffe75041ef78a2b8ca090d856357f8136e42f6a82c7279d367697",
+            "tapectl": "4d8c97a44f163bcd513c98c0903db6a01418001f169cfd6aa126823f6f7a785c",
+            "tapectl-test": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+          }
+        },
+        "native": {
+          "kind": "native-candidate-cases",
+          "head_sha": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+          "os_build": "Ubuntu 24.04.5 LTS, kernel 6.17.0-1022-azure, x86_64"
+        },
+        "image_cases": 79,
+        "image_controls": 11,
+        "full_c60": true,
+        "native_cases": 135,
+        "replay_cases": 38,
+        "verdicts": {
+          "observations-pass": 127,
+          "control-killed": 8
+        },
+        "c60": {
+          "case": "native-roundtrip-c60.wav",
+          "verdict": "observations-pass",
+          "reattached": true,
+          "dump_exits": {
+            "A": 0,
+            "B": 0
+          },
+          "source_sha256": "c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d"
+        }
+      },
+      "macos": {
+        "build": {
+          "head_sha": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+          "platform": "macos",
+          "run": "https://github.com/mmsanders/Digital-Tape/actions/runs/37881873450/attempts/1",
+          "runner_os": "macos26",
+          "runner_image": "20260907.0351.1",
+          "machine": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+          "binaries": {
+            "iocap.dylib": "eff62a9ec63359be7a42476a5842fdcf465738f7d06319d3bef4197b7d2fd503",
+            "tapectl": "e7550d8bedbb0c784fd528c387a87cca2bad8d1b411c39217d25377329bb0beb",
+            "tapectl-test": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+          }
+        },
+        "native": {
+          "kind": "native-candidate-cases",
+          "head_sha": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+          "os_build": "macOS 26.6.2 build 25G83, arm64"
+        },
+        "image_cases": 79,
+        "image_controls": 11,
+        "full_c60": true,
+        "native_cases": 134,
+        "replay_cases": 38,
+        "verdicts": {
+          "observations-pass": 126,
+          "control-killed": 8
+        },
+        "c60": {
+          "case": "native-roundtrip-c60.wav",
+          "verdict": "observations-pass",
+          "reattached": true,
+          "dump_exits": {
+            "A": 0,
+            "B": 0
+          },
+          "source_sha256": "c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d"
+        }
+      },
+      "windows": {
+        "build": {
+          "head_sha": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+          "platform": "windows",
+          "run": "https://github.com/mmsanders/Digital-Tape/actions/runs/37881873450/attempts/1",
+          "runner_os": "win25-vs2026",
+          "runner_image": "20260925.250.1",
+          "machine": "Windows-2025Server-10.0.26100-SP0",
+          "binaries": {
+            "iocap.dll": "5226d776a22d7f39d9c6b83c2a5bb8be5a9c88022d96d4912f55d43f9510064a",
+            "iocap.exe": "9531be66d9dc00b989cf6b554983fb82a472633d7dd348ec4f56a5b17ea3f59b",
+            "tapectl-test.exe": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94",
+            "tapectl.exe": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9"
+          }
+        },
+        "native": {
+          "kind": "native-candidate-cases",
+          "head_sha": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+          "os_build": "Microsoft Windows Server 2025 Datacenter 10.0.26100 build 26100"
+        },
+        "image_cases": 79,
+        "image_controls": 11,
+        "full_c60": true,
+        "native_cases": 134,
+        "replay_cases": 38,
+        "verdicts": {
+          "observations-pass": 126,
+          "control-killed": 8
+        },
+        "c60": {
+          "case": "native-roundtrip-c60.wav",
+          "verdict": "observations-pass",
+          "reattached": true,
+          "dump_exits": {
+            "A": 0,
+            "B": 0
+          },
+          "source_sha256": "c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d"
+        }
+      }
+    },
+    "runs": [
+      {
+        "id": 37881873450,
+        "name": "engine",
+        "event": "pull_request",
+        "attempt": 1,
+        "head": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+        "conclusion": "success",
+        "jobs": [
+          [
+            113663142834,
+            "spec bundle matches VERSION.md",
+            "success"
+          ],
+          [
+            113663142965,
+            "classify changes into lanes",
+            "success"
+          ],
+          [
+            113663143144,
+            "lead-queue dashboard behaviour",
+            "success"
+          ],
+          [
+            113663143201,
+            "build (-Werror)",
+            "success"
+          ],
+          [
+            113663183828,
+            "scaffolding + verifier infrastructure",
+            "success"
+          ],
+          [
+            113663183831,
+            "gates can go red",
+            "success"
+          ],
+          [
+            113663184109,
+            "guardrail gates",
+            "success"
+          ],
+          [
+            113663189913,
+            "independent DRAFT-8 mount package self-checks (not engine acceptance)",
+            "success"
+          ],
+          [
+            113663189933,
+            "independent respool package \u2014 synthetic self-checks, then full 8-case product observations",
+            "success"
+          ],
+          [
+            113663189938,
+            "independent WP-09 record package \u2014 synthetic self-checks, then product observations",
+            "success"
+          ],
+          [
+            113663189956,
+            "independent VT8-001 package self-checks (synthetic, not engine acceptance)",
+            "success"
+          ],
+          [
+            113663190014,
+            "independent promote package \u2014 synthetic self-checks, then product observations",
+            "success"
+          ],
+          [
+            113663190044,
+            "independent not-mounted package \u2014 synthetic self-checks, then 34-case product observations",
+            "success"
+          ],
+          [
+            113663190077,
+            "independent transport/warm package \u2014 synthetic self-checks, then product observations",
+            "success"
+          ],
+          [
+            113663190239,
+            "independent WP-08 R44 cross-run playback \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190242,
+            "independent WP-10 residue destinations (V10-001) \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190253,
+            "independent writability package \u2014 synthetic self-checks, then 8-case product observations",
+            "success"
+          ],
+          [
+            113663190282,
+            "independent WP-10 backlog rows 1-3 \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190290,
+            "R29-B format/duplicate raw identity + dup long-op \u2014 exact canonical product campaign",
+            "success"
+          ],
+          [
+            113663190292,
+            "accepted bindings regenerate on the current engine \u2014 gate can go red",
+            "success"
+          ],
+          [
+            113663190295,
+            "independent WP-36 100k source-slot fuzz \u2014 debug real-product observations",
+            "success"
+          ],
+          [
+            113663190300,
+            "independent WP-10 R53 crash-injection gaps \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190308,
+            "independent WP-09 R44 seeded record history \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190314,
+            "independent format/dup package \u2014 synthetic self-checks, then product observations",
+            "success"
+          ],
+          [
+            113663190319,
+            "independent WP-36 slot package \u2014 synthetic self-checks, then debug-assert product observations",
+            "success"
+          ],
+          [
+            113663190347,
+            "independent WP-12/WP-12a R53 closure gaps \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190353,
+            "independent playback/golden package self-checks (synthetic, not engine acceptance)",
+            "success"
+          ],
+          [
+            113663190369,
+            "independent WP-10 backlog r54 (repair crash, dup re-run, dup shape) \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190387,
+            "independent WP-06 R44 sequential \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190411,
+            "independent complete playback package self-checks (synthetic, not engine acceptance)",
+            "success"
+          ],
+          [
+            113663190447,
+            "independent WP-10 final backlog (#118) \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190475,
+            "independent WP-13 embedded-readiness audit (DRAFT-9) \u2014 six-gate real-product evidence",
+            "success"
+          ],
+          [
+            113663190482,
+            "independent WP-10 core crash \u2014 bounded real-product campaign",
+            "success"
+          ],
+          [
+            113663190490,
+            "WP-14 tapectl \u2014 macOS build, image smoke, disk-image round trip",
+            "success"
+          ],
+          [
+            113663190498,
+            "independent full re-spool \u2014 clean/headroom + WP-12a product gate",
+            "success"
+          ],
+          [
+            113663190513,
+            "WP-14 device round trip \u2014 Linux loop device",
+            "success"
+          ],
+          [
+            113663190518,
+            "tapectl \u2014 build, unit tests, WP-11 and WP-14 image smoke (Linux)",
+            "success"
+          ],
+          [
+            113663190520,
+            "independent WP-09 R52 capacity short accept \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190531,
+            "independent WP-08 mapped-run rows (#129) \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190532,
+            "independent WP-07 allocator/COW \u2014 fixed 10k real-product campaign",
+            "success"
+          ],
+          [
+            113663190535,
+            "WP-11 portability (narrow-int)",
+            "success"
+          ],
+          [
+            113663190541,
+            "WP-11 mutation gate \u2014 seven mutations, each caught",
+            "success"
+          ],
+          [
+            113663190546,
+            "independent #126 strengthening rows (strengthen_r55) \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190551,
+            "WP-11 fixture release assets \u2014 fetched and sha256-verified",
+            "success"
+          ],
+          [
+            113663190555,
+            "WP-14 tapectl \u2014 Windows build, image smoke, VHD round trip",
+            "success"
+          ],
+          [
+            113663190564,
+            "WP-11 portability (arm-m3)",
+            "success"
+          ],
+          [
+            113663190577,
+            "golden suite \u2014 WP-11 R63 references, byte-exact",
+            "success"
+          ],
+          [
+            113663190607,
+            "WP-14 package (macos)",
+            "success"
+          ],
+          [
+            113663190627,
+            "WP-14 package (windows)",
+            "success"
+          ],
+          [
+            113663190634,
+            "independent WP-08 R52 two-toolchain playback \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190647,
+            "WP-11 portability (host-gcc)",
+            "success"
+          ],
+          [
+            113663190652,
+            "independent WP-06 R52 closure gaps \u2014 product replay",
+            "success"
+          ],
+          [
+            113663190679,
+            "WP-14 package (linux)",
+            "success"
+          ],
+          [
+            113663190713,
+            "independent #130 rows (overdub saturation, V-R55-01 trace floor) \u2014 product replay",
+            "success"
+          ],
+          [
+            113663327802,
+            "cheap",
+            "success"
+          ],
+          [
+            113663571673,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 5",
+            "success"
+          ],
+          [
+            113663571685,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 0",
+            "success"
+          ],
+          [
+            113663571688,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 1",
+            "success"
+          ],
+          [
+            113663571696,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 3",
+            "success"
+          ],
+          [
+            113663571726,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 7",
+            "success"
+          ],
+          [
+            113663571730,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 0",
+            "success"
+          ],
+          [
+            113663571741,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 6",
+            "success"
+          ],
+          [
+            113663571748,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 6",
+            "success"
+          ],
+          [
+            113663571750,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 1",
+            "success"
+          ],
+          [
+            113663571753,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 4",
+            "success"
+          ],
+          [
+            113663571756,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 4",
+            "success"
+          ],
+          [
+            113663571758,
+            "independent full re-spool crash \u2014 v3_003 pass1 flush_required part 2",
+            "success"
+          ],
+          [
+            113663571780,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 2",
+            "success"
+          ],
+          [
+            113663571781,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 5",
+            "success"
+          ],
+          [
+            113663571785,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 6",
+            "success"
+          ],
+          [
+            113663571793,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 3",
+            "success"
+          ],
+          [
+            113663571798,
+            "independent full re-spool crash \u2014 v3_003 pass1 write_through part 7",
+            "success"
+          ],
+          [
+            113663571820,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 5",
+            "success"
+          ],
+          [
+            113663571822,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 3",
+            "success"
+          ],
+          [
+            113663571826,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 4",
+            "success"
+          ],
+          [
+            113663571839,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 3",
+            "success"
+          ],
+          [
+            113663571847,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 4",
+            "success"
+          ],
+          [
+            113663571848,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 2",
+            "success"
+          ],
+          [
+            113663571852,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 0",
+            "success"
+          ],
+          [
+            113663571862,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 2",
+            "success"
+          ],
+          [
+            113663571871,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 0",
+            "success"
+          ],
+          [
+            113663571875,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 2",
+            "success"
+          ],
+          [
+            113663571877,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 0",
+            "success"
+          ],
+          [
+            113663571886,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 1",
+            "success"
+          ],
+          [
+            113663571887,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 6",
+            "success"
+          ],
+          [
+            113663571890,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 6",
+            "success"
+          ],
+          [
+            113663571896,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 2",
+            "success"
+          ],
+          [
+            113663571897,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 1",
+            "success"
+          ],
+          [
+            113663571905,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 4",
+            "success"
+          ],
+          [
+            113663571916,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 1",
+            "success"
+          ],
+          [
+            113663571922,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 5",
+            "success"
+          ],
+          [
+            113663571923,
+            "independent full re-spool crash \u2014 no_lower_run pass1 flush_required part 7",
+            "success"
+          ],
+          [
+            113663571927,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 7",
+            "success"
+          ],
+          [
+            113663571930,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 3",
+            "success"
+          ],
+          [
+            113663571948,
+            "independent full re-spool crash \u2014 v3_003 pass2 write_through part 1",
+            "success"
+          ],
+          [
+            113663571950,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 5",
+            "success"
+          ],
+          [
+            113663571951,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 3",
+            "success"
+          ],
+          [
+            113663571957,
+            "independent full re-spool crash \u2014 v3_003 pass2 flush_required part 7",
+            "success"
+          ],
+          [
+            113663571959,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 7",
+            "success"
+          ],
+          [
+            113663571965,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 6",
+            "success"
+          ],
+          [
+            113663571981,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 0",
+            "success"
+          ],
+          [
+            113663571983,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 5",
+            "success"
+          ],
+          [
+            113663572012,
+            "independent full re-spool crash \u2014 no_lower_run pass1 write_through part 4",
+            "success"
+          ],
+          [
+            113663623283,
+            "regression",
+            "success"
+          ],
+          [
+            113666068438,
+            "independent full re-spool crash \u2014 exact 4,209,696-case aggregate",
+            "success"
+          ],
+          [
+            113669032544,
+            "WP-14 package \u2014 closed census and Git identity",
+            "success"
+          ],
+          [
+            113669639337,
+            "qualification",
+            "success"
+          ]
+        ],
+        "artifacts": [
+          {
+            "id": 11595950363,
+            "name": "wp14-census",
+            "bytes": 3395,
+            "digest": "sha256:7c4a9da4e4b8f5e7c886b76ae18b42ac5887a9782652b03f3a9000aed436a90b",
+            "expired": false
+          },
+          {
+            "id": 11595865230,
+            "name": "wp14-binaries-windows",
+            "bytes": 173890,
+            "digest": "sha256:051a2f0e9220984c81a41a2bcfd4fc41493980e0f8340341c8330b89529fca16",
+            "expired": false
+          },
+          {
+            "id": 11595700569,
+            "name": "wp14-package-windows",
+            "bytes": 4300121,
+            "digest": "sha256:cbaf1bc906789cfe0e019454a1f13fef1f2e6f7c1927c25c2b7146acb9b138d8",
+            "expired": false
+          },
+          {
+            "id": 11595455850,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-3",
+            "bytes": 608,
+            "digest": "sha256:8ec0b0491a426bc80af7426f21259aa6105e390908a4d1dfb34ae3a0db93750a",
+            "expired": false
+          },
+          {
+            "id": 11595436308,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-7",
+            "bytes": 647,
+            "digest": "sha256:86f2730c25fce5c5159421b05995d17b62f072a4fb44040c30e3f4ac09b3d66c",
+            "expired": false
+          },
+          {
+            "id": 11595410386,
+            "name": "p1-r46-wp08-crossrun-product-evidence",
+            "bytes": 8452,
+            "digest": "sha256:84b65a7727482825a0c61016930bccb73036ee73166d2fec1557060baadbd440",
+            "expired": false
+          },
+          {
+            "id": 11595405870,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-7",
+            "bytes": 616,
+            "digest": "sha256:a8f2b498a05283a92c2269bd6cfa3034a42d353fd6734c69d4dfde01e301a0a2",
+            "expired": false
+          },
+          {
+            "id": 11595376641,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-0",
+            "bytes": 601,
+            "digest": "sha256:8af0360d7f9d9328e480da6d8576e12e5d733e508a3aad027cd19938cc3c0906",
+            "expired": false
+          },
+          {
+            "id": 11595340891,
+            "name": "p1-r38-promote-product-evidence",
+            "bytes": 40291,
+            "digest": "sha256:55a4bb4cd3165555c8a33fa9c533e9fe9bf031744af21b0da3aa6002a995a5a1",
+            "expired": false
+          },
+          {
+            "id": 11595340615,
+            "name": "p1-r25-respool-product-evidence",
+            "bytes": 37122,
+            "digest": "sha256:b5ffd9061851a693130b288af6ac7b28f09ab9863ab52c78426a6ddbd6573c4b",
+            "expired": false
+          },
+          {
+            "id": 11595277120,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-6",
+            "bytes": 609,
+            "digest": "sha256:708eae80ebe3e53ede78c058a05a2a233242229335705614cd49ac07b87a24fb",
+            "expired": false
+          },
+          {
+            "id": 11595270895,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-3",
+            "bytes": 604,
+            "digest": "sha256:4afdcd949ac1a3c2ddb838c67b358725a6b1d2f171194f41f9b0a901c0d423ba",
+            "expired": false
+          },
+          {
+            "id": 11595260281,
+            "name": "p1-r25-transport-product-evidence",
+            "bytes": 2050,
+            "digest": "sha256:b48e77fc7544f69bdd5ecfd0f2d7a1ac44fe7180622a293a6529c51b580ef59a",
+            "expired": false
+          },
+          {
+            "id": 11595256434,
+            "name": "p1-r27-wp10-core-crash-evidence",
+            "bytes": 13406,
+            "digest": "sha256:81b26ef5675abd10e6d259404947b48d4c373c64b241a09a4f385f852fdd92b4",
+            "expired": false
+          },
+          {
+            "id": 11595231815,
+            "name": "wp14-native-evidence-linux",
+            "bytes": 31966443,
+            "digest": "sha256:c702701cdf9a01c40c8ba7f8fa46d1c077c81aff661b18168897276ecbb12e15",
+            "expired": false
+          },
+          {
+            "id": 11595226875,
+            "name": "wp14-binaries-linux",
+            "bytes": 170540,
+            "digest": "sha256:66ab96f3e9fca5997d3776003e9226ee76bd5e331aede7fac61e4b1456c4b0d6",
+            "expired": false
+          },
+          {
+            "id": 11595197519,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-4",
+            "bytes": 603,
+            "digest": "sha256:d515d19a4cf7ab76dfae32ff81699b93c2b6eb0ae63e540f7461febed568363e",
+            "expired": false
+          },
+          {
+            "id": 11595191070,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-7",
+            "bytes": 641,
+            "digest": "sha256:e313fc3f4eb82f05db54c433fe4dc8945d79236a4ab89d87f2c576281fc12fe3",
+            "expired": false
+          },
+          {
+            "id": 11595186335,
+            "name": "p1-r34-format-dup-identity-product-evidence",
+            "bytes": 16938,
+            "digest": "sha256:9967da38b6b18ac6cb8ca7020d695405b191936b8f16607e6e0ce33c3a75a0eb",
+            "expired": false
+          },
+          {
+            "id": 11595166945,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-7",
+            "bytes": 615,
+            "digest": "sha256:65db5b8e80e047f7b6d5733978339d97de400fa109e5c2c602304dbf7345d51b",
+            "expired": false
+          },
+          {
+            "id": 11595156929,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-1",
+            "bytes": 608,
+            "digest": "sha256:81114f466b219682a6bc9c6a94b1341f9dece320b91688e11582631fc9af9b36",
+            "expired": false
+          },
+          {
+            "id": 11595136440,
+            "name": "p1-r29-respool-functional-evidence",
+            "bytes": 66123550,
+            "digest": "sha256:a5f57bf8ba661d111939e90149fada50efe94f9c4d625c33c185dae49319e00f",
+            "expired": false
+          },
+          {
+            "id": 11595120776,
+            "name": "p1-r48-wp06-sequential-product-evidence",
+            "bytes": 608083,
+            "digest": "sha256:e35bf1635c713919b06c79c34767ffe0247408769ea521fc4369de8c522ea90c",
+            "expired": false
+          },
+          {
+            "id": 11595113333,
+            "name": "wp14-native-evidence-macos",
+            "bytes": 32043110,
+            "digest": "sha256:27e7928e7bf241ed20a969028f72ac258afce01f1737d5532fbb5e0321133003",
+            "expired": false
+          },
+          {
+            "id": 11595092744,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-3",
+            "bytes": 605,
+            "digest": "sha256:8e174de80b7bf2d8dd1d29c23a17c5e96fc17abc42a14d333043fe4f1e6f5562",
+            "expired": false
+          },
+          {
+            "id": 11595072223,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-3",
+            "bytes": 604,
+            "digest": "sha256:43e4ae0b2e5c69c824e761717f832d339d5f51c3c14ee69b9b1f0957b2ddefcb",
+            "expired": false
+          },
+          {
+            "id": 11595052375,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-6",
+            "bytes": 608,
+            "digest": "sha256:b21f9d47388a1631673eb79e1d842aff46080535254052b4543dd6e6c64031b5",
+            "expired": false
+          },
+          {
+            "id": 11595051669,
+            "name": "p1-r25-notmounted-product-evidence",
+            "bytes": 1807,
+            "digest": "sha256:91725f7ced658c34de58b358894ed93e5e46f798a2593ef2e3168543f17a8283",
+            "expired": false
+          },
+          {
+            "id": 11595047207,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-2",
+            "bytes": 628,
+            "digest": "sha256:70b9c4b9fa730595e38db00c48082b022a53fee3a31273b394c7160729df649a",
+            "expired": false
+          },
+          {
+            "id": 11595041652,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-7",
+            "bytes": 649,
+            "digest": "sha256:8bb48108d34ca20ea2977e3057096f6e1741d06b0a6b0eaaeaba8556a4023264",
+            "expired": false
+          },
+          {
+            "id": 11595029936,
+            "name": "wp14-native-evidence-windows",
+            "bytes": 32078121,
+            "digest": "sha256:88dd72817d508f9f9370ec01f4b78646d23b044eba12726d9e0c181500329cd1",
+            "expired": false
+          },
+          {
+            "id": 11595027499,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-1",
+            "bytes": 605,
+            "digest": "sha256:0483a55cf7d7191ade20ea48c21ca9ac76c250bee2003d2b4b0c810fde459c1e",
+            "expired": false
+          },
+          {
+            "id": 11595001818,
+            "name": "p1-r56-strengthen-r55-product-evidence",
+            "bytes": 220433,
+            "digest": "sha256:8ebc30ff6ecfa9e662a4d60c7e4b2ccdb0919a0e6e199dd2e97727442370b401",
+            "expired": false
+          },
+          {
+            "id": 11594996794,
+            "name": "p1-r26-wp36-100k-product-evidence",
+            "bytes": 2637,
+            "digest": "sha256:cfee344cec2aae2956d18c87fe303b9324333f5faae53d57c5e6de2110eccf16",
+            "expired": false
+          },
+          {
+            "id": 11594973558,
+            "name": "wp14-package-macos",
+            "bytes": 4338956,
+            "digest": "sha256:b5ec685094ce2dc1f9f349f9e62865984c2219cec1d8da51f37f53ed8163a3b1",
+            "expired": false
+          },
+          {
+            "id": 11594941189,
+            "name": "p1-r53-wp10-closure-product-evidence",
+            "bytes": 282635,
+            "digest": "sha256:8fb9255afc3be5e41b7b0e48c93e688be3f514e8231e2ea506cd156c61eab1cd",
+            "expired": false
+          },
+          {
+            "id": 11594928148,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-1",
+            "bytes": 604,
+            "digest": "sha256:8757c685467b444b5eabd5abf07b9d9323e914954732be7e3d23b25858557ff9",
+            "expired": false
+          },
+          {
+            "id": 11594892799,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-4",
+            "bytes": 607,
+            "digest": "sha256:e8235b858117123701ddd5e137f16639addd86aa0bfe39c5daa65fc2d6bf3c8c",
+            "expired": false
+          },
+          {
+            "id": 11594887628,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-1",
+            "bytes": 599,
+            "digest": "sha256:5992778b2dfd9812b602d8ef4628399e86fbdffdf9148e228baed819e80f64a2",
+            "expired": false
+          },
+          {
+            "id": 11594887083,
+            "name": "wp14-traces-linux-loop",
+            "bytes": 38213,
+            "digest": "sha256:a6e8f83e607ba2fddea7f39ef6d295a3fc7d710754924aab5acde5d6528efec6",
+            "expired": false
+          },
+          {
+            "id": 11594873390,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-4",
+            "bytes": 602,
+            "digest": "sha256:08047de9519a057273e3b042424b3dfe9b447241f3facdcb7ab6f125c77606b0",
+            "expired": false
+          },
+          {
+            "id": 11594843529,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-6",
+            "bytes": 608,
+            "digest": "sha256:f292d0c5f0cb349c5d2c5cc2eba202847c5e1989e8c0b3787b693717302073fd",
+            "expired": false
+          },
+          {
+            "id": 11594843288,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-2",
+            "bytes": 627,
+            "digest": "sha256:6804617ea47225ae252edd4abeb4671322484135afd247ae4ca527fd68aa692a",
+            "expired": false
+          },
+          {
+            "id": 11594822105,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-4",
+            "bytes": 607,
+            "digest": "sha256:ac240156ea3f084cd4614c47346e6ad64e9c75ed9b103a5f2ff8bdd7bd1465a3",
+            "expired": false
+          },
+          {
+            "id": 11594814006,
+            "name": "wp14-binaries-macos",
+            "bytes": 49267,
+            "digest": "sha256:a76f60ec566415a871dcc7a1b699e438d658e0fe199a7215656dc99d8b64251a",
+            "expired": false
+          },
+          {
+            "id": 11594797318,
+            "name": "p1-r53-wp09-capacity-product-evidence",
+            "bytes": 2686535,
+            "digest": "sha256:ca364ba1ca48edd55b1b158066f42719fdb7df6394381bd446703044a39ec6c5",
+            "expired": false
+          },
+          {
+            "id": 11594777832,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-6",
+            "bytes": 608,
+            "digest": "sha256:14dcfb5e4aa60731b8ea02c26b674fad9cbc0eee71975f06e5ff45140823db01",
+            "expired": false
+          },
+          {
+            "id": 11594777212,
+            "name": "readopt-record-exact-evidence",
+            "bytes": 57586,
+            "digest": "sha256:db45f2eea0bb45408020abc55efbe6fd6d88404548bfbc376ebe1a5dda6f675e",
+            "expired": false
+          },
+          {
+            "id": 11594767318,
+            "name": "p1-r46-wp09-history-product-evidence",
+            "bytes": 2970386,
+            "digest": "sha256:b4d4a2461e5e6cb7899263f2f083210e5fede5216e0431d5d73632963fa8391f",
+            "expired": false
+          },
+          {
+            "id": 11594763707,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-3",
+            "bytes": 608,
+            "digest": "sha256:7edcbef8dad44a698a7989f53ecfda854cbe4013b5a20dd3d3d70588c82282b9",
+            "expired": false
+          },
+          {
+            "id": 11594753142,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-1",
+            "bytes": 605,
+            "digest": "sha256:dc83452b65a3d7079370e61d4349a8ee48bc579f3c96e962c4fecb8ab595486f",
+            "expired": false
+          },
+          {
+            "id": 11594742845,
+            "name": "wp11-mutation-gate-logs",
+            "bytes": 10151270,
+            "digest": "sha256:7632205a01c71e01e08c726db1818f2c9891fbb01d99102d6cd599775a0ad7e7",
+            "expired": false
+          },
+          {
+            "id": 11594739390,
+            "name": "p1-r60-wp10-residue-product-evidence",
+            "bytes": 5815154,
+            "digest": "sha256:0c0e365b6b95f1bef80708e0779171c94e4acd5fca3b648d60486965565a504e",
+            "expired": false
+          },
+          {
+            "id": 11594737226,
+            "name": "p1-r54-wp12-closure-product-evidence",
+            "bytes": 8707,
+            "digest": "sha256:3d6fba75b69df77c50d1601caf70b72816ab7065c1f1fe653d667e6efe6e1eda",
+            "expired": false
+          },
+          {
+            "id": 11594731464,
+            "name": "wp14-traces-linux-image",
+            "bytes": 36284,
+            "digest": "sha256:0175a37ca610bc5b126af28653785127a1fe6d227c1ca4917ae94890276eff3a",
+            "expired": false
+          },
+          {
+            "id": 11594713377,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-0",
+            "bytes": 602,
+            "digest": "sha256:f86b61b757ce6dd0590ad52c588eb8d00779ad6d6d9abc471c7f4eef19f8e87e",
+            "expired": false
+          },
+          {
+            "id": 11594687992,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-0",
+            "bytes": 595,
+            "digest": "sha256:c867cd7e14d182fc345fb0265dbc4c97c8d1d6ee947c91811eae40afdba01fcc",
+            "expired": false
+          },
+          {
+            "id": 11594672293,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-5",
+            "bytes": 626,
+            "digest": "sha256:b355566b202b909d07aa214c2e7bf4a0fdf35a530131ac58332b00ee0ff27c94",
+            "expired": false
+          },
+          {
+            "id": 11594652424,
+            "name": "p1-r25-format-dup-product-evidence",
+            "bytes": 53873,
+            "digest": "sha256:c9df6c1061a4555c79d01e9db5b92cb0f231029a32829e2063f8b3b1ee1ae1b7",
+            "expired": false
+          },
+          {
+            "id": 11594648632,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-7",
+            "bytes": 645,
+            "digest": "sha256:62dd7f80832659851ab4e1823b24613d24b888f764450b59acb8841e002fa009",
+            "expired": false
+          },
+          {
+            "id": 11594648035,
+            "name": "p1-r60-wp10-backlog-r54-product-evidence",
+            "bytes": 466010,
+            "digest": "sha256:8255914341e42e7be29327c2aeb4fa6c1c615a00a3d1f92f94232d51786b78ee",
+            "expired": false
+          },
+          {
+            "id": 11594643415,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-2",
+            "bytes": 603,
+            "digest": "sha256:8c33191a78b03185a52ec949ff819c04d53e4a428183289870dc31047950887f",
+            "expired": false
+          },
+          {
+            "id": 11594642521,
+            "name": "p1-r25-writability-product-evidence",
+            "bytes": 1708,
+            "digest": "sha256:880dbcf3dc9110164897181ef5ca5c468e0b3527e08348e215f8e967031e6ffe",
+            "expired": false
+          },
+          {
+            "id": 11594627689,
+            "name": "wp14-traces-macos",
+            "bytes": 76036,
+            "digest": "sha256:5976c85eb3c361a0fc167d3b5593d2d73b65c91f22ce1bee9b79a3fa388f8e2f",
+            "expired": false
+          },
+          {
+            "id": 11594623662,
+            "name": "p1-r55-wp10-backlog-product-evidence",
+            "bytes": 372777,
+            "digest": "sha256:72e24da3178d8c3303b7017e6a24dc75bdb3de31a90a18317ee3437ae63be1a4",
+            "expired": false
+          },
+          {
+            "id": 11594613161,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-0",
+            "bytes": 599,
+            "digest": "sha256:7ed8820f74c9041b785908e1edf9b9ebcfafe93061380f6010e17aeebd806f0d",
+            "expired": false
+          },
+          {
+            "id": 11594603513,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-5",
+            "bytes": 608,
+            "digest": "sha256:d2074250854925979acd990ea6fe5f01be7610a0b052b44561a591b0cf2c53dd",
+            "expired": false
+          },
+          {
+            "id": 11594588506,
+            "name": "wp14-package-linux",
+            "bytes": 4231710,
+            "digest": "sha256:90a377e8f8513a042480d4d82865ed7660e4ba9044e48b8a9944fc3e8a5fb2c2",
+            "expired": false
+          },
+          {
+            "id": 11594588323,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-6",
+            "bytes": 600,
+            "digest": "sha256:83a4331d87cde63e9ae7075bb01c79ba1ad482ef9ac960c662d8c78be6cb96de",
+            "expired": false
+          },
+          {
+            "id": 11594581655,
+            "name": "p1-r25-slot-product-evidence",
+            "bytes": 1812,
+            "digest": "sha256:e0b420680211da03170326dc8efa040d641caf3c054183b559d96c167f7d176f",
+            "expired": false
+          },
+          {
+            "id": 11594578393,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-0",
+            "bytes": 600,
+            "digest": "sha256:5ff6c246d61cfb8d4b236b929104380a22b287751248454c6abdf1a13e3bf227",
+            "expired": false
+          },
+          {
+            "id": 11594567834,
+            "name": "p1-r57-wp09-gaps-product-evidence",
+            "bytes": 14563,
+            "digest": "sha256:ecda3e83689415e21e2a9a7094742d373ca8d1e39d7be66c198def9ffa94e8f5",
+            "expired": false
+          },
+          {
+            "id": 11594557834,
+            "name": "p1-r57-wp08-mapping-product-evidence",
+            "bytes": 9523,
+            "digest": "sha256:1ed826058f02a218ef24bb24b8a07929dd4f2e9d5fd9e69c8b8d2380cdb23e4b",
+            "expired": false
+          },
+          {
+            "id": 11594552099,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-flush_required-5",
+            "bytes": 625,
+            "digest": "sha256:ce84aac955c59f2c7e1eb946dc3db0c9ae60ee19e880b3788b26f5cd08d5378c",
+            "expired": false
+          },
+          {
+            "id": 11594538780,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-1",
+            "bytes": 606,
+            "digest": "sha256:95ea802a99560a065c2f76d5abb4d60a6c88076fa0b4c9b27e9d1069f14577db",
+            "expired": false
+          },
+          {
+            "id": 11594509054,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-0",
+            "bytes": 600,
+            "digest": "sha256:85bd562b56840e314e395e3354715ec729ff928fc134ec9326bc892becdcc11a",
+            "expired": false
+          },
+          {
+            "id": 11594498529,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-4",
+            "bytes": 607,
+            "digest": "sha256:ed2a30fc1918bd89b8d08a5abc44a39ee7d2e7911f14b5cd0967b0c54f96d10f",
+            "expired": false
+          },
+          {
+            "id": 11594493181,
+            "name": "p1-r29-respool-full-evidence",
+            "bytes": 763,
+            "digest": "sha256:cde63ad04c5e2748f0b5128eb7ffe4dcf9ad5601869a5ddd563fa82f1f706cb6",
+            "expired": false
+          },
+          {
+            "id": 11594492190,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-3",
+            "bytes": 601,
+            "digest": "sha256:dad87e484a72a534309fadc2161b7f953d9b3724e87a03a4f81b6405f8602f7f",
+            "expired": false
+          },
+          {
+            "id": 11594482252,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-2",
+            "bytes": 608,
+            "digest": "sha256:a865e0266f62cbdf8bc07f332a6f00efb469701a1645d2d45500a8965dfb54f6",
+            "expired": false
+          },
+          {
+            "id": 11594481991,
+            "name": "p1-r27-wp07-allocator-cow-evidence",
+            "bytes": 56316,
+            "digest": "sha256:63daff2195840033bb8970b84c3fcc9f8539a15b1efb018316ee4d07cd72c817",
+            "expired": false
+          },
+          {
+            "id": 11594479175,
+            "name": "p1-r29-respool-crash-v3_003-pass1-write_through-2",
+            "bytes": 605,
+            "digest": "sha256:5cf934c40fc4c06a98920eba29aee3c01b6f3a6b2c24b57901325e63ba8b179a",
+            "expired": false
+          },
+          {
+            "id": 11594472677,
+            "name": "p1-r55-wp10-final-product-evidence",
+            "bytes": 1250236,
+            "digest": "sha256:e712483ee34df2205c5ca83773a2fe61fa762506060c868dec83ae372d69dd85",
+            "expired": false
+          },
+          {
+            "id": 11594447514,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-4",
+            "bytes": 605,
+            "digest": "sha256:3252c3edb8b5a92420b024cdbbbdb6d1e451a3c17a6b017667110e77f5042b51",
+            "expired": false
+          },
+          {
+            "id": 11594434228,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-2",
+            "bytes": 608,
+            "digest": "sha256:a57ec95caa6ec4c5ee17517803d671bb24cef33e59c0e1e719830ab992c3b70c",
+            "expired": false
+          },
+          {
+            "id": 11594433677,
+            "name": "p1-r29-respool-crash-v3_003-pass1-flush_required-5",
+            "bytes": 603,
+            "digest": "sha256:994b8b263db8eca4fd3653d3613ec3c14419398c18faabe4b25e5e65272188d1",
+            "expired": false
+          },
+          {
+            "id": 11594427035,
+            "name": "p1-r54-wp08-portability-product-evidence",
+            "bytes": 11003,
+            "digest": "sha256:dbd764044872022c81c2e6c0488da42e666871e2784f5c7e60ad6e693f06f734",
+            "expired": false
+          },
+          {
+            "id": 11594407008,
+            "name": "p1-r54-wp06-closure-product-evidence",
+            "bytes": 124176,
+            "digest": "sha256:cf5956649542cbc41cedad535b5831bf2814e90b3158712d08e11938f25b89d9",
+            "expired": false
+          },
+          {
+            "id": 11594382900,
+            "name": "p1-r29-respool-crash-v3_003-pass2-write_through-5",
+            "bytes": 607,
+            "digest": "sha256:ef30b9048650493942aff6681cad1f11580b03e5e75bb19854014a2579ec3dbc",
+            "expired": false
+          },
+          {
+            "id": 11594354256,
+            "name": "p1-r29-respool-crash-no_lower_run-pass1-write_through-6",
+            "bytes": 608,
+            "digest": "sha256:022b01cd3c8ba5d8f541ed7762e1aa4608016dcb4a81ca8e30580d5d352d35b5",
+            "expired": false
+          },
+          {
+            "id": 11594347378,
+            "name": "wp14-traces-windows",
+            "bytes": 76604,
+            "digest": "sha256:a97881612cc6fb2791a2d89714b0aa4b7a97b283a8a07c4b71173970a17115a3",
+            "expired": false
+          },
+          {
+            "id": 11594338375,
+            "name": "p1-r29-respool-crash-v3_003-pass2-flush_required-5",
+            "bytes": 608,
+            "digest": "sha256:53dd969f885b54a0aad0ab32e49163a0cab0d4660ed122ae8f6943900e807b24",
+            "expired": false
+          },
+          {
+            "id": 11594289924,
+            "name": "p1-r34-wp13-draft9-embedded-readiness-evidence",
+            "bytes": 187734,
+            "digest": "sha256:446b9f7414208eb7ce273a6d32581149ac1ca227ad75bb4bcc9c43e53246d4cb",
+            "expired": false
+          }
+        ]
+      },
+      {
+        "id": 37881873435,
+        "name": "evidence integrity",
+        "event": "pull_request",
+        "attempt": 1,
+        "head": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+        "conclusion": "success",
+        "jobs": [
+          [
+            113663142471,
+            "evidence gate can go red",
+            "success"
+          ],
+          [
+            113663142648,
+            "evidence integrity",
+            "success"
+          ]
+        ],
+        "artifacts": []
+      },
+      {
+        "id": 37881873448,
+        "name": "repo hygiene",
+        "event": "pull_request",
+        "attempt": 1,
+        "head": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+        "conclusion": "success",
+        "jobs": [
+          [
+            113663142448,
+            "docs size and line budgets",
+            "success"
+          ],
+          [
+            113663142566,
+            "hygiene gate can go red",
+            "success"
+          ]
+        ],
+        "artifacts": []
+      },
+      {
+        "id": 37881873449,
+        "name": "verifier publication",
+        "event": "pull_request",
+        "attempt": 1,
+        "head": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+        "conclusion": "success",
+        "jobs": [
+          [
+            113663142429,
+            "verifier publications on verification main",
+            "success"
+          ],
+          [
+            113663142612,
+            "verifier publication gate can go red",
+            "success"
+          ]
+        ],
+        "artifacts": []
+      }
+    ],
+    "strict_contexts": {
+      "strict_required_status_checks_policy": true,
+      "do_not_enforce_on_create": false,
+      "required_status_checks": [
+        {
+          "context": "evidence gate can go red",
+          "integration_id": 15368
+        },
+        {
+          "context": "evidence integrity",
+          "integration_id": 15368
+        },
+        {
+          "context": "docs size and line budgets",
+          "integration_id": 15368
+        },
+        {
+          "context": "hygiene gate can go red",
+          "integration_id": 15368
+        },
+        {
+          "context": "cheap",
+          "integration_id": 15368
+        },
+        {
+          "context": "regression",
+          "integration_id": 15368
+        },
+        {
+          "context": "qualification",
+          "integration_id": 15368
+        }
+      ]
+    },
+    "prior_execution_accounting": "https://github.com/mmsanders/Digital-Tape/pull/390#issuecomment-6073971190",
+    "disposition": "Final required CI PASS. Independent Verification #146 review pending. Package acceptance false; Michael-reserved merge and physical/Windows10/release holds preserved.",
+    "totals": {
+      "jobs": 113,
+      "success": 113,
+      "artifacts": 93
+    }
+  },
+  "raw_native_audit": {
+    "linux": {
+      "binary_sha256": "4d8c97a44f163bcd513c98c0903db6a01418001f169cfd6aa126823f6f7a785c",
+      "os_build": "Ubuntu 24.04.5 LTS, kernel 6.17.0-1022-azure, x86_64",
+      "cases": 135,
+      "artifacts_authenticated": 1159,
+      "controls": [
+        {
+          "case": "nonnull-verify",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        },
+        {
+          "case": "nonnull-play",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        },
+        {
+          "case": "nonnull-scrub",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        },
+        {
+          "case": "nonnull-dump",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        },
+        {
+          "case": "provision-order-control",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "noop-flush",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        },
+        {
+          "case": "native-noop-flush",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "noop-flush",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        },
+        {
+          "case": "native-hidden-flush-error",
+          "reason": "flush reported success after OS failure",
+          "fault": "hidden-flush-error",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        },
+        {
+          "case": "seam-present-control",
+          "reason": "actual test seam symbols present",
+          "binary": "e5d402f7b4bd818c6e79d51e8c17f35ea8e2ae41c7998c30c4b0e400f5dd01b4"
+        }
+      ],
+      "replay": {
+        "cuts": 38,
+        "actual_payload_frontiers_reconstructed": true,
+        "all_child_snapshot_hashes_match": true
+      }
+    },
+    "macos": {
+      "binary_sha256": "e7550d8bedbb0c784fd528c387a87cca2bad8d1b411c39217d25377329bb0beb",
+      "os_build": "macOS 26.6.2 build 25G83, arm64",
+      "cases": 134,
+      "artifacts_authenticated": 1153,
+      "controls": [
+        {
+          "case": "nonnull-verify",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        },
+        {
+          "case": "nonnull-play",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        },
+        {
+          "case": "nonnull-scrub",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        },
+        {
+          "case": "nonnull-dump",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        },
+        {
+          "case": "provision-order-control",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "noop-flush",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        },
+        {
+          "case": "native-noop-flush",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "noop-flush",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        },
+        {
+          "case": "native-hidden-flush-error",
+          "reason": "flush reported success after OS failure",
+          "fault": "hidden-flush-error",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        },
+        {
+          "case": "seam-present-control",
+          "reason": "actual test seam symbols present",
+          "binary": "d56aa90b4ae9485aac16b8d3ecb34ab62c456ef6d2b1cdb72cc93de14dc8e8f1"
+        }
+      ],
+      "replay": {
+        "cuts": 38,
+        "actual_payload_frontiers_reconstructed": true,
+        "all_child_snapshot_hashes_match": true
+      }
+    },
+    "windows": {
+      "binary_sha256": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9",
+      "os_build": "Microsoft Windows Server 2025 Datacenter 10.0.26100 build 26100",
+      "cases": 134,
+      "artifacts_authenticated": 1153,
+      "controls": [
+        {
+          "case": "nonnull-verify",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        },
+        {
+          "case": "nonnull-play",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        },
+        {
+          "case": "nonnull-scrub",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        },
+        {
+          "case": "nonnull-dump",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "nonnull-binding",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        },
+        {
+          "case": "provision-order-control",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "noop-flush",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        },
+        {
+          "case": "native-noop-flush",
+          "reason": "unchanged native oracle assertion rejects actual defect",
+          "fault": "noop-flush",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        },
+        {
+          "case": "native-hidden-flush-error",
+          "reason": "flush reported success after OS failure",
+          "fault": "hidden-flush-error",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        },
+        {
+          "case": "seam-present-control",
+          "reason": "actual test seam symbols present",
+          "binary": "936c115eae8cac9e8751f481abb8a412658252f2bb234985281106813b5d1e94"
+        }
+      ],
+      "replay": {
+        "cuts": 38,
+        "actual_payload_frontiers_reconstructed": true,
+        "all_child_snapshot_hashes_match": true
+      }
+    }
+  },
+  "strict_rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 0,
+        "dismiss_stale_reviews_on_push": false,
+        "required_reviewers": [],
+        "require_code_owner_review": true,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge",
+          "squash",
+          "rebase"
+        ]
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "evidence gate can go red",
+            "integration_id": 15368
+          },
+          {
+            "context": "evidence integrity",
+            "integration_id": 15368
+          },
+          {
+            "context": "docs size and line budgets",
+            "integration_id": 15368
+          },
+          {
+            "context": "hygiene gate can go red",
+            "integration_id": 15368
+          },
+          {
+            "context": "cheap",
+            "integration_id": 15368
+          },
+          {
+            "context": "regression",
+            "integration_id": 15368
+          },
+          {
+            "context": "qualification",
+            "integration_id": 15368
+          }
+        ]
+      }
+    }
+  ],
+  "census_zip": {
+    "artifact": 11595950363,
+    "sha256": "7c4a9da4e4b8f5e7c886b76ae18b42ac5887a9782652b03f3a9000aed436a90b"
+  },
+  "mac_binary_arch": "arm64",
+  "mac_deployment_minimum": "26.0",
+  "tested_release": "ready for Software publication, served bytes not yet reviewed",
+  "physical_Windows10_package_acceptance": "HELD",
+  "Michael_reserved_390_merge": true,
+  "final_ci_log_proof": {
+    "census": [
+      "2026-10-09T04:25:49.2190346Z /home/runner/work/_temp/native-captures/wp14-native-evidence-linux/capture-native-exact-MBR-FAT-OS-README/snapshot.img: 64000000000 bytes, sha256 7ff063735e350942d30cfde2eecadc3a9903ab5c410f1dd81e2b5502417eeba9",
+      "2026-10-09T04:26:26.7935371Z /home/runner/work/_temp/native-captures/wp14-native-evidence-macos/capture-native-exact-MBR-FAT-OS-README/snapshot.img: 64000000000 bytes, sha256 7ff063735e350942d30cfde2eecadc3a9903ab5c410f1dd81e2b5502417eeba9",
+      "2026-10-09T04:27:03.8236517Z /home/runner/work/_temp/native-captures/wp14-native-evidence-windows/capture-native-exact-MBR-FAT-OS-README/snapshot.img: 64000000000 bytes, sha256 7ff063735e350942d30cfde2eecadc3a9903ab5c410f1dd81e2b5502417eeba9",
+      "2026-10-09T04:27:13.6846062Z   \"verifier_tree\": \"e1ef171ffdd7464314b4b838a7d904b1a94f5409\",",
+      "2026-10-09T04:27:13.6846397Z   \"engine_tree\": \"d96b4245e04d74078f8938744b1394c3018516f7\",",
+      "2026-10-09T04:27:13.6849244Z   \"pin_authority\": \"842eae65f65bec8baf469377f605a72d7acb6bd9\","
+    ],
+    "gates": [
+      [
+        "2026-10-09T04:08:06.6248035Z PASS 8208 groups, 17025380 injections, 24672 closure re-runs; stream 7df707f197d9d944880af2b95932accc6ea8daca61a950f7161d34eda6a753ea",
+        "2026-10-09T04:16:39.6450262Z PASS 8208 groups, 17025380 injections, 24672 closure re-runs; stream 7df707f197d9d944880af2b95932accc6ea8daca61a950f7161d34eda6a753ea"
+      ],
+      [
+        "2026-10-09T04:13:13.9658763Z PASS total=4209696 shards=48 caseset=02c52de7a7c51a6ffafe5c9d5afad9c23032b72fc11aaf206bb27a9c9506d3e1",
+        "2026-10-09T04:13:13.9661134Z aggregate_sha256=c8bb6ea0ef8efe584de8c782d8bd6702000baa8668863ee8268e7335f8a1e06e"
+      ],
+      [
+        "2026-10-09T04:27:23.8292015Z == qualification: PASS (15/15 ran) =="
+      ]
+    ]
+  },
+  "independent_snapshot_authentication": "PASS all three full 64,000,000,000-byte snapshots",
+  "independent_closed_census": {
+    "kind": "evidence-completeness",
+    "head": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+    "counts": {
+      "linux": {
+        "image_cases": 79,
+        "image_controls": 11,
+        "native_cases": 135,
+        "native_static": 97,
+        "replay_cases": 38
+      },
+      "macos": {
+        "image_cases": 79,
+        "image_controls": 11,
+        "native_cases": 134,
+        "native_static": 96,
+        "replay_cases": 38
+      },
+      "windows": {
+        "image_cases": 79,
+        "image_controls": 11,
+        "native_cases": 134,
+        "native_static": 96,
+        "replay_cases": 38
+      }
+    },
+    "accepted": false,
+    "remaining": "authenticate CI/artifact identity and raw capture/mutation linkage, A8 Git identities/Phase1 suites, physical and Windows10 holds"
+  },
+  "independent_census_equals_final_CI": true,
+  "independent_A8_equals_final_CI": true
+}
