@@ -1,0 +1,104 @@
+{
+  "disposition": "PASS: served asset authentication and conditional physical delivery readiness",
+  "release_id": 407584184,
+  "tag": "wp14-tapectl-5e2df5aaf23e",
+  "target": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+  "immutable": false,
+  "assets": [
+    {
+      "name": "build-info-linux.json",
+      "id": 624090358,
+      "size": 560,
+      "sha256": "f9018832462384df17c1d8e81651d0510b2e2a0c1a589f69664a26963ebae080",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/build-info-linux.json"
+    },
+    {
+      "name": "build-info-macos.json",
+      "id": 624090361,
+      "size": 553,
+      "sha256": "c2665fc25ca4488ea3ceb085e41a10a6706284a29fd5da303e183f5c8e7e3b13",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/build-info-macos.json"
+    },
+    {
+      "name": "build-info-windows.json",
+      "id": 624090371,
+      "size": 660,
+      "sha256": "0b9483d698e8db63eefb4ac2727d45291b044ebb60f4a1a80a6a5082162f0183",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/build-info-windows.json"
+    },
+    {
+      "name": "PHYSICAL-DELIVERY.md",
+      "id": 624090355,
+      "size": 5026,
+      "sha256": "b3f986d02743beba40162a5259ffb5713b0aa3893b75adac2a4ad94b8633c9ed",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/PHYSICAL-DELIVERY.md"
+    },
+    {
+      "name": "REAL-CARD.md",
+      "id": 624090354,
+      "size": 8795,
+      "sha256": "b71044d9ff9c9f4693eedf555aafee902c98473908afe8bd04ab159d5829a920",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/REAL-CARD.md"
+    },
+    {
+      "name": "SHA256SUMS",
+      "id": 624090359,
+      "size": 678,
+      "sha256": "e750cc6023a326bdd970ff7f5b0a5f0b4be50b244740ab27f018b16b8fb8e477",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/SHA256SUMS"
+    },
+    {
+      "name": "tapectl-linux",
+      "id": 624090376,
+      "size": 363776,
+      "sha256": "4d8c97a44f163bcd513c98c0903db6a01418001f169cfd6aa126823f6f7a785c",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/tapectl-linux"
+    },
+    {
+      "name": "tapectl-macos",
+      "id": 624090378,
+      "size": 126536,
+      "sha256": "e7550d8bedbb0c784fd528c387a87cca2bad8d1b411c39217d25377329bb0beb",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/tapectl-macos"
+    },
+    {
+      "name": "tapectl-windows.exe",
+      "id": 624090380,
+      "size": 435533,
+      "sha256": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9",
+      "url": "https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e/tapectl-windows.exe"
+    }
+  ],
+  "sha256sums_members": 8,
+  "byte_comparison": "all 3 shipped binaries and all 3 build identities equal independently authenticated final run artifacts; REAL-CARD equals original Verification and imported Product bytes",
+  "campaigns_repeated": false,
+  "product_main": "842eae65f65bec8baf469377f605a72d7acb6bd9",
+  "verification_parent": "cb81a5edd2c9e1b0039ed71ecdd61b54f91033e6",
+  "product_root": "7b8204085582bf5422cc902d82c4c02a6998fd98",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "publication_helper": "90c9116be66ec1fe6466806f7aa41ae534d2d43d",
+  "helper_parent": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+  "helper_changed_files": [
+    ".github/workflows/wp14-release.yml",
+    "docs/WP14-PHYSICAL-DELIVERY.md"
+  ],
+  "publication_run": 37892838836,
+  "publication_job": 113697394806,
+  "publication_conclusion": "success",
+  "tested_run": 37881873450,
+  "tested_attempt": 1,
+  "publication_job_log_sha256": "a5c6982b289b98b6d44b38461e1c54c6b2fca2d6a81670d8bae237bec2ef5035",
+  "quiet_sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c",
+  "holds": [
+    "physical macOS and Windows10",
+    "actual Michael platform compatibility",
+    "A1/A2/A3/A6/A9 physical observations",
+    "ten mid-load pulls and independent WP10 classification",
+    "WP05 media identity/atomicity/qualification",
+    "hardware",
+    "target-system copy <30s",
+    "write/async/recording",
+    "phase advancement"
+  ],
+  "next_owner": "Michael #386; Verification #146 audits returned witness; #390 merge Michael reserved"
+}
