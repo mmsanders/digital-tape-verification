@@ -1,0 +1,128 @@
+{
+  "kind": "bounded Linux regular-image method preflight, not physical or repeated acceptance campaign",
+  "binary_sha256": "4d8c97a44f163bcd513c98c0903db6a01418001f169cfd6aa126823f6f7a785c",
+  "capacity_bytes": 62537072640,
+  "length_s": 5400,
+  "chunks": 1817,
+  "baseline_chunks": 2,
+  "c60_chunks": 1212,
+  "source_sha256": "c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d",
+  "before_both_exact_quiet": true,
+  "after_both_exact_C60": true,
+  "commands": [
+    {
+      "args": [
+        "provision",
+        "physical-review/preflight/trial.img",
+        "--label",
+        "PULL-C90",
+        "--length-s",
+        "5400",
+        "--image-bytes",
+        "62537072640"
+      ],
+      "exit": 0,
+      "stdout": "uuid 738fa94f0cbd60056bcde7bdf7a47172\nepoch 1791835829\n",
+      "stderr": "",
+      "elapsed_s": 0.004523973000004844
+    },
+    {
+      "args": [
+        "load",
+        "physical-review/preflight/trial.img",
+        "product-wp14/tests/golden/src/quiet.wav"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_s": 0.00416454599996996
+    },
+    {
+      "args": [
+        "verify",
+        "physical-review/preflight/trial.img"
+      ],
+      "exit": 0,
+      "stdout": "OK\n",
+      "stderr": "",
+      "elapsed_s": 0.007317908000004536
+    },
+    {
+      "args": [
+        "dump",
+        "physical-review/preflight/trial.img",
+        "--side",
+        "A",
+        "-o",
+        "physical-review/preflight/before-A.wav"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_s": 0.004117318999988129
+    },
+    {
+      "args": [
+        "dump",
+        "physical-review/preflight/trial.img",
+        "--side",
+        "B",
+        "-o",
+        "physical-review/preflight/before-B.wav"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_s": 0.01568011800009117
+    },
+    {
+      "args": [
+        "load",
+        "physical-review/preflight/trial.img",
+        "physical-review/preflight/C60.wav"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_s": 1.1057823569999528
+    },
+    {
+      "args": [
+        "verify",
+        "physical-review/preflight/trial.img"
+      ],
+      "exit": 0,
+      "stdout": "OK\n",
+      "stderr": "",
+      "elapsed_s": 3.2795954819999906
+    },
+    {
+      "args": [
+        "dump",
+        "physical-review/preflight/trial.img",
+        "--side",
+        "A",
+        "-o",
+        "physical-review/preflight/after-A.wav"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_s": 2.0316694449999204
+    },
+    {
+      "args": [
+        "dump",
+        "physical-review/preflight/trial.img",
+        "--side",
+        "B",
+        "-o",
+        "physical-review/preflight/after-B.wav"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_s": 1.7793450170000824
+    }
+  ]
+}

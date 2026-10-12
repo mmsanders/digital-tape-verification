@@ -1,0 +1,239 @@
+Here is my complete terminal output for running this test. I've also attached a bunch of evidence text files.
+
+[after-full-hashes.txt](https://github.com/user-attachments/files/33354589/after-full-hashes.txt)
+[after-full-verify.txt](https://github.com/user-attachments/files/33354583/after-full-verify.txt)
+[README-mac.TXT](https://github.com/user-attachments/files/33354598/README-mac.TXT)
+[roundtrip-hashes.txt](https://github.com/user-attachments/files/33354581/roundtrip-hashes.txt)
+[dumpB-exit.txt](https://github.com/user-attachments/files/33354596/dumpB-exit.txt)
+[dumpA-exit.txt](https://github.com/user-attachments/files/33354601/dumpA-exit.txt)
+[verify-exit.txt](https://github.com/user-attachments/files/33354585/verify-exit.txt)
+[verify.txt](https://github.com/user-attachments/files/33354587/verify.txt)
+[load-exit.txt](https://github.com/user-attachments/files/33354593/load-exit.txt)
+[load-time.txt](https://github.com/user-attachments/files/33354580/load-time.txt)
+[load.txt](https://github.com/user-attachments/files/33354582/load.txt)
+[provision-exit.txt](https://github.com/user-attachments/files/33354588/provision-exit.txt)
+[provision-time.txt](https://github.com/user-attachments/files/33354591/provision-time.txt)
+[provision.txt](https://github.com/user-attachments/files/33354599/provision.txt)
+[refusal-exit.txt](https://github.com/user-attachments/files/33354590/refusal-exit.txt)
+[refusal.txt](https://github.com/user-attachments/files/33354597/refusal.txt)
+[reader-info.txt](https://github.com/user-attachments/files/33354584/reader-info.txt)
+[card-info.txt](https://github.com/user-attachments/files/33354592/card-info.txt)
+[macos-disks.txt](https://github.com/user-attachments/files/33354594/macos-disks.txt)
+[input-hashes.txt](https://github.com/user-attachments/files/33354586/input-hashes.txt)
+[macos-build.txt](https://github.com/user-attachments/files/33354600/macos-build.txt)
+[macos-arch.txt](https://github.com/user-attachments/files/33354595/macos-arch.txt)
+
+mic@macbookair ~ % git clone https://github.com/mmsanders/Digital-Tape.git
+Cloning into 'Digital-Tape'...
+remote: Enumerating objects: 5639, done.
+remote: Counting objects: 100% (1005/1005), done.
+remote: Compressing objects: 100% (469/469), done.
+remote: Total 5639 (delta 675), reused 536 (delta 536), pack-reused 4634 (from 2)
+Receiving objects: 100% (5639/5639), 16.78 MiB | 2.61 MiB/s, done.
+Resolving deltas: 100% (2901/2901), done.
+mic@macbookair ~ % cd Digital-Tape 
+mic@macbookair Digital-Tape % git checkout --detach 5e2df5aaf23e9ed0e230c444a40650da9459ddb2
+HEAD is now at 5e2df5a Restore authenticated native artifacts for unchanged WP14 census
+mic@macbookair Digital-Tape % python3 -c "import sys; sys.path.insert(0,'tests/wp14_r1'); from runner import make_c60; make_c60('C60.wav')"
+mic@macbookair Digital-Tape % R=https://github.com/mmsanders/Digital-Tape/releases/download/wp14-tapectl-5e2df5aaf23e
+mic@macbookair Digital-Tape % curl -fLO $R/tapectl-macos
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  123k  100  123k    0     0   180k      0 --:--:-- --:--:-- --:--:--  180k
+mic@macbookair Digital-Tape % curl -fLO $R/SHA256SUMS
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   678  100   678    0     0   1210      0 --:--:-- --:--:-- --:--:--  5512
+mic@macbookair Digital-Tape % curl -fLO $R/build-info-macos.json
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   553  100   553    0     0    843      0 --:--:-- --:--:-- --:--:--   843
+mic@macbookair Digital-Tape % uname -m > macos-arch.txt; sw_vers > macos-build.txt; cat macos-arch.txt macos-build.txt
+arm64
+ProductName:		macOS
+ProductVersion:		26.2
+BuildVersion:		25C56
+mic@macbookair Digital-Tape % shasum -a 256 tapectl-macos C60.wav tests/golden/src/quiet.wav | tee input-hashes.txt
+e7550d8bedbb0c784fd528c387a87cca2bad8d1b411c39217d25377329bb0beb  tapectl-macos
+c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d  C60.wav
+d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c  tests/golden/src/quiet.wav
+mic@macbookair Digital-Tape % cp tapectl-macos tapectl && chmod +x tapectl     
+mic@macbookair Digital-Tape % ./tapectl --help; echo "exit $?"
+tapectl: missing command or IMG
+usage: tapectl format IMG --blocks N --uuid HEX32 --epoch E --label L --length-s S
+       tapectl load IMG SRC.wav
+       tapectl play IMG --side A|B --from F --frames N --rate R -o OUT.wav
+       tapectl scrub IMG --side A|B --from F --schedule R1:N1,R2:N2,... -o OUT.wav
+       tapectl record IMG --at F --mode overwrite|overdub|splice IN.wav
+       tapectl reset-b IMG | promote IMG | respool IMG
+       tapectl dump IMG --side A|B -o OUT.wav
+       tapectl provision TARGET --label L [--length-s S] [--uuid HEX32 --epoch E]
+                         [--image-bytes N] [--erase DEV]
+       tapectl verify TARGET
+TARGET (and IMG, except for format) is a bare image, a provisioned image or a whole removable device.
+exit 2
+mic@macbookair Digital-Tape %    diskutil list external physical
+mic@macbookair Digital-Tape % diskutil list external physical 
+mic@macbookair Digital-Tape % diskutil list external physical
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *62.5 GB    disk4
+   1:               Windows_NTFS Untitled                62.5 GB    disk4s1
+
+mic@macbookair Digital-Tape %    diskutil list external physical > macos-disks.txt; cat macos-disks.txt
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *62.5 GB    disk4
+   1:               Windows_NTFS Untitled                62.5 GB    disk4s1
+
+mic@macbookair Digital-Tape % ls
+AGENTS.md		docs			host			macos-disks.txt		spec			tools
+build-info-macos.json	engine			input-hashes.txt	README.md		tapectl
+C60.wav			firmware		macos-arch.txt		SHA256SUMS		tapectl-macos
+CLAUDE.md		hardware		macos-build.txt		site			tests
+mic@macbookair Digital-Tape % cat macos-disks.txt 
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *62.5 GB    disk4
+   1:               Windows_NTFS Untitled                62.5 GB    disk4s1
+
+mic@macbookair Digital-Tape % diskutil info /dev/diskN > card-info.txt
+Could not find disk: /dev/diskN
+mic@macbookair Digital-Tape % diskutil info /dev/disk4 > card-info.txt
+mic@macbookair Digital-Tape % cat card-info.txt 
+   Device Identifier:         disk4
+   Device Node:               /dev/disk4
+   Whole:                     Yes
+   Part of Whole:             disk4
+   Device / Media Name:       SD  Transcend
+
+   Volume Name:               Not applicable (no file system)
+   Mounted:                   Not applicable (no file system)
+   File System:               None
+
+   Content (IOContent):       FDisk_partition_scheme
+   OS Can Be Installed:       No
+   Media Type:                Generic
+   Protocol:                  USB
+   SMART Status:              Not Supported
+
+   Disk Size:                 62.5 GB (62537072640 Bytes) (exactly 122142720 512-Byte-Units)
+   Device Block Size:         512 Bytes
+
+   Media OS Use Only:         No
+   Media Read-Only:           No
+   Volume Read-Only:          Not applicable (no file system)
+
+   Device Location:           External
+   Removable Media:           Removable
+   Media Removal:             Software-Activated
+
+   Solid State:               Info not available
+   Virtual:                   No
+
+mic@macbookair Digital-Tape % system_profiler SPCardReaderDataType SPUSBDataType > reader-info.txt
+mic@macbookair Digital-Tape % cat reader-info.txt 
+mic@macbookair Digital-Tape % sudo -v
+Password:
+mic@macbookair Digital-Tape % sudo ./tapectl provision /dev/rdisk4 --label PNY-C60 --length-s 3600 --erase /dev/rdisk4 > refusal.txt 2>&1; echo $? > refusal-exit.txt; cat refusal.txt 
+tapectl: REFUSE_FOREIGN_MOUNT: A volume on this disk is in use. Eject it in the operating system first.
+tapectl:   mounted: /Volumes/Untitled
+mic@macbookair Digital-Tape %     diskutil unmountDisk /dev/disk4
+Unmount of all volumes on disk4 was successful
+mic@macbookair Digital-Tape % sudo -v
+mic@macbookair Digital-Tape % sudo /usr/bin/time -p ./tapectl provision /dev/rdisk4 --label PNY-C60 --length-s 3600 --erase /dev/rdisk4 > provision.txt 2> provision-time.txt; echo $? > provision-exit.txt
+mic@macbookair Digital-Tape % sudo /usr/bin/time -p ./tapectl load /dev/rdisk4 C60.wav > load.txt 2> load-time.txt; echo $? > load-exit.txt
+mic@macbookair Digital-Tape % cat load.txt 
+mic@macbookair Digital-Tape % cat load-time.txt 
+tapectl: 155048 flushes via DKIOCSYNCHRONIZECACHE
+real 1619.06
+user 1.25
+sys 35.46
+mic@macbookair Digital-Tape % cat load-exit.txt 
+0
+mic@macbookair Digital-Tape % cat provision-exit.txt load-exit.txt provision.txt load-time.txt
+0
+0
+uuid 77b793feec6328fa021591f22857bc34
+epoch 1791831382
+tapectl: 155048 flushes via DKIOCSYNCHRONIZECACHE
+real 1619.06
+user 1.25
+sys 35.46
+mic@macbookair Digital-Tape % diskutil eject /dev/diskN
+Failed to find disk /dev/diskN
+mic@macbookair Digital-Tape % diskutil eject /dev/disk4
+Disk /dev/disk4 ejected
+mic@macbookair Digital-Tape % diskutil list external physical
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *62.5 GB    disk4
+   1:             Windows_FAT_16 DIGITALTAPE             16.8 MB    disk4s1
+   2:                       0xDA                         62.5 GB    disk4s2
+
+mic@macbookair Digital-Tape % sudo ./tapectl verify /dev/rdisk4 > verify.txt 2>&1; echo $? > verify-exit.txt
+Password:
+mic@macbookair Digital-Tape % sudo ./tapectl dump /dev/rdisk4 --side A -o A.wav; echo $? > dumpA-exit.txt
+mic@macbookair Digital-Tape % sudo ./tapectl dump /dev/rdisk4 --side B -o B.wav; echo $? > dumpB-exit.txt
+mic@macbookair Digital-Tape % cmp C60.wav A.wav; cmp C60.wav B.wav
+mic@macbookair Digital-Tape % shasum -a 256 C60.wav A.wav B.wav > roundtrip-hashes.txt; cat verify.txt verify-exit.txt roundtrip-hashes.txt
+OK
+0
+c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d  C60.wav
+c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d  A.wav
+c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d  B.wav
+mic@macbookair Digital-Tape % pwd
+/Users/mic/Digital-Tape
+mic@macbookair Digital-Tape % ls
+A.wav			docs			input-hashes.txt	provision-exit.txt	roundtrip-hashes.txt	tools
+AGENTS.md		dumpA-exit.txt		load-exit.txt		provision-time.txt	SHA256SUMS		verify-exit.txt
+B.wav			dumpB-exit.txt		load-time.txt		provision.txt		site			verify.txt
+build-info-macos.json	engine			load.txt		reader-info.txt		spec
+C60.wav			firmware		macos-arch.txt		README.md		tapectl
+card-info.txt		hardware		macos-build.txt		refusal-exit.txt	tapectl-macos
+CLAUDE.md		host			macos-disks.txt		refusal.txt		tests
+mic@macbookair Digital-Tape % T=01; mkdir -p pull-$T; sudo -v
+Password:
+mic@macbookair Digital-Tape % ls
+A.wav				firmware			provision-time.txt		site
+AGENTS.md			hardware			provision.txt			spec
+B.wav				host				pull-01				tapectl
+build-info-macos.json		input-hashes.txt		reader-info.txt			tapectl-macos
+C60.wav				load-exit.txt			README-mac.TXT			tests
+card-info.txt			load-time.txt			README-screenshot-mac.png	tools
+CLAUDE.md			load.txt			README.md			verify-exit.txt
+docs				macos-arch.txt			refusal-exit.txt		verify.txt
+dumpA-exit.txt			macos-build.txt			refusal.txt
+dumpB-exit.txt			macos-disks.txt			roundtrip-hashes.txt
+engine				provision-exit.txt		SHA256SUMS
+mic@macbookair Digital-Tape % diskutil list external physical > pull-$T/disks.txt
+mic@macbookair Digital-Tape % cat pull-01/disks.txt 
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *62.5 GB    disk4
+   1:             Windows_FAT_16 DIGITALTAPE             16.8 MB    disk4s1
+   2:                       0xDA                         62.5 GB    disk4s2
+
+mic@macbookair Digital-Tape % sudo ./tapectl load /dev/rdisk4 tests/golden/src/quiet.wav > pull-$T/baseline-load.txt 2>&1 
+mic@macbookair Digital-Tape % sudo ./tapectl verify /dev/rdisk4 > pull-$T/before-verify.txt 2>&1
+mic@macbookair Digital-Tape % sudo ./tapectl dump /dev/rdisk4 --side A -o pull-$T/before-A.wav
+mic@macbookair Digital-Tape % sudo ./tapectl dump /dev/rdisk4 --side B -o pull-$T/before-B.wav
+mic@macbookair Digital-Tape % sudo /usr/bin/time -p ./tapectl load /dev/rdisk4 C60.wav > pull-$T/load.txt 2> pull-$T/load-time.txt; echo $? > pull-$T/load-exit.txt
+mic@macbookair Digital-Tape % cat pull-01/load.txt 
+mic@macbookair Digital-Tape % cat pull-01/load-time.txt 
+tapectl: tape_feed(g_t, g_pcm + (size_t)done * 2u, n - done, &acc): TAPE_ERR_CARTRIDGE_FULL
+real 0.36
+user 0.00
+sys 0.00
+mic@macbookair Digital-Tape % cat pull-01/load-exit.txt 
+1
+mic@macbookair Digital-Tape % sudo ./tapectl verify /dev/rdisk4 > after-full-verify.txt 2>&1; echo $? >> after-full-verify.txt
+Password:
+mic@macbookair Digital-Tape % sudo ./tapectl dump /dev/rdisk4 --side A -o A-check.wav
+mic@macbookair Digital-Tape % sudo ./tapectl dump /dev/rdisk4 --side B -o B-check.wav
+mic@macbookair Digital-Tape % shasum -a 256 A-check.wav B-check.wav | tee after-full-hashes.txt
+c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d  A-check.wav
+c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d  B-check.wav

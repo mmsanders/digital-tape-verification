@@ -1,0 +1,128 @@
+{
+  "source_issue": 386,
+  "source_comment": 6131741784,
+  "product_main": "842eae65f65bec8baf469377f605a72d7acb6bd9",
+  "verification_parent": "956d02ec47c553409e4d7e3a52ea9d935a292de1",
+  "downloaded_attachments": 20,
+  "unavailable_attachments": [
+    "load.txt HTTP416",
+    "reader-info.txt HTTP416"
+  ],
+  "files": [
+    {
+      "path": "README-mac.TXT",
+      "bytes": 156,
+      "sha256": "7d34a16b57371e7b7ba4025d2ea3ccbc74781b709da4125a0f016636d4d57770"
+    },
+    {
+      "path": "after-full-hashes.txt",
+      "bytes": 156,
+      "sha256": "2dd1970c7c3b160f31844a460af626d0179a41aab756620198637e7e222593cc"
+    },
+    {
+      "path": "after-full-verify.txt",
+      "bytes": 5,
+      "sha256": "cc780f8178fb5da596e566bed520b9c2ac2cf8848a997354c563b077403ea4de"
+    },
+    {
+      "path": "card-info.txt",
+      "bytes": 1030,
+      "sha256": "0fafbeb84b54fc7cf4db8b0e51309e9a30b64fac414bc2bdaa520489ca7aecb5"
+    },
+    {
+      "path": "dumpA-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "dumpB-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "input-hashes.txt",
+      "bytes": 247,
+      "sha256": "4336e2a7b5cb162b8ff8524c0c4ce85d5ecfcb7d1c4fa6ea6f242ba92adfc9f3"
+    },
+    {
+      "path": "load-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "load-time.txt",
+      "bytes": 83,
+      "sha256": "8eeb00bbfdd318792932c62395d54f26196af8c3bac64ca6bd075a914f051439"
+    },
+    {
+      "path": "macos-arch.txt",
+      "bytes": 6,
+      "sha256": "c1669e1d8edca98769c37d494b76442a1d6e5ffffd7b4da1fb63aef8ebaf6f01"
+    },
+    {
+      "path": "macos-build.txt",
+      "bytes": 63,
+      "sha256": "50d598276e1b5fb38874dedb2e0829126024993316eb2afda985821d3946863c"
+    },
+    {
+      "path": "macos-disks.txt",
+      "bytes": 263,
+      "sha256": "e84d719cdad3fe45569ec363c32d74b55a1a7f0ef70a41e9a5bb7a8a763a8881"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 5366,
+      "sha256": "eac6d3e611659ed403435f209a394df6b3cbcdac72ecf7637c4c41c923d008d7"
+    },
+    {
+      "path": "method-preflight.json",
+      "bytes": 2921,
+      "sha256": "95c2f1db2fd061a77fdf5319b94e88e9a47ce1b6824fd848e9253675ee138926"
+    },
+    {
+      "path": "provision-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "provision-time.txt",
+      "bytes": 74,
+      "sha256": "4e335035c04643925b6f91d12cf7f8b0755ef71741129d31a144fb932533e278"
+    },
+    {
+      "path": "provision.txt",
+      "bytes": 55,
+      "sha256": "5bbaf5937b41cc9d34912cdbeaa52fc67e4a9118df558d170e0eaa7807d527e5"
+    },
+    {
+      "path": "refusal-exit.txt",
+      "bytes": 2,
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
+    },
+    {
+      "path": "refusal.txt",
+      "bytes": 142,
+      "sha256": "928d3e2fef40ee1f484830372cdac4041b9947691eb6fc376d2a91a0474b3d2d"
+    },
+    {
+      "path": "roundtrip-hashes.txt",
+      "bytes": 218,
+      "sha256": "5ccaf637a5749e351f67dcfb3f57f52417a7bcd7d35edf8f4ca8d80bdd46ca39"
+    },
+    {
+      "path": "terminal-return.txt",
+      "bytes": 14091,
+      "sha256": "5d7c07efef881d50460a33fea37d25a7cf157a106615150a550fea815fcd851e"
+    },
+    {
+      "path": "verify-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "verify.txt",
+      "bytes": 3,
+      "sha256": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  ]
+}
