@@ -1,0 +1,5 @@
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *62.5 GB    disk4
+   1:               Windows_NTFS Untitled                62.5 GB    disk4s1
+

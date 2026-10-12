@@ -1,0 +1,2 @@
+tapectl: REFUSE_FOREIGN_MOUNT: A volume on this disk is in use. Eject it in the operating system first.
+tapectl:   mounted: /Volumes/Untitled
