@@ -1,0 +1,13 @@
+{
+  "runtime": "PowerShell7.4.6/Linux, helper verification only",
+  "parsed_procedure_blocks": 7,
+  "mock_exit0_stderr": "PASS",
+  "mock_exit7": "PASS",
+  "launch_failure_not_stale_exit": "PASS",
+  "read_only_seek_offset": 5368709120,
+  "read_only_seek_pattern_match": "PASS",
+  "short_read_rejected": "PASS",
+  "missing_file_records": "PASS",
+  "actual_windows_device_helper_execution": false,
+  "helper_sha256": "76726f6867bab2aacb7ac2e23134485cc51f98f6bb4d6d56a0a8cf84d0b7c99b"
+}

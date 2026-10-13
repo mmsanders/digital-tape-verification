@@ -1,0 +1,24 @@
+Windows results: Everything passed! Evidence attached. Note that the timing is somewhat inaccurate, as I had to manually stop the windows timer and I didn't  get it when the command returned exactly. I think it is safe to assume it took approximately the same amount of time as the mac copy.
+
+[README-win2-fresh.TXT](https://github.com/user-attachments/files/33392851/README-win2-fresh.TXT)
+<img width="1837" height="632" alt="Image" src="https://github.com/user-attachments/assets/e79b1047-9b04-4fc4-abb0-891f1af9dd52" />
+<img width="1877" height="731" alt="Image" src="https://github.com/user-attachments/assets/4861134e-c196-4e20-a07d-19c24a8471c9" />
+[README-win-readback.TXT](https://github.com/user-attachments/files/33392867/README-win-readback.TXT)
+[windows2-A-exit.txt](https://github.com/user-attachments/files/33392862/windows2-A-exit.txt)
+[windows2-B-exit.txt](https://github.com/user-attachments/files/33392866/windows2-B-exit.txt)
+[windows2-hashes.txt](https://github.com/user-attachments/files/33392857/windows2-hashes.txt)
+[windows2-verify.txt](https://github.com/user-attachments/files/33392858/windows2-verify.txt)
+[windows2-verify-exit.txt](https://github.com/user-attachments/files/33392859/windows2-verify-exit.txt)
+[windows-A-exit.txt](https://github.com/user-attachments/files/33392847/windows-A-exit.txt)
+[windows-B-exit.txt](https://github.com/user-attachments/files/33392856/windows-B-exit.txt)
+[windows-build.txt](https://github.com/user-attachments/files/33392855/windows-build.txt)
+[windows-hashes.txt](https://github.com/user-attachments/files/33392860/windows-hashes.txt)
+[windows-input-hashes.txt](https://github.com/user-attachments/files/33392852/windows-input-hashes.txt)
+[windows-load.txt](https://github.com/user-attachments/files/33392864/windows-load.txt)
+[windows-load-exit.txt](https://github.com/user-attachments/files/33392849/windows-load-exit.txt)
+[windows-load-seconds.txt](https://github.com/user-attachments/files/33392850/windows-load-seconds.txt)
+[windows-provision.txt](https://github.com/user-attachments/files/33392861/windows-provision.txt)
+[windows-provision-exit.txt](https://github.com/user-attachments/files/33392848/windows-provision-exit.txt)
+[windows-provision-seconds.txt](https://github.com/user-attachments/files/33392854/windows-provision-seconds.txt)
+[windows-verify.txt](https://github.com/user-attachments/files/33392853/windows-verify.txt)
+[windows-verify-exit.txt](https://github.com/user-attachments/files/33392865/windows-verify-exit.txt)
