@@ -1,0 +1,3 @@
+Stopwatch time: 30.44
+Load not returned when removed.
+Removed TRANSCEND USB adapter from USB slot in computer.

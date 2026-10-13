@@ -1,0 +1,17 @@
+﻿[
+    {
+        "path":  "C:\\Users\\mrtro\\claude\\tapetest\\tapectl.exe",
+        "sha256":  "82798AF2899E9364B9C9BFAA2021DAF6CC51CCD0C6562598D50E0A86944BB7A9",
+        "bytes":  435533
+    },
+    {
+        "path":  "C:\\Users\\mrtro\\claude\\tapetest\\C60.wav",
+        "sha256":  "C7369C6FDCB476FCC7F6A9D68AAAB276F68A4D316FFB595FAABB736E6046495D",
+        "bytes":  635040044
+    },
+    {
+        "path":  "C:\\Users\\mrtro\\claude\\tapetest\\quiet.wav",
+        "sha256":  "D97A9735A2BEB3DEFC09808B8F33A760C88E1B171EDDB988082B8E0A5AD7692C",
+        "bytes":  793844
+    }
+]
