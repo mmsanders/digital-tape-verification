@@ -1,0 +1,68 @@
+{
+  "zip_sha256": "eb890b3d7aaf709a532e312d8a9806ab1a666487619859d16fd27b0d1ebfdc04",
+  "p2_metadata_sha256": "177c935bf55a4ad70b598ec3bdd237dd78efd8cda7404d0f3009c0eff535d78b",
+  "sb_magic": "5441504546530001",
+  "sb_crc_valid": true,
+  "sb_generation": 3,
+  "state": 0,
+  "uuid": "d2dcbdc2f97b33e4ff7425f382c35a56",
+  "length_s": 5400,
+  "total_chunks": 1817,
+  "a_high_water": 2,
+  "mirror_relative_lba": 122107903,
+  "promote_stage": 0,
+  "slots": [
+    {
+      "lba": 8,
+      "magic": "5441504549445801",
+      "side": 0,
+      "sequence": 1,
+      "entry_count": 0,
+      "frames": 0,
+      "crc_valid": true,
+      "entries": []
+    },
+    {
+      "lba": 136,
+      "magic": "5441504549445801",
+      "side": 0,
+      "sequence": 4,
+      "entry_count": 1,
+      "frames": 198450,
+      "crc_valid": true,
+      "entries": [
+        [
+          0,
+          0,
+          198450
+        ]
+      ]
+    },
+    {
+      "lba": 264,
+      "magic": "5441504549445801",
+      "side": 1,
+      "sequence": 2,
+      "entry_count": 0,
+      "frames": 0,
+      "crc_valid": true,
+      "entries": []
+    },
+    {
+      "lba": 392,
+      "magic": "5441504549445801",
+      "side": 1,
+      "sequence": 3,
+      "entry_count": 1,
+      "frames": 198450,
+      "crc_valid": true,
+      "entries": [
+        [
+          0,
+          0,
+          198450
+        ]
+      ]
+    }
+  ]
+}

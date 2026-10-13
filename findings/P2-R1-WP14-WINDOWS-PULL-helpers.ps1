@@ -50,7 +50,10 @@ function Save-ReadOnlyRange {
     if ($Offset -lt 0 -or $Offset % 512 -ne 0 -or $Count -le 0 -or $Count % 512 -ne 0) { throw 'Unaligned read range.' }
     $stream = $null
     try {
-        $stream = [IO.File]::Open($Source, [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::ReadWrite)
+        # Default File.Open buffering may request 4096 bytes for a 512-byte
+        # final-sector read. Bound the buffer to one logical sector so a raw
+        # device read cannot prefetch beyond the declared disk end.
+        $stream = [IO.FileStream]::new($Source, [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::ReadWrite, 512, [IO.FileOptions]::None)
         [void]$stream.Seek($Offset, [IO.SeekOrigin]::Begin)
         $buffer = New-Object byte[] $Count
         $done = 0

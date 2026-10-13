@@ -1,0 +1,264 @@
+{
+  "archive_name": "pull-win-01.zip",
+  "archive_sha256": "eb890b3d7aaf709a532e312d8a9806ab1a666487619859d16fd27b0d1ebfdc04",
+  "archive_bytes": 2054449,
+  "files": [
+    {
+      "name": "after-A-command.json",
+      "bytes": 415,
+      "sha256": "32198550f8ff910673de2071ad072fb99e14f96ec9357f8a42ebd99ade4b3da3"
+    },
+    {
+      "name": "after-A-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "after-A-seconds.txt",
+      "bytes": 11,
+      "sha256": "1e8aa26a70806a10a745461dc54af8abd198e30ce1b76e3f0e5215e1c70f15f8"
+    },
+    {
+      "name": "after-A.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "after-A.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "after-B-command.json",
+      "bytes": 415,
+      "sha256": "be2ea86bd2423083aa2d28f7c676cf6a975253a58207e755c74e241fc0ca2f19"
+    },
+    {
+      "name": "after-B-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "after-B-seconds.txt",
+      "bytes": 11,
+      "sha256": "47c56d46890e2ae6a7e847eaf85f103d71f091954ee9e4342fc0a84d62ca7e7e"
+    },
+    {
+      "name": "after-B.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "after-B.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "after-verify-command.json",
+      "bytes": 271,
+      "sha256": "5a492c25799d87cf9e299e3cd76dc498b80c61c9523c047fc1fe2764f8da6c29"
+    },
+    {
+      "name": "after-verify-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "after-verify-seconds.txt",
+      "bytes": 22,
+      "sha256": "d5cd426fe6cae870771923a1913192fab0088ed6e9ad186c11839465f0e54fcc"
+    },
+    {
+      "name": "after-verify.txt",
+      "bytes": 10,
+      "sha256": "c7a1ba7a18c0ba7c5d1c47c9251171ea565cb782f1e4f607e5cd80b0875f67c5"
+    },
+    {
+      "name": "after-wavs.json",
+      "bytes": 430,
+      "sha256": "ba2a62462fc62f3db414733bf23dd35da5d02a4ad41d21335bf3e394aefa5baf"
+    },
+    {
+      "name": "baseline-load-command.json",
+      "bytes": 325,
+      "sha256": "ea80463c2b094596ca763893359adae862b8f8e5d3e9af9ece417458befa6c5d"
+    },
+    {
+      "name": "baseline-load-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "baseline-load-seconds.txt",
+      "bytes": 11,
+      "sha256": "cb10f8a237bb9ad361923d1d20523364b4cd92d648a559af0aeb9b9032f8442a"
+    },
+    {
+      "name": "baseline-load.txt",
+      "bytes": 668,
+      "sha256": "38770877b84917de5c220da58a2d41374e7e688e009d9e542b82d7bc7b8e9a02"
+    },
+    {
+      "name": "before-A-command.json",
+      "bytes": 416,
+      "sha256": "b3e9e69123e9eb869df6bda2b9cd13940778151261bb474a16d8a0594cb73184"
+    },
+    {
+      "name": "before-A-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "before-A-seconds.txt",
+      "bytes": 11,
+      "sha256": "6b0693356562f3097e3fd1852af0db53aa4e2865d2ed31067bedbd9c69387a17"
+    },
+    {
+      "name": "before-A.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "before-A.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "before-B-command.json",
+      "bytes": 427,
+      "sha256": "230ff846d654c2d54fd884697f71cd93fb922f672b29695c1565fbca35ed8f53"
+    },
+    {
+      "name": "before-B-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "before-B-seconds.txt",
+      "bytes": 22,
+      "sha256": "bf37f647d7896636186ae340610a2c7865ecb1f94137048f82f5bb2af6ffa435"
+    },
+    {
+      "name": "before-B.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "before-B.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "before-verify-command.json",
+      "bytes": 271,
+      "sha256": "49375ec06a409b8281bbfc9501ef58aecd33ced2c0f5f10ce32ac2a8400f004d"
+    },
+    {
+      "name": "before-verify-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "before-verify-seconds.txt",
+      "bytes": 22,
+      "sha256": "b26487f12c66362b880d52a48cd078917b1d6423e015deababab459d5235a63f"
+    },
+    {
+      "name": "before-verify.txt",
+      "bytes": 10,
+      "sha256": "c7a1ba7a18c0ba7c5d1c47c9251171ea565cb782f1e4f607e5cd80b0875f67c5"
+    },
+    {
+      "name": "before-wavs.json",
+      "bytes": 432,
+      "sha256": "20e2cb6ceb2caf5af8bc236deca51aefe1b0d956a84cc759d85236192bef47e5"
+    },
+    {
+      "name": "card-after.txt",
+      "bytes": 4092,
+      "sha256": "95cb2336b579d39b68990da6cc4d4c87f91bc0a0ff1e2a3a79e52fd731a64a0f"
+    },
+    {
+      "name": "card-before.txt",
+      "bytes": 4092,
+      "sha256": "5db35adfaa07c7f3e44d8a1ba339b094f1ecbeaab9397bdb5af3cd17a121bc38"
+    },
+    {
+      "name": "disks-before.txt",
+      "bytes": 800,
+      "sha256": "886abd7fd4e47ee2497e92cc0c7928e35264a206b81d58ed27b2c36d1c40c114"
+    },
+    {
+      "name": "inputs.json",
+      "bytes": 599,
+      "sha256": "83e2b40f548c9c5f775eb936f4fc8a56ec6613f12a5371093e513afe054b5d16"
+    },
+    {
+      "name": "load-command.json",
+      "bytes": 323,
+      "sha256": "5af10792dc7bb18528332e31cf3d9c377ae97acd0e8a2c56baec04cdeae047d7"
+    },
+    {
+      "name": "load-exit.txt",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "name": "load-seconds.txt",
+      "bytes": 11,
+      "sha256": "2dc5cbae8f93cf910cc654d9adc9cc1d733f21c5146062bbf1877a3538ec6f86"
+    },
+    {
+      "name": "load.txt",
+      "bytes": 780,
+      "sha256": "fbc89d8fb68274c617f5c6720eda66c873afbe20cb7d46d5f550dcac0c110acf"
+    },
+    {
+      "name": "metadata-error-01.png",
+      "bytes": 33414,
+      "sha256": "359cfe8497bf6e78f1efb4f1d6dd3d8050031f289791b6ec0e83d4fee8bb6940"
+    },
+    {
+      "name": "metadata-error.txt",
+      "bytes": 752,
+      "sha256": "07b8f42bb3a8ee1628b7354aada16aab498cf70fb48d95c2404063d39279bec2"
+    },
+    {
+      "name": "os.json",
+      "bytes": 146,
+      "sha256": "a8086377123f70b444040aa75f7701e90d4b4f74b16b8ea496e9eb398358a252"
+    },
+    {
+      "name": "p2-metadata.bin",
+      "bytes": 1048576,
+      "sha256": "177c935bf55a4ad70b598ec3bdd237dd78efd8cda7404d0f3009c0eff535d78b"
+    },
+    {
+      "name": "provision-command.json",
+      "bytes": 452,
+      "sha256": "fb7cea3660008d22e65961a1ec7098002e5d1174fb1dbf9d82b594d3b9af84b0"
+    },
+    {
+      "name": "provision-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "provision-seconds.txt",
+      "bytes": 11,
+      "sha256": "a79128182f002e5f31ed8f6d4a46db135a8ee415b0f130386127f2264ab9ec2f"
+    },
+    {
+      "name": "provision.txt",
+      "bytes": 790,
+      "sha256": "b7f5a8c11f64b92af42e4f10ac589fbfcf400df365c1e518aaa4cf88d5e9e8e1"
+    },
+    {
+      "name": "pull-note-01.txt",
+      "bytes": 53,
+      "sha256": "c0cc90bcc8d6827d6d92992a5d840f69aecf2464f8bc3128022230bf72eccaa5"
+    }
+  ],
+  "wav_storage": "all four original WAVs directly compared byte-for-byte to Product5e2df5a tests/golden/src/quiet.wav; do not duplicate canonical audio",
+  "metadata_storage": "gzip-decompress p2-metadata.bin.gz, require original1MiB size/hash before audit"
+}
