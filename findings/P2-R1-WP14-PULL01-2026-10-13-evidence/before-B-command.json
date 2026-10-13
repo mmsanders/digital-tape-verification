@@ -1,0 +1,14 @@
+﻿{
+    "ended_utc":  "2026-10-13T19:45:14.1011032Z",
+    "started_utc":  "2026-10-13T19:45:14.0331225Z",
+    "args":  [
+                 "dump",
+                 "\\\\.\\PhysicalDrive1",
+                 "--side",
+                 "B",
+                 "-o",
+                 "C:\\Users\\mrtro\\claude\\tapetest\\pull-win-01\\before-B.wav"
+             ],
+    "seconds":  0.064169099999999993,
+    "exit":  0
+}

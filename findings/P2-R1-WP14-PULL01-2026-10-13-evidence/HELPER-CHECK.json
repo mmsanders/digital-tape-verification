@@ -1,0 +1,11 @@
+{
+  "runtime": "PowerShell7.4.6/Linux",
+  "offset": 5368709120,
+  "logical_read_bytes": 512,
+  "default4096_buffer_underlying_bytes": 4096,
+  "corrected512_buffer_underlying_bytes": 512,
+  "final_sector_read": "PASS",
+  "past_end_rejected": "PASS",
+  "actual_windows_mirror_retry": "not performed",
+  "cause": "buffer overread is plausible, not proved on physical Windows"
+}
