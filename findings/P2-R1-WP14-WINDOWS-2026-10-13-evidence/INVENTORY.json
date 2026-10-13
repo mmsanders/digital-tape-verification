@@ -1,0 +1,210 @@
+[
+  {
+    "name": "README-win2-fresh.TXT",
+    "url": "https://github.com/user-attachments/files/33392851/README-win2-fresh.TXT",
+    "ok": true,
+    "error": "",
+    "bytes": 156,
+    "sha256": "7d34a16b57371e7b7ba4025d2ea3ccbc74781b709da4125a0f016636d4d57770"
+  },
+  {
+    "name": "README-win-readback.TXT",
+    "url": "https://github.com/user-attachments/files/33392867/README-win-readback.TXT",
+    "ok": true,
+    "error": "",
+    "bytes": 156,
+    "sha256": "7d34a16b57371e7b7ba4025d2ea3ccbc74781b709da4125a0f016636d4d57770"
+  },
+  {
+    "name": "windows2-A-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392862/windows2-A-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "windows2-B-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392866/windows2-B-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "windows2-hashes.txt",
+    "url": "https://github.com/user-attachments/files/33392857/windows2-hashes.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 1354,
+    "sha256": "353edf8eb94e55b946dc43294883749a4f8f80d565af5e1700d9a96d5176cf59"
+  },
+  {
+    "name": "windows2-verify.txt",
+    "url": "https://github.com/user-attachments/files/33392858/windows2-verify.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 10,
+    "sha256": "c7a1ba7a18c0ba7c5d1c47c9251171ea565cb782f1e4f607e5cd80b0875f67c5"
+  },
+  {
+    "name": "windows2-verify-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392859/windows2-verify-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "windows-A-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392847/windows-A-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "windows-B-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392856/windows-B-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "windows-build.txt",
+    "url": "https://github.com/user-attachments/files/33392855/windows-build.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 314,
+    "sha256": "7b2baf6412cc115c7ad66dda443f3c1f202873c12a9411fe52b493ae19c22c0c"
+  },
+  {
+    "name": "windows-hashes.txt",
+    "url": "https://github.com/user-attachments/files/33392860/windows-hashes.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 1354,
+    "sha256": "312cf29e8a9f1b523304e99ba94f67fbdaed06560cc5f28638bc58f6bc4ddc0a"
+  },
+  {
+    "name": "windows-input-hashes.txt",
+    "url": "https://github.com/user-attachments/files/33392852/windows-input-hashes.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 1086,
+    "sha256": "deddeaa13faa811ab70bf903cb4c47728cac1f3b6d3c9d43699a084657a9c8d2"
+  },
+  {
+    "name": "windows-load.txt",
+    "url": "https://github.com/user-attachments/files/33392864/windows-load.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 708,
+    "sha256": "da8d9fd438414b4bc9f110b76195d6024cd5d64e70b9b0a7ae2f5a48bca30d70"
+  },
+  {
+    "name": "windows-load-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392849/windows-load-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "windows-load-seconds.txt",
+    "url": "https://github.com/user-attachments/files/33392850/windows-load-seconds.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 30,
+    "sha256": "bceb888ed3ba1abdc1cd2cffbafb5866a7c702f1d84ba305f803de56ea6a1a63"
+  },
+  {
+    "name": "windows-provision.txt",
+    "url": "https://github.com/user-attachments/files/33392861/windows-provision.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 900,
+    "sha256": "6fbc8c9f3b7e8f3471a713ebe38eac458858822ad421c9adc8cd7c62ac4fd4a2"
+  },
+  {
+    "name": "windows-provision-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392848/windows-provision-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "windows-provision-seconds.txt",
+    "url": "https://github.com/user-attachments/files/33392854/windows-provision-seconds.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 26,
+    "sha256": "089b7bed11769a4de023a953a93a06ee652bc46e8a2466b824c5574c726ef2ce"
+  },
+  {
+    "name": "windows-verify.txt",
+    "url": "https://github.com/user-attachments/files/33392853/windows-verify.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 10,
+    "sha256": "c7a1ba7a18c0ba7c5d1c47c9251171ea565cb782f1e4f607e5cd80b0875f67c5"
+  },
+  {
+    "name": "windows-verify-exit.txt",
+    "url": "https://github.com/user-attachments/files/33392865/windows-verify-exit.txt",
+    "ok": true,
+    "error": "",
+    "bytes": 8,
+    "sha256": "4af4aed4248c649ed7ae90eded643d8af8b56359361f7e856389976ac216cf6b"
+  },
+  {
+    "name": "image-1.png",
+    "url": "https://github.com/user-attachments/assets/902521a1-8c0f-450b-95d0-b98f01a7865b",
+    "ok": true,
+    "error": "",
+    "bytes": 254014,
+    "sha256": "5f9d7e8cfad3643a944b43bfb35d05f582d7c808dc00e42c106ac6d4f7b93b7f"
+  },
+  {
+    "name": "image-2.png",
+    "url": "https://github.com/user-attachments/assets/33339ce4-717c-4d31-bb27-1e9aaa50dd5c",
+    "ok": true,
+    "error": "",
+    "bytes": 366921,
+    "sha256": "07961f0f58b8f748277359d08362153b117bec88c2e55b32aadc5e32c92c54d5"
+  },
+  {
+    "name": "image-3.png",
+    "url": "https://github.com/user-attachments/assets/f348b971-be3e-4695-8980-4f74d8f74149",
+    "ok": true,
+    "error": "",
+    "bytes": 4312531,
+    "sha256": "77f22e21f075cb941aaf7b253440ba8eb1b27fa22414ff9a3feb69b74624471d"
+  },
+  {
+    "name": "image-4.png",
+    "url": "https://github.com/user-attachments/assets/32d66446-61f3-461e-82bc-1bd54bb9fa2c",
+    "ok": true,
+    "error": "",
+    "bytes": 1320961,
+    "sha256": "f968b3746bf7c53606918c15c0d6206a797f657060db237a77e9db3febfcf206"
+  },
+  {
+    "name": "image-5.png",
+    "url": "https://github.com/user-attachments/assets/e79b1047-9b04-4fc4-abb0-891f1af9dd52",
+    "ok": true,
+    "error": "",
+    "bytes": 73895,
+    "sha256": "4457519a75653f1d971c26a8ffaaa81dd5ea54650e5ddab32ac6a3a789ca3e04"
+  },
+  {
+    "name": "image-6.png",
+    "url": "https://github.com/user-attachments/assets/4861134e-c196-4e20-a07d-19c24a8471c9",
+    "ok": true,
+    "error": "",
+    "bytes": 106352,
+    "sha256": "6fd3f2b7ca3cd834830094adcfd9d814d4aafd04d2df079a1bf1be0dca213b35"
+  }
+]
