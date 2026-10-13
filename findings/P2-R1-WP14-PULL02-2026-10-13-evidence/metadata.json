@@ -1,0 +1,12 @@
+﻿[
+    {
+        "path":  "C:\\Users\\mrtro\\claude\\tapetest\\pull-win-02\\p2-metadata.bin",
+        "sha256":  "727A5C90430C62F659A45CCE9B181A40AAAE40BB1A026C950483B5BBCDB44E20",
+        "bytes":  1048576
+    },
+    {
+        "path":  "C:\\Users\\mrtro\\claude\\tapetest\\pull-win-02\\p2-mirror.bin",
+        "sha256":  "14A61B5C12449268E253D09D2D92E7DE687F4B60A2B9259E3E98C3617A4FD74F",
+        "bytes":  512
+    }
+]

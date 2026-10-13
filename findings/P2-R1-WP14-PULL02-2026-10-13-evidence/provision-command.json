@@ -1,0 +1,16 @@
+﻿{
+    "ended_utc":  "2026-10-13T20:10:16.1816300Z",
+    "started_utc":  "2026-10-13T20:10:15.8077960Z",
+    "args":  [
+                 "provision",
+                 "\\\\.\\PhysicalDrive1",
+                 "--label",
+                 "PULL-C90",
+                 "--length-s",
+                 "5400",
+                 "--erase",
+                 "\\\\.\\PhysicalDrive1"
+             ],
+    "seconds":  0.3709405,
+    "exit":  0
+}

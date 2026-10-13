@@ -1,0 +1,61 @@
+{
+  "superblocks_byte_identical": true,
+  "superblock_crc_valid": true,
+  "uuid": "2067bbb597241c297f23334c0489d205",
+  "generation": 3,
+  "state": 0,
+  "length_s": 5400,
+  "chunks": 1817,
+  "a_high_water": 2,
+  "promote_stage": 0,
+  "slots": [
+    {
+      "lba": 8,
+      "side": 0,
+      "sequence": 1,
+      "entry_count": 0,
+      "frames": 0,
+      "entries": [],
+      "crc_valid": true
+    },
+    {
+      "lba": 136,
+      "side": 0,
+      "sequence": 4,
+      "entry_count": 1,
+      "frames": 198450,
+      "entries": [
+        [
+          0,
+          0,
+          198450
+        ]
+      ],
+      "crc_valid": true
+    },
+    {
+      "lba": 264,
+      "side": 1,
+      "sequence": 2,
+      "entry_count": 0,
+      "frames": 0,
+      "entries": [],
+      "crc_valid": true
+    },
+    {
+      "lba": 392,
+      "side": 1,
+      "sequence": 3,
+      "entry_count": 1,
+      "frames": 198450,
+      "entries": [
+        [
+          0,
+          0,
+          198450
+        ]
+      ],
+      "crc_valid": true
+    }
+  ]
+}

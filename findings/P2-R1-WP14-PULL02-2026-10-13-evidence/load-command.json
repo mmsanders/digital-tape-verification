@@ -1,0 +1,11 @@
+﻿{
+    "ended_utc":  "2026-10-13T20:11:08.9337872Z",
+    "started_utc":  "2026-10-13T20:10:38.3729169Z",
+    "args":  [
+                 "load",
+                 "\\\\.\\PhysicalDrive1",
+                 "C:\\Users\\mrtro\\claude\\tapetest\\C60.wav"
+             ],
+    "seconds":  30.5567182,
+    "exit":  1
+}

@@ -1,0 +1,263 @@
+{
+  "archive_name": "pull-win-02.zip",
+  "archive_bytes": 2023341,
+  "archive_sha256": "0da0660ddf82bc4f0ffbfdca8e885d7482f363875c0906a93ab185c75f65c0fc",
+  "files": [
+    {
+      "name": "after-A-command.json",
+      "bytes": 426,
+      "sha256": "f187b02d192a9c4c4dfce2524fa4b9d97e8b5285ec8c655b5a3973116db2ad40"
+    },
+    {
+      "name": "after-A-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "after-A-seconds.txt",
+      "bytes": 22,
+      "sha256": "7f76e09fd5eacfd07ae2e9f48a18c2b518d2b7a1435239fab663f1275eec3eb6"
+    },
+    {
+      "name": "after-A.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "after-A.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "after-B-command.json",
+      "bytes": 415,
+      "sha256": "24f626f8969dc4130f1703d58669ff0b4d62edf441f5cac76542eb7635944c43"
+    },
+    {
+      "name": "after-B-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "after-B-seconds.txt",
+      "bytes": 11,
+      "sha256": "75268f36c98062ac0f7b9a5e6ad67c0b9dfa8164762c0f1b01fe9c9c21033351"
+    },
+    {
+      "name": "after-B.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "after-B.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "after-verify-command.json",
+      "bytes": 260,
+      "sha256": "c7d3b71bf8948948536ea150684c0c92ecec68f7af16327220fb3720a466fa29"
+    },
+    {
+      "name": "after-verify-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "after-verify-seconds.txt",
+      "bytes": 11,
+      "sha256": "bd0e5a56e54d26591eb67af2fb47434253574c4e8cd82eb6a66f587d5cbc4045"
+    },
+    {
+      "name": "after-verify.txt",
+      "bytes": 10,
+      "sha256": "c7a1ba7a18c0ba7c5d1c47c9251171ea565cb782f1e4f607e5cd80b0875f67c5"
+    },
+    {
+      "name": "after-wavs.json",
+      "bytes": 430,
+      "sha256": "20ea4acae316c18c276aee4c40acee76d8ae50f3a9af140f09ee38d29b25cb61"
+    },
+    {
+      "name": "baseline-load-command.json",
+      "bytes": 325,
+      "sha256": "130727013596cf46fc60237f69a73b75410ab7e135fa61af2cf6d4ca5431dcf9"
+    },
+    {
+      "name": "baseline-load-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "baseline-load-seconds.txt",
+      "bytes": 11,
+      "sha256": "d56a419233b1bf4069ed5d47bc7b95c367414024611ba3824dfc6017833f7735"
+    },
+    {
+      "name": "baseline-load.txt",
+      "bytes": 668,
+      "sha256": "38770877b84917de5c220da58a2d41374e7e688e009d9e542b82d7bc7b8e9a02"
+    },
+    {
+      "name": "before-A-command.json",
+      "bytes": 416,
+      "sha256": "a4b17b944ce4f860170426790a9963a654990bc81316367efd605eeeac9f3a0e"
+    },
+    {
+      "name": "before-A-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "before-A-seconds.txt",
+      "bytes": 11,
+      "sha256": "290c0af615a4c013b9d90ac037acce0c309e6d20bd548949c0693394bd7000c5"
+    },
+    {
+      "name": "before-A.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "before-A.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "before-B-command.json",
+      "bytes": 427,
+      "sha256": "59b3c78e1e853c31534573d7b6a3688d09e92e938e68757fe26590ded59ce2b1"
+    },
+    {
+      "name": "before-B-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "before-B-seconds.txt",
+      "bytes": 22,
+      "sha256": "318bc1c97e00f31a1108a11a6b5286e6f2794eb26bb2471153ea895b6c450bd8"
+    },
+    {
+      "name": "before-B.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "before-B.wav",
+      "bytes": 793844,
+      "sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c"
+    },
+    {
+      "name": "before-verify-command.json",
+      "bytes": 260,
+      "sha256": "9d0b1c38d9bb0839ddded1fd09e57c63d57f6c3436ea7fe9f59e7edddd532d2f"
+    },
+    {
+      "name": "before-verify-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "before-verify-seconds.txt",
+      "bytes": 11,
+      "sha256": "afec4288bc8353fbf0c51fb528d2a56c2a08d025851af9c789045a2a29d986f5"
+    },
+    {
+      "name": "before-verify.txt",
+      "bytes": 10,
+      "sha256": "c7a1ba7a18c0ba7c5d1c47c9251171ea565cb782f1e4f607e5cd80b0875f67c5"
+    },
+    {
+      "name": "before-wavs.json",
+      "bytes": 432,
+      "sha256": "3536c359f940a55cc28de498ce0b65f67993e24460789109361c3a138c3625ab"
+    },
+    {
+      "name": "card-after.txt",
+      "bytes": 4092,
+      "sha256": "ae440b7c15808105fb4de32cc9ed8490803a88c7938ebf72b22662afb0db7123"
+    },
+    {
+      "name": "card-before.txt",
+      "bytes": 4092,
+      "sha256": "95cb2336b579d39b68990da6cc4d4c87f91bc0a0ff1e2a3a79e52fd731a64a0f"
+    },
+    {
+      "name": "disks-before.txt",
+      "bytes": 800,
+      "sha256": "886abd7fd4e47ee2497e92cc0c7928e35264a206b81d58ed27b2c36d1c40c114"
+    },
+    {
+      "name": "inputs.json",
+      "bytes": 599,
+      "sha256": "83e2b40f548c9c5f775eb936f4fc8a56ec6613f12a5371093e513afe054b5d16"
+    },
+    {
+      "name": "load-command.json",
+      "bytes": 324,
+      "sha256": "e0c182ae2c267998a31a5e12db7c6693458bd10ea10d36c4d791193a0f60de70"
+    },
+    {
+      "name": "load-exit.txt",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "name": "load-seconds.txt",
+      "bytes": 12,
+      "sha256": "2a7e7d829e42daf409d17b87cf30bc7c88f871ec865cae80ab212122513ec1e0"
+    },
+    {
+      "name": "load.txt",
+      "bytes": 782,
+      "sha256": "ecc13c95d8c0bfba4618759f516d6df3d167328be1acb83503dcce863ae8dd9f"
+    },
+    {
+      "name": "metadata.json",
+      "bytes": 434,
+      "sha256": "b49c1bd027fad278a8359642abea1b3488a2bca7d1c12c314b6574b95ab114e5"
+    },
+    {
+      "name": "os.json",
+      "bytes": 146,
+      "sha256": "a8086377123f70b444040aa75f7701e90d4b4f74b16b8ea496e9eb398358a252"
+    },
+    {
+      "name": "p2-metadata.bin",
+      "bytes": 1048576,
+      "sha256": "727a5c90430c62f659a45cce9b181a40aaae40bb1a026c950483b5bbcdb44e20"
+    },
+    {
+      "name": "p2-mirror.bin",
+      "bytes": 512,
+      "sha256": "14a61b5c12449268e253d09d2d92e7de687f4b60a2b9259e3e98c3617a4fd74f"
+    },
+    {
+      "name": "provision-command.json",
+      "bytes": 452,
+      "sha256": "423f80af5b4d2fae5cffe8471a805c0d76b67ae0132b6cb523c17e7ff1605644"
+    },
+    {
+      "name": "provision-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "provision-seconds.txt",
+      "bytes": 11,
+      "sha256": "d779ff7f086eed9833ff70e3264dd9e63871287d653cb7613c28c66a00ec2a73"
+    },
+    {
+      "name": "provision.txt",
+      "bytes": 790,
+      "sha256": "ef7684295f4ed73731caa217b0a3e0090d4e1ec7011449ac650af0150f12dcc9"
+    },
+    {
+      "name": "pull-note-02.txt",
+      "bytes": 112,
+      "sha256": "e8bc1e82febee53a29ea6dc0dc9bf65bc7e01ea0901a74e9c7be33b4dd020b0f"
+    }
+  ],
+  "storage": "actual text/JSON verbatim; metadata and mirror lossless gzip; four WAVs byte-identical to Product5e2df5a tests/golden/src/quiet.wav, no duplicate audio"
+}

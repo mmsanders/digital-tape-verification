@@ -1,0 +1,10 @@
+﻿{
+    "ended_utc":  "2026-10-13T20:12:20.3414945Z",
+    "started_utc":  "2026-10-13T20:12:20.2434283Z",
+    "args":  [
+                 "verify",
+                 "\\\\.\\PhysicalDrive1"
+             ],
+    "seconds":  0.0929183,
+    "exit":  0
+}
