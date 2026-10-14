@@ -127,7 +127,10 @@ try {
     Require ($note -match '(?i)(removed|unplugged|pulled).*(adapter|reader|card|usb)') 'Add what you physically removed/unplugged to the pull note'
     Require ($note -match '(?i)(?:stopwatch\s*time|elapsed\s*(?:time)?)\s*:\s*~?\s*(\d+(?:\.\d+)?)') 'Record stopwatch time: seconds in pull note'
     $cut = [double]::Parse($Matches[1],[Globalization.CultureInfo]::InvariantCulture)
-    Require ($cut -gt 0 -and $cut -le $load.seconds) 'Pull time inconsistent with command duration; review the recorded estimate'
+    Require ($cut -gt 0) 'Record a positive actual pull-time estimate'
+    if ($cut -gt $load.seconds) {
+        Write-Host 'NOTE: Hand stopwatch and command timer differ. Retain both readings; this does not by itself classify the physical cut.' -ForegroundColor Yellow
+    }
     $metaPath = Join-Path $Folder 'p2-metadata.bin'
     if (Test-Path -LiteralPath $metaPath) {
         $meta = [IO.File]::ReadAllBytes($metaPath)

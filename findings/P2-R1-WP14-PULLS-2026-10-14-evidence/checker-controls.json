@@ -1,0 +1,56 @@
+[
+  {
+    "case": "completed-folder-cannot-reuse",
+    "stage": "BeforeLoad",
+    "exit": 2,
+    "output": "STOP - SEND FOR REVIEW; KEEP THE CARD UNCHANGED\nThis folder already has a load attempt; do not reuse it for another pull."
+  },
+  {
+    "case": "fresh-baseline",
+    "stage": "BeforeLoad",
+    "exit": 0,
+    "output": "READY TO START C60 LOAD\nFresh provision and exact quiet baseline checks passed. Run instruction set 3, then physically pull while loading."
+  },
+  {
+    "case": "mirror-crc-corrupted",
+    "stage": "AfterPull",
+    "exit": 2,
+    "output": "STOP - SEND FOR REVIEW; KEEP THE CARD UNCHANGED\nMirror snapshot: bad CRC; preserve card"
+  },
+  {
+    "case": "missing-output",
+    "stage": "AfterPull",
+    "exit": 2,
+    "output": "STOP - SEND FOR REVIEW; KEEP THE CARD UNCHANGED\nMissing actual WAV after-B.wav"
+  },
+  {
+    "case": "missing-physical-note",
+    "stage": "AfterPull",
+    "exit": 2,
+    "output": "STOP - SEND FOR REVIEW; KEEP THE CARD UNCHANGED\nNeed one pull-note*.txt recording actual time and physical action"
+  },
+  {
+    "case": "one-audio-byte-changed",
+    "stage": "AfterPull",
+    "exit": 2,
+    "output": "STOP - SEND FOR REVIEW; KEEP THE CARD UNCHANGED\nafter-A.wav: not exact quiet audio; preserve card for review"
+  },
+  {
+    "case": "real-trial02",
+    "stage": "AfterPull",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 30.44s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "case": "verify-exit-disagrees",
+    "stage": "AfterPull",
+    "exit": 2,
+    "output": "STOP - SEND FOR REVIEW; KEEP THE CARD UNCHANGED\nafter-verify: exit records disagree"
+  },
+  {
+    "case": "wrong-device-in-command",
+    "stage": "AfterPull",
+    "exit": 2,
+    "output": "STOP - SEND FOR REVIEW; KEEP THE CARD UNCHANGED\nload: wrong command/target/options"
+  }
+]

@@ -1,6 +1,6 @@
 # Verification findings index
 
-**As of 3 October 2026.** These reports are dated records. An old “pending”, “held”,
+**As of 14 October 2026 UTC.** These reports are dated records. An old “pending”, “held”,
 “not accepted”, “ready for review”, or red-golden statement describes its report's
 input and date. It is not a live task. A positive disposition still applies within
 its recorded exact candidate, evidence and coverage boundary.
@@ -24,9 +24,7 @@ explicitly names this repo. Keep original path text for provenance.
 
 ## Chronological records
 
-Phase 2: [P2-R1 WP14 preflight and paper reviews](P2-R1-WP14-PREFLIGHT-2026-10-05.md)
-records Verification #146's contract blockers, E1 recommendation and Q-P2-1(a)
-crash-model coverage gap. It grants no WP14 or batching acceptance.
+Phase 2 current: [ten physical pulls](P2-R1-WP14-PULLS-2026-10-14.md) PASS on Windows 11; no duplicate Mac campaign. Full WP14 retains the residual final success/A9 and native >4GiB gates. Michael's Windows 11 correction supersedes earlier Windows 10 references. [Software disposition](P2-R1-WP14-390-2026-10-09.md), [release authentication](P2-R1-WP14-RELEASE-2026-10-09.md), [Mac witness](P2-R1-WP14-MAC-2026-10-12.md) and [Windows witness](P2-R1-WP14-WINDOWS-2026-10-13.md) retain their exact boundaries. The [preflight](P2-R1-WP14-PREFLIGHT-2026-10-05.md) is historical; its original blockers are not live assignments.
 
 Dates come from the filename, or the original Git commit date when unnamed.
 New round reports use `P<phase>-R<round>-<scope>-<kind>-YYYY-MM-DD.md`;
