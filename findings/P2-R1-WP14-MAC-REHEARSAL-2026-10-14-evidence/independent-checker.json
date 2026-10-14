@@ -1,0 +1,69 @@
+{
+ "verdict": "FAIL",
+ "fail": [
+  "no captured record belongs to PID 44532",
+  "PID 44532 never opened rehearsal.img successfully",
+  "no read by PID 44532 touches [4296015360, 4296015872)"
+ ],
+ "held": [
+  "dtrace open records carry no exe= name; the image cannot be bound",
+  "no exit status recorded or traced"
+ ],
+ "pid": 44532,
+ "capacity": 4296015872,
+ "last_sector": [
+  4296015360,
+  4296015872
+ ],
+ "last_sector_reads": [],
+ "open_claim": "no open observed",
+ "target_calls": {
+  "read": 0,
+  "write": 0,
+  "flush": 0
+ },
+ "exit": {
+  "traced": null,
+  "recorded": null
+ },
+ "tracer_steps": [
+  [
+   "dtrace",
+   0
+  ]
+ ],
+ "geometry": {
+  "bytes": 4296015872,
+  "sector": 512,
+  "image": true
+ },
+ "inputs": {
+  "trace": {
+   "path": "verify.trace",
+   "sha256": "00d050e56b5136164cee322843bb15639a8cdffd8373cad47090c5c64d0eacf8"
+  },
+  "geometry": {
+   "path": "geometry.txt",
+   "sha256": "b220f60afe4afc64fe0c9c3f7070627cfa808ac4bdecad3d91afd073ac84c37d"
+  },
+  "exe": {
+   "path": "tapectl",
+   "sha256": "e7550d8bedbb0c784fd528c387a87cca2bad8d1b411c39217d25377329bb0beb"
+  },
+  "stdout": {
+   "path": "verify-out.txt",
+   "sha256": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+  },
+  "tracer_log": {
+   "path": "tracer-exits.txt",
+   "sha256": "4e064f67ef89871c2d2940f90388d327d7ac9425ad002fb0ab006136c8ea9319"
+  },
+  "diagnostics": [
+   {
+    "path": "dtrace-err.txt",
+    "sha256": "ebea5d9b28ceec940138609072dd415f553729a3e402c57b519f461951417b23"
+   }
+  ]
+ },
+ "notes": []
+}
