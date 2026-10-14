@@ -1,7 +1,7 @@
 # Verification capability status
 
-**Snapshot: 14 October 2026 UTC.** Verification input `a3de077a7fb8b7b66cd2e66bcb2b43484948c2b4`;
-Product input `46b48edd6210e541adf3d3e64ec5fd691c2a75f9`.
+**Snapshot: 14 October 2026 UTC.** Verification input `c690be9a5f3188333f04ef52a552fcf4c82a0030`;
+Product input `b0d0847b85cee6eac4b2624f9835052a950b902e`.
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
 
@@ -24,12 +24,13 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |
 | WP14 physical pulls | PASS 10/10 | [Ten-cut independent disposition](findings/P2-R1-WP14-PULLS-2026-10-14.md); Windows 11; no Mac repeat |
 | WP16 preflight | Planning publication only | [#165 contract feasibility](findings/P2-R2-WP16-PREFLIGHT-2026-10-14/README.md); PM issuance next; no executable assertions or acceptance |
-| WP14 full package | HELD | Final post-pull C60/A9 and native shipped-binary >4GiB capture remain |
+| WP14 final Windows success/A9 | PASS bounded observations | [Final witness](findings/P2-R1-WP14-FINAL-WIN-2026-10-14.md); load1677.7328603s, reinsert/OK/canonical A+B hashes and lengths; final raw README pending |
+| WP14 full package | HELD | Final README bytes and native shipped-binary >4GiB captures remain; #426 method correction needed |
 | Hardware/media/target/release | Excluded | Hardware parked through Phase 2; qualification and physical gates remain held |
 
 The [Stage 2 disposition](findings/P1-R63-WP11-STAGE2-DISPOSITION-2026-10-03.md) preserves the completed #143 return and its
 subsequent listening closure. The [package index](tests/README.md) distinguishes
-original publication claims from final Phase 1 state. Phase 1 closure is unchanged. The new physical acceptance is bounded to the ten pulls; no Product rerun was performed.
+original publication claims from final Phase 1 state. Phase 1 closure is unchanged. Physical dispositions retain their exact witness boundaries; no Product rerun was performed.
 
 The superseded [12 September capability report](archive/CAPABILITY-STATUS-2026-09-12.md)
 is preserved byte-for-byte, with its SHA-256 in [the archive index](archive/README.md).

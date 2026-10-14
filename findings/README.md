@@ -120,3 +120,7 @@ only in Product must be fetched and authenticated there before replay.
 ## WP16 planning
 
 [Verification #165 ingest contract preflight](P2-R2-WP16-PREFLIGHT-2026-10-14/README.md) records proposed C1–C12 decisions, independent reference experiments and a six-row post-issuance authoring census. Planning only; no WP16 assertions, implementation review or acceptance.
+
+## Final WP14 Windows witness
+
+[Final Windows success/A9 and A6 method review](P2-R1-WP14-FINAL-WIN-2026-10-14.md): completed post-pull load/reinsert/verify/canonical A+B recorded hashes and lengths PASS, A9=1677.7328603s. Final README bytes and physical A6 remain held; Software #426 checker false PASS controls require correction before a physical handoff. No repeated load/pull campaign.

@@ -1,0 +1,136 @@
+[
+  {
+    "case": "good-dtrace",
+    "argv": [
+      "python3",
+      "/workspace/scratch/2d47daf9ba61/method/a6check.py",
+      "verify",
+      "--format",
+      "dtrace",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/method/good-dtrace.trace",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "/dev/rdisk4"
+    ],
+    "returncode": 0,
+    "stdout": "{\n \"verdict\": \"PASS\",\n \"reasons\": [],\n \"pid\": 4242,\n \"capacity\": 62537072640,\n \"mirror_offset\": 62537072128,\n \"mirror_reads\": [\n  {\n   \"off\": 62537072128,\n   \"len\": 512,\n   \"ret\": 512,\n   \"err\": null,\n   \"how\": null,\n   \"dur_s\": 0.001203\n  }\n ],\n \"target_opens\": [\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  },\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  }\n ],\n \"target_calls\": {\n  \"read\": 5,\n  \"write\": 0,\n  \"flush\": 0\n },\n \"max_read_offset\": 62537072128,\n \"exit_status\": 0,\n \"notes\": [\n  \"traced exit status 0\"\n ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "case": "one-byte-mirror",
+    "argv": [
+      "python3",
+      "/workspace/scratch/2d47daf9ba61/method/a6check.py",
+      "verify",
+      "--format",
+      "dtrace",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/method/one-byte-mirror.trace",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "/dev/rdisk4"
+    ],
+    "returncode": 0,
+    "stdout": "{\n \"verdict\": \"PASS\",\n \"reasons\": [],\n \"pid\": 4242,\n \"capacity\": 62537072640,\n \"mirror_offset\": 62537072128,\n \"mirror_reads\": [\n  {\n   \"off\": 62537072128,\n   \"len\": 1,\n   \"ret\": 1,\n   \"err\": null,\n   \"how\": null,\n   \"dur_s\": 0.001203\n  }\n ],\n \"target_opens\": [\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  },\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  }\n ],\n \"target_calls\": {\n  \"read\": 5,\n  \"write\": 0,\n  \"flush\": 0\n },\n \"max_read_offset\": 62537072128,\n \"exit_status\": 0,\n \"notes\": [\n  \"traced exit status 0\"\n ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "case": "nonzero-exit",
+    "argv": [
+      "python3",
+      "/workspace/scratch/2d47daf9ba61/method/a6check.py",
+      "verify",
+      "--format",
+      "dtrace",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/method/nonzero-exit.trace",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "/dev/rdisk4"
+    ],
+    "returncode": 0,
+    "stdout": "{\n \"verdict\": \"PASS\",\n \"reasons\": [],\n \"pid\": 4242,\n \"capacity\": 62537072640,\n \"mirror_offset\": 62537072128,\n \"mirror_reads\": [\n  {\n   \"off\": 62537072128,\n   \"len\": 512,\n   \"ret\": 512,\n   \"err\": null,\n   \"how\": null,\n   \"dur_s\": 0.001203\n  }\n ],\n \"target_opens\": [\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  },\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  }\n ],\n \"target_calls\": {\n  \"read\": 5,\n  \"write\": 0,\n  \"flush\": 0\n },\n \"max_read_offset\": 62537072128,\n \"exit_status\": 1,\n \"notes\": [\n  \"traced exit status 1\"\n ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "case": "tracer-error-ignored",
+    "argv": [
+      "python3",
+      "/workspace/scratch/2d47daf9ba61/method/a6check.py",
+      "verify",
+      "--format",
+      "dtrace",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/method/tracer-error-ignored.trace",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "/dev/rdisk4"
+    ],
+    "returncode": 0,
+    "stdout": "{\n \"verdict\": \"PASS\",\n \"reasons\": [],\n \"pid\": 4242,\n \"capacity\": 62537072640,\n \"mirror_offset\": 62537072128,\n \"mirror_reads\": [\n  {\n   \"off\": 62537072128,\n   \"len\": 512,\n   \"ret\": 512,\n   \"err\": null,\n   \"how\": null,\n   \"dur_s\": 0.001203\n  }\n ],\n \"target_opens\": [\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  },\n  {\n   \"path\": \"/dev/rdisk4\",\n   \"write_open\": false,\n   \"ret\": 3,\n   \"err\": null\n  }\n ],\n \"target_calls\": {\n  \"read\": 5,\n  \"write\": 0,\n  \"flush\": 0\n },\n \"max_read_offset\": 62537072128,\n \"exit_status\": 0,\n \"notes\": [\n  \"traced exit status 0\"\n ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "case": "good-etw",
+    "argv": [
+      "python3",
+      "/workspace/scratch/2d47daf9ba61/method/a6check.py",
+      "verify",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/method/good-etw.xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--disk",
+      "1",
+      "--stdout",
+      "/workspace/scratch/2d47daf9ba61/method/synthetic-etw-verify-stdout.txt",
+      "--exit-code",
+      "0"
+    ],
+    "returncode": 0,
+    "stdout": "{\n \"verdict\": \"PASS\",\n \"reasons\": [],\n \"pid\": 4242,\n \"capacity\": 62537072640,\n \"mirror_offset\": 62537072128,\n \"mirror_reads\": [\n  {\n   \"off\": 62537072128,\n   \"len\": 512,\n   \"ret\": 512,\n   \"err\": null,\n   \"how\": \"DiskIo\",\n   \"dur_s\": 0.0012\n  }\n ],\n \"target_opens\": [],\n \"target_calls\": {\n  \"read\": 2,\n  \"write\": 0,\n  \"flush\": 0\n },\n \"max_read_offset\": 62537072128,\n \"exit_status\": null,\n \"notes\": [\n  \"process 4242 image tapectl.exe command tapectl.exe verify \\\\\\\\.\\\\PhysicalDrive1\",\n  \"call status from verify OK/exit 0: both superblock copies read valid\"\n ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "case": "etw-lost-events",
+    "argv": [
+      "python3",
+      "/workspace/scratch/2d47daf9ba61/method/a6check.py",
+      "verify",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/method/etw-lost-events.xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--disk",
+      "1",
+      "--stdout",
+      "/workspace/scratch/2d47daf9ba61/method/synthetic-etw-verify-stdout.txt",
+      "--exit-code",
+      "0"
+    ],
+    "returncode": 0,
+    "stdout": "{\n \"verdict\": \"PASS\",\n \"reasons\": [],\n \"pid\": 4242,\n \"capacity\": 62537072640,\n \"mirror_offset\": 62537072128,\n \"mirror_reads\": [\n  {\n   \"off\": 62537072128,\n   \"len\": 512,\n   \"ret\": 512,\n   \"err\": null,\n   \"how\": \"DiskIo\",\n   \"dur_s\": 0.0012\n  }\n ],\n \"target_opens\": [],\n \"target_calls\": {\n  \"read\": 2,\n  \"write\": 0,\n  \"flush\": 0\n },\n \"max_read_offset\": 62537072128,\n \"exit_status\": null,\n \"notes\": [\n  \"process 4242 image tapectl.exe command tapectl.exe verify \\\\\\\\.\\\\PhysicalDrive1\",\n  \"call status from verify OK/exit 0: both superblock copies read valid\"\n ]\n}\n",
+    "stderr": ""
+  }
+]

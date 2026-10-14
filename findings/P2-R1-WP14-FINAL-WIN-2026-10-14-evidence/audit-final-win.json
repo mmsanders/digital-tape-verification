@@ -1,0 +1,252 @@
+{
+  "verdict": "PASS bounded Windows final success/A9 observations; full WP14 HELD",
+  "archive_sha256": "2aa44b328baa1afbf6e64a835bf64b7dca2a760c897b8cd3f0dc7e229884bada",
+  "canonical_c60_computed_sha256": "c7369c6fdcb476fcc7f6a9d68aaab276f68a4d316ffb595faabb736e6046495d",
+  "canonical_frames": 158760000,
+  "canonical_bytes": 635040044,
+  "canonical_readme_expected_sha256": "7d34a16b57371e7b7ba4025d2ea3ccbc74781b709da4125a0f016636d4d57770",
+  "load_seconds": 1677.7328602999999,
+  "payload_decimal_MB_s": 0.37851079574518603,
+  "commands": [
+    {
+      "stem": "provision",
+      "ended_utc": "2026-10-14T14:31:55.6246847Z",
+      "started_utc": "2026-10-14T14:31:55.3520671Z",
+      "args": [
+        "provision",
+        "\\\\.\\PhysicalDrive1",
+        "--label",
+        "PNY-C60",
+        "--length-s",
+        "3600",
+        "--erase",
+        "\\\\.\\PhysicalDrive1"
+      ],
+      "seconds": 0.2672488,
+      "exit": 0,
+      "wall_seconds_from_utc": 0.272617,
+      "stamp_minus_stopwatch_seconds": 0.00536819999999999
+    },
+    {
+      "stem": "load",
+      "ended_utc": "2026-10-14T14:59:53.3921736Z",
+      "started_utc": "2026-10-14T14:31:55.6276998Z",
+      "args": [
+        "load",
+        "\\\\.\\PhysicalDrive1",
+        "C:\\Users\\mrtro\\claude\\tapetest\\C60.wav"
+      ],
+      "seconds": 1677.7328602999999,
+      "exit": 0,
+      "wall_seconds_from_utc": 1677.764474,
+      "stamp_minus_stopwatch_seconds": 0.031613700000207245
+    },
+    {
+      "stem": "after-verify",
+      "ended_utc": "2026-10-14T15:36:57.0970578Z",
+      "started_utc": "2026-10-14T15:36:12.7130502Z",
+      "args": [
+        "verify",
+        "\\\\.\\PhysicalDrive1"
+      ],
+      "seconds": 44.3798421,
+      "exit": 0,
+      "wall_seconds_from_utc": 44.384007,
+      "stamp_minus_stopwatch_seconds": 0.00416489999999925
+    },
+    {
+      "stem": "after-A",
+      "ended_utc": "2026-10-14T15:37:22.2207950Z",
+      "started_utc": "2026-10-14T15:36:57.1020731Z",
+      "args": [
+        "dump",
+        "\\\\.\\PhysicalDrive1",
+        "--side",
+        "A",
+        "-o",
+        "C:\\Users\\mrtro\\claude\\tapetest\\final-win-3600\\after-A.wav"
+      ],
+      "seconds": 25.1145084,
+      "exit": 0,
+      "wall_seconds_from_utc": 25.118722,
+      "stamp_minus_stopwatch_seconds": 0.004213600000003481
+    },
+    {
+      "stem": "after-B",
+      "ended_utc": "2026-10-14T15:37:46.6372596Z",
+      "started_utc": "2026-10-14T15:37:22.2257897Z",
+      "args": [
+        "dump",
+        "\\\\.\\PhysicalDrive1",
+        "--side",
+        "B",
+        "-o",
+        "C:\\Users\\mrtro\\claude\\tapetest\\final-win-3600\\after-B.wav"
+      ],
+      "seconds": 24.4059533,
+      "exit": 0,
+      "wall_seconds_from_utc": 24.41147,
+      "stamp_minus_stopwatch_seconds": 0.005516700000001151
+    }
+  ],
+  "missing": [
+    "final raw README.TXT bytes",
+    "physical native A6 traces Mac and Windows"
+  ],
+  "limits": [
+    "A/B output blobs not supplied; byte identity judged from contemporaneous recorded SHA256 and lengths, no claimed local sample comparison",
+    "reader serial is not CID; PNY Elite-X64GB witness only; no media/atomicity qualification"
+  ],
+  "inventory": [
+    {
+      "path": "final-win-3600/",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final-win-3600/after-A-command.json",
+      "bytes": 419,
+      "sha256": "8b6ffa1307dc6d0b781e3024b88e5ce13c196f44639cda82be792dfc7db2ef63"
+    },
+    {
+      "path": "final-win-3600/after-A-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "final-win-3600/after-A-seconds.txt",
+      "bytes": 12,
+      "sha256": "f0a218482aab5b8f0af43833a10466ca1fd7961572d17a51d7f0566b874d9a98"
+    },
+    {
+      "path": "final-win-3600/after-A.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final-win-3600/after-B-command.json",
+      "bytes": 419,
+      "sha256": "946ed5a8a78cdd08751dd490b65ab47aa2021e8d45462462a25a29b9aa7ea191"
+    },
+    {
+      "path": "final-win-3600/after-B-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "final-win-3600/after-B-seconds.txt",
+      "bytes": 12,
+      "sha256": "42c73d3bee05e0452505fd11f2e40c9455c3c29a691f6c80e336d910858a845a"
+    },
+    {
+      "path": "final-win-3600/after-B.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final-win-3600/after-verify-command.json",
+      "bytes": 261,
+      "sha256": "91bdadb88db33ef722e7107cf0a6c9e6a0711ebdcae35677e924e9021c30bf19"
+    },
+    {
+      "path": "final-win-3600/after-verify-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "final-win-3600/after-verify-seconds.txt",
+      "bytes": 12,
+      "sha256": "db118c29e058cca342f212599c53731aa90aa479d7731ca8fdc77b75dcbd1757"
+    },
+    {
+      "path": "final-win-3600/after-verify.txt",
+      "bytes": 10,
+      "sha256": "c7a1ba7a18c0ba7c5d1c47c9251171ea565cb782f1e4f607e5cd80b0875f67c5"
+    },
+    {
+      "path": "final-win-3600/after-wavs.json",
+      "bytes": 442,
+      "sha256": "e3f8bb711e8a66537d7771863cd276dd6b35f78103be6d1781d6f7a9fa298cc4"
+    },
+    {
+      "path": "final-win-3600/card-after.txt",
+      "bytes": 4092,
+      "sha256": "deb98432dee3aac6ab9a3408df75ea20205a3cbc23c2e5abaef52cf1eb147c3a"
+    },
+    {
+      "path": "final-win-3600/card-before.txt",
+      "bytes": 4092,
+      "sha256": "5048e95c4f6bb777d323ad4c8adb0df95999fa73501b9bd307b6807227355b73"
+    },
+    {
+      "path": "final-win-3600/disks-after.txt",
+      "bytes": 800,
+      "sha256": "886abd7fd4e47ee2497e92cc0c7928e35264a206b81d58ed27b2c36d1c40c114"
+    },
+    {
+      "path": "final-win-3600/disks-before.txt",
+      "bytes": 800,
+      "sha256": "886abd7fd4e47ee2497e92cc0c7928e35264a206b81d58ed27b2c36d1c40c114"
+    },
+    {
+      "path": "final-win-3600/inputs.json",
+      "bytes": 403,
+      "sha256": "08216c776216645b16eb46d89802544f42fa5ab3522a2c5ed7cdeada626d87ed"
+    },
+    {
+      "path": "final-win-3600/load-command.json",
+      "bytes": 332,
+      "sha256": "82767a5c6a202f00b75cb27176e1d22e8019710523c0acfde63bc7373ef5f362"
+    },
+    {
+      "path": "final-win-3600/load-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "final-win-3600/load-seconds.txt",
+      "bytes": 20,
+      "sha256": "bc26432fba6592d8b0c2c05169a2ed67218b8c44a44c045a7e471777b8253310"
+    },
+    {
+      "path": "final-win-3600/load.txt",
+      "bytes": 674,
+      "sha256": "79242c99a0bf3f73bdab726ddfa12fb28e28a00c342a4b21fec37659a085260a"
+    },
+    {
+      "path": "final-win-3600/os.json",
+      "bytes": 146,
+      "sha256": "a8086377123f70b444040aa75f7701e90d4b4f74b16b8ea496e9eb398358a252"
+    },
+    {
+      "path": "final-win-3600/physical-note.txt",
+      "bytes": 161,
+      "sha256": "668127a508839ab2f96de81e056af2a1233589c888796aeaf14beb1ca33a7dfb"
+    },
+    {
+      "path": "final-win-3600/provision-command.json",
+      "bytes": 451,
+      "sha256": "4e507423ced7d4da724baac542cb32bddfec9989da6f63d67f31f50c39beb0f0"
+    },
+    {
+      "path": "final-win-3600/provision-exit.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "final-win-3600/provision-seconds.txt",
+      "bytes": 11,
+      "sha256": "e5e0cf7161edb9dbcaa1e3a20337a4fb584b39a13e2031cdaa66ed7599d32f3c"
+    },
+    {
+      "path": "final-win-3600/provision.txt",
+      "bytes": 790,
+      "sha256": "0343f2fb93c7300e0ab9003a4c645b4b0403f95dea1a296c9276ecc222157a0d"
+    },
+    {
+      "path": "final-win-3600/README-evidence.png",
+      "bytes": 71314,
+      "sha256": "4ce1b86c2be1d355a1eb55f29b09088c655cd7183fa975e9c49bcafa3952dedb"
+    }
+  ]
+}
