@@ -14,6 +14,13 @@ def digest(data): return hashlib.sha256(data).hexdigest()
 def output_frames(n,r):
     assert isinstance(n,int) and n>=0 and r in RATES
     return (n*RATE+r//2)//r
+def admitted_output_frames(name,n,r):
+    """ADR-178 source admission only; not a complete ingest preflight."""
+    if n<=0:raise ValueError(name+': zero effective decoded frames')
+    count=output_frames(n,r)
+    if count==0:
+        raise ValueError(name+': too short to produce one 44.1kHz frame')
+    return count
 def overage(total,seconds):
     assert seconds>0
     e=max(0,total-seconds*RATE);s=(e+RATE-1)//RATE
