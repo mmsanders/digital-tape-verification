@@ -1,0 +1,372 @@
+{
+  "baseline": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/scratch/2d47daf9ba61/review-428-r4/tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-geo",
+      "--exe",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-out",
+      "--diagnostics",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-diag",
+      "--tracer-log",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-xml",
+          "sha256": "5160f59b4d66e365919c5edeee8d65e584fe18b11f48fb4dbf628ba7fca92515"
+        },
+        "geometry": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics /workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/001-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "reuse-after-one-of-two-completions": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/scratch/2d47daf9ba61/review-428-r4/tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-geo",
+      "--exe",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-out",
+      "--diagnostics",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-diag",
+      "--tracer-log",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 3,
+    "result": {
+      "verdict": "HELD",
+      "fail": [],
+      "held": [
+        "reads of the last sector were seen (off=62537072128 len=512 [IrpPtr 0xb2 had overlapping requests in one unresolved lifecycle], off=62537072128 len=512) but carry no native result; completion plus verify OK is only an indirect argument for independent review, not a captured call result"
+      ],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": "IrpPtr 0xb2 had overlapping requests in one unresolved lifecycle"
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 4,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-xml",
+          "sha256": "404907f24a1fbbfcdf8bee06a56abdeb10373e31e4f4985cc855a00a182abd9f"
+        },
+        "geometry": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics /workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/002-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "missing-irp": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/scratch/2d47daf9ba61/review-428-r4/tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-geo",
+      "--exe",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-out",
+      "--diagnostics",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-diag",
+      "--tracer-log",
+      "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 3,
+    "result": {
+      "verdict": "HELD",
+      "fail": [],
+      "held": [
+        "reads of the last sector were seen (off=62537072128 len=512 [no valid IrpPtr on the request], off=62537072128 len=512) but carry no native result; completion plus verify OK is only an indirect argument for independent review, not a captured call result"
+      ],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": "no valid IrpPtr on the request"
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-xml",
+          "sha256": "810caba8260b4424c9649af8ffdec6bfda888391b750301ee0ce933bd67ba70a"
+        },
+        "geometry": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "/workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics /workspace/scratch/2d47daf9ba61/publication/findings/P2-R1-WP14-428-R3-2026-10-14-evidence/independent-controls/003-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  }
+}
