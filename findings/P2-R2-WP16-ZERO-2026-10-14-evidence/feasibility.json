@@ -1,0 +1,770 @@
+{
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "filters": {
+    "ref_fir_a": {
+      "width": 48,
+      "cutoff": 0.88,
+      "beta": 10
+    },
+    "ref_fir_b": {
+      "width": 64,
+      "cutoff": 0.9,
+      "beta": 14
+    }
+  },
+  "filter_vectors": [
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_a",
+      "input_hz": 20,
+      "measured_gain_db": 1.294552757453295e-07,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_a",
+      "input_hz": 997,
+      "measured_gain_db": 1.8787942515417825e-06,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_a",
+      "input_hz": 18000,
+      "measured_gain_db": -0.0008083756217936141,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_a",
+      "input_hz": 22050,
+      "measured_gain_db": -105.6791317166409,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_a",
+      "input_hz": 23000,
+      "measured_gain_db": -107.09830853625283,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_a",
+      "input_hz": 23900.0,
+      "measured_gain_db": -110.69073265822412,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_b",
+      "input_hz": 20,
+      "measured_gain_db": -8.342493346299776e-10,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_b",
+      "input_hz": 997,
+      "measured_gain_db": -9.99330379957853e-08,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_b",
+      "input_hz": 18000,
+      "measured_gain_db": 1.1618090058836019e-06,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_b",
+      "input_hz": 22050,
+      "measured_gain_db": -149.95401200884703,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_b",
+      "input_hz": 23000,
+      "measured_gain_db": -141.78039074482777,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 48000,
+      "profile": "ref_fir_b",
+      "input_hz": 23900.0,
+      "measured_gain_db": -144.9894037111602,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_a",
+      "input_hz": 20,
+      "measured_gain_db": 1.28138986130897e-07,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_a",
+      "input_hz": 997,
+      "measured_gain_db": 1.8882162650129482e-06,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_a",
+      "input_hz": 18000,
+      "measured_gain_db": -0.0008081858010382567,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_a",
+      "input_hz": 22050,
+      "measured_gain_db": -105.66605597411451,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_a",
+      "input_hz": 23000,
+      "measured_gain_db": -107.0878777228556,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_a",
+      "input_hz": 31900.0,
+      "measured_gain_db": -116.73899246859071,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_b",
+      "input_hz": 20,
+      "measured_gain_db": -8.422638602052754e-10,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_b",
+      "input_hz": 997,
+      "measured_gain_db": -1.0283562416656444e-07,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_b",
+      "input_hz": 18000,
+      "measured_gain_db": 1.1628000836614562e-06,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_b",
+      "input_hz": 22050,
+      "measured_gain_db": -150.00120122245082,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_b",
+      "input_hz": 23000,
+      "measured_gain_db": -141.78945305208532,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 64000,
+      "profile": "ref_fir_b",
+      "input_hz": 31900.0,
+      "measured_gain_db": -154.87628977282776,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_a",
+      "input_hz": 20,
+      "measured_gain_db": 5.314729194365144e-08,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_a",
+      "input_hz": 997,
+      "measured_gain_db": 7.120741475402682e-07,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_a",
+      "input_hz": 18000,
+      "measured_gain_db": -0.0008220962071709566,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_a",
+      "input_hz": 22050,
+      "measured_gain_db": -107.40018204748652,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_a",
+      "input_hz": 23000,
+      "measured_gain_db": -108.96702191077053,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_a",
+      "input_hz": 44000.0,
+      "measured_gain_db": -121.2874759601755,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_b",
+      "input_hz": 20,
+      "measured_gain_db": 1.1890736258268057e-09,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_b",
+      "input_hz": 997,
+      "measured_gain_db": 1.3750271754992943e-07,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_b",
+      "input_hz": 18000,
+      "measured_gain_db": 1.2244008643832035e-06,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_b",
+      "input_hz": 22050,
+      "measured_gain_db": -146.92164347876226,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_b",
+      "input_hz": 23000,
+      "measured_gain_db": -140.46372332321417,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 88200,
+      "profile": "ref_fir_b",
+      "input_hz": 44000.0,
+      "measured_gain_db": -178.8873483905621,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_a",
+      "input_hz": 20,
+      "measured_gain_db": 1.285048249651335e-07,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_a",
+      "input_hz": 997,
+      "measured_gain_db": 1.88557850787957e-06,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_a",
+      "input_hz": 18000,
+      "measured_gain_db": -0.0008082473825194968,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_a",
+      "input_hz": 22050,
+      "measured_gain_db": -105.67032129669228,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_a",
+      "input_hz": 23000,
+      "measured_gain_db": -107.08802167705903,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_a",
+      "input_hz": 47900.0,
+      "measured_gain_db": -125.05846225034645,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_b",
+      "input_hz": 20,
+      "measured_gain_db": -8.54638110257296e-10,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_b",
+      "input_hz": 997,
+      "measured_gain_db": -1.0185583176888515e-07,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_b",
+      "input_hz": 18000,
+      "measured_gain_db": 1.1625222532409117e-06,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_b",
+      "input_hz": 22050,
+      "measured_gain_db": -149.9851389927708,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_b",
+      "input_hz": 23000,
+      "measured_gain_db": -141.7897698125297,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 96000,
+      "profile": "ref_fir_b",
+      "input_hz": 47900.0,
+      "measured_gain_db": -167.1321366139114,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_a",
+      "input_hz": 20,
+      "measured_gain_db": 9.356381407875316e-08,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_a",
+      "input_hz": 997,
+      "measured_gain_db": 1.3527550510215414e-06,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_a",
+      "input_hz": 18000,
+      "measured_gain_db": -0.0008149158662534014,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_a",
+      "input_hz": 22050,
+      "measured_gain_db": -106.42000000008699,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_a",
+      "input_hz": 23000,
+      "measured_gain_db": -107.92988367840275,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_a",
+      "input_hz": 88100.0,
+      "measured_gain_db": -128.32171205112448,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_b",
+      "input_hz": 20,
+      "measured_gain_db": 3.1025307580864803e-10,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_b",
+      "input_hz": 997,
+      "measured_gain_db": 3.459365472473563e-08,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_b",
+      "input_hz": 18000,
+      "measured_gain_db": 1.1873937133020371e-06,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_b",
+      "input_hz": 22050,
+      "measured_gain_db": -148.02137887018577,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_b",
+      "input_hz": 23000,
+      "measured_gain_db": -141.10329438576014,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 176400,
+      "profile": "ref_fir_b",
+      "input_hz": 88100.0,
+      "measured_gain_db": -168.63788929697313,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_a",
+      "input_hz": 20,
+      "measured_gain_db": 1.2856944454771097e-07,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_a",
+      "input_hz": 997,
+      "measured_gain_db": 1.8885997104601087e-06,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_a",
+      "input_hz": 18000,
+      "measured_gain_db": -0.0008081864446353223,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_a",
+      "input_hz": 22050,
+      "measured_gain_db": -105.6660988939897,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_a",
+      "input_hz": 23000,
+      "measured_gain_db": -107.08318630536296,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_a",
+      "input_hz": 95900.0,
+      "measured_gain_db": -136.64018364464098,
+      "transient_excluded_output_frames_each_end": 144,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_b",
+      "input_hz": 20,
+      "measured_gain_db": -8.614202253302352e-10,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_b",
+      "input_hz": 997,
+      "measured_gain_db": -1.0281891140704374e-07,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_b",
+      "input_hz": 18000,
+      "measured_gain_db": 1.1627851346590708e-06,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "passband"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_b",
+      "input_hz": 22050,
+      "measured_gain_db": -150.00081656522522,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_b",
+      "input_hz": 23000,
+      "measured_gain_db": -141.79417659190253,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    },
+    {
+      "input_rate": 192000,
+      "profile": "ref_fir_b",
+      "input_hz": 95900.0,
+      "measured_gain_db": -167.1256837960152,
+      "transient_excluded_output_frames_each_end": 192,
+      "output_frames": 44100,
+      "kind": "alias"
+    }
+  ],
+  "meter_vectors": [
+    {
+      "vector": "stereo_1k",
+      "input_peak_dbfs": -18,
+      "lufs": -17.992723951390804,
+      "reconstructed_dbtp": -17.997511483773696
+    },
+    {
+      "vector": "stereo_1k",
+      "input_peak_dbfs": -23,
+      "lufs": -22.992723951390804,
+      "reconstructed_dbtp": -22.997511483773682
+    },
+    {
+      "vector": "stereo_1k",
+      "input_peak_dbfs": -36,
+      "lufs": -35.99272395139081,
+      "reconstructed_dbtp": -35.99751148377369
+    },
+    {
+      "vector": "stereo_1k",
+      "input_peak_dbfs": -60,
+      "lufs": -59.99272395139081,
+      "reconstructed_dbtp": -59.997511483773664
+    },
+    {
+      "vector": "stereo_1k",
+      "input_peak_dbfs": -80,
+      "lufs": null,
+      "reconstructed_dbtp": -79.99751148377368
+    },
+    {
+      "vector": "quarter_rate_phase45",
+      "sample_peak_dbfs": -6.108339156201888,
+      "true_peak_16x_dbtp": -3.009970892280138,
+      "reference_64x_dbtp": -3.00997089212002
+    }
+  ],
+  "special_sources": [
+    {
+      "vector": "ordinary",
+      "input_lufs": -19.999321506633787,
+      "input_dbtp": -19.996664010478753,
+      "output_frames": 44100,
+      "output_sha256": "e4cbba2e4568018a49576f9ee06c05518b675f97d81b89f0a4f0d908202d9fd9",
+      "applied_gain_db": 3.9993215066337875,
+      "output_lufs": -15.999992748768113,
+      "output_dbtp": -15.996356563870147,
+      "status": "measured"
+    },
+    {
+      "vector": "short",
+      "input_lufs": null,
+      "input_dbtp": -19.962129489451627,
+      "output_frames": 4410,
+      "output_sha256": "e30b4a5af59765fe394b5c2392fad1445b4043c7d042d0371613d37f6a4dea5c",
+      "applied_gain_db": 0,
+      "output_lufs": null,
+      "output_dbtp": -19.959826774725848,
+      "status": "unmeasurable"
+    },
+    {
+      "vector": "silence",
+      "input_lufs": null,
+      "input_dbtp": null,
+      "output_frames": 44100,
+      "output_sha256": "fd6f479534cdd14635e88dfedf25c3859c01062b645f2a85570f20451b4a95bc",
+      "applied_gain_db": 0,
+      "output_lufs": null,
+      "output_dbtp": null,
+      "status": "digital_silence"
+    },
+    {
+      "vector": "gated_out",
+      "input_lufs": null,
+      "input_dbtp": -119.99666401047875,
+      "output_frames": 44100,
+      "output_sha256": "ef235f582448b81e1459df4ff35fde85f89762799ae8c44d1344d0d8e34552d4",
+      "applied_gain_db": 0,
+      "output_lufs": null,
+      "output_dbtp": -84.56577493195569,
+      "status": "unmeasurable"
+    },
+    {
+      "vector": "crest",
+      "input_lufs": -37.23414098602912,
+      "input_dbtp": -1.1103465044434753,
+      "output_frames": 44100,
+      "output_sha256": "855c5505105431199f0d7eac4e72db5ca5cd26c2bd114517a2cb6445fbbd7f63",
+      "applied_gain_db": 0.010108616552693322,
+      "output_lufs": -37.22398453404829,
+      "output_dbtp": -1.1000629690267958,
+      "status": "measured"
+    }
+  ],
+  "limits": [
+    "Feasibility vectors only, not full standard meter qualification or Product acceptance",
+    "No Product ingest implementation inspected or executed",
+    "Declared FIR transients excluded only in steady-state measurements; endpoint oracle authoring still pending"
+  ]
+}
