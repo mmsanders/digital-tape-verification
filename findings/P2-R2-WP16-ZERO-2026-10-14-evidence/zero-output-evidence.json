@@ -1,0 +1,228 @@
+{
+  "binary_sha256": "4d8c97a44f163bcd513c98c0903db6a01418001f169cfd6aa126823f6f7a785c",
+  "source_sha256": "108579728c55634867ff5e41f99153876c0f017696693dfad1fe70c300c7f15f",
+  "source_bytes": 46,
+  "arithmetic": [
+    {
+      "rate": 88200,
+      "N": 1,
+      "M": 1
+    },
+    {
+      "rate": 88200,
+      "N": 2,
+      "M": 1
+    },
+    {
+      "rate": 88200,
+      "N": 3,
+      "M": 2
+    },
+    {
+      "rate": 96000,
+      "N": 1,
+      "M": 0
+    },
+    {
+      "rate": 96000,
+      "N": 2,
+      "M": 1
+    },
+    {
+      "rate": 96000,
+      "N": 3,
+      "M": 1
+    },
+    {
+      "rate": 176400,
+      "N": 1,
+      "M": 0
+    },
+    {
+      "rate": 176400,
+      "N": 2,
+      "M": 1
+    },
+    {
+      "rate": 176400,
+      "N": 3,
+      "M": 1
+    },
+    {
+      "rate": 192000,
+      "N": 1,
+      "M": 0
+    },
+    {
+      "rate": 192000,
+      "N": 2,
+      "M": 0
+    },
+    {
+      "rate": 192000,
+      "N": 3,
+      "M": 1
+    }
+  ],
+  "observations": [
+    {
+      "source_frames": 1,
+      "source_rate": 192000,
+      "output_frames": 0,
+      "output_bytes": 44,
+      "output_sha256": "991cd2a53281fab26a26b23f2b3d7a020e277b83978ea36796679e0952ae7575",
+      "commands": [
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "provision",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-1.img",
+            "--label",
+            "INGEST-ZERO",
+            "--length-s",
+            "1",
+            "--uuid",
+            "00112233445566778899aabbccddeeff",
+            "--epoch",
+            "1760000000",
+            "--image-bytes",
+            "33554432"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "load",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-1.img",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/output-1-input-frames.wav"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "tapectl: tape_promote(g_t, BUDGET, &more, NULL, NULL): TAPE_ERR_INVALID_ARG\n"
+        },
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "verify",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-1.img"
+          ],
+          "returncode": 0,
+          "stdout": "OK\n",
+          "stderr": ""
+        }
+      ],
+      "source_file": "source-1-silent-frames-192k.wav",
+      "source_bytes": 46,
+      "source_sha256": "108579728c55634867ff5e41f99153876c0f017696693dfad1fe70c300c7f15f"
+    },
+    {
+      "source_frames": 2,
+      "source_rate": 192000,
+      "output_frames": 0,
+      "output_bytes": 44,
+      "output_sha256": "991cd2a53281fab26a26b23f2b3d7a020e277b83978ea36796679e0952ae7575",
+      "commands": [
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "provision",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-2.img",
+            "--label",
+            "INGEST-ZERO",
+            "--length-s",
+            "1",
+            "--uuid",
+            "00112233445566778899aabbccddeeff",
+            "--epoch",
+            "1760000000",
+            "--image-bytes",
+            "33554432"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "load",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-2.img",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/output-2-input-frames.wav"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "tapectl: tape_promote(g_t, BUDGET, &more, NULL, NULL): TAPE_ERR_INVALID_ARG\n"
+        },
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "verify",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-2.img"
+          ],
+          "returncode": 0,
+          "stdout": "OK\n",
+          "stderr": ""
+        }
+      ],
+      "source_file": "source-2-silent-frames-192k.wav",
+      "source_bytes": 48,
+      "source_sha256": "4b0f557a9877e0cc2411ceda09fcae46191a8aa72304c8b8cb0ed0479762b197"
+    },
+    {
+      "source_frames": 3,
+      "source_rate": 192000,
+      "output_frames": 1,
+      "output_bytes": 48,
+      "output_sha256": "aca24651856ecbfcb63cafa9d1f5f17a410730ae09c64e19ea15aa9f910a2083",
+      "commands": [
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "provision",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-3.img",
+            "--label",
+            "INGEST-ZERO",
+            "--length-s",
+            "1",
+            "--uuid",
+            "00112233445566778899aabbccddeeff",
+            "--epoch",
+            "1760000000",
+            "--image-bytes",
+            "33554432"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "load",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-3.img",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/output-3-input-frames.wav"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/tapectl-linux",
+            "verify",
+            "/workspace/scratch/2d47daf9ba61/ingest-preflight/zero-witness-3.img"
+          ],
+          "returncode": 0,
+          "stdout": "OK\n",
+          "stderr": ""
+        }
+      ],
+      "source_file": "source-3-silent-frames-192k.wav",
+      "source_bytes": 50,
+      "source_sha256": "ca7161f6a033eb339dcb9fff175564fc18a8ea95ec0f07749752997f69f9e10b"
+    }
+  ]
+}
