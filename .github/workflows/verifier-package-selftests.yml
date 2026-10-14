@@ -3,6 +3,7 @@ name: Verification package selftests
 on:
   pull_request:
     paths:
+      - 'findings/P2-R2-WP16-PREFLIGHT-2026-10-14/**'
       - 'tests/*_draft8/**'
       - 'tests/*_draft9/**'
       - 'tests/*_r44/**'
@@ -12,6 +13,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'findings/P2-R2-WP16-PREFLIGHT-2026-10-14/**'
       - 'tests/*_draft8/**'
       - 'tests/*_draft9/**'
       - 'tests/*_r44/**'

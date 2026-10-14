@@ -23,6 +23,7 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | WP14 software/native CI | PASS | Exact Product #390 candidate and unchanged merged root; Verification PR #158 |
 | WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |
 | WP14 physical pulls | PASS 10/10 | [Ten-cut independent disposition](findings/P2-R1-WP14-PULLS-2026-10-14.md); Windows 11; no Mac repeat |
+| WP16 preflight | Planning publication only | [#165 contract feasibility](findings/P2-R2-WP16-PREFLIGHT-2026-10-14/README.md); PM issuance next; no executable assertions or acceptance |
 | WP14 full package | HELD | Final post-pull C60/A9 and native shipped-binary >4GiB capture remain |
 | Hardware/media/target/release | Excluded | Hardware parked through Phase 2; qualification and physical gates remain held |
 

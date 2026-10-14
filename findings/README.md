@@ -116,3 +116,7 @@ bundles cited by adjacent reports, including their manifests and hashes. They ar
 historical evidence, not new instructions. The R53 capacity and R57 record helper
 scripts are exact-round independent replay checks. Source/build inputs referenced
 only in Product must be fetched and authenticated there before replay.
+
+## WP16 planning
+
+[Verification #165 ingest contract preflight](P2-R2-WP16-PREFLIGHT-2026-10-14/README.md) records proposed C1–C12 decisions, independent reference experiments and a six-row post-issuance authoring census. Planning only; no WP16 assertions, implementation review or acceptance.
