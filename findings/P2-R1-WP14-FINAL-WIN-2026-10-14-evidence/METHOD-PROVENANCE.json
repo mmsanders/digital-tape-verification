@@ -1,0 +1,32 @@
+[
+  {
+    "path": "method/a6check.py",
+    "sha256": "d4aa2bee34a0599aa1fd549c889bd34f61064b4b8a65d1fb5454e8b0c2003798",
+    "source": "https://github.com/mmsanders/Digital-Tape/blob/1fbe762e3374be83a7bf23e94b9ccd6f145543dc/tools/wp14-capture/a6check.py",
+    "kind": "unaltered public Software method/fixture under review; not Verification assertions"
+  },
+  {
+    "path": "method/a6-macos.d",
+    "sha256": "765af6213caef0101f240285f87ba1bbf7c55423b2ddb4e9e4db0735a2c2ab42",
+    "source": "https://github.com/mmsanders/Digital-Tape/blob/1fbe762e3374be83a7bf23e94b9ccd6f145543dc/tools/wp14-capture/a6-macos.d",
+    "kind": "unaltered public Software method/fixture under review; not Verification assertions"
+  },
+  {
+    "path": "method/synthetic-dtrace.trace",
+    "sha256": "7d4add8844888a4dbbcaa95c321f707237a6eff224366b7f604573a5e5e2e83f",
+    "source": "https://github.com/mmsanders/Digital-Tape/blob/1fbe762e3374be83a7bf23e94b9ccd6f145543dc/tools/wp14-capture/fixtures/synthetic-dtrace.trace",
+    "kind": "unaltered public Software method/fixture under review; not Verification assertions"
+  },
+  {
+    "path": "method/synthetic-etw-disk.xml",
+    "sha256": "1c6fec7074a3e04f66a1135540c04f5cd3bde0baf8790c1780692981fa53c786",
+    "source": "https://github.com/mmsanders/Digital-Tape/blob/1fbe762e3374be83a7bf23e94b9ccd6f145543dc/tools/wp14-capture/fixtures/synthetic-etw-disk.xml",
+    "kind": "unaltered public Software method/fixture under review; not Verification assertions"
+  },
+  {
+    "path": "method/synthetic-etw-verify-stdout.txt",
+    "sha256": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87",
+    "source": "https://github.com/mmsanders/Digital-Tape/blob/1fbe762e3374be83a7bf23e94b9ccd6f145543dc/tools/wp14-capture/fixtures/synthetic-etw-verify-stdout.txt",
+    "kind": "unaltered public Software method/fixture under review; not Verification assertions"
+  }
+]
