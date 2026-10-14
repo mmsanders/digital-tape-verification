@@ -1,6 +1,6 @@
 # Verification capability status
 
-**Snapshot: 14 October 2026 UTC.** Verification input `c690be9a5f3188333f04ef52a552fcf4c82a0030`;
+**Snapshot: 14 October 2026 UTC.** Verification input `df637f7fb962a98b8698d16a531ceb0e8365c2a6`;
 Product input `b0d0847b85cee6eac4b2624f9835052a950b902e`.
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
@@ -24,8 +24,8 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |
 | WP14 physical pulls | PASS 10/10 | [Ten-cut independent disposition](findings/P2-R1-WP14-PULLS-2026-10-14.md); Windows 11; no Mac repeat |
 | WP16 preflight | Planning publication only | [#165 contract feasibility](findings/P2-R2-WP16-PREFLIGHT-2026-10-14/README.md); PM issuance next; no executable assertions or acceptance |
-| WP14 final Windows success/A9 | PASS bounded observations | [Final witness](findings/P2-R1-WP14-FINAL-WIN-2026-10-14.md); load1677.7328603s, reinsert/OK/canonical A+B hashes and lengths; final raw README pending |
-| WP14 full package | HELD | Final README bytes and native shipped-binary >4GiB captures remain; #426 method correction needed |
+| WP14 final Windows success/A9 | PASS bounded observations | [Final witness](findings/P2-R1-WP14-FINAL-WIN-2026-10-14.md); load1677.7328603s, reinsert/OK/canonical A+B hashes and lengths; [final README bytes PASS](findings/P2-R1-WP14-FINAL-WIN-README-2026-10-14.md) |
+| WP14 full package | HELD | Native shipped-binary >4GiB captures remain; #426 method correction needed |
 | Hardware/media/target/release | Excluded | Hardware parked through Phase 2; qualification and physical gates remain held |
 
 The [Stage 2 disposition](findings/P1-R63-WP11-STAGE2-DISPOSITION-2026-10-03.md) preserves the completed #143 return and its
