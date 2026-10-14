@@ -2,16 +2,17 @@
 
 Independent tests, oracles and dispositions for Digital Tape.
 
-**3 October 2026: Phase 1 complete; preparing for Phase 2.** All nine Phase 1
-engine packages are independently accepted within their recorded boundaries.
-Verification #143 passed exact Product #369 head `b61a9e9`; Michael approved all ten
-golden references on #367. See [current capability status](CAPABILITY-STATUS.md)
-and the [durable Stage 2 disposition](findings/P1-R63-WP11-STAGE2-DISPOSITION-2026-10-03.md). Phase 2 awaits Michael's go.
+**Phase1 is complete; Phase2 desktop tooling is active.** All nine Phase1 engine
+packages are independently accepted within their recorded boundaries. Current
+acceptance, native/physical limits and source identities are in
+[CAPABILITY-STATUS](CAPABILITY-STATUS.md), [dated findings](findings/README.md) and
+[Product STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md).
+Old “pending/awaiting go” text in package publications is historical, not a new gate.
 
-The current cleanup is authorized directly by Michael and tracked in
-[Product #378](https://github.com/mmsanders/Digital-Tape/issues/378). No Phase 2 verification assignment is implied.
-Fresh work comes from Michael or the live
+Live work comes from Michael or the
 [verification-lead queue](https://github.com/mmsanders/Digital-Tape-Verification/issues?q=is%3Aissue+is%3Aopen+label%3Averification-lead).
+Product #378 authorized the completed close-out cleanup; it is not a current assignment.
+This navigation refresh changes no independent publication, oracle or disposition.
 
 ## Start here
 
@@ -26,8 +27,7 @@ Fresh work comes from Michael or the live
 
 `main` is the authoritative publication point. Completed findings and packages
 must land on `main`; an open PR is proposed work, not a publication (ADR-157).
-Normal verifier publications use a merge commit after CI passes. This cleanup is
-returned as a PR for Michael's review, as requested.
+Normal verifier publications use a merge commit after CI passes. Navigation-only changes carry no acceptance claim and do not alter published package bytes.
 
 The canonical specification is [Product spec/VERSION.md](https://github.com/mmsanders/Digital-Tape/blob/main/spec/VERSION.md),
 currently DRAFT-10. Package spec copies, package READMEs and ledgers describe their
