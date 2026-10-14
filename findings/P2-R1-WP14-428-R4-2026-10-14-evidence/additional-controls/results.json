@@ -1,0 +1,1588 @@
+{
+  "baseline": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/001-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/001-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/001-out",
+      "--diagnostics",
+      "additional-controls/001-diag",
+      "--tracer-log",
+      "additional-controls/001-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/001-xml",
+          "sha256": "5160f59b4d66e365919c5edeee8d65e584fe18b11f48fb4dbf628ba7fca92515"
+        },
+        "geometry": {
+          "path": "additional-controls/001-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/001-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/001-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/001-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/001-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-69": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/002-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/002-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/002-out",
+      "--diagnostics",
+      "additional-controls/002-diag",
+      "--tracer-log",
+      "additional-controls/002-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/002-xml",
+          "sha256": "21ab8fad7e16e1ded6c2bafc6d454346d9767c18d9ba3b70c8f388fc3e2c63ac"
+        },
+        "geometry": {
+          "path": "additional-controls/002-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/002-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/002-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/002-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/002-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-70": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/003-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/003-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/003-out",
+      "--diagnostics",
+      "additional-controls/003-diag",
+      "--tracer-log",
+      "additional-controls/003-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/003-xml",
+          "sha256": "54f31f0321cada2776af9175f34040e37232ec2c85b9b91ff6f3196a914e83c8"
+        },
+        "geometry": {
+          "path": "additional-controls/003-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/003-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/003-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/003-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/003-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-71": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/004-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/004-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/004-out",
+      "--diagnostics",
+      "additional-controls/004-diag",
+      "--tracer-log",
+      "additional-controls/004-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/004-xml",
+          "sha256": "afeb635d95d16d7974a38ed8ae3e07dcb7d1937033c9242a175dccbe382b5a7e"
+        },
+        "geometry": {
+          "path": "additional-controls/004-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/004-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/004-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/004-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/004-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-72": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/005-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/005-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/005-out",
+      "--diagnostics",
+      "additional-controls/005-diag",
+      "--tracer-log",
+      "additional-controls/005-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/005-xml",
+          "sha256": "03ca6d9a5999c76062456e72d9bceaff63d9ccfff635062952fe6ffe486fa816"
+        },
+        "geometry": {
+          "path": "additional-controls/005-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/005-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/005-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/005-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/005-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-73": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/006-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/006-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/006-out",
+      "--diagnostics",
+      "additional-controls/006-diag",
+      "--tracer-log",
+      "additional-controls/006-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/006-xml",
+          "sha256": "b9c2f347e68d1bd63fa5437bd40c38dd55c9f2e41bc7b322ff851da2502a63ed"
+        },
+        "geometry": {
+          "path": "additional-controls/006-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/006-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/006-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/006-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/006-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-74": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/007-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/007-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/007-out",
+      "--diagnostics",
+      "additional-controls/007-diag",
+      "--tracer-log",
+      "additional-controls/007-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/007-xml",
+          "sha256": "2bb0495828d0a64acb7f173a87d76676590d2a5b73a47e23d3601ce26b120776"
+        },
+        "geometry": {
+          "path": "additional-controls/007-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/007-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/007-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/007-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/007-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-75": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/008-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/008-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/008-out",
+      "--diagnostics",
+      "additional-controls/008-diag",
+      "--tracer-log",
+      "additional-controls/008-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/008-xml",
+          "sha256": "3cbb0e740d7ef4f596edc3811be410eb2f3da81d94a3c34af88ccbaecb439bb6"
+        },
+        "geometry": {
+          "path": "additional-controls/008-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/008-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/008-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/008-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/008-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "fileobject-missing": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/009-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/009-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/009-out",
+      "--diagnostics",
+      "additional-controls/009-diag",
+      "--tracer-log",
+      "additional-controls/009-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/009-xml",
+          "sha256": "3a028251b7023b47a0e68e98f9201c381470153880de76a91e40e46f81121813"
+        },
+        "geometry": {
+          "path": "additional-controls/009-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/009-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/009-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/009-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/009-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "fileobject-empty": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/010-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/010-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/010-out",
+      "--diagnostics",
+      "additional-controls/010-diag",
+      "--tracer-log",
+      "additional-controls/010-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/010-xml",
+          "sha256": "9942eb0a316fe0fba480a3dc1160bd888d84fae288a3b4208fb8e72d8c4cf5ec"
+        },
+        "geometry": {
+          "path": "additional-controls/010-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/010-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/010-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/010-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/010-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "fileobject-zero": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/011-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/011-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/011-out",
+      "--diagnostics",
+      "additional-controls/011-diag",
+      "--tracer-log",
+      "additional-controls/011-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/011-xml",
+          "sha256": "6aa5ed41f848d98e1582de10a49221551fe6458aea3b3d6e83553761b1e07293"
+        },
+        "geometry": {
+          "path": "additional-controls/011-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/011-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/011-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/011-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/011-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "fileobject-nonnumeric": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/012-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/012-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/012-out",
+      "--diagnostics",
+      "additional-controls/012-diag",
+      "--tracer-log",
+      "additional-controls/012-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/012-xml",
+          "sha256": "1038475af7f39696bbc938ff73ac860f1d58be183e31dcabeecdd6dd2a65268b"
+        },
+        "geometry": {
+          "path": "additional-controls/012-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/012-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/012-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/012-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/012-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  },
+  "ignored-operation-77": {
+    "command": [
+      "python3",
+      "tools/wp14-capture/a6check.py",
+      "--format",
+      "etw-xml",
+      "--trace",
+      "additional-controls/013-xml",
+      "--pid",
+      "4242",
+      "--capacity",
+      "62537072640",
+      "--target",
+      "\\\\.\\PhysicalDrive1",
+      "--disk",
+      "1",
+      "--geometry",
+      "additional-controls/005-geo",
+      "--exe",
+      "additional-controls/stand-in-exe.bin",
+      "--sha256",
+      "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732",
+      "--stdout",
+      "additional-controls/005-out",
+      "--diagnostics",
+      "additional-controls/005-diag",
+      "--tracer-log",
+      "additional-controls/005-exits",
+      "--exit-code",
+      "0"
+    ],
+    "exit": 0,
+    "result": {
+      "verdict": "PASS",
+      "fail": [],
+      "held": [],
+      "pid": 4242,
+      "capacity": 62537072640,
+      "last_sector": [
+        62537072128,
+        62537072640
+      ],
+      "last_sector_reads": [
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": 512,
+          "err": null,
+          "status_src": "FileIo OpEnd NtStatus/ExtraInfo",
+          "why": null
+        },
+        {
+          "off": 62537072128,
+          "len": 512,
+          "ret": null,
+          "err": null,
+          "status_src": null,
+          "why": null
+        }
+      ],
+      "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+      "target_calls": {
+        "read": 2,
+        "write": 0,
+        "flush": 0
+      },
+      "exit": {
+        "traced": null,
+        "recorded": 0
+      },
+      "tracer_steps": [
+        [
+          "wpr-start",
+          0
+        ],
+        [
+          "wpr-stop",
+          0
+        ],
+        [
+          "tracerpt",
+          0
+        ]
+      ],
+      "geometry": {
+        "bytes": 62537072640,
+        "sector": 512,
+        "number": 1
+      },
+      "inputs": {
+        "trace": {
+          "path": "additional-controls/013-xml",
+          "sha256": "c69c9d440fad3aa366f0a63b0b593a4d17f3577ff650e4f83919cd599466cf95"
+        },
+        "geometry": {
+          "path": "additional-controls/005-geo",
+          "sha256": "6001a1cb26082d80b91ec0682a57a50e9bb784ac4e19c05c887240336af6d358"
+        },
+        "exe": {
+          "path": "additional-controls/stand-in-exe.bin",
+          "sha256": "525f1d08f6b6f356ce6a48a2a74a828aa3dc1d41fbea6771df9400de191f8732"
+        },
+        "stdout": {
+          "path": "additional-controls/005-out",
+          "sha256": "19d8c9921b99c82d78c985136a5e28f6382011641fb6160c0c1a7573a402ea66"
+        },
+        "tracer_log": {
+          "path": "additional-controls/005-exits",
+          "sha256": "b67d0b6dc6720e160976f11395d1a843a1311f22deb6dc451c6a1ecb0559e78d"
+        },
+        "diagnostics": [
+          {
+            "path": "additional-controls/005-diag",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "notes": [
+        "ETW diagnostics additional-controls/005-diag kept raw; loss is judged from the header counters"
+      ]
+    }
+  }
+}
