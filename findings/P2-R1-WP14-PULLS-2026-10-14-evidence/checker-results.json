@@ -1,0 +1,52 @@
+[
+  {
+    "trial": "pull-win-01",
+    "exit": 0,
+    "output": "NOTE: Mirror snapshot absent. Clean quiet/quiet clearance does not depend on it; retain any capture error.\nSAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 5.5s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-02",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 30.44s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-03",
+    "exit": 0,
+    "output": "NOTE: Hand stopwatch and command timer differ. Retain both readings; this does not by itself classify the physical cut.\nSAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 91.38s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-04",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 180.43s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-05",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 395.51s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-06",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 720.34s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-07",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 1320.09s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-08",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 1060.4s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-09",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 1440.37s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  },
+  {
+    "trial": "pull-win-10",
+    "exit": 0,
+    "output": "SAFE TO START A FRESH NEXT TRIAL\nPermitted clean old state; actual pull note: 1530.37s. Keep this whole folder.\nNext: re-identify disk, new numbered folder, fresh 5400s provision, quiet baseline and prechecks. Use a different pull time.\nDo not erase merely because a different future outcome says OK; this checker clears quiet/quiet only. Final ten-trial acceptance remains Verification-owned."
+  }
+]

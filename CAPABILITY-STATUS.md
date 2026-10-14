@@ -1,9 +1,9 @@
 # Verification capability status
 
-**Snapshot: 3 October 2026.** Verification input `cdf89f5f0ab0aa8cc94c13fbf0f98fea484975a4`;
-Product input `594aa59048893b8009145517ce186205536ef93d`.
-This is a closure snapshot, not a live assignment. The authoritative ongoing phase
-and gate state is [Product STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md).
+**Snapshot: 14 October 2026 UTC.** Verification input `a3de077a7fb8b7b66cd2e66bcb2b43484948c2b4`;
+Product input `46b48edd6210e541adf3d3e64ec5fd691c2a75f9`.
+Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
+Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
 
 | Area | State | Independent basis |
 |---|---|---|
@@ -18,15 +18,20 @@ and gate state is [Product STATUS](https://github.com/mmsanders/Digital-Tape/blo
 | WP-36 slot capability | COMPLETE | Verification PR #57; Product #200 unchanged integration |
 | Product golden gate | GREEN | #369 disposed at `b61a9e9`, merged at `d93ca4e` with the same tree |
 | Product main protection | ACTIVE / STRICT | Product STATUS records ruleset 22084355; old VR-P1-001 unprotected snapshot is historical |
-| Operations freeze | Criteria met; declaration pending | PM at Phase 2 kickoff; completion does not itself declare the freeze |
-| Phase 2 | Not opened | Requires Michael's go; cleanup does not assign development |
+| Operations freeze | DECLARED | ADR-162 / Phase 2 kickoff |
+| Phase 2 | OPEN | Existing kickoff; bounded assignments only |
+| WP14 software/native CI | PASS | Exact Product #390 candidate and unchanged merged root; Verification PR #158 |
+| WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |
+| WP14 physical pulls | PASS 10/10 | [Ten-cut independent disposition](findings/P2-R1-WP14-PULLS-2026-10-14.md); Windows 11; no Mac repeat |
+| WP14 full package | HELD | Final post-pull C60/A9 and native shipped-binary >4GiB capture remain |
 | Hardware/media/target/release | Excluded | Hardware parked through Phase 2; qualification and physical gates remain held |
 
 The [Stage 2 disposition](findings/P1-R63-WP11-STAGE2-DISPOSITION-2026-10-03.md) preserves the completed #143 return and its
 subsequent listening closure. The [package index](tests/README.md) distinguishes
-original publication claims from final Phase 1 state. This refresh makes no new
-acceptance claim and performs no Product rerun.
+original publication claims from final Phase 1 state. Phase 1 closure is unchanged. The new physical acceptance is bounded to the ten pulls; no Product rerun was performed.
 
 The superseded [12 September capability report](archive/CAPABILITY-STATUS-2026-09-12.md)
 is preserved byte-for-byte, with its SHA-256 in [the archive index](archive/README.md).
 Round findings retain their original hashes and exact coverage limits.
+
+The [3 October capability snapshot](archive/CAPABILITY-STATUS-2026-10-03.md) is preserved byte-for-byte in the archive.
