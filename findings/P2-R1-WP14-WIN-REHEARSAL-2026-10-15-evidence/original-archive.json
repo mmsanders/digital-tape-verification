@@ -1,0 +1,15 @@
+{
+  "bytes": 98602972,
+  "excerpt_event_indices": [
+    1,
+    123047,
+    123053,
+    123379,
+    123924
+  ],
+  "excerpt_scope": "Exact original Event bytes, selected only; not a complete capture or an acceptance substitute.",
+  "members": 34,
+  "name": "a6-rh-win-a00d8c054a0d41ccb1e026d735f97dbc.zip",
+  "raw_location": "Original user attachment retained unchanged in ChatGPT Library libfile_0f6e1ddc13088191903231b1f9b978bb; release-asset publication not available through current GitHub connector. No raw payload over 1MiB committed.",
+  "sha256": "9b23466b502f386bc3c12ac8a6674710d0caf9491358c2c654bb5717d7cbd755"
+}

@@ -1,0 +1,3 @@
+# Preserve original Windows UTF-16/CRLF diagnostic bytes and exact XML excerpt.
+*.txt -text -diff
+native-excerpt.xml -text -diff

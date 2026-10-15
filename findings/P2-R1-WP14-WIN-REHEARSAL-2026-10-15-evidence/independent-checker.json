@@ -1,0 +1,93 @@
+{
+  "capacity": 4296015872,
+  "exit": {
+    "recorded": 0,
+    "traced": null
+  },
+  "fail": [
+    "no captured record belongs to PID 4596",
+    "no read by PID 4596 touches [4296015360, 4296015872)"
+  ],
+  "geometry": {
+    "bytes": 4296015872,
+    "image": true,
+    "sector": 512
+  },
+  "held": [
+    "ETW: no EventTrace header; loss counters unknown",
+    "no process-start record for PID 4596; the image cannot be bound"
+  ],
+  "inputs": {
+    "diagnostics": [
+      {
+        "path": "wpr-stop-err.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "wpr-stop-out.txt",
+        "sha256": "56f7594e4d60953c950db6c9a06253129b7d11f145d55c129ff61fe31f466486"
+      },
+      {
+        "path": "tracerpt-err.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "tracerpt-out.txt",
+        "sha256": "7add796ce54039ed9ff9d569a2aebaeec739b7d54c2025b9648b06dc42892a2c"
+      }
+    ],
+    "exe": {
+      "path": "tapectl.exe",
+      "sha256": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9"
+    },
+    "geometry": {
+      "path": "geometry.txt",
+      "sha256": "869d638d624a307d24df91c2428f4f578eeb4174a6d4e9b5372f4fa5957a9762"
+    },
+    "stdout": {
+      "path": "verify-out.txt",
+      "sha256": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "trace": {
+      "path": "verify.xml",
+      "sha256": "e50da0d54c0ab406e49431ff23f189ce28475670358e19dc4978232899f834d8"
+    },
+    "tracer_log": {
+      "path": "tracer-exits.txt",
+      "sha256": "37dd58cb1c236c53d618d1e412e2185e59a31f72e0c4dd68acbe31c7b984df9a"
+    }
+  },
+  "last_sector": [
+    4296015360,
+    4296015872
+  ],
+  "last_sector_reads": [],
+  "notes": [
+    "ETW diagnostics wpr-stop-err.txt kept raw; loss is judged from the header counters",
+    "ETW diagnostics wpr-stop-out.txt kept raw; loss is judged from the header counters",
+    "ETW diagnostics tracerpt-err.txt kept raw; loss is judged from the header counters",
+    "ETW diagnostics tracerpt-out.txt kept raw; loss is judged from the header counters"
+  ],
+  "open_claim": "open access mode is not observable in kernel ETW (FileIo Create has no DesiredAccess); claim limited to observed reads and no observed writes",
+  "pid": 4596,
+  "target_calls": {
+    "flush": 0,
+    "read": 0,
+    "write": 0
+  },
+  "tracer_steps": [
+    [
+      "wpr-start",
+      0
+    ],
+    [
+      "wpr-stop",
+      0
+    ],
+    [
+      "tracerpt",
+      0
+    ]
+  ],
+  "verdict": "FAIL"
+}

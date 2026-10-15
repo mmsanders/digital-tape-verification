@@ -77,3 +77,5 @@ jobs:
       - run: python3 tests/wp14_r1/native.py --help
       - run: python3 tests/wp14_r1/a8_identity.py --help
       - run: python3 tests/wp14_r1/qualification.py --help
+      - name: Actual Windows off-card export rejection (not native acceptance)
+        run: python3 -B findings/P2-R1-WP14-WIN-REHEARSAL-2026-10-15-evidence/replay.py
