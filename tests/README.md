@@ -91,3 +91,5 @@ Product-only paths in historical findings (adapters, IMPORTS, fetch-evidence and
 ## INGEST-1
 
 [wp16_ingest_stage1](wp16_ingest_stage1/README.md) is the complete ADR177/178/180 authored package:1927 cases/1763 CC0 sources, zero pending cells, independent controls/quality/observation interface and durable replay. Software435 imports verbatim and returns directly to169. No Product/native/physical/fullWP16 acceptance. The earlier [wp16_ingest_r2](wp16_ingest_r2/README.md) remains an immutable, incomplete checkpoint; its historical pending ruling is resolved in the distinct Stage1 tree.
+
+The [Stage2 return](../findings/P2-R2-WP16-STAGE2-2026-10-15/README.md) holds Product3c7a187 for missing native/Windows11 qualification. This package now carries a Windows relative-name authentication correction with portability controls; all source/census/acceptance predicates stay unchanged. Original40dd4b5/tree13b36813 remains the authenticated historical import.

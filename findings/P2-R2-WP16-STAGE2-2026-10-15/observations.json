@@ -1,0 +1,281 @@
+{
+  "candidate": "3c7a1877d96f4737305506f1fc298872ec72dc66",
+  "disposition": "HELD; bounded inspection, NO independent acceptance/receipts",
+  "platforms": {
+    "linux": {
+      "artifact_id": 11976345450,
+      "zip_sha256": "e6cca4b93fe38c0e259c0122d0977b6ef0391187b534b1bc066693e83e1ca23a",
+      "zip_bytes": 147640864,
+      "index": {
+        "architecture": "x64",
+        "binary_sha256": "fc67f466fa540cc13a16d381d6df6c3d4374a634a9b104aa89aa2d8428148d7f",
+        "candidate_sha": "3c7a1877d96f4737305506f1fc298872ec72dc66",
+        "config_sha256": "2a15983496013cb36840f3e60d02adb285ea7e8e0223210180a3c96a8ef4163a",
+        "observer": "strace",
+        "platform": "linux",
+        "profile": "INGEST1-AP4",
+        "profile_file": "profile/profile.json",
+        "shipping_binary_sha256": "9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88",
+        "tool_version": "0.1.0"
+      },
+      "case_records": 1927,
+      "exit_counts": {
+        "2": 267,
+        "0": 1642,
+        "1": 10,
+        "None": 8
+      },
+      "observers": {
+        "strace": 1927
+      },
+      "unavailable": {},
+      "wav_manifest_pairs": 1641,
+      "actual_wav_bytes_read": 4402003036,
+      "output_inventory_sha256": "4f7c7a99b3930d0a880349784b635d5e928e7a46504d85da6c04b2480af32386",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "independent_input_calibrations": 30,
+      "largest_legal_actual_zero_wav_bytes": 4294967300,
+      "declared_FIR_continuous_band_certificates": [
+        {
+          "rate": 7350,
+          "passband_lower_db": -0.008761010027103418,
+          "passband_upper_db": 0.008761143898899265,
+          "passband_nodes": 6695,
+          "derivative_amplitude_per_hz": 0.004584299359291054,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 8000,
+          "passband_lower_db": -0.008765457903708182,
+          "passband_upper_db": 0.00875796862893691,
+          "passband_nodes": 6712,
+          "derivative_amplitude_per_hz": 0.004220506875192625,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 11025,
+          "passband_lower_db": -0.00875987281050914,
+          "passband_upper_db": 0.008764262195564898,
+          "passband_nodes": 6720,
+          "derivative_amplitude_per_hz": 0.003060919701519394,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 12000,
+          "passband_lower_db": -0.008765445286651106,
+          "passband_upper_db": 0.008758152741674427,
+          "passband_nodes": 6726,
+          "derivative_amplitude_per_hz": 0.002813671007687848,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 16000,
+          "passband_lower_db": -0.008765591926257523,
+          "passband_upper_db": 0.008758102378882436,
+          "passband_nodes": 6733,
+          "derivative_amplitude_per_hz": 0.0021102534375963124,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 22050,
+          "passband_lower_db": -0.008753343257574835,
+          "passband_upper_db": 0.00877263052075818,
+          "passband_nodes": 6725,
+          "derivative_amplitude_per_hz": 0.001528089629910746,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 24000,
+          "passband_lower_db": -0.0087655343570775,
+          "passband_upper_db": 0.008758241630235664,
+          "passband_nodes": 6740,
+          "derivative_amplitude_per_hz": 0.001406835503843924,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 32000,
+          "passband_lower_db": -0.008765013917378314,
+          "passband_upper_db": 0.008757525546271476,
+          "passband_nodes": 6744,
+          "derivative_amplitude_per_hz": 0.0010551267187981562,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 48000,
+          "passband_lower_db": -0.008764385974850747,
+          "passband_upper_db": 0.008767753046602487,
+          "passband_nodes": 7255,
+          "derivative_amplitude_per_hz": 0.0008068635180835039,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.33512992554446,
+          "alias_nodes": 39336
+        },
+        {
+          "rate": 64000,
+          "passband_lower_db": -0.00876447672154623,
+          "passband_upper_db": 0.00876765369774393,
+          "passband_nodes": 7255,
+          "derivative_amplitude_per_hz": 0.0008068636453935135,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.33883073329147,
+          "alias_nodes": 200709
+        },
+        {
+          "rate": 88200,
+          "passband_lower_db": -0.008769542580304967,
+          "passband_upper_db": 0.008780419535079237,
+          "passband_nodes": 7161,
+          "derivative_amplitude_per_hz": 0.000796369101635582,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.31777215646869,
+          "alias_nodes": 439000
+        },
+        {
+          "rate": 96000,
+          "passband_lower_db": -0.008769970803038117,
+          "passband_upper_db": 0.008773643666830347,
+          "passband_nodes": 7162,
+          "derivative_amplitude_per_hz": 0.0007965178864272867,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.38952180744658,
+          "alias_nodes": 516742
+        },
+        {
+          "rate": 176400,
+          "passband_lower_db": -0.008772395535989902,
+          "passband_upper_db": 0.00877092379847327,
+          "passband_nodes": 7134,
+          "derivative_amplitude_per_hz": 0.0007934290266753606,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.47996608471477,
+          "alias_nodes": 1312135
+        },
+        {
+          "rate": 192000,
+          "passband_lower_db": -0.008772492060801752,
+          "passband_upper_db": 0.008767403442180416,
+          "passband_nodes": 7116,
+          "derivative_amplitude_per_hz": 0.0007913489906357875,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.53896216402799,
+          "alias_nodes": 1463008
+        }
+      ],
+      "observer_selftest": {
+        "checks": {
+          "child_process_followed": true,
+          "creation_seen": true,
+          "forbidden_device_open_seen": true,
+          "process_completion_seen": true,
+          "process_exit_zero": true,
+          "two_probe_opens_seen": true
+        },
+        "observer": "strace",
+        "qualified": true,
+        "trace_sha256": "14b9616ead632d6ef738e4ff3c1fff66f9efe871e69b2bebf1f03ed906ccb2ef"
+      }
+    },
+    "mac": {
+      "artifact_id": 11974972281,
+      "zip_sha256": "b82ea82fa860b522a47a1973931cb6da919534d998a549e35f702c58cf24ff99",
+      "zip_bytes": 144562810,
+      "index": {
+        "architecture": "arm64",
+        "binary_sha256": "df525fbdc27b1720cd71889287506419c119fb765112ad87c7017eba0323696f",
+        "candidate_sha": "3c7a1877d96f4737305506f1fc298872ec72dc66",
+        "config_sha256": "91fb33cec8a850106a17593b39537d64b6cd4ced2ea861afe90fc84d4e18eb58",
+        "observer": "none",
+        "platform": "macos",
+        "profile": "INGEST1-AP4",
+        "profile_file": "profile/profile.json",
+        "shipping_binary_sha256": "f0dc9e7a57443870ce434e9eeff109d1bbb49b445ebb7b550a2ebc875d229a38",
+        "tool_version": "0.1.0"
+      },
+      "case_records": 1927,
+      "exit_counts": {
+        "2": 264,
+        "0": 1642,
+        "1": 9,
+        "None": 12
+      },
+      "observers": {
+        "none": 1927
+      },
+      "unavailable": {
+        "native/case-unrepresentable": "case-insensitive filesystem: a.wav and A.wav cannot coexist; that exclusion is the filesystem's, not ingest's",
+        "native/invalid-unicode": "this filesystem stores only valid Unicode names; the native invalid-name boundary is not creatable here",
+        "native/nfc-collision": "normalization-insensitive filesystem: both spellings name one file; that exclusion is the filesystem's",
+        "resources/exhaustion": "no bounded-memory method implemented on this platform (Linux uses prlimit RLIMIT_AS)"
+      },
+      "wav_manifest_pairs": 1641,
+      "actual_wav_bytes_read": 4402003036,
+      "output_inventory_sha256": "4f7c7a99b3930d0a880349784b635d5e928e7a46504d85da6c04b2480af32386",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "independent_input_calibrations": 30,
+      "largest_legal_actual_zero_wav_bytes": 4294967300,
+      "declared_FIR_continuous_band_certificates": [],
+      "observer_selftest": {
+        "observer": "none",
+        "qualified": false,
+        "reason": "no native observer implemented on this platform"
+      }
+    },
+    "windows-server": {
+      "artifact_id": 11975412131,
+      "zip_sha256": "ef92f1589955e7cda36eb91bf55c400259310782b68259989f95a23870ec9693",
+      "zip_bytes": 144557629,
+      "index": {
+        "architecture": "x64",
+        "binary_sha256": "8b3b04978f20df398f0035a2c70a7d32a474743fbb57f4cdea273e28a5c38277",
+        "candidate_sha": "3c7a1877d96f4737305506f1fc298872ec72dc66",
+        "config_sha256": "0c16b43b0bc265f0756d7fb969ba4edf58efd8ad637abbe7d02331b6607de2da",
+        "observer": "none",
+        "platform": "windows-server-serverdatacenter",
+        "profile": "INGEST1-AP4",
+        "profile_file": "profile/profile.json",
+        "shipping_binary_sha256": "e94b21518e8d6d999102fc94cd595aee7d0c659fea2df84074f2b948e0d07c34",
+        "tool_version": "0.1.0"
+      },
+      "case_records": 1927,
+      "exit_counts": {
+        "2": 265,
+        "0": 1642,
+        "1": 9,
+        "None": 11
+      },
+      "observers": {
+        "none": 1927
+      },
+      "unavailable": {
+        "native/case-unrepresentable": "case-insensitive filesystem: a.wav and A.wav cannot coexist; that exclusion is the filesystem's, not ingest's",
+        "native/invalid-unicode": "this filesystem stores only valid Unicode names; the native invalid-name boundary is not creatable here",
+        "resources/exhaustion": "no bounded-memory method implemented on this platform (Linux uses prlimit RLIMIT_AS)"
+      },
+      "wav_manifest_pairs": 1641,
+      "actual_wav_bytes_read": 4402003036,
+      "output_inventory_sha256": "4f7c7a99b3930d0a880349784b635d5e928e7a46504d85da6c04b2480af32386",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "independent_input_calibrations": 30,
+      "largest_legal_actual_zero_wav_bytes": 4294967300,
+      "declared_FIR_continuous_band_certificates": [],
+      "observer_selftest": {
+        "observer": "none",
+        "qualified": false,
+        "reason": "no native observer implemented on this platform"
+      }
+    }
+  },
+  "observed_output_identity": {
+    "mac": {
+      "missing": [],
+      "extra": [],
+      "different": []
+    },
+    "windows-server": {
+      "missing": [],
+      "extra": [],
+      "different": []
+    }
+  },
+  "scope": "ZIP/census/exit/trace hash/header/canonical manifest/full WAV bytes/metadata binding/largest zero payload/cross-runner identity, thirty published input calibration points and declared FIR bounds only; no complete numeric/native/shipping equivalence disposition"
+}

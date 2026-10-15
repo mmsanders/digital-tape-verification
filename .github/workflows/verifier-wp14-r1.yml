@@ -38,6 +38,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y ffmpeg
           python3 -B tests/wp16_ingest_stage1/check_pins.py
+          python3 -B tests/wp16_ingest_stage1/portability_selftest.py
           python3 -B tests/wp16_ingest_stage1/selftest.py
           python3 -B tests/wp16_ingest_stage1/completion_selftest.py
           python3 -B tests/wp16_ingest_stage1/zero_boundary_selftest.py
@@ -47,7 +48,7 @@ jobs:
           python3 -B tests/wp16_ingest_stage1/review.py --help
           python3 -B tests/wp16_ingest_stage1/campaign.py --help
       - name: Publish and fetch complete INGEST-1 Stage1 sources
-        if: github.repository_owner == 'mmsanders' && (github.head_ref == 'verification/169-ingest-complete' || github.ref == 'refs/heads/main')
+        if: github.repository_owner == 'mmsanders' && (startsWith(github.head_ref, 'verification/169-') || github.ref == 'refs/heads/main')
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash tests/wp16_ingest_stage1/publish.sh
