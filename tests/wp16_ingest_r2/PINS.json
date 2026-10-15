@@ -1,0 +1,13 @@
+{
+  "status": "INCOMPLETE_NONIMPORTABLE",
+  "finding": "P2V16-002",
+  "product_input": "8f3c0f0eb3da74186ab8482e22e685c714a7a258",
+  "verification_input": "66794e6e2fe5c66488ecfcdc5a8f9a23b0eedc2a",
+  "contract_blob": "7c6b4c7651eae68f11d30a0b5e7f01b1223916a7",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "fixture_encoder": "FFmpeg6.1.1-3ubuntu5",
+  "seed_sha256": "1ffdb59e56a2d2a94944a9aff7eb0ce74f8895a7bd7219a6ff15e0f552c72dde",
+  "census_sha256": "05fd19e603b54cea918ebc2d6f265c104ac7390bac75e61e934faa45ffb3c83e"
+}
