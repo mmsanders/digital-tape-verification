@@ -87,3 +87,7 @@ Synthetic self-tests establish verifier behavior, not new Product acceptance.
 Crash scenarios test both durability modes and remount from durable bytes only.
 Product-only paths in historical findings (adapters, IMPORTS, fetch-evidence and
 `tools/ci/`) belong to Digital-Tape, not this repository.
+
+## INGEST-1 authoring checkpoint
+
+[wp16_ingest_r2](wp16_ingest_r2/README.md) preserves independent generated fixtures,162 calibration observations,48 baseline/control observations and the expanded census/interface proposal. P2V16-002/#179 leaves90 sowt cells pending; it is **not a complete/importable Stage1 package** or a Product acceptance. Physical A6 is not its dependency.
