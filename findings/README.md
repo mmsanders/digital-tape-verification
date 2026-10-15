@@ -24,6 +24,11 @@ explicitly names this repo. Keep original path text for provenance.
 
 ## Chronological records
 
+15 October 2026: [APP-1 R3 preflight](P2-R3-WP15-PREFLIGHT-2026-10-15.md) returns
+four contract findings and a G1–G5/§3 negative-control map for PM correction before
+Software build. #183's preceding [any-subset model](../tests/wp10_subset_r1/README.md)
+passes its controls; engine execution is held on the documented adapter import.
+
 Phase 2 current: [ten physical pulls](P2-R1-WP14-PULLS-2026-10-14.md) PASS on Windows 11; no duplicate Mac campaign. Full WP14 retains the residual final success/A9 and native >4GiB gates. Michael's Windows 11 correction supersedes earlier Windows 10 references. [Software disposition](P2-R1-WP14-390-2026-10-09.md), [release authentication](P2-R1-WP14-RELEASE-2026-10-09.md), [Mac witness](P2-R1-WP14-MAC-2026-10-12.md) and [Windows witness](P2-R1-WP14-WINDOWS-2026-10-13.md) retain their exact boundaries. The [preflight](P2-R1-WP14-PREFLIGHT-2026-10-05.md) is historical; its original blockers are not live assignments.
 
 Dates come from the filename, or the original Git commit date when unnamed.

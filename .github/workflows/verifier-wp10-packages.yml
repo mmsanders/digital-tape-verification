@@ -29,6 +29,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  subset-model:
+    name: wp10_subset_r1 model (engine execution held)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Model controls and committed evidence
+        working-directory: tests/wp10_subset_r1
+        run: python3 -B audit.py
+
   wp10-package:
     name: ${{ matrix.package }}
     runs-on: ubuntu-24.04

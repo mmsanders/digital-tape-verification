@@ -14,6 +14,11 @@ closure is in [the Stage 2 addendum](../findings/P1-R63-WP11-STAGE2-DISPOSITION-
 
 ## Packages
 
+Phase 2 #183: [wp10_subset_r1](wp10_subset_r1/README.md) adds the Q-P2-1 any-subset
+model and controls. Model self-tests pass; all six current-engine operation
+campaigns await the Product adapter import and independent outcome evaluation.
+This is not WP-10 or batching acceptance.
+
 Phase 2: [wp14_r1](wp14_r1/README.md) retains immutable authoring/publication records. Contract conflicts were resolved; the exact Product #390 software candidate and unchanged merged tree are accepted within the [software disposition](../findings/P2-R1-WP14-390-2026-10-09.md), with [release identity](../findings/P2-R1-WP14-RELEASE-2026-10-09.md) authenticated. [Ten Windows 11 physical pulls](../findings/P2-R1-WP14-PULLS-2026-10-14.md) now PASS. Full WP14 remains held for final post-pull C60/A9 and native >4GiB evidence. Michael replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repetition. Original Phase 1 and Phase 2 package bytes remain unchanged.
 
 Numbers below are Verification issues/PRs unless prefixed Product. Follow
