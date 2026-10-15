@@ -127,4 +127,4 @@ only in Product must be fetched and authenticated there before replay.
 
 ## INGEST-1 R2 feasibility continuation
 
-[P2V16-002 AIFC sowt precision finding](P2-R2-WP16-SOWT-2026-10-15/README.md) records the contract ambiguity discovered during #169 full-matrix validation. The [preserved authoring checkpoint](../tests/wp16_ingest_r2/README.md) is explicitly incomplete/non-importable;90 cells need narrow issuance. Unaffected host-only work continues independently of physical A6. No Product/fullWP16 acceptance.
+[P2V16-002 AIFC sowt precision finding](P2-R2-WP16-SOWT-2026-10-15/README.md) is resolved by ADR180. The [complete Stage1 publication](P2-R2-WP16-STAGE1-2026-10-15.md) rebinds all90 cells, completes1927-case/1763-source independent authoring and hands directly to Software435. The [older checkpoint](../tests/wp16_ingest_r2/README.md) remains immutable/non-importable. No Product/native/physical/fullWP16 acceptance; A6 holds survive.

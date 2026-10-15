@@ -88,6 +88,6 @@ Crash scenarios test both durability modes and remount from durable bytes only.
 Product-only paths in historical findings (adapters, IMPORTS, fetch-evidence and
 `tools/ci/`) belong to Digital-Tape, not this repository.
 
-## INGEST-1 authoring checkpoint
+## INGEST-1
 
-[wp16_ingest_r2](wp16_ingest_r2/README.md) preserves independent generated fixtures,162 calibration observations,48 baseline/control observations and the expanded census/interface proposal. P2V16-002/#179 leaves90 sowt cells pending; it is **not a complete/importable Stage1 package** or a Product acceptance. Physical A6 is not its dependency.
+[wp16_ingest_stage1](wp16_ingest_stage1/README.md) is the complete ADR177/178/180 authored package:1927 cases/1763 CC0 sources, zero pending cells, independent controls/quality/observation interface and durable replay. Software435 imports verbatim and returns directly to169. No Product/native/physical/fullWP16 acceptance. The earlier [wp16_ingest_r2](wp16_ingest_r2/README.md) remains an immutable, incomplete checkpoint; its historical pending ruling is resolved in the distinct Stage1 tree.
