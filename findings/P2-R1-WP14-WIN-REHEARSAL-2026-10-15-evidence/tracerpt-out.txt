@@ -1,0 +1,17 @@
+
+Input
+----------------
+File(s):
+     verify.etl
+
+0.00%5.99%11.99%17.98%23.97%29.96%35.96%41.95%47.94%53.93%59.93%65.92%71.91%77.90%83.90%89.89%95.88%100.00%
+
+Output
+----------------
+DumpFile:           verify.xml
+
+Warning:
+Some events do not match the schema.
+Please rerun the command with -lr to get less restricted XML dump
+The command completed successfully.
+

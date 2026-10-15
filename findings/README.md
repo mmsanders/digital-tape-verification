@@ -24,6 +24,11 @@ explicitly names this repo. Keep original path text for provenance.
 
 ## Chronological records
 
+15 October 2026: [Actual Windows 11 off-card rehearsal](P2-R1-WP14-WIN-REHEARSAL-2026-10-15.md)
+authenticates the single image run and full native export; greater-than4GiB
+result proof is HELD on event GUID/schema decoding, with raw excerpt and replay.
+Reader disconnected is appropriate; no physical action or unchanged retry.
+
 15 October 2026: [APP-1 R3 preflight](P2-R3-WP15-PREFLIGHT-2026-10-15.md) returns
 four contract findings and a G1–G5/§3 negative-control map for PM correction before
 Software build. #183's preceding [any-subset model](../tests/wp10_subset_r1/README.md)

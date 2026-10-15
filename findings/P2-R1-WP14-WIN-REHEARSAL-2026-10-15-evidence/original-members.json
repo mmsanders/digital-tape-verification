@@ -1,0 +1,138 @@
+{
+  "a6check.py": {
+    "bytes": 32580,
+    "sha256": "227ceed2f1ca8817447c4103983c72b16a060b1d3323de22c805289b621bd1ef"
+  },
+  "allocation-err.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "allocation-exit.txt": {
+    "bytes": 3,
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "allocation-out.txt": {
+    "bytes": 28,
+    "sha256": "30e4af44205f6abddffb583cd926bb76906fa295ab3ec4ac15dbe6b06acc7b27"
+  },
+  "checker-not-run.txt": {
+    "bytes": 196,
+    "sha256": "41816f993caa4a62bad6e3a07ee1b60dccd956576ce2f5044e4d96e0981aa3de"
+  },
+  "filesystem-disk.txt": {
+    "bytes": 398,
+    "sha256": "8e01a1b12ab769423070b8389530b598a6b26003504e609c56a2efdb20ba215f"
+  },
+  "geometry.txt": {
+    "bytes": 12,
+    "sha256": "869d638d624a307d24df91c2428f4f578eeb4174a6d4e9b5372f4fa5957a9762"
+  },
+  "hashes-after.txt": {
+    "bytes": 752,
+    "sha256": "73548c8e6c158beeef34dc67a49029673b592bdfb080617767ae863db134b569"
+  },
+  "hashes-before.txt": {
+    "bytes": 752,
+    "sha256": "73548c8e6c158beeef34dc67a49029673b592bdfb080617767ae863db134b569"
+  },
+  "provision-err.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "provision-exit.txt": {
+    "bytes": 3,
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "provision-out.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "space.txt": {
+    "bytes": 412,
+    "sha256": "b334d6c86556d24cb4958a8f623a99a634dd793b76fc51e3deb13e35d2e0665a"
+  },
+  "tapectl.exe": {
+    "bytes": 435533,
+    "sha256": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9"
+  },
+  "tracer-exits.txt": {
+    "bytes": 37,
+    "sha256": "37dd58cb1c236c53d618d1e412e2185e59a31f72e0c4dd68acbe31c7b984df9a"
+  },
+  "tracerpt-err.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tracerpt-exit.txt": {
+    "bytes": 3,
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "tracerpt-out.txt": {
+    "bytes": 394,
+    "sha256": "7add796ce54039ed9ff9d569a2aebaeec739b7d54c2025b9648b06dc42892a2c"
+  },
+  "verify-err.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "verify-exit.txt": {
+    "bytes": 3,
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "verify-out.txt": {
+    "bytes": 3,
+    "sha256": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+  },
+  "verify-pid.txt": {
+    "bytes": 17,
+    "sha256": "0665c611f70c7d5c2541edbb58c79ec893af8303b64b53881fc07f4c6c4a8139"
+  },
+  "verify.etl": {
+    "bytes": 278921216,
+    "sha256": "8241f5560b5d5e367d1d9b6e954ef34d26db630824bad72d7e23874a033872cc"
+  },
+  "verify.xml": {
+    "bytes": 1770780200,
+    "sha256": "e50da0d54c0ab406e49431ff23f189ce28475670358e19dc4978232899f834d8"
+  },
+  "versions.txt": {
+    "bytes": 3270,
+    "sha256": "1d080dcc5165bcc3058b52ece7636359fa0ebf3bd4fb7922ac2057bb09ff4378"
+  },
+  "wpr-profiles-err.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "wpr-profiles-exit.txt": {
+    "bytes": 3,
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "wpr-profiles-out.txt": {
+    "bytes": 1761,
+    "sha256": "bdb58b6786baa46dc89902e17946d1a6a2467704fc2efabd77670d34b9417aaf"
+  },
+  "wpr-start-err.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "wpr-start-exit.txt": {
+    "bytes": 3,
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "wpr-start-out.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "wpr-stop-err.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "wpr-stop-exit.txt": {
+    "bytes": 3,
+    "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "wpr-stop-out.txt": {
+    "bytes": 79,
+    "sha256": "56f7594e4d60953c950db6c9a06253129b7d11f145d55c129ff61fe31f466486"
+  }
+}
