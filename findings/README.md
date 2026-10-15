@@ -124,3 +124,7 @@ only in Product must be fetched and authenticated there before replay.
 ## Final WP14 Windows witness
 
 [Final Windows success/A9 and A6 method review](P2-R1-WP14-FINAL-WIN-2026-10-14.md): completed post-pull load/reinsert/verify/canonical A+B recorded hashes and lengths PASS, A9=1677.7328603s. Final README bytes and physical A6 remain held; Software #426 checker false PASS controls require correction before a physical handoff. No repeated load/pull campaign.
+
+## INGEST-1 R2 feasibility continuation
+
+[P2V16-002 AIFC sowt precision finding](P2-R2-WP16-SOWT-2026-10-15/README.md) records the contract ambiguity discovered during #169 full-matrix validation. The [preserved authoring checkpoint](../tests/wp16_ingest_r2/README.md) is explicitly incomplete/non-importable;90 cells need narrow issuance. Unaffected host-only work continues independently of physical A6. No Product/fullWP16 acceptance.

@@ -1,0 +1,58 @@
+[
+  {
+    "file": "sowt16.aif",
+    "sha256": "edf16ca506abfa9a7d7fbedd5f7859b777ddffb6ba8adacd70b083b4fe37faec",
+    "bytes": 584,
+    "channels": 1,
+    "declared_frames": 256,
+    "declared_bits": 16,
+    "compression": "sowt",
+    "pcm_bytes": 512,
+    "frames_at_declared_precision": 256,
+    "frames_at_registered_sowt16": 256,
+    "ffmpeg_decoded_frames": 256,
+    "stderr": "",
+    "argv": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-nostdin",
+      "-xerror",
+      "-i",
+      "{FINDING}/sowt16.aif",
+      "-f",
+      "f64le",
+      "-acodec",
+      "pcm_f64le",
+      "-"
+    ]
+  },
+  {
+    "file": "sowt24.aif",
+    "sha256": "3fb8a2087dac7eefe82283b8507f254049e6aa02bdd89cdc0a6b9a673cc18298",
+    "bytes": 840,
+    "channels": 1,
+    "declared_frames": 256,
+    "declared_bits": 24,
+    "compression": "sowt",
+    "pcm_bytes": 768,
+    "frames_at_declared_precision": 256,
+    "frames_at_registered_sowt16": 384,
+    "ffmpeg_decoded_frames": 384,
+    "stderr": "",
+    "argv": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-nostdin",
+      "-xerror",
+      "-i",
+      "{FINDING}/sowt24.aif",
+      "-f",
+      "f64le",
+      "-acodec",
+      "pcm_f64le",
+      "-"
+    ]
+  }
+]
