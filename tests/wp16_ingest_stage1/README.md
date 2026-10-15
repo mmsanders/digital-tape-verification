@@ -51,6 +51,8 @@ Software self-certification. No new shipping CLI or runner architecture is requi
 
 Python3.12; numpy2.3.5/scipy1.17.0. FFmpeg6.1.1-3ubuntu5 is an authoring decoder,
 not a universal output oracle. Its exact encoder provenance is in the source pack;
+Install FFmpeg on PATH before decoder validation/integration replay. Publication
+CI explicitly installs Ubuntu's FFmpeg package; it is not assumed on hosted runners.
 extra encodings have extra-encoded/PROVENANCE.md. Source bytes are frozen for all
 candidate platforms. The full pack is a durable hashed release; raw>1MiB is not git.
 

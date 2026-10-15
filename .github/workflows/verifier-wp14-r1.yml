@@ -35,6 +35,8 @@ jobs:
         run: bash tests/wp16_ingest_r2/publish.sh
       - name: INGEST-1 complete Stage1 selfchecks (not Product acceptance)
         run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y ffmpeg
           python3 -B tests/wp16_ingest_stage1/check_pins.py
           python3 -B tests/wp16_ingest_stage1/selftest.py
           python3 -B tests/wp16_ingest_stage1/completion_selftest.py
