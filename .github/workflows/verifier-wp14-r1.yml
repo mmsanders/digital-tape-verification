@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -33,6 +33,22 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash tests/wp16_ingest_r2/publish.sh
+      - name: INGEST-1 complete Stage1 selfchecks (not Product acceptance)
+        run: |
+          python3 -B tests/wp16_ingest_stage1/check_pins.py
+          python3 -B tests/wp16_ingest_stage1/selftest.py
+          python3 -B tests/wp16_ingest_stage1/completion_selftest.py
+          python3 -B tests/wp16_ingest_stage1/zero_boundary_selftest.py
+          python3 -B tests/wp16_ingest_stage1/large_selftest.py
+          python3 -B tests/wp16_ingest_stage1/calibrate.py --out /tmp/ingest-calibration.json
+          python3 -B tests/wp16_ingest_stage1/filter_bounds.py --out /tmp/ingest-filter-bounds.json
+          python3 -B tests/wp16_ingest_stage1/review.py --help
+          python3 -B tests/wp16_ingest_stage1/campaign.py --help
+      - name: Publish and fetch complete INGEST-1 Stage1 sources
+        if: github.repository_owner == 'mmsanders' && (github.head_ref == 'verification/169-ingest-complete' || github.ref == 'refs/heads/main')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash tests/wp16_ingest_stage1/publish.sh
       - name: READ-1 independent publication (not Product acceptance)
         run: |
           python3 -B tests/playback_readonly_r1/check_pins.py
