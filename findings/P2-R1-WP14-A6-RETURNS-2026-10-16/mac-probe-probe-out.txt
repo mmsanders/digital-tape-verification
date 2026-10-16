@@ -1,0 +1,8 @@
+pread off=0x0 len=0x200 -> 512
+pread off=0xffe00 len=0x200 -> 512
+pread off=0x100000000 len=0x200 -> 512
+pread off=0x1000ffe00 len=0x200 -> 512
+pread off=0x1000fff9c len=0x200 -> 100
+pread off=0xfedcba00 len=0x200 -> 512
+pread off=0x1000ffe00 len=0x80 -> 128
+a6probe 0
