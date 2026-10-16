@@ -1,0 +1,551 @@
+{
+  "asset/ordinary.wav": {
+    "record": {
+      "argv": [
+        "ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmpbilkh6r3/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmpbilkh6r3/in/f0"
+      ],
+      "before": [
+        "cases/1419/before/0.f64"
+      ],
+      "config_sha256": "b46440e8f7164a3741d101561c26847efa126453bf4f7654f22c005035a29889",
+      "exit": 0,
+      "joined_dbtp": -9.323665863498116,
+      "manifest": "cases/1419/manifest.json",
+      "native_record": "cases/1419/native.json",
+      "raw_trace": "cases/1419/trace.txt",
+      "shipping_equivalence": {
+        "argv": [
+          "ingest",
+          "--out",
+          "/Users/runner/work/_temp/work/tmpbilkh6r3/out/SHIPPING",
+          "--length",
+          "60",
+          "/Users/runner/work/_temp/work/tmpbilkh6r3/in/f0"
+        ],
+        "audio.wav": {
+          "observe_sha256": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+          "shipping_sha256": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f"
+        },
+        "exit": 0,
+        "identical": true,
+        "manifest.json": {
+          "observe_sha256": "fb806eea3ae42cd4d25a826b17830488d0018ce8c608b23da56b2d54fb0b4354",
+          "shipping_sha256": "fb806eea3ae42cd4d25a826b17830488d0018ce8c608b23da56b2d54fb0b4354"
+        },
+        "shipping_binary_sha256": "f0dc9e7a57443870ce434e9eeff109d1bbb49b445ebb7b550a2ebc875d229a38"
+      },
+      "stderr_file": "cases/1419/stderr.txt",
+      "stdout_file": "cases/1419/stdout.txt",
+      "summary": {
+        "gapless_unknown": 0,
+        "peak_limited": 0,
+        "unmeasurable": 0
+      },
+      "wav": "cases/1419/audio.wav"
+    },
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmpbilkh6r3/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmpbilkh6r3/in/f0"
+      ],
+      "binary_sha256": "1327a53e3203dd8ac519414984600343b999c3bd9a48a2b332ea262889594354",
+      "complete": true,
+      "dest_after": [
+        "audio.wav",
+        "manifest.json"
+      ],
+      "diagnostic_ok": false,
+      "env": {},
+      "events": [
+        {
+          "line": 260,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 272,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 276,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 282,
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "line": 294,
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "file": "manifest.json",
+          "line": 300,
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "line": 309,
+          "op": "manifest_flush_close",
+          "seq": 6
+        }
+      ],
+      "exit": 0,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_open_closed": true,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "start_gate_seen": true
+      },
+      "observer": "fs_usage",
+      "observer_selftest": true,
+      "owned_stage_after": false,
+      "process_completion": "exited 0",
+      "process_exit_status": 0,
+      "raw_trace_sha256": "464c5f828cdac7a7ae4a22f4a277718f0fa081d479d5b32727c518434cd96903",
+      "scenario": "success",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "op": "manifest_flush_close",
+          "seq": 6
+        },
+        {
+          "op": "publish_dir_noreplace",
+          "seq": 7
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "raw_publication_lines": [
+      "05:52:12.890648  stat64                 [  2]           /Users/runner/work/_temp/work/tmpbilkh6r3/obs-main/.mark/7-publish_dir_noreplace                                                                                      0.000005   ingest.127477"
+    ]
+  },
+  "kill/audio-open": {
+    "record": {
+      "argv": [
+        "ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmpb6p49kq2/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmpb6p49kq2/in/f0"
+      ],
+      "config_sha256": "b46440e8f7164a3741d101561c26847efa126453bf4f7654f22c005035a29889",
+      "exit": null,
+      "native_record": "cases/1912/native.json",
+      "raw_trace": "cases/1912/trace.txt",
+      "stderr_file": "cases/1912/stderr.txt",
+      "stdout_file": "cases/1912/stdout.txt"
+    },
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmpb6p49kq2/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmpb6p49kq2/in/f0"
+      ],
+      "binary_sha256": "1327a53e3203dd8ac519414984600343b999c3bd9a48a2b332ea262889594354",
+      "complete": false,
+      "dest_after": [],
+      "diagnostic_ok": false,
+      "env": {
+        "INGEST_KILL_AT": "audio-open"
+      },
+      "events": [
+        {
+          "line": 139,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 151,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 156,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 162,
+          "op": "output_open",
+          "seq": 3
+        }
+      ],
+      "exit": null,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_open_closed": false,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "start_gate_seen": true
+      },
+      "observer": "fs_usage",
+      "observer_selftest": true,
+      "owned_stage_after": true,
+      "process_completion": "exited -6",
+      "process_exit_status": -6,
+      "raw_trace_sha256": "873c4770127c6bec562cfe3a9c2853f07e8caac5acbe0c7d6053a2985cf4c8ed",
+      "scenario": "kill",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "cut": "audio-open",
+          "op": "kill",
+          "seq": 4
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "raw_publication_lines": []
+  },
+  "kill/manifest-open": {
+    "record": {
+      "argv": [
+        "ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmpyjrfixn7/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmpyjrfixn7/in/f0"
+      ],
+      "config_sha256": "b46440e8f7164a3741d101561c26847efa126453bf4f7654f22c005035a29889",
+      "exit": null,
+      "native_record": "cases/1914/native.json",
+      "raw_trace": "cases/1914/trace.txt",
+      "stderr_file": "cases/1914/stderr.txt",
+      "stdout_file": "cases/1914/stdout.txt"
+    },
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmpyjrfixn7/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmpyjrfixn7/in/f0"
+      ],
+      "binary_sha256": "1327a53e3203dd8ac519414984600343b999c3bd9a48a2b332ea262889594354",
+      "complete": false,
+      "dest_after": [],
+      "diagnostic_ok": false,
+      "env": {
+        "INGEST_KILL_AT": "manifest-open"
+      },
+      "events": [
+        {
+          "line": 249,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 261,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 265,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 272,
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "line": 283,
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "file": "manifest.json",
+          "line": 289,
+          "op": "output_open",
+          "seq": 5
+        }
+      ],
+      "exit": null,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_open_closed": false,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "start_gate_seen": true
+      },
+      "observer": "fs_usage",
+      "observer_selftest": true,
+      "owned_stage_after": true,
+      "process_completion": "exited -6",
+      "process_exit_status": -6,
+      "raw_trace_sha256": "67e1b861f5a634693fce6d05cf4e8fb74503df272a3ea04105b5e4840f9dff12",
+      "scenario": "kill",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "cut": "manifest-open",
+          "op": "kill",
+          "seq": 6
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "raw_publication_lines": []
+  },
+  "kill/after-publish": {
+    "record": {
+      "argv": [
+        "ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmp6tms0_9x/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmp6tms0_9x/in/f0"
+      ],
+      "before": [
+        "cases/1917/before/0.f64"
+      ],
+      "config_sha256": "b46440e8f7164a3741d101561c26847efa126453bf4f7654f22c005035a29889",
+      "exit": null,
+      "joined_dbtp": -9.323665863498116,
+      "manifest": "cases/1917/manifest.json",
+      "native_record": "cases/1917/native.json",
+      "raw_trace": "cases/1917/trace.txt",
+      "stderr_file": "cases/1917/stderr.txt",
+      "stdout_file": "cases/1917/stdout.txt",
+      "summary": {
+        "gapless_unknown": 0,
+        "peak_limited": 0,
+        "unmeasurable": 0
+      },
+      "wav": "cases/1917/audio.wav"
+    },
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmp6tms0_9x/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmp6tms0_9x/in/f0"
+      ],
+      "binary_sha256": "1327a53e3203dd8ac519414984600343b999c3bd9a48a2b332ea262889594354",
+      "complete": true,
+      "dest_after": [
+        "audio.wav",
+        "manifest.json"
+      ],
+      "diagnostic_ok": false,
+      "env": {
+        "INGEST_KILL_AT": "after-publish"
+      },
+      "events": [
+        {
+          "line": 139,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 151,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 156,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 162,
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "line": 173,
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "file": "manifest.json",
+          "line": 179,
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "line": 188,
+          "op": "manifest_flush_close",
+          "seq": 6
+        }
+      ],
+      "exit": null,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_open_closed": true,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "start_gate_seen": true
+      },
+      "observer": "fs_usage",
+      "observer_selftest": true,
+      "owned_stage_after": false,
+      "process_completion": "exited -6",
+      "process_exit_status": -6,
+      "raw_trace_sha256": "2471508303561a628d8f0469ccf33a3330314b12f41fbae7f2f44c5ca338fc26",
+      "scenario": "kill",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "op": "manifest_flush_close",
+          "seq": 6
+        },
+        {
+          "op": "publish_dir_noreplace",
+          "seq": 7
+        },
+        {
+          "cut": "after-publish",
+          "op": "kill",
+          "seq": 8
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "raw_publication_lines": [
+      "06:18:37.198535  stat64                 [  2]           /Users/runner/work/_temp/work/tmp6tms0_9x/obs-main/.mark/7-publish_dir_noreplace                                                                                      0.000011   ingest.224264"
+    ]
+  }
+}
