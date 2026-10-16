@@ -1,0 +1,42 @@
+{
+  "core": {
+    "runs": 393,
+    "projections": 632,
+    "unreachable_coordinates": 0,
+    "maximum_epoch": 2,
+    "repeated_lba_events": 24,
+    "second_cut_runs": 146
+  },
+  "promote": {
+    "runs": 1266,
+    "projections": 1935,
+    "unreachable_coordinates": 0,
+    "maximum_epoch": 2,
+    "repeated_lba_events": 24,
+    "second_cut_runs": 443
+  },
+  "dup": {
+    "runs": 938,
+    "projections": 2016,
+    "unreachable_coordinates": 0,
+    "maximum_epoch": 4,
+    "repeated_lba_events": 0,
+    "second_cut_runs": 350
+  },
+  "load": {
+    "runs": 1121,
+    "projections": 44214,
+    "unreachable_coordinates": 404,
+    "maximum_epoch": 8,
+    "repeated_lba_events": 0,
+    "second_cut_runs": 710
+  },
+  "respool-decline": {
+    "runs": 27,
+    "projections": 36,
+    "unreachable_coordinates": 0,
+    "maximum_epoch": 1,
+    "repeated_lba_events": 0,
+    "second_cut_runs": 10
+  }
+}

@@ -1,0 +1,326 @@
+[
+  {
+    "part": "load/part-000-00",
+    "observation": {
+      "dump_A": {
+        "exit": 0,
+        "stderr": "tapectl: 1 flushes via fsync\n",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "dump_B": {
+        "exit": 0,
+        "stderr": "",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "engine": [
+        {
+          "base_lba": 34816,
+          "blocks": 30720,
+          "kind": "engine_bind",
+          "write_is_null": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "A"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "A",
+          "side_b_valid": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "B"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "B",
+          "side_b_valid": true
+        }
+      ],
+      "format": "WP10-SUBSET-REMOUNT-1",
+      "image_sha256_after": "0fa0564024f7f6d3917dc7b19be9785bc5977d95ef089e4b22c357bb32b5efa4",
+      "projection_sha256": "8b5178590292df5725cb3ae3d7f4108afe70855a964f9b7b1afac38ad4ac3b87",
+      "remount_key": "verify+dump A,B",
+      "verify_exit": 1,
+      "verify_stderr": "",
+      "verify_stdout": "NEEDS_REPAIR\n"
+    }
+  },
+  {
+    "part": "load/part-000-00",
+    "observation": {
+      "dump_A": {
+        "exit": 0,
+        "stderr": "tapectl: 1 flushes via fsync\n",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "dump_B": {
+        "exit": 0,
+        "stderr": "",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "engine": [
+        {
+          "base_lba": 34816,
+          "blocks": 30720,
+          "kind": "engine_bind",
+          "write_is_null": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "A"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "A",
+          "side_b_valid": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "B"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "B",
+          "side_b_valid": true
+        }
+      ],
+      "format": "WP10-SUBSET-REMOUNT-1",
+      "image_sha256_after": "77626693b4ef54c9cc2317309f83f825cc496e818f804e34219c88d1d15f4608",
+      "projection_sha256": "9d404d620567b654a539c2cf3ed1f38b5143e492f1e174b42eb1e1917daab327",
+      "remount_key": "verify+dump A,B",
+      "verify_exit": 1,
+      "verify_stderr": "",
+      "verify_stdout": "NEEDS_REPAIR\n"
+    }
+  },
+  {
+    "part": "load/part-000-01",
+    "observation": {
+      "dump_A": {
+        "exit": 0,
+        "stderr": "tapectl: 1 flushes via fsync\n",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "dump_B": {
+        "exit": 0,
+        "stderr": "",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "engine": [
+        {
+          "base_lba": 34816,
+          "blocks": 30720,
+          "kind": "engine_bind",
+          "write_is_null": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "A"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "A",
+          "side_b_valid": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "B"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "B",
+          "side_b_valid": true
+        }
+      ],
+      "format": "WP10-SUBSET-REMOUNT-1",
+      "image_sha256_after": "77626693b4ef54c9cc2317309f83f825cc496e818f804e34219c88d1d15f4608",
+      "projection_sha256": "9d404d620567b654a539c2cf3ed1f38b5143e492f1e174b42eb1e1917daab327",
+      "remount_key": "verify+dump A,B",
+      "verify_exit": 1,
+      "verify_stderr": "",
+      "verify_stdout": "NEEDS_REPAIR\n"
+    }
+  },
+  {
+    "part": "load/part-000-01",
+    "observation": {
+      "dump_A": {
+        "exit": 0,
+        "stderr": "tapectl: 1 flushes via fsync\n",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "dump_B": {
+        "exit": 0,
+        "stderr": "",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "engine": [
+        {
+          "base_lba": 34816,
+          "blocks": 30720,
+          "kind": "engine_bind",
+          "write_is_null": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "A"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "A",
+          "side_b_valid": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "B"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "B",
+          "side_b_valid": true
+        }
+      ],
+      "format": "WP10-SUBSET-REMOUNT-1",
+      "image_sha256_after": "0fa0564024f7f6d3917dc7b19be9785bc5977d95ef089e4b22c357bb32b5efa4",
+      "projection_sha256": "8b5178590292df5725cb3ae3d7f4108afe70855a964f9b7b1afac38ad4ac3b87",
+      "remount_key": "verify+dump A,B",
+      "verify_exit": 1,
+      "verify_stderr": "",
+      "verify_stdout": "NEEDS_REPAIR\n"
+    }
+  },
+  {
+    "part": "load/part-000-02",
+    "observation": {
+      "dump_A": {
+        "exit": 0,
+        "stderr": "tapectl: 1 flushes via fsync\n",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "dump_B": {
+        "exit": 0,
+        "stderr": "",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "engine": [
+        {
+          "base_lba": 34816,
+          "blocks": 30720,
+          "kind": "engine_bind",
+          "write_is_null": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "A"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "A",
+          "side_b_valid": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "B"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "B",
+          "side_b_valid": true
+        }
+      ],
+      "format": "WP10-SUBSET-REMOUNT-1",
+      "image_sha256_after": "77626693b4ef54c9cc2317309f83f825cc496e818f804e34219c88d1d15f4608",
+      "projection_sha256": "9d404d620567b654a539c2cf3ed1f38b5143e492f1e174b42eb1e1917daab327",
+      "remount_key": "verify+dump A,B",
+      "verify_exit": 1,
+      "verify_stderr": "",
+      "verify_stdout": "NEEDS_REPAIR\n"
+    }
+  },
+  {
+    "part": "load/part-000-03",
+    "observation": {
+      "dump_A": {
+        "exit": 0,
+        "stderr": "tapectl: 1 flushes via fsync\n",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "dump_B": {
+        "exit": 0,
+        "stderr": "",
+        "wav_sha256": "ee38bd19bcaa50ac1e42da7a9e630e65706793767814d3afabe9dca992decfc4"
+      },
+      "engine": [
+        {
+          "base_lba": 34816,
+          "blocks": 30720,
+          "kind": "engine_bind",
+          "write_is_null": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "A"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "A",
+          "side_b_valid": true
+        },
+        {
+          "cold": true,
+          "kind": "engine_mount",
+          "result": "TAPE_OK",
+          "side": "B"
+        },
+        {
+          "kind": "engine_info",
+          "needs_repair": true,
+          "side": "B",
+          "side_b_valid": true
+        }
+      ],
+      "format": "WP10-SUBSET-REMOUNT-1",
+      "image_sha256_after": "0fa0564024f7f6d3917dc7b19be9785bc5977d95ef089e4b22c357bb32b5efa4",
+      "projection_sha256": "8b5178590292df5725cb3ae3d7f4108afe70855a964f9b7b1afac38ad4ac3b87",
+      "remount_key": "verify+dump A,B",
+      "verify_exit": 1,
+      "verify_stderr": "",
+      "verify_stdout": "NEEDS_REPAIR\n"
+    }
+  }
+]
