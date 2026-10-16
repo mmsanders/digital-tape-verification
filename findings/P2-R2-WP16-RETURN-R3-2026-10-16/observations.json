@@ -1,0 +1,976 @@
+{
+  "candidate": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+  "disposition": "HELD; bounded inspection, NO independent acceptance/receipts",
+  "platforms": {
+    "linux": {
+      "artifact_id": 12067549315,
+      "zip_sha256": "819fb79989978d666132952945a3ac53772d3ed40efbafd6abbcb58a2dc5496c",
+      "zip_bytes": 148200442,
+      "index": {
+        "architecture": "x64",
+        "binary_sha256": "886e3c83e1bb621121acc99980df0c8699f68c5275f65746a5b8f300a851bbfd",
+        "candidate_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+        "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+        "observer": "strace",
+        "platform": "linux",
+        "platform_file": "platform.json",
+        "platform_sha256": "5eb9e7e3f53a07f8d1ad36e57716ee5718f859930522c6b28e31ada8acb0b6e3",
+        "profile": "INGEST1-AP4",
+        "profile_file": "profile/profile.json",
+        "shipping_binary_sha256": "9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88",
+        "tool_version": "0.1.0"
+      },
+      "case_records": 1927,
+      "exit_counts": {
+        "2": 267,
+        "0": 1642,
+        "1": 10,
+        "None": 8
+      },
+      "observers": {
+        "strace": 1927
+      },
+      "unavailable": {},
+      "incomplete_native_records": {},
+      "normalized_predicate_failures_NO_receipts": {},
+      "control_hash_bindings": {
+        "drop_forbidden_device_open": {
+          "raw_sha256": "3aaa43fdcae61bf7e84fc99118051cea66aa70bef63170402cabd54c73e9b8da",
+          "reported_rejected": true,
+          "raw_bytes": 25775
+        },
+        "drop_probe_open": {
+          "raw_sha256": "6115ce5e5d22b80675ac167579fea1a4be60bf5a18aae62513dc13a46886b1ea",
+          "reported_rejected": true,
+          "raw_bytes": 25901
+        },
+        "drop_root_exit": {
+          "raw_sha256": "32e1bc29a96002f8cd2f96a0ddaf3a8d98e44429cad453be990c4d16cac7fd49",
+          "reported_rejected": true,
+          "raw_bytes": 26089
+        },
+        "truncate_before_tally": {
+          "raw_sha256": "40c8b266dee130c8da47730569c60b7ff24b58faf890d2216371a745822c8200",
+          "reported_rejected": true,
+          "raw_bytes": 25532
+        },
+        "truncate_mid_trace": {
+          "raw_sha256": "e256c43c0cb383af73ea8fbd9c0fafe0dfa0b164231dd33012e9dddbe8036918",
+          "reported_rejected": true,
+          "raw_bytes": 13963
+        }
+      },
+      "wav_manifest_pairs": 1641,
+      "actual_wav_bytes_read": 4402003036,
+      "output_inventory_sha256": "4f7c7a99b3930d0a880349784b635d5e928e7a46504d85da6c04b2480af32386",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "independent_input_calibrations": 30,
+      "largest_legal_actual_zero_wav_bytes": 4294967300,
+      "declared_FIR_continuous_band_certificates": [
+        {
+          "rate": 7350,
+          "passband_lower_db": -0.008761010027103418,
+          "passband_upper_db": 0.008761143898899265,
+          "passband_nodes": 6695,
+          "derivative_amplitude_per_hz": 0.004584299359291054,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 8000,
+          "passband_lower_db": -0.008765457903708182,
+          "passband_upper_db": 0.00875796862893691,
+          "passband_nodes": 6712,
+          "derivative_amplitude_per_hz": 0.004220506875192625,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 11025,
+          "passband_lower_db": -0.00875987281050914,
+          "passband_upper_db": 0.008764262195564898,
+          "passband_nodes": 6720,
+          "derivative_amplitude_per_hz": 0.003060919701519394,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 12000,
+          "passband_lower_db": -0.008765445286651106,
+          "passband_upper_db": 0.008758152741674427,
+          "passband_nodes": 6726,
+          "derivative_amplitude_per_hz": 0.002813671007687848,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 16000,
+          "passband_lower_db": -0.008765591926257523,
+          "passband_upper_db": 0.008758102378882436,
+          "passband_nodes": 6733,
+          "derivative_amplitude_per_hz": 0.0021102534375963124,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 22050,
+          "passband_lower_db": -0.008753343257574835,
+          "passband_upper_db": 0.00877263052075818,
+          "passband_nodes": 6725,
+          "derivative_amplitude_per_hz": 0.001528089629910746,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 24000,
+          "passband_lower_db": -0.0087655343570775,
+          "passband_upper_db": 0.008758241630235664,
+          "passband_nodes": 6740,
+          "derivative_amplitude_per_hz": 0.001406835503843924,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 32000,
+          "passband_lower_db": -0.008765013917378314,
+          "passband_upper_db": 0.008757525546271476,
+          "passband_nodes": 6744,
+          "derivative_amplitude_per_hz": 0.0010551267187981562,
+          "numerical_allowance": 1e-08
+        },
+        {
+          "rate": 48000,
+          "passband_lower_db": -0.008764385974850747,
+          "passband_upper_db": 0.008767753046602487,
+          "passband_nodes": 7255,
+          "derivative_amplitude_per_hz": 0.0008068635180835039,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.33512992554446,
+          "alias_nodes": 39336
+        },
+        {
+          "rate": 64000,
+          "passband_lower_db": -0.00876447672154623,
+          "passband_upper_db": 0.00876765369774393,
+          "passband_nodes": 7255,
+          "derivative_amplitude_per_hz": 0.0008068636453935135,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.33883073329147,
+          "alias_nodes": 200709
+        },
+        {
+          "rate": 88200,
+          "passband_lower_db": -0.008769542580304967,
+          "passband_upper_db": 0.008780419535079237,
+          "passband_nodes": 7161,
+          "derivative_amplitude_per_hz": 0.000796369101635582,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.31777215646869,
+          "alias_nodes": 439000
+        },
+        {
+          "rate": 96000,
+          "passband_lower_db": -0.008769970803038117,
+          "passband_upper_db": 0.008773643666830347,
+          "passband_nodes": 7162,
+          "derivative_amplitude_per_hz": 0.0007965178864272867,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.38952180744658,
+          "alias_nodes": 516742
+        },
+        {
+          "rate": 176400,
+          "passband_lower_db": -0.008772395535989902,
+          "passband_upper_db": 0.00877092379847327,
+          "passband_nodes": 7134,
+          "derivative_amplitude_per_hz": 0.0007934290266753606,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.47996608471477,
+          "alias_nodes": 1312135
+        },
+        {
+          "rate": 192000,
+          "passband_lower_db": -0.008772492060801752,
+          "passband_upper_db": 0.008767403442180416,
+          "passband_nodes": 7116,
+          "derivative_amplitude_per_hz": 0.0007913489906357875,
+          "numerical_allowance": 1e-08,
+          "alias_upper_db": -90.53896216402799,
+          "alias_nodes": 1463008
+        }
+      ],
+      "observer_selftest": {
+        "checks": {
+          "child_process_followed": true,
+          "creation_seen": true,
+          "forbidden_device_open_seen": true,
+          "positive_trace_integrity": true,
+          "process_completion_seen": true,
+          "process_exit_zero": true,
+          "two_probe_opens_seen": true
+        },
+        "false_pass_controls": {
+          "drop_forbidden_device_open": {
+            "file": "controls/drop_forbidden_device_open.txt",
+            "rejected": true,
+            "sha256": "3aaa43fdcae61bf7e84fc99118051cea66aa70bef63170402cabd54c73e9b8da"
+          },
+          "drop_probe_open": {
+            "file": "controls/drop_probe_open.txt",
+            "rejected": true,
+            "sha256": "6115ce5e5d22b80675ac167579fea1a4be60bf5a18aae62513dc13a46886b1ea"
+          },
+          "drop_root_exit": {
+            "file": "controls/drop_root_exit.txt",
+            "rejected": true,
+            "sha256": "32e1bc29a96002f8cd2f96a0ddaf3a8d98e44429cad453be990c4d16cac7fd49"
+          },
+          "truncate_before_tally": {
+            "file": "controls/truncate_before_tally.txt",
+            "rejected": true,
+            "sha256": "40c8b266dee130c8da47730569c60b7ff24b58faf890d2216371a745822c8200"
+          },
+          "truncate_mid_trace": {
+            "file": "controls/truncate_mid_trace.txt",
+            "rejected": true,
+            "sha256": "e256c43c0cb383af73ea8fbd9c0fafe0dfa0b164231dd33012e9dddbe8036918"
+          }
+        },
+        "observer": "strace",
+        "qualified": true,
+        "trace": "trace.txt",
+        "trace_sha256": "ae291aa6473ff45e2b8bc42bc34c28f69ea1dc863e0a301a964ab5412f694bd9"
+      }
+    },
+    "mac": {
+      "artifact_id": 12069770824,
+      "zip_sha256": "abd4e2b328540978eeaf330ee8c4ed002f885ffaab33aa6b0a5794db348ad8bc",
+      "zip_bytes": 149068809,
+      "index": {
+        "architecture": "arm64",
+        "binary_sha256": "3e4d98a9c9ab4eb315e271f64b3d2bc8e58ab3f462f8dd441291f83ff16f42d9",
+        "candidate_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+        "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+        "observer": "dtrace",
+        "platform": "macos",
+        "platform_file": "platform.json",
+        "platform_sha256": "bc72e28763a4662756d05ffa2b2c2f18f63c381fdb4882a616581dd31d4ae4f1",
+        "profile": "INGEST1-AP4",
+        "profile_file": "profile/profile.json",
+        "shipping_binary_sha256": "f0dc9e7a57443870ce434e9eeff109d1bbb49b445ebb7b550a2ebc875d229a38",
+        "tool_version": "0.1.0"
+      },
+      "case_records": 1927,
+      "exit_counts": {
+        "2": 267,
+        "0": 1642,
+        "1": 10,
+        "None": 8
+      },
+      "observers": {
+        "dtrace": 1927
+      },
+      "unavailable": {},
+      "incomplete_native_records": {},
+      "normalized_predicate_failures_NO_receipts": {},
+      "control_hash_bindings": {
+        "drop_child_thread_end": {
+          "raw_sha256": "821caf2a44d60997b97b1c04d2ba5ed68eb898d505684ad86cce2657807de850",
+          "reported_rejected": true,
+          "raw_bytes": 11233
+        },
+        "drop_forbidden_device_open": {
+          "raw_sha256": "47db695a932a006dee9a0421cc08fb5708592f61bd6b18c44094acb70c9da9cc",
+          "reported_rejected": true,
+          "raw_bytes": 11173
+        },
+        "drop_noreplace_publication": {
+          "raw_sha256": "c56519cc3db43da16bc8c464bbdedb1bf6c920dd0e5ec6d038a30f9225f05162",
+          "reported_rejected": true,
+          "raw_bytes": 11059
+        },
+        "drop_probe_open": {
+          "raw_sha256": "0e6a08ea7bf7d7d438b87a3ac5abade3dd365686af6e0a92587719a43d1d8153",
+          "reported_rejected": true,
+          "raw_bytes": 11126
+        },
+        "drop_root_exit": {
+          "raw_sha256": "252e1776e8127a9bcda3449d5321237f7d73143a8ec9aa0911d0d057bbeb7b29",
+          "reported_rejected": true,
+          "raw_bytes": 11223
+        },
+        "tracer_reported_drops": {
+          "raw_sha256": "63b6da4abe28af2931d767719902b4b7a437f26d51d646fbd2ff95293505383d",
+          "reported_rejected": true,
+          "raw_bytes": 11298
+        },
+        "truncate_before_last_parent_record": {
+          "raw_sha256": "c81c536c1197bf3d0f0995ad81baf1da75dd899e255b8acfd371b8901d0588d3",
+          "reported_rejected": true,
+          "raw_bytes": 7985
+        },
+        "truncate_mid_trace": {
+          "raw_sha256": "26824daf4becb060048bb3c3a663b3b7db2c30d8f899ac973181610cafd687ab",
+          "reported_rejected": true,
+          "raw_bytes": 5552
+        }
+      },
+      "wav_manifest_pairs": 1641,
+      "actual_wav_bytes_read": 4402003036,
+      "output_inventory_sha256": "4f7c7a99b3930d0a880349784b635d5e928e7a46504d85da6c04b2480af32386",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "independent_input_calibrations": 30,
+      "largest_legal_actual_zero_wav_bytes": 4294967300,
+      "declared_FIR_continuous_band_certificates": [],
+      "observer_selftest": {
+        "checks": {
+          "child_process_seen": true,
+          "creation_seen": true,
+          "failed_noreplace_attempt_seen": true,
+          "forbidden_device_open_seen": true,
+          "noreplace_publication_seen": true,
+          "positive_trace_integrity": true,
+          "process_completion_seen": true,
+          "process_exit_zero": true,
+          "published_folder_exists": true,
+          "start_and_end_gates_seen": true,
+          "two_probe_opens_seen": true
+        },
+        "false_pass_controls": {
+          "drop_child_thread_end": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/drop_child_thread_end.txt",
+            "rejected": true,
+            "sha256": "821caf2a44d60997b97b1c04d2ba5ed68eb898d505684ad86cce2657807de850"
+          },
+          "drop_forbidden_device_open": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/drop_forbidden_device_open.txt",
+            "rejected": true,
+            "sha256": "47db695a932a006dee9a0421cc08fb5708592f61bd6b18c44094acb70c9da9cc"
+          },
+          "drop_noreplace_publication": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/drop_noreplace_publication.txt",
+            "rejected": true,
+            "sha256": "c56519cc3db43da16bc8c464bbdedb1bf6c920dd0e5ec6d038a30f9225f05162"
+          },
+          "drop_probe_open": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/drop_probe_open.txt",
+            "rejected": true,
+            "sha256": "0e6a08ea7bf7d7d438b87a3ac5abade3dd365686af6e0a92587719a43d1d8153"
+          },
+          "drop_root_exit": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/drop_root_exit.txt",
+            "rejected": true,
+            "sha256": "252e1776e8127a9bcda3449d5321237f7d73143a8ec9aa0911d0d057bbeb7b29"
+          },
+          "tracer_reported_drops": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/tracer_reported_drops.txt",
+            "rejected": true,
+            "sha256": "63b6da4abe28af2931d767719902b4b7a437f26d51d646fbd2ff95293505383d"
+          },
+          "truncate_before_last_parent_record": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/truncate_before_last_parent_record.txt",
+            "rejected": true,
+            "sha256": "c81c536c1197bf3d0f0995ad81baf1da75dd899e255b8acfd371b8901d0588d3"
+          },
+          "truncate_mid_trace": {
+            "detectable_without_planted_expectation": true,
+            "file": "controls/truncate_mid_trace.txt",
+            "rejected": true,
+            "sha256": "26824daf4becb060048bb3c3a663b3b7db2c30d8f899ac973181610cafd687ab"
+          }
+        },
+        "integrity_method": "per-thread record sequence ending in lwp-exit; root process exit record; dtrace drop/error reports; whole-record parse",
+        "limitation": "requires dtrace's syscall provider (System Integrity Protection dtrace restrictions off); files open when a process ends are closed by the kernel at exit and listed as open_at_exit",
+        "observer": "dtrace",
+        "qualified": true,
+        "trace": "trace.txt",
+        "trace_sha256": "82f68acfdbddc18aa35f6145c7b6255e2eda3ddd63aca55aab848f06f8b68cca"
+      }
+    },
+    "windows-server": {
+      "artifact_id": 12067860238,
+      "zip_sha256": "70bcbe2043bbf07555b8c0a83a2b041f1de3e11e69464acf3eaff1303ca6d774",
+      "zip_bytes": 208475330,
+      "index": {
+        "architecture": "x64",
+        "binary_sha256": "97918d4315955d54894918a24d98f7c8e2fdf3d0568634613f77cf4af1f0eaa6",
+        "candidate_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+        "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+        "observer": "procmon",
+        "platform": "windows-server-serverdatacenter",
+        "platform_file": "platform.json",
+        "platform_sha256": "5d1e0755989c95ee9006c0c325147f9741fff839757714c5e2ba061e19fec641",
+        "profile": "INGEST1-AP4",
+        "profile_file": "profile/profile.json",
+        "shipping_binary_sha256": "0e1ef2cb4f283eb876f08019222da5d3ac744ec30d49f020a2e87323f31bcac1",
+        "tool_version": "0.1.0"
+      },
+      "case_records": 1927,
+      "exit_counts": {
+        "2": 267,
+        "0": 1642,
+        "1": 10,
+        "None": 8
+      },
+      "observers": {
+        "procmon": 1927
+      },
+      "unavailable": {},
+      "incomplete_native_records": {},
+      "normalized_predicate_failures_NO_receipts": {},
+      "control_hash_bindings": {
+        "drop_forbidden_device_open": {
+          "raw_sha256": "5170d926d05bb3c05ac8de3d9d07aab0f945b37d2eb0b61bdd621d99b861ea95",
+          "reported_rejected": true,
+          "raw_bytes": 78543
+        },
+        "drop_probe_open": {
+          "raw_sha256": "b5868774944219e8c9d0640a54ce5441e483898667c959d8c0051f029d73a70c",
+          "reported_rejected": true,
+          "raw_bytes": 78519
+        },
+        "truncate_mid_trace": {
+          "raw_sha256": "34be02d52e7c8bfa8e5d92e0a737060fc7515efe6972158f75267d0e0e50c509",
+          "reported_rejected": true,
+          "raw_bytes": 44124
+        },
+        "truncate_tail": {
+          "raw_sha256": "b2239bb80c18b8dfd4a5f3ed476b396c0e66b05725f55ccc7ec5356e8752e7e2",
+          "reported_rejected": true,
+          "raw_bytes": 56804
+        }
+      },
+      "wav_manifest_pairs": 1641,
+      "actual_wav_bytes_read": 4402003036,
+      "output_inventory_sha256": "4f7c7a99b3930d0a880349784b635d5e928e7a46504d85da6c04b2480af32386",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "independent_input_calibrations": 30,
+      "largest_legal_actual_zero_wav_bytes": 4294967300,
+      "declared_FIR_continuous_band_certificates": [],
+      "observer_selftest": {
+        "checks": {
+          "child_process_seen": true,
+          "creation_seen": true,
+          "forbidden_device_open_seen": true,
+          "process_completion_seen": true,
+          "process_exit_zero": true,
+          "session_fully_partitioned": true,
+          "session_pml_csv_aligned": true,
+          "two_probe_opens_seen": true
+        },
+        "detection": "every captured session record has exactly one owner (a case run, a shipping rerun or this selftest); an extract missing any record leaves that session index unowned",
+        "device_like_rows": [
+          [
+            409,
+            "probe-parent.exe",
+            "7552",
+            "CreateFile",
+            "\\Device\\Harddisk0\\DR0",
+            "SUCCESS"
+          ],
+          [
+            410,
+            "probe-parent.exe",
+            "7552",
+            "CloseFile",
+            "\\Device\\Harddisk0\\DR0",
+            "SUCCESS"
+          ],
+          [
+            411,
+            "probe-parent.exe",
+            "7552",
+            "IRP_MJ_CLOSE",
+            "\\Device\\Harddisk0\\DR0",
+            "SUCCESS"
+          ],
+          [
+            419,
+            "probe-parent.exe",
+            "7552",
+            "CloseFile",
+            "\\Device\\NamedPipe",
+            "SUCCESS"
+          ],
+          [
+            420,
+            "probe-parent.exe",
+            "7552",
+            "IRP_MJ_CLOSE",
+            "\\Device\\NamedPipe",
+            "SUCCESS"
+          ],
+          [
+            421,
+            "probe-parent.exe",
+            "7552",
+            "CloseFile",
+            "\\Device\\NamedPipe",
+            "SUCCESS"
+          ],
+          [
+            422,
+            "probe-parent.exe",
+            "7552",
+            "IRP_MJ_CLOSE",
+            "\\Device\\NamedPipe",
+            "SUCCESS"
+          ]
+        ],
+        "false_pass_controls": {
+          "drop_forbidden_device_open": {
+            "file": "controls/drop_forbidden_device_open.csv",
+            "rejected": true,
+            "sha256": "5170d926d05bb3c05ac8de3d9d07aab0f945b37d2eb0b61bdd621d99b861ea95",
+            "unowned_after_mutation": 1
+          },
+          "drop_probe_open": {
+            "file": "controls/drop_probe_open.csv",
+            "rejected": true,
+            "sha256": "b5868774944219e8c9d0640a54ce5441e483898667c959d8c0051f029d73a70c",
+            "unowned_after_mutation": 1
+          },
+          "truncate_mid_trace": {
+            "file": "controls/truncate_mid_trace.csv",
+            "rejected": true,
+            "sha256": "34be02d52e7c8bfa8e5d92e0a737060fc7515efe6972158f75267d0e0e50c509",
+            "unowned_after_mutation": 212
+          },
+          "truncate_tail": {
+            "file": "controls/truncate_tail.csv",
+            "rejected": true,
+            "sha256": "b2239bb80c18b8dfd4a5f3ed476b396c0e66b05725f55ccc7ec5356e8752e7e2",
+            "unowned_after_mutation": 141
+          }
+        },
+        "observer": "procmon",
+        "probe_paths_outside_python": [
+          [
+            "CloseFile",
+            "C:\\Windows\\System32\\KernelBase.dll",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "C:\\Windows\\System32\\kernel32.dll",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "C:\\Windows\\System32\\ntdll.dll",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "C:\\Windows\\System32\\ucrtbase.dll",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "D:\\a\\Digital-Tape\\Digital-Tape\\host\\ingest",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "D:\\a\\_temp\\packet\\observer-selftest\\created.txt",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "D:\\a\\_temp\\packet\\observer-selftest\\probe.txt",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "\\Device\\Harddisk0\\DR0",
+            "SUCCESS"
+          ],
+          [
+            "CloseFile",
+            "\\Device\\NamedPipe",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\System32\\KernelBase.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\System32\\kernel32.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\System32\\ntdll.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\System32\\ucrtbase.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "D:\\a\\Digital-Tape\\Digital-Tape\\host\\ingest",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "D:\\a\\_temp\\packet\\observer-selftest\\created.txt",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "D:\\a\\_temp\\packet\\observer-selftest\\probe.txt",
+            "SUCCESS"
+          ],
+          [
+            "CreateFile",
+            "\\Device\\Harddisk0\\DR0",
+            "SUCCESS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "FILE LOCKED WITH ONLY READERS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "FILE LOCKED WITH ONLY READERS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "FILE LOCKED WITH ONLY READERS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "SUCCESS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "FILE LOCKED WITH ONLY READERS"
+          ],
+          [
+            "CreateFileMapping",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "SUCCESS"
+          ],
+          [
+            "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "SUCCESS"
+          ],
+          [
+            "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "SUCCESS"
+          ],
+          [
+            "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\System32\\KernelBase.dll",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\System32\\kernel32.dll",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\System32\\ntdll.dll",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\System32\\ucrtbase.dll",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "D:\\a\\Digital-Tape\\Digital-Tape\\host\\ingest",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "D:\\a\\_temp\\packet\\observer-selftest\\created.txt",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "D:\\a\\_temp\\packet\\observer-selftest\\probe.txt",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "\\Device\\Harddisk0\\DR0",
+            "SUCCESS"
+          ],
+          [
+            "IRP_MJ_CLOSE",
+            "\\Device\\NamedPipe",
+            "SUCCESS"
+          ],
+          [
+            "Load Image",
+            "C:\\Windows\\System32\\KernelBase.dll",
+            "SUCCESS"
+          ],
+          [
+            "Load Image",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "SUCCESS"
+          ],
+          [
+            "Load Image",
+            "C:\\Windows\\System32\\kernel32.dll",
+            "SUCCESS"
+          ],
+          [
+            "Load Image",
+            "C:\\Windows\\System32\\ntdll.dll",
+            "SUCCESS"
+          ],
+          [
+            "Load Image",
+            "C:\\Windows\\System32\\sechost.dll",
+            "SUCCESS"
+          ],
+          [
+            "Load Image",
+            "C:\\Windows\\System32\\ucrtbase.dll",
+            "SUCCESS"
+          ],
+          [
+            "Load Image",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "Process Exit",
+            "",
+            "SUCCESS"
+          ],
+          [
+            "Process Start",
+            "",
+            "SUCCESS"
+          ],
+          [
+            "QueryAllInformationFile",
+            "D:\\a\\_temp\\packet\\observer-selftest\\probe.txt",
+            "BUFFER OVERFLOW"
+          ],
+          [
+            "QueryBasicInformationFile",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "SUCCESS"
+          ],
+          [
+            "QueryBasicInformationFile",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "QueryInformationVolume",
+            "D:\\a\\_temp\\packet\\observer-selftest\\probe.txt",
+            "BUFFER OVERFLOW"
+          ],
+          [
+            "QueryOpen",
+            "C:\\Windows\\System32\\apphelp.dll",
+            "FAST IO DISALLOWED"
+          ],
+          [
+            "QueryOpen",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "FAST IO DISALLOWED"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\KernelBase.dll",
+            "BUFFER OVERFLOW"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\KernelBase.dll",
+            "SUCCESS"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\kernel32.dll",
+            "BUFFER OVERFLOW"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\kernel32.dll",
+            "SUCCESS"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\ntdll.dll",
+            "BUFFER OVERFLOW"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\ntdll.dll",
+            "SUCCESS"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\ucrtbase.dll",
+            "BUFFER OVERFLOW"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\ucrtbase.dll",
+            "SUCCESS"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "BUFFER OVERFLOW"
+          ],
+          [
+            "QuerySecurityFile",
+            "C:\\Windows\\System32\\vcruntime140.dll",
+            "SUCCESS"
+          ],
+          [
+            "QuerySecurityFile",
+            "D:\\a\\_temp\\packet\\observer-selftest\\created.txt",
+            "SUCCESS"
+          ],
+          [
+            "QueryStandardInformationFile",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "SUCCESS"
+          ],
+          [
+            "QueryStandardInformationFile",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "SUCCESS"
+          ],
+          [
+            "QueryStatInformation",
+            "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+            "SUCCESS"
+          ],
+          [
+            "QueryStatInformation",
+            "C:\\Windows\\apppatch\\sysmain.sdb",
+            "SUCCESS"
+          ]
+        ],
+        "probe_stderr_tail": "",
+        "qualified": true,
+        "session_alignment": {
+          "aligned": true,
+          "csv_rows": 583285,
+          "mismatch_samples": [],
+          "pml_events": 583285,
+          "row_mismatches": 0
+        },
+        "trace": "trace.txt",
+        "trace_sha256": "d3ced35e7a0d413210b33e8f94c59443938b2049626b578eabd344935674f993"
+      }
+    }
+  },
+  "observed_output_identity": {
+    "mac": {
+      "missing": [],
+      "extra": [],
+      "different": []
+    },
+    "windows-server": {
+      "missing": [],
+      "extra": [],
+      "different": []
+    }
+  },
+  "scope": "ZIP/census/exit/trace hash/header/canonical manifest/full WAV bytes/metadata binding/largest zero payload/cross-runner identity, thirty published input calibration points and declared FIR bounds only; no complete numeric/native/shipping equivalence disposition"
+}

@@ -1,0 +1,122 @@
+{
+  "events": 1232801,
+  "xml_sha256": "e50da0d54c0ab406e49431ff23f189ce28475670358e19dc4978232899f834d8",
+  "residual_writes": [
+    {
+      "n": 124471,
+      "version": 3,
+      "opcode": 68,
+      "time": "2026-10-15T13:30:33.431240800-07:00",
+      "execution": {
+        "ProcessID": "4596",
+        "ThreadID": "27364",
+        "ProcessorID": "13",
+        "KernelTime": "0",
+        "UserTime": "15"
+      },
+      "payload": "003001000000000008E4672686A1FFFF90BAFA0586A1FFFF304D080986A1FFFFE46A0000001000004300060000000000",
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "decoded": {
+        "offset": 77824,
+        "irp": "0xffffa1862667e408",
+        "object": "0xffffa18605faba90",
+        "key": "0xffffa18609084d30",
+        "ttid": 27364,
+        "size": 4096,
+        "flags": 393283,
+        "uninterpreted_tail": "00000000"
+      },
+      "matching_name_records": [
+        1172241
+      ]
+    },
+    {
+      "n": 124519,
+      "version": 3,
+      "opcode": 68,
+      "time": "2026-10-15T13:30:33.431686700-07:00",
+      "execution": {
+        "ProcessID": "4596",
+        "ThreadID": "27364",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "15"
+      },
+      "payload": "0030000000000000D899951A86A1FFFF90BAFA0586A1FFFF304D080986A1FFFFE46A0000001000004300060000000000",
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "decoded": {
+        "offset": 12288,
+        "irp": "0xffffa1861a9599d8",
+        "object": "0xffffa18605faba90",
+        "key": "0xffffa18609084d30",
+        "ttid": 27364,
+        "size": 4096,
+        "flags": 393283,
+        "uninterpreted_tail": "00000000"
+      },
+      "matching_name_records": [
+        1172241
+      ]
+    }
+  ],
+  "relevant_key_name_records": [
+    {
+      "n": 1172241,
+      "version": 2,
+      "opcode": 36,
+      "time": "2026-10-15T13:30:57.683584000-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "4",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA18609084D30",
+        "FileName": "\\Device\\HarddiskVolume3\\$LogFile"
+      }
+    },
+    {
+      "n": 1230939,
+      "version": 2,
+      "opcode": 36,
+      "time": "2026-10-15T13:30:57.737888900-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "13",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFF8B01D5574A40",
+        "FileName": "\\Device\\HarddiskVolume3\\a6-rehearsal\\a6-rh-win-a00d8c054a0d41ccb1e026d735f97dbc\\rehearsal.img"
+      }
+    },
+    {
+      "n": 1231478,
+      "version": 2,
+      "opcode": 36,
+      "time": "2026-10-15T13:30:57.738197500-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "13",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA18609CD4D30",
+        "FileName": "\\Device\\HarddiskVolume4\\$LogFile"
+      }
+    }
+  ],
+  "target_name_keys": [
+    "0xffff8b01d5574a40"
+  ],
+  "scope": "raw record decoding and name evidence only; does not infer process ownership after exit or qualify physical I/O"
+}
