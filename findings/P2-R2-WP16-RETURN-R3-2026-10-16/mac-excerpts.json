@@ -1,0 +1,478 @@
+{
+  "asset/ordinary.wav": {
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmp7d8pji7l/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmp7d8pji7l/in/f0"
+      ],
+      "binary_sha256": "3e4d98a9c9ab4eb315e271f64b3d2bc8e58ab3f462f8dd441291f83ff16f42d9",
+      "complete": true,
+      "dest_after": [
+        "audio.wav",
+        "manifest.json"
+      ],
+      "diagnostic_ok": false,
+      "env": {},
+      "events": [
+        {
+          "line": 47,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 52,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 55,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 59,
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "line": 64,
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "file": "manifest.json",
+          "line": 68,
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "line": 73,
+          "op": "manifest_flush_close",
+          "seq": 6
+        },
+        {
+          "line": 80,
+          "op": "publish_dir_noreplace",
+          "seq": 7
+        }
+      ],
+      "exit": 0,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_thread_end_seen": true,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "no_truncated_paths": true,
+        "no_unparsed_records": true,
+        "per_thread_sequences_contiguous": true,
+        "root_exit_seen": true,
+        "start_gate_seen": true
+      },
+      "observer": "dtrace",
+      "observer_selftest": true,
+      "open_at_exit": [],
+      "owned_stage_after": false,
+      "process_completion": "exited 0; native exit seen",
+      "process_exit_status": 0,
+      "raw_trace_sha256": "1349d9d0cdd601b8f39e3b1d86df1a2b1f4e36ab9c217c51827aae0795bed960",
+      "scenario": "success",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "op": "manifest_flush_close",
+          "seq": 6
+        },
+        {
+          "op": "publish_dir_noreplace",
+          "seq": 7
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "publication_raw_records": [
+      "R 957053099333 33167 90963 78 ingest renameatx_np ret=0 err=0 fd=-2 a=4 l0=72 l1=50|/Users/runner/work/_temp/work/tmp7d8pji7l/out/.DEST.ingest-stage-33167-0|/Users/runner/work/_temp/work/tmp7d8pji7l/out/DEST"
+    ]
+  },
+  "kill/audio-open": {
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmprlvna4iy/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmprlvna4iy/in/f0"
+      ],
+      "binary_sha256": "3e4d98a9c9ab4eb315e271f64b3d2bc8e58ab3f462f8dd441291f83ff16f42d9",
+      "complete": true,
+      "dest_after": [],
+      "diagnostic_ok": false,
+      "env": {
+        "INGEST_KILL_AT": "audio-open"
+      },
+      "events": [
+        {
+          "line": 47,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 52,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 55,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 59,
+          "op": "output_open",
+          "seq": 3
+        }
+      ],
+      "exit": null,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_thread_end_seen": true,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "no_truncated_paths": true,
+        "no_unparsed_records": true,
+        "per_thread_sequences_contiguous": true,
+        "root_exit_seen": true,
+        "start_gate_seen": true
+      },
+      "observer": "dtrace",
+      "observer_selftest": true,
+      "open_at_exit": [
+        "/Users/runner/work/_temp/work/tmprlvna4iy/out/.DEST.ingest-stage-67895-0/audio.wav"
+      ],
+      "owned_stage_after": true,
+      "process_completion": "exited -6; native exit seen (signal 6 sent by the process)",
+      "process_exit_status": -6,
+      "raw_trace_sha256": "bb9d129ddcb24703e1166f0bcc44756c61918bf403f899729b9c58fff61bb327",
+      "scenario": "kill",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "cut": "audio-open",
+          "op": "kill",
+          "seq": 4
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "publication_raw_records": []
+  },
+  "kill/manifest-open": {
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmpz5y2748e/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmpz5y2748e/in/f0"
+      ],
+      "binary_sha256": "3e4d98a9c9ab4eb315e271f64b3d2bc8e58ab3f462f8dd441291f83ff16f42d9",
+      "complete": true,
+      "dest_after": [],
+      "diagnostic_ok": false,
+      "env": {
+        "INGEST_KILL_AT": "manifest-open"
+      },
+      "events": [
+        {
+          "line": 47,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 52,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 55,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 59,
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "line": 64,
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "file": "manifest.json",
+          "line": 68,
+          "op": "output_open",
+          "seq": 5
+        }
+      ],
+      "exit": null,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_thread_end_seen": true,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "no_truncated_paths": true,
+        "no_unparsed_records": true,
+        "per_thread_sequences_contiguous": true,
+        "root_exit_seen": true,
+        "start_gate_seen": true
+      },
+      "observer": "dtrace",
+      "observer_selftest": true,
+      "open_at_exit": [
+        "/Users/runner/work/_temp/work/tmpz5y2748e/out/.DEST.ingest-stage-67905-0/manifest.json"
+      ],
+      "owned_stage_after": true,
+      "process_completion": "exited -6; native exit seen (signal 6 sent by the process)",
+      "process_exit_status": -6,
+      "raw_trace_sha256": "2eef769955286efcbdc0e27e2f6cd693f73382ec47cd28804217a1bdad9a05ae",
+      "scenario": "kill",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "cut": "manifest-open",
+          "op": "kill",
+          "seq": 6
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "publication_raw_records": []
+  },
+  "kill/after-publish": {
+    "native": {
+      "argv": [
+        "/Users/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/observe/release/ingest",
+        "--out",
+        "/Users/runner/work/_temp/work/tmp9v4qpaqn/out/DEST",
+        "--length",
+        "60",
+        "/Users/runner/work/_temp/work/tmp9v4qpaqn/in/f0"
+      ],
+      "binary_sha256": "3e4d98a9c9ab4eb315e271f64b3d2bc8e58ab3f462f8dd441291f83ff16f42d9",
+      "complete": true,
+      "dest_after": [
+        "audio.wav",
+        "manifest.json"
+      ],
+      "diagnostic_ok": false,
+      "env": {
+        "INGEST_KILL_AT": "after-publish"
+      },
+      "events": [
+        {
+          "line": 47,
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "line": 52,
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "line": 55,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "file": "audio.wav",
+          "line": 59,
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "line": 64,
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "file": "manifest.json",
+          "line": 68,
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "line": 73,
+          "op": "manifest_flush_close",
+          "seq": 6
+        },
+        {
+          "line": 80,
+          "op": "publish_dir_noreplace",
+          "seq": 7
+        }
+      ],
+      "exit": null,
+      "failed_ops": [],
+      "integrity": {
+        "end_gate_seen_after_exit": true,
+        "every_thread_end_seen": true,
+        "marks_contiguous": true,
+        "marks_match_seam_log": true,
+        "no_tracer_loss_warning": true,
+        "no_truncated_paths": true,
+        "no_unparsed_records": true,
+        "per_thread_sequences_contiguous": true,
+        "root_exit_seen": true,
+        "start_gate_seen": true
+      },
+      "observer": "dtrace",
+      "observer_selftest": true,
+      "open_at_exit": [],
+      "owned_stage_after": false,
+      "process_completion": "exited -6; native exit seen (signal 6 sent by the process)",
+      "process_exit_status": -6,
+      "raw_trace_sha256": "fae1f2905e6829b1a9e548342c2d98d9ef5c72a8f80d0c17e2ff751d28f33b20",
+      "scenario": "kill",
+      "seam_events": [
+        {
+          "op": "preflight_complete",
+          "seq": 0
+        },
+        {
+          "op": "sources_revalidated",
+          "seq": 1
+        },
+        {
+          "adjacent": true,
+          "exclusive": true,
+          "op": "stage_create",
+          "seq": 2
+        },
+        {
+          "op": "output_open",
+          "seq": 3
+        },
+        {
+          "op": "audio_flush_close",
+          "seq": 4
+        },
+        {
+          "op": "output_open",
+          "seq": 5
+        },
+        {
+          "op": "manifest_flush_close",
+          "seq": 6
+        },
+        {
+          "op": "publish_dir_noreplace",
+          "seq": 7
+        },
+        {
+          "cut": "after-publish",
+          "op": "kill",
+          "seq": 8
+        }
+      ],
+      "setup_notes": [],
+      "unrelated_unchanged": true
+    },
+    "publication_raw_records": [
+      "R 2414448866916 67940 169003 78 ingest renameatx_np ret=0 err=0 fd=-2 a=4 l0=72 l1=50|/Users/runner/work/_temp/work/tmp9v4qpaqn/out/.DEST.ingest-stage-67940-0|/Users/runner/work/_temp/work/tmp9v4qpaqn/out/DEST"
+    ]
+  }
+}

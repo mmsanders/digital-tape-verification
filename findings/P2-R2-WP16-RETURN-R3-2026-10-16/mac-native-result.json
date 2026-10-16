@@ -1,0 +1,108 @@
+{
+  "cases": 1927,
+  "publish": 1641,
+  "flush_close": 3295,
+  "kills": {
+    "kill/after-publish": {
+      "complete_from_raw": true,
+      "dest_after": [
+        "audio.wav",
+        "manifest.json"
+      ],
+      "open_at_exit": [],
+      "publish_ops": 1
+    },
+    "kill/audio-open": {
+      "complete_from_raw": true,
+      "dest_after": [],
+      "open_at_exit": [
+        "/Users/runner/work/_temp/work/tmprlvna4iy/out/.DEST.ingest-stage-67895-0/audio.wav"
+      ],
+      "publish_ops": 0
+    },
+    "kill/manifest-open": {
+      "complete_from_raw": true,
+      "dest_after": [],
+      "open_at_exit": [
+        "/Users/runner/work/_temp/work/tmpz5y2748e/out/.DEST.ingest-stage-67905-0/manifest.json"
+      ],
+      "publish_ops": 0
+    }
+  },
+  "controls": {
+    "drop_child_thread_end": {
+      "rejected": true,
+      "checks": {
+        "whole_records": true,
+        "sequences": true,
+        "thread_ends": false,
+        "root_exit": true
+      }
+    },
+    "drop_forbidden_device_open": {
+      "rejected": true,
+      "checks": {
+        "whole_records": true,
+        "sequences": false,
+        "thread_ends": true,
+        "root_exit": true
+      }
+    },
+    "drop_noreplace_publication": {
+      "rejected": true,
+      "checks": {
+        "whole_records": true,
+        "sequences": false,
+        "thread_ends": true,
+        "root_exit": true
+      }
+    },
+    "drop_probe_open": {
+      "rejected": true,
+      "checks": {
+        "whole_records": true,
+        "sequences": false,
+        "thread_ends": true,
+        "root_exit": true
+      }
+    },
+    "drop_root_exit": {
+      "rejected": true,
+      "checks": {
+        "whole_records": true,
+        "sequences": false,
+        "thread_ends": true,
+        "root_exit": false
+      }
+    },
+    "tracer_reported_drops": {
+      "rejected": true,
+      "checks": {
+        "whole_records": false,
+        "sequences": true,
+        "thread_ends": true,
+        "root_exit": true
+      }
+    },
+    "truncate_before_last_parent_record": {
+      "rejected": true,
+      "checks": {
+        "whole_records": true,
+        "sequences": true,
+        "thread_ends": false,
+        "root_exit": true
+      }
+    },
+    "truncate_mid_trace": {
+      "rejected": true,
+      "checks": {
+        "whole_records": true,
+        "sequences": true,
+        "thread_ends": false,
+        "root_exit": false
+      }
+    }
+  },
+  "errors": [],
+  "scope": "Raw recorded publication and flush/close plus per-record integrity on1927 cases; control rejections independently recomputed; no full native/absence/quality receipts"
+}
