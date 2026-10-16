@@ -1,0 +1,8 @@
+{
+  "family": "dup",
+  "raw_snapshots_checked": 286,
+  "independent_mount_predictions": 286,
+  "independent_PCM_hash_predictions": 0,
+  "errors": [],
+  "scope": "snapshot binding and core/promote raw-state parser/PCM only; not all operation crash-table outcomes"
+}
