@@ -1,0 +1,12 @@
+{
+  "ingest-result.json.gz": {
+    "uncompressed_sha256": "8d4fb1f5f91eecc1c2d735eb21ae5b816ef76db4e5ae9df35a1fcb558d2a94a7",
+    "uncompressed_bytes": 655724,
+    "compressed_sha256": "f06195bf142d58a3cab035f2f0e26dfa11b93b9acb245d5fb7b8cb577b1b1c26"
+  },
+  "native-result.json.gz": {
+    "uncompressed_sha256": "894429cebef4315677323f64be6d740b28b91a10c2b3f6967f9d7b69f47d0037",
+    "uncompressed_bytes": 739082,
+    "compressed_sha256": "0116f1340ebf40a134e7e261af7fb71a08f23e720d86eb4aa424e4beef6b6424"
+  }
+}

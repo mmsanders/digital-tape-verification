@@ -1,0 +1,99 @@
+{
+  "ingest": [
+    {
+      "id": 12069770824,
+      "name": "stage1-packet-macOS-ARM64",
+      "size_in_bytes": 149068809,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12069770824",
+      "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12069770824/zip",
+      "expired": false,
+      "created_at": "2026-10-16T19:15:52Z",
+      "expires_at": "2027-01-14T18:31:34Z",
+      "updated_at": "2026-10-16T19:15:52Z",
+      "digest": "sha256:abd4e2b328540978eeaf330ee8c4ed002f885ffaab33aa6b0a5794db348ad8bc",
+      "workflow_run": {
+        "id": 38948012087,
+        "repository_id": 1351805822,
+        "head_repository_id": 1351805822,
+        "head_branch": "software/p2-r2-ingest1-stage2",
+        "head_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5"
+      }
+    },
+    {
+      "id": 12067900169,
+      "name": "win11-kit",
+      "size_in_bytes": 2576682,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12067900169",
+      "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12067900169/zip",
+      "expired": false,
+      "created_at": "2026-10-16T18:39:31Z",
+      "expires_at": "2027-01-14T18:31:34Z",
+      "updated_at": "2026-10-16T18:39:31Z",
+      "digest": "sha256:32d6643c1cb782dcf6ac540f14b733be556a3b089b49fd53475076b9f5503eac",
+      "workflow_run": {
+        "id": 38948012087,
+        "repository_id": 1351805822,
+        "head_repository_id": 1351805822,
+        "head_branch": "software/p2-r2-ingest1-stage2",
+        "head_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5"
+      }
+    },
+    {
+      "id": 12067860238,
+      "name": "stage1-packet-Windows-X64",
+      "size_in_bytes": 208475330,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12067860238",
+      "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12067860238/zip",
+      "expired": false,
+      "created_at": "2026-10-16T18:40:00Z",
+      "expires_at": "2027-01-14T18:31:34Z",
+      "updated_at": "2026-10-16T18:40:00Z",
+      "digest": "sha256:70bcbe2043bbf07555b8c0a83a2b041f1de3e11e69464acf3eaff1303ca6d774",
+      "workflow_run": {
+        "id": 38948012087,
+        "repository_id": 1351805822,
+        "head_repository_id": 1351805822,
+        "head_branch": "software/p2-r2-ingest1-stage2",
+        "head_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5"
+      }
+    },
+    {
+      "id": 12067549315,
+      "name": "stage1-packet-Linux-X64",
+      "size_in_bytes": 148200442,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12067549315",
+      "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12067549315/zip",
+      "expired": false,
+      "created_at": "2026-10-16T18:41:06Z",
+      "expires_at": "2027-01-14T18:31:34Z",
+      "updated_at": "2026-10-16T18:41:06Z",
+      "digest": "sha256:819fb79989978d666132952945a3ac53772d3ed40efbafd6abbcb58a2dc5496c",
+      "workflow_run": {
+        "id": 38948012087,
+        "repository_id": 1351805822,
+        "head_repository_id": 1351805822,
+        "head_branch": "software/p2-r2-ingest1-stage2",
+        "head_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5"
+      }
+    }
+  ],
+  "subset_fill": {
+    "id": 12086043698,
+    "name": "wp10-subset-v186-fill",
+    "size_in_bytes": 1543564,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12086043698",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12086043698/zip",
+    "expired": false,
+    "created_at": "2026-10-17T02:26:24Z",
+    "expires_at": "2027-01-15T02:23:42Z",
+    "updated_at": "2026-10-17T02:26:24Z",
+    "digest": "sha256:78465c362342a3a17118eefe5b2aa20e18b943323b7ab28ac1c41983dbe90cbe",
+    "workflow_run": {
+      "id": 38994745779,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-wp10-subset-binding",
+      "head_sha": "85b7c3fd0b123ae7e5d54cb9f7bb424fbc613542"
+    }
+  }
+}
