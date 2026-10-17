@@ -12,6 +12,11 @@ byte mutations, candidate-only OS fact boundaries and UTF8 label controls.
 Parser fixtures are explicitly synthetic. They are not real child outcomes.
 No candidate/app/native acceptance follows from selftest success.
 
+Post198 authoring correction: parser_runner now checks actual message selection
+for all invalid reports as well as rejection. Generic fallback/ordinary exit0
+facts cannot be bypassed with a parser-validity flag alone. Inputs/counts/spec
+pins unchanged; import the corrected current publication before disposition.
+
 * oracle.py / cases.py:627 parser inputs (valid, malformed/stale/unknown, wrong
   subject/payload/count/exit/order, exact overages, optional progress and make
   diagnostic stderr). Source/folder ordinals start at0 per INGEST1.

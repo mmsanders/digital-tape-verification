@@ -1,6 +1,6 @@
 import copy,hashlib,json
 from pathlib import Path
-import cases,oracle,shell_oracle
+import cases,oracle,shell_oracle,parser_runner
 
 def run():
     root=Path(__file__).parent;pins=json.loads((root/'pins.json').read_text())
@@ -10,8 +10,9 @@ def run():
     for c in rows:
         r=oracle.parse(bytes.fromhex(c['raw_hex']),c['tool'],c['version'],c['nonce'],c['exit'],c['folders'])
         assert (r is not None)==c['valid'],c['name']
+        assert list(oracle.message(c['tool'],c['exit'],r,c['pair']))==c['message'],c['name']
         if c['valid']:
-            valid+=1;assert list(oracle.message(c['tool'],c['exit'],r,c['pair']))==c['message'],c['name']
+            valid+=1
         else:invalid+=1
     base=dict(whole=True,removable_or_sd=True,nonvirtual=True,bytes=64000000000,not_system_boot_swap=True,mounts=[])
     assert oracle.candidate(base)=='candidate'
@@ -52,7 +53,12 @@ def run():
         shell_controls+=1
     # Mount B failure does not prevent reading the independently mounted A side.
     oracle.findings([dict(f='MOUNT',side='B',result='TAPE_ERR_CRC'),dict(f='READ_ERROR',side='A',frame=0)])
-    result=dict(scope='AUTHORED/SYNTHETIC; no Product acceptance',parser_inputs=len(rows),valid=valid,rejected=invalid,discovery_controls=discoveries,label_controls=6,shell_predicate_controls=shell_controls,closed_id_examples=sum(len(v) for t in oracle.IDS.values() for v in t.values()))
+    expected=[dict(valid=c['valid'],message=c['message']) for c in rows];parser_runner.compare(rows,expected)
+    bad=copy.deepcopy(expected);i=next(i for i,c in enumerate(rows) if not c['valid'] and c['exit']!=0);bad[i]['message']=['protected','0/wrong.wav']
+    try:parser_runner.compare(rows,bad)
+    except AssertionError:pass
+    else:raise AssertionError('invalid report selected an ID-specific message without detection')
+    result=dict(scope='AUTHORED/SYNTHETIC; no Product acceptance',parser_inputs=len(rows),valid=valid,rejected=invalid,discovery_controls=discoveries,label_controls=6,shell_predicate_controls=shell_controls,invalid_message_selector_control='REJECTED after honest adapter baseline',closed_id_examples=sum(len(v) for t in oracle.IDS.values() for v in t.values()))
     print(json.dumps(result,indent=2));return result
 
 if __name__=='__main__':run()

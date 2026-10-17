@@ -1,0 +1,56 @@
+{
+  "family": "respool",
+  "scope": "new operation predicates only; prior exact binding/model/PCM facts carry; no full replay",
+  "rows": {
+    "v3_003/pass1": {
+      "runs": 222,
+      "contexts": 20611,
+      "bases": [
+        "fixture",
+        "projection:920f4aba3a05319e4a384e3589590bc0ba0b41758ac08143edff10d908deff76",
+        "projection:ffe52e8a4f0d1d46e44a6fa5b667d58b7bf320a9be96336825f1c44665a3ddef"
+      ],
+      "states": {
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"pass2\",\"sequence\":702,\"sideA_metadata_preserved\":true}": 6,
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"initial\",\"sequence\":20,\"sideA_metadata_preserved\":true}": 20583,
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"pass1\",\"sequence\":701,\"sideA_metadata_preserved\":true}": 22
+      },
+      "complete_fixture_controls": 1
+    },
+    "v3_003/pass2": {
+      "runs": 264,
+      "contexts": 42,
+      "bases": [
+        "fixture",
+        "projection:2bcce6aa8712277ab1a853d4188afdaf00ee8741a53b6516a3527eb7e9a7f628",
+        "projection:8646527ea4d2e4403e16775706b1af80a0c4aa11904f3f28b5a4ed42a6d5f897"
+      ],
+      "states": {
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"initial\",\"sequence\":701,\"sideA_metadata_preserved\":true}": 32,
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"pass1\",\"sequence\":702,\"sideA_metadata_preserved\":true}": 7,
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"pass2\",\"sequence\":704,\"sideA_metadata_preserved\":true}": 1,
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"initial\",\"sequence\":702,\"sideA_metadata_preserved\":true}": 1,
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"pass1\",\"sequence\":703,\"sideA_metadata_preserved\":true}": 1
+      },
+      "complete_fixture_controls": 1
+    },
+    "no_lower_run/pass1": {
+      "runs": 27,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:2341d7f9edd7838324e6bbbfa87ab064234b621a2f9884f48223824fd8dcc389",
+        "projection:51ebe96859491d368f7348eed09eb95d0b3664f83593c6d0227c8b90b6e9acd2"
+      ],
+      "states": {
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"decline-pass1\",\"sequence\":701,\"sideA_metadata_preserved\":true}": 5,
+        "{\"audio_execution\":\"not retained in remount; trace copy/live-range proof reviewed separately\",\"layout\":\"initial\",\"sequence\":20,\"sideA_metadata_preserved\":true}": 14
+      },
+      "complete_fixture_controls": 1
+    }
+  },
+  "failures": [],
+  "causal_controls": {
+    "actual-byte-mutant": "REJECTED: A indices changed"
+  }
+}

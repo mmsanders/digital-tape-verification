@@ -1,0 +1,11 @@
+{
+  "scope": "actual trace payload/live-range/durable-before-index predicates, prior model replay carried",
+  "traces": 323,
+  "copy_units": 357241,
+  "index_commits": 69,
+  "failures": [],
+  "controls": {
+    "wrong-copy-byte": "REJECTED: copied PCM byte mismatch",
+    "below-H-copy": "REJECTED: ('copy overlaps protected/live set', 2048, 10, [10, 11])"
+  }
+}

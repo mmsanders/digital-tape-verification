@@ -1,0 +1,51 @@
+{
+  "core": {
+    "scenario_rows": 20,
+    "run_records": 1278,
+    "contexts": 102992,
+    "fixture_complete_controls": 20,
+    "errors": 0
+  },
+  "promote": {
+    "scenario_rows": 26,
+    "run_records": 1266,
+    "contexts": 952,
+    "fixture_complete_controls": 26,
+    "errors": 0
+  },
+  "dup": {
+    "scenario_rows": 14,
+    "run_records": 938,
+    "contexts": 633,
+    "fixture_complete_controls": 14,
+    "errors": 0
+  },
+  "respool": {
+    "scenario_rows": 3,
+    "run_records": 513,
+    "contexts": 20672,
+    "fixture_complete_controls": 3,
+    "errors": 0
+  },
+  "load": {
+    "command_contexts": 31216,
+    "states": {
+      "new/new": 20,
+      "empty/empty": 31183,
+      "empty/new": 13
+    },
+    "complete_controls": 1,
+    "causal_control": {
+      "impossible-pair": "REJECTED: A committed without the live source B timeline"
+    }
+  },
+  "respool-copy": {
+    "traces": 323,
+    "copy_units": 357241,
+    "index_commits": 69,
+    "controls": {
+      "wrong-copy-byte": "REJECTED: copied PCM byte mismatch",
+      "below-H-copy": "REJECTED: ('copy overlaps protected/live set', 2048, 10, [10, 11])"
+    }
+  }
+}

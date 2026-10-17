@@ -1,0 +1,406 @@
+{
+  "family": "promote",
+  "scope": "new operation predicates only; prior exact binding/model/PCM facts carry; no full replay",
+  "rows": {
+    "fresh_alloc_full/0": {
+      "runs": 93,
+      "contexts": 69,
+      "bases": [
+        "fixture",
+        "projection:17b51a16e75a98e980a397ff57a8703854db913c05a39dad28b8a57154249b0d",
+        "projection:d210197581ea47f552a3eee2c3611fe2a74b95c7cc847412760569fca153b757"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 29,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "fresh_adopt_full/0": {
+      "runs": 75,
+      "contexts": 54,
+      "bases": [
+        "fixture",
+        "projection:1a2ece09f7a44b501663e543c5e710f46690dec6c85da24e411449b1143f7612",
+        "projection:cfdf75074ede80923dd9a313c262397bcd378ae22a07b38fe58e21026be76c2b"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 14,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "first_use_s0/0": {
+      "runs": 45,
+      "contexts": 34,
+      "bases": [
+        "fixture",
+        "projection:57fb70724df0df74618c4715c30d710f7b2d4594f01c3392691ac51d9be4ac80",
+        "projection:ca385dd917a7264001a9487a82aad6984325dce28cce93661afb8831366450a4"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":3,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":2,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 10,
+        "{\"H\":0,\"a\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":1,\"permitted_row\":\"FRESH-first-use\",\"resume\":[],\"stage\":0}": 14
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step4_primary_only/1": {
+      "runs": 92,
+      "contexts": 76,
+      "bases": [
+        "fixture",
+        "projection:ccf4220ef40f41d871ce660daa326a5d9030f9319884c4db475b6373e70a3988",
+        "projection:d210197581ea47f552a3eee2c3611fe2a74b95c7cc847412760569fca153b757"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 36,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step4_mirror_only/1": {
+      "runs": 92,
+      "contexts": 76,
+      "bases": [
+        "fixture",
+        "projection:152dacb6f59792d6c2b24664e00af2d342baf13e02822117bcfe0c288f993258",
+        "projection:d210197581ea47f552a3eee2c3611fe2a74b95c7cc847412760569fca153b757"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 36,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step4_primary_current_mirror_stale/1": {
+      "runs": 92,
+      "contexts": 76,
+      "bases": [
+        "fixture",
+        "projection:d210197581ea47f552a3eee2c3611fe2a74b95c7cc847412760569fca153b757",
+        "projection:e4f3fa8c6b8916cf7864e71913906fa4e81eb5ac3323d224884411a1ef8b49d5"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 36,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step4_mirror_current_primary_stale/1": {
+      "runs": 92,
+      "contexts": 76,
+      "bases": [
+        "fixture",
+        "projection:aed3fb4ad68b198dd61a90e14b4d0411e8b23b730c93eab2a396ecaf0934fca9",
+        "projection:d210197581ea47f552a3eee2c3611fe2a74b95c7cc847412760569fca153b757"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 36,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step5_decline_primary_only/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:69246c87b95887940cbdec3ba04c47cb6741e0012c6eabf5ae0bbe6cd3e8083d",
+        "projection:d44f7855cdaed7a0b5ed0c5d797bb6304a8e4170afe04421b7ac81ad172e16c0"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":3,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":2,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step5_decline_mirror_only/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:63c0ae0d78291784ad9a476d84678dea0a5aa792a4fd35d33a92f1ae21a54b14",
+        "projection:d44f7855cdaed7a0b5ed0c5d797bb6304a8e4170afe04421b7ac81ad172e16c0"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":3,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":2,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step5_decline_primary_current_mirror_stale/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:c293299342576de50fa981c933ee95f9aaf1ff24c41f03aab92022fb4af31a81",
+        "projection:d44f7855cdaed7a0b5ed0c5d797bb6304a8e4170afe04421b7ac81ad172e16c0"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":3,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":2,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step5_decline_mirror_current_primary_stale/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:cddf2133c07e4819f5684cc480bfd18a5a3839910f78a44f7b43db8ce72568d9",
+        "projection:d44f7855cdaed7a0b5ed0c5d797bb6304a8e4170afe04421b7ac81ad172e16c0"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":3,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":2,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step9_primary_only/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:a49e00c8d66b365a712e11600a3d0701eb93d2064b4198ca026659e98c4f9acb",
+        "projection:bf6ac00c779f84d4b7b163d3c9f7ce906075d0c778a30a15f2830329462f84bb"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step9_mirror_only/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:8753ed7d89470db809fe9d2fc889b2ab1dbb9d1e3b890b51a4cd4b6dd7a53dc0",
+        "projection:bf6ac00c779f84d4b7b163d3c9f7ce906075d0c778a30a15f2830329462f84bb"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step9_primary_current_mirror_stale/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:1b195622c0f9f7364c2b551bdccf55f748a5ce63e938677bb4133342ad4f547c",
+        "projection:bf6ac00c779f84d4b7b163d3c9f7ce906075d0c778a30a15f2830329462f84bb"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "closure_step9_mirror_current_primary_stale/1": {
+      "runs": 20,
+      "contexts": 19,
+      "bases": [
+        "fixture",
+        "projection:0a330cf41e9a9e66daa6bc8b4130fc933f45cddbbd48a2b586ab724dc6c39575",
+        "projection:bf6ac00c779f84d4b7b163d3c9f7ce906075d0c778a30a15f2830329462f84bb"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_1/0": {
+      "runs": 94,
+      "contexts": 64,
+      "bases": [
+        "fixture",
+        "projection:17b51a16e75a98e980a397ff57a8703854db913c05a39dad28b8a57154249b0d",
+        "projection:b158f25060bb8b569fbd211e8fc5f2a762a4c115a6924ffbef2559198b48d077"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 24,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_2/0": {
+      "runs": 95,
+      "contexts": 60,
+      "bases": [
+        "fixture",
+        "projection:b05bde183f61110a5815b6599a9ac716e6121a69b0471261107b4fdec50cccc0",
+        "projection:bc3228479b516be2f72a30b411899f81a85d39516b5d435e7ef70dfb7720f6b2"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 20,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_3/0": {
+      "runs": 76,
+      "contexts": 50,
+      "bases": [
+        "fixture",
+        "projection:34979a5ff219b192ccb25f4e274ef12982a9e3f07d9eebd416355b00182e82ff",
+        "projection:b91a1c53749b60f5aa4803fb834c1d594c1a820a47037620e05bdaaff3d52656"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_4/0": {
+      "runs": 76,
+      "contexts": 50,
+      "bases": [
+        "fixture",
+        "projection:25afd3277e7cce41b8d6d61b413a9ef94a03ea597a21636546b41d5f40219c0b",
+        "projection:3244f4a93987102faca4447e3520b198446b8885b4563f87681ad1230deb1e34"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 15,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":2,\"a\":\"06bfb795792399bc1d51735b9fcc4c903d27975bfbad6a0aa7f879d1402d6fab\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":10,\"permitted_row\":\"FRESH-A-fallback-B-old-or-phase1\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_5/0": {
+      "runs": 51,
+      "contexts": 34,
+      "bases": [
+        "fixture",
+        "projection:049492009cab390105540081e3e577a3b6518072c0638f36a39c797582b7c41f",
+        "projection:705c99d2f6fec6c53fe3f24a10ad540a6b47f0d181f92c405c8961e48494004c"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 9,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_6/0": {
+      "runs": 50,
+      "contexts": 29,
+      "bases": [
+        "fixture",
+        "projection:6dba6c06dfd927af44632e7b13709fcd4026e793320cce9dcba6abb7bd300c26",
+        "projection:705c99d2f6fec6c53fe3f24a10ad540a6b47f0d181f92c405c8961e48494004c"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 10,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 4,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_7/0": {
+      "runs": 33,
+      "contexts": 18,
+      "bases": [
+        "fixture",
+        "projection:6dba6c06dfd927af44632e7b13709fcd4026e793320cce9dcba6abb7bd300c26",
+        "projection:ee0a36f566095f009bce57b4a6a602b00480c02e90d0a1c01869d880ca5848f0"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 8,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 4,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step8-no-copy\",\"resume\":[2],\"stage\":1}": 6
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_8/0": {
+      "runs": 19,
+      "contexts": 13,
+      "bases": [
+        "fixture",
+        "projection:bf6ac00c779f84d4b7b163d3c9f7ce906075d0c778a30a15f2830329462f84bb",
+        "projection:e0bf328a39572e64c6abbceb89cf49bd6400a87a1e4afddd3d1b5d119893200f"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 9,
+        "{\"H\":4,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":11,\"permitted_row\":\"RESUME-step9\",\"resume\":[3],\"stage\":1}": 4
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_9/0": {
+      "runs": 19,
+      "contexts": 13,
+      "bases": [
+        "fixture",
+        "projection:89fcd1031c5c880ef4260360727e8eb001a23627365d6a8102ae0bfcdd04daa7",
+        "projection:d44f7855cdaed7a0b5ed0c5d797bb6304a8e4170afe04421b7ac81ad172e16c0"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":3,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 9,
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":2,\"permitted_row\":\"RESUME-step5\",\"resume\":[1],\"stage\":1}": 4
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_10/0": {
+      "runs": 6,
+      "contexts": 4,
+      "bases": [
+        "fixture",
+        "projection:a1c13676ddf9358b57128a5d3d05f9a846d75a45a7789f2dc951089386a51cf3"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":3,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 4
+      },
+      "complete_fixture_controls": 1
+    },
+    "seed_11/0": {
+      "runs": 6,
+      "contexts": 4,
+      "bases": [
+        "fixture",
+        "projection:4141601d629a01c43bc17bc3931e26e97623f891fe9a29320711a5775b23c515"
+      ],
+      "states": {
+        "{\"H\":1,\"a\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"b\":\"ba890e4418d783c214da5180e4d50216e0fc0316c99449fd15fd98b413999577\",\"generation\":12,\"permitted_row\":\"NOTHING-TO-DO-complete-or-decline\",\"resume\":[],\"stage\":0}": 4
+      },
+      "complete_fixture_controls": 1
+    }
+  },
+  "failures": [],
+  "causal_controls": {
+    "actual-byte-mutant": "REJECTED: timeline corrupted"
+  }
+}
