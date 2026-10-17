@@ -34,7 +34,7 @@ def static(app,out):
     control=Path(t)/'ordinary';control.write_text('ordinary file only\n')
     p=dst/'src/jobdir.rs'
     if snippet:
-     s=snippet.replace('CONTROL_FILE',str(control));p.write_text(p.read_text()+'\n'+s+'\n' if placement=='append' else s+'\n'+p.read_text())
+     s=snippet.replace('CONTROL_FILE',str(control));p.write_text(p.read_text()+'\n'+s+'\n' if placement=='append' else p.read_text().replace('#[cfg(test)]',s+'\n#[cfg(test)]',1))
     r=subprocess.run(['python3',checker,'--root',str(dst)],capture_output=True,text=True)
     rows.append(dict(placement=placement,case=name,exit=r.returncode,stdout=r.stdout,stderr=r.stderr))
  result['rows']=rows;(out/'static.json').write_text(json.dumps(result,indent=2)+'\n')
