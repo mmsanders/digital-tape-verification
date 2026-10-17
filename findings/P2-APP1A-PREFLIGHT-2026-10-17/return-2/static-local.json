@@ -6,70 +6,70 @@
       "placement": "append",
       "case": "baseline",
       "exit": 0,
-      "stdout": "G1 static: PASS (0 findings) on /tmp/tmprtcw2fce/app\n",
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpmxsfbbpp/app\n",
       "stderr": ""
     },
     {
       "placement": "append",
       "case": "ordinary",
       "exit": 0,
-      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpagr8b6me/app\n",
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpd74xdkff/app\n",
       "stderr": ""
     },
     {
       "placement": "append",
       "case": "unix-read",
       "exit": 0,
-      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpbxruio3a/app\n",
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmp7hpirlok/app\n",
       "stderr": ""
     },
     {
       "placement": "append",
       "case": "windows-alias",
       "exit": 0,
-      "stdout": "G1 static: PASS (0 findings) on /tmp/tmp44qp6g_k/app\n",
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmph5s5c1ld/app\n",
       "stderr": ""
     },
     {
       "placement": "append",
       "case": "partition-write",
       "exit": 0,
-      "stdout": "G1 static: PASS (0 findings) on /tmp/tmp9yytoob9/app\n",
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpxqfvdnjq/app\n",
       "stderr": ""
     },
     {
       "placement": "prepend",
       "case": "baseline",
       "exit": 0,
-      "stdout": "G1 static: PASS (0 findings) on /tmp/tmprxjcg9vj/app\n",
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmp18jr6_1t/app\n",
       "stderr": ""
     },
     {
       "placement": "prepend",
       "case": "ordinary",
       "exit": 1,
-      "stdout": "G1-FS  src/jobdir.rs:1  open(\"/tmp/tmpb8znf4wq/ordinary\"): path argument is not this module's own root\nG1 static: FAIL (1 findings) on /tmp/tmpb8znf4wq/app\n",
+      "stdout": "G1-FS  src/jobdir.rs:90  open(\"/tmp/tmpm5imgfwn/ordinary\"): path argument is not this module's own root\nG1 static: FAIL (1 findings) on /tmp/tmpm5imgfwn/app\n",
       "stderr": ""
     },
     {
       "placement": "prepend",
       "case": "unix-read",
       "exit": 1,
-      "stdout": "G1-DEV  src/jobdir.rs:1  /dev/\nG1-DEV  src/jobdir.rs:1  rdisk\nG1-FS  src/jobdir.rs:1  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on /tmp/tmp2br6vqc0/app\n",
+      "stdout": "G1-DEV  src/jobdir.rs:90  /dev/\nG1-DEV  src/jobdir.rs:90  rdisk\nG1-FS  src/jobdir.rs:90  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on /tmp/tmps8jry34n/app\n",
       "stderr": ""
     },
     {
       "placement": "prepend",
       "case": "windows-alias",
       "exit": 1,
-      "stdout": "G1-DEV  src/jobdir.rs:1  \\\\.\\\nG1-DEV  src/jobdir.rs:1  PhysicalDrive\nG1-FS  src/jobdir.rs:1  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on /tmp/tmpm2r90yqi/app\n",
+      "stdout": "G1-DEV  src/jobdir.rs:90  \\\\.\\\nG1-DEV  src/jobdir.rs:90  PhysicalDrive\nG1-FS  src/jobdir.rs:90  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on /tmp/tmp92ga21v6/app\n",
       "stderr": ""
     },
     {
       "placement": "prepend",
       "case": "partition-write",
       "exit": 1,
-      "stdout": "G1-DEV  src/jobdir.rs:1  /dev/\nG1-FS  src/jobdir.rs:1  open(target): path argument is not this module's own root\nG1 static: FAIL (2 findings) on /tmp/tmphdntmphz/app\n",
+      "stdout": "G1-DEV  src/jobdir.rs:90  /dev/\nG1-FS  src/jobdir.rs:90  open(target): path argument is not this module's own root\nG1 static: FAIL (2 findings) on /tmp/tmp33z3nhie/app\n",
       "stderr": ""
     }
   ]

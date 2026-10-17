@@ -84,6 +84,6 @@ def main():
   source=sources/'assets/ordinary.wav';assert hashlib.sha256(source.read_bytes()).hexdigest()=='d36663d1e4f05abaac699a6c14e0fa86724db9b4decdb8c96abe0c9d1f645821'
   processout=a.out/'ingest-process';result={'head':HEAD1,'sha256':sha,'version':version,'scope':'CI rebuilt source head, not byte identity with Software shipping artifact'}
   try:result['rows']=ingest_process.run(binary,sha,version,source,processout);result['result']='PASS bounded process smoke'
-  except AssertionError as e:result['result']='CORRECTION';result['assertion']=str(e)
+  except AssertionError as e:result['result']='CORRECTION';result['assertion']=str(e);import traceback;result['traceback']=traceback.format_exc()
   (a.out/'ingest-summary.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 if __name__=='__main__':main()

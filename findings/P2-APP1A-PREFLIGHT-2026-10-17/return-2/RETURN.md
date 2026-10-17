@@ -40,7 +40,10 @@ The unchanged published fail-fast runner is invoked first; a recording adapter
 then captures every row without changing snippets or expected judgments.
 `static-local.json` records the completed local run. CI repeats the actual gate.
 Software must repair cfg scoping and return real positive/negative results; a
-literal search over only a prefix cannot substantiate G1's static claim.
+literal search over only a prefix cannot substantiate G1's static claim. The
+before-marker ordinary-file positive is also rejected by the gate's root policy;
+the after-marker positive succeeds because the entire suffix is skipped. Both
+results are retained rather than presenting the ignored positive as analyzer coverage.
 
 ## V196-02: exact shipping Windows allocation abort
 
@@ -90,8 +93,24 @@ S2/S3 are unbuilt, not silently treated as app PASS. Adapter tests actual validi
 and exact rendered message; exit0 published-pair validation lies outside this
 parser/message unit binding and is not inferred from it. Parser source hashes,
 all input bytes, expected judgments and actual results go to parser.json.
-Duplicate JSON keys and insignificant JSON whitespace are known source-level
-concerns; the exact-head CI reproduction confirms and records their actual results.
+Actual CI39074757652 at publication head106afd3 measured281 ingest parser cases:
+6 validity mismatches, including rejection of valid JOINED_PEAK boundary-array
+subject and acceptance of duplicate keys, insignificant whitespace, out-of-range
+folder ordinal, path traversal component, and a decomposed non-NFC name. The last
+three also select named unusable-file messages instead of generic fallback
+(3 rendered-message mismatches). These are actual report.rs/messages.rs bindings,
+not an oracle-only synthetic run. Software must correct validation and preserve
+valid reports; the remaining346 corpus cases are tapectl scope and not counted.
+
+The same CI exposed a Verification harness error: ingest_process.py compared raw
+stdout using different DEST arguments, whose success summaries correctly include
+the path. That assertion is withdrawn as a Product finding. This publication
+corrects only the invocation mechanics: use the same DEST for both runs, move each
+published pair to its retained result directory, and preserve exact stdout/stderr
+and pair-byte equality assertions. No expected outcome is relaxed. The original
+eb94f18b handoff must therefore be followed by this published single-file correction;
+the final handoff comment identifies the corrected package tree. The independent
+normative parser inputs and expectations are unchanged.
 
 CI also builds #454's shipping configuration, authenticates the frozen Stage1
 source pack, and runs the unchanged independent ingest_process.py smoke using
