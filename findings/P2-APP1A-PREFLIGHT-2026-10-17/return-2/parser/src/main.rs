@@ -1,0 +1,3 @@
+mod report;mod messages;
+use std::io::{self,BufRead};
+fn main(){for l in io::stdin().lock().lines(){let c:serde_json::Value=serde_json::from_str(&l.unwrap()).unwrap();let h=c["raw_hex"].as_str().unwrap();let b:Vec<u8>=(0..h.len()).step_by(2).map(|i|u8::from_str_radix(&h[i..i+2],16).unwrap()).collect();let r=report::read(&b,report::Tool::Ingest,c["nonce"].as_str().unwrap(),c["version"].as_str().unwrap(),c["exit"].as_i64().unwrap() as i32);let names=|i:usize|c["folders"][i].as_str().map(str::to_owned);let m=messages::ingest(c["exit"].as_i64().unwrap() as i32,&r,&names);println!("{}",serde_json::json!({"valid":matches!(r,report::Reading::Usable{..}),"rendered":m}));}}

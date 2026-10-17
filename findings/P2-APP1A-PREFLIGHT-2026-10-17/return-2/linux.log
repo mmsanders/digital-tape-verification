@@ -1,0 +1,355 @@
+﻿2026-10-17T14:46:15.0185316Z Current runner version: '2.337.0'
+2026-10-17T14:46:15.0209219Z ##[group]Runner Image Provisioner
+2026-10-17T14:46:15.0210206Z Hosted Compute Agent
+2026-10-17T14:46:15.0210809Z Version: 20261012.601
+2026-10-17T14:46:15.0211423Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-17T14:46:15.0212260Z Build Date: 2026-10-12T17:48:21Z
+2026-10-17T14:46:15.0213353Z Worker ID: {8d7f8456-99db-49b9-9db4-eb132faf5048}
+2026-10-17T14:46:15.0214158Z Region: westus2
+2026-10-17T14:46:15.0214724Z Cloud: Azure
+2026-10-17T14:46:15.0215273Z ##[endgroup]
+2026-10-17T14:46:15.0216843Z ##[group]Operating System
+2026-10-17T14:46:15.0217507Z Ubuntu
+2026-10-17T14:46:15.0218125Z 24.04.5
+2026-10-17T14:46:15.0218679Z LTS
+2026-10-17T14:46:15.0219252Z ##[endgroup]
+2026-10-17T14:46:15.0219930Z ##[group]Runner Image
+2026-10-17T14:46:15.0220540Z Image: ubuntu-24.04
+2026-10-17T14:46:15.0221126Z Version: 20261012.334.1
+2026-10-17T14:46:15.0222772Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-17T14:46:15.0224536Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-17T14:46:15.0225516Z ##[endgroup]
+2026-10-17T14:46:15.0226779Z ##[group]GITHUB_TOKEN Permissions
+2026-10-17T14:46:15.0228696Z Actions: read
+2026-10-17T14:46:15.0229403Z Contents: read
+2026-10-17T14:46:15.0229981Z Metadata: read
+2026-10-17T14:46:15.0230566Z ##[endgroup]
+2026-10-17T14:46:15.0233055Z Secret source: Actions
+2026-10-17T14:46:15.0234033Z Cache mode: write
+2026-10-17T14:46:15.0234822Z Prepare workflow directory
+2026-10-17T14:46:15.0641394Z Prepare all required actions
+2026-10-17T14:46:15.0691531Z Getting action download info
+2026-10-17T14:46:15.4196542Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-17T14:46:15.5096146Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-17T14:46:15.5956463Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-17T14:46:15.8275424Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-17T14:46:16.0328882Z Complete job name: shipping exhaustion, case 1926 (ubuntu-latest)
+2026-10-17T14:46:16.1037501Z ##[group]Run git config --global core.autocrlf false
+2026-10-17T14:46:16.1038300Z [36;1mgit config --global core.autocrlf false[0m
+2026-10-17T14:46:16.1287746Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-17T14:46:16.1288783Z ##[endgroup]
+2026-10-17T14:46:16.1780758Z ##[group]Run actions/checkout@v4
+2026-10-17T14:46:16.1781348Z with:
+2026-10-17T14:46:16.1781826Z   ref: 9c0fe71c9cf37fceb1cea0c123f03105fd0330c0
+2026-10-17T14:46:16.1782677Z   repository: mmsanders/Digital-Tape
+2026-10-17T14:46:16.1786706Z   token: ***
+2026-10-17T14:46:16.1787139Z   ssh-strict: true
+2026-10-17T14:46:16.1787569Z   ssh-user: git
+2026-10-17T14:46:16.1788014Z   persist-credentials: true
+2026-10-17T14:46:16.1788578Z   clean: true
+2026-10-17T14:46:16.1789016Z   sparse-checkout-cone-mode: true
+2026-10-17T14:46:16.1789529Z   fetch-depth: 1
+2026-10-17T14:46:16.1789951Z   fetch-tags: false
+2026-10-17T14:46:16.1790388Z   show-progress: true
+2026-10-17T14:46:16.1790823Z   lfs: false
+2026-10-17T14:46:16.1791225Z   submodules: false
+2026-10-17T14:46:16.1791667Z   set-safe-directory: true
+2026-10-17T14:46:16.1792176Z   allow-unsafe-pr-checkout: false
+2026-10-17T14:46:16.1792985Z ##[endgroup]
+2026-10-17T14:46:16.2878462Z Syncing repository: mmsanders/Digital-Tape
+2026-10-17T14:46:16.2881523Z ##[group]Getting Git version info
+2026-10-17T14:46:16.2883327Z Working directory is '/home/runner/work/Digital-Tape/Digital-Tape'
+2026-10-17T14:46:16.2885489Z [command]/usr/bin/git version
+2026-10-17T14:46:16.2886431Z git version 2.55.0
+2026-10-17T14:46:16.2889459Z ##[endgroup]
+2026-10-17T14:46:16.2900773Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/a7f676da-7888-416a-ab72-00cb99b1bb20/.gitconfig'
+2026-10-17T14:46:16.2912906Z Temporarily overriding HOME='/home/runner/work/_temp/a7f676da-7888-416a-ab72-00cb99b1bb20' before making global git config changes
+2026-10-17T14:46:16.2915565Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-17T14:46:16.2918549Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Digital-Tape/Digital-Tape
+2026-10-17T14:46:16.2964180Z Deleting the contents of '/home/runner/work/Digital-Tape/Digital-Tape'
+2026-10-17T14:46:16.2991351Z ##[group]Initializing the repository
+2026-10-17T14:46:16.2992796Z [command]/usr/bin/git init /home/runner/work/Digital-Tape/Digital-Tape
+2026-10-17T14:46:16.3099326Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-17T14:46:16.3101107Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-17T14:46:16.3102912Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-17T14:46:16.3104016Z hint: call:
+2026-10-17T14:46:16.3104793Z hint:
+2026-10-17T14:46:16.3105547Z hint: 	git config --global init.defaultBranch <name>
+2026-10-17T14:46:16.3106340Z hint:
+2026-10-17T14:46:16.3107409Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-17T14:46:16.3108667Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-17T14:46:16.3109423Z hint:
+2026-10-17T14:46:16.3109838Z hint: 	git branch -m <name>
+2026-10-17T14:46:16.3110308Z hint:
+2026-10-17T14:46:16.3110946Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-17T14:46:16.3112193Z Initialized empty Git repository in /home/runner/work/Digital-Tape/Digital-Tape/.git/
+2026-10-17T14:46:16.3117323Z [command]/usr/bin/git remote add origin https://github.com/mmsanders/Digital-Tape
+2026-10-17T14:46:16.3170429Z ##[endgroup]
+2026-10-17T14:46:16.3171853Z ##[group]Disabling automatic garbage collection
+2026-10-17T14:46:16.3174937Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-17T14:46:16.3206746Z ##[endgroup]
+2026-10-17T14:46:16.3207475Z ##[group]Setting up auth
+2026-10-17T14:46:16.3216126Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-17T14:46:16.3252822Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-17T14:46:16.3652237Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-17T14:46:16.3685277Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-17T14:46:16.3930150Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-17T14:46:16.3967699Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-17T14:46:16.4192963Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-17T14:46:16.4237343Z ##[endgroup]
+2026-10-17T14:46:16.4238557Z ##[group]Fetching the repository
+2026-10-17T14:46:16.4247422Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 9c0fe71c9cf37fceb1cea0c123f03105fd0330c0
+2026-10-17T14:46:17.4319443Z From https://github.com/mmsanders/Digital-Tape
+2026-10-17T14:46:17.4320325Z  * branch            9c0fe71c9cf37fceb1cea0c123f03105fd0330c0 -> FETCH_HEAD
+2026-10-17T14:46:17.4333950Z ##[endgroup]
+2026-10-17T14:46:17.4334965Z ##[group]Determining the checkout info
+2026-10-17T14:46:17.4335643Z ##[endgroup]
+2026-10-17T14:46:17.4336108Z [command]/usr/bin/git sparse-checkout disable
+2026-10-17T14:46:17.4402306Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-17T14:46:17.4435444Z ##[group]Checking out the ref
+2026-10-17T14:46:17.4439509Z [command]/usr/bin/git checkout --progress --force 9c0fe71c9cf37fceb1cea0c123f03105fd0330c0
+2026-10-17T14:46:17.6716839Z Note: switching to '9c0fe71c9cf37fceb1cea0c123f03105fd0330c0'.
+2026-10-17T14:46:17.6717517Z 
+2026-10-17T14:46:17.6717936Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-17T14:46:17.6718712Z changes and commit them, and you can discard any commits you make in this
+2026-10-17T14:46:17.6719549Z state without impacting any branches by switching back to a branch.
+2026-10-17T14:46:17.6720067Z 
+2026-10-17T14:46:17.6720485Z If you want to create a new branch to retain commits you create, you may
+2026-10-17T14:46:17.6721307Z do so (now or later) by using -c with the switch command. Example:
+2026-10-17T14:46:17.6721760Z 
+2026-10-17T14:46:17.6722010Z   git switch -c <new-branch-name>
+2026-10-17T14:46:17.6722587Z 
+2026-10-17T14:46:17.6722960Z Or undo this operation with:
+2026-10-17T14:46:17.6723381Z 
+2026-10-17T14:46:17.6723608Z   git switch -
+2026-10-17T14:46:17.6723903Z 
+2026-10-17T14:46:17.6724289Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-17T14:46:17.6724817Z 
+2026-10-17T14:46:17.6725386Z HEAD is now at 9c0fe71 #451: device-open scanner never counts a control's own command line; print macOS setrlimit probe
+2026-10-17T14:46:17.6736924Z ##[endgroup]
+2026-10-17T14:46:17.6785678Z [command]/usr/bin/git log -1 --format=%H
+2026-10-17T14:46:17.6813804Z 9c0fe71c9cf37fceb1cea0c123f03105fd0330c0
+2026-10-17T14:46:17.7030372Z ##[group]Run actions/setup-python@v5
+2026-10-17T14:46:17.7030911Z with:
+2026-10-17T14:46:17.7031305Z   python-version: 3.12
+2026-10-17T14:46:17.7031718Z   check-latest: false
+2026-10-17T14:46:17.7035435Z   token: ***
+2026-10-17T14:46:17.7035861Z   update-environment: true
+2026-10-17T14:46:17.7036317Z   allow-prereleases: false
+2026-10-17T14:46:17.7036778Z   freethreaded: false
+2026-10-17T14:46:17.7037182Z ##[endgroup]
+2026-10-17T14:46:17.8376603Z ##[group]Installed versions
+2026-10-17T14:46:17.8489636Z (node:2311) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-17T14:46:17.8491493Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-17T14:46:17.8493018Z Successfully set up CPython (3.12.15)
+2026-10-17T14:46:17.8494400Z ##[endgroup]
+2026-10-17T14:46:17.8691848Z ##[group]Run python -m pip install -r tests/wp16_ingest_stage1/requirements.txt
+2026-10-17T14:46:17.8693984Z [36;1mpython -m pip install -r tests/wp16_ingest_stage1/requirements.txt[0m
+2026-10-17T14:46:17.8695161Z [36;1mpython -B tests/wp16_ingest_stage1/check_pins.py[0m
+2026-10-17T14:46:17.8696406Z [36;1mpython -B tests/wp16_ingest_stage1/asset.py --destination "$RUNNER_TEMP/sources"[0m
+2026-10-17T14:46:17.8798171Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-17T14:46:17.8799035Z env:
+2026-10-17T14:46:17.8799559Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:17.8800759Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:46:17.8801752Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:17.8802557Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:17.8803223Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:17.8803923Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:46:17.8804493Z ##[endgroup]
+2026-10-17T14:46:18.9839529Z Collecting numpy==2.3.5 (from -r tests/wp16_ingest_stage1/requirements.txt (line 1))
+2026-10-17T14:46:19.0428174Z   Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+2026-10-17T14:46:19.2002184Z Collecting scipy==1.17.0 (from -r tests/wp16_ingest_stage1/requirements.txt (line 2))
+2026-10-17T14:46:19.2073526Z   Downloading scipy-1.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+2026-10-17T14:46:19.2378160Z Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+2026-10-17T14:46:19.5391577Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 58.1 MB/s  0:00:00
+2026-10-17T14:46:19.5466337Z Downloading scipy-1.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.0 MB)
+2026-10-17T14:46:19.7041213Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 224.3 MB/s  0:00:00
+2026-10-17T14:46:19.8505231Z Installing collected packages: numpy, scipy
+2026-10-17T14:46:26.5423804Z 
+2026-10-17T14:46:26.5435695Z Successfully installed numpy-2.3.5 scipy-1.17.0
+2026-10-17T14:46:26.6886565Z Stage1 authority/census/closed-file pins PASS; zero Product acceptance
+2026-10-17T14:46:33.3768873Z Authenticated 1763 CC0 source assets 980c57c7616bbf7b1b8870f8c9b0da9ab8c7ae4678871788b4c60d9524a67edb
+2026-10-17T14:46:33.3925028Z ##[group]Run if [ "$RUNNER_OS" = Windows ]; then
+2026-10-17T14:46:33.3925459Z [36;1mif [ "$RUNNER_OS" = Windows ]; then[0m
+2026-10-17T14:46:33.3925844Z [36;1m  echo "BIN=$RUNNER_TEMP/kit/ingest.exe" >> "$GITHUB_ENV"[0m
+2026-10-17T14:46:33.3926206Z [36;1melse[0m
+2026-10-17T14:46:33.3926489Z [36;1m  (cd host/ingest && cargo build --release --locked)[0m
+2026-10-17T14:46:33.3926948Z [36;1m  echo "BIN=$PWD/host/ingest/target/release/ingest" >> "$GITHUB_ENV"[0m
+2026-10-17T14:46:33.3927323Z [36;1mfi[0m
+2026-10-17T14:46:33.3993588Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-17T14:46:33.3993951Z env:
+2026-10-17T14:46:33.3994234Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:33.3994682Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:46:33.3995113Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:33.3995555Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:33.3995954Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:33.3996343Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:46:33.3996676Z ##[endgroup]
+2026-10-17T14:46:33.4147018Z info: syncing channel updates for 1.97.0-x86_64-unknown-linux-gnu
+2026-10-17T14:46:33.5666484Z info: latest update on 2026-07-09 for version 1.97.0 (2d8144b78 2026-07-07)
+2026-10-17T14:46:33.5670631Z info: downloading 3 components
+2026-10-17T14:46:41.0034675Z warn: the missing active toolchain `1.97.0-x86_64-unknown-linux-gnu` has been auto-installed
+2026-10-17T14:46:41.0035720Z warn: this might cause rustup commands to take longer time to finish than expected
+2026-10-17T14:46:41.0036630Z info: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`
+2026-10-17T14:46:41.0345147Z     Updating crates.io index
+2026-10-17T14:46:41.1550513Z  Downloading crates ...
+2026-10-17T14:46:41.2325947Z   Downloaded cfg-if v1.0.5
+2026-10-17T14:46:41.2341840Z   Downloaded block-buffer v0.10.4
+2026-10-17T14:46:41.2436189Z   Downloaded bitflags v2.13.2
+2026-10-17T14:46:41.2485056Z   Downloaded bytemuck v1.25.2
+2026-10-17T14:46:41.2521961Z   Downloaded cpufeatures v0.2.17
+2026-10-17T14:46:41.2537091Z   Downloaded autocfg v1.5.1
+2026-10-17T14:46:41.2557754Z   Downloaded md-5 v0.10.6
+2026-10-17T14:46:41.2574147Z   Downloaded digest v0.10.7
+2026-10-17T14:46:41.2594894Z   Downloaded version_check v0.9.5
+2026-10-17T14:46:41.2610016Z   Downloaded crypto-common v0.1.7
+2026-10-17T14:46:41.2619801Z   Downloaded regex-lite v0.1.9
+2026-10-17T14:46:41.2647556Z   Downloaded generic-array v0.14.7
+2026-10-17T14:46:41.2664250Z   Downloaded lazy_static v1.5.1
+2026-10-17T14:46:41.2684652Z   Downloaded num-complex v0.4.6
+2026-10-17T14:46:41.2702867Z   Downloaded smallvec v1.16.3
+2026-10-17T14:46:41.2719165Z   Downloaded log v0.4.34
+2026-10-17T14:46:41.2746335Z   Downloaded sha2 v0.10.9
+2026-10-17T14:46:41.2773191Z   Downloaded num-traits v0.2.19
+2026-10-17T14:46:41.2799897Z   Downloaded tinyvec v1.13.3
+2026-10-17T14:46:41.2835249Z   Downloaded symphonia-metadata v0.6.1
+2026-10-17T14:46:41.2860563Z   Downloaded typenum v1.20.1
+2026-10-17T14:46:41.2895797Z   Downloaded unicode-normalization v0.1.25
+2026-10-17T14:46:41.2930409Z   Downloaded libm v0.2.16
+2026-10-17T14:46:41.3044032Z   Downloaded libc v0.2.177
+2026-10-17T14:46:41.3514936Z    Compiling version_check v0.9.5
+2026-10-17T14:46:41.3523207Z    Compiling autocfg v1.5.1
+2026-10-17T14:46:41.3524032Z    Compiling libm v0.2.16
+2026-10-17T14:46:41.3543372Z    Compiling typenum v1.20.1
+2026-10-17T14:46:41.5933655Z    Compiling generic-array v0.14.7
+2026-10-17T14:46:41.6491823Z    Compiling num-traits v0.2.19
+2026-10-17T14:46:42.5813441Z    Compiling num-complex v0.4.6
+2026-10-17T14:46:42.6083554Z    Compiling bitflags v2.13.2
+2026-10-17T14:46:42.8098098Z    Compiling smallvec v1.16.3
+2026-10-17T14:46:42.8533611Z    Compiling lazy_static v1.5.1
+2026-10-17T14:46:42.8864010Z    Compiling bytemuck v1.25.2
+2026-10-17T14:46:42.9881445Z    Compiling log v0.4.34
+2026-10-17T14:46:43.0347129Z    Compiling block-buffer v0.10.4
+2026-10-17T14:46:43.0574077Z    Compiling crypto-common v0.1.7
+2026-10-17T14:46:43.0979028Z    Compiling symphonia-core v0.6.1 (/home/runner/work/Digital-Tape/Digital-Tape/host/ingest/vendor/symphonia-core)
+2026-10-17T14:46:43.1024224Z    Compiling digest v0.10.7
+2026-10-17T14:46:43.1644176Z    Compiling regex-lite v0.1.9
+2026-10-17T14:46:43.1709812Z    Compiling cpufeatures v0.2.17
+2026-10-17T14:46:43.1996077Z    Compiling cfg-if v1.0.5
+2026-10-17T14:46:43.2213407Z    Compiling sha2 v0.10.9
+2026-10-17T14:46:43.3231839Z    Compiling libc v0.2.177
+2026-10-17T14:46:43.5088141Z    Compiling ingest v0.1.0 (/home/runner/work/Digital-Tape/Digital-Tape/host/ingest)
+2026-10-17T14:46:43.5454978Z    Compiling tinyvec v1.13.3
+2026-10-17T14:46:43.9723638Z    Compiling unicode-normalization v0.1.25
+2026-10-17T14:46:44.6303426Z    Compiling md-5 v0.10.6
+2026-10-17T14:46:44.9890000Z    Compiling symphonia-metadata v0.6.1
+2026-10-17T14:46:44.9925382Z    Compiling symphonia-bundle-mp3 v0.6.1 (/home/runner/work/Digital-Tape/Digital-Tape/host/ingest/vendor/symphonia-bundle-mp3)
+2026-10-17T14:46:45.2617319Z    Compiling symphonia-common v0.6.1 (/home/runner/work/Digital-Tape/Digital-Tape/host/ingest/vendor/symphonia-common)
+2026-10-17T14:46:45.4203448Z warning: field `bitrate` is never read
+2026-10-17T14:46:45.4223384Z    --> vendor/symphonia-bundle-mp3/src/common.rs:102:9
+2026-10-17T14:46:45.4252911Z     |
+2026-10-17T14:46:45.4282985Z  99 | pub struct FrameHeader {
+2026-10-17T14:46:45.4303051Z     |            ----------- field in this struct
+2026-10-17T14:46:45.4303560Z ...
+2026-10-17T14:46:45.4303876Z 102 |     pub bitrate: u32,
+2026-10-17T14:46:45.4304260Z     |         ^^^^^^^
+2026-10-17T14:46:45.4304595Z     |
+2026-10-17T14:46:45.4305418Z     = note: `FrameHeader` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+2026-10-17T14:46:45.4306605Z     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+2026-10-17T14:46:45.4307072Z 
+2026-10-17T14:46:45.5363444Z    Compiling symphonia-codec-aac v0.6.1 (/home/runner/work/Digital-Tape/Digital-Tape/host/ingest/vendor/symphonia-codec-aac)
+2026-10-17T14:46:47.0055466Z warning: `symphonia-bundle-mp3` (lib) generated 1 warning
+2026-10-17T14:46:52.5320233Z     Finished `release` profile [optimized] target(s) in 11.52s
+2026-10-17T14:46:52.5496281Z ##[group]Run got=$(python -c "import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" "$BIN")
+2026-10-17T14:46:52.5497132Z [36;1mgot=$(python -c "import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" "$BIN")[0m
+2026-10-17T14:46:52.5497894Z [36;1mecho "shipping binary $got (packet's 9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88)"[0m
+2026-10-17T14:46:52.5498761Z [36;1m[ "$got" = "9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88" ] && echo "::notice title=exact shipping bytes Linux::$got" \[0m
+2026-10-17T14:46:52.5499741Z [36;1m  || echo "::warning title=rebuilt shipping bytes differ Linux::$got vs packet 9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88"[0m
+2026-10-17T14:46:52.5563643Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-17T14:46:52.5564151Z env:
+2026-10-17T14:46:52.5564414Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5564886Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:46:52.5565315Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5565697Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5566078Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5566459Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:46:52.5566929Z   BIN: /home/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/release/ingest
+2026-10-17T14:46:52.5567354Z ##[endgroup]
+2026-10-17T14:46:52.5803369Z shipping binary 9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88 (packet's 9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88)
+2026-10-17T14:46:52.5820719Z ##[notice]9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88
+2026-10-17T14:46:52.5870717Z ##[group]Run python -B tools/ingest-supplement/shipping_exhaustion.py --package tests/wp16_ingest_stage1 \
+2026-10-17T14:46:52.5871521Z [36;1mpython -B tools/ingest-supplement/shipping_exhaustion.py --package tests/wp16_ingest_stage1 \[0m
+2026-10-17T14:46:52.5872661Z [36;1m  --sources "$RUNNER_TEMP/sources" --bin "$BIN" --expect-sha256 9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88 --out "$RUNNER_TEMP/exh"[0m
+2026-10-17T14:46:52.5937591Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-17T14:46:52.5938180Z env:
+2026-10-17T14:46:52.5938468Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5938962Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:46:52.5939396Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5939785Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5940217Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:52.5940606Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:46:52.5941147Z   BIN: /home/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/release/ingest
+2026-10-17T14:46:52.5941742Z ##[endgroup]
+2026-10-17T14:46:53.2463042Z linux    4 MiB: version 0 | case exit 1 oom-diag True clean True | 'ingest: error: out of memory (needed 1411244 elements); nothing was written\n'
+2026-10-17T14:46:53.2533542Z linux    6 MiB: version 0 | case exit 1 oom-diag True clean True | 'ingest: error: 0/ordinary.wav: out of memory (needed 88200 elements); nothing was written\n'
+2026-10-17T14:46:53.5783345Z linux    8 MiB: version 0 | case exit 1 oom-diag True clean True | 'ingest: error: 0/ordinary.wav: out of memory (needed 88200 elements); nothing was written\n'
+2026-10-17T14:46:54.0720625Z linux   12 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:54.5655836Z linux   16 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:55.0598362Z linux   24 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:55.5560854Z linux   32 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:56.0484531Z linux   48 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:56.5409907Z linux   64 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:57.0335330Z linux   96 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:57.5260611Z linux  128 MiB: version 0 | case exit 0 oom-diag False clean False | ''
+2026-10-17T14:46:57.5273819Z {"platform": "linux", "binary_is_exact_shipping": true, "binary_sha256": "9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88", "positive_exit": 0, "exhaustion_rows_mib": [4, 6, 8]}
+2026-10-17T14:46:57.5434491Z ##[group]Run actions/upload-artifact@v4
+2026-10-17T14:46:57.5435086Z with:
+2026-10-17T14:46:57.5435323Z   name: shipping-exhaustion-Linux
+2026-10-17T14:46:57.5435791Z   path: /home/runner/work/_temp/exh
+2026-10-17T14:46:57.5436068Z   if-no-files-found: warn
+2026-10-17T14:46:57.5436306Z   compression-level: 6
+2026-10-17T14:46:57.5436525Z   overwrite: false
+2026-10-17T14:46:57.5436745Z   include-hidden-files: false
+2026-10-17T14:46:57.5436984Z env:
+2026-10-17T14:46:57.5437237Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:57.5437679Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:46:57.5438116Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:57.5438507Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:57.5438901Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:46:57.5439322Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:46:57.5439809Z   BIN: /home/runner/work/Digital-Tape/Digital-Tape/host/ingest/target/release/ingest
+2026-10-17T14:46:57.5440221Z ##[endgroup]
+2026-10-17T14:46:57.7077942Z (node:2902) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-17T14:46:57.7078667Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-17T14:46:57.7155505Z With the provided path, there will be 1 file uploaded
+2026-10-17T14:46:57.7156441Z Artifact name is valid!
+2026-10-17T14:46:57.7156840Z Root directory input is valid!
+2026-10-17T14:46:58.1182045Z Beginning upload of artifact content to blob storage
+2026-10-17T14:46:58.1371279Z (node:2902) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-17T14:46:58.3969644Z Uploaded bytes 1461
+2026-10-17T14:46:58.4707511Z Finished uploading artifact content to blob storage!
+2026-10-17T14:46:58.4708573Z SHA256 digest of uploaded artifact zip is c07debd560d0da1117571614c519a62a62dfac70e95e9e6b08598d84254e419d
+2026-10-17T14:46:58.4710787Z Finalizing artifact upload
+2026-10-17T14:46:58.7452644Z Artifact shipping-exhaustion-Linux.zip successfully finalized. Artifact ID 12104253491
+2026-10-17T14:46:58.7454126Z Artifact shipping-exhaustion-Linux has been successfully uploaded! Final size is 1461 bytes. Artifact ID is 12104253491
+2026-10-17T14:46:58.7463743Z Artifact download URL: https://github.com/mmsanders/Digital-Tape/actions/runs/39042030018/artifacts/12104253491
+2026-10-17T14:46:58.7654720Z Post job cleanup.
+2026-10-17T14:46:58.8845722Z (node:2916) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-17T14:46:58.8846565Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-17T14:46:58.9068771Z Post job cleanup.
+2026-10-17T14:46:59.0108272Z [command]/usr/bin/git version
+2026-10-17T14:46:59.0174179Z git version 2.55.0
+2026-10-17T14:46:59.0246049Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/30935f89-5262-4e53-9f2d-d3945aeb7b53/.gitconfig'
+2026-10-17T14:46:59.0247837Z Temporarily overriding HOME='/home/runner/work/_temp/30935f89-5262-4e53-9f2d-d3945aeb7b53' before making global git config changes
+2026-10-17T14:46:59.0249253Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-17T14:46:59.0269261Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Digital-Tape/Digital-Tape
+2026-10-17T14:46:59.0290090Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-17T14:46:59.0343922Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-17T14:46:59.0687280Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-17T14:46:59.0726136Z http.https://github.com/.extraheader
+2026-10-17T14:46:59.0742634Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-17T14:46:59.0785796Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-17T14:46:59.1091286Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-17T14:46:59.1138765Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-17T14:46:59.1609908Z Cleaning up orphan processes
+2026-10-17T14:46:59.1887790Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
