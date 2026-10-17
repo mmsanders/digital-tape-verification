@@ -21,7 +21,7 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | Operations freeze | DECLARED | ADR-162 / Phase 2 kickoff |
 | Phase 2 | OPEN | Existing kickoff; bounded assignments only |
 | Q-P2-1 any-subset mode (#192) | V186-01/V186-02 binding corrections PASS; full operation acceptance HELD | [17 October continuation](findings/P2-192-HOST-2026-10-17/README.md), exact Product443 `85b7c3f`: twelve missing runs / 2412 projections and 585 pre-index-commit operation contexts PASS. Remaining operation-row evaluation and sampled coverage are explicit; no batching/integration authorization |
-| WP15 APP-1 preflight (#183) | RETURN FOR CORRECTION | [R3 findings](findings/P2-R3-WP15-PREFLIGHT-2026-10-15.md): four contract findings plus §3 bindings; full app tests follow Software build issue; G2/physical holds unchanged |
+| WP15 APP-1A (#196) | Issued contract preflight / report-parser-S4 package AUTHORED | [17 October preflight](findings/P2-APP1A-PREFLIGHT-2026-10-17/README.md): Q1-Q7 paper preflight has no new contradiction;627 parser fixtures and real-process adapter published. Software452 imports/builds S1/S4 and returns exact host head directly to196; native/physical/G2 and held436 dependency remain. No app acceptance |
 | WP14 software/native CI | PASS | Exact Product #390 candidate and unchanged merged root; Verification PR #158 |
 | WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |
 | WP14 physical pulls | PASS 10/10 | [Ten-cut independent disposition](findings/P2-R1-WP14-PULLS-2026-10-14.md); Windows 11; no Mac repeat |

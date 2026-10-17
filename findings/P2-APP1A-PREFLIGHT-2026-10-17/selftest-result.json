@@ -1,0 +1,10 @@
+{
+  "scope": "AUTHORED/SYNTHETIC; no Product acceptance",
+  "parser_inputs": 627,
+  "valid": 101,
+  "rejected": 526,
+  "discovery_controls": 34,
+  "label_controls": 6,
+  "shell_predicate_controls": 13,
+  "closed_id_examples": 55
+}
