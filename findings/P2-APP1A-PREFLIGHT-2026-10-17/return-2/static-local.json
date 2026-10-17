@@ -1,0 +1,76 @@
+{
+  "src/lib.rs": "('ordinary-positive', {'exit': 1, 'stdout': 'G1-FS  src/lib.rs:12  fs call open outside the allowed modules\\nG1 static: FAIL (1 findings) on .\\n', 'stderr': ''})",
+  "src/jobdir.rs": "('unix-read-negative', {'exit': 0, 'stdout': 'G1 static: PASS (0 findings) on .\\n', 'stderr': ''})",
+  "rows": [
+    {
+      "placement": "append",
+      "case": "baseline",
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpmxsfbbpp/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "append",
+      "case": "ordinary",
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpd74xdkff/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "append",
+      "case": "unix-read",
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmp7hpirlok/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "append",
+      "case": "windows-alias",
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmph5s5c1ld/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "append",
+      "case": "partition-write",
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmpxqfvdnjq/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "prepend",
+      "case": "baseline",
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on /tmp/tmp18jr6_1t/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "prepend",
+      "case": "ordinary",
+      "exit": 1,
+      "stdout": "G1-FS  src/jobdir.rs:90  open(\"/tmp/tmpm5imgfwn/ordinary\"): path argument is not this module's own root\nG1 static: FAIL (1 findings) on /tmp/tmpm5imgfwn/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "prepend",
+      "case": "unix-read",
+      "exit": 1,
+      "stdout": "G1-DEV  src/jobdir.rs:90  /dev/\nG1-DEV  src/jobdir.rs:90  rdisk\nG1-FS  src/jobdir.rs:90  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on /tmp/tmps8jry34n/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "prepend",
+      "case": "windows-alias",
+      "exit": 1,
+      "stdout": "G1-DEV  src/jobdir.rs:90  \\\\.\\\nG1-DEV  src/jobdir.rs:90  PhysicalDrive\nG1-FS  src/jobdir.rs:90  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on /tmp/tmp92ga21v6/app\n",
+      "stderr": ""
+    },
+    {
+      "placement": "prepend",
+      "case": "partition-write",
+      "exit": 1,
+      "stdout": "G1-DEV  src/jobdir.rs:90  /dev/\nG1-FS  src/jobdir.rs:90  open(target): path argument is not this module's own root\nG1 static: FAIL (2 findings) on /tmp/tmp33z3nhie/app\n",
+      "stderr": ""
+    }
+  ]
+}

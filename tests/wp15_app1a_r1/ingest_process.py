@@ -15,13 +15,14 @@ def run(binary,sha,version,source,work):
     empty=work/'empty';empty.mkdir();sentinel=work/'foreign';sentinel.write_bytes(b'FOREIGN MUST SURVIVE\n')
     nonce='0123456789abcdef0123456789abcdef';results=[]
     def invoke(name,folder,flags=(),expected=0):
-        d=work/name;d.mkdir();dest=d/'dest';argv=[str(binary),'--out',str(dest),'--length','3600',*flags,str(folder)]
+        d=work/name;d.mkdir();dest=work/'shared-dest';argv=[str(binary),'--out',str(dest),'--length','3600',*flags,str(folder)]
         p=subprocess.run(argv,capture_output=True);(d/'stdout').write_bytes(p.stdout);(d/'stderr').write_bytes(p.stderr)
         record=dict(name=name,argv=argv,binary_sha256=sha,version=version,exit=p.returncode,stdout_sha256=digest(d/'stdout'),stderr_sha256=digest(d/'stderr'))
         (d/'process.json').write_text(json.dumps(record,indent=2)+'\n');results.append(record)
         assert p.returncode==expected,(name,p.returncode,p.stderr)
         assert sentinel.read_bytes()==b'FOREIGN MUST SURVIVE\n'
         if expected!=0:assert not dest.exists(),name
+        else:shutil.move(str(dest),str(d/'dest')) # snapshot pair; reuse the SAME CLI DEST for stdout equivalence
         return d,p
     a,p=invoke('no-flag',inp)
     assert sorted(x.name for x in (a/'dest').iterdir())==['audio.wav','manifest.json']

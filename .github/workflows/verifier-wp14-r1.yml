@@ -52,6 +52,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash tests/wp16_ingest_stage1/publish.sh
+      - name: Reproduce exact-head APP-1A return findings (not Product acceptance)
+        if: github.head_ref == 'verification/196-software-return'
+        run: python3 -B findings/P2-APP1A-PREFLIGHT-2026-10-17/return-2/reproduce.py --out /tmp/app1a-return-results
+      - uses: actions/upload-artifact@v4
+        if: always() && github.head_ref == 'verification/196-software-return'
+        with:
+          name: verification196-exact-head-results
+          path: /tmp/app1a-return-results
+          retention-days: 90
       - name: APP-1A independent authoring selfchecks (not Product acceptance)
         run: python3 -B tests/wp15_app1a_r1/selftest.py
       - name: READ-1 independent publication (not Product acceptance)
