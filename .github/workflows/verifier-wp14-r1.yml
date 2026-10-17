@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read

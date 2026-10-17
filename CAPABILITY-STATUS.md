@@ -27,8 +27,8 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | WP14 physical pulls | PASS 10/10 | [Ten-cut independent disposition](findings/P2-R1-WP14-PULLS-2026-10-14.md); Windows 11; no Mac repeat |
 | WP16 INGEST-1 | Stage1 authored; Stage2 HELD at3c7a187 | [Disposition](findings/P2-R2-WP16-STAGE2-2026-10-15/README.md): import authenticated;1641 actual output pairs identical across submitted runners; required native/Windows11 evidence incomplete. [Package](tests/wp16_ingest_stage1/README.md) has Verification-owned Windows pin-path correction;1927 cases/1763 sources unchanged. Direct Software435 corrections; no Product/native/fullWP16 acceptance; physical A6 hold survives |
 | WP14 final Windows success/A9 | PASS bounded observations | [Final witness](findings/P2-R1-WP14-FINAL-WIN-2026-10-14.md); load1677.7328603s, reinsert/OK/canonical A+B hashes and lengths; [final README bytes PASS](findings/P2-R1-WP14-FINAL-WIN-README-2026-10-14.md) |
-| WP14 full package | HELD | Native shipped-binary >4GiB captures remain; #426 method correction needed |
-| Windows 11 off-card A6 | HELD: native export unsupported | [Actual rehearsal](findings/P2-R1-WP14-WIN-REHEARSAL-2026-10-15.md): exact binary/exit0/OK; whole XML audited; class GUID placement and undecoded Read/Thread payloads block native result proof. PM routes correction; no unchanged retry/physical handoff |
+| WP14 full package | HELD | Actual physical native shipped-binary >4GiB captures remain; Windows193 method PASS; Mac method held |
+| Windows 11 off-card A6 | Exact method/rehearsal PASS; physical held | [Verification193](findings/P2-R1-WP14-A6-R4-2026-10-17/README.md): exact441 a50a211,16 controls and full original1,232,801-event replay PASS. Software integration preauthorized; reviewed one-verify physical instructions ready for Michael447. Mac and physical/full-package holds survive |
 | Hardware/media/target/release | Excluded | Hardware parked through Phase 2; qualification and physical gates remain held |
 
 The [Stage 2 disposition](findings/P1-R63-WP11-STAGE2-DISPOSITION-2026-10-03.md) preserves the completed #143 return and its
