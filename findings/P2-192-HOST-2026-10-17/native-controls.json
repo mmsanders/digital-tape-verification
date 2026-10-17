@@ -1,0 +1,24 @@
+{
+  "linux-honest": "PASS",
+  "linux-replace-allowed": "REJECTED",
+  "linux-missing-audio-fsync": "REJECTED",
+  "windows-honest": "PASS",
+  "windows-replace-allowed": "REJECTED",
+  "windows-missing-audio-flush": "REJECTED",
+  "windows-global-partition-drop_forbidden_device_open": {
+    "verdict": "REJECTED",
+    "actual_missing_global_indices": 1
+  },
+  "windows-global-partition-drop_probe_open": {
+    "verdict": "REJECTED",
+    "actual_missing_global_indices": 1
+  },
+  "windows-global-partition-truncate_mid_trace": {
+    "verdict": "REJECTED",
+    "actual_missing_global_indices": 212
+  },
+  "windows-global-partition-truncate_tail": {
+    "verdict": "REJECTED",
+    "actual_missing_global_indices": 141
+  }
+}

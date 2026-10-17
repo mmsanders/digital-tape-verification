@@ -1,7 +1,7 @@
 # Verification capability status
 
-**Snapshot: 14 October 2026 UTC.** Verification input `df637f7fb962a98b8698d16a531ceb0e8365c2a6`;
-Product input `b0d0847b85cee6eac4b2624f9835052a950b902e`.
+**Snapshot: 17 October 2026 UTC.** Verification original input `fc80e0ece3f84f8c7ad468c695cb22b3d6abd21d`;
+Product input `7b722dc716ad296a2e0664050bb731718b75a371`.
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
 
@@ -20,12 +20,12 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | Product main protection | ACTIVE / STRICT | Product STATUS records ruleset 22084355; old VR-P1-001 unprotected snapshot is historical |
 | Operations freeze | DECLARED | ADR-162 / Phase 2 kickoff |
 | Phase 2 | OPEN | Existing kickoff; bounded assignments only |
-| Q-P2-1 any-subset mode (#183/#186) | Fresh load binding PASS; bounded heavy return HELD | [17 October return](findings/P2-WP10-SUBSET-R2-2026-10-17/README.md), exact Product443 `33df48e`: V186-01 corrected; V186-02 setup callbacks shift four core seeds' operation coordinates. Software440 owns missing cut/error observations and corrected summaries; full operation/batching acceptance remains undisposed |
+| Q-P2-1 any-subset mode (#192) | V186-01/V186-02 binding corrections PASS; full operation acceptance HELD | [17 October continuation](findings/P2-192-HOST-2026-10-17/README.md), exact Product443 `85b7c3f`: twelve missing runs / 2412 projections and 585 pre-index-commit operation contexts PASS. Remaining operation-row evaluation and sampled coverage are explicit; no batching/integration authorization |
 | WP15 APP-1 preflight (#183) | RETURN FOR CORRECTION | [R3 findings](findings/P2-R3-WP15-PREFLIGHT-2026-10-15.md): four contract findings plus §3 bindings; full app tests follow Software build issue; G2/physical holds unchanged |
 | WP14 software/native CI | PASS | Exact Product #390 candidate and unchanged merged root; Verification PR #158 |
 | WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |
 | WP14 physical pulls | PASS 10/10 | [Ten-cut independent disposition](findings/P2-R1-WP14-PULLS-2026-10-14.md); Windows 11; no Mac repeat |
-| WP16 INGEST-1 | Stage1 authored; Stage2 HELD at3c7a187 | [Disposition](findings/P2-R2-WP16-STAGE2-2026-10-15/README.md): import authenticated;1641 actual output pairs identical across submitted runners; required native/Windows11 evidence incomplete. [Package](tests/wp16_ingest_stage1/README.md) has Verification-owned Windows pin-path correction;1927 cases/1763 sources unchanged. Direct Software435 corrections; no Product/native/fullWP16 acceptance; physical A6 hold survives |
+| WP16 INGEST-1 (#192) | Available host receipts PASS; overall exact6126d04 HELD | [Host disposition](findings/P2-192-HOST-2026-10-17/README.md): AP4 numerical/source/relations/profile/positive native transaction receipts completed; existing byte/logical-path source binding PASS. Actual Windows11, exact-shipping exhaustion and known Windows visibility limit remain. Reviewed Windows collection instructions ready on Michael447. No Product/native/fullWP16 integration authorization |
 | WP14 final Windows success/A9 | PASS bounded observations | [Final witness](findings/P2-R1-WP14-FINAL-WIN-2026-10-14.md); load1677.7328603s, reinsert/OK/canonical A+B hashes and lengths; [final README bytes PASS](findings/P2-R1-WP14-FINAL-WIN-README-2026-10-14.md) |
 | WP14 full package | HELD | Actual physical native shipped-binary >4GiB captures remain; Windows193 method PASS; Mac method held |
 | Windows 11 off-card A6 | Exact method/rehearsal PASS; physical held | [Verification193](findings/P2-R1-WP14-A6-R4-2026-10-17/README.md): exact441 a50a211,16 controls and full original1,232,801-event replay PASS. Software integration preauthorized; reviewed one-verify physical instructions ready for Michael447. Mac and physical/full-package holds survive |

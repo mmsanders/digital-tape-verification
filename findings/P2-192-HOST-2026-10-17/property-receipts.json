@@ -1,0 +1,127 @@
+{
+  "candidate_sha": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+  "profile": "INGEST1-AP4",
+  "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+  "platform_identities": {
+    "linux": {
+      "zip_sha256": "819fb79989978d666132952945a3ac53772d3ed40efbafd6abbcb58a2dc5496c",
+      "platform": "linux",
+      "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+      "binary_sha256": "886e3c83e1bb621121acc99980df0c8699f68c5275f65746a5b8f300a851bbfd",
+      "shipping_binary_sha256": "9218400f2d3fa99ea2713c791ca0a0a799636452e21f933c6d1cb65859e77c88",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "equal_math_cases": 0,
+      "different_math_cases": 0,
+      "summary_counts": 1641,
+      "comparisons": 4,
+      "shipping_claims_bound_to_observe": 1640
+    },
+    "mac": {
+      "zip_sha256": "abd4e2b328540978eeaf330ee8c4ed002f885ffaab33aa6b0a5794db348ad8bc",
+      "platform": "macos",
+      "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+      "binary_sha256": "3e4d98a9c9ab4eb315e271f64b3d2bc8e58ab3f462f8dd441291f83ff16f42d9",
+      "shipping_binary_sha256": "f0dc9e7a57443870ce434e9eeff109d1bbb49b445ebb7b550a2ebc875d229a38",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "equal_math_cases": 1640,
+      "different_math_cases": 0,
+      "summary_counts": 1641,
+      "comparisons": 4,
+      "shipping_claims_bound_to_observe": 1640
+    },
+    "windows-server": {
+      "zip_sha256": "70bcbe2043bbf07555b8c0a83a2b041f1de3e11e69464acf3eaff1303ca6d774",
+      "platform": "windows-server-serverdatacenter",
+      "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+      "binary_sha256": "97918d4315955d54894918a24d98f7c8e2fdf3d0568634613f77cf4af1f0eaa6",
+      "shipping_binary_sha256": "0e1ef2cb4f283eb876f08019222da5d3ac744ec30d49f020a2e87323f31bcac1",
+      "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+      "equal_math_cases": 1640,
+      "different_math_cases": 0,
+      "summary_counts": 1641,
+      "comparisons": 4,
+      "shipping_claims_bound_to_observe": 1640
+    }
+  },
+  "does_not_satisfy_full_review_gate": true,
+  "checks": {
+    "source-conversion-and-manifest": {
+      "decision": "PASS",
+      "reviewer": "Verification",
+      "scope": "Submitted nonlarge output cases; largest legal zero case carried from identical PR190 packet",
+      "notes": "1640 nonlarge manifests and1657 actual source instances checked against immutable source facts/independent decode/FIR/count/trim; no alternate raw-origin override. All1640 pre-gain/manifest/PCM/profile/join identities match on Mac and Windows Server, allowing identical math facts to carry without recalculation. Actual Windows11 is absent.",
+      "artifact_sha256": [
+        "f06195bf142d58a3cab035f2f0e26dfa11b93b9acb245d5fb7b8cb577b1b1c26",
+        "cad6703d2b78f1fef588b298be3ee8f6ec04bebae26aa30572ab818345228cde"
+      ]
+    },
+    "gain-dither-meter-and-ceiling": {
+      "decision": "PASS",
+      "reviewer": "Verification",
+      "scope": "Published predicates on actual submitted source/final/join data, with declared-profile source review",
+      "notes": "1657 full audio predicate calls and1640 joined checks; exact issued PRNG/draw-order/rounding intervals, scalar/gain/mono/silence/status and original independent loudness/peak/guard/physical ceiling predicates all pass.30 actual calibration vectors,63 SRC-quality and30 endpoint checks; qualifications1657 in raw report counts function invocations, not1657 distinct calibration sources. No tolerance or oracle change.",
+      "artifact_sha256": [
+        "f06195bf142d58a3cab035f2f0e26dfa11b93b9acb245d5fb7b8cb577b1b1c26",
+        "cad6703d2b78f1fef588b298be3ee8f6ec04bebae26aa30572ab818345228cde"
+      ]
+    },
+    "relations-and-stdout": {
+      "decision": "PASS",
+      "reviewer": "Verification",
+      "scope": "Actual submitted records and relation runs",
+      "notes": "12 additional repeat/relocate/target/batch comparisons and4 full standalone join/trim graphs pass;4923 actual stdout summaries and801 refusal diagnostics checked. These are predicate evaluations, not additional census descriptors.",
+      "artifact_sha256": [
+        "f06195bf142d58a3cab035f2f0e26dfa11b93b9acb245d5fb7b8cb577b1b1c26"
+      ]
+    },
+    "filter-and-library-definition": {
+      "decision": "PASS",
+      "reviewer": "Verification",
+      "scope": "Exact AP4 declared coefficients/metadata/locked library inputs",
+      "notes": "14 continuous-band certificates carry from same authenticated packet/coefficient bytes. All9 library identities independently recomputed from Cargo.lock or declared vendored tree hashing. Profile labels agree with manifest; fixed scalar DSP/gain/PRNG and cfg-disabled shipping seam reviewed only after complete Stage1 publication. No engine implementation inspected.",
+      "artifact_sha256": [
+        "cad6703d2b78f1fef588b298be3ee8f6ec04bebae26aa30572ab818345228cde"
+      ]
+    },
+    "native-positive-publication": {
+      "decision": "PASS",
+      "reviewer": "Verification",
+      "scope": "Positive native atomic publication and flush/close properties only",
+      "notes": "Independent parsers corroborate1645 no-replace directory publications per Linux/Windows-Server runner and3290 preceding file flush-close pairs each, across1931 traces each. Full583285-row Windows CSV authenticated;350163 case/comparison rows and423 probe rows match actual global row values at their indices. Remaining232699 rows are declared shipping owners, not silently promoted to reviewed source/absence coverage. Changed native flags/removed flushes and all4 submitted damaged Windows traces are detected. Mac positive publication/open-cut facts carry from PR190 unchanged.",
+      "artifact_sha256": [
+        "0116f1340ebf40a134e7e261af7fb71a08f23e720d86eb4aa424e4beef6b6424",
+        "699563ee95a16ebbe148cc98e18b0a8006034f4345760f8f37d7b0d0582eb649"
+      ]
+    },
+    "shipping-normal-positive-bindings": {
+      "decision": "PASS",
+      "reviewer": "Verification",
+      "scope": "Common-path normal positive equivalence and exact Windows seam absence, not exhaustion",
+      "notes": "1640 per-runner shipping-equivalence records have actual command/exit and binary/hash bindings and equal observed/declared shipping WAV+manifest digests; reviewed transport actually launches shipping and hashes its files before cleanup. Exact kit shipping PE contains none of9 diagnostic markers and observation PE contains all9. This is not an independent native shipping-fault/exhaustion execution.",
+      "artifact_sha256": [
+        "f06195bf142d58a3cab035f2f0e26dfa11b93b9acb245d5fb7b8cb577b1b1c26",
+        "cad6703d2b78f1fef588b298be3ee8f6ec04bebae26aa30572ab818345228cde"
+      ]
+    },
+    "remaining-platform-and-exhaustion": {
+      "decision": "HELD",
+      "reviewer": "Verification",
+      "scope": "Overall exact-head host/native qualification",
+      "notes": "Actual Windows11 missing; Windows zero-access device-open visibility limitation remains; Mac exhaustion is an observation-build allocator cap, not native shipping executable exhaustion. Current collection kit/transport readiness passes for useful missing Windows11 positive host observations, preserving these limits; no Server relabeling, synthetic receipt, Mac SIP change or overall integration authorization.",
+      "artifact_sha256": [
+        "cad6703d2b78f1fef588b298be3ee8f6ec04bebae26aa30572ab818345228cde"
+      ]
+    },
+    "source-byte-logical-path-binding": {
+      "decision": "PASS",
+      "reviewer": "Verification",
+      "scope": "All1641 output-producing cases /1658 source instances per submitted runner and actual mutation refusal, not an inode-equality policy",
+      "notes": "Contract \u00a77 defines identity by exact source bytes plus normalized logical paths. Independent native parsers bind exactly3 successful source opens in the actual first/second/final hash stages, with first two before preflight_complete and third before sources_revalidated. Covered source review confirms all3 reads hash the actual bytes, with second/final comparison to the first; actual mutation case refuses2 without DEST/owned stage on all3 runners. Manifest source digests/decoded input/output identity independently match frozen facts. No new runtime-ledger schema or source read-payload dump is required. Native read elision alone is not an evidence defect.",
+      "artifact_sha256": [
+        "e91c4085184f0165f54a82dc9c070c66f5b81f316e46f13c89b59263268fbdec",
+        "cad6703d2b78f1fef588b298be3ee8f6ec04bebae26aa30572ab818345228cde",
+        "f06195bf142d58a3cab035f2f0e26dfa11b93b9acb245d5fb7b8cb577b1b1c26"
+      ]
+    }
+  }
+}

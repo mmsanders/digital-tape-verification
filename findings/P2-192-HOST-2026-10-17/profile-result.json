@@ -1,0 +1,78 @@
+{
+  "candidate": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+  "config_sha256": "3760145c1a67f7a2588becd68761ba4547721bde5fbedd5084b7d9da36094874",
+  "profile_sha256": "e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99",
+  "libraries": [
+    {
+      "library": "libm",
+      "version": "0.2.16",
+      "sha256": "b6d2cec3eae94f9f509c767b45932f1ada8350c4bdb85af2fcab4a3c14807981",
+      "source": "crates.io"
+    },
+    {
+      "library": "md-5",
+      "version": "0.10.6",
+      "sha256": "d89e7ee0cfbedfc4da3340218492196241d89eefb6dab27de5df917a6d2e78cf",
+      "source": "crates.io"
+    },
+    {
+      "library": "sha2",
+      "version": "0.10.9",
+      "sha256": "a7507d819769d01a365ab707794a4084392c824f54a7a6a7862f8c3d0892b283",
+      "source": "crates.io"
+    },
+    {
+      "library": "symphonia-bundle-mp3",
+      "version": "0.6.1",
+      "sha256": "ccc90202d3ba753b7887a879d98a0ac12904285d1dc9abf696e5598ed37e5c37",
+      "source": "vendored-patched"
+    },
+    {
+      "library": "symphonia-codec-aac",
+      "version": "0.6.1",
+      "sha256": "da730676c77d52603df01185b5ac29d9279a9efc927b8b1420e80d0a81201315",
+      "source": "vendored-patched"
+    },
+    {
+      "library": "symphonia-common",
+      "version": "0.6.1",
+      "sha256": "4f315342b53e4c444cb5fd18bae7cc59b2b9d894642b01a67b412a20ab5d6f24",
+      "source": "vendored-patched"
+    },
+    {
+      "library": "symphonia-core",
+      "version": "0.6.1",
+      "sha256": "e793745e8933135526cc248bcee209246a6a496f184fc823aef562250158475e",
+      "source": "vendored-patched"
+    },
+    {
+      "library": "symphonia-metadata",
+      "version": "0.6.1",
+      "sha256": "83713a97705d77bdef7cdbc0768fd6e5a54e4cd7e48d60a806ae85639e2c87c6",
+      "source": "crates.io"
+    },
+    {
+      "library": "unicode-normalization",
+      "version": "0.1.25",
+      "sha256": "5fd4f6878c9cb28d874b009da9e8d183b5abc80117c40bbd187a1fde336be6e8",
+      "source": "crates.io"
+    }
+  ],
+  "reviewed_source_sha256": {
+    "src/dsp.rs": "08cb5c21196a559a566a9bceedf62b705e20923ce11c51e209ba17a5b6bf122a",
+    "src/convert.rs": "e67dc8e46c385a2751e7c28793b5d3f8e36b9da8d539c485c9f369ad0478aea5",
+    "src/main.rs": "4f70915b099fea8027979d58f1f3ef4f8424e23672ac27b41170b375d6aec4ee",
+    "src/observe.rs": "85e2cb33690b6ad1a1f722db7bdfcb2e8407725e150948c9c3099ce0f9da2272",
+    "src/publish.rs": "86de7effd3cfa13b05aea1b2f86828e91d2e150e816b059076d0e7fa73c0033f",
+    "src/manifest.rs": "ad63d7cfdb145a5882b82932c3d007b13bbf923d43644eeb33384ec3c279166d",
+    "build.rs": "06bf0b6fb3a5dfba76f525017cb5f32fa84ab5f4890cdfa44f2e63e3a5345c3e",
+    "Cargo.toml": "2a04a85ec4210862701f6fdb517e7501e8d7210472483ba836fbd6115d6cf002",
+    "Cargo.lock": "749de660f5779b2aca5c4f824d6867fad0bcf6ff18be22fcf0f7c1314f2febeb"
+  },
+  "windows_shipping_seam_absence": {
+    "shipping_sha256": "0e1ef2cb4f283eb876f08019222da5d3ac744ec30d49f020a2e87323f31bcac1",
+    "observe_sha256": "97918d4315955d54894918a24d98f7c8e2fdf3d0568634613f77cf4af1f0eaa6",
+    "positive_and_real_negative_control": "shipping contains none; observation executable contains every marker"
+  },
+  "manual_review_scope": "After complete independent Stage1 authoring: fixed scalar FIR/count/EBU/true-peak/refinement and per-source PRNG paths agree with declared profile; cfg-disabled shipping seam is no-op, test allocator/probes gated to observe; separate math replay checks actual observations. No engine inspection. No claim of shipping exhaustion from observation allocator cap."
+}

@@ -1,0 +1,434 @@
+{
+  "fill_runs": [
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_newer_primary_stale"
+      ],
+      "label": "second_cut",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_only"
+      ],
+      "label": "second_cut",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_newer_mirror_stale"
+      ],
+      "label": "second_cut",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_only"
+      ],
+      "label": "second_cut",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_newer_primary_stale"
+      ],
+      "label": "cut_unit",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_only"
+      ],
+      "label": "cut_unit",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_newer_mirror_stale"
+      ],
+      "label": "cut_unit",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_only"
+      ],
+      "label": "cut_unit",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": 1020,
+        "error_op_barrier": "-",
+        "error_op_call": "-"
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "cut",
+        "op_units_done": 1020
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_newer_primary_stale"
+      ],
+      "label": "error_write",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": "-",
+        "error_op_barrier": "-",
+        "error_op_call": 1019
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "error"
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_only"
+      ],
+      "label": "error_write",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": "-",
+        "error_op_barrier": "-",
+        "error_op_call": 1019
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "error"
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_newer_mirror_stale"
+      ],
+      "label": "error_write",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": "-",
+        "error_op_barrier": "-",
+        "error_op_call": 1019
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "error"
+      }
+    },
+    {
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_only"
+      ],
+      "label": "error_write",
+      "coordinate": {
+        "cut_op_barrier_entry": "-",
+        "cut_op_unit": "-",
+        "error_op_barrier": "-",
+        "error_op_call": 1019
+      },
+      "epoch": 1018,
+      "projections": 201,
+      "fault": {
+        "fired": true,
+        "kind": "error"
+      }
+    }
+  ],
+  "full_projection_replay": {
+    "core-respool-fill/part-000-00": {
+      "runs": 4,
+      "projections": 804,
+      "remount_records": 206,
+      "epoch_histogram": {
+        "1018": 4
+      },
+      "second_cut_runs": 4,
+      "not_reachable": 0,
+      "errors": []
+    },
+    "core-respool-fill/part-000-02": {
+      "runs": 4,
+      "projections": 804,
+      "remount_records": 195,
+      "epoch_histogram": {
+        "1018": 4
+      },
+      "second_cut_runs": 0,
+      "not_reachable": 0,
+      "errors": []
+    },
+    "core-respool-fill/part-000-03": {
+      "runs": 4,
+      "projections": 804,
+      "remount_records": 195,
+      "epoch_histogram": {
+        "1018": 4
+      },
+      "second_cut_runs": 0,
+      "not_reachable": 0,
+      "errors": []
+    }
+  },
+  "second_bases_match_prior": [
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "-"
+      ],
+      "index": 0,
+      "initial_sha256": "da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_newer_primary_stale"
+      ],
+      "index": 0,
+      "initial_sha256": "dda236d8c23e75667c86635db8591fcd94084ef7c8f1929d5e20fb56ca7eaadb"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_only"
+      ],
+      "index": 0,
+      "initial_sha256": "8b24a58e4eef0e09901896428cc0719a9d428d12a56cbb53ce8cbdf707ab5634"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_newer_mirror_stale"
+      ],
+      "index": 0,
+      "initial_sha256": "42bae32b04e6619695f463645e10a75995faba53ff4e406f1e60a596d688cb13"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_only"
+      ],
+      "index": 0,
+      "initial_sha256": "79e985c21a61846898f789c06059028b25f8d15aa3397edf426b72d93292d70e"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "-"
+      ],
+      "index": 1,
+      "initial_sha256": "8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_newer_primary_stale"
+      ],
+      "index": 1,
+      "initial_sha256": "8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "mirror_only"
+      ],
+      "index": 1,
+      "initial_sha256": "8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_newer_mirror_stale"
+      ],
+      "index": 1,
+      "initial_sha256": "8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04"
+    },
+    {
+      "binding": "crash_core",
+      "scenario": [
+        "stage_clear",
+        "respool",
+        "primary_only"
+      ],
+      "index": 1,
+      "initial_sha256": "8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04"
+    },
+    {
+      "binding": "respool_full",
+      "scenario": [
+        "v3_003",
+        "pass1"
+      ],
+      "index": 0,
+      "initial_sha256": "920f4aba3a05319e4a384e3589590bc0ba0b41758ac08143edff10d908deff76"
+    },
+    {
+      "binding": "respool_full",
+      "scenario": [
+        "v3_003",
+        "pass1"
+      ],
+      "index": 1,
+      "initial_sha256": "ffe52e8a4f0d1d46e44a6fa5b667d58b7bf320a9be96336825f1c44665a3ddef"
+    },
+    {
+      "binding": "respool_full",
+      "scenario": [
+        "v3_003",
+        "pass2"
+      ],
+      "index": 0,
+      "initial_sha256": "8646527ea4d2e4403e16775706b1af80a0c4aa11904f3f28b5a4ed42a6d5f897"
+    },
+    {
+      "binding": "respool_full",
+      "scenario": [
+        "v3_003",
+        "pass2"
+      ],
+      "index": 1,
+      "initial_sha256": "2bcce6aa8712277ab1a853d4188afdaf00ee8741a53b6516a3527eb7e9a7f628"
+    }
+  ],
+  "raw_snapshots_bound": 585,
+  "precommit_stage_clear_and_live_A_B_predictions": 585,
+  "causal_controls": {
+    "honest_observation": "PASS",
+    "CRC_valid_stage1_rollback": "REJECTED",
+    "actual_one_bit_live_chunk_corruption": "REJECTED"
+  },
+  "errors": [],
+  "scope": "Twelve missing coordinates only,201 plans each; partial-copy pre-index-commit stage-cleared mount/live timeline property. Not all operation rows or full any-subset acceptance."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "SYNTHETIC feasibility/causal controls only",
+  "high": 4296015360,
+  "alias": 1048064,
+  "observations_equal": true,
+  "current_method_verdict": "HELD: cannot distinguish native high address from low alias",
+  "conditional_correct_pattern": "PASS_CONTENT_ONLY",
+  "conditional_wrong_mirror": "REJECT",
+  "conditional_short_read": "REJECT",
+  "conditional_low_alias_with_same_content": "PASS_CONTENT_ONLY; native address still HELD",
+  "native_returned_buffer_available_in_existing_SIP_on_method": false,
+  "method_issued": false
+}

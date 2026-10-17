@@ -1,0 +1,50 @@
+{
+  "scope": "Source byte/logical-path binding on submitted successful/after-publish observations plus actual mutation refusals, using reviewed compiled three-read/hash pipeline. Not an unissued inode-equality or raw-payload criterion.",
+  "platforms": {
+    "linux": {
+      "counts": {
+        "bound_source_instances": 1658,
+        "bound_output_cases": 1641
+      },
+      "mutations": {
+        "transaction/mutation": {
+          "exit": 2,
+          "raw_trace_sha256": "9864a57d3406af3c3e9ba3b3bfd59ce05151f404ba87fe2c4b44e45aa391c90e",
+          "no_published_or_owned_stage": true
+        }
+      },
+      "failures": {},
+      "source_binding_census_sha256": "3172e72121d77e4494f522c5de4a8ad8976e128b5360c41e2b6cc4d7a1699c36"
+    },
+    "mac": {
+      "counts": {
+        "bound_source_instances": 1658,
+        "bound_output_cases": 1641
+      },
+      "mutations": {
+        "transaction/mutation": {
+          "exit": 2,
+          "raw_trace_sha256": "d07658546a07113c08cad18c3dbae5f5b404875ddc2a5973810c6dff98a09aab",
+          "no_published_or_owned_stage": true
+        }
+      },
+      "failures": {},
+      "source_binding_census_sha256": "3172e72121d77e4494f522c5de4a8ad8976e128b5360c41e2b6cc4d7a1699c36"
+    },
+    "windows-server": {
+      "counts": {
+        "bound_source_instances": 1658,
+        "bound_output_cases": 1641
+      },
+      "mutations": {
+        "transaction/mutation": {
+          "exit": 2,
+          "raw_trace_sha256": "5baed74431a16acfc98dbf9128980dd3b441eb8b6b0c3c3d4859be59024e199a",
+          "no_published_or_owned_stage": true
+        }
+      },
+      "failures": {},
+      "source_binding_census_sha256": "3172e72121d77e4494f522c5de4a8ad8976e128b5360c41e2b6cc4d7a1699c36"
+    }
+  }
+}
