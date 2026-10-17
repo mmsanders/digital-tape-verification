@@ -43,7 +43,13 @@ def check(raw,hist,kind):
                 else:assert c==10 and p[:40]==fixture.pattern_bytes(31,40),'decline logical copy'
                 if e['ack']:pending.add(l)
                 copied+=1
-            elif e['ack'] and l in meta:meta[l]=p;dirty=True
+            elif l in meta:
+                if l in (265,393) and e.get('phase')=='op':
+                    first,start,frames=struct.unpack_from('<III',p)
+                    assert start==0 and frames>0
+                    base=2048+first*1024;count=(frames+127)//128
+                    assert all(base+i in good for i in range(count)),'index entry attempted before complete durable copy'
+                if e['ack']:meta[l]=p;dirty=True
         elif e['t']=='F' and e['ok']:
             good.update(pending);pending.clear()
             if dirty:
@@ -75,10 +81,15 @@ def run(root,out):
         except Exception as e:result['failures'].append({'part':str(part.relative_to(root)),'scenario':r['scenario'],'base':r['base'],'trace':key[1],'error':str(e)})
     if control:
         raw,h,k=control
-        for name in ('wrong-copy-byte','below-H-copy'):
+        for name in ('wrong-copy-byte','below-H-copy','missing-copy-barrier'):
             bad=copy.deepcopy(h);e=next(e for e in bad if e['t']=='W' and 2048<=e['lba']<len(raw)//512-1)
             if name=='wrong-copy-byte':e['hex']=('00' if e['hex'][:2]!='00' else '01')+e['hex'][2:]
-            else:e['lba']=2048
+            elif name=='below-H-copy':e['lba']=2048
+            else:
+                copied=False
+                for i,x in enumerate(bad):
+                    if x['t']=='W' and 2048<=x['lba']<len(raw)//512-1:copied=True
+                    if copied and x['t']=='F' and x['ok']:del bad[i];break
             try:check(raw,bad,k)
             except Exception as e:result['controls'][name]='REJECTED: '+str(e)
             else:result['controls'][name]='UNDETECTED'

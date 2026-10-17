@@ -6,6 +6,7 @@
   "failures": [],
   "controls": {
     "wrong-copy-byte": "REJECTED: copied PCM byte mismatch",
-    "below-H-copy": "REJECTED: ('copy overlaps protected/live set', 2048, 10, [10, 11])"
+    "below-H-copy": "REJECTED: ('copy overlaps protected/live set', 2048, 10, [10, 11])",
+    "missing-copy-barrier": "REJECTED: index entry attempted before complete durable copy"
   }
 }
