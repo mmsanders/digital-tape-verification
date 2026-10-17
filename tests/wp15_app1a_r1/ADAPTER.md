@@ -16,6 +16,14 @@ the app/adapter or decide results from fixture name/expected fields. Preserve ra
 stdin/stdout/adapter source/build command and source hash. No shipping fake-outcome
 switch. Test-only parser entry points do not establish G3 real-child execution.
 
+The runner checks message selection for **invalid reports too**: a nonzero child
+with malformed/stale/unknown report must use the generic fallback and cannot use
+an ID-specific selector. Actual exit0 still needs its ordinary success facts
+(including ingest's pair); malformed reporting alone cannot rewrite a child exit.
+This tightens the initial198 adapter test, which asserted rejection without also
+checking the invalid-report message. Use this corrected publication, not the old
+runner, for candidate disposition. The original627 inputs/IDs/spec pins remain.
+
 Drive every S4-CASES.json row in the actual shell through UI/OS events, with
 timestamped process argv/hash/exit, state/widget snapshots and screenshots where
 visual. Headless controller adaptation is Software's mechanics; the expected

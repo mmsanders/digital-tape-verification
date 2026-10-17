@@ -1,7 +1,7 @@
 # Verification capability status
 
 **Snapshot: 17 October 2026 UTC.** Verification original input `fc80e0ece3f84f8c7ad468c695cb22b3d6abd21d`;
-Product input `7b722dc716ad296a2e0664050bb731718b75a371`.
+Product input `05315e2d464376400e122cd982dbb93dc084c1fb`.
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
 
@@ -20,7 +20,7 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | Product main protection | ACTIVE / STRICT | Product STATUS records ruleset 22084355; old VR-P1-001 unprotected snapshot is historical |
 | Operations freeze | DECLARED | ADR-162 / Phase 2 kickoff |
 | Phase 2 | OPEN | Existing kickoff; bounded assignments only |
-| Q-P2-1 any-subset mode (#192) | V186-01/V186-02 binding corrections PASS; full operation acceptance HELD | [17 October continuation](findings/P2-192-HOST-2026-10-17/README.md), exact Product443 `85b7c3f`: twelve missing runs / 2412 projections and 585 pre-index-commit operation contexts PASS. Remaining operation-row evaluation and sampled coverage are explicit; no batching/integration authorization |
+| Q-P2-1 any-subset mode (#197) | Available retained operation rows PASS; overall443 HELD | [17 October operation rows](findings/P2-SUBSET-ROWS-2026-10-17/README.md): core/promote/format-dup/respool/load scopes independently evaluated, copy/live-set/durability controls PASS. Full duplicate source/PCM, broader DRAFT10 residue/repeated-LBA/sampled coverage and404 host faults/seam detail remain. No overall integration or batching permission; PM owns next coverage |
 | WP15 APP-1A (#196) | Issued contract preflight / report-parser-S4 package AUTHORED | [17 October preflight](findings/P2-APP1A-PREFLIGHT-2026-10-17/README.md): Q1-Q7 paper preflight has no new contradiction;627 parser fixtures and real-process adapter published. Software452 imports/builds S1/S4 and returns exact host head directly to196; native/physical/G2 and held436 dependency remain. No app acceptance |
 | WP14 software/native CI | PASS | Exact Product #390 candidate and unchanged merged root; Verification PR #158 |
 | WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |

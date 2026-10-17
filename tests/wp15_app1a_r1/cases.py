@@ -46,6 +46,8 @@ def category(tool,id):
 def corpus():
     out=[]
     def add(name,tool,exit,rows=None,data=None,valid=True,message=None,pair=False):
+        if not valid:
+            message=['success',None] if exit==0 and (tool!='ingest' or pair) else ['make-generic' if tool=='tapectl make' and exit!=0 else 'generic',None]
         out.append(dict(name=name,tool=tool,version=VERSION,nonce=NONCE,exit=exit,folders=FOLDERS,pair=pair,raw_hex=(raw(rows) if data is None else data).hex(),valid=valid,message=message))
     for tool,groups in [('ingest',[(1,I1),(2,I2)]),('tapectl make',[(1,M1),(2,M2),(3,M3)]),('tapectl cards',[(1,['CARDS_ENUM_UNAVAILABLE']),(2,['USAGE'])])]:
         for exit,ids in groups:

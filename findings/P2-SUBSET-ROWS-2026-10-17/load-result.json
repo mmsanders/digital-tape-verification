@@ -1,0 +1,14 @@
+{
+  "scope": "bounded actual hash-bound source PCM/pair/publication states; no missing fault execution or full repair-event proof",
+  "command_contexts": 31216,
+  "states": {
+    "new/new": 20,
+    "empty/empty": 31183,
+    "empty/new": 13
+  },
+  "complete_controls": 1,
+  "failures": [],
+  "causal_control": {
+    "impossible-pair": "REJECTED: A committed without the live source B timeline"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "artifact_manifest_sha256": "b81072c23f7f2e689086af1f0f7d0d1f50f58b0ebef27a82f319ef1a262a04a7",
+  "ZIPs": 13,
+  "indexed_files": 1959,
+  "bundles": [
+    {
+      "id": 12079390254,
+      "name": "wp10-subset-heavy-1",
+      "sha256": "sha256:c0f76c9ad151c9bfa911c813315107922040be85bd5608fc137b1a1e4d26a29c",
+      "bytes": 3261096,
+      "indexed_files": 119
+    },
+    {
+      "id": 12079300460,
+      "name": "wp10-subset-heavy-5",
+      "sha256": "sha256:9dd3179dc2b167150c7351490b7fab69eb8971d590c35c791b4d2a3eca7532ea",
+      "bytes": 3284562,
+      "indexed_files": 119
+    },
+    {
+      "id": 12079131675,
+      "name": "wp10-subset-heavy-7",
+      "sha256": "sha256:7bb1539430d7c7ae45345979676c8ec0481b58dfbb34f84714682437539a30f9",
+      "bytes": 5335431,
+      "indexed_files": 120
+    },
+    {
+      "id": 12078897657,
+      "name": "wp10-subset-heavy-3",
+      "sha256": "sha256:d2f18a050f82cb34102005ae05a9891e0e7649995e3895c6533995d8fb714ec0",
+      "bytes": 4230618,
+      "indexed_files": 120
+    },
+    {
+      "id": 12078863526,
+      "name": "wp10-subset-heavy-6",
+      "sha256": "sha256:6aa2b51ef0538994f3e30a86051ee15ba0ecb17e2d893bc677b67cfd989e9a40",
+      "bytes": 5315148,
+      "indexed_files": 119
+    },
+    {
+      "id": 12078747701,
+      "name": "wp10-subset-heavy-2",
+      "sha256": "sha256:705fd9cbeff317fdff72328ca7d73cd3d5ed378e83a57bafc92d05688d4d6dc0",
+      "bytes": 3170985,
+      "indexed_files": 117
+    },
+    {
+      "id": 12078647445,
+      "name": "wp10-subset-heavy-0",
+      "sha256": "sha256:676c94f931a0f844b5d4d4d640fbf0568d5e9d6e39169eb421961952bafb8f03",
+      "bytes": 4306627,
+      "indexed_files": 120
+    },
+    {
+      "id": 12078413522,
+      "name": "wp10-subset-heavy-4",
+      "sha256": "sha256:d355a543a3611a9a6319187dbea49e32cafc0fe22e628dce5aff1db5d7717e8d",
+      "bytes": 3367101,
+      "indexed_files": 120
+    },
+    {
+      "id": 12085261229,
+      "name": "wp10-subset-load-1",
+      "sha256": "sha256:ad5b62a702d5e3b1fd61ca3671492abd24a032aa76fea845e1de8a5e5309afbf",
+      "bytes": 1611126,
+      "indexed_files": 22
+    },
+    {
+      "id": 12085042202,
+      "name": "wp10-subset-load-0",
+      "sha256": "sha256:2bfe1814312d622cb010d2571e6b977b5125fc07f7ead9301765d167a86bf6c9",
+      "bytes": 2234288,
+      "indexed_files": 22
+    },
+    {
+      "id": 12083577657,
+      "name": "wp10-subset-load-3",
+      "sha256": "sha256:c49db99c8f192ee20893abe7c730d160e85919aac95049adb99780159bd9dc00",
+      "bytes": 1210847,
+      "indexed_files": 21
+    },
+    {
+      "id": 12083282421,
+      "name": "wp10-subset-small",
+      "sha256": "sha256:a29c01b592604163b9c311a4638acd097aba407dfa2b14616b6393ced02baf97",
+      "bytes": 1468463,
+      "indexed_files": 919
+    },
+    {
+      "id": 12083169027,
+      "name": "wp10-subset-load-2",
+      "sha256": "sha256:32be79ef392b99c1a38648a45e92748efedb4f31248b9a48a9437102d46c0f28",
+      "bytes": 1020414,
+      "indexed_files": 21
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "family": "core",
+  "scope": "new operation predicates only; prior exact binding/model/PCM facts carry; no full replay",
+  "rows": {
+    "stage_clear/respool/-": {
+      "runs": 177,
+      "contexts": 20997,
+      "bases": [
+        "fixture",
+        "projection:8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[3,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 7,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 20984,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 6
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/respool/mirror_newer_primary_stale": {
+      "runs": 177,
+      "contexts": 20425,
+      "bases": [
+        "fixture",
+        "projection:8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04",
+        "projection:dda236d8c23e75667c86635db8591fcd94084ef7c8f1929d5e20fb56ca7eaadb"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 20404,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 12,
+        "{\"a\":[[2,0,131072]],\"b\":[[3,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/respool/mirror_only": {
+      "runs": 177,
+      "contexts": 20425,
+      "bases": [
+        "fixture",
+        "projection:8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04",
+        "projection:8b24a58e4eef0e09901896428cc0719a9d428d12a56cbb53ce8cbdf707ab5634"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 20404,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 12,
+        "{\"a\":[[2,0,131072]],\"b\":[[3,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/respool/primary_newer_mirror_stale": {
+      "runs": 177,
+      "contexts": 20425,
+      "bases": [
+        "fixture",
+        "projection:42bae32b04e6619695f463645e10a75995faba53ff4e406f1e60a596d688cb13",
+        "projection:8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 20404,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 12,
+        "{\"a\":[[2,0,131072]],\"b\":[[3,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/respool/primary_only": {
+      "runs": 177,
+      "contexts": 20425,
+      "bases": [
+        "fixture",
+        "projection:79e985c21a61846898f789c06059028b25f8d15aa3397edf426b72d93292d70e",
+        "projection:8372d8c3e5fcc3da59e23c85815448f300dc305674c97a4243be3d6edb292d04"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 20404,
+        "{\"a\":[[2,0,131072]],\"b\":[[3,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 9,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 12
+      },
+      "complete_fixture_controls": 1
+    },
+    "record_commit/overdub/-": {
+      "runs": 21,
+      "contexts": 16,
+      "bases": [
+        "fixture",
+        "projection:0b86af174eb7bbe0c5a8da53dc3adb1ae2c74157ad80647ccac656fd15d2c77e",
+        "projection:1fbafb58cf884df23c0654fee8efe2efb2ace2832853e9ea41e73de74a79371d"
+      ],
+      "states": {
+        "{\"a\":[[0,0,131072]],\"b\":[[2,0,1],[0,1,131071]],\"b_sequence\":21,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 5,
+        "{\"a\":[[0,0,131072]],\"b\":[[0,0,131072]],\"b_sequence\":20,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 11
+      },
+      "complete_fixture_controls": 1
+    },
+    "record_commit/overwrite/-": {
+      "runs": 21,
+      "contexts": 16,
+      "bases": [
+        "fixture",
+        "projection:1128761ba39128d8fb676c31372381bc9a8b4bc92dd32b75e6c5d78d58426490",
+        "projection:35d81f4bfd7a938969fd0762fa6c7a29a5d521267076606249157a2ec5da5f0c"
+      ],
+      "states": {
+        "{\"a\":[[0,0,131072]],\"b\":[[2,0,1]],\"b_sequence\":21,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 5,
+        "{\"a\":[[0,0,131072]],\"b\":[[0,0,131072]],\"b_sequence\":20,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 11
+      },
+      "complete_fixture_controls": 1
+    },
+    "record_commit/splice/-": {
+      "runs": 21,
+      "contexts": 16,
+      "bases": [
+        "fixture",
+        "projection:1128761ba39128d8fb676c31372381bc9a8b4bc92dd32b75e6c5d78d58426490",
+        "projection:c9d519b77d9927de29df080f718721da6a81a3a7987a996b6f13adcff91b64a9"
+      ],
+      "states": {
+        "{\"a\":[[0,0,131072]],\"b\":[[2,0,1],[0,0,131072]],\"b_sequence\":21,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 5,
+        "{\"a\":[[0,0,131072]],\"b\":[[0,0,131072]],\"b_sequence\":20,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 11
+      },
+      "complete_fixture_controls": 1
+    },
+    "reset_b/degraded_equal/-": {
+      "runs": 21,
+      "contexts": 14,
+      "bases": [
+        "fixture",
+        "projection:834ff6445fa9a5a2b4ec2fc6724744106bfe5ae6c2998af0fd99e235651aa5ea",
+        "projection:922219a0e0ee240f28fdf3fa65dce5ebb9c05208695546c788040cc55e1c9439"
+      ],
+      "states": {
+        "{\"a\":[[0,0,131072]],\"b\":[[0,0,131072]],\"b_sequence\":501,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 5,
+        "{\"a\":[[0,0,131072]],\"b\":null,\"b_sequence\":null,\"degraded\":true,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 4,
+        "{\"a\":[[0,0,131072]],\"b\":[[0,0,131072]],\"b_sequence\":500,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 5
+      },
+      "complete_fixture_controls": 1
+    },
+    "reset_b/healthy/-": {
+      "runs": 21,
+      "contexts": 14,
+      "bases": [
+        "fixture",
+        "projection:5fae03af1e3d2e407a64cc9310bc20cd7cf2983cf763ca63b6f9232f4e1db092",
+        "projection:742ea873a05e0fe64ca5938fae6783196ee9144922acaa9a989cdc2eaf687ecf"
+      ],
+      "states": {
+        "{\"a\":[[0,0,131072]],\"b\":[[0,0,131072]],\"b_sequence\":21,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 5,
+        "{\"a\":[[0,0,131072]],\"b\":[[1,0,131072]],\"b_sequence\":20,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":0}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/arm/-": {
+      "runs": 25,
+      "contexts": 18,
+      "bases": [
+        "fixture",
+        "projection:abfb28a52dc4f64ee1de7503d8f616b56bccad1442a3978ee99c8f89f997a527",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 14,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 4
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/arm/mirror_newer_primary_stale": {
+      "runs": 26,
+      "contexts": 24,
+      "bases": [
+        "fixture",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1",
+        "projection:dda236d8c23e75667c86635db8591fcd94084ef7c8f1929d5e20fb56ca7eaadb"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 15,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/arm/mirror_only": {
+      "runs": 26,
+      "contexts": 24,
+      "bases": [
+        "fixture",
+        "projection:8b24a58e4eef0e09901896428cc0719a9d428d12a56cbb53ce8cbdf707ab5634",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 15,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/arm/primary_newer_mirror_stale": {
+      "runs": 26,
+      "contexts": 24,
+      "bases": [
+        "fixture",
+        "projection:42bae32b04e6619695f463645e10a75995faba53ff4e406f1e60a596d688cb13",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 15,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/arm/primary_only": {
+      "runs": 26,
+      "contexts": 24,
+      "bases": [
+        "fixture",
+        "projection:79e985c21a61846898f789c06059028b25f8d15aa3397edf426b72d93292d70e",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 15,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 9
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/reset_b/-": {
+      "runs": 31,
+      "contexts": 17,
+      "bases": [
+        "fixture",
+        "projection:abfb28a52dc4f64ee1de7503d8f616b56bccad1442a3978ee99c8f89f997a527",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 4,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 10,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 3
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/reset_b/mirror_newer_primary_stale": {
+      "runs": 32,
+      "contexts": 22,
+      "bases": [
+        "fixture",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1",
+        "projection:dda236d8c23e75667c86635db8591fcd94084ef7c8f1929d5e20fb56ca7eaadb"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 4,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 11,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 7
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/reset_b/mirror_only": {
+      "runs": 32,
+      "contexts": 22,
+      "bases": [
+        "fixture",
+        "projection:8b24a58e4eef0e09901896428cc0719a9d428d12a56cbb53ce8cbdf707ab5634",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 4,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 11,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 7
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/reset_b/primary_newer_mirror_stale": {
+      "runs": 32,
+      "contexts": 22,
+      "bases": [
+        "fixture",
+        "projection:42bae32b04e6619695f463645e10a75995faba53ff4e406f1e60a596d688cb13",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 4,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 11,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 7
+      },
+      "complete_fixture_controls": 1
+    },
+    "stage_clear/reset_b/primary_only": {
+      "runs": 32,
+      "contexts": 22,
+      "bases": [
+        "fixture",
+        "projection:79e985c21a61846898f789c06059028b25f8d15aa3397edf426b72d93292d70e",
+        "projection:da590683b28a610092d61f0710fa5b2f82136802ff5febc5c38e5a00765974c1"
+      ],
+      "states": {
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":102,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 4,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":11,\"mount\":\"TAPE_OK\",\"stage\":0}": 11,
+        "{\"a\":[[2,0,131072]],\"b\":[[2,0,131072]],\"b_sequence\":101,\"degraded\":false,\"generation\":10,\"mount\":\"TAPE_OK\",\"stage\":1}": 7
+      },
+      "complete_fixture_controls": 1
+    }
+  },
+  "failures": [],
+  "causal_controls": {
+    "actual-byte-mutant": "REJECTED: ('A-owned data changed', 0)"
+  }
+}
