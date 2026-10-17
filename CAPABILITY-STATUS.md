@@ -20,7 +20,7 @@ Michael has replaced the mistaken Windows 10 requirement with Windows 11 and req
 | Product main protection | ACTIVE / STRICT | Product STATUS records ruleset 22084355; old VR-P1-001 unprotected snapshot is historical |
 | Operations freeze | DECLARED | ADR-162 / Phase 2 kickoff |
 | Phase 2 | OPEN | Existing kickoff; bounded assignments only |
-| Q-P2-1 any-subset mode (#183) | Model controls PASS; engine execution BLOCKED | [New package](tests/wp10_subset_r1/README.md); Product adapter import and original operation-outcome evaluation required; no engine/batching acceptance |
+| Q-P2-1 any-subset mode (#183/#186) | Fresh load binding PASS; bounded heavy return HELD | [17 October return](findings/P2-WP10-SUBSET-R2-2026-10-17/README.md), exact Product443 `33df48e`: V186-01 corrected; V186-02 setup callbacks shift four core seeds' operation coordinates. Software440 owns missing cut/error observations and corrected summaries; full operation/batching acceptance remains undisposed |
 | WP15 APP-1 preflight (#183) | RETURN FOR CORRECTION | [R3 findings](findings/P2-R3-WP15-PREFLIGHT-2026-10-15.md): four contract findings plus §3 bindings; full app tests follow Software build issue; G2/physical holds unchanged |
 | WP14 software/native CI | PASS | Exact Product #390 candidate and unchanged merged root; Verification PR #158 |
 | WP14 release identity | Authenticated | Verification PR #159; original exact platform binaries |
