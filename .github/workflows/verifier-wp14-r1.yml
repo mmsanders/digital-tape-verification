@@ -61,6 +61,8 @@ jobs:
           name: verification196-exact-head-results
           path: /tmp/app1a-return-results
           retention-days: 90
+      - name: Authenticate retained Verification206 correction controls
+        run: python3 -B findings/P2-206-READY-2026-10-18/fetch.py --out /tmp/verification206
       - name: Authenticate retained Verification204 failure receipts
         run: python3 -B findings/P2-204-KIT-2026-10-18/fetch.py --out /tmp/verification204
       - name: Authenticate and replay immutable shipping red evidence

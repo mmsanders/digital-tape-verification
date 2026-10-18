@@ -1,0 +1,47 @@
+{
+ "dropped": "adr180/neighbour/adts-crc-mismatch-1.aac",
+ "results": [
+  {
+   "script": "original_win11_packet",
+   "packet": "complete",
+   "exit": 0,
+   "zip": [
+    "ingest-win11-packet-50bc4160f6da.zip"
+   ],
+   "send_line": true,
+   "stopped_line": null,
+   "summary_census_line": "census 1927: ran 1927, unavailable 0, missing 0, exit differs from descriptor 0, shipping/observe byte differences 0"
+  },
+  {
+   "script": "original_win11_packet",
+   "packet": "missing",
+   "exit": 0,
+   "zip": [
+    "ingest-win11-packet-50bc4160f6da.zip"
+   ],
+   "send_line": true,
+   "stopped_line": null,
+   "summary_census_line": "census 1927: ran 1926, unavailable 0, missing 1, exit differs from descriptor 0, shipping/observe byte differences 0"
+  },
+  {
+   "script": "win11_packet",
+   "packet": "complete",
+   "exit": 0,
+   "zip": [
+    "ingest-win11-packet-50bc4160f6da.zip"
+   ],
+   "send_line": true,
+   "stopped_line": null,
+   "summary_census_line": "census 1927: ran 1927, unavailable 0, missing 0, exit differs from descriptor 0, shipping/observe byte differences 0"
+  },
+  {
+   "script": "win11_packet",
+   "packet": "missing",
+   "exit": 1,
+   "zip": [],
+   "send_line": false,
+   "stopped_line": "STOPPED: summarize_packet.py exited 1; no zip was made. Report this output to Verification.",
+   "summary_census_line": "census 1927: ran 1926, unavailable 0, missing 1, exit differs from descriptor 0, shipping/observe byte differences 0"
+  }
+ ]
+}

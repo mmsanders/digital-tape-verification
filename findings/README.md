@@ -24,6 +24,13 @@ explicitly names this repo. Keep original path text for provenance.
 
 ## Chronological records
 
+18 October2026: [Verification206 collection readiness](P2-206-READY-2026-10-18/RETURN.md)
+disposes Software461 corrected74e1af2c transport with independent exact-tail controls.
+[Current Windows11 instructions](P2-206-READY-2026-10-18/WINDOWS-READY.md) permit one
+observation under existing policy. Historical204 red remains for old script;
+physical read-only A6 and all broader holds are unchanged.
+
+
 18 October 2026: [Verification204 exact kit review](P2-204-KIT-2026-10-18/RETURN.md)
 authenticates Software461 kit and returns command-policy and independently reproduced
 summary-exit transport corrections. Collection remains PAUSED; old source dispositions

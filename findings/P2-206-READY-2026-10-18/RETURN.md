@@ -1,4 +1,4 @@
-# Verification206 — returned transport correction review
+# Verification206 — exact-kit collection readiness PASS
 
 Michael manually activated18October2026,11:36PDT. Fresh206 created18:37:14Z to
 track the returned corrections; closed204/201/457 remain closed. Product input
@@ -38,8 +38,9 @@ both0/ZIP/send; original failing-summary1 still tail0/ZIP/send (real negative co
 corrected failing-summary1 must tail1/noZIP/noSend, original summary diagnostics and
 custom stop retained. This uses204's already-published stop contract, not private
 Software assertions. Native child module environment uses Windows PowerShell's own
-default modules; no execution-policy setting changes. CI results/retention receipt
-will be appended before publication. A Server run is mechanics, not Windows11 proof.
+default modules; no execution-policy setting changes. Eight controls independently PASS at source781fe689a7c98878aaab4bb62b63a996cc5e68d5,
+Windows job117756894754 /normal workflow39155205311. Final CI additionally exercises
+the issued transcript/actual-exit capture block on synthetic complete/failing tails. A Server run is mechanics, not Windows11 proof.
 
 ## Returned observations and limits
 
@@ -64,3 +65,33 @@ pull/load/dump/README/off-card campaigns. Old kit/script evidence remains histor
 If an old packet already exists it is useful evidence: preserve/return it, no
 automatic repeat. Reviewed current commands are in WINDOWS-READY.md, to be issued
 only after normal CI and this publication's merge.
+
+
+## Published readiness and durable replay
+
+Both204 transport corrections are disposed within the exact reviewed scope. One
+Windows11 collection may proceed with WINDOWS-READY.md after this report's normal-CI
+green merge. This is collection readiness only; actual Windows11 evidence is pending.
+Historical204 red remains valid for original9d850667; only corrected74e1af2c is ready.
+
+EVIDENCE.json pins original corrected raw rehearsal9485590d…, returned full-packet
+Software adjacent controls d3dfd12e…, and independent eight-control archive40009bytes /
+1b51dd8aad5b196d45fb9cce39805f0ac25cb6842598be0c4da96257a8da7bc6.
+Durable release:
+https://github.com/mmsanders/digital-tape-verification/releases/tag/evidence-206-781fe689a7c98878aaab4bb62b63a996cc5e68d5-39155205311-1
+
+`python -B findings/P2-206-READY-2026-10-18/fetch.py --out /tmp/206 --raw`
+anonymously downloads/authenticates all four release assets; validates exact input
+script hashes and all eight independent result pairs. Without --raw it skips only
+the212MB packet. Raw and controls stay outside git; no reliance on90-day Actions
+retention. RETURNED-METADATA.json authenticates raw INDEX/platform/config hashes and
+records Server identity/observer qualification; SOFTWARE-CONTROLS.json preserves
+the returned complete/full-packet missing-record controls. No full census, math or
+source campaign was independently rerun.
+
+Independent source/disposition201/203 and native/base/full-package holds carry.
+On publication update Michael447 MAIN BRIEF with complete current commands/pins
+and exact reviewed document link, preserve its old brief/evidence as historical,
+keep physical read-only A6 readiness unchanged. Next owner Michael may return one
+observation or actual stop; Software/PM receive this bounded readiness disposition.
+Stop and close206; do not reopen204/201/457 or wait/poll for collection.

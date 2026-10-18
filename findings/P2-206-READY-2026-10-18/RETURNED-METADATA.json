@@ -1,0 +1,172 @@
+{
+  "index": {
+    "architecture": "x64",
+    "binary_sha256": "d544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a",
+    "candidate_sha": "50bc4160f6da527da8c684d05264f99815aaa870",
+    "config_sha256": "0069fdecf84523bdc4b8bec742024d4f10151740c28c6de59d4ec808b351d0be",
+    "observer": "procmon",
+    "platform": "windows-server-serverdatacenter",
+    "platform_file": "platform.json",
+    "platform_sha256": "39a5548e6cd66c7078ba3626858f854062276f3a4b6b708178a39aa9e7413d49",
+    "profile": "INGEST1-AP4",
+    "profile_file": "profile/profile.json",
+    "shipping_binary_sha256": "d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b",
+    "tool_version": "0.1.1"
+  },
+  "case_count": 1927,
+  "platform.json": {
+    "architecture": "x64",
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+    "machine": "AMD64",
+    "observe_binary_sha256": "d544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a",
+    "observer": "procmon",
+    "observer_selftest_qualified": true,
+    "observer_version": "Process Monitor (Procmon64.exe, sha256 28495e642b2a465474a4edc58380eaf8b7ee580f3fbcb4141061deadafe9b885)",
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "os_release": "2025Server",
+    "os_version": "10.0.26100",
+    "platform": "windows-server-serverdatacenter",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "resource_limit_method": {
+      "bytes": 3145728,
+      "method": "Job object JOB_OBJECT_LIMIT_PROCESS_MEMORY"
+    },
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1",
+    "shipping_binary_sha256": "d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b",
+    "windows_edition": "ServerDatacenter"
+  },
+  "config.json": {
+    "build": "cargo build --release --locked (shipping); cargo build --release --locked --features observe (observation build)",
+    "cargo_lock_sha256": "6e8d14c97dc59d4e627e68f37d6647c45e7f6d52de5e3c51653239993ad0f864",
+    "profile": "INGEST1-AP4",
+    "profile_tree_sha256": "5ff9591fdcb5c7d7d439a4f256b38ba94a32bb6cfc42a89e6d4de077919d79b9",
+    "rust_toolchain": "[toolchain]\nchannel = \"1.97.0\"\nprofile = \"minimal\"\n",
+    "tool_version": "0.1.1",
+    "transport_sha256": {
+      "observers.py": "560cc9a592f53e06deb0bdac44b9f56b32b608f8f32ceba558885a49190dc62b",
+      "run_packet.py": "d37d63e5b13b2fb64750e0f337f468e0f569630a42f1dfac82f9a96475b6dea2"
+    }
+  },
+  "observer-selftest/result.json": {
+    "checks": {
+      "child_process_seen": true,
+      "creation_seen": true,
+      "forbidden_device_open_seen": true,
+      "process_completion_seen": true,
+      "process_exit_zero": true,
+      "session_fully_partitioned": true,
+      "session_pml_csv_aligned": true,
+      "two_probe_opens_seen": true
+    },
+    "detection": "every captured session record has exactly one owner (a case run, a shipping rerun or this selftest); an extract missing any record leaves that session index unowned",
+    "device_like_rows": [
+      [
+        409,
+        "probe-parent.exe",
+        "952",
+        "CreateFile",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        410,
+        "probe-parent.exe",
+        "952",
+        "CloseFile",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        411,
+        "probe-parent.exe",
+        "952",
+        "IRP_MJ_CLOSE",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        419,
+        "probe-parent.exe",
+        "952",
+        "CloseFile",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        420,
+        "probe-parent.exe",
+        "952",
+        "IRP_MJ_CLOSE",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        421,
+        "probe-parent.exe",
+        "952",
+        "CloseFile",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        422,
+        "probe-parent.exe",
+        "952",
+        "IRP_MJ_CLOSE",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ]
+    ],
+    "false_pass_controls": {
+      "drop_forbidden_device_open": {
+        "file": "controls/drop_forbidden_device_open.csv",
+        "rejected": true,
+        "sha256": "a0ced64527fce3d03bf6f1c22ec946493c9733fd88e9e6c5786c7663dc2d9105",
+        "unowned_after_mutation": 1
+      },
+      "drop_probe_open": {
+        "file": "controls/drop_probe_open.csv",
+        "rejected": true,
+        "sha256": "ee04241a1ce7c32dc8e22975b98e978007f3deb3738fb0da3ad54a0516b31650",
+        "unowned_after_mutation": 1
+      },
+      "truncate_mid_trace": {
+        "file": "controls/truncate_mid_trace.csv",
+        "rejected": true,
+        "sha256": "3973a03e5ce995c258314cd24c950bcb4e8b6bf5f14de46fd16eca7d02ae9340",
+        "unowned_after_mutation": 212
+      },
+      "truncate_tail": {
+        "file": "controls/truncate_tail.csv",
+        "rejected": true,
+        "sha256": "04bcbfc1ad55c619294f80bae792b11ee4185ba134c3ccf0b2553413bfeecd55",
+        "unowned_after_mutation": 141
+      }
+    },
+    "observer": "procmon",
+    "probe_stderr_tail": "",
+    "qualified": true,
+    "session_alignment": {
+      "aligned": true,
+      "csv_rows": 590388,
+      "mismatch_samples": [],
+      "pml_events": 590388,
+      "row_mismatches": 0
+    },
+    "trace": "trace.txt",
+    "trace_sha256": "bbe5e10aaf5806ff6c09ddc1f26902599111ce8008772046397f2d0e33367672"
+  },
+  "observer-session/partition.json": {
+    "alignment": {
+      "aligned": true,
+      "csv_rows": 590388,
+      "mismatch_samples": [],
+      "pml_events": 590388,
+      "row_mismatches": 0
+    },
+    "multiply_owned": 0,
+    "owned": 590388,
+    "records": 590388,
+    "unowned_count": 0
+  }
+}
