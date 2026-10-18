@@ -1,0 +1,192 @@
+[
+  {
+    "id": 12122856537,
+    "name": "ingest-exhaustion-Windows",
+    "size_in_bytes": 33153,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122856537",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122856537/zip",
+    "expired": false,
+    "created_at": "2026-10-18T02:45:32Z",
+    "expires_at": "2027-01-16T02:25:07Z",
+    "updated_at": "2026-10-18T02:45:32Z",
+    "digest": "sha256:71140eb625c9dc76e5f49c57892376afa129d37f3e933c141dfa34a308259a2c",
+    "workflow_run": {
+      "id": 39090007043,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-457-ingest-exhaustion",
+      "head_sha": "50bc4160f6da527da8c684d05264f99815aaa870"
+    }
+  },
+  {
+    "id": 12122686778,
+    "name": "ingest-exhaustion-macOS",
+    "size_in_bytes": 27134,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122686778",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122686778/zip",
+    "expired": false,
+    "created_at": "2026-10-18T02:43:16Z",
+    "expires_at": "2027-01-16T02:25:07Z",
+    "updated_at": "2026-10-18T02:43:16Z",
+    "digest": "sha256:0c601d6fb6605a0dfc7fe1fa98e28fbb277af90303cd07f65886294b30132893",
+    "workflow_run": {
+      "id": 39090007043,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-457-ingest-exhaustion",
+      "head_sha": "50bc4160f6da527da8c684d05264f99815aaa870"
+    }
+  },
+  {
+    "id": 12122488093,
+    "name": "ingest-exhaustion-Linux",
+    "size_in_bytes": 28634,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122488093",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122488093/zip",
+    "expired": false,
+    "created_at": "2026-10-18T02:41:37Z",
+    "expires_at": "2027-01-16T02:25:07Z",
+    "updated_at": "2026-10-18T02:41:37Z",
+    "digest": "sha256:9e34f804d8e4bc849d502e709e87da64a167cdcccc9c8b725c9ae4c31b6311ae",
+    "workflow_run": {
+      "id": 39090007043,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-457-ingest-exhaustion",
+      "head_sha": "50bc4160f6da527da8c684d05264f99815aaa870"
+    }
+  },
+  {
+    "id": 12125806069,
+    "name": "app1a-s1-Windows",
+    "size_in_bytes": 4712901,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12125806069",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12125806069/zip",
+    "expired": false,
+    "created_at": "2026-10-18T04:47:16Z",
+    "expires_at": "2027-01-16T04:32:27Z",
+    "updated_at": "2026-10-18T04:47:16Z",
+    "digest": "sha256:c3c2ecb19e6823f45d58b69f44b8dfb0fec791948dfda90c72e81a738cbb5355",
+    "workflow_run": {
+      "id": 39097448524,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-452-ingest-report",
+      "head_sha": "b9f430c8c9b33532abf07eea0ed2653310639f2d"
+    }
+  },
+  {
+    "id": 12125258446,
+    "name": "app1a-s1-macOS",
+    "size_in_bytes": 4695139,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12125258446",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12125258446/zip",
+    "expired": false,
+    "created_at": "2026-10-18T05:00:54Z",
+    "expires_at": "2027-01-16T04:32:27Z",
+    "updated_at": "2026-10-18T05:00:54Z",
+    "digest": "sha256:00de19fd9886da28487c79573685ff1286bb6a9979e58548d3a9f02ec652cc11",
+    "workflow_run": {
+      "id": 39097448524,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-452-ingest-report",
+      "head_sha": "b9f430c8c9b33532abf07eea0ed2653310639f2d"
+    }
+  },
+  {
+    "id": 12124859238,
+    "name": "app1a-s1-Linux",
+    "size_in_bytes": 4697585,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12124859238",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12124859238/zip",
+    "expired": false,
+    "created_at": "2026-10-18T04:57:31Z",
+    "expires_at": "2027-01-16T04:32:27Z",
+    "updated_at": "2026-10-18T04:57:31Z",
+    "digest": "sha256:25335fb8555b615a39e524560e88625d25df546876824fb85badd8f5db405bc0",
+    "workflow_run": {
+      "id": 39097448524,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-452-ingest-report",
+      "head_sha": "b9f430c8c9b33532abf07eea0ed2653310639f2d"
+    }
+  },
+  {
+    "id": 12124085089,
+    "name": "app1a-parser-binding-macOS",
+    "size_in_bytes": 6587,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12124085089",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12124085089/zip",
+    "expired": false,
+    "created_at": "2026-10-18T03:20:31Z",
+    "expires_at": "2027-01-16T03:14:38Z",
+    "updated_at": "2026-10-18T03:20:31Z",
+    "digest": "sha256:4b4575b51f1a98273677ff957d087c3e33a0afe3fa360e2bd320d35cb5d34140",
+    "workflow_run": {
+      "id": 39092923302,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-452-app-shell",
+      "head_sha": "ecca8c1304ba9511d78791e92ed35fac494f2a27"
+    }
+  },
+  {
+    "id": 12123189503,
+    "name": "app1a-parser-binding-Windows",
+    "size_in_bytes": 6597,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12123189503",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12123189503/zip",
+    "expired": false,
+    "created_at": "2026-10-18T03:21:35Z",
+    "expires_at": "2027-01-16T03:14:38Z",
+    "updated_at": "2026-10-18T03:21:35Z",
+    "digest": "sha256:f849949b2845ffba737f873583a48fc787511d31a9e1aa79e4b917e436d07195",
+    "workflow_run": {
+      "id": 39092923302,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-452-app-shell",
+      "head_sha": "ecca8c1304ba9511d78791e92ed35fac494f2a27"
+    }
+  },
+  {
+    "id": 12123179188,
+    "name": "app1a-parser-binding-Linux",
+    "size_in_bytes": 6588,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12123179188",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12123179188/zip",
+    "expired": false,
+    "created_at": "2026-10-18T03:20:22Z",
+    "expires_at": "2027-01-16T03:14:38Z",
+    "updated_at": "2026-10-18T03:20:22Z",
+    "digest": "sha256:0b63035ae435f5fa39808ff9cec73e82e4d4e0e4e8f2ccec615a352d3fc2eb6c",
+    "workflow_run": {
+      "id": 39092923302,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-452-app-shell",
+      "head_sha": "ecca8c1304ba9511d78791e92ed35fac494f2a27"
+    }
+  },
+  {
+    "id": 12122704067,
+    "name": "app1a-g1-static-controls",
+    "size_in_bytes": 4875,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122704067",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12122704067/zip",
+    "expired": false,
+    "created_at": "2026-10-18T03:15:17Z",
+    "expires_at": "2027-01-16T03:14:38Z",
+    "updated_at": "2026-10-18T03:15:17Z",
+    "digest": "sha256:5191447bbcafeab2ec294c28a0d0b52e6c5d0533af6281528d94dfdaf63507e3",
+    "workflow_run": {
+      "id": 39092923302,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software/p2-452-app-shell",
+      "head_sha": "ecca8c1304ba9511d78791e92ed35fac494f2a27"
+    }
+  }
+]
