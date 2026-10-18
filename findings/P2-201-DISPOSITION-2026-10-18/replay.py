@@ -18,6 +18,7 @@ def folders(argv):
 
 def replay(directory,out):
  directory.mkdir(parents=True,exist_ok=True);results=[]
+ census={c['id']:c for c in json.loads((ROOT/'tests/wp16_ingest_stage1/CENSUS.json').read_text())['cases']}
  for pin in json.loads((HERE/'INPUTS.json').read_text()):
   p=directory/(str(pin['id'])+'.zip')
   if not p.exists():
@@ -42,10 +43,13 @@ def replay(directory,out):
       if b:bad.append(dict(limit=r['limit_mib'],violations=b))
      assert not bad,bad;rec.update(load_failures_excluded=load_failed,shipping_contract_rows_pass=len(j['sweep'])-load_failed)
    if 's1-matrix/S1-MATRIX.json' in ns:
-    j=json.loads(z.read('s1-matrix/S1-MATRIX.json'));s=j['summary'];count=reports=0
+    j=json.loads(z.read('s1-matrix/S1-MATRIX.json'));s=j['summary'];count=reports=census_exits=0
     for r in j['rows']:
      if r['verdict']=='UNEXECUTED':continue
-     count+=1;prefix='s1-matrix/runs/'+r['run']+'/'
+     count+=1
+     if r['name'] in census:
+      want=census[r['name']]['expected_exit'];assert (r['exit']!=0 if want is None else r['exit'] in want if isinstance(want,list) else r['exit']==want),(r['name'],r['exit'],want);census_exits+=1
+     prefix='s1-matrix/runs/'+r['run']+'/'
      assert sha(z.read(prefix+'stdout'))==r['stdout_sha256'];assert sha(z.read(prefix+'stderr'))==r['stderr_sha256']
      if r['report_sha256'] is not None:
       raw=z.read(prefix+'report.jsonl');assert sha(raw)==r['report_sha256'];parsed=oracle.parse(raw,'ingest',r['version'].removeprefix('ingest '),cases.NONCE,r['exit'],folders(r['argv']))
@@ -53,7 +57,7 @@ def replay(directory,out):
       if parsed and parsed['refusal']:assert parsed['refusal']['id']==r['refusal_id']
       reports+=1
      assert r['verdict']=='PASS',(r['name'],r['verdict'])
-    assert count==s['runs']==s['pass'];rec.update(process_receipts_replayed=count,report_files_reparsed=reports,observed_ids=s['observed_ids'],gaps=s['unexecuted'])
+    assert count==s['runs']==s['pass'];rec.update(process_receipts_replayed=count,census_exits_compared=census_exits,report_files_reparsed=reports,observed_ids=s['observed_ids'],gaps=s['unexecuted'])
     smoke=json.loads(z.read('ingest-process/RESULT.json'));assert len(smoke['results'])==12;rec['smoke_rows']=12
    for n in ns:
     if n.startswith('equivalence-'):

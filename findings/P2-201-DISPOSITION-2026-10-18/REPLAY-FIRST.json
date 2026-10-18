@@ -39,6 +39,7 @@
     "name": "app1a-s1-Windows",
     "zip_sha256": "c3c2ecb19e6823f45d58b69f44b8dfb0fec791948dfda90c72e81a738cbb5355",
     "process_receipts_replayed": 1944,
+    "census_exits_compared": 1926,
     "report_files_reparsed": 1935,
     "observed_ids": 27,
     "gaps": [
@@ -78,6 +79,7 @@
     "name": "app1a-s1-macOS",
     "zip_sha256": "00de19fd9886da28487c79573685ff1286bb6a9979e58548d3a9f02ec652cc11",
     "process_receipts_replayed": 1949,
+    "census_exits_compared": 1926,
     "report_files_reparsed": 1939,
     "observed_ids": 28,
     "gaps": [
@@ -101,6 +103,7 @@
     "name": "app1a-s1-Linux",
     "zip_sha256": "25335fb8555b615a39e524560e88625d25df546876824fb85badd8f5db405bc0",
     "process_receipts_replayed": 1952,
+    "census_exits_compared": 1926,
     "report_files_reparsed": 1943,
     "observed_ids": 30,
     "gaps": [

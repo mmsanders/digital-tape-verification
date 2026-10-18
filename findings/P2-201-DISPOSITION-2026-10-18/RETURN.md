@@ -52,8 +52,11 @@ relabelled as passing. Mac ordinary enforceable-limit coverage remains unavailab
 The current publication additionally builds exact50bc416 with `cargo build --release
 --locked`, no observe feature, and applies the unchanged independent shipping
 regression under native Windows Job limits before the child's first instruction.
-Its actual executable, full SHA/version/OS and every native status/output/cleanup
-fact are retained in the CI release. This independent rebuild is separately
+Run39102063413 independently built actual shipping SHA256
+e1f9724da4f8f339999336fa84cf55666aa9776565d78f4b94c3d7499e6f956b:
+3/4/6MiB clean exit1;8/12/64MiB and unlimited success; all7 load controls passed,
+all pairs identical, sentinels intact and no residue. Its exact executable, full
+SHA/version/OS and every native status/output/cleanup fact are retained in the CI release. This independent rebuild is separately
 identified; it is not assumed to equal Software's eee301bb artifact bytes. Normal
 publication CI must pass this execution before merge. Final PR evidence comment
 identifies that actual hash and result.
@@ -88,7 +91,8 @@ Locally executed actual g1_static.py against the published static_controls.py:
 10 app Rust files x5 rows all PASS: clean baseline/ordinary private-file positive,
 and detecting Unix-read, Windows-alias-read, partition-write negatives. Ordinary
 shipping functions after cfg(test) now remain checked. Final CI repeats this direct
-binding. Software's own lexical hiding controls are supporting checks, separate
+binding and also applies the same positive/negative source controls before the
+jobdir.rs test item, preserving valid Rust item placement and both sides of the marker. Software's own lexical hiding controls are supporting checks, separate
 from our supplied controls. Gate scope change is recorded: literal paths are checked
 by device-name rules, while nonliteral paths retain module/dataflow rules. This is
 acceptable for these bounded G1 device controls; it does **not** establish a complete
@@ -103,7 +107,10 @@ Actual source use remains constrained; runtime/native G1 stays HELD.
 | macOS HFS+ image |1949|1939|28/34|
 | WindowsServer |1944|1935|27/34|
 
-Replay verifies raw stdout/stderr/report SHA256, re-applies oracle.parse using actual
+Replay additionally compares1926 actual command exits per OS to the frozen independent
+Stage1 CENSUS expectations (allowed concurrent-destination exit set and forced
+termination retained), rather than trusting a Software PASS label. Replay verifies
+raw stdout/stderr/report SHA256, re-applies oracle.parse using actual
 exit/version/nonce/folder operands, and checks the recorded refusal ID. This is
 independent interpretation of authenticated actual receipts, distinct from new
 local native execution or a full reconstruction of every source/filesystem mutation.
@@ -115,7 +122,9 @@ command exit/output pair preserved and one report warning; macOS records later-w
 success, but its full HFS+ refuses leaf creation, so the intended start-write fault is
 UNEXECUTED and the actual create failure is judged as such. Windows has no full-FS
 report-fault receipt; POSIX FIFO/name/permission controls are UNEXECUTED there.
-Mac OS-limited IO_MEMORY is UNEXECUTED. The4GiB >1h success stays with prior AP4
+Mac OS-limited IO_MEMORY is UNEXECUTED. An end-record-specific report-write fault
+is not isolated by these filesystem receipts and remains unexecuted as a distinct
+fault position; a truncated mid-stream write is not claimed as that observation. The4GiB >1h success stays with prior AP4
 campaign; RIFF overflow itself is observed. These gaps are preserved in REPLAY-FIRST.json.
 
 INTERNAL, SOURCE_LEVEL, JOINED_PEAK and DEST_NAME_INVALID remain unobserved across
@@ -137,7 +146,9 @@ Existing normal Verification CI performs direct binding, replay and real shippin
 execution; raw >1MiB evidence is retained as release assets with full hashes. INPUTS
 pins returned raw ZIPs and the PR final evidence comment pins the publication runs
 and release archives. The complete returned ZIPs are copied into the new independent
-release, so upstream artifact expiry does not break retained replay. The publication
+release, so upstream artifact expiry does not break retained replay. EVIDENCE.json pins both immutable release archives; fetch.py authenticates them,
+replays the returned ZIPs and verifies the exact rebuilt executable, native
+status judgments, raw stdout/stderr and saved successful pair bytes. The publication
 includes replay.py/bindings.py/shipping.py; expectations remain in their prior
 published packages. Green reproduction CI never substitutes for an overall PASS.
 

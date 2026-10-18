@@ -80,6 +80,7 @@ jobs:
           mkdir -p /tmp/201-disposition/inputs
           python3 -B findings/P2-201-DISPOSITION-2026-10-18/replay.py --artifacts /tmp/201-disposition/inputs --out /tmp/201-disposition/REPLAY.json
           python3 -B findings/P2-201-DISPOSITION-2026-10-18/bindings.py --product candidate455 --out /tmp/201-disposition/binding
+          python3 -B findings/P2-201-DISPOSITION-2026-10-18/fetch.py --out /tmp/201-retained
       - name: Retain independently authenticated disposition evidence
         if: github.head_ref == 'verification/201-disposition'
         env:

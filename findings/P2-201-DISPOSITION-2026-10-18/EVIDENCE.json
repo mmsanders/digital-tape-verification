@@ -1,0 +1,18 @@
+[
+  {
+    "kind": "disposition",
+    "source_commit": "347fb0e4bf3345117a9df082dcbc3f858c947e51",
+    "run": 39102063413,
+    "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-201-disposition-347fb0e4bf3345117a9df082dcbc3f858c947e51-39102063413-1/verification201-disposition.zip",
+    "sha256": "233971e4665715261fc2a3da4d9993869392fa0982d6fb8de1d928a7bd8a4cfa",
+    "bytes": 9255528
+  },
+  {
+    "kind": "candidate",
+    "source_commit": "347fb0e4bf3345117a9df082dcbc3f858c947e51",
+    "run": 39102063413,
+    "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-201-candidate-347fb0e4bf3345117a9df082dcbc3f858c947e51-39102063413-1/verification201-candidate.zip",
+    "sha256": "b32e2640c114a048d7d591aa693996839511263d9c18aef03f9921029298643d",
+    "bytes": 2416339
+  }
+]
