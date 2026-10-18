@@ -2,6 +2,11 @@
 
 **Snapshot: 17 October 2026 UTC.** Verification original input `fc80e0ece3f84f8c7ad468c695cb22b3d6abd21d`;
 Product input `05315e2d464376400e122cd982dbb93dc084c1fb`.
+18 October update: [Verification204 kit review](findings/P2-204-KIT-2026-10-18/RETURN.md)
+authenticates corrected Software461 kit; Windows11 INGEST collection remains PAUSED
+on ordinary-policy command and summary-exit transport corrections. This supersedes
+the older INGEST collection-ready wording below; physical read-only A6 is unchanged.
+
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
 

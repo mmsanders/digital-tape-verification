@@ -1,0 +1,118 @@
+{
+ "archive": "win11-kit.zip",
+ "size": 2604482,
+ "sha256": "ffb0f78ac3980fa1bb130f0aff22d53ebb100ed3323a8e50ba62a6ee1819c865",
+ "members": [
+  {
+   "name": "ingest.exe",
+   "size": 848384,
+   "compressed": 420772,
+   "sha256": "d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b"
+  },
+  {
+   "name": "observe/ingest.exe",
+   "size": 956928,
+   "compressed": 470618,
+   "sha256": "d544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a"
+  },
+  {
+   "name": "profile/coefficients/h11025.f64",
+   "size": 2184,
+   "compressed": 1394,
+   "sha256": "e6d704b4388f332fb219857d884693a5b3595b59189500ac24fd109f7f29630c"
+  },
+  {
+   "name": "profile/coefficients/h12000.f64",
+   "size": 79976,
+   "compressed": 66337,
+   "sha256": "0a3c013cc7d1f30209c3b7a15eda6f54f77a9092966f41b92e315fe79e2de326"
+  },
+  {
+   "name": "profile/coefficients/h16000.f64",
+   "size": 239912,
+   "compressed": 218817,
+   "sha256": "ee9075b0dbc928347d464704e1f90c8b06e8d5af8b0629dabe85c6234ba6f658"
+  },
+  {
+   "name": "profile/coefficients/h176400.f64",
+   "size": 2264,
+   "compressed": 1441,
+   "sha256": "82731971dbd5697557de91f89b76c824edd6b7d068bb9bb1e6a52aaf521fa30b"
+  },
+  {
+   "name": "profile/coefficients/h192000.f64",
+   "size": 359864,
+   "compressed": 332791,
+   "sha256": "d4b42d6f3d02daeb1ef164998e2abbbff3bc4e280c80752ccba29966fa0de5c0"
+  },
+  {
+   "name": "profile/coefficients/h22050.f64",
+   "size": 1096,
+   "compressed": 725,
+   "sha256": "e1862aad01239705760f7f68aa83eb02ae46c7a1ee4bdff863d4b4928f3681ba"
+  },
+  {
+   "name": "profile/coefficients/h24000.f64",
+   "size": 79976,
+   "compressed": 66337,
+   "sha256": "0a3c013cc7d1f30209c3b7a15eda6f54f77a9092966f41b92e315fe79e2de326"
+  },
+  {
+   "name": "profile/coefficients/h32000.f64",
+   "size": 239912,
+   "compressed": 218817,
+   "sha256": "ee9075b0dbc928347d464704e1f90c8b06e8d5af8b0629dabe85c6234ba6f658"
+  },
+  {
+   "name": "profile/coefficients/h48000.f64",
+   "size": 91736,
+   "compressed": 77595,
+   "sha256": "1ae25ef4cd2b758f707d60b72c29ddb78548a4af2b1c6abbff433dcdbdb7ac5d"
+  },
+  {
+   "name": "profile/coefficients/h64000.f64",
+   "size": 366920,
+   "compressed": 339494,
+   "sha256": "7d5acfc7e7cc858332ee6ecf05bf022cc4ab3b457686c9541ceb22e174986dc6"
+  },
+  {
+   "name": "profile/coefficients/h7350.f64",
+   "size": 3272,
+   "compressed": 2075,
+   "sha256": "f4b760a522a38a906942c38b54c5afc99308af64124cd85ee864ec4e9a22784e"
+  },
+  {
+   "name": "profile/coefficients/h8000.f64",
+   "size": 239912,
+   "compressed": 218817,
+   "sha256": "ee9075b0dbc928347d464704e1f90c8b06e8d5af8b0629dabe85c6234ba6f658"
+  },
+  {
+   "name": "profile/coefficients/h88200.f64",
+   "size": 1144,
+   "compressed": 749,
+   "sha256": "d3ff72ce360d0c5858a1cb70b577cc74f1788cf85a0baad72eff3fc0faf25292"
+  },
+  {
+   "name": "profile/coefficients/h96000.f64",
+   "size": 181112,
+   "compressed": 162918,
+   "sha256": "5c4c739d0f79a452e1e1e705da33e68b23a5501a755128c7017b94b066c276b1"
+  },
+  {
+   "name": "profile/profile.json",
+   "size": 4857,
+   "compressed": 1864,
+   "sha256": "9364a862ed33c25591a17f60a375dc5af8583f0edb8b4ce5b23dbfb6ec172fc5"
+  },
+  {
+   "name": "KIT.json",
+   "size": 1038,
+   "compressed": 551,
+   "sha256": "26aeec3cfc657470d3bdcfee25458acc2e237705d3ee17ff41e3964b27fd020f"
+  }
+ ],
+ "source_commit": "50bc4160f6da527da8c684d05264f99815aaa870",
+ "shipping_sha256": "d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b",
+ "observation_sha256": "d544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a"
+}
