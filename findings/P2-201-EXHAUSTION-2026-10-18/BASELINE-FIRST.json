@@ -1,0 +1,333 @@
+{
+  "scope": "actual shipping executable, full application path; Windows Server supplementary only",
+  "binary_sha256": "0e1ef2cb4f283eb876f08019222da5d3ac744ec30d49f020a2e87323f31bcac1",
+  "source_sha256": "d36663d1e4f05abaac699a6c14e0fa86724db9b4decdb8c96abe0c9d1f645821",
+  "platform": "win32",
+  "mode": "baseline-red",
+  "rows": [
+    {
+      "limit_mib": null,
+      "load": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.016000000000019554,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--version"
+        ],
+        "limit_mib": null,
+        "stdout_sha256": "15bc053fcd9128719e7027d72316afe5ff858c25a29302c8cd7c0d3cadc253d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest 0.1.0 INGEST-1 arithmetic-profile INGEST1-AP4\n",
+        "stderr": ""
+      },
+      "case": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.35899999999998045,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--out",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST",
+          "--length",
+          "60",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\f0"
+        ],
+        "limit_mib": null,
+        "stdout_sha256": "58c7e631a95490508fc3795d0645ec4f8a61be5802a700fd36c47fd105891fbe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest: wrote D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST (1 sources in 1 folders, 00:02 of 01:00); peak-limited 0, unmeasurable 0, gapless-unknown 0\n",
+        "stderr": ""
+      },
+      "dest_exists": true,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "fb806eea3ae42cd4d25a826b17830488d0018ce8c608b23da56b2d54fb0b4354"
+      },
+      "unexpected_entries": [],
+      "foreign_unchanged": true,
+      "violations": []
+    },
+    {
+      "limit_mib": 3,
+      "load": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.016000000000019554,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--version"
+        ],
+        "limit_mib": 3,
+        "stdout_sha256": "15bc053fcd9128719e7027d72316afe5ff858c25a29302c8cd7c0d3cadc253d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest 0.1.0 INGEST-1 arithmetic-profile INGEST1-AP4\n",
+        "stderr": ""
+      },
+      "case": {
+        "exit": 1,
+        "exit_hex": "0x00000001",
+        "timed_out": false,
+        "seconds": 0.0,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--out",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST",
+          "--length",
+          "60",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\f0"
+        ],
+        "limit_mib": 3,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "3a3215041567df74dd81070d6dd61c8168848c5cd9957725166e3203a3565bcb",
+        "stdout": "",
+        "stderr": "ingest: error: 0/ordinary.wav: out of memory (needed 88200 elements); nothing was written\n"
+      },
+      "dest_exists": false,
+      "pair": null,
+      "unexpected_entries": [],
+      "foreign_unchanged": true,
+      "violations": []
+    },
+    {
+      "limit_mib": 4,
+      "load": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.0,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--version"
+        ],
+        "limit_mib": 4,
+        "stdout_sha256": "15bc053fcd9128719e7027d72316afe5ff858c25a29302c8cd7c0d3cadc253d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest 0.1.0 INGEST-1 arithmetic-profile INGEST1-AP4\n",
+        "stderr": ""
+      },
+      "case": {
+        "exit": 1,
+        "exit_hex": "0x00000001",
+        "timed_out": false,
+        "seconds": 0.014999999999986358,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--out",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST",
+          "--length",
+          "60",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\f0"
+        ],
+        "limit_mib": 4,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "3a3215041567df74dd81070d6dd61c8168848c5cd9957725166e3203a3565bcb",
+        "stdout": "",
+        "stderr": "ingest: error: 0/ordinary.wav: out of memory (needed 88200 elements); nothing was written\n"
+      },
+      "dest_exists": false,
+      "pair": null,
+      "unexpected_entries": [],
+      "foreign_unchanged": true,
+      "violations": []
+    },
+    {
+      "limit_mib": 6,
+      "load": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.0,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--version"
+        ],
+        "limit_mib": 6,
+        "stdout_sha256": "15bc053fcd9128719e7027d72316afe5ff858c25a29302c8cd7c0d3cadc253d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest 0.1.0 INGEST-1 arithmetic-profile INGEST1-AP4\n",
+        "stderr": ""
+      },
+      "case": {
+        "exit": 3221226505,
+        "exit_hex": "0xC0000409",
+        "timed_out": false,
+        "seconds": 0.3440000000000225,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--out",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST",
+          "--length",
+          "60",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\f0"
+        ],
+        "limit_mib": 6,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "8c1397bdb863336292ffcfe1270fa8d8f50690518f506fcbfc957e34b74d2137",
+        "stdout": "",
+        "stderr": "memory allocation of 4196368 bytes failed\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+      },
+      "dest_exists": false,
+      "pair": null,
+      "unexpected_entries": [],
+      "foreign_unchanged": true,
+      "violations": [
+        "resource failure must return exactly1 (abort/signal is red)",
+        "failure lacks tool diagnostic"
+      ]
+    },
+    {
+      "limit_mib": 8,
+      "load": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.015999999999991132,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--version"
+        ],
+        "limit_mib": 8,
+        "stdout_sha256": "15bc053fcd9128719e7027d72316afe5ff858c25a29302c8cd7c0d3cadc253d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest 0.1.0 INGEST-1 arithmetic-profile INGEST1-AP4\n",
+        "stderr": ""
+      },
+      "case": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.25,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--out",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST",
+          "--length",
+          "60",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\f0"
+        ],
+        "limit_mib": 8,
+        "stdout_sha256": "58c7e631a95490508fc3795d0645ec4f8a61be5802a700fd36c47fd105891fbe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest: wrote D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST (1 sources in 1 folders, 00:02 of 01:00); peak-limited 0, unmeasurable 0, gapless-unknown 0\n",
+        "stderr": ""
+      },
+      "dest_exists": true,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "fb806eea3ae42cd4d25a826b17830488d0018ce8c608b23da56b2d54fb0b4354"
+      },
+      "unexpected_entries": [],
+      "foreign_unchanged": true,
+      "violations": []
+    },
+    {
+      "limit_mib": 12,
+      "load": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.014999999999986358,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--version"
+        ],
+        "limit_mib": 12,
+        "stdout_sha256": "15bc053fcd9128719e7027d72316afe5ff858c25a29302c8cd7c0d3cadc253d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest 0.1.0 INGEST-1 arithmetic-profile INGEST1-AP4\n",
+        "stderr": ""
+      },
+      "case": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.25,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--out",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST",
+          "--length",
+          "60",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\f0"
+        ],
+        "limit_mib": 12,
+        "stdout_sha256": "58c7e631a95490508fc3795d0645ec4f8a61be5802a700fd36c47fd105891fbe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest: wrote D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST (1 sources in 1 folders, 00:02 of 01:00); peak-limited 0, unmeasurable 0, gapless-unknown 0\n",
+        "stderr": ""
+      },
+      "dest_exists": true,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "fb806eea3ae42cd4d25a826b17830488d0018ce8c608b23da56b2d54fb0b4354"
+      },
+      "unexpected_entries": [],
+      "foreign_unchanged": true,
+      "violations": []
+    },
+    {
+      "limit_mib": 64,
+      "load": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.0,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--version"
+        ],
+        "limit_mib": 64,
+        "stdout_sha256": "15bc053fcd9128719e7027d72316afe5ff858c25a29302c8cd7c0d3cadc253d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest 0.1.0 INGEST-1 arithmetic-profile INGEST1-AP4\n",
+        "stderr": ""
+      },
+      "case": {
+        "exit": 0,
+        "exit_hex": "0x00000000",
+        "timed_out": false,
+        "seconds": 0.25,
+        "method": "Windows Job PROCESS_MEMORY, suspended assignment",
+        "argv": [
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\baseline-kit\\ingest.exe",
+          "--out",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST",
+          "--length",
+          "60",
+          "D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\f0"
+        ],
+        "limit_mib": 64,
+        "stdout_sha256": "58c7e631a95490508fc3795d0645ec4f8a61be5802a700fd36c47fd105891fbe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "ingest: wrote D:\\a\\digital-tape-verification\\digital-tape-verification\\shipping-exhaustion-results\\output\\DEST (1 sources in 1 folders, 00:02 of 01:00); peak-limited 0, unmeasurable 0, gapless-unknown 0\n",
+        "stderr": ""
+      },
+      "dest_exists": true,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "fb806eea3ae42cd4d25a826b17830488d0018ce8c608b23da56b2d54fb0b4354"
+      },
+      "unexpected_entries": [],
+      "foreign_unchanged": true,
+      "violations": []
+    }
+  ],
+  "contract_pass": false
+}
