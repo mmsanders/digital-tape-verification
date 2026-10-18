@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -207,4 +207,49 @@ jobs:
         with:
           name: verification201-corrected-shipping
           path: candidate-results
+          retention-days: 90
+
+  kit204-tail:
+    name: Exact summary failure control (not Product acceptance)
+    if: github.head_ref == 'verification/204-kit-review'
+    runs-on: windows-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual pinned summary and exact PowerShell tail
+        run: python -B findings/P2-204-KIT-2026-10-18/reproduce.py
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: mmsanders/Digital-Tape
+          run-id: 39104751447
+          artifact-ids: 12128173724
+          path: verification204-rehearsal
+          merge-multiple: true
+      - name: Authenticate retained raw rehearsal
+        shell: python
+        run: |
+          import hashlib,pathlib
+          p=pathlib.Path('verification204-rehearsal/ingest-win11-packet-50bc4160f6da.zip')
+          assert p.stat().st_size == 212596344
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == 'cc51a76875c6564fee90801c2119f1f1750b3ddcc7193d53d94d59dd86ee7de9'
+      - name: Retain raw rehearsal and causal failure receipts
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python -c "import shutil;shutil.make_archive('verification204-controls','zip','verification204-results')"
+          sha256sum verification204-controls.zip verification204-rehearsal/ingest-win11-packet-50bc4160f6da.zip > verification204.SHA256SUMS
+          gh release create "evidence-204-$SOURCE_HEAD-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" --repo "$GITHUB_REPOSITORY" --target "$SOURCE_HEAD" --title "Verification204 kit correction receipts" --notes "Exact pinned script tail and summarizer causal controls, original Software461 Server rehearsal. RED readiness; no Windows11 or Product acceptance." verification204-controls.zip verification204-rehearsal/ingest-win11-packet-50bc4160f6da.zip verification204.SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification204-controls
+          path: verification204-results
           retention-days: 90

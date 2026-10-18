@@ -1,0 +1,574 @@
+{
+  "config.json": {
+    "build": "cargo build --release --locked (shipping); cargo build --release --locked --features observe (observation build)",
+    "cargo_lock_sha256": "6e8d14c97dc59d4e627e68f37d6647c45e7f6d52de5e3c51653239993ad0f864",
+    "profile": "INGEST1-AP4",
+    "profile_tree_sha256": "5ff9591fdcb5c7d7d439a4f256b38ba94a32bb6cfc42a89e6d4de077919d79b9",
+    "rust_toolchain": "[toolchain]\nchannel = \"1.97.0\"\nprofile = \"minimal\"\n",
+    "tool_version": "0.1.1",
+    "transport_sha256": {
+      "observers.py": "560cc9a592f53e06deb0bdac44b9f56b32b608f8f32ceba558885a49190dc62b",
+      "run_packet.py": "d37d63e5b13b2fb64750e0f337f468e0f569630a42f1dfac82f9a96475b6dea2"
+    }
+  },
+  "platform.json": {
+    "architecture": "x64",
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+    "machine": "AMD64",
+    "observe_binary_sha256": "d544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a",
+    "observer": "procmon",
+    "observer_selftest_qualified": true,
+    "observer_version": "Process Monitor (Procmon64.exe, sha256 28495e642b2a465474a4edc58380eaf8b7ee580f3fbcb4141061deadafe9b885)",
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "os_release": "2025Server",
+    "os_version": "10.0.26100",
+    "platform": "windows-server-serverdatacenter",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "resource_limit_method": {
+      "bytes": 3145728,
+      "method": "Job object JOB_OBJECT_LIMIT_PROCESS_MEMORY"
+    },
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.0\nLLVM version: 23.1.1",
+    "shipping_binary_sha256": "d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b",
+    "windows_edition": "ServerDatacenter"
+  },
+  "observer-selftest/result.json": {
+    "checks": {
+      "child_process_seen": true,
+      "creation_seen": true,
+      "forbidden_device_open_seen": true,
+      "process_completion_seen": true,
+      "process_exit_zero": true,
+      "session_fully_partitioned": true,
+      "session_pml_csv_aligned": true,
+      "two_probe_opens_seen": true
+    },
+    "detection": "every captured session record has exactly one owner (a case run, a shipping rerun or this selftest); an extract missing any record leaves that session index unowned",
+    "device_like_rows": [
+      [
+        409,
+        "probe-parent.exe",
+        "9464",
+        "CreateFile",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        410,
+        "probe-parent.exe",
+        "9464",
+        "CloseFile",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        411,
+        "probe-parent.exe",
+        "9464",
+        "IRP_MJ_CLOSE",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        419,
+        "probe-parent.exe",
+        "9464",
+        "CloseFile",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        420,
+        "probe-parent.exe",
+        "9464",
+        "IRP_MJ_CLOSE",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        421,
+        "probe-parent.exe",
+        "9464",
+        "CloseFile",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        422,
+        "probe-parent.exe",
+        "9464",
+        "IRP_MJ_CLOSE",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ]
+    ],
+    "false_pass_controls": {
+      "drop_forbidden_device_open": {
+        "file": "controls/drop_forbidden_device_open.csv",
+        "rejected": true,
+        "sha256": "c6bd5f7797e8029d7af339824292c252073a95aed831d0a267b480b77c9e5c43",
+        "unowned_after_mutation": 1
+      },
+      "drop_probe_open": {
+        "file": "controls/drop_probe_open.csv",
+        "rejected": true,
+        "sha256": "b0aebad37a59e76e5480ad4821c4db46f3008e61bf51f96044a4e93853b5be25",
+        "unowned_after_mutation": 1
+      },
+      "truncate_mid_trace": {
+        "file": "controls/truncate_mid_trace.csv",
+        "rejected": true,
+        "sha256": "dca8672d0771b8607db188297b6d50fd61334a4102fed9a26dfa661292f9dc2a",
+        "unowned_after_mutation": 212
+      },
+      "truncate_tail": {
+        "file": "controls/truncate_tail.csv",
+        "rejected": true,
+        "sha256": "f4961d6010a6303bb9fe362ba5abcb9514da466dab5855c55a67e0f3602d9bbd",
+        "unowned_after_mutation": 141
+      }
+    },
+    "observer": "procmon",
+    "probe_paths_outside_python": [
+      [
+        "CloseFile",
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "C:\\Windows\\System32\\ucrtbase.dll",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "D:\\a\\_temp",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\created.txt",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\probe.txt",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        "CloseFile",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\System32\\ucrtbase.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "D:\\a\\_temp",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\created.txt",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\probe.txt",
+        "SUCCESS"
+      ],
+      [
+        "CreateFile",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "FILE LOCKED WITH ONLY READERS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "FILE LOCKED WITH ONLY READERS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "FILE LOCKED WITH ONLY READERS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "SUCCESS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "FILE LOCKED WITH ONLY READERS"
+      ],
+      [
+        "CreateFileMapping",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "SUCCESS"
+      ],
+      [
+        "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "SUCCESS"
+      ],
+      [
+        "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "SUCCESS"
+      ],
+      [
+        "FASTIO_RELEASE_FOR_SECTION_SYNCHRONIZATION",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\System32\\ucrtbase.dll",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "D:\\a\\_temp",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\created.txt",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\probe.txt",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "\\Device\\Harddisk0\\DR0",
+        "SUCCESS"
+      ],
+      [
+        "IRP_MJ_CLOSE",
+        "\\Device\\NamedPipe",
+        "SUCCESS"
+      ],
+      [
+        "Load Image",
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "SUCCESS"
+      ],
+      [
+        "Load Image",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "SUCCESS"
+      ],
+      [
+        "Load Image",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "SUCCESS"
+      ],
+      [
+        "Load Image",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "SUCCESS"
+      ],
+      [
+        "Load Image",
+        "C:\\Windows\\System32\\sechost.dll",
+        "SUCCESS"
+      ],
+      [
+        "Load Image",
+        "C:\\Windows\\System32\\ucrtbase.dll",
+        "SUCCESS"
+      ],
+      [
+        "Load Image",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "Process Exit",
+        "",
+        "SUCCESS"
+      ],
+      [
+        "Process Start",
+        "",
+        "SUCCESS"
+      ],
+      [
+        "QueryAllInformationFile",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\probe.txt",
+        "BUFFER OVERFLOW"
+      ],
+      [
+        "QueryBasicInformationFile",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "SUCCESS"
+      ],
+      [
+        "QueryBasicInformationFile",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "QueryInformationVolume",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\probe.txt",
+        "BUFFER OVERFLOW"
+      ],
+      [
+        "QueryOpen",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "FAST IO DISALLOWED"
+      ],
+      [
+        "QueryOpen",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "FAST IO DISALLOWED"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "BUFFER OVERFLOW"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "SUCCESS"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "BUFFER OVERFLOW"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "SUCCESS"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "BUFFER OVERFLOW"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "SUCCESS"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\ucrtbase.dll",
+        "BUFFER OVERFLOW"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\ucrtbase.dll",
+        "SUCCESS"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "BUFFER OVERFLOW"
+      ],
+      [
+        "QuerySecurityFile",
+        "C:\\Windows\\System32\\vcruntime140.dll",
+        "SUCCESS"
+      ],
+      [
+        "QuerySecurityFile",
+        "D:\\a\\_temp\\DigitalTape-ingest-rehearsal\\work\\packet\\observer-selftest\\created.txt",
+        "SUCCESS"
+      ],
+      [
+        "QueryStandardInformationFile",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "SUCCESS"
+      ],
+      [
+        "QueryStandardInformationFile",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "SUCCESS"
+      ],
+      [
+        "QueryStatInformation",
+        "C:\\Windows\\apppatch\\MergeSdbFilesSource\\sysMerge.sdb",
+        "SUCCESS"
+      ],
+      [
+        "QueryStatInformation",
+        "C:\\Windows\\apppatch\\sysmain.sdb",
+        "SUCCESS"
+      ]
+    ],
+    "probe_stderr_tail": "",
+    "qualified": true,
+    "session_alignment": {
+      "aligned": true,
+      "csv_rows": 590717,
+      "mismatch_samples": [],
+      "pml_events": 590717,
+      "row_mismatches": 0
+    },
+    "trace": "trace.txt",
+    "trace_sha256": "0c489e6bcfb239b951520c6457182ccb39adf03701ad4754ec1c161322046122"
+  },
+  "observer-session/partition.json": {
+    "alignment": {
+      "aligned": true,
+      "csv_rows": 590717,
+      "mismatch_samples": [],
+      "pml_events": 590717,
+      "row_mismatches": 0
+    },
+    "multiply_owned": 0,
+    "owned": 590717,
+    "records": 590717,
+    "unowned_count": 0
+  },
+  "index_binding": {
+    "architecture": "x64",
+    "binary_sha256": "d544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a",
+    "candidate_sha": "50bc4160f6da527da8c684d05264f99815aaa870",
+    "config_sha256": "0069fdecf84523bdc4b8bec742024d4f10151740c28c6de59d4ec808b351d0be",
+    "observer": "procmon",
+    "platform": "windows-server-serverdatacenter",
+    "platform_file": "platform.json",
+    "platform_sha256": "39a5548e6cd66c7078ba3626858f854062276f3a4b6b708178a39aa9e7413d49",
+    "profile": "INGEST1-AP4",
+    "profile_file": "profile/profile.json",
+    "shipping_binary_sha256": "d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b",
+    "tool_version": "0.1.1",
+    "case_count": 1927
+  }
+}
