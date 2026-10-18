@@ -27,10 +27,10 @@ for name,missing in [('complete',False),('missing-census-record',True)]:
  script=d/'exact-tail.ps1';script.write_text(pre+tail)
  cmd=['powershell.exe','-NoProfile','-File',str(script)]
  # Python inherits pwsh7's module path on Actions; Windows PowerShell needs its own default.
- env=dict(os.environ);env.pop('PSModulePath',None)
+ env={k:v for k,v in os.environ.items() if k.upper() != 'PSMODULEPATH'}
  r=subprocess.run(cmd,capture_output=True,text=True,env=env)
  (d/'stdout.txt').write_text(r.stdout);(d/'stderr.txt').write_text(r.stderr)
- row={'control':name,'direct_summary_exit':child.returncode,'tail_exit':r.returncode,'packet_created':(d/'ingest-win11-packet-50bc4160f6da.zip').exists(),'send_instruction':'Send this zip' in r.stdout,'command':cmd}
+ row={'control':name,'direct_summary_exit':child.returncode,'tail_exit':r.returncode,'packet_created':(d/'ingest-win11-packet-50bc4160f6da.zip').exists(),'send_instruction':'Send this zip' in r.stdout,'command':cmd,'stderr':r.stderr}
  rows.append(row)
 print(json.dumps(rows,indent=2))
 assert rows[0]['direct_summary_exit']==0 and rows[0]['tail_exit']==0 and rows[0]['packet_created']
