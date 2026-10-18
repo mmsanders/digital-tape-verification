@@ -97,6 +97,9 @@ jobs:
     name: Actual Windows shipping red control (not Product acceptance)
     if: github.head_ref == 'verification/201-shipping-exhaustion'
     runs-on: windows-latest
+    permissions:
+      contents: write
+      actions: read
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -118,6 +121,16 @@ jobs:
         run: python -B tests/wp16_shipping_exhaustion_r1/fetch_small_baseline.py
       - name: Actual shipping baseline and causal adjacent controls
         run: python -B tests/wp16_shipping_exhaustion_r1/ci_baseline.py
+      - name: Retain immutable raw baseline as a release asset
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python -c "import shutil;shutil.make_archive('verification201-shipping-baseline','zip','shipping-exhaustion-results')"
+          sha256sum verification201-shipping-baseline.zip > verification201-shipping-baseline.SHA256SUMS
+          tag="evidence-verification201-$SOURCE_HEAD-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$SOURCE_HEAD" --title "Verification201 original shipping red baseline" --notes "Raw actual-shipping baseline; contract remains RED. Publication source $SOURCE_HEAD; run $GITHUB_RUN_ID attempt $GITHUB_RUN_ATTEMPT. Not Product acceptance." verification201-shipping-baseline.zip verification201-shipping-baseline.SHA256SUMS
       - uses: actions/upload-artifact@v4
         if: always()
         with:

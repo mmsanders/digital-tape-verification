@@ -13,6 +13,15 @@ against its own unlimited admitted positive, output-parent census and foreign
 sentinel. Candidate mode requires actual exit1 exhaustion plus all cleanup and
 success conditions; abort/signal/status wrapping cannot pass. Original Windows
 shipping0e1ef2cb has a separate real RED control, not a fabricated allocator cap.
+Actual first independent run39088035991, publication head8261a73c3b33889a32f1112a470115c876b9fd24,
+Windows job117558628700 reproduced the defect. BASELINE-FIRST.json retains all7
+rows: unlimited/8/12/64MiB success;3/4MiB clean exit1;6MiB raw3221226505
+(0xC0000409), contract RED. All7 load controls exit0, all sentinels intact, no
+stage leftovers. Returned artifact12121069796 SHA256
+e3171a41b9b57cd10edd946bac823124ca3b873814098b8e2ee3c9e2d8a0bf0b was
+downloaded and independently hash-verified. The final CI also retains raw bytes
+in an immutable release asset with a full SHA256/fetch citation in its final PR comment.
+
 The normal existing Verification workflow runs contract selfcontrols and a bounded
 WindowsServer red-control job on this publication branch. Its green status means
 that the known bad executable was actually rejected, never accepted. Final PR
