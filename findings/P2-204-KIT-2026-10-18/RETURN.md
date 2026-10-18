@@ -22,8 +22,8 @@ corrections return directly to Software461; no Product merge authorization.
    returns1 for missing census records, exit mismatches or shipping byte differences.
    `reproduce.py` exercises the exact unmodified summary/ZIP tail with the actual
    pinned summarizer and paired synthetic complete/missing-record packets. Windows
-   CI must reproduce summary0/tail0/ZIP and summary1/tail0/ZIP respectively before
-   publication. A green detector means the known RED was reproduced, not acceptance.
+   CI39137772871/job117705698803 independently reproduced summary0/tail0/ZIP
+   and summary1/tail0/ZIP/send respectively. A green detector means the known RED was reproduced, not acceptance.
    Require an explicit immediate nonzero guard before packaging, truthful exit/error
    capture, and a newly pinned script with adjacent complete/failing-summary controls.
    Keep valid collected diagnostics on failure, but never send a success-shaped ZIP
@@ -49,6 +49,14 @@ job117608086313, workflow4bda3f5fa0afc8bda8e0f9c1427b2596153c49f2,
 Rust1.97.0, locked shipping/observe builds. Later tooling changes are documentation.
 Different hashes from other same-source builds are retained; reproducibility is
 not asserted and old/rebuilt exe hashes are never substituted for these kit bytes.
+
+All15 profile members equal the authenticated rehearsal bytes; all14 coefficient
+hashes match their profile declarations. profile/profile.json SHA2569364a862ed33c25591a17f60a375dc5af8583f0edb8b4ce5b23dbfb6ec172fc5
+differs from the previously reviewed e75da2ab8b98973f3ce6a97f566b0663fa0406fc218f23bfbc08deba053ead99
+only by tool_version0.1.0 ->0.1.1 (replacing that field in current bytes exactly
+reproduces the old whole-file hash). No arithmetic/profile retest is implied.
+Published inventory SHA25628947fb16fcb99b0d18514043ebe4ece5e9790283598f6c08fef972ffdfdc078
+independently matches every member's size/hash; KIT-PUBLISHED.json retains it.
 
 Imported Stage1 tree609a4c819076a2b85b26cc4f3cd254b92caef6de matches Verification's
 unchanged package. Script at50bc416 is identical to reviewed tooling head. It pins
@@ -88,3 +96,28 @@ fetch hashes. Large raw bytes stay outside git. No claim that Actions retention 
 is permanent. Existing201/203 source dispositions stand; native Windows11, full436,
 Mac/native, full app and physical A6 holds are unchanged. Old6126 kit stays PAUSED;
 physical read-only A6 status is unchanged.
+
+## Independent publication receipts
+
+Causal control source485ae48c307adab8e05a3daf8b5bd74b4010e7ab;
+normal CI39137772871. Original first/second harness attempts39137568660 and
+39137661747 failed because the Python subprocess inherited PowerShell7's module
+path. The corrected harness removes that variable case-insensitively so Windows
+PowerShell uses its own default modules. No execution-policy setting is changed.
+Both actual final child stderr streams are empty; ordinary File invocation returns0
+for complete and failed-summary cases. This confirms the unchecked native failure.
+
+Durable release:
+https://github.com/mmsanders/digital-tape-verification/releases/tag/evidence-204-485ae48c307adab8e05a3daf8b5bd74b4010e7ab-39137772871-1
+
+EVIDENCE.json pins raw rehearsal212596344 bytes/cc51a768… and independent
+controls12153 bytes/a4a5d572742797915d02271d9789fbec2f98f134214e76073c9a4784e8f732a1.
+Run `python -B findings/P2-204-KIT-2026-10-18/fetch.py --out /tmp/204 --raw`
+to fetch/authenticate both, validate causal result pairs and original source pins.
+Without --raw it validates small replayable control receipts and checksum manifest.
+Run reproduce.py on Windows to execute the causal pair again; it fetches/authenticates
+two original scripts and only creates private synthetic packets. It never invokes
+Product binaries, Procmon or device probes. Scope ends at this published correction;
+no waiting/polling for Software or Michael. Direct Software return6251307858 adds
+summary guard requirements to earlier policy return6251215625. PM460 receives the
+merged publication. Michael447 remains PAUSED, no new collection instructions.

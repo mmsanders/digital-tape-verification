@@ -24,6 +24,12 @@ explicitly names this repo. Keep original path text for provenance.
 
 ## Chronological records
 
+18 October 2026: [Verification204 exact kit review](P2-204-KIT-2026-10-18/RETURN.md)
+authenticates Software461 kit and returns command-policy and independently reproduced
+summary-exit transport corrections. Collection remains PAUSED; old source dispositions
+and physical A6 status are unchanged.
+
+
 15 October 2026: [Actual Windows 11 off-card rehearsal](P2-R1-WP14-WIN-REHEARSAL-2026-10-15.md)
 authenticates the single image run and full native export; greater-than4GiB
 result proof is HELD on event GUID/schema decoding, with raw excerpt and replay.

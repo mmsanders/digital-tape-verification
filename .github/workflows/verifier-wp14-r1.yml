@@ -61,6 +61,8 @@ jobs:
           name: verification196-exact-head-results
           path: /tmp/app1a-return-results
           retention-days: 90
+      - name: Authenticate retained Verification204 failure receipts
+        run: python3 -B findings/P2-204-KIT-2026-10-18/fetch.py --out /tmp/verification204
       - name: Authenticate and replay immutable shipping red evidence
         run: python3 -B findings/P2-201-EXHAUSTION-2026-10-18/fetch.py --out /tmp/verification201-retained.zip
       - name: Shipping exhaustion oracle controls (not Product acceptance)

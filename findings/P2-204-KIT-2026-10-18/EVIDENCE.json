@@ -1,0 +1,26 @@
+{
+  "url": "https://github.com/mmsanders/digital-tape-verification/releases/tag/evidence-204-485ae48c307adab8e05a3daf8b5bd74b4010e7ab-39137772871-1",
+  "source": "485ae48c307adab8e05a3daf8b5bd74b4010e7ab",
+  "run": 39137772871,
+  "job": 117705698803,
+  "assets": [
+    {
+      "name": "ingest-win11-packet-50bc4160f6da.zip",
+      "bytes": 212596344,
+      "sha256": "cc51a76875c6564fee90801c2119f1f1750b3ddcc7193d53d94d59dd86ee7de9",
+      "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-204-485ae48c307adab8e05a3daf8b5bd74b4010e7ab-39137772871-1/ingest-win11-packet-50bc4160f6da.zip"
+    },
+    {
+      "name": "verification204-controls.zip",
+      "bytes": 12153,
+      "sha256": "a4a5d572742797915d02271d9789fbec2f98f134214e76073c9a4784e8f732a1",
+      "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-204-485ae48c307adab8e05a3daf8b5bd74b4010e7ab-39137772871-1/verification204-controls.zip"
+    },
+    {
+      "name": "verification204.SHA256SUMS",
+      "bytes": 224,
+      "sha256": "643bc0b7b8bec8a484ca262e0ad31f819a25455bd3659eea6ee79c9d6321d9d3",
+      "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-204-485ae48c307adab8e05a3daf8b5bd74b4010e7ab-39137772871-1/verification204.SHA256SUMS"
+    }
+  ]
+}
