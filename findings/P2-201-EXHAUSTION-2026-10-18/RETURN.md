@@ -20,7 +20,11 @@ rows: unlimited/8/12/64MiB success;3/4MiB clean exit1;6MiB raw3221226505
 stage leftovers. Returned artifact12121069796 SHA256
 e3171a41b9b57cd10edd946bac823124ca3b873814098b8e2ee3c9e2d8a0bf0b was
 downloaded and independently hash-verified. The final CI also retains raw bytes
-in an immutable release asset with a full SHA256/fetch citation in its final PR comment.
+in an immutable release asset: EVIDENCE.json pins the run39088169415 raw ZIP
+SHA256e4f7d5caeb9c46cf4885e9b9a36a86fdbed97022af216caf783e4f9ac48cc195.
+`python3 -B findings/P2-201-EXHAUSTION-2026-10-18/fetch.py --out FRESH.zip`
+fetches/authenticates it and replays the original red judgment. Existing normal CI
+executes that fetch-and-replay before publication; no raw bytes exceed1MiB in Git.
 
 The normal existing Verification workflow runs contract selfcontrols and a bounded
 WindowsServer red-control job on this publication branch. Its green status means

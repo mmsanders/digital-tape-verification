@@ -1,0 +1,10 @@
+{
+  "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-verification201-d3ea39935cda6f648e81e9358357ba44003110b3-39088169415-1/verification201-shipping-baseline.zip",
+  "sha256": "e4f7d5caeb9c46cf4885e9b9a36a86fdbed97022af216caf783e4f9ac48cc195",
+  "bytes": 1995220,
+  "source_commit": "d3ea39935cda6f648e81e9358357ba44003110b3",
+  "run_id": 39088169415,
+  "job_id": 117559034607,
+  "release_asset_id": 652173492,
+  "package_tree": "e8f4a02ef8b831cd31fbe26807d59e08ac2d46b8"
+}
