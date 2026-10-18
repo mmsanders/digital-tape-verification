@@ -2,7 +2,7 @@
 Synthetic packets, actual pinned summarizer; no Product executable or card access.
 Exit zero means the known fail-open defect was reproduced, NOT readiness PASS.
 """
-import hashlib,json,pathlib,subprocess,sys,urllib.request
+import hashlib,json,os,pathlib,subprocess,sys,urllib.request
 P=pathlib.Path
 root=P('verification204-results').resolve();root.mkdir(exist_ok=True)
 source='https://raw.githubusercontent.com/mmsanders/Digital-Tape/50bc4160f6da527da8c684d05264f99815aaa870/host/ingest/stage1/'
@@ -26,10 +26,13 @@ for name,missing in [('complete',False),('missing-census-record',True)]:
  for k,v in [('python',sys.executable),('stage1',root),('packet',packet),('pkg',pkg),('Out',d),('Candidate','50bc4160f6da527da8c684d05264f99815aaa870')]: pre+='$'+k+' = '+quote(v)+'\n'
  script=d/'exact-tail.ps1';script.write_text(pre+tail)
  cmd=['powershell.exe','-NoProfile','-File',str(script)]
- r=subprocess.run(cmd,capture_output=True,text=True)
+ # Python inherits pwsh7's module path on Actions; Windows PowerShell needs its own default.
+ env=dict(os.environ);env.pop('PSModulePath',None)
+ r=subprocess.run(cmd,capture_output=True,text=True,env=env)
  (d/'stdout.txt').write_text(r.stdout);(d/'stderr.txt').write_text(r.stderr)
  row={'control':name,'direct_summary_exit':child.returncode,'tail_exit':r.returncode,'packet_created':(d/'ingest-win11-packet-50bc4160f6da.zip').exists(),'send_instruction':'Send this zip' in r.stdout,'command':cmd}
  rows.append(row)
+print(json.dumps(rows,indent=2))
 assert rows[0]['direct_summary_exit']==0 and rows[0]['tail_exit']==0 and rows[0]['packet_created']
 assert rows[1]['direct_summary_exit']==1 and rows[1]['tail_exit']==0 and rows[1]['packet_created'] and rows[1]['send_instruction']
 (root/'RESULT.json').write_text(json.dumps({'scope':'exact original tail, actual pinned summarizer, synthetic packet; Server mechanics only','disposition':'RED: summary failure ignored','controls':rows},indent=2)+'\n')
