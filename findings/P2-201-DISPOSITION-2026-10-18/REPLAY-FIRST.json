@@ -1,0 +1,140 @@
+[
+  {
+    "artifact": 12122856537,
+    "name": "ingest-exhaustion-Windows",
+    "zip_sha256": "71140eb625c9dc76e5f49c57892376afa129d37f3e933c141dfa34a308259a2c",
+    "binary_sha256": "eee301bb8cc8776dd9acac0a1de0eabf15bfe0f151d4e490b7354bc24fd1f87b",
+    "shipping_rows": 63,
+    "platform": "windows",
+    "load_failures_excluded": 0,
+    "shipping_contract_rows_pass": 63,
+    "equivalence_receipts": 1905,
+    "equivalence_scope": "Software comparator observations; audited version metadata normalization, not a new independent full math campaign"
+  },
+  {
+    "artifact": 12122686778,
+    "name": "ingest-exhaustion-macOS",
+    "zip_sha256": "0c601d6fb6605a0dfc7fe1fa98e28fbb277af90303cd07f65886294b30132893",
+    "binary_sha256": "c39045d7a73a06f8947efdaf2180b0fda4033159eafbb77d85a4b906ec2d33a2",
+    "shipping_rows": 2,
+    "platform": "macos",
+    "capability": "UNEXECUTED enforceable shipping exhaustion",
+    "equivalence_receipts": 1905,
+    "equivalence_scope": "Software comparator observations; audited version metadata normalization, not a new independent full math campaign"
+  },
+  {
+    "artifact": 12122488093,
+    "name": "ingest-exhaustion-Linux",
+    "zip_sha256": "9e34f804d8e4bc849d502e709e87da64a167cdcccc9c8b725c9ae4c31b6311ae",
+    "binary_sha256": "67799457788339d75673b49d30bcd506575b6078a71fa4fa656d4165fd3b6261",
+    "shipping_rows": 63,
+    "platform": "linux",
+    "load_failures_excluded": 12,
+    "shipping_contract_rows_pass": 51,
+    "equivalence_receipts": 1905,
+    "equivalence_scope": "Software comparator observations; audited version metadata normalization, not a new independent full math campaign"
+  },
+  {
+    "artifact": 12125806069,
+    "name": "app1a-s1-Windows",
+    "zip_sha256": "c3c2ecb19e6823f45d58b69f44b8dfb0fec791948dfda90c72e81a738cbb5355",
+    "process_receipts_replayed": 1944,
+    "census_exits_compared": 1926,
+    "report_files_reparsed": 1935,
+    "observed_ids": 27,
+    "gaps": [
+      {
+        "name": "capacity/riff-largest-legal",
+        "reason": "a success over an hour (a 4 GiB pair) belongs to the AP4 base campaign, not an impacted report scope"
+      },
+      {
+        "name": "construct/ENTRY_NOT_REGULAR",
+        "reason": "needs a POSIX-only file type or name"
+      },
+      {
+        "name": "construct/ENTRY_NAME_INVALID",
+        "reason": "needs a POSIX-only file type or name"
+      },
+      {
+        "name": "construct/IO_FOLDER",
+        "reason": "needs a POSIX-only file type or name"
+      },
+      {
+        "name": "construct/IO_SOURCE",
+        "reason": "needs a POSIX-only file type or name"
+      },
+      {
+        "name": "fullfs/start-write-fails",
+        "reason": "no small filesystem mounted on this platform (--fullfs)"
+      },
+      {
+        "name": "fullfs/later-write-fails",
+        "reason": "no small filesystem mounted on this platform (--fullfs)"
+      }
+    ],
+    "smoke_rows": 12
+  },
+  {
+    "artifact": 12125258446,
+    "name": "app1a-s1-macOS",
+    "zip_sha256": "00de19fd9886da28487c79573685ff1286bb6a9979e58548d3a9f02ec652cc11",
+    "process_receipts_replayed": 1949,
+    "census_exits_compared": 1926,
+    "report_files_reparsed": 1939,
+    "observed_ids": 28,
+    "gaps": [
+      {
+        "name": "capacity/riff-largest-legal",
+        "reason": "a success over an hour (a 4 GiB pair) belongs to the AP4 base campaign, not an impacted report scope"
+      },
+      {
+        "name": "memory/IO_MEMORY",
+        "reason": "macOS enforces no ordinary-process memory limit (see #451/#457)"
+      },
+      {
+        "name": "fullfs/start-write-fails",
+        "reason": "this filesystem refuses to create the report leaf when full, so the write failure cannot be set up here (recorded as a create failure instead)"
+      }
+    ],
+    "smoke_rows": 12
+  },
+  {
+    "artifact": 12124859238,
+    "name": "app1a-s1-Linux",
+    "zip_sha256": "25335fb8555b615a39e524560e88625d25df546876824fb85badd8f5db405bc0",
+    "process_receipts_replayed": 1952,
+    "census_exits_compared": 1926,
+    "report_files_reparsed": 1943,
+    "observed_ids": 30,
+    "gaps": [
+      {
+        "name": "capacity/riff-largest-legal",
+        "reason": "a success over an hour (a 4 GiB pair) belongs to the AP4 base campaign, not an impacted report scope"
+      }
+    ],
+    "smoke_rows": 12
+  },
+  {
+    "artifact": 12124085089,
+    "name": "app1a-parser-binding-macOS",
+    "zip_sha256": "4b4575b51f1a98273677ff957d087c3e33a0afe3fa360e2bd320d35cb5d34140",
+    "actual_parser_rows_replayed": 281
+  },
+  {
+    "artifact": 12123189503,
+    "name": "app1a-parser-binding-Windows",
+    "zip_sha256": "f849949b2845ffba737f873583a48fc787511d31a9e1aa79e4b917e436d07195",
+    "actual_parser_rows_replayed": 281
+  },
+  {
+    "artifact": 12123179188,
+    "name": "app1a-parser-binding-Linux",
+    "zip_sha256": "0b63035ae435f5fa39808ff9cec73e82e4d4e0e4e8f2ccec615a352d3fc2eb6c",
+    "actual_parser_rows_replayed": 281
+  },
+  {
+    "artifact": 12122704067,
+    "name": "app1a-g1-static-controls",
+    "zip_sha256": "5191447bbcafeab2ec294c28a0d0b52e6c5d0533af6281528d94dfdaf63507e3"
+  }
+]

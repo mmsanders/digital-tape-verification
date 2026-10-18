@@ -1,0 +1,272 @@
+{
+  "src/children.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/children.rs:63  /dev/\nG1-DEV  src/children.rs:63  rdisk\nG1-FS  src/children.rs:63  fs call open not allowed in children.rs\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/children.rs:63  \\\\.\\\nG1-DEV  src/children.rs:63  PhysicalDrive\nG1-FS  src/children.rs:63  fs call open not allowed in children.rs\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/children.rs:63  /dev/\nG1-FS  src/children.rs:63  fs call open not allowed in children.rs\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/drops.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/drops.rs:95  /dev/\nG1-DEV  src/drops.rs:95  rdisk\nG1-FS  src/drops.rs:95  fs call open not allowed in drops.rs\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/drops.rs:95  \\\\.\\\nG1-DEV  src/drops.rs:95  PhysicalDrive\nG1-FS  src/drops.rs:95  fs call open not allowed in drops.rs\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/drops.rs:95  /dev/\nG1-FS  src/drops.rs:95  fs call open not allowed in drops.rs\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/ingest_job.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/ingest_job.rs:92  /dev/\nG1-DEV  src/ingest_job.rs:92  rdisk\nG1-FS  src/ingest_job.rs:92  fs call open not allowed in ingest_job.rs\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/ingest_job.rs:92  \\\\.\\\nG1-DEV  src/ingest_job.rs:92  PhysicalDrive\nG1-FS  src/ingest_job.rs:92  fs call open not allowed in ingest_job.rs\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/ingest_job.rs:92  /dev/\nG1-FS  src/ingest_job.rs:92  fs call open not allowed in ingest_job.rs\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/jobdir.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/jobdir.rs:119  /dev/\nG1-DEV  src/jobdir.rs:119  rdisk\nG1-FS  src/jobdir.rs:119  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/jobdir.rs:119  \\\\.\\\nG1-DEV  src/jobdir.rs:119  PhysicalDrive\nG1-FS  src/jobdir.rs:119  open(target): path argument is not this module's own root\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/jobdir.rs:119  /dev/\nG1-FS  src/jobdir.rs:119  open(target): path argument is not this module's own root\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/label.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/label.rs:31  /dev/\nG1-DEV  src/label.rs:31  rdisk\nG1-FS  src/label.rs:31  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/label.rs:31  \\\\.\\\nG1-DEV  src/label.rs:31  PhysicalDrive\nG1-FS  src/label.rs:31  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/label.rs:31  /dev/\nG1-FS  src/label.rs:31  fs call open outside the allowed modules\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/lib.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/lib.rs:12  /dev/\nG1-DEV  src/lib.rs:12  rdisk\nG1-FS  src/lib.rs:12  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/lib.rs:12  \\\\.\\\nG1-DEV  src/lib.rs:12  PhysicalDrive\nG1-FS  src/lib.rs:12  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/lib.rs:12  /dev/\nG1-FS  src/lib.rs:12  fs call open outside the allowed modules\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/main.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/main.rs:140  /dev/\nG1-DEV  src/main.rs:140  rdisk\nG1-FS  src/main.rs:140  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/main.rs:140  \\\\.\\\nG1-DEV  src/main.rs:140  PhysicalDrive\nG1-FS  src/main.rs:140  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/main.rs:140  /dev/\nG1-FS  src/main.rs:140  fs call open outside the allowed modules\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/messages.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/messages.rs:156  /dev/\nG1-DEV  src/messages.rs:156  rdisk\nG1-FS  src/messages.rs:156  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/messages.rs:156  \\\\.\\\nG1-DEV  src/messages.rs:156  PhysicalDrive\nG1-FS  src/messages.rs:156  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/messages.rs:156  /dev/\nG1-FS  src/messages.rs:156  fs call open outside the allowed modules\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/report.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/report.rs:457  /dev/\nG1-DEV  src/report.rs:457  rdisk\nG1-FS  src/report.rs:457  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/report.rs:457  \\\\.\\\nG1-DEV  src/report.rs:457  PhysicalDrive\nG1-FS  src/report.rs:457  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/report.rs:457  /dev/\nG1-FS  src/report.rs:457  fs call open outside the allowed modules\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  },
+  "src/state.rs": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static: PASS (0 findings) on .\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/state.rs:209  /dev/\nG1-DEV  src/state.rs:209  rdisk\nG1-FS  src/state.rs:209  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/state.rs:209  \\\\.\\\nG1-DEV  src/state.rs:209  PhysicalDrive\nG1-FS  src/state.rs:209  fs call open outside the allowed modules\nG1 static: FAIL (3 findings) on .\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1-DEV  src/state.rs:209  /dev/\nG1-FS  src/state.rs:209  fs call open outside the allowed modules\nG1 static: FAIL (2 findings) on .\n",
+      "stderr": ""
+    }
+  }
+}

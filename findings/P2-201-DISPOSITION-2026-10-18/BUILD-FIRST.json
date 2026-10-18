@@ -1,0 +1,8 @@
+{
+  "head": "50bc4160f6da527da8c684d05264f99815aaa870",
+  "binary_sha256": "e1f9724da4f8f339999336fa84cf55666aa9776565d78f4b94c3d7499e6f956b",
+  "build": "cargo build --release --locked",
+  "configuration": "shipping; no observe feature",
+  "version": "ingest 0.1.1 INGEST-1 arithmetic-profile INGEST1-AP4",
+  "identity": "independent source-head rebuild; compare hash to Software separately"
+}
