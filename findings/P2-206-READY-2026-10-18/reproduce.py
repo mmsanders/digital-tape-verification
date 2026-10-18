@@ -44,7 +44,7 @@ for variant in ['original','corrected']:
   assert child.returncode==int(bad) and r.returncode==int(expected_stop),row
   assert row['zip']==row['send']==(not expected_stop),row
   assert not r.stderr and (not expected_stop or row['stopped']),row
-# Verify the issued transcript/exit-capture block around an actual native child.
+# Verify the issued stdout/stderr/exit-capture block around an actual native child.
 # Only the two already-synthetic complete/missing corrected tails are used.
 ready=(P(__file__).resolve().parent/'WINDOWS-READY.md').read_text()
 block=ready.split('```powershell')[2].split('```')[0]
@@ -58,10 +58,12 @@ for kind in ['complete','missing-record']:
  r=subprocess.run(['powershell.exe','-NoProfile','-File',str(wrapper)],capture_output=True,text=True,env=env)
  (d/'wrapper.stdout').write_text(r.stdout);(d/'wrapper.stderr').write_text(r.stderr)
  code=int((d/'collection-exit.txt').read_text(encoding='utf-8-sig').strip())
- transcript=(d/'collection-console.txt').read_bytes()
+ stdout=(d/'collection-stdout.txt').read_bytes()
+ stderr=(d/'collection-stderr.txt').read_bytes()
  assert code==int(kind!='complete') and r.returncode==code
- assert b'COLLECTION_EXIT' in transcript
- if code:assert b'STOPPED: summarize_packet.py exited 1' in transcript
- wrapper_rows.append({'case':kind,'native_exit_recorded':code,'outer_exit':r.returncode,'console_preserved':True})
+ assert b'census 1:' in stdout
+ assert not stderr
+ if code:assert b'STOPPED: summarize_packet.py exited 1' in stdout
+ wrapper_rows.append({'case':kind,'native_exit_recorded':code,'outer_exit':r.returncode,'stdout_stderr_preserved':True})
 (root/'RESULT.json').write_text(json.dumps({'disposition':'PASS bounded transport corrections','scope':'exact tails, actual pinned summarizer, synthetic records; Windows Server mechanics only','pins':pins,'body_delta':'header plus immediate summary exit guard only','controls':rows,'issued_capture_controls':wrapper_rows},indent=2)+'\n')
 print(json.dumps(rows,indent=2))

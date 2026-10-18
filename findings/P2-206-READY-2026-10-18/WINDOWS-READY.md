@@ -59,20 +59,28 @@ if ($scriptHash -ne '74e1af2cb91a3f9b418363941c48a60eee972481a32cbb9af22d8f30603
 ## 2. Collect once
 
 In the same window, paste this block. No `-Rehearsal` or policy override is used.
-The console transcript and actual native exit code are kept alongside the download.
+Standard output, standard error and the actual native exit code are kept alongside
+the download. The console is quiet while it runs; wait for it to finish.
 
 ```powershell
-Start-Transcript -Path "$d\collection-console.txt" -ErrorAction Stop
-& powershell.exe -NoProfile -File "$d\win11_packet.ps1" `
-  -Candidate 50bc4160f6da527da8c684d05264f99815aaa870 `
-  -Kit "$d\win11-kit.zip" -Work $work -Out $d `
-  -ShippingSha256 d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b `
-  -ObserveSha256 d544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a
-$collectionExit = $LASTEXITCODE
-Write-Host "COLLECTION_EXIT: $collectionExit"
+$arguments = @(
+  '-NoProfile', '-File', ('"{0}"' -f "$d\win11_packet.ps1"),
+  '-Candidate', '50bc4160f6da527da8c684d05264f99815aaa870',
+  '-Kit', ('"{0}"' -f "$d\win11-kit.zip"),
+  '-Work', ('"{0}"' -f $work), '-Out', ('"{0}"' -f $d),
+  '-ShippingSha256', 'd923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b',
+  '-ObserveSha256', 'd544b6f5c82e653842625080a87ac63cb52353aaeca62494dd5d08eedb844d9a'
+)
+$process = Start-Process -FilePath (Get-Command powershell.exe).Source `
+  -ArgumentList $arguments -Wait -PassThru -NoNewWindow `
+  -RedirectStandardOutput "$d\collection-stdout.txt" `
+  -RedirectStandardError "$d\collection-stderr.txt"
+$collectionExit = $process.ExitCode
 Set-Content -LiteralPath "$d\collection-exit.txt" -Value $collectionExit
-Stop-Transcript
-if ($collectionExit -ne 0) { throw 'STOP: collection failed. Preserve the work and return the console/error and exit code; do not retry.' }
+Get-Content -LiteralPath "$d\collection-stdout.txt"
+Get-Content -LiteralPath "$d\collection-stderr.txt"
+Write-Host "COLLECTION_EXIT: $collectionExit"
+if ($null -eq $collectionExit -or $collectionExit -ne 0) { throw 'STOP: collection failed. Preserve the work and return stdout, stderr and exit code; do not retry.' }
 ```
 
 Success requires actual exit0 and all three final script lines:
@@ -81,7 +89,7 @@ Success requires actual exit0 and all three final script lines:
 - `SHA256: <digest from this run>`
 - `Send this zip and its SHA256 to Verification. This run is an observation, not a PASS.`
 
-Return that ZIP and its printed SHA256, plus collection-console.txt and
+Return that ZIP and its printed SHA256, plus collection-stdout.txt, collection-stderr.txt and
 collection-exit.txt. The packet's digest is computed from your run; it is not the
 kit or rehearsal digest. Keep all local evidence until review. If upload size
 blocks delivery, report the exact size and digest so transport can be arranged;

@@ -40,7 +40,7 @@ custom stop retained. This uses204's already-published stop contract, not privat
 Software assertions. Native child module environment uses Windows PowerShell's own
 default modules; no execution-policy setting changes. Eight controls independently PASS at source781fe689a7c98878aaab4bb62b63a996cc5e68d5,
 Windows job117756894754 /normal workflow39155205311. Final CI additionally exercises
-the issued transcript/actual-exit capture block on synthetic complete/failing tails. A Server run is mechanics, not Windows11 proof.
+the issued stdout/stderr/actual-exit capture block on synthetic complete/failing tails. A Server run is mechanics, not Windows11 proof.
 
 ## Returned observations and limits
 
@@ -95,3 +95,11 @@ and exact reviewed document link, preserve its old brief/evidence as historical,
 keep physical read-only A6 readiness unchanged. Next owner Michael may return one
 observation or actual stop; Software/PM receive this bounded readiness disposition.
 Stop and close206; do not reopen204/201/457 or wait/poll for collection.
+
+
+The additional capture check at3a177003/CI39155423735 found that a PowerShell
+transcript omitted child-native output despite recording the outer exit. The
+issued block now uses Start-Process with separate stdout/stderr file redirection,
+-Wait/-PassThru and the actual process ExitCode. Final controls exercise that exact
+issued block with complete and missing-record synthetic tails and require retained
+summary/STOPPED diagnostics and actual0/1 exits. No transcript-only receipt is issued.
