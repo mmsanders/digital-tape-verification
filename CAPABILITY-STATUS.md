@@ -9,6 +9,11 @@ kitffb0f78a/exes d923613b,d544b6f5 authenticate. This supersedes the older INGES
 collection wording below; actual Windows11/full-package evidence is pending.
 Physical read-only A6 readiness is unchanged.
 
+19 October update: [208/209 returned-head review](findings/P2-208-209-RETURNS-2026-10-19/README.md)
+records S2 corrections/S3 method holds, Linux report-write positional PASS,
+Windows Server partial and Mac no-fault limitations. No overall/base/native clearance;
+210 awaits paired467.
+
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
 
