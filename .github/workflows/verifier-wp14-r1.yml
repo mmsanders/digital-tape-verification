@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['findings/P2-210-RETURN-2026-10-19/**', 'tests/wp10_subset_extension_r1/**', 'findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['findings/P2-210-RETURN-2026-10-19/**', 'tests/wp10_subset_extension_r1/**', 'findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -149,6 +149,37 @@ jobs:
             mkdir existing
             gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir existing
             for f in *.zip REPLAY.json SOURCE-RESULT.json SOURCE-FIXTURE.c SHA256SUMS; do cmp "$f" "existing/$f"; done
+          fi
+      - name: Fixed bounded210 extension plan controls
+        run: python3 -B tests/wp10_subset_extension_r1/selftest.py
+      - name: Authenticate and publish210 actual return and next plan
+        if: github.head_ref == 'verification/210-return-plan'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -p /tmp/210-return
+          python3 -B findings/P2-210-RETURN-2026-10-19/review.py --artifacts /tmp/210-return --out /tmp/210-return/REVIEW.json
+          cmp /tmp/210-return/REVIEW.json findings/P2-210-RETURN-2026-10-19/REVIEW.json
+          python3 -B findings/P2-210-RETURN-2026-10-19/publish.py
+          cd /tmp/210-return
+          sha256sum *.zip REVIEW.json > SHA256SUMS
+          tag=evidence-210-return-2026-10-19-743f829
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$SOURCE_HEAD" --title "Verification210 bounded actual return" --notes "Original hash-authenticated raw inputs and independent exact743f829 review. Seven pilot faults only; no overall443/native/physical acceptance." *.zip REVIEW.json SHA256SUMS
+          else
+            mkdir existing
+            gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir existing
+            for f in *.zip REVIEW.json SHA256SUMS; do cmp "$f" "existing/$f"; done
+          fi
+          cd /tmp/publication210extension
+          tag="package-210-extension-$SOURCE_HEAD"
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$SOURCE_HEAD" --title "Verification210 fixed bounded next plan" --notes "Independent fixed plan/order generator. Import only after main publication and normal CI; resource/capability stop conditions unchanged." wp10-subset-extension-r1.zip PROVENANCE.json SHA256SUMS
+          else
+            mkdir existing
+            gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir existing
+            for f in wp10-subset-extension-r1.zip PROVENANCE.json SHA256SUMS; do cmp "$f" "existing/$f"; done
           fi
       - name: Narrow source PCM and load-fault controls (not Product acceptance)
         run: |
