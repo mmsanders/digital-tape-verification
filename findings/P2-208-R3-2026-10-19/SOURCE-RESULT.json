@@ -1,0 +1,18 @@
+{
+  "source": "0918e7d02030868f4f8f21059c6a190cbe7a0f62",
+  "source_sha256": "da371434f4ee2d49410c75f19dca242a5af1a354a6f4a98bc84638c98cd6995e",
+  "fixture_sha256": "0507f5ac7e4f3334e13d45745a64062e8a43c579a09327ac7015fc14601aab5a",
+  "scope": "compiled exact-source OS-query fixtures; no native race/device execution",
+  "raw_stdout": "0 0 0 1 loop0\n1 1 0 0 none\n2 1 0 0 none\n3 1 0 0 none\n4 1 0 1 loop0\n5 0 0 1 dm-0\n6 0 0 1 dm-0\n7 0 0 1 loop0\n",
+  "controls": [
+    "complete dm slave attribution PASS",
+    "EACCES unknown PASS",
+    "EIO unknown PASS",
+    "readdir EIO before first entry PASS",
+    "readdir EIO after entry PASS",
+    "whole-device slaves ENOENT incorrectly becomes known leaf",
+    "successful empty listing retained",
+    "known partition ENOENT retains parent"
+  ],
+  "disposition": "overall S2 PASS withheld: ENOENT alone does not positively establish a non-stacked whole device"
+}

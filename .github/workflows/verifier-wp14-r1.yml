@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['findings/P2-210-RETURN-2026-10-19/**', 'tests/wp10_subset_extension_r1/**', 'findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['findings/P2-208-R3-2026-10-19/**', 'findings/P2-210-RETURN-2026-10-19/**', 'tests/wp10_subset_extension_r1/**', 'findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['findings/P2-210-RETURN-2026-10-19/**', 'tests/wp10_subset_extension_r1/**', 'findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['findings/P2-208-R3-2026-10-19/**', 'findings/P2-210-RETURN-2026-10-19/**', 'tests/wp10_subset_extension_r1/**', 'findings/P2-208-R2-2026-10-19/**', 'findings/P2-208-209-RETURNS-2026-10-19/**', 'tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -145,6 +145,36 @@ jobs:
           tag=evidence-208-r2-2026-10-19-38ca666
           if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$SOURCE_HEAD" --title "Verification208 correction return evidence" --notes "Exact five original Software artifacts; bounded source-extracted Linux query-failure control. S2 correction and S3 PM holds; no Product/native acceptance." *.zip REPLAY.json SOURCE-RESULT.json SOURCE-FIXTURE.c SHA256SUMS
+          else
+            mkdir existing
+            gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir existing
+            for f in *.zip REPLAY.json SOURCE-RESULT.json SOURCE-FIXTURE.c SHA256SUMS; do cmp "$f" "existing/$f"; done
+          fi
+      - uses: actions/checkout@v4
+        if: github.head_ref == 'verification/208-r3-disposition'
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 0918e7d02030868f4f8f21059c6a190cbe7a0f62
+          path: candidate208r3
+          persist-credentials: false
+      - name: Authenticate208 R2 return and reproduce remaining metadata exception
+        if: github.head_ref == 'verification/208-r3-disposition'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -p /tmp/208-r3
+          python3 -B findings/P2-208-R3-2026-10-19/replay.py --artifacts /tmp/208-r3 --out /tmp/208-r3/REPLAY.json
+          cmp /tmp/208-r3/REPLAY.json findings/P2-208-R3-2026-10-19/REPLAY.json
+          python3 -B findings/P2-208-R3-2026-10-19/reproduce.py --product candidate208r3 --out /tmp/208-r3/source
+          cmp /tmp/208-r3/source/RESULT.json findings/P2-208-R3-2026-10-19/SOURCE-RESULT.json
+          cp /tmp/208-r3/source/RESULT.json /tmp/208-r3/SOURCE-RESULT.json
+          cp /tmp/208-r3/source/fixture.c /tmp/208-r3/SOURCE-FIXTURE.c
+          cd /tmp/208-r3
+          sha256sum *.zip REPLAY.json SOURCE-RESULT.json SOURCE-FIXTURE.c > SHA256SUMS
+          tag=evidence-208-r3-2026-10-19-0918e7d
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$SOURCE_HEAD" --title "Verification208 correction-round2 returned observations" --notes "Three exact original artifacts and compiled exact-source metadata fixtures. Remaining whole-device ENOENT exception; no overall S2 or native/physical acceptance." *.zip REPLAY.json SOURCE-RESULT.json SOURCE-FIXTURE.c SHA256SUMS
           else
             mkdir existing
             gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir existing
