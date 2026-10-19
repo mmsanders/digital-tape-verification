@@ -1,0 +1,39 @@
+name: Verification219 collector controls
+on:
+  pull_request:
+    paths: ['findings/P2-219-COLLECTOR-2026-10-19/**', '.github/workflows/verifier-219-collector.yml']
+permissions:
+  contents: read
+jobs:
+  native-exits:
+    runs-on: windows-2022
+    permissions:
+      contents: write
+    steps:
+      - name: Preserve exact LF publication bytes on the Windows checkout
+        shell: bash
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - name: Windows PowerShell 5.1 scope and native exit controls
+        shell: powershell
+        run: ./findings/P2-219-COLLECTOR-2026-10-19/controls.ps1 -Out receipt-ps51
+      - name: PowerShell7 scope and native exit controls
+        shell: pwsh
+        run: ./findings/P2-219-COLLECTOR-2026-10-19/controls.ps1 -Out receipt-ps7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification219-harmless-native-controls
+          path: receipt-*/
+      - name: Retain immutable harmless control receipts
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          Compress-Archive -Path receipt-ps51,receipt-ps7 -DestinationPath native-controls.zip
+          $files = @('native-controls.zip','findings/P2-219-COLLECTOR-2026-10-19/WINDOWS-READY.md','findings/P2-219-COLLECTOR-2026-10-19/controls.ps1')
+          $lines = foreach ($f in $files) { ((Get-FileHash $f -Algorithm SHA256).Hash.ToLower() + '  ' + (Split-Path $f -Leaf)) }
+          $lines | Set-Content -Encoding ascii SHA256SUMS
+          gh release create "evidence-219-$env:SOURCE_HEAD" --repo $env:GITHUB_REPOSITORY --target $env:SOURCE_HEAD --title 'Verification219 harmless native process controls' --notes 'Windows Server PowerShell5.1/7 scope and exit controls. No physical card or trace execution; PM475 continuation required.' native-controls.zip SHA256SUMS findings/P2-219-COLLECTOR-2026-10-19/WINDOWS-READY.md findings/P2-219-COLLECTOR-2026-10-19/controls.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'Immutable receipt publication failed' }

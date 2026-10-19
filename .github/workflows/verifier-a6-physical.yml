@@ -1,0 +1,24 @@
+name: Physical A6 retained evidence controls
+on:
+  pull_request:
+    paths: ['findings/P2-A6-PHYSICAL-2026-10-19/**', '.github/workflows/verifier-a6-physical.yml']
+permissions:
+  contents: read
+jobs:
+  retained-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: a50a211679b7893c7ac581d392784191519525d6
+          path: accepted-checker
+          persist-credentials: false
+      - name: Authenticate accepted checker and run its existing causal controls
+        run: |
+          test "$(sha256sum accepted-checker/tools/wp14-capture/a6check.py | cut -d' ' -f1)" = 7cbba051629d56bffd85e715fe34cb909421aa6b105a52c883f383aed10b8d89
+          python3 -B findings/P2-R1-WP14-A6-R3-2026-10-16/controls.py --checker accepted-checker/tools/wp14-capture/a6check.py --out /tmp/physical-controls.json
+          cmp /tmp/physical-controls.json findings/P2-A6-PHYSICAL-2026-10-19/CONTROLS.json
+      - name: Validate retained native facts without waiving the overall stop
+        run: python3 -B findings/P2-A6-PHYSICAL-2026-10-19/validate.py
