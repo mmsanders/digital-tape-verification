@@ -24,6 +24,11 @@ explicitly names this repo. Keep original path text for provenance.
 
 ## Chronological records
 
+19 October2026: [Verification208 S2/S3 authoring](P2-208-AUTHORING-2026-10-19/README.md)
+publishes independent cards/make host oracles and fixed observation contract;
+actual S2/S3 returns and exact S3 platform-method disposition remain pending.
+
+
 18 October2026: [Verification206 collection readiness](P2-206-READY-2026-10-18/RETURN.md)
 disposes Software461 corrected74e1af2c transport with independent exact-tail controls.
 [Current Windows11 instructions](P2-206-READY-2026-10-18/WINDOWS-READY.md) permit one
