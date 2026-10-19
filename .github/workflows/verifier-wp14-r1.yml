@@ -1,10 +1,10 @@
 name: WP14 independent preflight
 on:
   pull_request:
-    paths: ['tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   push:
     branches: [main]
-    paths: ['tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
+    paths: ['tests/wp10_narrow_supplement_r1/**', 'findings/P2-210-AUTHORING-2026-10-19/**', 'tests/wp15_report_faults_r1/**', 'findings/P2-209-AUTHORING-2026-10-19/**', 'tests/wp15_cards_make_r1/**', 'findings/P2-208-AUTHORING-2026-10-19/**', 'findings/P2-206-READY-2026-10-18/**', 'findings/P2-204-KIT-2026-10-18/**', 'findings/P2-201-DISPOSITION-2026-10-18/**', 'tests/wp16_shipping_exhaustion_r1/**', 'findings/P2-201-EXHAUSTION-2026-10-18/**', 'tests/wp14_r1/**', 'tests/wp16_ingest_r2/**', 'tests/wp16_ingest_stage1/**', 'findings/P2-R2-WP16-STAGE1-2026-10-15.md', 'findings/P2-R2-WP16-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-RETURN-2026-10-16/**', 'findings/P2-WP10-SUBSET-R2-2026-10-17/**', 'findings/P2-R1-WP14-A6-R4-2026-10-17/**', 'findings/P2-192-HOST-2026-10-17/**', 'tests/wp15_app1a_r1/**', 'findings/P2-APP1A-PREFLIGHT-2026-10-17/**', 'findings/P2-SUBSET-ROWS-2026-10-17/**', 'findings/P2-R2-WP16-SOWT-2026-10-15/**', 'tests/playback_readonly_r1/**', 'tests/playback_regression_epoch/**', 'findings/P2-R1-WP14-*.md', 'findings/P2-R2-WP16-ZERO-*.md', '.github/workflows/verifier-wp14-r1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -101,6 +101,26 @@ jobs:
           name: verification201-disposition
           path: /tmp/201-disposition
           retention-days: 90
+      - name: Narrow source PCM and load-fault controls (not Product acceptance)
+        run: |
+          python3 -B tests/wp10_narrow_supplement_r1/selftest.py
+          python3 -B tests/wp10_narrow_supplement_r1/replay.py --help
+      - name: Publish compact210 transport and retained exact inputs
+        if: github.head_ref == 'verification/210-narrow-authoring'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python3 -B findings/P2-210-AUTHORING-2026-10-19/publish.py
+          gh api repos/mmsanders/Digital-Tape/actions/artifacts/12083282421/zip > /tmp/publication210/retained-small.zip
+          gh api repos/mmsanders/Digital-Tape/actions/artifacts/12085042202/zip > /tmp/publication210/retained-load0.zip
+          python3 -c "import hashlib,pathlib; p=pathlib.Path('/tmp/publication210'); assert hashlib.sha256((p/'retained-small.zip').read_bytes()).hexdigest()=='a29c01b592604163b9c311a4638acd097aba407dfa2b14616b6393ced02baf97'; assert hashlib.sha256((p/'retained-load0.zip').read_bytes()).hexdigest()=='2bfe1814312d622cb010d2571e6b977b5125fc07f7ead9301765d167a86bf6c9'"
+          python3 -B tests/wp10_narrow_supplement_r1/inventory.py /tmp/publication210/retained-small.zip --out /tmp/210-selection.json
+          cmp /tmp/210-selection.json tests/wp10_narrow_supplement_r1/SELECTED-DESTINATIONS.json
+          tag="package-210-$SOURCE_HEAD"
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$SOURCE_HEAD" --title "Verification210 narrow supplement contract" --notes "Independent narrow source/PCM/load-fault observations; extended scenario execution still gated. Two original hash-authenticated raw inputs retained beyond Actions expiry." /tmp/publication210/wp10-narrow-supplement-r1.zip /tmp/publication210/PROVENANCE.json /tmp/publication210/SHA256SUMS /tmp/publication210/retained-small.zip /tmp/publication210/retained-load0.zip
+          fi
       - name: APP-1A precise report-fault independent controls (not acceptance)
         run: python3 -B tests/wp15_report_faults_r1/selftest.py
       - name: Publish compact209 report-fault transport
