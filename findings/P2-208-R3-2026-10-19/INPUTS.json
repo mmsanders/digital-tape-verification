@@ -1,0 +1,5 @@
+[
+  {"name":"cards-linux","id":12199047277,"bytes":89812,"sha256":"1522238b3c2c38a78c57fcdecb94054812b5432e3e5817a38a0e0e560817509a"},
+  {"name":"cards-macos","id":12199844331,"bytes":10396,"sha256":"c09abaca55455d2390cbba4b62708887ab6b97741e984de154a87662d9c43f47"},
+  {"name":"cards-windows","id":12198363017,"bytes":11209,"sha256":"321c3f3f9c829262543cd75a591cf172787a4a07c1a5f28f22b5fdfbf6a589af"}
+]

@@ -1,0 +1,176 @@
+[
+  {
+    "name": "cards-linux",
+    "id": 12199047277,
+    "bytes": 89812,
+    "sha256": "1522238b3c2c38a78c57fcdecb94054812b5432e3e5817a38a0e0e560817509a",
+    "rows": [
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "stack",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":10}\n"
+      },
+      {
+        "producer": "new",
+        "case": "denied",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":10}\n"
+      },
+      {
+        "producer": "new",
+        "case": "readdir",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":10}\n"
+      },
+      {
+        "producer": "old",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "stack",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "denied",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":9}\n"
+      },
+      {
+        "producer": "new",
+        "case": "readdir",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "old",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      }
+    ],
+    "judgment": "submitted EACCES/incomplete walk controls pass; plain readdir is non-triggering; missing whole-device metadata assessed separately"
+  },
+  {
+    "name": "cards-macos",
+    "id": 12199844331,
+    "bytes": 10396,
+    "sha256": "c09abaca55455d2390cbba4b62708887ab6b97741e984de154a87662d9c43f47",
+    "rows": [
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":3}\n"
+      },
+      {
+        "producer": "new",
+        "case": "whole",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":8}\n"
+      },
+      {
+        "producer": "new",
+        "case": "removable",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":8}\n"
+      },
+      {
+        "producer": "new",
+        "case": "protocol",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":3}\n"
+      },
+      {
+        "producer": "new",
+        "case": "mount",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":8}\n"
+      },
+      {
+        "producer": "new",
+        "case": "census",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 1,
+        "stdout": ""
+      }
+    ],
+    "judgment": "unchanged platform carried; protocol row remains NON-CAUSAL"
+  },
+  {
+    "name": "cards-windows",
+    "id": 12198363017,
+    "bytes": 11209,
+    "sha256": "321c3f3f9c829262543cd75a591cf172787a4a07c1a5f28f22b5fdfbf6a589af",
+    "rows": [
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "paths",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":2}\n"
+      },
+      {
+        "producer": "new",
+        "case": "extents",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":2}\n"
+      },
+      {
+        "producer": "new",
+        "case": "next",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 1,
+        "stdout": ""
+      },
+      {
+        "producer": "new",
+        "case": "census",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 1,
+        "stdout": ""
+      }
+    ],
+    "judgment": "unchanged Windows producer controls carried; hosted Server only"
+  }
+]

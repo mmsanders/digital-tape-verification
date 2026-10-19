@@ -14,9 +14,10 @@ records S2 corrections/S3 method holds, Linux report-write positional PASS,
 Windows Server partial and Mac no-fault limitations. No overall/base/native clearance;
 210 actual narrow return is now bounded PASS; see the update below.
 
-Latest208: [correction-round1 disposition](findings/P2-208-R2-2026-10-19/README.md)
-keeps overall S2 held on a reproduced Linux metadata-failure path; S3 target-platform
-binding and query-failure mapping are with PM472. Earlier bounded209 closure carries.
+Latest208: [correction-round2 disposition](findings/P2-208-R3-2026-10-19/README.md)
+supports denied/incomplete-listing controls but keeps S2 held on whole-device
+slaves ENOENT becoming known leaf ownership; final correction3 pending. S3 target-
+platform binding/query-failure mapping remain with PM472. Closed209 carries.
 
 Latest210: [exact743f829 return](findings/P2-210-RETURN-2026-10-19/README.md)
 passes source/PCM, seven actual pilot faults and five command rows.397 load faults
