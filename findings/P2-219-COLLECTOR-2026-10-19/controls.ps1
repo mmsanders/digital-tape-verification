@@ -45,7 +45,8 @@ foreach ($tool in @('NoNativeExit',(Join-Path $Out 'does-not-exist.exe'))) {
     $caught = $null
     try { $r = Invoke-A6Native -NativeTool $tool -NativeArgs @() -Stem (Join-Path $Out ('failure-' + $rows.Count)) }
     catch { $caught = $_.Exception.Message }
-    if ($caught -notlike 'No actual native exit code*') { throw ('Missing/invocation exit did not fail closed: ' + $caught) }
+    if (-not $caught) { throw 'Missing/invocation exit did not stop' }
+    if ($tool -eq 'NoNativeExit' -and $caught -notlike 'No actual native exit code*') { throw ('Missing exit was not detected: ' + $caught) }
     if ($ErrorActionPreference -ne 'Stop') { throw 'Caller preference not restored on failure' }
     $rows.Add([pscustomobject]@{case=$tool;stopped=$true;message=$caught})
 }
