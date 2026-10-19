@@ -167,3 +167,4 @@ only in Product must be fetched and authenticated there before replay.
 
 - [210 actual743f829 bounded return and fixed next plan](P2-210-RETURN-2026-10-19/README.md): source/PCM/seven pilots/five command rows PASS;397 unexecuted, Stage3 pending.
 - [208 correction-round2 exact0918e7d](P2-208-R3-2026-10-19/README.md): denied/incomplete listings supported; whole-device ENOENT exception still requires final correction3.
+- [210 fixed Stage3 exact55552ad](P2-210-STAGE3-2026-10-19/README.md): bounded fixed lanes PASS,39/404 load faults executed; six absent long cuts, no repeated-LBA epoch or exhaustive-large claim; bounded stop completed.

@@ -19,10 +19,10 @@ supports denied/incomplete-listing controls but keeps S2 held on whole-device
 slaves ENOENT becoming known leaf ownership; final correction3 pending. S3 target-
 platform binding/query-failure mapping remain with PM472. Closed209 carries.
 
-Latest210: [exact743f829 return](findings/P2-210-RETURN-2026-10-19/README.md)
-passes source/PCM, seven actual pilot faults and five command rows.397 load faults
-remain unexecuted. A separate fixed Stage3 plan is published in
-`tests/wp10_subset_extension_r1`; actual extension returns remain pending.
+Latest210: [exact55552ad Stage3](findings/P2-210-STAGE3-2026-10-19/README.md)
+passes the fixed new lanes and completes the bounded supplement stop. Earlier
+source/PCM/pilots carry;39/404 load faults executed,365 deferred; six long cuts absent,
+no repeated-LBA epochs and finite large samples only. Overall443 stays HELD.
 
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.

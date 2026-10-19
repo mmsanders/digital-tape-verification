@@ -1,0 +1,107 @@
+{
+  "source": "55552ad4fe57e99827ab8eb016044d0486017877",
+  "engine": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "model": "c6cb573d654d337fef2f616f11cce0cee74e8968",
+  "plan": "3a72a3cfebcea0e80bebb864f4e349dc1be02a50",
+  "inputs": [
+    {
+      "name": "return.zip",
+      "id": 12205008335,
+      "bytes": 5548911,
+      "sha256": "8a5ba21d3b0b970b8201e47048332452072d9de7dfcdaf6b6f8355738fc438de"
+    },
+    {
+      "name": "old-return.zip",
+      "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-210-return-2026-10-19-743f829/return.zip",
+      "bytes": 3426393,
+      "sha256": "fab32f07de942096becfc8ad2101cbfa131e6b20d914245426933c4bdacd4d3a"
+    },
+    {
+      "name": "load1.zip",
+      "url": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-210-return-2026-10-19-743f829/load1.zip",
+      "bytes": 1611126,
+      "sha256": "ad5b62a702d5e3b1fd61ca3671492abd24a032aa76fea845e1de8a5e5309afbf"
+    }
+  ],
+  "output_sha256": {
+    "HOST.json": "e711343aa2d884483702eac90245d16cbfb93f150aa3d7cbeeb3f5935f987a50",
+    "LANE3.json": "500e267d7e8ebea417ddb5265128e4f9d4c39d4e0461271fa328f6668e5b21ee",
+    "LANE4.json": "b2e5848ddd6840c360eedc4d5ba776f5dfecd9b305c6c88b001ab01feaae4803"
+  },
+  "host": {
+    "carry": {
+      "old_files": 136,
+      "byte_identical": 80,
+      "changed": 56,
+      "note": "workflow DID rerun Tiers1/2; original743f829 acceptance carries, no fresh campaign reacceptance inferred"
+    },
+    "global_command": {
+      "image": "0008cb2d55e007ffece5a69c7e87290d153d9ffec2a58f295544562836ff3c88",
+      "state": "empty/empty",
+      "fresh_commands": 3,
+      "original_row": "retained and exactly matched; no placeholder",
+      "control": "actual-row impossible new/empty pair detected"
+    },
+    "new_faults": 32,
+    "remaining": {
+      "executed": 39,
+      "unexecuted": 365,
+      "proved_unavailable": 0
+    },
+    "scope": "actual working effects, not physical persistence; old14 accepted narrow rows carried"
+  },
+  "subsets": {
+    "LANE3": {
+      "lane": "lane3",
+      "runs": 120,
+      "complete_neighbours": 24,
+      "executed_cuts": 96,
+      "unexecuted": 0,
+      "contexts": 244,
+      "raw_bound_images": 30,
+      "repeated_lba_events": 0,
+      "controls": {
+        "wrong-identity": "detected on actual returned complete neighbour"
+      },
+      "scope": "new fixed rows only; operation-specific predicates; finite large epochs, no repeated-LBA coverage"
+    },
+    "LANE4": {
+      "lane": "lane4",
+      "runs": 18,
+      "complete_neighbours": 0,
+      "executed_cuts": 12,
+      "unexecuted": 6,
+      "contexts": 2526,
+      "raw_bound_images": 1164,
+      "repeated_lba_events": 0,
+      "controls": {
+        "wrong-copy-byte": "detected on actual returned trace"
+      },
+      "scope": "new fixed rows only; operation-specific predicates; finite large epochs, no repeated-LBA coverage"
+    }
+  },
+  "cpu": {
+    "current_CI_measured": {
+      "load": 8.08,
+      "dup": 0.39,
+      "stage3": 64.6
+    },
+    "earlier_CI_measured": 13.02,
+    "local_reported_measured": 302.4,
+    "local_unmeasured_reported_bound": 220,
+    "reported_upper_total": 608.49,
+    "scope": "CI times authenticated; local measurements/bound reported by Software, not independently established; cap7200"
+  },
+  "remaining": [
+    "365 fixed deferred load coordinates",
+    "six no_lower_run cuts absent from its actual3-unit operation",
+    "no repeated-LBA epoch in returned lanes",
+    "finite large-epoch samples, not exhaustive arbitrary subsets",
+    "overall443 integration/base and native/physical/atomicity/target holds unchanged"
+  ],
+  "narrative_corrections": [
+    "global minimum original remount row exists and exactly matches retained load1",
+    "current workflow reran Tiers1/2;80 original files byte-identical,56 differ; prior acceptance carries"
+  ],
+  "disposition": "bounded fixed Stage3 observations PASS with explicit unavailable/unexecuted/sample gaps; no overall443 acceptance"
+}
