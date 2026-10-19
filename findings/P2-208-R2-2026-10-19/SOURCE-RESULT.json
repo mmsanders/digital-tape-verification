@@ -1,0 +1,12 @@
+{
+  "scope": "compiled source-extracted OS-query fixture; no native disk execution",
+  "source": {
+    "commit": "38ca66685bfdfa136ae1df810ae037ab10f97c08",
+    "path": "host/port/discover_linux.c",
+    "sha256": "5c359c5151072d52a73533efe460163ec86554215c1479b940ed837b7aa3d2e4"
+  },
+  "raw_stdout": "0 0 0 1 loop0\n1 0 0 1 dm-0\n",
+  "known_slave_neighbour": "loop0 attribution retained",
+  "denied_slaves_query": "defect reproduced: failure becomes dm-0 leaf, mount_unknown remains0",
+  "disposition": "correction required; unresolved metadata must remain unknown"
+}

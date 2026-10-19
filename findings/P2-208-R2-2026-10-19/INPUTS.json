@@ -1,0 +1,32 @@
+[
+  {
+    "name": "cards-r2-linux",
+    "id": 12194127497,
+    "sha256": "c9762906a503fa7bd5541ef2d695020cbd0bddf520f808dff1af460bedf1829a",
+    "bytes": 89099
+  },
+  {
+    "name": "cards-r2-macos",
+    "id": 12195400595,
+    "sha256": "1496a7be83f8dabaf51aefffd266f805599b7960f88df07216fb22ea58d38767",
+    "bytes": 10396
+  },
+  {
+    "name": "cards-r2-windows",
+    "id": 12195326176,
+    "sha256": "e104dbdfd38e54f9169865d81d59f4b0780ff2a9c52657cbf45299ae0326aa8e",
+    "bytes": 11325
+  },
+  {
+    "name": "s3-r2-linux",
+    "id": 12194726168,
+    "sha256": "7b71aefca4c05930c53a682eba73bd3ba49203e3324e5e24a9ecbff656c856fd",
+    "bytes": 745
+  },
+  {
+    "name": "s3-r2-windows",
+    "id": 12194471670,
+    "sha256": "3adc2fc60b861981a6b41dc0375c9b078076a5ec39b3141eec42c61e5d7e62a6",
+    "bytes": 1828
+  }
+]
