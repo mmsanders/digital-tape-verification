@@ -56,7 +56,7 @@ try { $r=Invoke-A6Native -NativeTool $env:ComSpec -NativeArgs @('/d','/c','exit 
 catch { $caught=$_.Exception.Message }
 if (-not $caught) { throw 'Redirection/invocation failure did not stop' }
 $rows.Add([pscustomobject]@{case='invalid-output-parent';stopped=$true;message=$caught})
-$wpr = Get-Command wpr.exe -CommandType Application -ErrorAction SilentlyContinue
+$wpr = Get-Command wpr.exe -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
 if ($wpr) {
     $r=Invoke-A6Native -NativeTool $wpr.Source -NativeArgs @('-profiles') -Stem (Join-Path $Out 'wpr-profiles')
     $rows.Add([pscustomobject]@{case='host-wpr-profiles';exit=$r;scope='profiles only; no trace or card command'})
