@@ -14,6 +14,10 @@ records S2 corrections/S3 method holds, Linux report-write positional PASS,
 Windows Server partial and Mac no-fault limitations. No overall/base/native clearance;
 210 awaits paired467.
 
+Latest208: [correction-round1 disposition](findings/P2-208-R2-2026-10-19/README.md)
+keeps overall S2 held on a reproduced Linux metadata-failure path; S3 target-platform
+binding and query-failure mapping are with PM472. Earlier bounded209 closure carries.
+
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
 

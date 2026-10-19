@@ -1,0 +1,161 @@
+[
+  {
+    "name": "cards-r2-linux",
+    "id": 12194127497,
+    "sha256": "c9762906a503fa7bd5541ef2d695020cbd0bddf520f808dff1af460bedf1829a",
+    "bytes": 89099,
+    "native_dm_control": "old missing underlying mount; new records it",
+    "rows": [
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "stack",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":10}\n"
+      },
+      {
+        "producer": "old",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "stack",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "old",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      }
+    ]
+  },
+  {
+    "name": "cards-r2-macos",
+    "id": 12195400595,
+    "sha256": "1496a7be83f8dabaf51aefffd266f805599b7960f88df07216fb22ea58d38767",
+    "bytes": 10396,
+    "protocol_row": "NON-CAUSAL; baseline and fault disk facts identical",
+    "rows": [
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":3}\n"
+      },
+      {
+        "producer": "new",
+        "case": "whole",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":8}\n"
+      },
+      {
+        "producer": "new",
+        "case": "removable",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":8}\n"
+      },
+      {
+        "producer": "new",
+        "case": "protocol",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":3}\n"
+      },
+      {
+        "producer": "new",
+        "case": "mount",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":8}\n"
+      },
+      {
+        "producer": "new",
+        "case": "census",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 1,
+        "stdout": ""
+      }
+    ]
+  },
+  {
+    "name": "cards-r2-windows",
+    "id": 12195326176,
+    "sha256": "e104dbdfd38e54f9169865d81d59f4b0780ff2a9c52657cbf45299ae0326aa8e",
+    "bytes": 11325,
+    "rows": [
+      {
+        "producer": "new",
+        "case": "none",
+        "kind": "native observation",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n"
+      },
+      {
+        "producer": "new",
+        "case": "paths",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":2}\n"
+      },
+      {
+        "producer": "new",
+        "case": "extents",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 0,
+        "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":2}\n"
+      },
+      {
+        "producer": "new",
+        "case": "next",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 1,
+        "stdout": ""
+      },
+      {
+        "producer": "new",
+        "case": "census",
+        "kind": "compiled control (injected OS-query failure in tapectl-test)",
+        "exit": 1,
+        "stdout": ""
+      }
+    ]
+  },
+  {
+    "name": "s3-r2-linux",
+    "id": 12194726168,
+    "sha256": "7b71aefca4c05930c53a682eba73bd3ba49203e3324e5e24a9ecbff656c856fd",
+    "bytes": 745,
+    "judgment": "bounded same-inode/sequence capability; actual O_RDWR upgrade succeeded after change; no pre-open rejection or automatic final-close clearing proved"
+  },
+  {
+    "name": "s3-r2-windows",
+    "id": 12194471670,
+    "sha256": "3adc2fc60b861981a6b41dc0375c9b078076a5ec39b3141eec42c61e5d7e62a6",
+    "bytes": 1828,
+    "judgment": "tested device upgrade routes unavailable on Server fixture; relative held-ancestor file route available with causal naive contrast; no S3 or Win11 acceptance"
+  }
+]

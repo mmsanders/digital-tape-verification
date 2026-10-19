@@ -162,3 +162,5 @@ only in Product must be fetched and authenticated there before replay.
 ##19 October host returns
 
 [Verification208/209 returned-head dispositions](P2-208-209-RETURNS-2026-10-19/README.md): exact S2 ef2712c requires enumerator corrections and S3 method gaps remain. Linux report-write start/middle/end PASS; Windows Server partial, Mac no fault reached. No underlying/full/native integration clearance;210 awaits paired467.
+
+[Verification208 correction-round1 review](P2-208-R2-2026-10-19/README.md): returned producer corrections supported within scope, remaining Linux failed-slaves-query defect reproduced. Windows/Mac S3 binding and boundary-query mapping routed to Product472; no overall candidate acceptance.
