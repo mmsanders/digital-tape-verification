@@ -1,0 +1,130 @@
+{
+  "packet": {
+    "name": "a6-physical-win-20261019-142004.zip",
+    "bytes": 92802476,
+    "sha256": "0246c24a96b1de22bad15086aa925def9d2b43bb6ecd13c146a305f914df0bcb",
+    "retention": "Original private user attachment; full machine ETL/XML are not republished"
+  },
+  "checker": {
+    "commit": "a50a211679b7893c7ac581d392784191519525d6",
+    "sha256": "7cbba051629d56bffd85e715fe34cb909421aa6b105a52c883f383aed10b8d89"
+  },
+  "members": [
+    {
+      "name": "all-disks-before.txt",
+      "sha256": "e4aa87cfcd096121747a55720c9ffa0cab883a19c18a76d9137d531e3dfd333a"
+    },
+    {
+      "name": "binary-hash-after.txt",
+      "sha256": "b8811f2c89db3e30b5021e6903f7580ddb385ee9ead24e2fe3ac95f1425b135c"
+    },
+    {
+      "name": "binary-hash.txt",
+      "sha256": "b8811f2c89db3e30b5021e6903f7580ddb385ee9ead24e2fe3ac95f1425b135c"
+    },
+    {
+      "name": "card-after.txt",
+      "sha256": "deb98432dee3aac6ab9a3408df75ea20205a3cbc23c2e5abaef52cf1eb147c3a"
+    },
+    {
+      "name": "command.txt",
+      "sha256": "aeb4b068f1ced930727ae4af06e81032a399c23ff7d5ea822b6c97b14ab6a4ea"
+    },
+    {
+      "name": "end-utc.txt",
+      "sha256": "0d534884d34126b74eafbe245e51ddefca697314c5090f1ec7c389f69660faec"
+    },
+    {
+      "name": "geometry.txt",
+      "sha256": "8dde5c6084dd0e467b6d6be943b088c1db9511ef6377513666d628b61912f5f6"
+    },
+    {
+      "name": "os.json",
+      "sha256": "a8086377123f70b444040aa75f7701e90d4b4f74b16b8ea496e9eb398358a252"
+    },
+    {
+      "name": "powershell-version.txt",
+      "sha256": "097c994505f4a144509fa6e7dac77a3c4bbfa59d26d3f7ceedca3292562ac825"
+    },
+    {
+      "name": "profiles-err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "profiles-out.txt",
+      "sha256": "fd5ee5804fa35070da68fcb3d04a1949e5c609ba26a72864a86008626a20baf0"
+    },
+    {
+      "name": "return-note.txt",
+      "sha256": "4c466982e7929f4e1d0a7b8dfe0cdf178e43fd95f25a98ae97c85816e42ea868"
+    },
+    {
+      "name": "start-utc.txt",
+      "sha256": "60fb82ccb71f9061de71127bc1ca700856ec997da582d7706f0eb07a04d1b1f3"
+    },
+    {
+      "name": "tapectl.exe",
+      "sha256": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9"
+    },
+    {
+      "name": "tracer-exits.txt",
+      "sha256": "37dd58cb1c236c53d618d1e412e2185e59a31f72e0c4dd68acbe31c7b984df9a"
+    },
+    {
+      "name": "tracer-tools.txt",
+      "sha256": "f168625723fafc48ff500d2b4d55d7741de82ee3856ea97136918654668b05a0"
+    },
+    {
+      "name": "tracer-versions.txt",
+      "sha256": "d3289df79826bfceed294ae406f8ff7093caa3cf226b06319fd3a9358ad0f05f"
+    },
+    {
+      "name": "tracerpt-err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "tracerpt-out.txt",
+      "sha256": "0abc3e51d255cd8f0276ff40d2bd0012c44a6ac1f264c8f4d860f245ddd5a495"
+    },
+    {
+      "name": "verify-err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "verify-exit.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "name": "verify-out.txt",
+      "sha256": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    {
+      "name": "verify-pid.txt",
+      "sha256": "a2f1464f69ed3fec80d68797c93169924d275c0d039d3966e4865c6f85762bc6"
+    },
+    {
+      "name": "verify.etl",
+      "sha256": "fedd7a3d26c56b92beccddda1323bc873f6b125e9d95f297bf8d3a5988250a7e"
+    },
+    {
+      "name": "verify.xml",
+      "sha256": "69a81ab6ca7f8aaf7d533b511c496c048bd4c11620999e0159d5898c6fe4ff98"
+    },
+    {
+      "name": "wpr-start-err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "wpr-start-out.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "wpr-stop-err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "wpr-stop-out.txt",
+      "sha256": "fdc16323759880a2d05e9dc8833d0c4790120ba36e283f261dc29a6181164b26"
+    }
+  ]
+}
