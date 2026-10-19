@@ -1,0 +1,1044 @@
+{
+  "xml_sha256": "69a81ab6ca7f8aaf7d533b511c496c048bd4c11620999e0159d5898c6fe4ff98",
+  "events": 948634,
+  "scope": "original selected native records only; absence/lifetime verdict comes from the full exact checker execution",
+  "records": [
+    {
+      "n": 1,
+      "version": 2,
+      "opcode": 0,
+      "time": "2026-10-19T14:20:22.248359000-07:00",
+      "execution": {
+        "ProcessID": "14452",
+        "ThreadID": "29336",
+        "ProcessorID": "0",
+        "KernelTime": "525",
+        "UserTime": "120"
+      },
+      "guid": "68fdd900-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "BufferSize": "1048576",
+        "Version": "83951626",
+        "ProviderVersion": "26200",
+        "NumberOfProcessors": "16",
+        "EndTime": "134369184929271514",
+        "TimerResolution": "156250",
+        "MaxFileSize": "0",
+        "LogFileMode": "0x10001",
+        "BuffersWritten": "187",
+        "StartBuffers": "1",
+        "PointerSize": "8",
+        "EventsLost": "0",
+        "CPUSpeed": "2895",
+        "LoggerName": "0x0",
+        "LogFileName": "0x0",
+        "BootTime": "134351083845727458",
+        "PerfFreq": "10000000",
+        "StartTime": "134369184222483590",
+        "ReservedFlags": "0x1",
+        "BuffersLost": "0",
+        "SessionNameString": "Relogger",
+        "LogFileNameString": "[multiple files]"
+      }
+    },
+    {
+      "n": 88380,
+      "version": 4,
+      "opcode": 1,
+      "time": "2026-10-19T14:20:22.628700600-07:00",
+      "execution": {
+        "ProcessID": "21960",
+        "ThreadID": "1048",
+        "ProcessorID": "10",
+        "KernelTime": "1095",
+        "UserTime": "2490"
+      },
+      "guid": "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {
+        "UniqueProcessKey": "0xFFFFA1860D66E080",
+        "ProcessId": "0x761C",
+        "ParentId": "0x55C8",
+        "SessionId": "1",
+        "ExitStatus": "259",
+        "DirectoryTableBase": "0x2B4B6C000",
+        "Flags": "0",
+        "UserSID": "\\\\DESKTOP-77BINN1\\mrtro",
+        "ImageFileName": "tapectl.exe",
+        "CommandLine": "\"C:\\Users\\mrtro\\claude\\tapetest\\tapectl.exe\" verify \\\\.\\PhysicalDrive1",
+        "PackageFullName": "",
+        "ApplicationId": ""
+      }
+    },
+    {
+      "n": 88753,
+      "version": 3,
+      "opcode": 1,
+      "time": "2026-10-19T14:20:22.635454100-07:00",
+      "execution": {
+        "ProcessID": "21960",
+        "ThreadID": "1048",
+        "ProcessorID": "9",
+        "KernelTime": "1095",
+        "UserTime": "2490"
+      },
+      "payload": "1C760000A857000000B0D47C8EFEFFFF0050D47C8EFEFFFF000020D18100000000F01FD181000000FFFF000000000000F013720BF67F000000D0F1D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 89100,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.640958600-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18624E48748",
+        "FileObject": "0xFFFFA1863DA7E7A0",
+        "TTID": "22440",
+        "CreateOptions": "16777248",
+        "FileAttributes": "0",
+        "ShareAccess": "0",
+        "OpenPath": "\\Device\\HarddiskVolume3\\WINDOWS\\Prefetch\\TAPECTL.EXE-5CB62B63.pf"
+      }
+    },
+    {
+      "n": 89164,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.642406600-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18624E48748",
+        "FileObject": "0xFFFFA1863DA7B8C0",
+        "TTID": "22440",
+        "CreateOptions": "16777249",
+        "FileAttributes": "0",
+        "ShareAccess": "3",
+        "OpenPath": "\\Device\\HarddiskVolume3\\Users\\mrtro\\claude\\tapetest\\"
+      }
+    },
+    {
+      "n": 89305,
+      "version": 3,
+      "opcode": 1,
+      "time": "2026-10-19T14:20:22.645290000-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "11",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "payload": "1C760000E44B000000A0DF7C8EFEFFFF0040DF7C8EFEFFFF000040D18100000000F03FD181000000FFFF000000000000E0A20B51F87F000000F0F1D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 89319,
+      "version": 3,
+      "opcode": 1,
+      "time": "2026-10-19T14:20:22.645513100-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "11",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "payload": "1C760000741800000020F17C8EFEFFFF00C0F07C8EFEFFFF000060D18100000000F05FD181000000FFFF000000000000E0A20B51F87F00000010F2D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 89489,
+      "version": 3,
+      "opcode": 1,
+      "time": "2026-10-19T14:20:22.646767000-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "6260",
+        "ProcessorID": "8",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "payload": "1C7600005C4500000080E07C8EFEFFFF0020E07C8EFEFFFF000080D18100000000F07FD181000000FFFF000000000000E0A20B51F87F00000030F2D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 89817,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.648671700-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "8",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA186278D3748",
+        "FileObject": "0xFFFFA1861B699A00",
+        "TTID": "22440",
+        "CreateOptions": "18874368",
+        "FileAttributes": "0",
+        "ShareAccess": "7",
+        "OpenPath": "\\Device\\HarddiskVolume3\\WINDOWS\\system32\\IMM32.DLL"
+      }
+    },
+    {
+      "n": 89857,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.648869100-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "8",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA186278D3748",
+        "FileObject": "0xFFFFA1861B699B90",
+        "TTID": "22440",
+        "CreateOptions": "16777312",
+        "FileAttributes": "0",
+        "ShareAccess": "5",
+        "OpenPath": "\\Device\\HarddiskVolume3\\WINDOWS\\system32\\IMM32.DLL"
+      }
+    },
+    {
+      "n": 90125,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.654774400-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "6",
+        "KernelTime": "15",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18642970588",
+        "FileObject": "0xFFFFA1861CAC2B50",
+        "TTID": "22440",
+        "CreateOptions": "16777248",
+        "FileAttributes": "0",
+        "ShareAccess": "7",
+        "OpenPath": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90136,
+      "version": 2,
+      "opcode": 32,
+      "time": "2026-10-19T14:20:22.654870900-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "6",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA18626D97B90",
+        "FileName": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90155,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.655014600-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "6",
+        "KernelTime": "15",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1863561B988",
+        "FileObject": "0xFFFFA1861CAC3640",
+        "TTID": "22440",
+        "CreateOptions": "16777248",
+        "FileAttributes": "0",
+        "ShareAccess": "7",
+        "OpenPath": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90203,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.655693300-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "6",
+        "KernelTime": "15",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18636495C88",
+        "FileObject": "0xFFFFA1861CAC34B0",
+        "TTID": "22440",
+        "CreateOptions": "16777312",
+        "FileAttributes": "0",
+        "ShareAccess": "3",
+        "OpenPath": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90222,
+      "version": 2,
+      "opcode": 35,
+      "time": "2026-10-19T14:20:22.657176400-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA18626D97B90",
+        "FileName": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90251,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.660115800-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "15",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "FileObject": "0xFFFFA1863DA82DF0",
+        "TTID": "22440",
+        "CreateOptions": "16777248",
+        "FileAttributes": "0",
+        "ShareAccess": "7",
+        "OpenPath": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90255,
+      "version": 2,
+      "opcode": 32,
+      "time": "2026-10-19T14:20:22.660198000-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA1861BF99700",
+        "FileName": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90260,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.660244300-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "15",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "FileObject": "0xFFFFA1863DA81B30",
+        "TTID": "22440",
+        "CreateOptions": "16777248",
+        "FileAttributes": "0",
+        "ShareAccess": "7",
+        "OpenPath": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90279,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:20:22.660842700-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "15",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "FileObject": "0xFFFFA1863DA82C60",
+        "TTID": "22440",
+        "CreateOptions": "16777314",
+        "FileAttributes": "128",
+        "ShareAccess": "3",
+        "OpenPath": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 90388,
+      "version": 3,
+      "opcode": 67,
+      "time": "2026-10-19T14:20:22.663224900-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "15",
+        "UserTime": "0"
+      },
+      "payload": "00FE7F8F0E000000F8E0982786A1FFFF602CA83D86A1FFFF0097F91B86A1FFFFA8570000000200000109060000000000",
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {}
+    },
+    {
+      "n": 90461,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:22.663825300-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550322415",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x200",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300079,
+      "version": 3,
+      "opcode": 67,
+      "time": "2026-10-19T14:20:45.759931000-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "4",
+        "KernelTime": "1605",
+        "UserTime": "2175"
+      },
+      "payload": "00FE7F8F0E000000887CC31786A1FFFF602CA83D86A1FFFF0097F91B86A1FFFFA8570000000200000109060000000000",
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {}
+    },
+    {
+      "n": 300084,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.760503100-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342080",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18617C37C88",
+        "ExtraInfo": "0x200",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300108,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.762112900-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342080",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18617C37C88",
+        "ExtraInfo": "0x200",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300116,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.762608300-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342080",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x200",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300124,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.763203400-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342095",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x200",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300132,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.763685300-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342095",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x200",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300140,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.764843700-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342095",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x8000",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300156,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.767142600-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342095",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x8000",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300164,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.768517100-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342095",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x8000",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 300172,
+      "version": 3,
+      "opcode": 76,
+      "time": "2026-10-19T14:20:45.769644000-07:00",
+      "execution": {
+        "ProcessID": "0",
+        "ThreadID": "0",
+        "ProcessorID": "0",
+        "KernelTime": "550342095",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA1862798E0F8",
+        "ExtraInfo": "0x8000",
+        "NtStatus": "0"
+      }
+    },
+    {
+      "n": 354343,
+      "version": 3,
+      "opcode": 2,
+      "time": "2026-10-19T14:20:52.658107300-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "6260",
+        "ProcessorID": "7",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "payload": "1C760000741800000020F17C8EFEFFFF00C0F07C8EFEFFFF000060D18100000000E05FD181000000FFFF000000000000E0A20B51F87F00000010F2D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 354344,
+      "version": 3,
+      "opcode": 2,
+      "time": "2026-10-19T14:20:52.658111500-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "19428",
+        "ProcessorID": "9",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "payload": "1C760000E44B000000A0DF7C8EFEFFFF0040DF7C8EFEFFFF000040D18100000000D03FD181000000FFFF000000000000E0A20B51F87F000000F0F1D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 354345,
+      "version": 3,
+      "opcode": 2,
+      "time": "2026-10-19T14:20:52.658111500-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "17756",
+        "ProcessorID": "8",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "payload": "1C7600005C4500000080E07C8EFEFFFF0020E07C8EFEFFFF000080D18100000000E07FD181000000FFFF000000000000E0A20B51F87F00000030F2D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 480063,
+      "version": 2,
+      "opcode": 35,
+      "time": "2026-10-19T14:21:08.996789900-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA1861BF99700",
+        "FileName": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 480066,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:21:08.996977900-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3165",
+        "UserTime": "4440"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18626644648",
+        "FileObject": "0xFFFFA1863DA4D290",
+        "TTID": "22440",
+        "CreateOptions": "18874368",
+        "FileAttributes": "0",
+        "ShareAccess": "7",
+        "OpenPath": "\\Device\\HarddiskVolume3\\WINDOWS\\SYSTEM32\\kernel.appcore.dll"
+      }
+    },
+    {
+      "n": 480082,
+      "version": 3,
+      "opcode": 64,
+      "time": "2026-10-19T14:21:08.997366400-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3165",
+        "UserTime": "4440"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "IrpPtr": "0xFFFFA18626644648",
+        "FileObject": "0xFFFFA1863DA4D8D0",
+        "TTID": "22440",
+        "CreateOptions": "16777312",
+        "FileAttributes": "0",
+        "ShareAccess": "5",
+        "OpenPath": "\\Device\\HarddiskVolume3\\WINDOWS\\SYSTEM32\\kernel.appcore.dll"
+      }
+    },
+    {
+      "n": 480111,
+      "version": 3,
+      "opcode": 1,
+      "time": "2026-10-19T14:21:08.997822600-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3165",
+        "UserTime": "4440"
+      },
+      "payload": "1C7600002054000000C0127E8EFEFFFF0060127E8EFEFFFF000040D18100000000F03FD181000000FFFF000000000000E0A20B51F87F00000050F2D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 480154,
+      "version": 3,
+      "opcode": 2,
+      "time": "2026-10-19T14:21:08.998373800-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "21536",
+        "ProcessorID": "3",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "payload": "1C7600002054000000C0127E8EFEFFFF0060127E8EFEFFFF000040D18100000000E03FD181000000FFFF000000000000E0A20B51F87F00000050F2D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 480318,
+      "version": 2,
+      "opcode": 11,
+      "time": "2026-10-19T14:21:09.000245100-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3180",
+        "UserTime": "4440"
+      },
+      "guid": "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {
+        "ProcessId": "0x761C"
+      }
+    },
+    {
+      "n": 480319,
+      "version": 3,
+      "opcode": 2,
+      "time": "2026-10-19T14:21:09.000249700-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3180",
+        "UserTime": "4440"
+      },
+      "payload": "1C760000A857000000B0D47C8EFEFFFF0050D47C8EFEFFFF000020D18100000000C01FD181000000FFFF000000000000F013720BF67F000000D0F1D08100000000000000080502000000",
+      "guid": "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {}
+    },
+    {
+      "n": 480404,
+      "version": 2,
+      "opcode": 32,
+      "time": "2026-10-19T14:21:09.000955200-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {
+        "ProcessId": "0x761C",
+        "PageFaultCount": "0",
+        "HandleCount": "0",
+        "Reserved": "0",
+        "PeakVirtualSize": "0x105CC7000",
+        "PeakWorkingSetSize": "0x7B7000",
+        "PeakPagefileUsage": "0x17A000",
+        "QuotaPeakPagedPoolUsage": "0x1EEC0",
+        "QuotaPeakNonPagedPoolUsage": "0x23A0",
+        "VirtualSize": "0x0",
+        "WorkingSetSize": "0x0",
+        "PagefileUsage": "0x0",
+        "QuotaPagedPoolUsage": "0x0",
+        "QuotaNonPagedPoolUsage": "0x0",
+        "PrivatePageCount": "0x0"
+      }
+    },
+    {
+      "n": 480405,
+      "version": 4,
+      "opcode": 2,
+      "time": "2026-10-19T14:21:09.000963900-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3180",
+        "UserTime": "4440"
+      },
+      "guid": "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {
+        "UniqueProcessKey": "0xFFFFA1860D66E080",
+        "ProcessId": "0x761C",
+        "ParentId": "0x55C8",
+        "SessionId": "1",
+        "ExitStatus": "0",
+        "DirectoryTableBase": "0x2B4B6C000",
+        "Flags": "0",
+        "UserSID": "\\\\DESKTOP-77BINN1\\mrtro",
+        "ImageFileName": "tapectl.exe",
+        "CommandLine": "\"C:\\Users\\mrtro\\claude\\tapetest\\tapectl.exe\" verify \\\\.\\PhysicalDrive1",
+        "PackageFullName": "",
+        "ApplicationId": ""
+      }
+    },
+    {
+      "n": 480422,
+      "version": 3,
+      "opcode": 68,
+      "time": "2026-10-19T14:21:09.001393000-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3180",
+        "UserTime": "4440"
+      },
+      "payload": "00400000000000001859892786A1FFFF90BAFA0586A1FFFF304D080986A1FFFFA8570000001000004300060000000000",
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {}
+    },
+    {
+      "n": 480439,
+      "version": 3,
+      "opcode": 11,
+      "time": "2026-10-19T14:21:09.001524500-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "3d6fa8d4-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {
+        "DiskNumber": "0",
+        "IrpFlags": "0x60043",
+        "TransferSize": "4096",
+        "Reserved": "0",
+        "ByteOffset": "3261186048",
+        "FileObject": "0xFFFFA18609084D30",
+        "Irp": "0xFFFFA1861C4EB010",
+        "HighResResponseTime": "1018",
+        "IssuingThreadId": "22440"
+      }
+    },
+    {
+      "n": 480466,
+      "version": 3,
+      "opcode": 68,
+      "time": "2026-10-19T14:21:09.001733600-07:00",
+      "execution": {
+        "ProcessID": "30236",
+        "ThreadID": "22440",
+        "ProcessorID": "2",
+        "KernelTime": "3180",
+        "UserTime": "4440"
+      },
+      "payload": "0040010000000000D8997E3E86A1FFFF90BAFA0586A1FFFF304D080986A1FFFFA8570000002000004300060000000000",
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {}
+    },
+    {
+      "n": 480483,
+      "version": 3,
+      "opcode": 11,
+      "time": "2026-10-19T14:21:09.001825400-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "2",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "3d6fa8d4-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {
+        "DiskNumber": "0",
+        "IrpFlags": "0x60043",
+        "TransferSize": "8192",
+        "Reserved": "0",
+        "ByteOffset": "3261251584",
+        "FileObject": "0xFFFFA18609084D30",
+        "Irp": "0xFFFFA1861C4EB010",
+        "HighResResponseTime": "749",
+        "IssuingThreadId": "22440"
+      }
+    },
+    {
+      "n": 794227,
+      "version": 2,
+      "opcode": 32,
+      "time": "2026-10-19T14:21:31.453582900-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "6",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA18629102D80",
+        "FileName": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 794329,
+      "version": 2,
+      "opcode": 35,
+      "time": "2026-10-19T14:21:31.456737400-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "6",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA18629102D80",
+        "FileName": "\\Device\\Harddisk1\\DR16"
+      }
+    },
+    {
+      "n": 901541,
+      "version": 5,
+      "opcode": 39,
+      "time": "2026-10-19T14:21:32.789725600-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "14",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c",
+      "data": {
+        "UniqueProcessKey": "0xFFFFA1860D66E080",
+        "ProcessId": "0x761C",
+        "ParentId": "0x55C8",
+        "SessionId": "1",
+        "ExitStatus": "0",
+        "DirectoryTableBase": "0x2B4B6C000",
+        "Flags": "0",
+        "UserSID": "\\\\DESKTOP-77BINN1\\mrtro",
+        "ImageFileName": "tapectl.exe",
+        "CommandLine": "",
+        "PackageFullName": "",
+        "ApplicationId": "",
+        "ExitTime": "134369184690007338"
+      }
+    },
+    {
+      "n": 901716,
+      "version": 2,
+      "opcode": 36,
+      "time": "2026-10-19T14:21:32.790681600-07:00",
+      "execution": {
+        "ProcessID": "4294967295",
+        "ThreadID": "4294967295",
+        "ProcessorID": "15",
+        "KernelTime": "0",
+        "UserTime": "0"
+      },
+      "guid": "90cbdc39-4a3e-11d1-84f4-0000f80464e3",
+      "data": {
+        "FileObject": "0xFFFFA18609084D30",
+        "FileName": "\\Device\\HarddiskVolume3\\$LogFile"
+      }
+    }
+  ]
+}

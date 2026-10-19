@@ -1,5 +1,11 @@
 # Verification findings index
 
+19 October2026: [Physical Windows A6 return](P2-A6-PHYSICAL-2026-10-19/README.md)
+authenticates the completed collector, two native final-sector reads and no
+observed card writes. Overall A6 is HELD: the accepted checker rejects four
+other-stream records after process/thread exit. Retained evidence goes to PM;
+no physical repeat is requested. This supersedes the collector-pause status below.
+
 19 October2026: [Verification219 collector correction](P2-219-COLLECTOR-2026-10-19/README.md)
 investigates native exit-code scope in the physical A6 instructions. Physical
 collection is PAUSED under PM475; preserve the existing folder. Michael473 is the
