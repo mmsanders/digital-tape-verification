@@ -1,0 +1,22 @@
+name: Verification219 collector controls
+on:
+  pull_request:
+    paths: ['findings/P2-219-COLLECTOR-2026-10-19/**', '.github/workflows/verifier-219-collector.yml']
+permissions:
+  contents: read
+jobs:
+  native-exits:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Windows PowerShell 5.1 scope and native exit controls
+        shell: powershell
+        run: ./findings/P2-219-COLLECTOR-2026-10-19/controls.ps1 -Out receipt-ps51
+      - name: PowerShell7 scope and native exit controls
+        shell: pwsh
+        run: ./findings/P2-219-COLLECTOR-2026-10-19/controls.ps1 -Out receipt-ps7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification219-harmless-native-controls
+          path: receipt-*/
