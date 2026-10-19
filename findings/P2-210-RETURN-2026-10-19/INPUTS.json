@@ -1,0 +1,32 @@
+[
+  {
+    "name": "return",
+    "id": 12195144813,
+    "bytes": 3426393,
+    "sha256": "fab32f07de942096becfc8ad2101cbfa131e6b20d914245426933c4bdacd4d3a"
+  },
+  {
+    "name": "load1",
+    "id": 12085261229,
+    "bytes": 1611126,
+    "sha256": "ad5b62a702d5e3b1fd61ca3671492abd24a032aa76fea845e1de8a5e5309afbf"
+  },
+  {
+    "name": "load0",
+    "id": 12085042202,
+    "bytes": 2234288,
+    "sha256": "2bfe1814312d622cb010d2571e6b977b5125fc07f7ead9301765d167a86bf6c9"
+  },
+  {
+    "name": "load3",
+    "id": 12083577657,
+    "bytes": 1210847,
+    "sha256": "c49db99c8f192ee20893abe7c730d160e85919aac95049adb99780159bd9dc00"
+  },
+  {
+    "name": "load2",
+    "id": 12083169027,
+    "bytes": 1020414,
+    "sha256": "32be79ef392b99c1a38648a45e92748efedb4f31248b9a48a9437102d46c0f28"
+  }
+]

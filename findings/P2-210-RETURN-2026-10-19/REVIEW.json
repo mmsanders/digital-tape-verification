@@ -1,0 +1,331 @@
+{
+  "source": "743f82939a8fc99e64b384db45430824b68482d1",
+  "artifact_sha256": "fab32f07de942096becfc8ad2101cbfa131e6b20d914245426933c4bdacd4d3a",
+  "narrow_replay": {
+    "scope": "bounded narrow raw replay; provider/source qualification and native/full acceptance separate",
+    "rows": [
+      {
+        "name": "dup-6ad1afe545f3",
+        "result": "PASS exact retained source/label/PCM binding"
+      },
+      {
+        "name": "dup-e7d9d30b0121",
+        "result": "PASS exact retained source/label/PCM binding"
+      },
+      {
+        "name": "write-0",
+        "result": "PASS actual requested fault provenance; state judged separately by carried model"
+      },
+      {
+        "name": "write-7",
+        "result": "PASS actual requested fault provenance; state judged separately by carried model"
+      },
+      {
+        "name": "write-8",
+        "result": "PASS actual requested fault provenance; state judged separately by carried model"
+      },
+      {
+        "name": "write-352",
+        "result": "PASS actual requested fault provenance; state judged separately by carried model"
+      },
+      {
+        "name": "barrier-1",
+        "result": "PASS actual requested fault provenance; state judged separately by carried model"
+      },
+      {
+        "name": "barrier-26",
+        "result": "PASS actual requested fault provenance; state judged separately by carried model"
+      },
+      {
+        "name": "barrier-51",
+        "result": "PASS actual requested fault provenance; state judged separately by carried model"
+      },
+      {
+        "name": "commands-0014f8a78c3f",
+        "result": "PASS per-command fresh-input/seam facts"
+      },
+      {
+        "name": "commands-0fa0564024f7",
+        "result": "PASS per-command fresh-input/seam facts"
+      },
+      {
+        "name": "commands-7010ac19e17b",
+        "result": "PASS per-command fresh-input/seam facts"
+      },
+      {
+        "name": "commands-8b5178590292",
+        "result": "PASS per-command fresh-input/seam facts"
+      },
+      {
+        "name": "commands-9d404d620567",
+        "result": "PASS per-command fresh-input/seam facts"
+      }
+    ]
+  },
+  "source_runs": [
+    {
+      "shape": "equal_divergent",
+      "events": 13,
+      "raw_sha256": "9ec1391b10d3c2cb40501a2712931f413dd670d63a2aa76a98ad6b1162fd339a"
+    },
+    {
+      "shape": "exhaustion_candidate",
+      "events": 13,
+      "raw_sha256": "9ec1391b10d3c2cb40501a2712931f413dd670d63a2aa76a98ad6b1162fd339a"
+    },
+    {
+      "shape": "exhaustion_equal_divergent",
+      "events": 13,
+      "raw_sha256": "9ec1391b10d3c2cb40501a2712931f413dd670d63a2aa76a98ad6b1162fd339a"
+    },
+    {
+      "shape": "generation_zero",
+      "events": 13,
+      "raw_sha256": "9ec1391b10d3c2cb40501a2712931f413dd670d63a2aa76a98ad6b1162fd339a"
+    },
+    {
+      "shape": "healthy_pair",
+      "events": 13,
+      "raw_sha256": "9ec1391b10d3c2cb40501a2712931f413dd670d63a2aa76a98ad6b1162fd339a"
+    },
+    {
+      "shape": "mirror_only",
+      "events": 13,
+      "raw_sha256": "9ec1391b10d3c2cb40501a2712931f413dd670d63a2aa76a98ad6b1162fd339a"
+    },
+    {
+      "shape": "v2_only",
+      "events": 13,
+      "raw_sha256": "9ec1391b10d3c2cb40501a2712931f413dd670d63a2aa76a98ad6b1162fd339a"
+    }
+  ],
+  "faults": [
+    {
+      "name": "barrier-1",
+      "exit": 1,
+      "calls": 16,
+      "barriers": 2,
+      "state": "empty/empty",
+      "image": "d374dda0ec411969e15d6c7660e68b6c9d69df803ff8cd0c0264ba84c622e1c1"
+    },
+    {
+      "name": "barrier-26",
+      "exit": 1,
+      "calls": 216,
+      "barriers": 27,
+      "state": "empty/empty",
+      "image": "f399358bb1ffb533c0472ff4aa9286a47bb1415a2f2df8f322ba46a58703980c"
+    },
+    {
+      "name": "barrier-51",
+      "exit": 1,
+      "calls": 353,
+      "barriers": 52,
+      "state": "new/new",
+      "image": "77626693b4ef54c9cc2317309f83f825cc496e818f804e34219c88d1d15f4608"
+    },
+    {
+      "name": "native-flush-error",
+      "exit": 1,
+      "calls": 8,
+      "barriers": 1,
+      "state": "empty/empty",
+      "image": "8b0bcb48604edf619d304221786bb0051d9934d54e55c60c6a4f2f24fb8343dc"
+    },
+    {
+      "name": "none",
+      "exit": 0,
+      "calls": 353,
+      "barriers": 52,
+      "state": "new/new",
+      "image": "77626693b4ef54c9cc2317309f83f825cc496e818f804e34219c88d1d15f4608"
+    },
+    {
+      "name": "write-0",
+      "exit": 1,
+      "calls": 1,
+      "barriers": 0,
+      "state": "empty/empty",
+      "image": "1d677f4c0e1fbeda0dd4d8c7cdb4211095f82342c4ca2b62fe7a51037bb83d8c"
+    },
+    {
+      "name": "write-352",
+      "exit": 1,
+      "calls": 353,
+      "barriers": 51,
+      "state": "new/new",
+      "image": "9d404d620567b654a539c2cf3ed1f38b5143e492f1e174b42eb1e1917daab327"
+    },
+    {
+      "name": "write-7",
+      "exit": 1,
+      "calls": 8,
+      "barriers": 0,
+      "state": "empty/empty",
+      "image": "faddb99de32bbe61abcb774955678c402863d22a4954466bca05b704cf792453"
+    },
+    {
+      "name": "write-8",
+      "exit": 1,
+      "calls": 9,
+      "barriers": 1,
+      "state": "empty/empty",
+      "image": "8b0bcb48604edf619d304221786bb0051d9934d54e55c60c6a4f2f24fb8343dc"
+    }
+  ],
+  "commands": [
+    {
+      "image": "0014f8a78c3fd121d2e649fe016d3b2f31af9788edf9cbb5393b50fba58a0619",
+      "commands": {
+        "dump_A": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        },
+        "dump_B": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        },
+        "verify": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        }
+      }
+    },
+    {
+      "image": "0fa0564024f7f6d3917dc7b19be9785bc5977d95ef089e4b22c357bb32b5efa4",
+      "commands": {
+        "dump_A": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        },
+        "dump_B": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        },
+        "verify": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        }
+      }
+    },
+    {
+      "image": "7010ac19e17be4dd9288cddf7e56ab3fed073c14304533a3788079313fb32c4d",
+      "commands": {
+        "dump_A": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        },
+        "dump_B": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        },
+        "verify": {
+          "exit": 0,
+          "writes": 0,
+          "image_changed": false
+        }
+      }
+    },
+    {
+      "image": "8b5178590292df5725cb3ae3d7f4108afe70855a964f9b7b1afac38ad4ac3b87",
+      "commands": {
+        "dump_A": {
+          "exit": 0,
+          "writes": 1,
+          "image_changed": true
+        },
+        "dump_B": {
+          "exit": 0,
+          "writes": 1,
+          "image_changed": true
+        },
+        "verify": {
+          "exit": 1,
+          "writes": 0,
+          "image_changed": false
+        }
+      }
+    },
+    {
+      "image": "9d404d620567b654a539c2cf3ed1f38b5143e492f1e174b42eb1e1917daab327",
+      "commands": {
+        "dump_A": {
+          "exit": 0,
+          "writes": 1,
+          "image_changed": true
+        },
+        "dump_B": {
+          "exit": 0,
+          "writes": 1,
+          "image_changed": true
+        },
+        "verify": {
+          "exit": 1,
+          "writes": 0,
+          "image_changed": false
+        }
+      }
+    }
+  ],
+  "selection": {
+    "global_unique_images": 10975,
+    "parts": [
+      {
+        "name": "load0",
+        "unique": 7038,
+        "repair_contexts": 3
+      },
+      {
+        "name": "load1",
+        "unique": 6855,
+        "repair_contexts": 4
+      },
+      {
+        "name": "load2",
+        "unique": 3612,
+        "repair_contexts": 1
+      },
+      {
+        "name": "load3",
+        "unique": 4857,
+        "repair_contexts": 2
+      }
+    ],
+    "repair_contexts": 10,
+    "repair_images": [
+      "8b5178590292df5725cb3ae3d7f4108afe70855a964f9b7b1afac38ad4ac3b87",
+      "9d404d620567b654a539c2cf3ed1f38b5143e492f1e174b42eb1e1917daab327"
+    ],
+    "global_first_by_state": {
+      "empty/empty": "0008cb2d55e007ffece5a69c7e87290d153d9ffec2a58f295544562836ff3c88",
+      "new/new": "0fa0564024f7f6d3917dc7b19be9785bc5977d95ef089e4b22c357bb32b5efa4",
+      "empty/new": "7010ac19e17be4dd9288cddf7e56ab3fed073c14304533a3788079313fb32c4d"
+    },
+    "global_first_not_in_return": [
+      "0008cb2d55e007ffece5a69c7e87290d153d9ffec2a58f295544562836ff3c88"
+    ],
+    "scope": "five returned rows selected from load0; all four-shard distinct repair images are covered; global minimum empty/empty differs"
+  },
+  "source_control": "actual non-NULL binding flag detected by independent predicate; no actual source writes claimed",
+  "coordinates": {
+    "executed": 7,
+    "unexecuted": 397,
+    "proved-unavailable": 0
+  },
+  "cpu": {
+    "current_CI_measured": 5.31,
+    "earlier_CI_reported": 7.71,
+    "local_reported_estimate": 31,
+    "reported_total_approx": 44.02,
+    "cap": 7200,
+    "note": "local estimate is not an independently measured cumulative receipt"
+  }
+}

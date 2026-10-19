@@ -12,11 +12,16 @@ Physical read-only A6 readiness is unchanged.
 19 October update: [208/209 returned-head review](findings/P2-208-209-RETURNS-2026-10-19/README.md)
 records S2 corrections/S3 method holds, Linux report-write positional PASS,
 Windows Server partial and Mac no-fault limitations. No overall/base/native clearance;
-210 awaits paired467.
+210 actual narrow return is now bounded PASS; see the update below.
 
 Latest208: [correction-round1 disposition](findings/P2-208-R2-2026-10-19/README.md)
 keeps overall S2 held on a reproduced Linux metadata-failure path; S3 target-platform
 binding and query-failure mapping are with PM472. Earlier bounded209 closure carries.
+
+Latest210: [exact743f829 return](findings/P2-210-RETURN-2026-10-19/README.md)
+passes source/PCM, seven actual pilot faults and five command rows.397 load faults
+remain unexecuted. A separate fixed Stage3 plan is published in
+`tests/wp10_subset_extension_r1`; actual extension returns remain pending.
 
 Live bounded assignments remain in issues; PM owns Product STATUS/dashboard synchronization.
 Michael has replaced the mistaken Windows 10 requirement with Windows 11 and requested no Mac pull repeat.
