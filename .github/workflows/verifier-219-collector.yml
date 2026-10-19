@@ -10,6 +10,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Preserve exact LF publication bytes on the Windows checkout
+        shell: bash
+        run: git config --global core.autocrlf false
       - uses: actions/checkout@v4
       - name: Windows PowerShell 5.1 scope and native exit controls
         shell: powershell

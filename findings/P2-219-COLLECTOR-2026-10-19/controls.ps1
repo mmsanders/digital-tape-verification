@@ -11,6 +11,8 @@ function Read-CollectorFunction([string]$Path) {
     return $text.Substring($begin,$end-$begin)
 }
 $oldPath = Join-Path $here '../P2-R1-WP14-A6-R4-2026-10-17/WINDOWS-READY.md'
+if ((Get-FileHash $oldPath -Algorithm SHA256).Hash.ToLower() -ne '73cf18e5a31b2d1e3958a04459ff764dfbd42872b23ac776fdefe204e78232b7') { throw 'Original instruction bytes changed' }
+if ((Get-FileHash (Join-Path $here 'WINDOWS-READY.md') -Algorithm SHA256).Hash.ToLower() -ne '0077ff5c14a47db5d08bc964702bbc84fa712dbee91b6055000ece032efe30fd') { throw 'Corrected instruction bytes changed' }
 $old = Read-CollectorFunction $oldPath
 $new = Read-CollectorFunction (Join-Path $here 'WINDOWS-READY.md')
 $expected = $old.Replace('$LASTEXITCODE = $null','$global:LASTEXITCODE = $null').Replace('$nativeCode = $LASTEXITCODE','$nativeCode = $global:LASTEXITCODE')

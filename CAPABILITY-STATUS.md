@@ -9,6 +9,12 @@ kitffb0f78a/exes d923613b,d544b6f5 authenticate. This supersedes the older INGES
 collection wording below; actual Windows11/full-package evidence is pending.
 Physical read-only A6 readiness is unchanged.
 
+19 October incident: physical A6 collection is PAUSED under PM475 after a
+collector native-exit stop before the visible verify. [Verification219](findings/P2-219-COLLECTOR-2026-10-19/README.md)
+reproduces and corrects PowerShell scope on hosted5.1/7 controls. Existing card
+evidence is preserved; PM owns continuation through Michael473. Separate206
+INGEST readiness is unchanged.
+
 19 October update: [208/209 returned-head review](findings/P2-208-209-RETURNS-2026-10-19/README.md)
 records S2 corrections/S3 method holds, Linux report-write positional PASS,
 Windows Server partial and Mac no-fault limitations. No overall/base/native clearance;
