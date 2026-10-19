@@ -1,0 +1,38 @@
+[
+  {
+    "name": "cards-linux",
+    "id": 12166877200,
+    "sha256": "f3ecc67aa217c009a06901a280cefd5f1c7aa4b2f341db2cb9cd6f2bef82748b",
+    "bytes": 85881
+  },
+  {
+    "name": "cards-macos",
+    "id": 12167061656,
+    "sha256": "217f2d71b8a1f025923d774bdae784d246a9c1063b4a35029c331d9900c0e347",
+    "bytes": 7855
+  },
+  {
+    "name": "cards-windows",
+    "id": 12167091618,
+    "sha256": "901aca220450b2a8ed41260154f2296f084bd21d44ba9a478a79ac2b16685f9c",
+    "bytes": 9814
+  },
+  {
+    "name": "report-linux",
+    "id": 12173693069,
+    "sha256": "c1b82ef71a37eeae4ae75fdfcc5195463f41ba3417580c631e0dba62264c7a83",
+    "bytes": 119765
+  },
+  {
+    "name": "report-macos",
+    "id": 12174421520,
+    "sha256": "fccb9fef02f15dc9d25aee27e4669772dede0198fbef59abd854eddab2ffaee4",
+    "bytes": 11229
+  },
+  {
+    "name": "report-windows",
+    "id": 12173936732,
+    "sha256": "d8c3f56bb4506592af5680a77eacfbd50cd68bc7074647cae121eefe259bf842",
+    "bytes": 11639
+  }
+]

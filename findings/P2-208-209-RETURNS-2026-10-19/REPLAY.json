@@ -1,0 +1,520 @@
+{
+  "scope": "bounded returned rows only; no overall Product/native acceptance",
+  "artifacts": [
+    {
+      "name": "cards-linux",
+      "id": 12166877200,
+      "sha256": "f3ecc67aa217c009a06901a280cefd5f1c7aa4b2f341db2cb9cd6f2bef82748b",
+      "bytes": 85881,
+      "rows": [
+        {
+          "name": "vector/complete-empty",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/bare-known",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 1,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-whole",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/unknown-removable_or_sd",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/unknown-nonvirtual",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/unknown-bytes",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/unknown-not_system_boot_swap",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/unknown-mounts",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/refused-whole",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/refused-removable_or_sd",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/refused-nonvirtual",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/refused-not_system_boot_swap",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/size-boundary",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 1,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/size-too-large",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/own-hint",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 1,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/own-hint-invalid-raw",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 1,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/own-hint-no-raw-fields",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 1,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/foreign-second-mount",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-style",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-style",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p1_type",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p1_type",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p1_start",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p1_start",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p1_sectors",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p1_sectors",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p2_type",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p2_type",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p2_start",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p2_start",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p2_end_bytes",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p2_end_bytes",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p3",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p3",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/single/unknown-view-p4",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 1
+          }
+        },
+        {
+          "name": "vector/single/wrong-view-p4",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "vector/complete-many",
+          "scope": "compiled-test: tapectl-test cards with TAPECTL_TEST_CARDS_VECTOR (fixed CASE-MATRIX facts), actual policy and printing",
+          "result": {
+            "offered": 5,
+            "unprobed": 15
+          }
+        },
+        {
+          "name": "actual/no-report",
+          "scope": "actual shipped tapectl cards on Linux 6.17.0-1022-azure hosted runner, unelevated, real OS enumeration",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        },
+        {
+          "name": "actual/with-report",
+          "scope": "actual shipped tapectl cards on Linux 6.17.0-1022-azure hosted runner, unelevated, real OS enumeration",
+          "result": {
+            "offered": 0,
+            "unprobed": 0
+          }
+        }
+      ],
+      "binary": "2df1d76044059d4bc58ca6421710770ce3700d120e2baf0eb6c081355bcdefd0"
+    },
+    {
+      "name": "cards-macos",
+      "id": 12167061656,
+      "sha256": "217f2d71b8a1f025923d774bdae784d246a9c1063b4a35029c331d9900c0e347",
+      "bytes": 7855,
+      "judgment": "archive authenticated; supplementary raw e2e observations manually audited, no native absence claim"
+    },
+    {
+      "name": "cards-windows",
+      "id": 12167091618,
+      "sha256": "901aca220450b2a8ed41260154f2296f084bd21d44ba9a478a79ac2b16685f9c",
+      "bytes": 9814,
+      "judgment": "archive authenticated; supplementary raw e2e observations manually audited, no native absence claim"
+    },
+    {
+      "name": "report-linux",
+      "id": 12173693069,
+      "sha256": "c1b82ef71a37eeae4ae75fdfcc5195463f41ba3417580c631e0dba62264c7a83",
+      "bytes": 119765,
+      "facts": {
+        "os": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "fs": "/home/runner/work/_temp/rpos",
+        "cluster": 512,
+        "binary_sha256": "44b87f75463767538928876f9179c269f67aa383de89ebb6914779ac2ca21237",
+        "version": "ingest 0.1.1 INGEST-1 arithmetic-profile INGEST1-AP4",
+        "write_capture": "strace"
+      },
+      "rows": [
+        {
+          "position": "start",
+          "exit": 0,
+          "retained_bytes": 0,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 0,
+            "free_bytes": 0,
+            "filler_bytes": 4144128,
+            "exact": true
+          },
+          "judgment": {
+            "kind": "start",
+            "mechanism": "actual-filesystem",
+            "failed_attempt": 0,
+            "retained_bytes": 0
+          }
+        },
+        {
+          "position": "middle",
+          "exit": 0,
+          "retained_bytes": 495,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 1,
+            "free_bytes": 512,
+            "filler_bytes": 4143616,
+            "exact": true
+          },
+          "judgment": {
+            "kind": "middle",
+            "mechanism": "actual-filesystem",
+            "failed_attempt": 8,
+            "retained_bytes": 495
+          }
+        },
+        {
+          "position": "end",
+          "exit": 0,
+          "retained_bytes": 2552,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 5,
+            "free_bytes": 2560,
+            "filler_bytes": 4141568,
+            "exact": true
+          },
+          "judgment": {
+            "kind": "end",
+            "mechanism": "actual-filesystem",
+            "failed_attempt": 44,
+            "retained_bytes": 2552
+          }
+        }
+      ]
+    },
+    {
+      "name": "report-macos",
+      "id": 12174421520,
+      "sha256": "fccb9fef02f15dc9d25aee27e4669772dede0198fbef59abd854eddab2ffaee4",
+      "bytes": 11229,
+      "facts": {
+        "os": "macOS-26.6.2-arm64-arm-64bit",
+        "fs": "/Users/runner/work/_temp/rpos",
+        "cluster": 512,
+        "binary_sha256": "8c31a6b152024df8a65e2a26524cf0e6d897055c58e90c2410b1b98441c2d809",
+        "version": "ingest 0.1.1 INGEST-1 arithmetic-profile INGEST1-AP4",
+        "write_capture": null
+      },
+      "rows": [
+        {
+          "position": "start",
+          "exit": 0,
+          "retained_bytes": 915,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 0,
+            "free_bytes": 13824,
+            "filler_bytes": 4128768,
+            "exact": false
+          },
+          "judgment": "NO FAULT REACHED: attempted filler left available bytes; targeted write row UNEXECUTED"
+        },
+        {
+          "position": "middle",
+          "exit": 0,
+          "retained_bytes": 915,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 1,
+            "free_bytes": 14336,
+            "filler_bytes": 4128256,
+            "exact": false
+          },
+          "judgment": "NO FAULT REACHED: attempted filler left available bytes; targeted write row UNEXECUTED"
+        },
+        {
+          "position": "end",
+          "exit": 0,
+          "retained_bytes": 2573,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 5,
+            "free_bytes": 16384,
+            "filler_bytes": 4126208,
+            "exact": false
+          },
+          "judgment": "NO FAULT REACHED: attempted filler left available bytes; targeted write row UNEXECUTED"
+        }
+      ]
+    },
+    {
+      "name": "report-windows",
+      "id": 12173936732,
+      "sha256": "d8c3f56bb4506592af5680a77eacfbd50cd68bc7074647cae121eefe259bf842",
+      "bytes": 11639,
+      "facts": {
+        "os": "Windows-2025Server-10.0.26100-SP0",
+        "fs": "R:\\",
+        "cluster": 512,
+        "binary_sha256": "45aa679be4cf4d398728396b3f248c749aeb1d55d05e54c665e23677aa1036ea",
+        "version": "ingest 0.1.1 INGEST-1 arithmetic-profile INGEST1-AP4",
+        "write_capture": null
+      },
+      "rows": [
+        {
+          "position": "start",
+          "exit": 0,
+          "retained_bytes": 0,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 0,
+            "free_bytes": 0,
+            "filler_bytes": 15522304,
+            "exact": true
+          },
+          "judgment": "actual Server full-volume warning/publication observation; targeted write position UNPROVEN"
+        },
+        {
+          "position": "middle",
+          "exit": 0,
+          "retained_bytes": 495,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 1,
+            "free_bytes": 512,
+            "filler_bytes": 15521792,
+            "exact": true
+          },
+          "judgment": "actual Server full-volume warning/publication observation; targeted write position UNPROVEN"
+        },
+        {
+          "position": "end",
+          "exit": 0,
+          "retained_bytes": 2552,
+          "free": {
+            "cluster": 512,
+            "free_clusters_wanted": 5,
+            "free_bytes": 2560,
+            "filler_bytes": 15519744,
+            "exact": true
+          },
+          "judgment": "actual Server full-volume warning/publication observation; targeted write position UNPROVEN"
+        }
+      ]
+    }
+  ]
+}

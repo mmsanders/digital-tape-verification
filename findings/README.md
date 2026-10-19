@@ -158,3 +158,7 @@ only in Product must be fetched and authenticated there before replay.
 [P2V16-002 AIFC sowt precision finding](P2-R2-WP16-SOWT-2026-10-15/README.md) is resolved by ADR180. The [complete Stage1 publication](P2-R2-WP16-STAGE1-2026-10-15.md) rebinds all90 cells, completes1927-case/1763-source independent authoring and hands directly to Software435. The [older checkpoint](../tests/wp16_ingest_r2/README.md) remains immutable/non-importable. No Product/native/physical/fullWP16 acceptance; A6 holds survive.
 
 [Stage2 exact3c7a187 HELD disposition](P2-R2-WP16-STAGE2-2026-10-15/README.md): authenticated import/CI/three raw packets;1641 actual output pairs match across submitted runners. Native observer/capability/exhaustion and Windows11 gaps prevent acceptance. Confirmed Verification-owned Windows path authentication defect corrected under a new package identity; assertions/sources unchanged. Direct Software435 continuation; no new Michael physical action.
+
+##19 October host returns
+
+[Verification208/209 returned-head dispositions](P2-208-209-RETURNS-2026-10-19/README.md): exact S2 ef2712c requires enumerator corrections and S3 method gaps remain. Linux report-write start/middle/end PASS; Windows Server partial, Mac no fault reached. No underlying/full/native integration clearance;210 awaits paired467.
