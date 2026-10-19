@@ -1,0 +1,5 @@
+[
+ {"name":"return.zip","id":12205008335,"bytes":5548911,"sha256":"8a5ba21d3b0b970b8201e47048332452072d9de7dfcdaf6b6f8355738fc438de"},
+ {"name":"old-return.zip","url":"https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-210-return-2026-10-19-743f829/return.zip","bytes":3426393,"sha256":"fab32f07de942096becfc8ad2101cbfa131e6b20d914245426933c4bdacd4d3a"},
+ {"name":"load1.zip","url":"https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-210-return-2026-10-19-743f829/load1.zip","bytes":1611126,"sha256":"ad5b62a702d5e3b1fd61ca3671492abd24a032aa76fea845e1de8a5e5309afbf"}
+]
