@@ -1,7 +1,7 @@
 name: Physical A6 retained evidence controls
 on:
   pull_request:
-    paths: ['findings/P2-A6-PHYSICAL-2026-10-19/**', '.github/workflows/verifier-a6-physical.yml']
+    paths: ['findings/P2-223-METHOD-2026-10-20/**', 'findings/P2-A6-PHYSICAL-2026-10-19/**', '.github/workflows/verifier-a6-physical.yml']
 permissions:
   contents: read
 jobs:
@@ -22,3 +22,5 @@ jobs:
           cmp /tmp/physical-controls.json findings/P2-A6-PHYSICAL-2026-10-19/CONTROLS.json
       - name: Validate retained native facts without waiving the overall stop
         run: python3 -B findings/P2-A6-PHYSICAL-2026-10-19/validate.py
+      - name: ADR190 independent supplemental proof controls
+        run: python3 -B findings/P2-223-METHOD-2026-10-20/supplement.py
