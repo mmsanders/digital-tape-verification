@@ -20,6 +20,11 @@ def run():
   for p in sorted(list(actual.values())+[package/'FILES.json']):
    info=zipfile.ZipInfo(p.relative_to(ROOT).as_posix(),date_time=(2026,10,20,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16
    z.writestr(info,p.read_bytes())
+ # PR checkout is a shallow merge; fetch the exact authored head before citing its tree.
+ subprocess.run(['git','fetch','--no-tags','--depth=1','origin',source],check=True,capture_output=True)
+ for p in list(actual.values())+[package/'FILES.json']:
+  rel=p.relative_to(ROOT).as_posix()
+  assert subprocess.check_output(['git','show',source+':'+rel])==p.read_bytes(),rel
  tree=subprocess.check_output(['git','rev-parse',source+':tests/wp15_boundary_query_r1'],text=True).strip()
  provenance={'source_commit':source,'package_tree':tree,'archive':archive.name,'sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'authored_rows':49,'controls':23,'status':'AUTHORED ONLY; no enabled S3 platform'}
  (out/'PROVENANCE.json').write_text(json.dumps(provenance,indent=2)+'\n')
