@@ -1,0 +1,55 @@
+{
+  "candidate": "50bc4160f6da527da8c684d05264f99815aaa870",
+  "packet_sha256": "e6d3f2b9e60e93bc90a7516e66418da301c4c0dc3a306dfea3e1394a81731ff3",
+  "platform": "Windows11 x64",
+  "counts": {
+    "observed_output_pairs_streamed_and_bound": 1640,
+    "native_traces": 1931,
+    "raw_csv_case_comparison_rows": 378315,
+    "publications": 1645,
+    "flush_close_pairs": 3290,
+    "global_csv_rows": 595954,
+    "selftest_rows": 451,
+    "independently_partitioned_shipping_rows": 217188,
+    "shipping_processes_exit0": 1640
+  },
+  "native_controls": {
+    "replacement-allowed": "REJECTED",
+    "missing-audio-flush": "REJECTED"
+  },
+  "observer_controls": {
+    "drop_forbidden_device_open": {
+      "independent_rejection": "missing raw global indices",
+      "missing_rows": 1
+    },
+    "drop_probe_open": {
+      "independent_rejection": "missing raw global indices",
+      "missing_rows": 1
+    },
+    "truncate_mid_trace": {
+      "independent_rejection": "missing raw global indices",
+      "missing_rows": 226
+    },
+    "truncate_tail": {
+      "independent_rejection": "missing raw global indices",
+      "missing_rows": 151
+    }
+  },
+  "output_pair_binding_census_sha256": "c091550a9f65b313500e3d191890397dcb0365ba60445aa047f3374747e1504d",
+  "native_trace_binding_census_sha256": "5f3900f573918165cb34dfa3c3f9b4acd895c54212ed94c06abc278d94d3446c",
+  "passed_scope": [
+    "full global CSV hash and every observed case/comparison/selftest row body",
+    "raw no-replace and flush-close order with detecting controls",
+    "probe child/create/open/completion positives and four dropped-trace controls",
+    "shipping root command destinations/exit0 and unique remaining native ownership",
+    "streamed observed WAV/manifest hashes including largest legal; bind recorded shipping hashes"
+  ],
+  "remaining": [
+    "PML binary alignment not independently rederived",
+    "failed/zero-access device-open visibility remains bounded",
+    "exact downloaded shipping d923613b exhaustion not executed by this observation-only exhaustion row",
+    "shipping output bytes removed by collector; equality to recorded shipping digests is transport evidence, not independent readback",
+    "no unchanged full audio/numerical campaign replay",
+    "no fullWP16/native/APP/S1 integration acceptance"
+  ]
+}

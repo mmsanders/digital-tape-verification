@@ -1,0 +1,11 @@
+{
+  "accepted_result_compressed_sha256": "f06195bf142d58a3cab035f2f0e26dfa11b93b9acb245d5fb7b8cb577b1b1c26",
+  "accepted_result_uncompressed_sha256": "8d4fb1f5f91eecc1c2d735eb21ae5b816ef76db4e5ae9df35a1fcb558d2a94a7",
+  "accepted_candidate": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+  "new_candidate": "50bc4160f6da527da8c684d05264f99815aaa870",
+  "equal_math_cases": 1640,
+  "different_math_cases": [],
+  "missing_math_cases": [],
+  "method": "Exact pre-gain float/PCM/manifest identity; only literal declared tool_version field changed; no full numerical recomputation",
+  "binding_census_sha256": "c68c4a27b5e2d5685f9000f07e8950f3bf3669de25ef949eeb5e277d555f0a6d"
+}
