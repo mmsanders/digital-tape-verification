@@ -34,3 +34,7 @@ Local Windows has no available C compiler and WSL listing returned E_ACCESSDENIE
 S3 remains HELD on the previously recorded Windows/macOS pre-open binding and Linux method limitations; ADR189 §7 HOST_QUERY_FAILED oracle authoring remains a separate existing208 deliverable. This correction does not provide S3 clearance. Existing base459/454/full APP/native/physical/exhaustion/visibility holds carry. Do not merge Product469 solely on this source correction.
 
 After successful bounded publication, return exact result to Product480/469 and PM479. Continue next to223 retained physical A6, then226 retained INGEST as issued; a blocked S3 platform must not delay those ready reviews.208 remains open only for its independently scoped §7 authoring/method deliverable. No new Michael/card run, policy change, Software correction round or duplicate campaign is requested.
+
+## Integration boundary clarification, 20 October
+
+The unrelated459/454/base-hold language above is superseded for standalone S2 by [the explicit integration boundary](../P2-208-QUERY-2026-10-20/INTEGRATION-BOUNDARY.md). Exact1ad813d has bounded overall S2 host PASS and Software-owned standalone integration may proceed after current-main required CI; S3/native/full-app and other candidates remain separate. Original correction evidence and historical wording are retained.
