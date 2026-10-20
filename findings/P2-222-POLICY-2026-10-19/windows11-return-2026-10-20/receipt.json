@@ -1,0 +1,22 @@
+{
+  "status": "COLLECTION RECEIPT VERIFIED; full independent package disposition pending",
+  "candidate": "50bc4160f6da527da8c684d05264f99815aaa870",
+  "zip_bytes": 198343663,
+  "zip_sha256": "e6d3f2b9e60e93bc90a7516e66418da301c4c0dc3a306dfea3e1394a81731ff3",
+  "case_records_checked": 1927,
+  "checks": [
+    "archive names unique and safe",
+    "candidate and binary identity pins",
+    "config and platform hashes",
+    "exact census and expected exits",
+    "record/native exit agreement and raw trace SHA256 for every census case",
+    "observer qualification and reported false-pass control rejection"
+  ],
+  "shipping_equivalence_records_reporting_identical": 1640,
+  "limits": [
+    "No full audio/numerical replay or independent native event interpretation performed.",
+    "Observer qualification and shipping equivalence are recorded claims, not rederived here.",
+    "Large WAV payloads and all ZIP member CRCs were not exhaustively replayed.",
+    "No physical-card, cross-platform or full WP16 acceptance."
+  ]
+}
