@@ -24,3 +24,5 @@ jobs:
         run: python3 -B findings/P2-A6-PHYSICAL-2026-10-19/validate.py
       - name: ADR190 independent supplemental proof controls
         run: python3 -B findings/P2-223-METHOD-2026-10-20/supplement.py
+      - name: Retained full-scan bounded result consistency
+        run: python3 -B findings/P2-223-METHOD-2026-10-20/validate_result.py
