@@ -9,6 +9,11 @@ kitffb0f78a/exes d923613b,d544b6f5 authenticate. This supersedes the older INGES
 collection wording below; actual Windows11/full-package evidence is pending.
 Physical read-only A6 readiness is unchanged.
 
+19 October INGEST continuation: after222 identified default Restricted, Michael
+explicitly approved RemoteSigned for only the collector child process. [New launch](findings/P2-222-POLICY-2026-10-19/README.md)
+preserves old logs and uses fresh receipts; readiness depends on its passing
+harmless process controls and merged publication. Exact206 kit/script/binaries carry.
+
 19 October incident: physical A6 collection is PAUSED under PM475 after a
 collector native-exit stop before the visible verify. [Verification219](findings/P2-219-COLLECTOR-2026-10-19/README.md)
 reproduces and corrects PowerShell scope on hosted5.1/7 controls. Existing card

@@ -1,0 +1,36 @@
+name: INGEST approved process-policy launch controls
+on:
+  pull_request:
+    paths: ['findings/P2-222-POLICY-2026-10-19/**', '.github/workflows/verifier-ingest-policy.yml']
+permissions:
+  contents: read
+jobs:
+  process-controls:
+    runs-on: windows-2022
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - shell: bash
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - name: Exact documented launcher with harmless native children
+        shell: powershell
+        run: ./findings/P2-222-POLICY-2026-10-19/controls.ps1 -Out policy-receipts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ingest-approved-policy-controls
+          path: policy-receipts/
+      - name: Preserve exact source and native controls
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          Compress-Archive -Path policy-receipts -DestinationPath policy-controls.zip
+          $files = @('policy-controls.zip','findings/P2-222-POLICY-2026-10-19/WINDOWS-READY.md','findings/P2-222-POLICY-2026-10-19/controls.ps1')
+          $lines = foreach ($f in $files) { ((Get-FileHash $f -Algorithm SHA256).Hash.ToLower() + '  ' + (Split-Path $f -Leaf)) }
+          $lines | Set-Content -Encoding ascii SHA256SUMS
+          gh release create "evidence-222-policy-$env:SOURCE_HEAD" --repo $env:GITHUB_REPOSITORY --target $env:SOURCE_HEAD --title 'INGEST approved process-only policy launch controls' --notes 'Harmless Windows Server children only. Exact collector and kit unchanged. Explicit Michael authorization; no persistent policy change or physical test.' policy-controls.zip SHA256SUMS findings/P2-222-POLICY-2026-10-19/WINDOWS-READY.md findings/P2-222-POLICY-2026-10-19/controls.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'Immutable control publication failed' }
