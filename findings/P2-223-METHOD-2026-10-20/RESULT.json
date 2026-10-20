@@ -1,0 +1,53 @@
+{
+  "xml_sha256": "69a81ab6ca7f8aaf7d533b511c496c048bd4c11620999e0159d5898c6fe4ff98",
+  "events_streamed": 948634,
+  "controls_publication": "b0eddaaab3fa32e8902fa7fe93446983c29025fa",
+  "old_checker_verdict": "FAIL",
+  "amended_method": {
+    "verdict": "HELD",
+    "reasons": [
+      "no unique native request match; key/length/time alone insufficient",
+      "unproved remaining event"
+    ],
+    "excluded": [],
+    "scope": "separate ADR190 supplement; old checker verdict unchanged"
+  },
+  "native_identity_audit": [
+    {
+      "file_record": 480422,
+      "disk_record": 480439,
+      "file_request": "0xffffa18627895918",
+      "disk_request": "0xffffa1861c4eb010",
+      "request_equal": false,
+      "file_offset": 16384,
+      "disk_offset": 3261186048,
+      "offset_delta": 3261169664,
+      "bytes": 4096,
+      "disk": 0,
+      "same_key_disk_writes_in_complete_capture": 129,
+      "same_key_size_disk_candidates": 69,
+      "same_request_size_disk_matches": 0
+    },
+    {
+      "file_record": 480466,
+      "disk_record": 480483,
+      "file_request": "0xffffa1863e7e99d8",
+      "disk_request": "0xffffa1861c4eb010",
+      "request_equal": false,
+      "file_offset": 81920,
+      "disk_offset": 3261251584,
+      "offset_delta": 3261169664,
+      "bytes": 8192,
+      "disk": 0,
+      "same_key_disk_writes_in_complete_capture": 129,
+      "same_key_size_disk_candidates": 25,
+      "same_request_size_disk_matches": 0
+    }
+  ],
+  "all_logkey_file_writes": 129,
+  "all_logkey_disk_writes": 129,
+  "distinct_logkey_names": 1,
+  "records_with_both_request_ids_in_named_fields": [],
+  "records_with_both_request_ids_in_payload": [],
+  "limit": "Key/size/time and constant offset delta are observations, not independent request/extent translation proof. Raw identity scan does not independently decode every other provider schema."
+}
