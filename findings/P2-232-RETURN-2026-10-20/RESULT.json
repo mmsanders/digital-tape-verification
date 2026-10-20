@@ -1,0 +1,97 @@
+{
+  "archive_sha256": "36c12a30ab735628b248395b9e492daee638db6bc1332a2f5c00be3c6f8e2118",
+  "archive_bytes": 5721822,
+  "archive_members": 62,
+  "inventory_files": 61,
+  "verbatim_import_files": 12,
+  "source_index_files": 122,
+  "raw_result_files": 40,
+  "binary_sha256": "d923613badda95baeb387d5415d5212a5dedb7c5c7144b21874479babd178f5b",
+  "source_sha256": "d36663d1e4f05abaac699a6c14e0fa86724db9b4decdb8c96abe0c9d1f645821",
+  "kit_sha256": "ffb0f78ac3980fa1bb130f0aff22d53ebb100ed3323a8e50ba62a6ee1819c865",
+  "host": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "windows": {
+      "ProductName": "Windows 10 Home",
+      "EditionID": "Core",
+      "CurrentBuildNumber": "26200",
+      "UBR": 9457,
+      "InstallationType": "Client"
+    }
+  },
+  "rows": [
+    {
+      "limit_mib": null,
+      "load_exit": 0,
+      "case_exit": 0,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "b93855b727612bf02db3126572e778e92114839dfc799b7582662eacd19ae634"
+      },
+      "violations": []
+    },
+    {
+      "limit_mib": 3,
+      "load_exit": 0,
+      "case_exit": 1,
+      "pair": null,
+      "violations": []
+    },
+    {
+      "limit_mib": 4,
+      "load_exit": 0,
+      "case_exit": 1,
+      "pair": null,
+      "violations": []
+    },
+    {
+      "limit_mib": 6,
+      "load_exit": 0,
+      "case_exit": 1,
+      "pair": null,
+      "violations": []
+    },
+    {
+      "limit_mib": 8,
+      "load_exit": 0,
+      "case_exit": 0,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "b93855b727612bf02db3126572e778e92114839dfc799b7582662eacd19ae634"
+      },
+      "violations": []
+    },
+    {
+      "limit_mib": 12,
+      "load_exit": 0,
+      "case_exit": 0,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "b93855b727612bf02db3126572e778e92114839dfc799b7582662eacd19ae634"
+      },
+      "violations": []
+    },
+    {
+      "limit_mib": 64,
+      "load_exit": 0,
+      "case_exit": 0,
+      "pair": {
+        "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+        "manifest.json": "b93855b727612bf02db3126572e778e92114839dfc799b7582662eacd19ae634"
+      },
+      "violations": []
+    }
+  ],
+  "successful_pair": {
+    "audio.wav": "0287c26be49425d0ff854017f1b19e6639e2dd3bb80ac88acc0e8a8f74b3350f",
+    "manifest.json": "b93855b727612bf02db3126572e778e92114839dfc799b7582662eacd19ae634"
+  },
+  "judgment": "PASS for this exact executable/recorded Windows11 Client/input/seven caps",
+  "fresh_original_red": "UNAVAILABLE; prior published RED carried only",
+  "internal": "global UNPROVED; source-conditional arguments only",
+  "joined_peak": "global UNPROVED; no actual new ID witness",
+  "source_argument_sha256": "90ee05067b8bfcf977f6c88a0168e0037f39fc5dc4835ed9d936751055948960",
+  "new_executable_runs": 0
+}

@@ -1,0 +1,1780 @@
+{
+  "method": [
+    {
+      "path": "findings/P2-232-METHOD-2026-10-20/PINS.json",
+      "sha": "4b0cf73961df3bd4f276e72052b7b75813a39e9c",
+      "size": 781
+    },
+    {
+      "path": "findings/P2-232-METHOD-2026-10-20/README.md",
+      "sha": "d88cadd3f9dadcdbe9f9c760ed3eb846db3afe9e",
+      "size": 12458
+    },
+    {
+      "path": "findings/P2-232-METHOD-2026-10-20/SHA256SUMS",
+      "sha": "dcd08d72018e688714ec8e323aeb6bf2aaa915d3",
+      "size": 308
+    },
+    {
+      "path": "findings/P2-232-METHOD-2026-10-20/external.py",
+      "sha": "a3293cbd13a16a9a3ad1cfc8077632931e27761e",
+      "size": 3674
+    },
+    {
+      "path": "findings/P2-232-METHOD-2026-10-20/selftest.py",
+      "sha": "7ecdc2c5022c7ea427bef3d99eade28f2e14feb4",
+      "size": 1529
+    }
+  ],
+  "judge": {
+    "sha": "e8f4a02ef8b831cd31fbe26807d59e08ac2d46b8",
+    "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/trees/e8f4a02ef8b831cd31fbe26807d59e08ac2d46b8",
+    "tree": [
+      {
+        "path": "PINS.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "661a3bc6b66456d5e4f4d64a14e9cec4a04828b5",
+        "size": 365,
+        "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/blobs/661a3bc6b66456d5e4f4d64a14e9cec4a04828b5"
+      },
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "16abb5ea5e2749df7f5a595a7442307466fdae32",
+        "size": 3520,
+        "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/blobs/16abb5ea5e2749df7f5a595a7442307466fdae32"
+      },
+      {
+        "path": "ci_baseline.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "cd8cfdf9d005b203325079e7cefe8f127777d8a0",
+        "size": 593,
+        "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/blobs/cd8cfdf9d005b203325079e7cefe8f127777d8a0"
+      },
+      {
+        "path": "fetch_small_baseline.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "007416752b12e08e6324c7a0f21ce0693f77eb15",
+        "size": 1000,
+        "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/blobs/007416752b12e08e6324c7a0f21ce0693f77eb15"
+      },
+      {
+        "path": "runner.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "878ca8ace0f990b08ef0f1c8e8d88826c8624269",
+        "size": 5999,
+        "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/blobs/878ca8ace0f990b08ef0f1c8e8d88826c8624269"
+      },
+      {
+        "path": "selftest.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "a0b43aa0cf6d54f85632a7145c5c5eed22b8806d",
+        "size": 1379,
+        "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/blobs/a0b43aa0cf6d54f85632a7145c5c5eed22b8806d"
+      },
+      {
+        "path": "windows_job.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "c33f372c4d10a6757bfa617a79df134efbbb3a4c",
+        "size": 3951,
+        "url": "https://api.github.com/repos/mmsanders/digital-tape-verification/git/blobs/c33f372c4d10a6757bfa617a79df134efbbb3a4c"
+      }
+    ],
+    "truncated": false
+  },
+  "s1tree": {
+    "sha": "835078995d4e9cc2424f9ea8d6f11304b45f783f",
+    "truncated": false,
+    "tree": [
+      {
+        "path": ".gitattributes",
+        "sha": "fa1385d99a319b43c06f5309d1aae9fdd3adea46",
+        "size": 8,
+        "type": "blob"
+      },
+      {
+        "path": "Cargo.lock",
+        "sha": "2dbae7c375dbe3d7f890f2bfdbc481140a671c33",
+        "size": 8345,
+        "type": "blob"
+      },
+      {
+        "path": "Cargo.toml",
+        "sha": "b68795852f9db3c3b9ccba1c1b39caaf4e1353cc",
+        "size": 1755,
+        "type": "blob"
+      },
+      {
+        "path": "README.md",
+        "sha": "5c5d2c59f42288a7b83509b6c644f7563382b50b",
+        "size": 9810,
+        "type": "blob"
+      },
+      {
+        "path": "build.rs",
+        "sha": "2746ba7463683329f450404a9b9b77807658c71f",
+        "size": 3151,
+        "type": "blob"
+      },
+      {
+        "path": "examples",
+        "sha": "d953754afc014135de0b01f07ccf3bdcc966bdcb",
+        "type": "tree"
+      },
+      {
+        "path": "examples/decode_dump.rs",
+        "sha": "1870ba5fd05ba4cc580befc0d79d82ce51070b6e",
+        "size": 811,
+        "type": "blob"
+      },
+      {
+        "path": "examples/fir_dump.rs",
+        "sha": "f67e24a6861f2327bcc5a8780fa44f299cc33af0",
+        "size": 1223,
+        "type": "blob"
+      },
+      {
+        "path": "examples/make_corpus.rs",
+        "sha": "5f283791fe1ece782649719d0445621142e2c6f5",
+        "size": 2600,
+        "type": "blob"
+      },
+      {
+        "path": "examples/profile_file.rs",
+        "sha": "7dd93e65778351186839e2e0f64e0f014d5302c7",
+        "size": 2462,
+        "type": "blob"
+      },
+      {
+        "path": "examples/tp_sweep.rs",
+        "sha": "07fd2521cfc2c2c3ba6cc8c9a67bbb896bcb26ef",
+        "size": 748,
+        "type": "blob"
+      },
+      {
+        "path": "rust-toolchain.toml",
+        "sha": "e975e69a301af6dc8da74bd7ca94840325ca1df9",
+        "size": 51,
+        "type": "blob"
+      },
+      {
+        "path": "src",
+        "sha": "80eaccc9f71b8d0f3bce318e93a8cd350541cd6d",
+        "type": "tree"
+      },
+      {
+        "path": "src/aac.rs",
+        "sha": "b78102f57aede497b090131dcb33baf6cdfaed7e",
+        "size": 25880,
+        "type": "blob"
+      },
+      {
+        "path": "src/common.rs",
+        "sha": "9902dcb41e2004124304008b3c1b50be0d4389bc",
+        "size": 13729,
+        "type": "blob"
+      },
+      {
+        "path": "src/convert.rs",
+        "sha": "c47431f4ff9f2639e77a9e89f3141277d233cecf",
+        "size": 5170,
+        "type": "blob"
+      },
+      {
+        "path": "src/dsp.rs",
+        "sha": "05bf9fb4e61cce977194eb33ca09550abbbe035a",
+        "size": 20464,
+        "type": "blob"
+      },
+      {
+        "path": "src/flac.rs",
+        "sha": "189e61caf6054c1cbfbe1afac8b725d55db1a673",
+        "size": 17207,
+        "type": "blob"
+      },
+      {
+        "path": "src/lib.rs",
+        "sha": "1cee428a75d5c87aa1754e00b99c6b187ea7801d",
+        "size": 1905,
+        "type": "blob"
+      },
+      {
+        "path": "src/main.rs",
+        "sha": "ce2035c1ca9afc73deaef956dcdc97ee7d86bce8",
+        "size": 22146,
+        "type": "blob"
+      },
+      {
+        "path": "src/manifest.rs",
+        "sha": "27b44339ce1f7eabe5313ef8a6bf380552549944",
+        "size": 3618,
+        "type": "blob"
+      },
+      {
+        "path": "src/mem.rs",
+        "sha": "642c27c544a2019e72d379714e4697b5ad8a44c0",
+        "size": 6125,
+        "type": "blob"
+      },
+      {
+        "path": "src/mpeg.rs",
+        "sha": "2f9dbd0af36b8dff72dec703b1ec4f36b138a6ef",
+        "size": 14500,
+        "type": "blob"
+      },
+      {
+        "path": "src/observe.rs",
+        "sha": "bb05689d9717b2b5afa4771c7c2c0723c3df414d",
+        "size": 8847,
+        "type": "blob"
+      },
+      {
+        "path": "src/order.rs",
+        "sha": "e07e05e240bec7f8ff5ae1f3d258caebecb9fe84",
+        "size": 7760,
+        "type": "blob"
+      },
+      {
+        "path": "src/publish.rs",
+        "sha": "7919cebec8e7eb69423ee0c2078abf3d20bbf2e8",
+        "size": 6561,
+        "type": "blob"
+      },
+      {
+        "path": "src/report.rs",
+        "sha": "619abbdbd4c9a05b70df61380bda1387f5665a1f",
+        "size": 9298,
+        "type": "blob"
+      },
+      {
+        "path": "src/sniff.rs",
+        "sha": "7e25432123cb7695ebd5557e28e3e285a8e84a35",
+        "size": 1933,
+        "type": "blob"
+      },
+      {
+        "path": "src/wav.rs",
+        "sha": "b64d3c084334f1b1527b643f5195a6762d670622",
+        "size": 10370,
+        "type": "blob"
+      },
+      {
+        "path": "stage1",
+        "sha": "41187627d0a86fc2322e2ade1e064be1ee9f0aec",
+        "type": "tree"
+      },
+      {
+        "path": "stage1/observers.py",
+        "sha": "6826aa92632987d26ad9458d88b4f3bd43dbc54d",
+        "size": 67259,
+        "type": "blob"
+      },
+      {
+        "path": "stage1/renormalize_procmon.py",
+        "sha": "39a8ac6c0bc02b4e15e2fc1e2870f6fb368d4671",
+        "size": 6054,
+        "type": "blob"
+      },
+      {
+        "path": "stage1/run_packet.py",
+        "sha": "825df26691326b076bed08f30eff5179c4bb8588",
+        "size": 36720,
+        "type": "blob"
+      },
+      {
+        "path": "stage1/summarize_packet.py",
+        "sha": "aaef01775d779225b6ae2ff5a19a95ded53fc58e",
+        "size": 5859,
+        "type": "blob"
+      },
+      {
+        "path": "stage1/win11_packet.ps1",
+        "sha": "0eecb18658b28347ed495ea1893c15a42aede052",
+        "size": 8075,
+        "type": "blob"
+      },
+      {
+        "path": "tests",
+        "sha": "a31e6e7724751afb148015e924c26f2dcb107364",
+        "type": "tree"
+      },
+      {
+        "path": "tests/cli.rs",
+        "sha": "0aa9817ff25d396ab66734b2868a888321cec6fd",
+        "size": 25901,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures",
+        "sha": "2e34272f9c28724f441644108011fb25bcc38f5c",
+        "type": "tree"
+      },
+      {
+        "path": "tests/fixtures/fdkgen.rs",
+        "sha": "73f8ab46aaf00d06822a7f490b68ff8d50f47df0",
+        "size": 2869,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/make.sh",
+        "sha": "d9be6483b492a9f6541a00a0cbaeee6c84856b11",
+        "size": 1810,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone.aac",
+        "sha": "7c8ebe9cef4e68fd5038e67d5f26ede27f395708",
+        "size": 8676,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone.m4a",
+        "sha": "44cc47975ff1ffbe1c6398e972d83e9192fab624",
+        "size": 17279,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone.mp2",
+        "sha": "f3ddd34547344a04d96362c27432ae41046aee8d",
+        "size": 24450,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone.oga",
+        "sha": "e4a71e1448c3d68922fd9b9092a817d349c285c2",
+        "size": 12653,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone16.flac",
+        "sha": "920fa9de3c4d350e31225e79b85181cc542ca62e",
+        "size": 20694,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone24.flac",
+        "sha": "09bc5d4e1bb1f2141d391b6f6fdbe5517df4ac7d",
+        "size": 34782,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_alac.m4a",
+        "sha": "b2bdb1ae6759891fe1b01ab9426e685731bed225",
+        "size": 17841,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_cbr.mp3",
+        "sha": "eb1fad7435ab9df8e50be216fcd4d90ec624cb7f",
+        "size": 17180,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_crc_mono.aac",
+        "sha": "4b7d1d3661642a68246bd1915d88116783df893e",
+        "size": 8917,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_crc_stereo.aac",
+        "sha": "eea8fd57b1d99a7cbb4311dd24d0d9130b09a2aa",
+        "size": 17090,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_mpeg2.mp3",
+        "sha": "c6ff0cd10e6d24eb4cb70ae9197314d3b6dab59e",
+        "size": 8821,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_noxing.mp3",
+        "sha": "a08d0cfac96db5a59494a6e0e501823d8a05e630",
+        "size": 16763,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_ts.m4a",
+        "sha": "c537fa8424f24bfae6b5f6242d1a39310c11c0dd",
+        "size": 17340,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_vbr_mono.mp3",
+        "sha": "9b2f885d7778649fc123f7ddbadd3cb843174833",
+        "size": 4989,
+        "type": "blob"
+      },
+      {
+        "path": "tests/fixtures/tone_video.mp4",
+        "sha": "55f973ca39a4a185376548add0ee184d2244aeca",
+        "size": 11319,
+        "type": "blob"
+      },
+      {
+        "path": "tools",
+        "sha": "55d96817713b82f087f749af422d375d3e42aead",
+        "type": "tree"
+      },
+      {
+        "path": "tools/check_seam.py",
+        "sha": "422149aa2532006ae0969e24ad54f6c325db65cb",
+        "size": 1348,
+        "type": "blob"
+      },
+      {
+        "path": "tools/check_vendor.py",
+        "sha": "d1fcbb8bd6cf32157f800397416d2ae44607d642",
+        "size": 3663,
+        "type": "blob"
+      },
+      {
+        "path": "tools/check_win11_script.py",
+        "sha": "9b96cb5cf615b7e46bcdbdbf76be1df060d14d50",
+        "size": 2230,
+        "type": "blob"
+      },
+      {
+        "path": "tools/compare_identity.py",
+        "sha": "f4c39eae10d6e46d08b00da554198889783ed46a",
+        "size": 1667,
+        "type": "blob"
+      },
+      {
+        "path": "tools/identity_run.sh",
+        "sha": "d1e9df5938b6c9f367819e129c02e09ba6c3c879",
+        "size": 1156,
+        "type": "blob"
+      },
+      {
+        "path": "vendor",
+        "sha": "95e4288b177ae4e4a19625ebe3699cecf1b7b0df",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/PATCHES.md",
+        "sha": "adcabaf8f3a72104caf0255cc5f0c71c6f04e460",
+        "size": 2652,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/PATCHES.sha256",
+        "sha": "d863f108c048421c1a8b8184e1804b14a385c765",
+        "size": 337,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3",
+        "sha": "798438a839580c8bc574a1b3f3beaf41abff0723",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/.cargo-ok",
+        "sha": "5f8b795830acbab5961c1a28c76a7916c9631493",
+        "size": 7,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/Cargo.toml",
+        "sha": "a9895bdb7b9e585fa90d3d47090ae3036cde43c5",
+        "size": 1616,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/LICENSE",
+        "sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a",
+        "size": 16725,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/README.md",
+        "sha": "c691916e2e2ed974e24a6279e9cc4cc7b54e5213",
+        "size": 1031,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src",
+        "sha": "b55f895cb81b0a5fe5c0d433b5aa9964d67ae105",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/common.rs",
+        "sha": "0a601883e80be1a70cca3dea01848271c20be5dc",
+        "size": 6213,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/decoder.rs",
+        "sha": "f9f4aeda3961290243adcf8963cfa027308d9bd1",
+        "size": 6447,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/demuxer.rs",
+        "sha": "b720d1bcb048e105d2d6af09e1297561bb017e40",
+        "size": 41063,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/header.rs",
+        "sha": "412308127c25cd9c6f97eb7411b0c29c69a5ac9d",
+        "size": 9263,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer1",
+        "sha": "234bd0cbc4ac9f2ffa0224c0733229c1d215bfd0",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer1/mod.rs",
+        "sha": "cda383c2b699445c5ee66af7e1b870fc2f4a6da3",
+        "size": 6672,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer12.rs",
+        "sha": "83c7b505e5f40e9e8fb8bd98b736445b11794b72",
+        "size": 2011,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer2",
+        "sha": "f950be003842d4dd7f2ae694c9d2dc6cb7436a65",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer2/mod.rs",
+        "sha": "a3de12e07534994979ec2a22b9d5c6fe61e5febe",
+        "size": 14865,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3",
+        "sha": "ce393b65c19bcfabc2c31c255b7638efc6baaf3f",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3/bitstream.rs",
+        "sha": "cbf3de4bd95460e729e877b84172513c83e0f020",
+        "size": 16790,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3/codebooks.rs",
+        "sha": "462468758a32ace9682be0d595263f6820b59de7",
+        "size": 24494,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3/common.rs",
+        "sha": "4a86d993be5ffe4bed7029eeaccbeb1a77fc913e",
+        "size": 7360,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3/hybrid_synthesis.rs",
+        "sha": "27e511252ac4da9514a09f63036d712124269a3b",
+        "size": 30205,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3/mod.rs",
+        "sha": "67567b6f9f62b662d7fc14d8d19e14ddd6da3a28",
+        "size": 19467,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3/requantize.rs",
+        "sha": "dc5d371fd764d6c2c7625e6ab4da5ff45d8be649",
+        "size": 14924,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/layer3/stereo.rs",
+        "sha": "716f621dbc96a06f580a779fc7674ed2a489a70d",
+        "size": 21202,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/lib.rs",
+        "sha": "b2e475d6884b2ffd97bbe83ccf0c415ab4a9c8ee",
+        "size": 1535,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-bundle-mp3/src/synthesis.rs",
+        "sha": "66edcd42afc521e8232ad9ead06173c081ce88d4",
+        "size": 35331,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac",
+        "sha": "afad2d2880838f40b3ea7bea4e0f2a6f1dab1fc2",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/.cargo-ok",
+        "sha": "5f8b795830acbab5961c1a28c76a7916c9631493",
+        "size": 7,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/Cargo.toml",
+        "sha": "551a9fccc00e4502157e95ec2a88b752094449c4",
+        "size": 1658,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/LICENSE",
+        "sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a",
+        "size": 16725,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/README.md",
+        "sha": "fa50f9a86069ad34d533f40d7362ed89f9c9b638",
+        "size": 1055,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src",
+        "sha": "92f574fb4b9d8775ba2cf8f8f19b53e65def5152",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac",
+        "sha": "0c070cc694939815d2820a76b0c12410caa8a0ec",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/codebooks.rs",
+        "sha": "e3a1755153e76e60e799b77e549150cadd484c40",
+        "size": 26486,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/common.rs",
+        "sha": "4b671e30b492b23ad75e1629e74eabb4df6ed6ae",
+        "size": 6412,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/cpe.rs",
+        "sha": "86dbf0b9d32f18108fd015ef024339c5e34610f6",
+        "size": 6483,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/dsp.rs",
+        "sha": "7297fa47b8cca27b579856a98991165f3897d88b",
+        "size": 5648,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/ics",
+        "sha": "b09fd39f4612095019cdbabed11f8ac804da7430",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/ics/gain.rs",
+        "sha": "1438af1c96e7a76663232c75d570565f4ff5354f",
+        "size": 1213,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/ics/ltp.rs",
+        "sha": "f6fbd21dff369fa5f25f968d94796469a1b8212c",
+        "size": 1748,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/ics/mod.rs",
+        "sha": "8937d9a22359ac2d66e07d930cf00daa6a62e48b",
+        "size": 20926,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/ics/pulse.rs",
+        "sha": "19ea0093ccf023c1738a67737201199a220d39e7",
+        "size": 2861,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/ics/tns.rs",
+        "sha": "1d79a34c2e053788227e2a17c0a3467e5955749a",
+        "size": 6057,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/mod.rs",
+        "sha": "8fe201d5aeeda34b206d9606bf1068fb2ae82e98",
+        "size": 11850,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/aac/window.rs",
+        "sha": "dda84d14a50f89c0e059c66b566a23e9486b2312",
+        "size": 2067,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/adts.rs",
+        "sha": "172fe83f063d6f4a49d3f843dd6ed61ef849df4b",
+        "size": 17257,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/src/lib.rs",
+        "sha": "b6c10fbd5bb369ba192ce2c16743965d67bc3a84",
+        "size": 744,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/tests",
+        "sha": "7938f4e89594bb0a935ff0fac2664aa3bebfa182",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-codec-aac/tests/tests.rs",
+        "sha": "9cfdac1578307cce164f068da08260cfa498e499",
+        "size": 1207,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common",
+        "sha": "44ef9725ebe0f622a77a26db1d1a9fb39e30a2a9",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/.cargo-ok",
+        "sha": "5f8b795830acbab5961c1a28c76a7916c9631493",
+        "size": 7,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/Cargo.toml",
+        "sha": "17b4fc1a436ec9d033ccc3089f9aec988ef28ed6",
+        "size": 1473,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/LICENSE",
+        "sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a",
+        "size": 16725,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/README.md",
+        "sha": "f2ee8cada900dae03bac7864c5e1ff816a3b8729",
+        "size": 770,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src",
+        "sha": "b3a519f09d78121141619f4bce010a01957f1565",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/apple",
+        "sha": "86bb85d226ae9a199dba13b13df4a3356e1afdfe",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/apple/audio",
+        "sha": "8e2c88e946ff6dafbc9f59985ac4a7e7cede7e4d",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/apple/audio/alac.rs",
+        "sha": "28838f65abbd352e78cde30970b26da0f6a96b70",
+        "size": 6900,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/apple/audio/mod.rs",
+        "sha": "a110775fcd08f61cf6c922b513ab007d728418d1",
+        "size": 295,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/apple/mod.rs",
+        "sha": "49a2b4a0c1c974661e638d07f0682990a9691cb4",
+        "size": 296,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/lib.rs",
+        "sha": "880b7b62d0944f9ce27f402b1cc9158c481035e7",
+        "size": 583,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg",
+        "sha": "0d10f9040c24495621541c3a2aa8fe58c8e22514",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg/audio",
+        "sha": "818fbfe4062d20e6a792938dca45007088a7daa0",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg/audio/mod.rs",
+        "sha": "0e6e011dc53b51e4e6850b76e78dfc382349ebba",
+        "size": 16106,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg/formats",
+        "sha": "e28f2dd96e22f8d1c0fa325b7f1935164e69555d",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg/formats/mod.rs",
+        "sha": "9592888ad8e4fc990108065881fc631a6a98219e",
+        "size": 12791,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg/mod.rs",
+        "sha": "08b0bdc89f193cfdcf8c956af8261540dfdac5f1",
+        "size": 587,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg/video",
+        "sha": "8a89e6a8519024debe55cbc79bf888f08af4ebb0",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/mpeg/video/mod.rs",
+        "sha": "108c0922de6ce2f310624ccc6f0212643dd9b7f9",
+        "size": 3912,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph",
+        "sha": "4213f60b7ece336a8b3503cf192c89c71542d2e2",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio",
+        "sha": "5456d13e44d035f9d39e964452f0c4b955997c02",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio/flac",
+        "sha": "aba505c35ba63a9c44fb2ee3d704a9f3d64aaac5",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio/flac/mod.rs",
+        "sha": "dc1ed95e3d5a932dbd5d3e4efe5718a5fb081bc4",
+        "size": 7706,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio/mod.rs",
+        "sha": "4288f35dd2801efb4035aa7767e1be480146b079",
+        "size": 584,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio/opus",
+        "sha": "e35e1cd98677d942869cc40e4ed5ae802881daee",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio/opus/mod.rs",
+        "sha": "e8a5f6ec664871620efb762e1b2c78e14d3f9ef8",
+        "size": 4670,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio/vorbis",
+        "sha": "5860a2a0c0aee2b8fa36a4e6f1a6d307be095bb0",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/audio/vorbis/mod.rs",
+        "sha": "4b914004a3288e05928e3a07d5676523cd071c5a",
+        "size": 6987,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-common/src/xiph/mod.rs",
+        "sha": "9d52f6f79254cb1ce7322f567af2b2b3ed05c5ce",
+        "size": 555,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core",
+        "sha": "1cf7ba90a61769467c528cec3c3a870abe8b040a",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/.cargo-ok",
+        "sha": "5f8b795830acbab5961c1a28c76a7916c9631493",
+        "size": 7,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/Cargo.toml",
+        "sha": "b3a45a1b575b0df0013bc4ff181d249eeb9f57fb",
+        "size": 2021,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/LICENSE",
+        "sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a",
+        "size": 16725,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/README.md",
+        "sha": "c3c9c16929465bd901e2bb3972c991fc6e64cb44",
+        "size": 760,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src",
+        "sha": "6b0a9963fbf50f410fc3035f5419d943e8e01d88",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio",
+        "sha": "d50cdd83e3fedbad29ca3b0c6817d9844682221d",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/buf.rs",
+        "sha": "c160980b8371b2964ff810d1091e33c914d5ff5a",
+        "size": 22795,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/channels.rs",
+        "sha": "173c07c27a57bfb25a21d2c336028ebf423c4894",
+        "size": 39153,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/conv.rs",
+        "sha": "f46c999c832ef73b6bdf995f6b39e5674f4eb514",
+        "size": 41557,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/generic.rs",
+        "sha": "9933ad8582c00516a0fe7cf7e20c5535442fc089",
+        "size": 36962,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/mod.rs",
+        "sha": "4d77fb53aaa7eb850d03b96be077a56b05fd1b10",
+        "size": 22434,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/sample.rs",
+        "sha": "6c72214fad0467b921452be9d543c7faa4b82a6f",
+        "size": 18356,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/slice.rs",
+        "sha": "2e6e8346c5d274204766af0f012a1e9a3c425508",
+        "size": 8496,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/audio/util.rs",
+        "sha": "47d947878d7a5f766ae660a4185f36c1545650fa",
+        "size": 11238,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/checksum",
+        "sha": "c038adf329c56ee7aa51618d1b4d28c577f8f515",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/checksum/crc16.rs",
+        "sha": "09618c8d82a8a91f3a9dfe36775d18ba90c8bf8a",
+        "size": 25341,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/checksum/crc32.rs",
+        "sha": "df3fdfc535191983e7c75dfdfeae539797fd4614",
+        "size": 31952,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/checksum/crc8.rs",
+        "sha": "ba06d8e4d599abbf65430ef09863a6c38e00616e",
+        "size": 2806,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/checksum/md5.rs",
+        "sha": "14aadf992f5f7fe9d250ab0016ff1982e1dd71fa",
+        "size": 12665,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/checksum/mod.rs",
+        "sha": "024b24efa8664df89fb3a9c545492d7baee28a31",
+        "size": 541,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/codecs",
+        "sha": "dc34431246b7f4afe5731e99ae2855a0ebb41b76",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/codecs/audio.rs",
+        "sha": "aebb3a0cee93d74f4d9d110a3d8edbeb4cc74d9f",
+        "size": 20855,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/codecs/mod.rs",
+        "sha": "2d0aadc472933b203dbfd8f8edb213db16b8927c",
+        "size": 6743,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/codecs/registry.rs",
+        "sha": "c4e46bfd12fd95f0b05612d34b60bec2ff04dcaf",
+        "size": 16765,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/codecs/subtitle.rs",
+        "sha": "019c9ae22ff1effe27bb2d48897b37a7843ea561",
+        "size": 6886,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/codecs/video.rs",
+        "sha": "f3dc54bcc40283d709c1b28c190bb9f269f45af2",
+        "size": 15560,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/common.rs",
+        "sha": "af401b2c6cb5be0c0fc7ff8e00fa551580488ac7",
+        "size": 3147,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/dsp",
+        "sha": "74cedf6daa4a8d176e287c54d8970e50734ce396",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/dsp/fft",
+        "sha": "d9fad6d1fdcccc105935a0328c40de6df2aa56ea",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/dsp/fft/mod.rs",
+        "sha": "4f13d80680113666a8d08023fa8ae098ac5dd5e0",
+        "size": 8610,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/dsp/fft/no_simd.rs",
+        "sha": "a9b2ade1a0c5349562a141e542ea65b482387448",
+        "size": 14133,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/dsp/fft/simd.rs",
+        "sha": "aabb573004918a129bdd53fd17d55ac24a3867f0",
+        "size": 3653,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/dsp/mdct.rs",
+        "sha": "6f46d4050542d4578780dcc14006d29fd68154d8",
+        "size": 7786,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/dsp/mod.rs",
+        "sha": "7dcf4ff5b5e83825e3838fb0b5c2a962b606b149",
+        "size": 438,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/errors.rs",
+        "sha": "ea5aa53de3868ff0cf97fa701a512939a706b4fb",
+        "size": 4034,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/formats",
+        "sha": "46be824c319a4773f4c30248bd43237351c6ade0",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/formats/mod.rs",
+        "sha": "d8b9629b29ffcd9abbf0ebdbfed4c70e9ec45d37",
+        "size": 29116,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/formats/probe.rs",
+        "sha": "51d2b25cc3a36f0a77570bd85f84346b53705014",
+        "size": 29163,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/formats/util.rs",
+        "sha": "4e3433c3eb354bb75872533b8b290575ae61738a",
+        "size": 9016,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/io",
+        "sha": "c39e59b34ce803104d478458e747809f0366d4b8",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/io/bit.rs",
+        "sha": "1f5a9a5a413ee12802bf07bcb701ef80bb2d17f8",
+        "size": 71558,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/io/buf_reader.rs",
+        "sha": "b4342c4c13b11180edd778821cc46aefb55a0e5e",
+        "size": 8936,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/io/media_source_stream.rs",
+        "sha": "64c0634dc11cef81d42154665db1dfba59f227c4",
+        "size": 24812,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/io/mod.rs",
+        "sha": "b69fbeffb6cfda340e8ba2543f10cd47848863a1",
+        "size": 22413,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/io/monitor_stream.rs",
+        "sha": "cc4dd15c49afa108e7ecf6b661528016a4404b33",
+        "size": 4012,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/io/scoped_stream.rs",
+        "sha": "91aae218ca7118d3b717bdbae02988c74e64b45b",
+        "size": 6169,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/lib.rs",
+        "sha": "ba2ee615a8b8c2f8387d37157733f8cdb605b814",
+        "size": 778,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/meta.rs",
+        "sha": "c8db5b8da925a8938d98e7f32f203f8e7bb4a6c0",
+        "size": 31783,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/packet.rs",
+        "sha": "5332436bb3475f3b89f478d8813dd4a90a86dc34",
+        "size": 17643,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/subtitle",
+        "sha": "3df8462280d95adad78ced34b58c563cb82d2e00",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/subtitle/mod.rs",
+        "sha": "6f3cbb8a4dde12fcf5f73dd934b0a06b7e54edd1",
+        "size": 792,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/units.rs",
+        "sha": "833ee37a3a96d5fcc3b427b34f1e602b7c233243",
+        "size": 54064,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/util.rs",
+        "sha": "f88238adf1146ced1409d63545249bf828c49517",
+        "size": 23683,
+        "type": "blob"
+      },
+      {
+        "path": "vendor/symphonia-core/src/video",
+        "sha": "fe840a769450ed16f73e00727f220e5c931adde1",
+        "type": "tree"
+      },
+      {
+        "path": "vendor/symphonia-core/src/video/mod.rs",
+        "sha": "65305dbbcc982edce9ff9937779bff6201b352cb",
+        "size": 589,
+        "type": "blob"
+      }
+    ]
+  },
+  "producer_files": [
+    {
+      "filename": "docs/REVIEW/software485/ARTIFACT.json",
+      "sha": "76bbe39ff12a08de3c82202e9a3fbe52cdcde430",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/BASELINE-ACCESS.json",
+      "sha": "e5a18d64aa4fb0f1b648d65e3fa736a6d6edede0",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/BINDING.json",
+      "sha": "066c27cb6311a12a1bc6d7d9c29041e1be7d5ad3",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/EXECUTION.json",
+      "sha": "2810550987c9ee697aaea082c6f89f64c7ccd0e2",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/FILES.json",
+      "sha": "40eea8df63ca3a93cac3f822b26bb127c4a34436",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/IMPORT.json",
+      "sha": "b27f1a48a467b9c14d9f47a124a26bddf70f0080",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/README.md",
+      "sha": "e2df004bf8652687a8541a2158743cefdf144a61",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/RESULT.json",
+      "sha": "8b7f7b2f8d8eaa6cad10d8b09ad83135e0056025",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/SOURCE-ARGUMENT.md",
+      "sha": "3f6ef723ed9d8ab1e420dc0eeccac646cbc4d13e",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/SOURCE-INDEX.json",
+      "sha": "890b7497b093a86e97597c78d6ff691f52842ca5",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/PINS.json",
+      "sha": "4b0cf73961df3bd4f276e72052b7b75813a39e9c",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/README.md",
+      "sha": "d88cadd3f9dadcdbe9f9c760ed3eb846db3afe9e",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/SHA256SUMS",
+      "sha": "dcd08d72018e688714ec8e323aeb6bf2aaa915d3",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/external.py",
+      "sha": "a3293cbd13a16a9a3ad1cfc8077632931e27761e",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/selftest.py",
+      "sha": "7ecdc2c5022c7ea427bef3d99eade28f2e14feb4",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/PINS.json",
+      "sha": "661a3bc6b66456d5e4f4d64a14e9cec4a04828b5",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/README.md",
+      "sha": "16abb5ea5e2749df7f5a595a7442307466fdae32",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/ci_baseline.py",
+      "sha": "cd8cfdf9d005b203325079e7cefe8f127777d8a0",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/fetch_small_baseline.py",
+      "sha": "007416752b12e08e6324c7a0f21ce0693f77eb15",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/runner.py",
+      "sha": "878ca8ace0f990b08ef0f1c8e8d88826c8624269",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/selftest.py",
+      "sha": "a0b43aa0cf6d54f85632a7145c5c5eed22b8806d",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/windows_job.py",
+      "sha": "c33f372c4d10a6757bfa617a79df134efbbb3a4c",
+      "status": "added"
+    },
+    {
+      "filename": "docs/REVIEW/software485/verify_return.py",
+      "sha": "96263bcf129060caf8f962d0083a0ebe674806f8",
+      "status": "added"
+    }
+  ],
+  "producer_import": {
+    "sha": "c75653be55fe15be80e6d0be551a67d402b3ea6a",
+    "node_id": "C_kwDOUJLrftoAKGM3NTY1M2JlNTVmZTE1YmU4MGU2ZDBiZTU1MWE2N2Q0MDJiM2VhNmE",
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/commits/c75653be55fe15be80e6d0be551a67d402b3ea6a",
+    "html_url": "https://github.com/mmsanders/Digital-Tape/commit/c75653be55fe15be80e6d0be551a67d402b3ea6a",
+    "author": {
+      "name": "mmsanders",
+      "email": "mr.troubadour@gmail.com",
+      "date": "2026-10-20T20:01:52Z"
+    },
+    "committer": {
+      "name": "mmsanders",
+      "email": "mr.troubadour@gmail.com",
+      "date": "2026-10-20T20:01:52Z"
+    },
+    "tree": {
+      "sha": "8632d1a22b373dce1e1b7f81de745226652c3b40",
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/trees/8632d1a22b373dce1e1b7f81de745226652c3b40"
+    },
+    "message": "Software485: import exact external-artifact method and unchanged judge",
+    "parents": [
+      {
+        "sha": "1abb3db7c6e54a71cbd1436250226fe56a9851c6",
+        "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/commits/1abb3db7c6e54a71cbd1436250226fe56a9851c6",
+        "html_url": "https://github.com/mmsanders/Digital-Tape/commit/1abb3db7c6e54a71cbd1436250226fe56a9851c6"
+      }
+    ],
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "checks": [
+    {
+      "name": "cheap",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "qualification",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "independent WP-10 residue destinations (V10-001) \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-07 allocator/COW \u2014 fixed 10k real-product campaign",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-10 R53 crash-injection gaps \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-11 mutation gate \u2014 seven mutations, each caught",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-14 tapectl \u2014 macOS build, image smoke, disk-image round trip",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-12/WP-12a R53 closure gaps \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "golden suite \u2014 WP-11 R63 references, byte-exact",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "regression",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "gates can go red",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "scaffolding + verifier infrastructure",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "guardrail gates",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "independent full re-spool crash \u2014 exact 4,209,696-case aggregate",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent full re-spool crash \u2014 ${{ matrix.fixture }} ${{ matrix.pass_name }} ${{ matrix.mode }} part ${{ matrix.part }}",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-14 package \u2014 closed census and Git identity",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-11 fixture release assets \u2014 fetched and sha256-verified",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-14 device round trip \u2014 Linux loop device",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "tapectl \u2014 build, unit tests, WP-11 and WP-14 image smoke (Linux)",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-10 backlog rows 1-3 \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-14 package (${{ matrix.platform }})",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent #126 strengthening rows (strengthen_r55) \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-36 100k source-slot fuzz \u2014 debug real-product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent format/dup package \u2014 synthetic self-checks, then product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-11 portability (${{ matrix.config }})",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-13 embedded-readiness audit (DRAFT-9) \u2014 six-gate real-product evidence",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "accepted bindings regenerate on the current engine \u2014 gate can go red",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent #130 rows (overdub saturation, V-R55-01 trace floor) \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent complete playback package self-checks (synthetic, not engine acceptance)",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-08 R52 two-toolchain playback \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent promote package \u2014 synthetic self-checks, then product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "R29-B format/duplicate raw identity + dup long-op \u2014 exact canonical product campaign",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "WP-14 tapectl \u2014 Windows build, image smoke, VHD round trip",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-06 R52 closure gaps \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-06 R44 sequential \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-08 R44 cross-run playback \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent playback/golden package self-checks (synthetic, not engine acceptance)",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent full re-spool \u2014 clean/headroom + WP-12a product gate",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-10 core crash \u2014 bounded real-product campaign",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-08 mapped-run rows (#129) \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-09 R44 seeded record history \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent DRAFT-8 mount package self-checks (not engine acceptance)",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent not-mounted package \u2014 synthetic self-checks, then 34-case product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent respool package \u2014 synthetic self-checks, then full 8-case product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent writability package \u2014 synthetic self-checks, then 8-case product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent VT8-001 package self-checks (synthetic, not engine acceptance)",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-36 slot package \u2014 synthetic self-checks, then debug-assert product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-10 backlog r54 (repair crash, dup re-run, dup shape) \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-09 R52 capacity short accept \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent transport/warm package \u2014 synthetic self-checks, then product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-10 final backlog (#118) \u2014 product replay",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "independent WP-09 record package \u2014 synthetic self-checks, then product observations",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "build (-Werror)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "lead-queue dashboard behaviour",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "classify changes into lanes",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "spec bundle matches VERSION.md",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "docs size and line budgets",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "verifier publication gate can go red",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "verifier publications on verification main",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "hygiene gate can go red",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "evidence integrity",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "evidence gate can go red",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "import_method": [
+    {
+      "path": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/PINS.json",
+      "sha": "4b0cf73961df3bd4f276e72052b7b75813a39e9c",
+      "size": 781
+    },
+    {
+      "path": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/README.md",
+      "sha": "d88cadd3f9dadcdbe9f9c760ed3eb846db3afe9e",
+      "size": 12458
+    },
+    {
+      "path": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/SHA256SUMS",
+      "sha": "dcd08d72018e688714ec8e323aeb6bf2aaa915d3",
+      "size": 308
+    },
+    {
+      "path": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/external.py",
+      "sha": "a3293cbd13a16a9a3ad1cfc8077632931e27761e",
+      "size": 3674
+    },
+    {
+      "path": "docs/REVIEW/software485/method/findings/P2-232-METHOD-2026-10-20/selftest.py",
+      "sha": "7ecdc2c5022c7ea427bef3d99eade28f2e14feb4",
+      "size": 1529
+    }
+  ],
+  "import_judge": [
+    {
+      "path": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/PINS.json",
+      "sha": "661a3bc6b66456d5e4f4d64a14e9cec4a04828b5",
+      "size": 365
+    },
+    {
+      "path": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/README.md",
+      "sha": "16abb5ea5e2749df7f5a595a7442307466fdae32",
+      "size": 3520
+    },
+    {
+      "path": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/ci_baseline.py",
+      "sha": "cd8cfdf9d005b203325079e7cefe8f127777d8a0",
+      "size": 593
+    },
+    {
+      "path": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/fetch_small_baseline.py",
+      "sha": "007416752b12e08e6324c7a0f21ce0693f77eb15",
+      "size": 1000
+    },
+    {
+      "path": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/runner.py",
+      "sha": "878ca8ace0f990b08ef0f1c8e8d88826c8624269",
+      "size": 5999
+    },
+    {
+      "path": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/selftest.py",
+      "sha": "a0b43aa0cf6d54f85632a7145c5c5eed22b8806d",
+      "size": 1379
+    },
+    {
+      "path": "docs/REVIEW/software485/method/tests/wp16_shipping_exhaustion_r1/windows_job.py",
+      "sha": "c33f372c4d10a6757bfa617a79df134efbbb3a4c",
+      "size": 3951
+    }
+  ],
+  "head_commit": {
+    "sha": "14315a8829c1db11571e0c28a51fbcfb91a39ec8",
+    "parents": [
+      "c75653be55fe15be80e6d0be551a67d402b3ea6a"
+    ],
+    "message": "Software485: publish exact downloaded-binary rows and bounded source arguments"
+  }
+}
