@@ -1,5 +1,9 @@
 # Verification findings index
 
+19 October2026: [INGEST approved process-only policy launch](P2-222-POLICY-2026-10-19/README.md)
+records Michael's explicit authorization after222's default Restricted finding.
+Exact old kit/script carry; fresh receipts preserve earlier failure evidence.
+
 19 October2026: [Physical Windows A6 return](P2-A6-PHYSICAL-2026-10-19/README.md)
 authenticates the completed collector, two native final-sector reads and no
 observed card writes. Overall A6 is HELD: the accepted checker rejects four
