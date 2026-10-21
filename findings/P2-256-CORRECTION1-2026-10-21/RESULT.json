@@ -1,0 +1,21 @@
+{
+  "actual_image": "probe-235.exe",
+  "actual_native_cases": 0,
+  "archive_sha256": "85a6f19ddb3be91374bb00e700e5786d450edf7911d9c869360cfa3ea8629ede",
+  "candidate": "6eeaa84996aad392ed3323ddc8db752e7951bdae",
+  "capture_launches": 0,
+  "corrected_offline_path_comparison": true,
+  "findings": [
+    "E1 exact-name absence query is inside last future child after capture starts; carried236 requires before capture",
+    "E2 post-CreateFile clock failure closes handle but unwinds before emitting native return/error/absence facts"
+  ],
+  "image_sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+  "inventory_entries": 41,
+  "ordinary_dry_run_processes": 1,
+  "original_members": 42,
+  "original_raw_preserved": true,
+  "readiness": "HELD_CORRECTION1_OF2",
+  "scope": "source/offline preparation only; no native or helper execution by Verification",
+  "synthetic_mutations_rejected": 28,
+  "token_reprobes": 0
+}
