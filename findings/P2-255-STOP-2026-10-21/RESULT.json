@@ -1,0 +1,32 @@
+{
+  "verdict": "FINAL SCOPED STOP: phase storage overrun / late gate; zero new fault credit",
+  "closed_retention_members": 134,
+  "complete_recorder_calls": 5,
+  "positive_shape_events": 405,
+  "new_fault_coordinates": 0,
+  "accepted_original": 41,
+  "pending_original": 363,
+  "unexecuted": [
+    [
+      "write",
+      64
+    ],
+    [
+      "write",
+      346
+    ],
+    [
+      "write",
+      351
+    ],
+    [
+      "barrier",
+      50
+    ]
+  ],
+  "last_precommand_allocated_bytes": 181616640,
+  "combined_phase_reservation": 150994944,
+  "overrun_bytes": 30621696,
+  "transport": "Hash/Git-bound Software retention envelope; original Actions outer ZIP not independently downloaded",
+  "remaining": "Final total CPU/allocation and producer final ledger/ZIP absent. Source-only fix unexecuted. No retry or integration; PM owns fresh costed scope."
+}
