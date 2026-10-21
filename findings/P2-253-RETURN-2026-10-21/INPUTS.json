@@ -1,0 +1,265 @@
+{
+  "candidate": "ba9459e5cc365c53329753c94b49349f9053b6a7",
+  "product_main": "192fed8cf1f367899db3c9ed967f5c4d1d898dec",
+  "verification_main": "5c3ccf25fffcfdb63e6cc625938df8c1511a4de9",
+  "import_commit": "3f7995858fa3abc3af5936804a3718d1386e7f88",
+  "method_tree": "23c8366a43cfd29ea4d3de837ed4845b68b35cf0",
+  "import_files": [
+    {
+      "name": "CASES.json",
+      "sha": "68bf61bffdf42d6986f4d95594ec3f3947017fb7",
+      "size": 6140
+    },
+    {
+      "name": "PINS.json",
+      "sha": "e6ff8e9fc8af0d79b26ebef8c0ffdcbc65611ca9",
+      "size": 1589
+    },
+    {
+      "name": "README.md",
+      "sha": "423a79bed9a55268b7f617471f10c21dabc02969",
+      "size": 6563
+    },
+    {
+      "name": "SHA256SUMS",
+      "sha": "db3b66f404cbac466029aa3ced4f2289bb260216",
+      "size": 459
+    },
+    {
+      "name": "corpus.py",
+      "sha": "591a1628a4051c411ebe38bdcc3997dda5d7720c",
+      "size": 1572
+    },
+    {
+      "name": "oracle.py",
+      "sha": "2938f40bae1a54127383b381d317ca2b9c5f94ac",
+      "size": 720
+    },
+    {
+      "name": "selftest.py",
+      "sha": "dd90d9c51dcab37fdf44396f7d3685e7e5a51593",
+      "size": 400
+    }
+  ],
+  "changed_files": [
+    {
+      "path": ".gitattributes",
+      "blob": "d86d88c09aa2dbb75ae8598cab77fb78580fb647"
+    },
+    {
+      "path": "docs/REVIEW/software512/FIXTURES.json",
+      "blob": "fee95b9bda180f61483097007ed7bbf5773346ba"
+    },
+    {
+      "path": "docs/REVIEW/software512/FUNCTIONS.json",
+      "blob": "23be0bc4782a383e0b9c91629d0ebfa8d1b22283"
+    },
+    {
+      "path": "docs/REVIEW/software512/LEDGER.json",
+      "blob": "8b97e645d6ea6a13d8fcaaa3de096a3cfd514680"
+    },
+    {
+      "path": "docs/REVIEW/software512/METHOD-SELFTEST.txt",
+      "blob": "1fecf1891d48d9ac5b5d1348e6f0658ac3ce7e3b"
+    },
+    {
+      "path": "docs/REVIEW/software512/README.md",
+      "blob": "8569efa65c67bf7d9cbcb3a0ae547eb9c9f1e8d9"
+    },
+    {
+      "path": "docs/REVIEW/software512/SOURCE-PINS.json",
+      "blob": "3b977e0d9b35829d0255be0b1c789a1806330656"
+    },
+    {
+      "path": "tests/IMPORTS.json",
+      "blob": "d6baade0400cc9319597eba79994b375551823b3"
+    },
+    {
+      "path": "tests/codec_cardinality_r1/CASES.json",
+      "blob": "68bf61bffdf42d6986f4d95594ec3f3947017fb7"
+    },
+    {
+      "path": "tests/codec_cardinality_r1/PINS.json",
+      "blob": "e6ff8e9fc8af0d79b26ebef8c0ffdcbc65611ca9"
+    },
+    {
+      "path": "tests/codec_cardinality_r1/README.md",
+      "blob": "423a79bed9a55268b7f617471f10c21dabc02969"
+    },
+    {
+      "path": "tests/codec_cardinality_r1/SHA256SUMS",
+      "blob": "db3b66f404cbac466029aa3ced4f2289bb260216"
+    },
+    {
+      "path": "tests/codec_cardinality_r1/corpus.py",
+      "blob": "591a1628a4051c411ebe38bdcc3997dda5d7720c"
+    },
+    {
+      "path": "tests/codec_cardinality_r1/oracle.py",
+      "blob": "2938f40bae1a54127383b381d317ca2b9c5f94ac"
+    },
+    {
+      "path": "tests/codec_cardinality_r1/selftest.py",
+      "blob": "dd90d9c51dcab37fdf44396f7d3685e7e5a51593"
+    }
+  ],
+  "commits": [
+    {
+      "sha": "3f7995858fa3abc3af5936804a3718d1386e7f88",
+      "parents": [
+        "192fed8cf1f367899db3c9ed967f5c4d1d898dec"
+      ]
+    },
+    {
+      "sha": "ba9459e5cc365c53329753c94b49349f9053b6a7",
+      "parents": [
+        "3f7995858fa3abc3af5936804a3718d1386e7f88"
+      ]
+    }
+  ],
+  "source": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "actual_comment": 6319335396,
+  "own_actual_comment": 6319336502,
+  "new_functions": {
+    "new_functions": [
+      {
+        "name": "AudioBuffer::new",
+        "source": {
+          "path": "host/ingest/vendor/symphonia-core/src/audio/buf.rs",
+          "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+          "blob": "c160980b8371b2964ff810d1091e33c914d5ff5a",
+          "sha256": "9af515ffb34ba043bc261ee524d39be6a87d1c606b4316d9d248c4f5410f1322",
+          "lines": 614,
+          "start_line": 80,
+          "end_line": 94
+        }
+      },
+      {
+        "name": "MpaDecoder::decode_inner",
+        "source": {
+          "path": "host/ingest/vendor/symphonia-bundle-mp3/src/decoder.rs",
+          "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+          "blob": "f9f4aeda3961290243adcf8963cfa027308d9bd1",
+          "sha256": "b4bdfac4dad94a746912df3a665d4337b47b95ace6d80d0bab04aefa574f382a",
+          "lines": 197,
+          "start_line": 85,
+          "end_line": 135
+        }
+      },
+      {
+        "name": "MpaDecoder::decode_ref",
+        "source": {
+          "path": "host/ingest/vendor/symphonia-bundle-mp3/src/decoder.rs",
+          "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+          "blob": "f9f4aeda3961290243adcf8963cfa027308d9bd1",
+          "sha256": "b4bdfac4dad94a746912df3a665d4337b47b95ace6d80d0bab04aefa574f382a",
+          "lines": 197,
+          "start_line": 157,
+          "end_line": 166
+        }
+      },
+      {
+        "name": "AacDecoder::try_new",
+        "source": {
+          "path": "host/ingest/vendor/symphonia-codec-aac/src/aac/mod.rs",
+          "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+          "blob": "8fe201d5aeeda34b206d9606bf1068fb2ae82e98",
+          "sha256": "63f33ae26e788919744f92feb44a24a046a59284e64314757fed49eeb0694ff4",
+          "lines": 324,
+          "start_line": 62,
+          "end_line": 118
+        }
+      },
+      {
+        "name": "AacDecoder::decode_inner",
+        "source": {
+          "path": "host/ingest/vendor/symphonia-codec-aac/src/aac/mod.rs",
+          "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+          "blob": "8fe201d5aeeda34b206d9606bf1068fb2ae82e98",
+          "sha256": "63f33ae26e788919744f92feb44a24a046a59284e64314757fed49eeb0694ff4",
+          "lines": 324,
+          "start_line": 251,
+          "end_line": 265
+        }
+      },
+      {
+        "name": "AacDecoder::decode_ref",
+        "source": {
+          "path": "host/ingest/vendor/symphonia-codec-aac/src/aac/mod.rs",
+          "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+          "blob": "8fe201d5aeeda34b206d9606bf1068fb2ae82e98",
+          "sha256": "63f33ae26e788919744f92feb44a24a046a59284e64314757fed49eeb0694ff4",
+          "lines": 324,
+          "start_line": 284,
+          "end_line": 293
+        }
+      }
+    ],
+    "new_body_count": 6,
+    "limit": 6,
+    "carried_old_functions": [
+      "GenericAudioBufferRef::copy_to_vecs_planar dispatch",
+      "Audio::copy_to_vecs_planar",
+      "AudioBuffer::frames/num_planes/plane",
+      "Host mpeg.rs/aac.rs copy/append/finish paths"
+    ],
+    "old_review": "Verification239 merge25b20d951e5340cc2ed42a76f717e852252b7061",
+    "unreviewed_needed": [
+      "MP3 Layer3::decode mutable buffer escape",
+      "AAC decode_ga mutable self escape",
+      "AudioBuffer::clear/render_uninit/is_unused and reset/dispatch/header/ASC bodies as required by a future exact scope"
+    ],
+    "stop": "Further uncovered transitive bodies exceed the issued six-function boundary; no seventh body used to close a premise."
+  },
+  "source_pins": {
+    "buffer": {
+      "path": "host/ingest/vendor/symphonia-core/src/audio/buf.rs",
+      "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+      "blob": "c160980b8371b2964ff810d1091e33c914d5ff5a",
+      "sha256": "9af515ffb34ba043bc261ee524d39be6a87d1c606b4316d9d248c4f5410f1322",
+      "lines": 614
+    },
+    "mp3": {
+      "path": "host/ingest/vendor/symphonia-bundle-mp3/src/decoder.rs",
+      "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+      "blob": "f9f4aeda3961290243adcf8963cfa027308d9bd1",
+      "sha256": "b4bdfac4dad94a746912df3a665d4337b47b95ace6d80d0bab04aefa574f382a",
+      "lines": 197
+    },
+    "aac": {
+      "path": "host/ingest/vendor/symphonia-codec-aac/src/aac/mod.rs",
+      "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+      "blob": "8fe201d5aeeda34b206d9606bf1068fb2ae82e98",
+      "sha256": "63f33ae26e788919744f92feb44a24a046a59284e64314757fed49eeb0694ff4",
+      "lines": 324
+    },
+    "mp3-caller": {
+      "path": "host/ingest/src/mpeg.rs",
+      "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+      "blob": "2f9dbd0af36b8dff72dec703b1ec4f36b138a6ef",
+      "sha256": "e8ed7bc5486799cb0e9b29531b07771cac8c389e5334690f7dc0b1dc1740c4a0",
+      "lines": 364
+    },
+    "aac-caller": {
+      "path": "host/ingest/src/aac.rs",
+      "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+      "blob": "b78102f57aede497b090131dcb33baf6cdfaed7e",
+      "sha256": "7929bdc982fac53a94498cbe397377f86b51471d0c5073d30cff6eea40e1d907",
+      "lines": 654
+    },
+    "copy": {
+      "path": "host/ingest/vendor/symphonia-core/src/audio/mod.rs",
+      "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+      "blob": "4d77fb53aaa7eb850d03b96be077a56b05fd1b10",
+      "sha256": "9f8d2cf59ecd7180f13036d3b3369cd99c837ea7d94b862c3ff0c2df5100fb04",
+      "lines": 649
+    },
+    "dispatch": {
+      "path": "host/ingest/vendor/symphonia-core/src/audio/generic.rs",
+      "source_commit": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+      "blob": "9933ad8582c00516a0fe7cf7e20c5535442fc089",
+      "sha256": "01c9f8b0a5e3049e76926a1ae353276608d88647a76cb5289ba27a091c72e381",
+      "lines": 985
+    }
+  }
+}
