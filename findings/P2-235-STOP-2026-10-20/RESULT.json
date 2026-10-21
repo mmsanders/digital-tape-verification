@@ -1,0 +1,44 @@
+{
+  "disposition": "HELD at declared observer-privilege prerequisite; conservative preflight stop supported",
+  "method_files_authenticated": 6,
+  "token_facts": "authenticated published Software receipts, not a new independent token measurement",
+  "observer_identity_and_message_slices": "independently checked from unchanged local bytes; optional replay rechecks bytes",
+  "rows": [
+    {
+      "id": "file-read",
+      "status": "NOT_EXECUTED_PREFLIGHT_PRIVILEGE",
+      "visibility": "UNQUALIFIED"
+    },
+    {
+      "id": "file-zero",
+      "status": "NOT_EXECUTED_PREFLIGHT_PRIVILEGE",
+      "visibility": "UNQUALIFIED"
+    },
+    {
+      "id": "missing-read",
+      "status": "NOT_EXECUTED_PREFLIGHT_PRIVILEGE",
+      "visibility": "UNQUALIFIED"
+    },
+    {
+      "id": "nul-zero",
+      "status": "NOT_EXECUTED_PREFLIGHT_PRIVILEGE",
+      "visibility": "UNQUALIFIED"
+    },
+    {
+      "id": "nul-read",
+      "status": "NOT_EXECUTED_PREFLIGHT_PRIVILEGE",
+      "visibility": "UNQUALIFIED"
+    },
+    {
+      "id": "absent-dos-zero",
+      "status": "NOT_EXECUTED_PREFLIGHT_PRIVILEGE",
+      "visibility": "UNQUALIFIED"
+    }
+  ],
+  "actual_calls": 0,
+  "capture_attempts": 0,
+  "helper_runtime_incapability_proved": false,
+  "observer_launch_failure_measured": false,
+  "absence_cleared": false,
+  "next_condition": "PM-scoped continuation only if an already available authorized administrator capture context exists; no human/security/install/bypass request"
+}

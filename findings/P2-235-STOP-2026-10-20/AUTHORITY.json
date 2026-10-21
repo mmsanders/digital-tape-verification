@@ -1,0 +1,194 @@
+{
+  "product_main": "14cad0b637ecf45b61406a987767fda770ea73bd",
+  "verification_main": "9991eded2ca2892f436088241848a55de4d31b88",
+  "producer_pr": 496,
+  "producer_head": "2f275f2f9f77ac1d7a4f500517e6018eabc756da",
+  "producer_merge": "14cad0b637ecf45b61406a987767fda770ea73bd",
+  "import_commit": {
+    "sha": "b92f6f8e4ce0274c0b78762ab0a8135609b99333",
+    "parents": [
+      "968b6d37d5508e7a9bd10dfb9e44a1431b1d6dbe"
+    ],
+    "message": "Software491: import exact six-row observer method before helper work"
+  },
+  "report_commit": {
+    "sha": "2f275f2f9f77ac1d7a4f500517e6018eabc756da",
+    "parents": [
+      "9177b59b78912a536588d93baa01e5ccd30d9cc0"
+    ],
+    "message": "Clarify method-import provenance text"
+  },
+  "intermediate_commit": {
+    "sha": "9177b59b78912a536588d93baa01e5ccd30d9cc0",
+    "parents": [
+      "b92f6f8e4ce0274c0b78762ab0a8135609b99333"
+    ],
+    "message": "Software491: record existing capture-privilege stop without native controls"
+  },
+  "imported_files": [
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/PINS.json",
+      "sha": "1b077387606be6c575b8272454924675444d9b58",
+      "size": 1384
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/README.md",
+      "sha": "5895fb9768a8335c83f313141ad457d4cfba7647",
+      "size": 14943
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/SHA256SUMS",
+      "sha": "fef252d54efe26b9611bbb42e7f35cd6c0ecc51f",
+      "size": 383
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/oracle.py",
+      "sha": "38c5b51b886133ad47bcf588d25c6132fc342d2b",
+      "size": 6933
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/publish.sh",
+      "sha": "055e4a10229fa6b8365b834c3568449bf26609ba",
+      "size": 1175
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/selftest.py",
+      "sha": "9b15de26ab3f9c9fc949008e259fdd212680db48",
+      "size": 4687
+    }
+  ],
+  "changed_files": [
+    {
+      "path": "docs/REVIEW/software491/METHOD-IMPORT.json",
+      "sha": "19c96b5a2c0ce60c65d8fd2ff1f1288cf5a51227",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/README.md",
+      "sha": "db5bf3a6900e5f923f9021fd2bd2dbf708b362c0",
+      "status": "modified"
+    },
+    {
+      "path": "docs/REVIEW/software491/RUN-STOP.json",
+      "sha": "210061fefd740d917732e07a76c1d7bc5769fc9c",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/RUN-STOP.md",
+      "sha": "ace7ebff322643935059eac76baba4e78a8e75e7",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/PINS.json",
+      "sha": "1b077387606be6c575b8272454924675444d9b58",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/README.md",
+      "sha": "5895fb9768a8335c83f313141ad457d4cfba7647",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/SHA256SUMS",
+      "sha": "fef252d54efe26b9611bbb42e7f35cd6c0ecc51f",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/oracle.py",
+      "sha": "38c5b51b886133ad47bcf588d25c6132fc342d2b",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/publish.sh",
+      "sha": "055e4a10229fa6b8365b834c3568449bf26609ba",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software491/method/tests/wp16_observer_visibility_r1/selftest.py",
+      "sha": "9b15de26ab3f9c9fc949008e259fdd212680db48",
+      "status": "added"
+    }
+  ],
+  "checks": [
+    {
+      "name": "cheap",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "regression",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "scaffolding + verifier infrastructure",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "gates can go red",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "guardrail gates",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "qualification",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "classify changes into lanes",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "spec bundle matches VERSION.md",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "lead-queue dashboard behaviour",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "build (-Werror)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "evidence integrity",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "hygiene gate can go red",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "verifier publication gate can go red",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "evidence gate can go red",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "verifier publications on verification main",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "docs size and line budgets",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "observer_sha256": "28495e642b2a465474a4edc58380eaf8b7ee580f3fbcb4141061deadafe9b885",
+  "observer_bytes": 2237720,
+  "messages": [
+    {
+      "offset": 1200448,
+      "bytes": 96,
+      "sha256": "14f0796c208698b8dd5296607d74ed8e4f86d769aabbd531c91f7eb158255e5f",
+      "matches": true
+    },
+    {
+      "offset": 1210880,
+      "bytes": 116,
+      "sha256": "ec6529f8b236a8304ddd56d0aa3437d71b976a65813d5e599c877ccb4a52111c",
+      "matches": true
+    }
+  ],
+  "asInvoker_literal_found": true,
+  "new_token_probe": false,
+  "observer_launched": false
+}
