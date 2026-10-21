@@ -1,0 +1,20 @@
+{
+  "aac_complete_lemma": "RESIDUAL",
+  "abstract_controls": 16,
+  "actual_decoder_executions": 0,
+  "admitted_counterexample": false,
+  "bound_row_spans": 22,
+  "candidate": "ba9459e5cc365c53329753c94b49349f9053b6a7",
+  "disposition": "local conditional allocation step accepted; exact six-body transitive-preservation stop",
+  "frozen_obligations": 12,
+  "global_INTERNAL": "UNPROVED",
+  "integration_permission": false,
+  "known_fixture_bindings": 0,
+  "local_conditional_allocation_rows": 2,
+  "method_tree": "23c8366a43cfd29ea4d3de837ed4845b68b35cf0",
+  "mp3_complete_lemma": "RESIDUAL",
+  "new_vendor_functions": 6,
+  "residual_rows": 10,
+  "source": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "source_files": 7
+}
