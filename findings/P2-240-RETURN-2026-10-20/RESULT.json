@@ -1,0 +1,135 @@
+{
+  "candidate": "b9866c77228f4ad3832e0e46083fdc8e5aa76aa6",
+  "source": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "artifact": 12324892347,
+  "outer_sha256": "15f689dfcc9c473789d75eab4902eed5492ca5ce91b332bef408db5c551fdea5",
+  "inner_sha256": "108ad9bfe7036605e0405e52c46f9065fb6028244bb953b276f694d3faa0476c",
+  "original_files": 260,
+  "closed_inventory_files": 259,
+  "scheduled": 18,
+  "usable_commands": 17,
+  "missing_raw": [
+    "endpoint-1"
+  ],
+  "source_occurrences": 67,
+  "zero_gain_branch_exact_quantizer_checks": 55,
+  "attenuated_source_slices": 12,
+  "actual_output_corruptions_detected": 4,
+  "run_cpu_seconds": 5.067306,
+  "first_attempt_conservative_cpu_seconds": 60,
+  "second_build_cpu_seconds": 27.22,
+  "findings": [
+    {
+      "name": "endpoint-2",
+      "exit": 0,
+      "sources": 1,
+      "frames": 2
+    },
+    {
+      "name": "endpoint-255",
+      "exit": 0,
+      "sources": 1,
+      "frames": 255
+    },
+    {
+      "name": "endpoint-257",
+      "exit": 0,
+      "sources": 1,
+      "frames": 257
+    },
+    {
+      "name": "join-2048-0",
+      "exit": 0,
+      "sources": 2,
+      "frames": 512
+    },
+    {
+      "name": "join-2048-1",
+      "exit": 0,
+      "sources": 2,
+      "frames": 513
+    },
+    {
+      "name": "join-29000-0",
+      "exit": 0,
+      "sources": 2,
+      "frames": 512
+    },
+    {
+      "name": "join-29000-1",
+      "exit": 0,
+      "sources": 2,
+      "frames": 513
+    },
+    {
+      "name": "gap-0",
+      "exit": 0,
+      "sources": 2,
+      "frames": 512
+    },
+    {
+      "name": "gap-1",
+      "exit": 0,
+      "sources": 2,
+      "frames": 88712
+    },
+    {
+      "name": "threshold-channel-0",
+      "exit": 0,
+      "sources": 1,
+      "frames": 1
+    },
+    {
+      "name": "threshold-channel-1",
+      "exit": 0,
+      "sources": 1,
+      "frames": 2
+    },
+    {
+      "name": "threshold-channel-2",
+      "exit": 0,
+      "sources": 1,
+      "frames": 3
+    },
+    {
+      "name": "threshold-channel-3",
+      "exit": 0,
+      "sources": 1,
+      "frames": 4
+    },
+    {
+      "name": "block-end--1",
+      "exit": 0,
+      "sources": 12,
+      "frames": 1048575
+    },
+    {
+      "name": "block-end-0",
+      "exit": 0,
+      "sources": 12,
+      "frames": 1048576
+    },
+    {
+      "name": "block-end-1",
+      "exit": 0,
+      "sources": 12,
+      "frames": 1048577
+    },
+    {
+      "name": "block-end-2",
+      "exit": 0,
+      "sources": 12,
+      "frames": 1048578
+    }
+  ],
+  "global_witness": false,
+  "global_absence_proved": false,
+  "integration_permission": false,
+  "disposition": "17-case structural/report/output coverage PASS; full18-case/analytical/durable-transport criteria HELD",
+  "limitations": [
+    "endpoint-1 original raw lost, no credit or rerun",
+    "rounded gain and assembled PCM slices do not independently prove full-precision per-source gain/meter execution",
+    "independent reference is not a Product f32/local/global/refinement transfer theorem",
+    "durable raw release upload awaits destination-specific approval; existing Actions evidence only"
+  ]
+}

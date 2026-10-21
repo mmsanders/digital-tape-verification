@@ -1,0 +1,55 @@
+{
+  "product_main": "d4f1ce6d5bf0e1c8c7ecec6e5b5c564191017eb8",
+  "verification_main": "25b20d951e5340cc2ed42a76f717e852252b7061",
+  "issue": 240,
+  "issue_updated": "2026-10-21T06:30:23Z",
+  "candidate": "b9866c77228f4ad3832e0e46083fdc8e5aa76aa6",
+  "tested": "55d1bdde94d0e14abcc82e62628b8c344e609c5d",
+  "source": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "ingest_tree": "835078995d4e9cc2424f9ea8d6f11304b45f783f",
+  "method_import": "fa3faee0459a1835a27a084b25df4f5306838721",
+  "method_tree": "0b23507f50b7ec3d448cfe7504e963089f870eae",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "run": 39554447369,
+  "artifact": 12324892347,
+  "outer_bytes": 480262,
+  "outer_sha256": "15f689dfcc9c473789d75eab4902eed5492ca5ce91b332bef408db5c551fdea5",
+  "inner_bytes": 297029,
+  "inner_sha256": "108ad9bfe7036605e0405e52c46f9065fb6028244bb953b276f694d3faa0476c",
+  "first_run": 39554269518,
+  "durable_release_status": "approval pending; no reupload authorized by this review",
+  "pins": [
+    {
+      "path": ".github/workflows/software500.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53d97ca0edc67a1e396ceb4bc74f84d0555dce8c",
+      "size": 1894,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/53d97ca0edc67a1e396ceb4bc74f84d0555dce8c"
+    },
+    {
+      "path": "docs/REVIEW/software500/FILES.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f69ee6b96fb1c789d4dad1980d1085ab66d5a8b3",
+      "size": 37584,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/f69ee6b96fb1c789d4dad1980d1085ab66d5a8b3"
+    },
+    {
+      "path": "docs/REVIEW/software500/first-workflow.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e2a89daeaa0e8b648f25acd4598584cad45c000",
+      "size": 30223,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/2e2a89daeaa0e8b648f25acd4598584cad45c000"
+    },
+    {
+      "path": "tools/software500/run.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb4b43e067302663a9d8d4ff2c6ff095248d3dc8",
+      "size": 7373,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/bb4b43e067302663a9d8d4ff2c6ff095248d3dc8"
+    }
+  ]
+}
