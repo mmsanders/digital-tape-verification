@@ -1,0 +1,70 @@
+{
+  "product_main": "8f65b3d336727eec70fb6fe6d4dee6aafb7e0136",
+  "verification_main": "be9c02f1c862afafa1a89e9195790fc0e5535f29",
+  "method_import": "1fcb3bd971b69725abb70db4de6726516d61cad9",
+  "method_tree": "0b7d3c2f2b1550e9b778f634167d8b82f0eedf5e",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "run": 39553865535,
+  "job": 119068957785,
+  "run_conclusion": "success",
+  "tested": "8b689218dc06e68b6b09b6744e3e4f4e54c5ddf2",
+  "candidate": "69075205a31a2cbea4f00e142bc8b65d3437091c",
+  "source": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "candidate_files": [
+    {
+      "path": ".github/workflows/software499.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8bf56a2c0fab9b8849f3fc2f3585aed329510e6",
+      "size": 1900,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/b8bf56a2c0fab9b8849f3fc2f3585aed329510e6"
+    },
+    {
+      "path": "docs/REVIEW/software499/run1-FILES.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96824d42155572f805d6e9237187e2824dfc75b3",
+      "size": 1374,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/96824d42155572f805d6e9237187e2824dfc75b3"
+    },
+    {
+      "path": "tools/software499/LEDGER.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ed8e506b3632b461f94b3ee763394c3b090304c",
+      "size": 9878,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/8ed8e506b3632b461f94b3ee763394c3b090304c"
+    },
+    {
+      "path": "tools/software499/challenges.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2d8a0e692928c43ee9705444fe6b0bbbfc0c624",
+      "size": 2365,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/f2d8a0e692928c43ee9705444fe6b0bbbfc0c624"
+    },
+    {
+      "path": "tools/software499/run.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e97351f0cf0f5835daf44b936fe5200a8828142",
+      "size": 4997,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/9e97351f0cf0f5835daf44b936fe5200a8828142"
+    }
+  ],
+  "post_test_changes": [
+    ".gitattributes",
+    "docs/REVIEW/software499/run1-FILES.json",
+    "docs/REVIEW/software499/run1/RESULT.json",
+    "docs/REVIEW/software499/run1/SHA256SUMS.json",
+    "docs/REVIEW/software499/run1/actual.json",
+    "docs/REVIEW/software499/run1/build-stderr.txt",
+    "docs/REVIEW/software499/run1/build-stdout.txt",
+    "docs/REVIEW/software499/run1/build-time.txt",
+    "docs/REVIEW/software499/run1/commands.json",
+    "docs/REVIEW/software499/run1/host.txt",
+    "docs/REVIEW/software499/run1/run-time.txt",
+    "docs/REVIEW/software499/run1/rustc.txt",
+    "docs/REVIEW/software499/run1/stdin.json"
+  ]
+}

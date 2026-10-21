@@ -1,0 +1,29 @@
+{
+  "candidate": "69075205a31a2cbea4f00e142bc8b65d3437091c",
+  "tested": "8b689218dc06e68b6b09b6744e3e4f4e54c5ddf2",
+  "source": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "raw_files": 11,
+  "raw_bytes": 41441,
+  "outer_inventory_blob": "96824d42155572f805d6e9237187e2824dfc75b3",
+  "manually_reviewed_source_file_hashes": 11,
+  "disclosed_stale_inner_entries": [
+    "run-time.txt"
+  ],
+  "source_pin_git_bindings": 122,
+  "frozen_comparisons": 25,
+  "native_commands": 16,
+  "production_scalar_rows": 5,
+  "guard_shape_rows": 11,
+  "proof_model_rows": 9,
+  "detected_actual_answer_corruptions": 25,
+  "software_build_cpu_seconds": 19.02,
+  "software_run_cpu_seconds": 0.06,
+  "disposition": "bounded scalar/discriminator PASS; manually reviewed conditional count lemmas; global INTERNAL UNPROVED",
+  "admitted_production_witness": false,
+  "integration_permission": false,
+  "residuals": [
+    "MP3/AAC buffer num_planes equals admitted spec channels constructor premise",
+    "finite-precision peak-update next-peak/repetition bound",
+    "!limited gated loudness-feedback finite ranking bound"
+  ]
+}
