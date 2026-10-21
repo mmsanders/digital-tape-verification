@@ -1,0 +1,146 @@
+{
+  "product_main": "192fed8cf1f367899db3c9ed967f5c4d1d898dec",
+  "verification_main": "87e94160f62922a06346d00dc69f4dfcda987328",
+  "candidate": "6eeaa84996aad392ed3323ddc8db752e7951bdae",
+  "tested_payload": "417652fb7accc056c57a9dcb3966814df1d84c5f",
+  "import_commit": "418f12e5618159624bf7f367d18486037c61b038",
+  "method_merge": "5c3ccf25fffcfdb63e6cc625938df8c1511a4de9",
+  "method_tree": "13ac0194835b6b1058225ccf46e3780b0cc169a4",
+  "actual_comment": 6320754818,
+  "own_actual_comment": 6320756183,
+  "issue256_updated": "2026-10-21T16:16:30Z",
+  "archive_bytes": 134295,
+  "archive_sha256": "85a6f19ddb3be91374bb00e700e5786d450edf7911d9c869360cfa3ea8629ede",
+  "archive_blob": "384fd8313a8a766367cd11e1097357d0ae858899",
+  "changed_files": [
+    {
+      "path": ".gitattributes",
+      "blob": "9e37e3d4c6a0ef90815105813de5344cb8b8c704"
+    },
+    {
+      "path": "docs/REVIEW/software515/ARTIFACT.json",
+      "blob": "c553684198cd08062bfae87cad6dd4d9ac105d73"
+    },
+    {
+      "path": "docs/REVIEW/software515/CONTROLS.json",
+      "blob": "d8b27dd35308c510e07940d4efd1b9ca3abd2281"
+    },
+    {
+      "path": "docs/REVIEW/software515/DRY-RUN.json",
+      "blob": "2b6878408d6b28c768faba85feeec3d6e99cbad3"
+    },
+    {
+      "path": "docs/REVIEW/software515/FILES.json",
+      "blob": "1a58081b945ff6d4f5dc211163b309200b78ce32"
+    },
+    {
+      "path": "docs/REVIEW/software515/LAUNCH.json",
+      "blob": "6446005309f48d7794054e0ddada8a1bf1138650"
+    },
+    {
+      "path": "docs/REVIEW/software515/PAYLOAD-INVENTORY.json",
+      "blob": "7f57292cc9ea8059ca0f70cf308f0d3f66cc2281"
+    },
+    {
+      "path": "docs/REVIEW/software515/POSTPROCESS.json",
+      "blob": "b34860a583ef4c910e2e66853386b91656cb8fb8"
+    },
+    {
+      "path": "docs/REVIEW/software515/README.md",
+      "blob": "7da8960b9610cd00dd4946c322e24df753c92221"
+    },
+    {
+      "path": "docs/REVIEW/software515/RUNTIME-INVENTORY.json",
+      "blob": "97c882f2e8d6249abd9362190700c266671fbab5"
+    },
+    {
+      "path": "docs/REVIEW/software515/software515-preparation-return.zip",
+      "blob": "384fd8313a8a766367cd11e1097357d0ae858899"
+    },
+    {
+      "path": "host/observer-kit/NOT_AUTHORIZED_TO_RUN.txt",
+      "blob": "6d1e92ec54265a46be5137081df712346e8edc9e"
+    },
+    {
+      "path": "host/observer-kit/prepare.py",
+      "blob": "7023b244b19c1b3fd77959f66fb70c842b55a5f1"
+    },
+    {
+      "path": "host/observer-kit/probe.py",
+      "blob": "94a730f7d0bd4e39c267976fd80edeac9007cf6f"
+    },
+    {
+      "path": "tests/IMPORTS.json",
+      "blob": "e75b395e3ac42fe67632e19965b092e7748afbaf"
+    },
+    {
+      "path": "tests/observer_kit_readiness_r1/PINS.json",
+      "blob": "1d20c82c0ab63f5a35862c1cd9b333210185bc51"
+    },
+    {
+      "path": "tests/observer_kit_readiness_r1/README.md",
+      "blob": "2e31095b25206406f6d69448bc2822f425f0da6c"
+    },
+    {
+      "path": "tests/observer_kit_readiness_r1/SHA256SUMS",
+      "blob": "3bd0058681a7c87133b2d0b98229037728b951f1"
+    },
+    {
+      "path": "tests/observer_kit_readiness_r1/oracle.py",
+      "blob": "068fac086a979826a68b97abf87f35d1e1446919"
+    },
+    {
+      "path": "tests/observer_kit_readiness_r1/selftest.py",
+      "blob": "a8fbfdc013b94e9ae800aa3c1c81a5ef18086a5b"
+    }
+  ],
+  "import_files": [
+    {
+      "name": "PINS.json",
+      "sha": "1d20c82c0ab63f5a35862c1cd9b333210185bc51",
+      "size": 554
+    },
+    {
+      "name": "README.md",
+      "sha": "2e31095b25206406f6d69448bc2822f425f0da6c",
+      "size": 8195
+    },
+    {
+      "name": "SHA256SUMS",
+      "sha": "3bd0058681a7c87133b2d0b98229037728b951f1",
+      "size": 306
+    },
+    {
+      "name": "oracle.py",
+      "sha": "068fac086a979826a68b97abf87f35d1e1446919",
+      "size": 1551
+    },
+    {
+      "name": "selftest.py",
+      "sha": "a8fbfdc013b94e9ae800aa3c1c81a5ef18086a5b",
+      "size": 2059
+    }
+  ],
+  "commits": [
+    {
+      "sha": "418f12e5618159624bf7f367d18486037c61b038",
+      "parents": [
+        "192fed8cf1f367899db3c9ed967f5c4d1d898dec"
+      ]
+    },
+    {
+      "sha": "417652fb7accc056c57a9dcb3966814df1d84c5f",
+      "parents": [
+        "418f12e5618159624bf7f367d18486037c61b038"
+      ]
+    },
+    {
+      "sha": "6eeaa84996aad392ed3323ddc8db752e7951bdae",
+      "parents": [
+        "417652fb7accc056c57a9dcb3966814df1d84c5f"
+      ]
+    }
+  ],
+  "correction_number": 1,
+  "maximum_corrections": 2
+}
