@@ -1,0 +1,12 @@
+{
+  "candidate": "e8437990c28d04ef50e534ecee22d90d621da22e",
+  "parser_cases": 627,
+  "query_projection_cases": 49,
+  "category_mismatches": 0,
+  "display_mismatches": [],
+  "scope": "independent raw replay; synthetic parser inputs only",
+  "corrected_missing_pair_rows": 21,
+  "display_rows": 676,
+  "detecting_actual_row_controls": 4,
+  "disposition": "bounded exact-head pure parser/message component PASS; integration conditional on current-base required protections"
+}
