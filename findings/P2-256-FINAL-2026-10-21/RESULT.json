@@ -1,0 +1,17 @@
+{
+  "verdict": "READY-FOR-SEPARATE-AUTHORIZATION: conditional preparation kit only",
+  "candidate": "26f99c20c34827bc4b6744683682b59d40968e04",
+  "package_bytes": 286003,
+  "closed_members": 9,
+  "source_sha256": "884940e96310424dc3141833079689a913525489cb6ee182820ff5e52fa7d56a",
+  "original_package_preserved": true,
+  "original_image_receipt_scope": "417652fb only; corrected source STATIC/SYNTHETIC ONLY",
+  "synthetic_retention_paths": 6,
+  "rehashed_query_rejections": 10,
+  "future_queries_before_capture": 1,
+  "future_target_cases": 6,
+  "independent_native_calls": 0,
+  "independent_kit_imports": 0,
+  "actual_native_cases": "6 UNEXECUTED/UNQUALIFIED",
+  "authority": "No collection, native absence, observer capability, integration or human task. Existing235/491 privilege stop absolute; future actual runner/session/filesystem/time ownership needs separate exact scope and already-authorized Administrator context."
+}
