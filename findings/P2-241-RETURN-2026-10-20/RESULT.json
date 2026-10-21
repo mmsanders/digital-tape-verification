@@ -1,0 +1,65 @@
+{
+  "candidate": "cd4fdae796496a47be7756e21a11d9666f94deb2",
+  "source": "55552ad4fe57e99827ab8eb016044d0486017877",
+  "artifact": 12325916869,
+  "outer_sha256": "02389ab47800f889fc5a7cc842069f6ffe19deb68e641e89bebaf8039b3bf6ed",
+  "inner_sha256": "eb7fcf40f00e3ad0201657ccae88016b8705b6ca0877d496fe6dbf1b16730db7",
+  "raw_files": 4438,
+  "raw_command_records": 829,
+  "readback_command_records": 825,
+  "positive_complete_events": 405,
+  "rows": [
+    {
+      "kind": "write",
+      "ordinal": 19,
+      "native_error": "EBADF",
+      "attempted_bytes": 512,
+      "landed_bytes": 0,
+      "prior_barriers": [
+        0,
+        1
+      ],
+      "state": "empty/empty",
+      "model_orders": 16,
+      "projections": 16,
+      "cpu_seconds": 10.836652
+    },
+    {
+      "kind": "write",
+      "ordinal": 63,
+      "native_error": "EBADF",
+      "attempted_bytes": 512,
+      "landed_bytes": 0,
+      "prior_barriers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "state": "empty/empty",
+      "model_orders": 256,
+      "projections": 256,
+      "cpu_seconds": 181.03561
+    }
+  ],
+  "original_model_orders": 272,
+  "detecting_actual_controls": 8,
+  "retained_previous_executed": 39,
+  "new_independently_passed": 2,
+  "executed_coverage_after_publication": 41,
+  "unexecuted_coordinates": 363,
+  "selected_unexecuted": 23,
+  "unselected_unexecuted": 340,
+  "stop_before": {
+    "kind": "write",
+    "ordinal": 64
+  },
+  "cpu_including_build_reserve": 792.954608,
+  "durable_transport": "existing authenticated Actions evidence; specific durable release approval pending",
+  "overall443_accepted": false,
+  "integration_permission": false,
+  "disposition": "two actual coordinate predicates PASS, mandatory estimate stop honored; remaining scope and durable transport HELD"
+}

@@ -1,0 +1,79 @@
+{
+  "product_main": "d4f1ce6d5bf0e1c8c7ecec6e5b5c564191017eb8",
+  "verification_main": "25b20d951e5340cc2ed42a76f717e852252b7061",
+  "candidate": "cd4fdae796496a47be7756e21a11d9666f94deb2",
+  "tested": "6c5756bffdf8ed6a0ae37c9ea68f92333afb368a",
+  "source": "55552ad4fe57e99827ab8eb016044d0486017877",
+  "run": 39555618946,
+  "artifact": 12325916869,
+  "method": "c1e57d7848c03f3237a1e3e33b04241c4955af0e",
+  "sourcefiles": [
+    {
+      "path": "host/port/trace_test.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d76430a9c48712ea8c8f462fa2ccdaa8abbf47cc",
+      "size": 13130,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/d76430a9c48712ea8c8f462fa2ccdaa8abbf47cc"
+    },
+    {
+      "path": "tests/wp10_subset_binding/run_load.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1d7b657d07b959bacdc7fa972d377f0b9d4fa85",
+      "size": 9356,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/a1d7b657d07b959bacdc7fa972d377f0b9d4fa85"
+    },
+    {
+      "path": "tests/wp10_subset_binding/subset_driver.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5f39843b0761597ea55007a318020a33e4c1d63",
+      "size": 32185,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/b5f39843b0761597ea55007a318020a33e4c1d63"
+    },
+    {
+      "path": "tests/wp10_subset_r1/model.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f44edafd2c81fc58d51afbd46a6a4807e3555f59",
+      "size": 6362,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/f44edafd2c81fc58d51afbd46a6a4807e3555f59"
+    },
+    {
+      "path": "tools/wp10-narrow/s467_load.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3147ac641516fc62536b2c95c2a13a65b652a75f",
+      "size": 16174,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/3147ac641516fc62536b2c95c2a13a65b652a75f"
+    }
+  ],
+  "candidatefiles": [
+    {
+      "path": ".github/workflows/software501.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "430df23e820f3e5122413d70eff58e7bfc91e066",
+      "size": 2760,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/430df23e820f3e5122413d70eff58e7bfc91e066"
+    },
+    {
+      "path": "tools/software501/independent199/load_rows.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42bd9dbd534f72b0bf93f206dc87706ea67c6e5b",
+      "size": 3059,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/42bd9dbd534f72b0bf93f206dc87706ea67c6e5b"
+    },
+    {
+      "path": "tools/software501/run.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "504562c7a34a1c411ebf01f223300f25c1f5283e",
+      "size": 11889,
+      "url": "https://api.github.com/repos/mmsanders/Digital-Tape/git/blobs/504562c7a34a1c411ebf01f223300f25c1f5283e"
+    }
+  ],
+  "durable_release": "pending specific approval; no bypass upload"
+}
