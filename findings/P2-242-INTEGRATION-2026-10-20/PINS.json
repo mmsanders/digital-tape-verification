@@ -1,0 +1,102 @@
+{
+  "authority": "PM497 / Verification242 / Software502",
+  "issue_updated_at": "2026-10-21T02:31:01Z",
+  "product_input_main": "8f65b3d336727eec70fb6fe6d4dee6aafb7e0136",
+  "candidate": "4dcb83a8cdf85015b503714b2bd09114ade1050a",
+  "corrected459": "50bc4160f6da527da8c684d05264f99815aaa870",
+  "verification_input": "046b3f2c930efeb9bdb50d175164d2c4cbdb705b",
+  "original_faulty436": "6126d04050133cacb9a1960a0bc13c9ee93130e5",
+  "candidate_ancestry": {
+    "corrected459_merge_base": "50bc4160f6da527da8c684d05264f99815aaa870",
+    "current_main_merge_base": "8f65b3d336727eec70fb6fe6d4dee6aafb7e0136"
+  },
+  "trees": {
+    "engine": "d96b4245e04d74078f8938744b1394c3018516f7",
+    "host/ingest": "b4907b2f209080f3ff730f8af0f6da298c13fbeb",
+    "tests/wp16_ingest_stage1": "609a4c819076a2b85b26cc4f3cd254b92caef6de"
+  },
+  "spec": {
+    "path": "docs/WP16-INGEST-CONTRACT.md",
+    "blob": "712a0696917672afb639475960609b6367c1c7d4"
+  },
+  "evidence_reports": [
+    {
+      "path": "findings/P2-192-HOST-2026-10-17/README.md",
+      "blob": "d32523a4eff81101189bfbff17e2c71cbb819b1d"
+    },
+    {
+      "path": "findings/P2-201-DISPOSITION-2026-10-18/RETURN.md",
+      "blob": "af6ea273ac91417abe66bbcab10a490b2ecc3223"
+    },
+    {
+      "path": "findings/P2-226-WIN11-2026-10-20/README.md",
+      "blob": "c07575b6895dd33f5ed20c94e0c3603d57806e61"
+    },
+    {
+      "path": "findings/P2-232-RETURN-2026-10-20/README.md",
+      "blob": "dfae9ba8d10d628e6697208bf5ecbc5ff1bcd32d"
+    },
+    {
+      "path": "findings/P2-235-STOP-2026-10-20/README.md",
+      "blob": "217268882467ffb672e36342774f7de9fa4ebc5e"
+    }
+  ],
+  "preparation_runs": [
+    {
+      "id": 39533170684,
+      "name": "engine",
+      "status": "queued",
+      "conclusion": null
+    },
+    {
+      "id": 39533170614,
+      "name": "verifier publication",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39533170599,
+      "name": "repo hygiene",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39533170649,
+      "name": "evidence integrity",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39533170512,
+      "name": "WP15 S3 method capability probes (#465)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39533170528,
+      "name": "WP15 S2 tapectl cards (#465)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39533170560,
+      "name": "APP-1 capability probes",
+      "status": "completed",
+      "conclusion": "cancelled"
+    }
+  ],
+  "decision": "HOLD - no whole HOST integration permission",
+  "unsatisfied_host_criteria": [
+    "Mac ordinary shipping resource-exhaustion/cleanup (contract§1 platforms,§6 resources)",
+    "Windows failed/zero-access device-open absence (contract§1,§6)"
+  ],
+  "not_blockers": [
+    "faulty436 need not merge first",
+    "unrelated S1 report/global-ID proof tranches",
+    "unrelated A parser/S3/G2/physicalA6 attendance"
+  ],
+  "new_product_execution": 0,
+  "raw_machine_publication": 0,
+  "observer_retry": 0,
+  "next_owner": "PM497 normative acceptance partition/method authority; Software502 retain unmerged exact candidate"
+}
