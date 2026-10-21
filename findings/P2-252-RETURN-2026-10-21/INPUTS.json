@@ -1,0 +1,241 @@
+{
+  "product_main": "192fed8cf1f367899db3c9ed967f5c4d1d898dec",
+  "verification_main": "5c3ccf25fffcfdb63e6cc625938df8c1511a4de9",
+  "issue252_updated": "2026-10-21T15:05:28Z",
+  "actual_comment": 6319287263,
+  "import_commit": "2abcd3f91237bd9f383475364140193ca87e1760",
+  "method_tree": "c370a4e975fe506d884abaacca493cf417e09c5d",
+  "import_files": [
+    {
+      "name": "CASES.json",
+      "sha": "db37ecdb298c8af35e0a579819ea432127152218",
+      "size": 3645
+    },
+    {
+      "name": "PINS.json",
+      "sha": "5603e7eb7bd815ab18e2377e44ffbd96fc5fe497",
+      "size": 255
+    },
+    {
+      "name": "README.md",
+      "sha": "e9639a45ea821f2fe33ec2d11250bc2b71700ffd",
+      "size": 7538
+    },
+    {
+      "name": "RETURN.md",
+      "sha": "c5863d63bc94965b039da3ea70452b428d593219",
+      "size": 3400
+    },
+    {
+      "name": "SHA256SUMS",
+      "sha": "2c1a5e19a9eb3147749fb5f79b8632604ef5d57a",
+      "size": 610
+    },
+    {
+      "name": "cases.py",
+      "sha": "1dd06d6e8927a72390a08e6836c6dfb9b358297f",
+      "size": 1121
+    },
+    {
+      "name": "helper.py",
+      "sha": "c2956be1ce9b491c25b0c00fd0211c57507004fe",
+      "size": 1050
+    },
+    {
+      "name": "oracle.py",
+      "sha": "b0c74d7bf8433c5247455cf3466ca66484544ced",
+      "size": 2732
+    },
+    {
+      "name": "selftest.py",
+      "sha": "46d485f04b2a803d2643534629d2977b5109ef89",
+      "size": 4902
+    }
+  ],
+  "commits": [
+    {
+      "sha": "2abcd3f91237bd9f383475364140193ca87e1760",
+      "parents": [
+        "192fed8cf1f367899db3c9ed967f5c4d1d898dec"
+      ],
+      "message": "Software511: import exact independently published bounded method"
+    },
+    {
+      "sha": "fe78f5f59abd43af654c1764035a7996dd944297",
+      "parents": [
+        "2abcd3f91237bd9f383475364140193ca87e1760"
+      ],
+      "message": "Software511: implement standalone immutable helper recorder"
+    },
+    {
+      "sha": "a5dd957c8783eaddb86bc7e576f6abe9b6cb2bd0",
+      "parents": [
+        "fe78f5f59abd43af654c1764035a7996dd944297"
+      ],
+      "message": "Software511: bind observed prefix before producer interruption"
+    },
+    {
+      "sha": "2148a139fc59e71795b269281f152e707a7d61b0",
+      "parents": [
+        "a5dd957c8783eaddb86bc7e576f6abe9b6cb2bd0"
+      ],
+      "message": "Software511: retain all original frozen32 recorder evidence"
+    }
+  ],
+  "run": {
+    "id": 39622114845,
+    "head_sha": "a5dd957c8783eaddb86bc7e576f6abe9b6cb2bd0",
+    "attempt": 1,
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "changed_files": [
+    {
+      "path": ".gitattributes",
+      "blob": "2a7a1e4ee24e7a3851ce6d1ce95f138e88b09388",
+      "status": "modified"
+    },
+    {
+      "path": ".github/workflows/software511.yml",
+      "blob": "d30d23d3f381eefa78df61b865af301717504a44",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/README.md",
+      "blob": "11bea8ec04fcba3dcfb6fdb85760c53b1f7c5be8",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1-FILES.json",
+      "blob": "249bfe7182a9f7909dc14a61339b36498240ef14",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/ARCHIVE-MANIFEST.json",
+      "blob": "aa289cb3e566d81dd1f5d44d206171cf0516dcea",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/IMPORT.json",
+      "blob": "a84c1669105f5b92f9a39b880b0df63ed7da573c",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/OBSERVATIONS.json",
+      "blob": "0c78545144c088c7476e874e6b2a0994279a92b9",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/RUNTIME.json",
+      "blob": "876e72dca5bc01f6a7287eaa8e2cdfc37126d1bf",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/build-receipts/method-selftest.txt",
+      "blob": "16a635e3d5a27f0928b057a25e2a52aadfd2af2b",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/build-receipts/method-sha256.txt",
+      "blob": "7b27dd414d1c89db1dce47f7934e82fed2341683",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/build-receipts/python.txt",
+      "blob": "4e0cbc8df831391cb93cba378c5b05925a2a6898",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/build-receipts/run-stderr.txt",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/build-receipts/run-stdout.txt",
+      "blob": "4675c269df0b5ffe3dd520c4e59c6ef99cf81e3b",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/build-receipts/source.txt",
+      "blob": "6115d613a5828d71f0f0bd9e00677fe92521cc77",
+      "status": "added"
+    },
+    {
+      "path": "docs/REVIEW/software511/run1/software511-exact-return.zip",
+      "blob": "bb30b21759cedc9db0a204bf16e5214eae0fd23e",
+      "status": "added"
+    },
+    {
+      "path": "host/evidence-recorder/README.md",
+      "blob": "fb1110a68ddd4ad2a3a5e7abe18f5201d7269f29",
+      "status": "added"
+    },
+    {
+      "path": "host/evidence-recorder/recorder.py",
+      "blob": "521429b381b6035f03e7df11505cde6c9ec49b19",
+      "status": "added"
+    },
+    {
+      "path": "host/evidence-recorder/run_method.py",
+      "blob": "e775e57249d876a0298f08fb0629e9b1ec4f9f04",
+      "status": "added"
+    },
+    {
+      "path": "tests/IMPORTS.json",
+      "blob": "4e611b01fa92611d39d90d1d6de6bf89e0241f07",
+      "status": "modified"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/CASES.json",
+      "blob": "db37ecdb298c8af35e0a579819ea432127152218",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/PINS.json",
+      "blob": "5603e7eb7bd815ab18e2377e44ffbd96fc5fe497",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/README.md",
+      "blob": "e9639a45ea821f2fe33ec2d11250bc2b71700ffd",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/RETURN.md",
+      "blob": "c5863d63bc94965b039da3ea70452b428d593219",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/SHA256SUMS",
+      "blob": "2c1a5e19a9eb3147749fb5f79b8632604ef5d57a",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/cases.py",
+      "blob": "1dd06d6e8927a72390a08e6836c6dfb9b358297f",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/helper.py",
+      "blob": "c2956be1ce9b491c25b0c00fd0211c57507004fe",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/oracle.py",
+      "blob": "b0c74d7bf8433c5247455cf3466ca66484544ced",
+      "status": "added"
+    },
+    {
+      "path": "tests/evidence_recorder_r1/selftest.py",
+      "blob": "46d485f04b2a803d2643534629d2977b5109ef89",
+      "status": "added"
+    }
+  ],
+  "artifact": 12354982078,
+  "outer_bytes": 352116,
+  "outer_sha256": "efc2f587f136566bde1f46b6c8cf7557a8fed61d5c76a552822768bb05072a61",
+  "inner_bytes": 219659,
+  "inner_sha256": "88638342e902089ccd0e704487d90170655fcd7109af138911dfac1165b4110e",
+  "durable_git_blob": "bb30b21759cedc9db0a204bf16e5214eae0fd23e"
+}

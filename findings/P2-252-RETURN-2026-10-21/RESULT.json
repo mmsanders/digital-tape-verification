@@ -1,0 +1,24 @@
+{
+  "actual_children": 10,
+  "actual_commands": 39,
+  "actual_copy_archive_rejections": 19,
+  "artifact": 12354982078,
+  "candidate": "2148a139fc59e71795b269281f152e707a7d61b0",
+  "component_disposition": "PASS bounded recorder protocol; exact source review and conditional integration boundary in README",
+  "counts": {
+    "actual-exclusive-path": 3,
+    "actual-helper": 6,
+    "actual-interruption": 4,
+    "actual-positive-archive-corruption": 4,
+    "actual-positive-copy-corruption": 15
+  },
+  "cpu_reservation_seconds": 609.527688204,
+  "frozen_outcomes": 32,
+  "inner_bytes": 219659,
+  "inner_sha256": "88638342e902089ccd0e704487d90170655fcd7109af138911dfac1165b4110e",
+  "inventory_entries": 492,
+  "original_files": 493,
+  "run": 39622114845,
+  "scope": "Linux Python frozen helper protocol; ordinary owned namespace; no arbitrary-program semantics/security/power-loss/native claim",
+  "tested": "a5dd957c8783eaddb86bc7e576f6abe9b6cb2bd0"
+}
