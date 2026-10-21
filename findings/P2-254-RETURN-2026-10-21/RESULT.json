@@ -1,0 +1,19 @@
+{
+  "archive_sha256": "617b66e29f0679eac60436ffa94edda4f3041ec141c08514d656345ccedca071",
+  "closed_members": 591,
+  "original_selected_files": 38,
+  "complete_recorder_cases": 28,
+  "actual_native_calls": 28,
+  "finite_evaluations": 7184,
+  "source_quantizer_original_equal": 16,
+  "gain_attempts": 18,
+  "attenuated_final": 3,
+  "mutations_rejected": 5,
+  "verdict": "BOUNDED FINITE FACTS PASS; analytical/global transfer remains UNPROVED",
+  "residuals": [
+    "original hidden-gain provenance",
+    "complete noncandidate per-step history",
+    "global peak/refinement transfer",
+    "numerical per-gate storage receipts absent; source gates only"
+  ]
+}
