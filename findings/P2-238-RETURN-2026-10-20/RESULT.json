@@ -1,0 +1,240 @@
+{
+  "candidate": "af91239e699062b016270fd612958544f674cc58",
+  "parser_cases": 627,
+  "query_projection_cases": 49,
+  "category_mismatches": 0,
+  "display_mismatches": [
+    {
+      "name": "ingest:stale-tool",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:stale-version",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:stale-nonce",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:missing-end",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:extra-end",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:unknown-record",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:blank-line",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:duplicate-key",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:spaced-json",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:invalid-utf8",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:empty",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:bad-counter-True-1",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:bad-counter--1-1",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:bad-counter-2-1",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:bad-counter-9007199254740992-9007199254740992",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:bad-counter-1.0-2",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:regression",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:changed-total",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:known-to-unknown",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "ingest:step-return",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    },
+    {
+      "name": "success-needs-pair",
+      "exit": 0,
+      "pair": false,
+      "expected_category": [
+        "generic",
+        null
+      ],
+      "expected_rendered": "Something went wrong. Nothing else on your computer was changed.",
+      "actual_rendered": null
+    }
+  ],
+  "scope": "independent raw replay; synthetic parser inputs only"
+}
