@@ -1,0 +1,22 @@
+{
+  "abstract_premise_falsifiers": 16,
+  "archive_sha256": "366e6baca260d5489b461fdff9d1066b33655297fc497ea238de73f92cd44712",
+  "automated_source_proof": false,
+  "byte_replay": "PASS",
+  "codec_obligations": 24,
+  "evidence_head": "84d7ea664d2ba7dddb6da5bae33bdffe1414b541",
+  "git_receipts": 89,
+  "global_internal": "UNPROVED",
+  "inventory_entries": 228,
+  "ledger_nodes": 46,
+  "manual_disposition": {
+    "AAC": "PROVED_CONDITIONAL",
+    "MP3": "PROVED_CONDITIONAL",
+    "host_cardinality": "PROVED_CONDITIONAL"
+  },
+  "members": 229,
+  "new_codec_builds": 0,
+  "new_decoder_runs": 0,
+  "source": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "source_files": 44
+}
