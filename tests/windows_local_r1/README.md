@@ -62,6 +62,19 @@ Use already available Python3.12+ and shipping Windows tapectl SHA256
 Product main by assumption. Return release/build/source binding with it. The
 new matrix source publication must be merged before acceptance execution.
 
+Known exact local route (read-only inventory22October, not execution): workspace
+`verification-work/a6-replay-private/tapectl.exe`,435533bytes, SHA256 exactly the
+shipping hash above. This is221's already-retained original packet member, also
+pinned in `findings/P2-A6-PHYSICAL-2026-10-19/INPUTS.json`; no download/provider
+search or denied retrieval retry is needed. Shipping source is
+`5e2df5aaf23e9ed0e230c444a40650da9459ddb2`, release
+`wp14-tapectl-5e2df5aaf23e`/asset624090380 (original159 identity carries).
+Software may read/hash/copy this exact ordinary executable into its own work
+area, record both hashes, and execute only the published no-card arguments.
+Do not copy or publish its sibling private trace files. Bundled already-present
+Python is available via Codex workspace dependencies if PATH only exposes aliases;
+record actual runtime executable/version/hash before use, no install/policy change.
+
 ```powershell
 & $python -B tests/windows_local_r1/local_route.py --binary $shippingTapectl --base $freshOwnedBase --source-head $authenticatedShippingSource --receipt "$freshOwnedBase/v277-local.json"
 ```
