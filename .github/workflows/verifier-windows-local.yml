@@ -1,0 +1,26 @@
+name: Windows local route independent authoring
+on:
+  pull_request:
+    paths: ['tests/windows_local_r1/**', 'findings/P2-277-WINDOWS-2026-10-22/**', '.github/workflows/verifier-windows-local.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate immutable reused methods
+        run: |
+          test "$(git rev-parse HEAD:tests/wp14_r1)" = e1ef171ffdd7464314b4b838a7d904b1a94f5409
+          test "$(git rev-parse HEAD:tests/wp16_observer_visibility_r1)" = 944df7d2fc9946c62214829d8c67d7f7c4b0b62e
+          test "$(git rev-parse HEAD:tests/observer_kit_readiness_r1)" = 13ac0194835b6b1058225ccf46e3780b0cc169a4
+      - name: Finite local method detecting controls (no Product/native execution)
+        run: |
+          python3 -B tests/windows_local_r1/selftest.py
+          python3 -B tests/wp16_observer_visibility_r1/selftest.py
+          python3 -B tests/observer_kit_readiness_r1/selftest.py
+          python3 -B findings/P2-A6-PHYSICAL-2026-10-19/validate.py
+          python3 -B findings/P2-223-METHOD-2026-10-20/validate_result.py
