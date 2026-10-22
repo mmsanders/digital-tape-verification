@@ -1,0 +1,156 @@
+{
+  "allocation_scope": "NOT COMPLIANT; bounded allocation not established",
+  "candidate": "fce6efa71e4db0e2da8e6f8725ade692a8177f4a",
+  "canonical_bytes": 176448,
+  "canonical_frames": 44101,
+  "canonical_sha256": "b3b824e492523cb0b1b428b8a81a874707d3d978141386ce461f74c15dddb712",
+  "commands": [
+    {
+      "exit": 7,
+      "index": 0,
+      "stderr_sha256": "ea1a86c38b86a537ec5ffe46bbe6260566daa91a03ca323a8eae2b943857739a",
+      "stdout_sha256": "2cfdbba11b7aa6894547cddd8c9f39ad8964ddcfb75fd0fc1dc7c2bd65b79f50"
+    },
+    {
+      "exit": 2,
+      "index": 1,
+      "stderr_sha256": "35f609b5e78bbdfe54f35bb22e1c6609b9b36a836f137f39518d0fa6679e8e8b",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 2,
+      "index": 2,
+      "stderr_sha256": "35f609b5e78bbdfe54f35bb22e1c6609b9b36a836f137f39518d0fa6679e8e8b",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 2,
+      "index": 3,
+      "stderr_sha256": "35f609b5e78bbdfe54f35bb22e1c6609b9b36a836f137f39518d0fa6679e8e8b",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 0,
+      "index": 4,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 0,
+      "index": 5,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 0,
+      "index": 6,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    {
+      "exit": 0,
+      "index": 7,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 0,
+      "index": 8,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 2,
+      "index": 9,
+      "stderr_sha256": "ca2039654514a0f7cd4f3f6dea9a7433eeed2db374f9eedd5b0a7d6c62aceb76",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit": 1,
+      "index": 10,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0b87de68da0cd8e300c8100c30af8c19ae674bf990a0e8e69c40cef1518fcd68"
+    }
+  ],
+  "completed_cases": [
+    "O1-owned-file-and-child",
+    "I0-shipping-start-help-version-observed",
+    "I1-small-shipping-image-roundtrip",
+    "I2-overlength-zero-byte-change",
+    "I3-wrong-type-negative"
+  ],
+  "detecting_controls": [
+    "FAT-sector-size",
+    "FAT-cluster-size",
+    "FAT-boot-signature",
+    "README-content",
+    "UTC-create-date",
+    "UTC-mod-time",
+    "UTC-access-date",
+    "UTC-creation-fraction",
+    "tail-drop",
+    "tail-add",
+    "last-sample"
+  ],
+  "effective_admin": false,
+  "final_inventory_reported_bytes": 4298806840,
+  "image_hashes": {
+    "image_verify": {
+      "after_sha256": "8dbf83fe3382103287bf952f4cba0f6d69002d8295215d86f67fcf2362105272",
+      "before_sha256": "8dbf83fe3382103287bf952f4cba0f6d69002d8295215d86f67fcf2362105272"
+    },
+    "negative_verify": {
+      "after_sha256": "b21bc866de5e7809d227d9dc15fdb456b7bdfc730825620d21394ce229fbe057",
+      "before_sha256": "b21bc866de5e7809d227d9dc15fdb456b7bdfc730825620d21394ce229fbe057"
+    },
+    "overlength": {
+      "after_sha256": "8dbf83fe3382103287bf952f4cba0f6d69002d8295215d86f67fcf2362105272",
+      "before_sha256": "8dbf83fe3382103287bf952f4cba0f6d69002d8295215d86f67fcf2362105272"
+    }
+  },
+  "imported_wp14_files": 41,
+  "large_shipping_commands": 0,
+  "local_test_wall_upper_seconds": 95.493,
+  "marker_rereads": "three exact retained intervals match",
+  "method_publication": "6c999edaaeec53ee10ca1bede97ab87e69ee7fb7",
+  "method_sha256": "105ff70129de7c4de2b8f4298fb787cb29937b23b98824b006dd2c854c87cb03",
+  "native_collection": "INELIGIBLE: measured Administrator prerequisite absent",
+  "original_inventory_files": 33,
+  "os": {
+    "CurrentBuild": "26200",
+    "DisplayVersion": "25H2",
+    "EditionID": "Core",
+    "ProductName": "Windows 10 Home",
+    "UBR": 9457,
+    "architecture": "X64",
+    "runtime_os": "Microsoft Windows 10.0.26200"
+  },
+  "overall_windows_wp14": "HELD: retained physical A6 request/offset bridge unresolved",
+  "parent_exit": 1,
+  "physical_test": false,
+  "private_original_pins": {
+    "RUN-INVENTORY.json": "3ed08b613c3b3285d5bdf67178bd8d66c8e806f7a820d1592ca4685b3525c87e",
+    "RUNTIME-INVENTORY.private.json": "632c7c099bfd6189ee08dbf6ec92ef525a228c28e472036633dac5a150feaefa",
+    "capability.private.json": "3b65734905d26632138406bd8a0de417ee907714c98d12004958074639c99363",
+    "capability.ps1": "897473a781fb42375c1345a44e1f681d55a899ff7669f53716bd9d4307b9212f",
+    "child.stderr.txt": "6cee4e182bd18ceb24089436ee649ef22be21f4827aaa6d998e37993dd0bb177",
+    "child.stdout.txt": "61b4ba2123e716d14fe0d35556af714dcac26179deb28fc61c72527d38b739a7",
+    "ingest-version/RECEIPT.json": "07abf7c8ba28a90981053acec4cc16e98fd2f1454400027eae0dd97ce287eda7",
+    "local-run-1/v277-local.json": "29c238596dcedc6b0591c8dacd8900bcc261ffc748c32a03906e8d5bedef488d"
+  },
+  "product_main": "75f867712138b8e436b2cb30ba82e5590cb584ee",
+  "raw_publication": false,
+  "replay_scope": "private raw read-only authentication; ZERO Product/helper/native execution",
+  "retry": false,
+  "root_reported_bytes": 4298790617,
+  "runtime_inventory_entries": 168,
+  "runtime_sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+  "schema": 1,
+  "shipping_sha256": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9",
+  "shipping_source": "5e2df5aaf23e9ed0e230c444a40650da9459ddb2",
+  "sparse_attribute": 544,
+  "sparse_logical_bytes": 4296015872,
+  "sparse_reported_bytes": 4296015872,
+  "sparse_verdict": "PARTIAL / STOP before shipping large-image commands",
+  "timeout": false
+}

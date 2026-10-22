@@ -1,5 +1,11 @@
 # Verification tests and publication index
 
+22October2026: [Verification277 actual Windows disposition](../findings/P2-277-RETURN-2026-10-22/README.md)
+passes the completed ordinary-file/small-shipping-image rows and preserves overall
+Windows WP14 HELD. Original `windows_local_r1` publication6c999eda/treee5f5e4ec is
+immutable; **S1 execution is suspended** after its reported allocation exceeded1GiB.
+No full selector rerun, allowance reset, new API/physical test or cleanup is issued.
+
 **14 October 2026 UTC: Phase 1 complete; Phase 2 open, DRAFT-10 engine authority retained.**
 All 37 package trees below are preserved at the cleanup input publication
 `cdf89f5f0ab0aa8cc94c13fbf0f98fea484975a4`. This index updates status without changing

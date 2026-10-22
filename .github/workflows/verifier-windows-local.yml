@@ -1,7 +1,7 @@
 name: Windows local route independent authoring
 on:
   pull_request:
-    paths: ['tests/windows_local_r1/**', 'findings/P2-277-WINDOWS-2026-10-22/**', '.github/workflows/verifier-windows-local.yml']
+    paths: ['tests/windows_local_r1/**', 'findings/P2-277-WINDOWS-2026-10-22/**', 'findings/P2-277-RETURN-2026-10-22/**', '.github/workflows/verifier-windows-local.yml']
 permissions:
   contents: read
 jobs:
@@ -17,6 +17,7 @@ jobs:
           test "$(git rev-parse HEAD:tests/wp14_r1)" = e1ef171ffdd7464314b4b838a7d904b1a94f5409
           test "$(git rev-parse HEAD:tests/wp16_observer_visibility_r1)" = 944df7d2fc9946c62214829d8c67d7f7c4b0b62e
           test "$(git rev-parse HEAD:tests/observer_kit_readiness_r1)" = 13ac0194835b6b1058225ccf46e3780b0cc169a4
+          test "$(git rev-parse HEAD:tests/windows_local_r1)" = e5f5e4ec07e3569deb68692c6722218e7197f1f0
       - name: Finite local method detecting controls (no Product/native execution)
         run: |
           python3 -B tests/windows_local_r1/selftest.py
@@ -24,3 +25,5 @@ jobs:
           python3 -B tests/observer_kit_readiness_r1/selftest.py
           python3 -B findings/P2-A6-PHYSICAL-2026-10-19/validate.py
           python3 -B findings/P2-223-METHOD-2026-10-20/validate_result.py
+      - name: Actual277 public result consistency (private raw replay is local only)
+        run: python3 -B findings/P2-277-RETURN-2026-10-22/review.py --check-public findings/P2-277-RETURN-2026-10-22/RESULT.json
