@@ -5,8 +5,9 @@ Inputs Product main3e8f4bac247e6ba8a817d759be4b144e745a526e / Verification
 main950a4c6f87e7c301bdac87047d23a0c5e4ca25ab. Required canonical four and
 live286/546/PM544 read/authenticated before work. Actual Product546 return
 6367076476 / paired2866367077729; Software closed14:20:55Z. Candidate
-cd996a2e91fbbc6daca520438fef5f6c79dc94b5 on draft540, app tree
-d7a1ac6b03b559c698e95afc6c220a667f5f6fb9. Independent291 publication
+cd996a2e91fbbc6daca520438fef5f6c79dc94b5 on draft540, root tree
+d7a1ac6b03b559c698e95afc6c220a667f5f6fb9; host/app tree
+f4c69bc9c212ea0d5829f83fb2219df944a2c313. Independent291 publication
 ce8b9c114d622156ae3f4600776846baf5a0d79c/tree4859e302e9fd618ecf6e8a65729c6e3f42a8877e
 predates this implementation; exact lifecycle blobc4fd120e2c9d1c7c24f881009ffcea186799788b.
 
