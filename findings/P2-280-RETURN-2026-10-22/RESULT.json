@@ -1,0 +1,17 @@
+{
+  "overall": "STOP: no startup/normal-quit or positive child plumbing clearance",
+  "A0": "owned process/window metadata observed; normal quit not established",
+  "P0": "real child exit1; positive row failed",
+  "unexecuted": ["P1", "U0", "U1", "U2", "N0", "N1"],
+  "source_integration_clearance": false,
+  "source": "45695aa0edb8a757db5074d17c39eda12bcda888",
+  "method": "cf7d96977e89a0692b54d273fe29b3d12223b6d5",
+  "private_inventory_sha256": "157055c1d72b9965e773c0a26efb93c6c5a26c7af17cbb72eb310c3a586ee734",
+  "authenticated_private_files": 23,
+  "authenticated_app_sources": 26,
+  "authenticated_child_sources": 157,
+  "report": "current nonce/version/tool, IO_FOLDER subject0, end1; generic fallback in existing oracle only",
+  "source_root_cause": "unclassified; retained stderr shape matches non-Unix folder canonicalization error path",
+  "os_limit": "receipt Windows10.0.26200 X64; exact edition/UBR and selected WebView2 version not bound",
+  "UI": "all actual UI controls/visual state unexecuted"
+}
