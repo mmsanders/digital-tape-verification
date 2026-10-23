@@ -1,5 +1,10 @@
 # Verification tests and publication index
 
+22October2026: [Verification280 Windows app start method](windows_app_start_r1/README.md)
+freezes the finite real-artifact launch/quit, eligible UI and direct real-child
+route for Software538. Method publication is not actual client execution or
+acceptance;280 remains open for independent review of the real result.
+
 22October2026: [Verification277 actual Windows disposition](../findings/P2-277-RETURN-2026-10-22/README.md)
 passes the completed ordinary-file/small-shipping-image rows and preserves overall
 Windows WP14 HELD. Original `windows_local_r1` publication6c999eda/treee5f5e4ec is

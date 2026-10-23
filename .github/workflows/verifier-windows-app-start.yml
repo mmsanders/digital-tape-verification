@@ -1,0 +1,30 @@
+name: Windows app start method controls
+on:
+  pull_request:
+    paths: ['tests/windows_app_start_r1/**', 'findings/P2-280-*/**', '.github/workflows/verifier-windows-app-start.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate unchanged reused expectations
+        run: |
+          test "$(git rev-parse HEAD:tests/wp15_app1a_r1)" = bdd861b693516db2e5244660b3e99ee400d506de
+          test "$(git rev-parse HEAD:tests/wp15_report_faults_r1)" = d959f4a9b055d73964ec96ba9b691f4b6fcffe40
+          test "$(git rev-parse HEAD:tests/wp14_r1)" = e1ef171ffdd7464314b4b838a7d904b1a94f5409
+      - name: Scope and fallback detecting controls (ZERO app/child/native execution)
+        run: |
+          python3 -B tests/windows_app_start_r1/judge.py
+          python3 -B tests/windows_app_start_r1/child_smoke.py --help
+          python3 -B -c "import ast,pathlib; [ast.parse(p.read_text(),filename=str(p)) for p in pathlib.Path('tests/windows_app_start_r1').glob('*.py')]"
+      - name: PowerShell syntax only (does not launch app)
+        shell: pwsh
+        run: |
+          $tokens=$null;$errors=$null
+          [void][Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD 'tests/windows_app_start_r1/Start-App.ps1'),[ref]$tokens,[ref]$errors)
+          if ($errors.Count -ne 0) { throw ($errors | Out-String) }
