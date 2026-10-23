@@ -1,5 +1,10 @@
 # Verification tests and publication index
 
+22October2026: [Verification283 corrected window/context method](windows_app_start_r2/README.md)
+replaces premature blank-title close for the next eligible run, preserving original
+281/280 bytes and STOP. Stable owned-window and approved non-admin child admission
+controls qualify the method only; actual542 results remain pending.
+
 22October2026: [Verification280 Windows app start method](windows_app_start_r1/README.md)
 freezes the finite real-artifact launch/quit, eligible UI and direct real-child
 route for Software538. Method publication is not actual client execution or

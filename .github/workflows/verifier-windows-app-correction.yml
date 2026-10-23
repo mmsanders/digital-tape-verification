@@ -1,0 +1,33 @@
+name: Windows app readiness and context correction controls
+on:
+  pull_request:
+    paths: ['tests/windows_app_start_r2/**', 'findings/P2-283-*/**', '.github/workflows/verifier-windows-app-correction.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate original method and reused expectations
+        run: |
+          test "$(git rev-parse HEAD:tests/windows_app_start_r1)" = 1bfca020ec88c0a380c86e08aa798bea29a1e998
+          test "$(git rev-parse HEAD:tests/wp15_app1a_r1)" = bdd861b693516db2e5244660b3e99ee400d506de
+          test "$(git rev-parse HEAD:tests/wp14_r1)" = e1ef171ffdd7464314b4b838a7d904b1a94f5409
+      - name: Context and failure receipt controls (ZERO Product execution)
+        run: |
+          python3 -B tests/windows_app_start_r2/controls.py
+          python3 -B tests/windows_app_start_r2/child_context.py --help
+          python3 -B -c "import ast,pathlib; [ast.parse(p.read_text(),filename=str(p)) for p in pathlib.Path('tests/windows_app_start_r2').glob('*.py')]"
+      - name: Shared actual recorder gate controls and syntax (ZERO native API execution)
+        shell: pwsh
+        run: |
+          & ./tests/windows_app_start_r2/controls.ps1
+          Get-ChildItem tests/windows_app_start_r2 -Filter '*.ps1' | ForEach-Object {
+            $tokens=$null;$parseErrors=$null
+            [void][Management.Automation.Language.Parser]::ParseFile($_.FullName,[ref]$tokens,[ref]$parseErrors)
+            if ($parseErrors.Count) { throw ($parseErrors | Out-String) }
+          }
