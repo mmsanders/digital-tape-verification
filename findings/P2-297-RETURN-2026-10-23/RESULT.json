@@ -1,0 +1,37 @@
+{
+  "candidate": "c2d4dcfffdfd05a23fc128fb0880801295234769",
+  "base": "bf2381c9c187c14ce65cc501b13f9eb512c99693",
+  "accepted_source": "cd996a2e91fbbc6daca520438fef5f6c79dc94b5",
+  "copied_source_blobs": 7,
+  "existing_parser_blobs": 2,
+  "exact_adapter": true,
+  "changed_paths": [
+    ".github/workflows/backend-component.yml",
+    "docs/REVIEW/software546/COMPONENT-BLOBS.json",
+    "host/app/backend-component/.gitignore",
+    "host/app/backend-component/Cargo.lock",
+    "host/app/backend-component/Cargo.toml",
+    "host/app/backend-component/README.md",
+    "host/app/src/children.rs",
+    "host/app/src/drops.rs",
+    "host/app/src/ingest_job.rs",
+    "host/app/src/jobdir.rs",
+    "host/app/src/label.rs",
+    "host/app/src/lib.rs",
+    "host/app/src/state.rs",
+    "host/app/tests/lifecycle_adapter.rs"
+  ],
+  "external_locked_packages": 31,
+  "changed_dependency_lists": [
+    "digital-tape-app",
+    "getrandom",
+    "indexmap",
+    "serde_derive",
+    "serde_json"
+  ],
+  "no_new_dependency_edges": true,
+  "manifest": "PASS",
+  "declarations": "PASS",
+  "scope": "mechanical carrier only;286 behavior carried",
+  "runtime_executions": 0
+}
