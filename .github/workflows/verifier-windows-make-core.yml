@@ -1,0 +1,19 @@
+name: Internal off-card composition controls
+on:
+  pull_request:
+    paths: ['tests/windows_make_core_r1/**', 'findings/P2-287-*/**', '.github/workflows/verifier-windows-make-core.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Internal callback/session causal predicates (ZERO Product/device execution)
+        run: |
+          test "$(git rev-parse HEAD:tests/wp14_r1)" = e1ef171ffdd7464314b4b838a7d904b1a94f5409
+          python3 -B tests/windows_make_core_r1/oracle.py
+          python3 -B -c "import ast,pathlib; ast.parse(pathlib.Path('tests/windows_make_core_r1/oracle.py').read_text())"
