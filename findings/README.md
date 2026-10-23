@@ -1,5 +1,10 @@
 # Verification findings index
 
+22October2026: [Verification280 actual Windows app return](P2-280-RETURN-2026-10-22/README.md)
+authenticates538's retained real artifact/process/window and S1 report. STOP:
+normal quit unproved after forced cleanup; positive S1 row exit1/IO_FOLDER;
+P1/UI unexecuted. No source integration clearance; no unchanged rerun.
+
 19 October2026: [INGEST approved process-only policy launch](P2-222-POLICY-2026-10-19/README.md)
 records Michael's explicit authorization after222's default Restricted finding.
 Exact old kit/script carry; fresh receipts preserve earlier failure evidence.

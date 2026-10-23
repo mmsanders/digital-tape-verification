@@ -28,3 +28,7 @@ jobs:
           $tokens=$null;$errors=$null
           [void][Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD 'tests/windows_app_start_r1/Start-App.ps1'),[ref]$tokens,[ref]$errors)
           if ($errors.Count -ne 0) { throw ($errors | Out-String) }
+      - name: Actual280 review controls (private originals unavailable in CI)
+        run: |
+          test "$(git rev-parse HEAD:tests/windows_app_start_r1)" = 1bfca020ec88c0a380c86e08aa798bea29a1e998
+          python3 -B findings/P2-280-RETURN-2026-10-22/review.py
