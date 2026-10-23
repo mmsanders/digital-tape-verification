@@ -1,0 +1,21 @@
+name: Windows portable preview controls
+on:
+  pull_request:
+    paths: ['tests/windows_preview_r1/**', 'findings/P2-288-*/**', '.github/workflows/verifier-windows-preview.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate unchanged context
+        run: test "$(git rev-parse HEAD:tests/windows_app_start_r2)" = 7bc7ba108e75517d77ca59232883afd298e14b49
+      - name: Packaging predicates and helper import (ZERO Product execution)
+        run: |
+          python3 -B tests/windows_preview_r1/archive.py
+          python3 -B tests/windows_preview_r1/foreign_cwd.py --help
+          python3 -B -c "import ast,pathlib; [ast.parse(p.read_text(encoding='utf-8-sig'),filename=str(p)) for p in pathlib.Path('tests/windows_preview_r1').glob('*.py')]"
