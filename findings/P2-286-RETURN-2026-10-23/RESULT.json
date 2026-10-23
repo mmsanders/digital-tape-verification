@@ -1,0 +1,23 @@
+{
+  "candidate": "cd996a2e91fbbc6daca520438fef5f6c79dc94b5",
+  "method": "ce8b9c114d622156ae3f4600776846baf5a0d79c",
+  "inventory_files": 80,
+  "inventory_sha256": "9b1b9b09dbd7efa8cc9ab2b370fbfd8d01853e8afefa904579aa47dca27c6e9f",
+  "supplemental_return_sha256": "cc23e3a3b1832dff87971569d1174354544cde2c66b827ad3a3bd0847ade6eaf",
+  "source_blobs": 32,
+  "method_files": 3,
+  "build_lock_checkout": "exact Git LF to Windows CRLF",
+  "typed_state_cases": 8,
+  "delivery_sequences": 5,
+  "actual_p0_exit": 0,
+  "actual_p1_exit": 2,
+  "actual_p1_id": "FOLDER_EMPTY",
+  "pair_sha256": {
+    "audio.wav": "50fac71c22bc836b030a3b0268ac824eaf4a30127193be1cb03904b9abe4bd93",
+    "manifest.json": "ab0f8a2f12705282120677da5b7a209517fdfa3840945998ba70c73698007186"
+  },
+  "predicate": "ONLY actual raw-reviewed backend lifecycle and real runner scope; no UI/native acceptance",
+  "scope": "backend lifecycle/ordinary jobs/real production runner only",
+  "actual_UI": "UNEXECUTED",
+  "product_executions_in_review": 0
+}
