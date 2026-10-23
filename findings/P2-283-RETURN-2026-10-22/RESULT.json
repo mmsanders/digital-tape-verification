@@ -1,0 +1,13 @@
+{
+  "overall": "BOUNDED PASS",
+  "scope": "native window/normal quit + direct P0/P1 only",
+  "method": "a039fdfd2ea1304dd09d3c4ec713ff6b41b71fe7",
+  "compiled_source": "45695aa0edb8a757db5074d17c39eda12bcda888",
+  "private_inventory_sha256": "b2048312aefa3043f07cd38a6a63ea6c60ac7991a0eb649a33a4d23fdceeaf5e",
+  "inventory_files": 38,
+  "actual_UI": "UNEXECUTED",
+  "source_clearance": "only exact judged host startup/quit and pinned direct-child component; normal current-base CI/reviews/protections required",
+  "unaccepted": ["page readiness", "one-window visual claim", "app-driven child", "UI controls", "fullAPP", "INGEST", "CLI A6", "native session", "shipping Make", "G2"],
+  "os": "Windows11 Core 25H2 26200.9457 x64; both effective tokens non-admin",
+  "loaded_runtime_module": "EmbeddedBrowserWebView.dll155.0.4283.62; selected-browser-runtime field remains unavailable"
+}

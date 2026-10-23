@@ -22,6 +22,10 @@ jobs:
           python3 -B tests/windows_app_start_r2/controls.py
           python3 -B tests/windows_app_start_r2/child_context.py --help
           python3 -B -c "import ast,pathlib; [ast.parse(p.read_text(),filename=str(p)) for p in pathlib.Path('tests/windows_app_start_r2').glob('*.py')]"
+      - name: Actual283 sanitized review scope (private originals unavailable)
+        run: |
+          test "$(git rev-parse HEAD:tests/windows_app_start_r2)" = 7bc7ba108e75517d77ca59232883afd298e14b49
+          python3 -B findings/P2-283-RETURN-2026-10-22/review.py
       - name: Shared actual recorder gate controls and syntax (ZERO native API execution)
         shell: pwsh
         run: |

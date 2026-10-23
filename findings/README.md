@@ -1,5 +1,9 @@
 # Verification findings index
 
+22October2026: [Verification283 actual corrected Windows return](P2-283-RETURN-2026-10-22/README.md)
+passes exact native-window readiness/normal quit and approved non-admin direct
+S1 P0/P1. Actual UI/page/app-driven child remain unexecuted; bounded clearance only.
+
 22October2026: [Verification280 actual Windows app return](P2-280-RETURN-2026-10-22/README.md)
 authenticates538's retained real artifact/process/window and S1 report. STOP:
 normal quit unproved after forced cleanup; positive S1 row exit1/IO_FOLDER;
