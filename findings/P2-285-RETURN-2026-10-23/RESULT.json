@@ -1,0 +1,19 @@
+{
+  "ui_disposition": "BLOCKED; no UI acceptance",
+  "ui_inventory_files": 17,
+  "ui_inventory_sha256": "d3d6243fd61f6cb20e1f2a17e0654b8d9b400b682b1615528da54a6e7770202e",
+  "helper_files_authenticated": 6,
+  "interaction_seconds": 240.3345399,
+  "forced_cleanup": true,
+  "exit": 1,
+  "ui_receipt_limit": "Producer retained tool-error summary; no independent capture or signed tool transcript",
+  "argv_limit": "Published supervisor leaves argv empty; command recovered only from approval request plus authenticated Popen source",
+  "preview_disposition": "BOUNDED PACKAGING PASS; UI/foreign-cwd integration HELD",
+  "preview_inventory_sha256": "abbd7994b317fc53946830689e5adbdbf104867eda4855b11dae34fd8a097c1c",
+  "preview_method_files_authenticated": 4,
+  "zip_bytes": 2428934,
+  "zip_sha256": "6092ae4d744b11d8bc8db7abfcd3a38e8cb203db13cc9fcfe0b5f720a9e86629",
+  "deterministic_zip": true,
+  "packaging_predicate": "ONLY registry-bound unsigned preview packaging; actual functions require independent original evidence",
+  "product_executions": 0
+}
