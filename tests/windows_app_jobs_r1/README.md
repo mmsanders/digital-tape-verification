@@ -27,10 +27,10 @@ Verification; do not tune assertions. No engine/interface invention.
 `lifecycle.py --emit` supplies small deterministic typed state cases and delivery
 sequences; actual adapter returns `state_rows` and `delivery_rows` with the exact
 structure expected by `qualify`. `--input TRACE --candidate SHA` compares them.
-Synthetic typed Outcome/report inputs test production backend logic ONLY. They
-normalize the actual checking flag to `view=Checking`; this is an observation
+Synthetic typed Outcome/report inputs test production backend logic ONLY. The model
+normalizes the actual checking flag to `view=Checking`; this is an observation
 schema, not a requirement to add a shipping UI enum or rewrite the architecture.
-are clearly identified synthetic component controls, never fake process/report
+These inputs are clearly identified synthetic component controls, never fake process/report
 success presented as an actual child result. No synthetic child executable exists.
 
 Boundary cases preserve original report grammar/fallback: exit0+pair succeeds
