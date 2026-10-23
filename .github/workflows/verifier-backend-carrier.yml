@@ -1,0 +1,18 @@
+name: Backend carrier controls
+on:
+  pull_request:
+    paths: ['tests/windows_backend_carrier_r1/**', 'findings/P2-297-*/**', '.github/workflows/verifier-backend-carrier.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unchanged inherited lifecycle predicates
+        run: test "$(git rev-parse HEAD:tests/windows_app_jobs_r1)" = 4859e302e9fd618ecf6e8a65729c6e3f42a8877e
+      - name: Pure carrier controls (ZERO Product execution)
+        run: python3 -B tests/windows_backend_carrier_r1/wrapper.py
