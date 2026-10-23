@@ -1,0 +1,21 @@
+name: Windows app lifecycle controls
+on:
+  pull_request:
+    paths: ['tests/windows_app_jobs_r1/**', 'findings/P2-286-*/**', '.github/workflows/verifier-windows-app-jobs.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate immutable parser expectations
+        run: test "$(git rev-parse HEAD:tests/wp15_app1a_r1)" = bdd861b693516db2e5244660b3e99ee400d506de
+      - name: Independent typed-state controls (ZERO Product execution)
+        run: |
+          python3 -B tests/windows_app_jobs_r1/lifecycle.py
+          python3 -B tests/windows_app_jobs_r1/lifecycle.py --emit > /tmp/independent-cases.json
+          python3 -B -c "import ast,pathlib; ast.parse(pathlib.Path('tests/windows_app_jobs_r1/lifecycle.py').read_text())"
