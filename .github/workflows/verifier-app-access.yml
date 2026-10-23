@@ -1,0 +1,19 @@
+name: Exact-app access receipt controls
+on:
+  pull_request:
+    paths: ['tests/windows_app_access_r1/**', 'findings/P2-298-*/**', '.github/workflows/verifier-app-access.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Receipt controls and helper syntax only
+        run: |
+          python3 -B tests/windows_app_access_r1/receipt.py
+          python3 -B tests/windows_app_access_r1/ui_process.py --help
+          python3 -B -c "import ast,pathlib; [ast.parse(p.read_text(encoding='utf-8-sig')) for p in pathlib.Path('tests/windows_app_access_r1').glob('*.py')]"
