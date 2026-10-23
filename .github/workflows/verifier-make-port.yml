@@ -1,0 +1,18 @@
+name: Ordinary Make port admission controls
+on:
+  pull_request:
+    paths: ['tests/windows_make_port_r1/**', 'findings/P2-299-*/**', '.github/workflows/verifier-make-port.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate original matrix
+        run: test "$(git rev-parse HEAD:tests/windows_make_core_r1)" = 0e68c8092d1fe0efc085ef8b0f23ade721b5df07
+      - name: Pure existing-file admission controls (ZERO Product execution)
+        run: python3 -B tests/windows_make_port_r1/admission.py
