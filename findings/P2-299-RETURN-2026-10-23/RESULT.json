@@ -1,0 +1,124 @@
+{
+  "candidate": "32e742321180a69a9d74ce1cd3b712e219cdf25d",
+  "product_main": "c421c84e701182b94ebb9cfb5437c3274d58aec2",
+  "verification_main": "d8276b033c6c1aa553d823d0d993ed407cbfc726",
+  "original_files": 108,
+  "original_bytes": 421447994,
+  "inventory_sha256": "b20412468c9f5d84e47bf3390db9f3495d77fa5b9dde79e77576dcc15d20d36d",
+  "elapsed_seconds": 19.0550528,
+  "rows": [
+    {
+      "case": "positive",
+      "exit": 0,
+      "opens": 1,
+      "image_sha256": "2581530d60771637c1a86f0657b544f9a9c1459000ad05d3547fc4ea460e61bb",
+      "stdout_hex": "4f4b0a",
+      "fault": []
+    },
+    {
+      "case": "initial-query-failure",
+      "exit": 1,
+      "opens": 0,
+      "image_sha256": "cbf8cadc1ce8cd18350f66a73c1c73cfb91dfededcdf30347a49ddb18c877d75",
+      "stdout_hex": "",
+      "fault": []
+    },
+    {
+      "case": "unknown-safety",
+      "exit": 1,
+      "opens": 0,
+      "image_sha256": "cbf8cadc1ce8cd18350f66a73c1c73cfb91dfededcdf30347a49ddb18c877d75",
+      "stdout_hex": "",
+      "fault": []
+    },
+    {
+      "case": "policy-refusal",
+      "exit": 3,
+      "opens": 0,
+      "image_sha256": "cbf8cadc1ce8cd18350f66a73c1c73cfb91dfededcdf30347a49ddb18c877d75",
+      "stdout_hex": "",
+      "fault": []
+    },
+    {
+      "case": "provision-failure",
+      "exit": 1,
+      "opens": 1,
+      "image_sha256": "cbf8cadc1ce8cd18350f66a73c1c73cfb91dfededcdf30347a49ddb18c877d75",
+      "stdout_hex": "",
+      "fault": [
+        {
+          "phase": "provision",
+          "op": "write",
+          "offset": 17895424,
+          "length": 512,
+          "ordinal": 1,
+          "result": -1,
+          "os_error_code": 6
+        }
+      ]
+    },
+    {
+      "case": "load-failure",
+      "exit": 1,
+      "opens": 1,
+      "image_sha256": "d876a1a4f97c1a3b1cc4401318cfcfbd0d2ae996e56a516cbdd30442f6159f4f",
+      "stdout_hex": "",
+      "fault": [
+        {
+          "phase": "load",
+          "op": "read",
+          "offset": 0,
+          "length": 512,
+          "ordinal": 1,
+          "result": -1,
+          "os_error_code": 6
+        }
+      ]
+    },
+    {
+      "case": "verify-failure",
+      "exit": 1,
+      "opens": 1,
+      "image_sha256": "2581530d60771637c1a86f0657b544f9a9c1459000ad05d3547fc4ea460e61bb",
+      "stdout_hex": "4d4f554e5420544150455f4552525f494f0a",
+      "fault": [
+        {
+          "phase": "verify",
+          "op": "read",
+          "offset": 17825792,
+          "length": 512,
+          "ordinal": 2,
+          "result": -1,
+          "os_error_code": 6
+        }
+      ]
+    },
+    {
+      "case": "media-change",
+      "exit": 1,
+      "opens": 1,
+      "image_sha256": "d876a1a4f97c1a3b1cc4401318cfcfbd0d2ae996e56a516cbdd30442f6159f4f",
+      "stdout_hex": "",
+      "fault": []
+    },
+    {
+      "case": "media-remove",
+      "exit": 1,
+      "opens": 1,
+      "image_sha256": "d876a1a4f97c1a3b1cc4401318cfcfbd0d2ae996e56a516cbdd30442f6159f4f",
+      "stdout_hex": "",
+      "fault": []
+    },
+    {
+      "case": "query-failure",
+      "exit": 1,
+      "opens": 1,
+      "image_sha256": "d876a1a4f97c1a3b1cc4401318cfcfbd0d2ae996e56a516cbdd30442f6159f4f",
+      "stdout_hex": "",
+      "fault": []
+    }
+  ],
+  "no_Product_execution": true,
+  "scope": "retained ordinary-file internal component ONLY",
+  "chronology": "Pre-addendum unbuilt private scaffold retained; no retroactive test-first claim. Final published port follows independent302."
+}
