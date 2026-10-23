@@ -1,0 +1,23 @@
+name: Windows app no-card flow controls
+on:
+  pull_request:
+    paths: ['tests/windows_app_flow_r1/**', 'findings/P2-285-*/**', '.github/workflows/verifier-windows-app-flow.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate unchanged predicates and context
+        run: |
+          test "$(git rev-parse HEAD:tests/wp15_app1a_r1)" = bdd861b693516db2e5244660b3e99ee400d506de
+          test "$(git rev-parse HEAD:tests/windows_app_start_r2)" = 7bc7ba108e75517d77ca59232883afd298e14b49
+      - name: Causal predicates and process-helper import (ZERO Product execution)
+        run: |
+          python3 -B tests/windows_app_flow_r1/judge.py
+          python3 -B tests/windows_app_flow_r1/ui_process.py --help
+          python3 -B -c "import ast,pathlib; [ast.parse(p.read_text(),filename=str(p)) for p in pathlib.Path('tests/windows_app_flow_r1').glob('*.py')]"
