@@ -1,0 +1,37 @@
+{
+  "source": "9cde1f2affecca7f598a102c3dda161cf517bc3c",
+  "evidence": "26c47d476b46fa9fa36606d641bec70bc170114d",
+  "current_main": "d2213aabbcb9a0d0c10fe5edb6bd3c4606b1acb9",
+  "verification": "63af09b6792d728e3acfb39f331602535b09293d",
+  "imports": {
+    "tests/windows_screen_r1": "a9db59920838eb9b8daf91977742ed058171c214",
+    "tests/windows_bridge_r1": "374aa1087474c2eed7e696c01214894dd4ae5d81"
+  },
+  "qualifiers": [
+    "ONLY production renderer/input component; actual Windows UI UNEXECUTED",
+    "ONLY thin production bridge/wiring component; no native UI/race/real-child clearance",
+    "ONLY current exact optional snapshot-frame projection; no native/INGEST acceptance"
+  ],
+  "views": 15,
+  "labels": 8,
+  "drop_rows": 3,
+  "frame_sequences": 16,
+  "artifact_sha256": "907403ce948bf65b5f9c01ccb6cab13d7d12175ee4215493cb267edbceda3106",
+  "artifact_members_matched": 6,
+  "raw_sha256": {
+    "screen-observations.json": "53e5df5a9eb52ec23fb4152d6299a91aa1175cde866b438cd98afebaf67a7697",
+    "dom.json": "6f73abe41ec745b103c789dc6968a0e0078d7b34cc1892707fdf317bafda5727",
+    "bridge.raw.json": "383211d4094c545a9fd1e582b716942542bb3decffa6a67a951f8461db11a1d9",
+    "bridge-observations.json": "ccb292fa56bc540432079c991b26e2b016982e087cae0c972b1497dc0ea500d2",
+    "frames.raw.json": "1d24548f272c06abdc45c534807baee92681339df604d9805564247b4f692ec9",
+    "frames.json": "fd898e7f2aa90746cfe46ac446a1fbc48691b94feafa2abcc853a0022642f2cf",
+    "screen-host.json": "291e021a86a4a6f0ff4d27b5816d8b4e2f58cbd2c413cded190393f38d49c79a",
+    "binding-dom.json": "82df17aedf46ba22e612202f6bc6deecbc63404167bb2acc42e8e9a23ad48a0e",
+    "runtime.json": "1e98beb698614fad4751027c6188300d98eec313fa1782c733c59bb719f63fa1"
+  },
+  "result": "PASS exact source/component scope; staged production-function and isolated DOM facts only",
+  "product_execution": false,
+  "native_ui": false,
+  "real_child_execution": false,
+  "launch_admission": false
+}
