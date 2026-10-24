@@ -1,0 +1,16 @@
+name: Production app component expectations
+on:
+  pull_request:
+    paths: ['tests/windows_screen_r1/**', 'tests/windows_bridge_r1/**', 'tests/windows_candidate_r1/**', 'findings/P2-305-*/**', 'findings/P2-306-*/**', 'findings/P2-307-*/**', '.github/workflows/verifier-production-app.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Screen causal controls (ZERO Product execution)
+        run: python3 -B tests/windows_screen_r1/contract.py
