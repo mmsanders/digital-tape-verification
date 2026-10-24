@@ -10,7 +10,7 @@ mounts/imports ACTUAL production page/renderer in an isolated test DOM, drives i
 real input/drop/reset/details handlers and captures actual control values/text,
 bar attributes/styles and serialized mounted DOM plus callback arguments. Return
 views keyed by id and labels with actual after values; drops have accepted,
-drop_callbacks, callback_batches and refusal sentence. --input/--candidate judges
+accepted_check_requests, transport_batches, accepted_batches and refusal sentence. --input/--candidate judges
 the result. Module/export/markup spelling may be mechanically adapted; assertions,
 values and event ordering may not. Source/adapter/raw test-DOM captures and actual
 test command/compiler/dependency records must prove this linkage. A mirror state
@@ -46,9 +46,21 @@ is invented. Non-Unicode conversion remains explicit and cannot authorize a chil
 
 Drop controls are synthetic callback payloads in OS-reported sequence: A, then B/C.
 Folders append in that order; a file or mixed gesture adds NOTHING and emits zero
-new drop/child callbacks. Malformed/unknown payloads cannot silently authorize a
+new authorized check/child callbacks. Malformed/unknown payloads cannot silently authorize a
 job. Backend identity dedup remains authoritative; do not fake OS identity in the
 renderer. This tests production payload handling, not OS folder gestures or298.
+
+Pre-code interface coordination5636378570118 resolves observation ownership:
+screen passes whole ordered PATH arrays to host, where existing backend/new306
+validation classifies folders and rejects mixed events atomically. No frontend
+filesystem-kind guessing is required. transport_batches records EVERY actual
+screen callback, including rejected file/mixed arrays. accepted_batches records
+only admitted gesture deltas from actual host state, and accepted_check_requests
+counts new worker requests after admission. These shared renderer->host rows may
+wait for306; a screen-only fixture cannot fabricate host acceptance. This schema
+clarification predates implementation and replaces308's ambiguous drop_callbacks
+name, not the zero-new-child/all-or-nothing/order predicates. No assertions are
+relaxed to accommodate inspected code; no new implementation has been inspected.
 
 Problem details are actual DOM text with copy/select support. View sentence uses
 the accepted backend category/structured facts; adapter maps arbitrary platform
