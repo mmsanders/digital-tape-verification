@@ -16,3 +16,15 @@ jobs:
         run: python3 -B tests/windows_screen_r1/contract.py
       - name: Bridge causal controls (ZERO Product execution)
         run: python3 -B tests/windows_bridge_r1/contract.py
+      - name: Candidate preparation controls (ZERO Product execution)
+        run: python3 -B tests/windows_candidate_r1/prepare.py
+  window-controls:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inherited pure readiness/quit controls and C# compile (ZERO Win32 calls)
+        shell: pwsh
+        run: tests/windows_app_start_r2/controls.ps1
+      - name: New manifest/receipt causal controls (ZERO Win32 calls)
+        shell: pwsh
+        run: tests/windows_candidate_r1/controls.ps1
