@@ -58,8 +58,9 @@ def qualify(r,head):
     assert r['labels']==LABELS # after is actual DOM value after input, never a predicted trace
     assert set(r['drops'])=={x['id'] for x in DROPS}
     for x in DROPS:
-        y=r['drops'][x['id']];assert y['accepted']==x['accepted'] and y['drop_callbacks']==x['calls']
-        assert y['callback_batches']==[[z['path'] for z in batch] for batch in x['gestures'] if all(z['kind']=='folder' for z in batch)]
+        y=r['drops'][x['id']];assert y['accepted']==x['accepted'] and y['accepted_check_requests']==x['calls']
+        assert y['transport_batches']==[[z['path'] for z in batch] for batch in x['gestures']]
+        assert y['accepted_batches']==[[z['path'] for z in batch] for batch in x['gestures'] if all(z['kind']=='folder' for z in batch)]
         if x['id']!='ordered':assert y['sentence']==FOLDERS
     reset=r['start_over'];assert reset['callbacks']==1 and reset['accepted']==[] and reset['label']=='' and reset['details']=='' and reset['state']=='Empty' and reset['frames']==0 and reset['make_disabled']
     assert r['malformed_drop_callbacks']==0 and r['mount_side_effects']==[]
@@ -77,10 +78,10 @@ def controls():
     assert len(('é'*16).encode())==32 and len(('😀'*8).encode())==32
     fixture=dict(source_head='a'*40,evidence_class='production component / test DOM',raw_refs=['SYNTHETIC'],adapter_ref='SYNTHETIC',native_ui=False,shipping_test_switch=False,make_enabled=False,
                  views={v['id']:dict(v,make_disabled=True,enumerated_items=[],html='<main>fixture</main>',raw_ref='SYNTHETIC',details_copyable=True,progress_bar_count=1) for v in VIEWS},labels=copy.deepcopy(LABELS),
-                 drops={d['id']:dict(accepted=d['accepted'],drop_callbacks=d['calls'],callback_batches=[[z['path'] for z in b] for b in d['gestures'] if all(z['kind']=='folder' for z in b)],sentence=FOLDERS) for d in DROPS},
+                 drops={d['id']:dict(accepted=d['accepted'],accepted_check_requests=d['calls'],transport_batches=[[z['path'] for z in b] for b in d['gestures']],accepted_batches=[[z['path'] for z in b] for b in d['gestures'] if all(z['kind']=='folder' for z in b)],sentence=FOLDERS) for d in DROPS},
                  start_over=dict(callbacks=1,accepted=[],label='',details='',state='Empty',frames=0,make_disabled=True),malformed_drop_callbacks=0,mount_side_effects=[])
     qualify(fixture,'a'*40)
-    mutations=[lambda q:q['labels'][2].update(after='x'*32+'y'),lambda q:q['drops']['mixed'].update(accepted=['A','B']),lambda q:q['drops']['ordered'].update(callback_batches=[['A'],['C','B']]),
+    mutations=[lambda q:q['labels'][2].update(after='x'*32+'y'),lambda q:q['drops']['mixed'].update(accepted=['A','B']),lambda q:q['drops']['ordered'].update(accepted_batches=[['A'],['C','B']]),lambda q:q['drops']['mixed'].update(transport_batches=[['A'],['B']]),
                lambda q:q['start_over'].update(label='old'),lambda q:q['views']['generic'].update(details='filtered'),lambda q:q['views']['overage-1'].update(sentence=overage(8467200)),
                lambda q:q.update(native_ui=True),lambda q:q.update(malformed_drop_callbacks=1),lambda q:q.update(mount_side_effects=['cards'])]
     for change in mutations:
