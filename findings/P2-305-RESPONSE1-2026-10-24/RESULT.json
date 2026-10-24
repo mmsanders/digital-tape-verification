@@ -1,0 +1,113 @@
+{
+  "candidate": "165915e171211d0a530b814139c35c973c4b7c61",
+  "source": "11eb294f6ceb6493cfb0ba068a1b02f3a3429aa2",
+  "publication": "3395377d5abf37ff32b9b796b492db15664077c7",
+  "finding": "P2-305-001 CLOSED in exact partial renderer",
+  "module_sha256": "7c64f68e30f38f81f45acb1005ab354eb99e5287026818cda4aa92d505a71491",
+  "views": {
+    "empty": {
+      "state": "Empty",
+      "indeterminate": false,
+      "visible": true,
+      "position": 0,
+      "value": "0"
+    },
+    "checking": {
+      "state": "Checking",
+      "indeterminate": true,
+      "visible": true,
+      "position": -1,
+      "value": null
+    },
+    "ready-two-seconds": {
+      "state": "Ready",
+      "indeterminate": false,
+      "visible": true,
+      "position": 0.0005555555555555556,
+      "value": "0.0005555555555555556"
+    },
+    "exact-fit": {
+      "state": "Ready",
+      "indeterminate": false,
+      "visible": true,
+      "position": 1,
+      "value": "1"
+    },
+    "overage-1": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": true,
+      "position": 1,
+      "value": "1"
+    },
+    "overage-8467200": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": true,
+      "position": 1,
+      "value": "1"
+    },
+    "folders-only": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": false,
+      "position": -1,
+      "value": null
+    },
+    "protected": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": false,
+      "position": -1,
+      "value": null
+    },
+    "unusable": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": false,
+      "position": -1,
+      "value": null
+    },
+    "folder-content": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": false,
+      "position": -1,
+      "value": null
+    },
+    "generic": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": false,
+      "position": -1,
+      "value": null
+    },
+    "making-projection-only": {
+      "state": "Making",
+      "indeterminate": false,
+      "visible": true,
+      "position": 1,
+      "value": "1"
+    },
+    "done-projection-only": {
+      "state": "Done",
+      "indeterminate": false,
+      "visible": false,
+      "position": -1,
+      "value": null
+    },
+    "escaped-name": {
+      "state": "Problem",
+      "indeterminate": false,
+      "visible": false,
+      "position": -1,
+      "value": null
+    }
+  },
+  "label_rows": 8,
+  "negative_control_rejected_by_frozen_predicate": true,
+  "dom_sha256": "c0bbd02d46dafbb87eda4ec68718163ff2be15b8a5a0ed4b347ee155f2934364",
+  "observations_sha256": "8f3360fbd0511c74b9061b5a1f72946bfe249d77537ec777ce1563bcfabe591e",
+  "scope": "Partial renderer projection correction ONLY; full305/306 host/copy/admission pending",
+  "no_Product_or_browser_replay": true
+}
