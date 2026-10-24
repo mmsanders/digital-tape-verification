@@ -12,6 +12,7 @@ def overage(frames):
 
 VIEWS=[
  dict(id='empty',state='Empty',label='',frames=0,ratio=0,indeterminate=False,too_long=False,sentence='',details='',action=None,card='Put a card in.'),
+ dict(id='empty-disabled-discovery',state='Empty',label='',frames=0,ratio=0,indeterminate=False,too_long=False,sentence='',details='',action=None,card="Finding cards isn't part of this build yet."),
  dict(id='checking',state='Checking',label='Music',frames=None,ratio=None,indeterminate=True,too_long=False,sentence='Checking the music…',details='',action=None,card='Put a card in.'),
  dict(id='ready-two-seconds',state='Ready',label='Music',frames=88200,ratio=88200/CAPACITY,indeterminate=False,too_long=False,sentence='',details='',action='Start over',card='Put a card in.'),
  dict(id='exact-fit',state='Ready',label='Music',frames=CAPACITY,ratio=1,indeterminate=False,too_long=False,sentence='',details='',action='Start over',card='Put a card in.'),

@@ -71,3 +71,40 @@ Too much untested legacy540 shell requires a minimal split, not blanket clearanc
 No native/session/S3/A6/INGEST/fullAPP/G2 advance, quarantined pre302 reuse, engine/
 format/hardware changes or repeated accepted actual rows.306 stays OPEN for actual
 producer component;307 candidate provenance expectations can proceed independently.
+
+## Declared exact-frame snapshot extension, before host implementation
+
+5626378649525 identifies a PRE-CODE interface gap: accepted View exposes capped
+bar only. Freeze OPTIONAL total_frames beside that existing View in the host
+snapshot/event, without widening backend outcome/authorization rules. This is
+internal authoritative data plumbing, not a new user choice, parser or workflow.
+frames.py --emit supplies16 controlled sequences; observe actual production
+snapshot optional count after actual bridge completion/current gate, not adapter
+expectations. raw_refs/actual_snapshot_refs/accepted_gate_refs/typed_outcome_refs
+bind command/adapter/source and captures for independent review.
+
+Success carries exact published-pair manifest total_frames (88200 fixture) only
+after current success acceptance; current valid INGEST_TOO_LONG carries exact
+validated total_frames, not excess or ceil-seconds. Cover one-frame and8467200
+excess and max2^53-1 total (typed parser-valid refusal fixture, no huge file).
+Wrong-nonce/invalid reporting cannot supply ID-specific count. Exit0/no pair,
+generic failure and progress100% cannot invent one. New check and Start-over clear
+the optional count. Stale/wrong-job/duplicate/cancelled results cannot replace it;
+label-only change preserves the current count. Store/project only after the SAME
+accepted gate accepts a current result; use existing parsed Outcome/manifest facts,
+never another parser, inverse capped ratio, floating reconstruction or fixture ID.
+These typed inputs are unit fixtures, not a claim that an impossible successful
+over-capacity ingest was observed. Empty raw snapshot count is None; the renderer's
+empty display bar remains0. Frame attribution in305 is a normalized input/model
+fact, not a requirement to add a raw-frame DOM attribute. Capped visible ratio,
+overage style/text and actual DOM values are independently captured.
+
+Normal Empty/Checking/Ready/Problem copy/length rows must be attributable to actual
+backend View from controlled typed outcomes and actual renderer, not assigning
+contract expected strings into View.message to manufacture copy coverage. A
+standalone text projection may be reported narrowly while composed host rows
+wait306. Making/Done stay explicit renderer-only fixtures. Discovery-disabled live
+card text may truthfully say Finding cards isn't part of this build yet.;305 adds
+that supplied card-line fixture. Do not imply live cards enumeration from model
+Put a card in. values. This addendum predates host changes/source inspection;
+existing parser/backend actual evidence remains carried and all holds survive.

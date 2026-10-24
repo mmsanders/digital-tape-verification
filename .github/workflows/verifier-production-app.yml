@@ -16,6 +16,8 @@ jobs:
         run: python3 -B tests/windows_screen_r1/contract.py
       - name: Bridge causal controls (ZERO Product execution)
         run: python3 -B tests/windows_bridge_r1/contract.py
+      - name: Exact optional frame projection controls (ZERO Product execution)
+        run: python3 -B tests/windows_bridge_r1/frames.py
       - name: Candidate preparation controls (ZERO Product execution)
         run: python3 -B tests/windows_candidate_r1/prepare.py
   window-controls:
