@@ -1,0 +1,98 @@
+{
+  "candidate": "0c95c45f818fd80836b10ed13fcf443bc4e1c216",
+  "publication": "3395377d5abf37ff32b9b796b492db15664077c7",
+  "module_sha256": "1bef0045be9a6468199c805e48d74acd716e95263a4078778a7dc67d50266283",
+  "view_count": 14,
+  "label_count": 8,
+  "finding": "P2-305-001",
+  "mismatches": [
+    {
+      "case": "folders-only",
+      "state": "Problem",
+      "claimed_indeterminate": false,
+      "visible_progress": true,
+      "value_attribute_present": false,
+      "html_progress_attributes": {
+        "id": "length",
+        "max": "1",
+        "data-kind": "length",
+        "data-too-long": "false",
+        "data-indeterminate": "false"
+      }
+    },
+    {
+      "case": "protected",
+      "state": "Problem",
+      "claimed_indeterminate": false,
+      "visible_progress": true,
+      "value_attribute_present": false,
+      "html_progress_attributes": {
+        "id": "length",
+        "max": "1",
+        "data-kind": "length",
+        "data-too-long": "false",
+        "data-indeterminate": "false"
+      }
+    },
+    {
+      "case": "unusable",
+      "state": "Problem",
+      "claimed_indeterminate": false,
+      "visible_progress": true,
+      "value_attribute_present": false,
+      "html_progress_attributes": {
+        "id": "length",
+        "max": "1",
+        "data-kind": "length",
+        "data-too-long": "false",
+        "data-indeterminate": "false"
+      }
+    },
+    {
+      "case": "folder-content",
+      "state": "Problem",
+      "claimed_indeterminate": false,
+      "visible_progress": true,
+      "value_attribute_present": false,
+      "html_progress_attributes": {
+        "id": "length",
+        "max": "1",
+        "data-kind": "length",
+        "data-too-long": "false",
+        "data-indeterminate": "false"
+      }
+    },
+    {
+      "case": "generic",
+      "state": "Problem",
+      "claimed_indeterminate": false,
+      "visible_progress": true,
+      "value_attribute_present": false,
+      "html_progress_attributes": {
+        "id": "length",
+        "max": "1",
+        "data-kind": "length",
+        "data-too-long": "false",
+        "data-indeterminate": "false"
+      }
+    },
+    {
+      "case": "escaped-name",
+      "state": "Problem",
+      "claimed_indeterminate": false,
+      "visible_progress": true,
+      "value_attribute_present": false,
+      "html_progress_attributes": {
+        "id": "length",
+        "max": "1",
+        "data-kind": "length",
+        "data-too-long": "false",
+        "data-indeterminate": "false"
+      }
+    }
+  ],
+  "scope": "Partial renderer/test-DOM observations ONLY; combined host/copy rows pending306; no clearance",
+  "no_Product_or_browser_replay": true,
+  "observations_sha256": "7230d79abe34149f09326f5ea56b32457e18eaa986a6f236751be96afd6efe00",
+  "dom_sha256": "83124d080bf223521cac84a5197e942148ee4c0ebe576fac9bbfb4db199a5fee"
+}
