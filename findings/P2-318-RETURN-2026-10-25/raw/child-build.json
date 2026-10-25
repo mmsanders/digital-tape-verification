@@ -1,0 +1,43 @@
+{
+  "scope": "BUILD only; non-test tapectl.exe; not invoked; no live enumeration",
+  "source": "18f424f66bbd0ad9c9f74c930d524627a3a6cf82",
+  "version": "tapectl-wp15-s2+18f424f66bbd",
+  "sha256": "3cd678cbae5da79a1da99e6bfb2fb91d7ab711568e2557d133e245b4aa8b8ee9",
+  "bytes": 493712,
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "host_tree": "40b4ccc87fda173c1e7df58c2695a6de0c97bd8d",
+  "test_build": false,
+  "build_command": "C:/mingw64/bin/mingw32-make -C host CC=gcc HEAD_ID=18f424f66bbd ../build/host/tapectl.exe",
+  "crosswalk": {
+    "accepted_s2": "10faee593fa103fd498bbe71af375bc097a481a6",
+    "blobs": {
+      "host/tapectl.c": {
+        "current": "d76fe3f6bf7f12f35fb2c25c8170ed05dcfb8f6a",
+        "accepted": "8a4fe0988c9edeb71e20b47df13539afb4b74815"
+      },
+      "host/port/discover_win.c": {
+        "current": "49e0f7e930756a64739b2d49c2b43f91ea1e9d84",
+        "accepted": "49e0f7e930756a64739b2d49c2b43f91ea1e9d84"
+      },
+      "host/port/discover.c": {
+        "current": "b2c7a6902a87e7577301c0030fd6605fb644d1ac",
+        "accepted": "b2c7a6902a87e7577301c0030fd6605fb644d1ac"
+      },
+      "host/port/discover.h": {
+        "current": "7f8bd7624aef18655199f172030d17587ee58b20",
+        "accepted": "7f8bd7624aef18655199f172030d17587ee58b20"
+      },
+      "host/report.c": {
+        "current": "61f2360b38e2a40fb0fc0ae6692bc5ec549e0f7f",
+        "accepted": "61f2360b38e2a40fb0fc0ae6692bc5ec549e0f7f"
+      },
+      "host/report.h": {
+        "current": "f9bd2ac3ed5fe949939751abd9a7ea4d2356039e",
+        "accepted": "f9bd2ac3ed5fe949939751abd9a7ea4d2356039e"
+      }
+    },
+    "cards_dispatch": "tapectl.c main -> cmd_cards -> discover_enumerate (discover_win.c) -> discover_policy -> stdout/report only"
+  },
+  "run_id": 40203652448,
+  "run_attempt": 1
+}
