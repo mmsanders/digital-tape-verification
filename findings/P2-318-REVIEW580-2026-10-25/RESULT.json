@@ -1,0 +1,88 @@
+{
+  "candidate": "18f424f66bbd0ad9c9f74c930d524627a3a6cf82",
+  "base": "1cf5577099ecc4445e8465bfb9addb1d780008eb",
+  "import_tree": "ec9cda078291e24230302b732fe40d97b412a184",
+  "qualifier": "ONLY covered discovery integration component; no live metadata/native/G1/S3/Make/fullAPP clearance",
+  "controlled_rows": 23,
+  "details_unreachable": [
+    {
+      "id": "zero-unprobed",
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Put a card in.",
+        "make_enabled": false,
+        "details_available": false
+      },
+      "details": "Card check: 0 offered, 3 not checked."
+    },
+    {
+      "id": "enum-unavailable",
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Something went wrong. Nothing else on your computer was changed.",
+        "make_enabled": false,
+        "details_available": false
+      },
+      "details": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCard ready (999 GB)."
+    }
+  ],
+  "shutdown_trace": [
+    "cards:worker-start",
+    "stop-polls",
+    "cards:invalidate-current",
+    "invalidate-current",
+    "empty-view",
+    "cards:cancel",
+    "cards:child-terminal",
+    "cards:stale-dropped",
+    "cards:remove-owned-job"
+  ],
+  "inventory": {
+    "evidence/child-build.json": {
+      "bytes": 1851,
+      "sha256": "1af0c25dd3f7c617cb883932bea07e16e73654cf530d9b8c44d1b42db056cd37"
+    },
+    "evidence/discovery.json": {
+      "bytes": 9439,
+      "sha256": "37a783c6b0a82c3bd9e9b6c06698ebb3fc114dced159c0bb6e7936e125703f75"
+    },
+    "evidence/discovery.raw.json": {
+      "bytes": 127677,
+      "sha256": "3c6bcdcf3077e66566c0e74a7057a11ef55aa529ae1ab48631d57b7e7bdb8c1e"
+    },
+    "evidence/engine-build.stdout.txt": {
+      "bytes": 5375,
+      "sha256": "5e53f56bafa7ea528ff37b288977874f3eefb09427c5b9d98a13bd1086a41cbd"
+    },
+    "evidence/gcc-v.txt": {
+      "bytes": 1922,
+      "sha256": "f2e1ebd281a907663c0f697a255dbac88cf7ece67e37052f32a3ebfb6f0d059f"
+    },
+    "evidence/source-blobs.txt": {
+      "bytes": 915,
+      "sha256": "0d2d7aee3d14406538db146f1e58e2dfd7fdc1e81832d721f0d44c5dfc4bc4fe"
+    },
+    "evidence/tapectl-build.stdout.txt": {
+      "bytes": 904,
+      "sha256": "4d625005f3f1256b6de4cbad73a96fb6fd1919f8505eab7b0706c923fd173c6c"
+    },
+    "child/tapectl.exe": {
+      "bytes": 493712,
+      "sha256": "3cd678cbae5da79a1da99e6bfb2fb91d7ab711568e2557d133e245b4aa8b8ee9"
+    }
+  },
+  "evidence_class": "Independent source/raw/hash and production test-DOM review only; no child/native/UI/device execution",
+  "disposition": "CORRECTION 1 REQUIRED: discovery details access and shutdown/start registration race; no merge/live clearance"
+}

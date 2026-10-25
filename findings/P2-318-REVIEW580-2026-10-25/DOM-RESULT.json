@@ -1,0 +1,34 @@
+{
+  "candidate": "18f424f66bbd0ad9c9f74c930d524627a3a6cf82",
+  "class": "production renderer/test DOM only",
+  "results": [
+    {
+      "id": "zero-unprobed",
+      "actualView": "empty",
+      "detailsAvailable": false,
+      "detailsTextPresent": true,
+      "showHidden": true
+    },
+    {
+      "id": "zero-unprobed",
+      "diagnosticOnly": "availability true; same actual view",
+      "showHidden": true
+    },
+    {
+      "id": "enum-unavailable",
+      "actualView": "empty",
+      "detailsAvailable": false,
+      "detailsTextPresent": true,
+      "showHidden": true
+    },
+    {
+      "id": "enum-unavailable",
+      "diagnosticOnly": "availability true; same actual view",
+      "showHidden": true
+    },
+    {
+      "diagnosticOnly": "Problem panel opened; next identical state emission",
+      "detailsHidden": true
+    }
+  ]
+}
