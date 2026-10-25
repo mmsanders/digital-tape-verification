@@ -1,0 +1,42 @@
+{
+  "source": "266bdcaa760f702d6f685300cc9ca6e4491b6438",
+  "source_tree": "d0d628f407acc10745b1d01196c6d07603cfbcee",
+  "manifest_sha256": "d28082644506472050220fa7080ec59df726114b10050552dcf9a8e797c96c8e",
+  "archive_sha256": "a4b11f750fb7e3d9fd77a0e6dc1009683496ef6881791c1947a03970310b190b",
+  "artifact_sha256": "a19c47d7d474414cfb0c8cf992fd6e984bf9ff160c5e38efdd7e09a45b12aa94",
+  "members": {
+    "BUILD.json": {
+      "bytes": 2274,
+      "sha256": "0faf28103f4e76d75c392a22d7c8dbe7c33ac9732a7ff62a6a76738a358969f2"
+    },
+    "README.txt": {
+      "bytes": 1263,
+      "sha256": "839cf34dfccde339e78e2d595f9e3367ec62dea113a2176f05f25c0b1f5c9ee7"
+    },
+    "digital-tape.exe": {
+      "bytes": 4828672,
+      "sha256": "ee4c84acb03655c4fb1344db1548ab283054eabe9caea9c2482b0181b39fa250"
+    },
+    "ingest.exe": {
+      "bytes": 889856,
+      "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20"
+    },
+    "tapectl.exe": {
+      "bytes": 435533,
+      "sha256": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9"
+    }
+  },
+  "prepared_files": {
+    "Start-App.ps1": "9c13a32bd7bf4f5ebd7dfc70ca56a039fac5119305b3e7f42cd4fdfa48f8b022",
+    "window_gate.ps1": "a8af2eb0ba2106cdcc2387e4ee1d5bead177b5bf89443937233e9c777901b9f3",
+    "context.py": "5a35a7668e6612fc0321fb70c5a3b37a0ddd5f12f0e166960a1e42184bc0b9c4",
+    "WindowNative.cs": "868c11c40d776792a184dba00dc7f2a6b9a286db286cdff2981d2077956988dc",
+    "judge.ps1": "01ae9208a5d416db09b4d3baec0826b4accad06c7380340570579785f9bf0fbd"
+  },
+  "python": "C:\\Program Files\\Inkscape\\bin\\python.exe",
+  "python_sha256": "fbaff2f38852ac61c5767a91d5efbd4d893fb8ca985a9fdc76cf6d88fb93a745",
+  "tool_route": "approved-claude-code-exact-command",
+  "build_and_archive": "PASS exact offered run only; no reproducible compilation claim",
+  "runtime": "UNEXECUTED; admission and exact granted tool decision remain separate",
+  "product_execution": false
+}
