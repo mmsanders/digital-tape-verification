@@ -1,5 +1,12 @@
 # Verification findings index
 
+25October2026: [Verification318 corrected Software578 review](P2-318-CORRECTION1-2026-10-25/README.md)
+clears exact PR580/f9306c2c discovery source/component after both published fixes.
+One specifically pinned metadata-only command is admitted, still unexecuted;
+normal protected integration remains Software-owned. Native/UI/S3/Make/fullAPP
+and G2 holds remain. Earlier18f424f6 correction record below stays historical.
+
+
 25October2026: [Verification318 actual Software578 review](P2-318-RETURN-2026-10-25/README.md)
 requires corrections on exact PR580/18f424f6: stop/admission race and unreachable
 discovery diagnostics.23 controlled rows/build provenance pass within their scope;
