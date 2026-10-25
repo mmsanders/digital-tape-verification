@@ -1,0 +1,47 @@
+{
+  "run_commit": "04562178e6d8f8fe7f470bf10c17da41b31e607f",
+  "pid": 21552,
+  "process_start_ticks": 639284927220048923,
+  "handle": 1246546,
+  "ready_elapsed_ms": 1943,
+  "stable_span_ms": 1078,
+  "stable_intervals_ms": [
+    532,
+    546
+  ],
+  "close_posted_elapsed_ms": 2096,
+  "close_to_final_receipt_upper_seconds": 0.114866,
+  "exit": 0,
+  "forced_owned_cleanup": false,
+  "inventory": {
+    "launch.private.json": {
+      "bytes": 17009,
+      "sha256": "4d0697bc66c9d599d7e1e86d0f58b4123dfd2a0b42a1d2d299abfff190ab3da2",
+      "original_matches_git": true
+    },
+    "context.private.json": {
+      "bytes": 829,
+      "sha256": "765bc22d5a673d5326a04f100b9608ad68664e158f6ff22dbc120a5915b6e19b",
+      "original_matches_git": true
+    },
+    "stdout.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_present": true,
+      "git_tracking": "empty original omitted from Product tree; bytes/hash independently read"
+    },
+    "stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_present": true,
+      "git_tracking": "empty original omitted from Product tree; bytes/hash independently read"
+    }
+  },
+  "native_measurement_predicates": "PASS; unchanged offline judge also passed",
+  "build_archive": "PASS carried exact315 disposition",
+  "other_owned_window_samples": "Additional untitled visible and IME windows retained; no single-visual-window or page claim",
+  "approval_record": "Producer-attested chat approval in auto mode; required one-time tool-prompt grant transcript NOT established by run receipts",
+  "overall": "Fully admission-compliant qualification HELD on approval-record nonconformance; preserve measured facts, NO rerun/retry admitted",
+  "native_ui": false,
+  "reviewer_product_execution": false
+}
