@@ -1,0 +1,50 @@
+{
+  "raw/child-build.json": {
+    "bytes": 1851,
+    "sha256": "dc42794b4a581e74ceb35d81cd847ca4d52f6accfb99a392bc90886ce1f754fd"
+  },
+  "raw/correction1.json": {
+    "bytes": 6498,
+    "sha256": "2a36fcddd7508f52382db62610004e9b47a8c547daf53a5dcca9088e8cebe74f"
+  },
+  "raw/discovery.json": {
+    "bytes": 9439,
+    "sha256": "be1bc70f35ced496c43f8d74eba6457056f99f4be4796905421d94f8d1010686"
+  },
+  "raw/discovery.raw.json": {
+    "bytes": 128603,
+    "sha256": "18fb588a9fd18c34f2a9f7872d60b494ab28be93c488427262457b0716a102a5"
+  },
+  "raw/engine-build.stdout.txt": {
+    "bytes": 5375,
+    "sha256": "5e53f56bafa7ea528ff37b288977874f3eefb09427c5b9d98a13bd1086a41cbd"
+  },
+  "raw/gcc-v.txt": {
+    "bytes": 1922,
+    "sha256": "f2e1ebd281a907663c0f697a255dbac88cf7ece67e37052f32a3ebfb6f0d059f"
+  },
+  "raw/source-blobs.txt": {
+    "bytes": 915,
+    "sha256": "c89c0f6e650dbb4fa306e3f320f0e3061770a93f8d72b7ff4a8a8cc84a816b3a"
+  },
+  "raw/tapectl-build.stdout.txt": {
+    "bytes": 904,
+    "sha256": "6ead09f3459cd711b3a088f9808be198e5af23deb7d654d30a4cefcf872df423"
+  },
+  "dom-corrected.json": {
+    "bytes": 4266,
+    "sha256": "1c263196e90254bcf5d27434cb74d8f16760ca1aba4b8a37f1c3c57a9bac2181"
+  },
+  "dom-old-control.json": {
+    "bytes": 3884,
+    "sha256": "987fe1b2a60e4175a8d46612f24f16c5a579426bbbaaba76de14796f5a2ccff6"
+  },
+  "renderer.mjs": {
+    "bytes": 6375,
+    "sha256": "496b3249ae20039ec323080e7d4528659f77023edbc0d168fcb825d9ce097b77"
+  },
+  "old-renderer.mjs": {
+    "bytes": 6208,
+    "sha256": "bc024ddbb9860beffee89ed43a2e9f5dabaea9c0a35da476e95513f4e98d2db4"
+  }
+}

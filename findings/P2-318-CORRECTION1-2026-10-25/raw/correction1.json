@@ -1,0 +1,220 @@
+{
+  "source_head": "f9306c2c5a42ebd039edd67b0b7cef6a7d434b2b",
+  "finding_refs": [
+    "V318-01",
+    "V318-02"
+  ],
+  "evidence_class": "production poll step/registration and backend View under controlled order; renderer run separately",
+  "native_ui": false,
+  "live_enumeration": false,
+  "admission": {
+    "paused_after_stop_read": true,
+    "shutdown_completed_before_resume": true,
+    "child_callbacks": 0,
+    "current_publications": 0,
+    "emissions_after_resume": 0,
+    "registered": false,
+    "refused": true,
+    "cards_active": null,
+    "trace": [
+      "stop-polls",
+      "invalidate-current",
+      "empty-view",
+      "cards:admission-refused"
+    ]
+  },
+  "details_views": {
+    "empty/one64": {
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Card ready (64 GB).",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": false
+      },
+      "details": "Card check: 1 offered, 0 not checked."
+    },
+    "empty/zero-unprobed": {
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Put a card in.",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check: 0 offered, 3 not checked."
+    },
+    "empty/one-plus-unprobed": {
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Card ready (64 GB).",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check: 1 offered, 2 not checked."
+    },
+    "empty/enum-unavailable": {
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Something went wrong. Nothing else on your computer was changed.",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\ntapectl: diagnostic text never selects an outcome"
+    },
+    "empty/timeout": {
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Something went wrong. Nothing else on your computer was changed.",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check failed: tapectl cards took too long and was stopped."
+    },
+    "empty/fresh-success-after-failure": {
+      "view": {
+        "view": "empty",
+        "checking": false,
+        "bar": 0.0,
+        "total_frames": null,
+        "too_long": false,
+        "message": null,
+        "label": "",
+        "card_line": "Card ready (64 GB).",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": false
+      },
+      "details": "Card check: 1 offered, 0 not checked."
+    },
+    "valid/one64": {
+      "view": {
+        "view": "ready",
+        "checking": false,
+        "bar": 0.5,
+        "total_frames": 79380000,
+        "too_long": false,
+        "message": null,
+        "label": "Road Trip",
+        "card_line": "Card ready (64 GB).",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": false
+      },
+      "details": "Card check: 1 offered, 0 not checked."
+    },
+    "valid/zero-unprobed": {
+      "view": {
+        "view": "ready",
+        "checking": false,
+        "bar": 0.5,
+        "total_frames": 79380000,
+        "too_long": false,
+        "message": null,
+        "label": "Road Trip",
+        "card_line": "Put a card in.",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check: 0 offered, 3 not checked."
+    },
+    "valid/one-plus-unprobed": {
+      "view": {
+        "view": "ready",
+        "checking": false,
+        "bar": 0.5,
+        "total_frames": 79380000,
+        "too_long": false,
+        "message": null,
+        "label": "Road Trip",
+        "card_line": "Card ready (64 GB).",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check: 1 offered, 2 not checked."
+    },
+    "valid/enum-unavailable": {
+      "view": {
+        "view": "ready",
+        "checking": false,
+        "bar": 0.5,
+        "total_frames": 79380000,
+        "too_long": false,
+        "message": null,
+        "label": "Road Trip",
+        "card_line": "Something went wrong. Nothing else on your computer was changed.",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\ntapectl: diagnostic text never selects an outcome"
+    },
+    "valid/timeout": {
+      "view": {
+        "view": "ready",
+        "checking": false,
+        "bar": 0.5,
+        "total_frames": 79380000,
+        "too_long": false,
+        "message": null,
+        "label": "Road Trip",
+        "card_line": "Something went wrong. Nothing else on your computer was changed.",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": true
+      },
+      "details": "Card check failed: tapectl cards took too long and was stopped."
+    },
+    "valid/fresh-success-after-failure": {
+      "view": {
+        "view": "ready",
+        "checking": false,
+        "bar": 0.5,
+        "total_frames": 79380000,
+        "too_long": false,
+        "message": null,
+        "label": "Road Trip",
+        "card_line": "Card ready (64 GB).",
+        "make_enabled": false,
+        "details_available": false,
+        "card_details_available": false
+      },
+      "details": "Card check: 1 offered, 0 not checked."
+    }
+  }
+}

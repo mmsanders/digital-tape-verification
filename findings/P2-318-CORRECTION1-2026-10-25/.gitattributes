@@ -1,0 +1,3 @@
+raw/** -text
+*.json -text
+*renderer.mjs -text
