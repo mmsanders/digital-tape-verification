@@ -1,5 +1,10 @@
 # Verification findings index
 
+25October2026: [Verification318 actual Software578 review](P2-318-RETURN-2026-10-25/README.md)
+requires corrections on exact PR580/18f424f6: stop/admission race and unreachable
+discovery diagnostics.23 controlled rows/build provenance pass within their scope;
+no Product merge or live metadata/native/fullAPP clearance.
+
 22October2026: [Verification283 actual corrected Windows return](P2-283-RETURN-2026-10-22/README.md)
 passes exact native-window readiness/normal quit and approved non-admin direct
 S1 P0/P1. Actual UI/page/app-driven child remain unexecuted; bounded clearance only.

@@ -1,0 +1,292 @@
+{
+  "source_head": "18f424f66bbd0ad9c9f74c930d524627a3a6cf82",
+  "evidence_class": "production discovery integration / controlled order",
+  "raw_refs": [
+    "discovery.raw.json"
+  ],
+  "adapter_ref": "host/app/tests/discovery_component.rs",
+  "rows": {
+    "zero": {
+      "line": "Put a card in.",
+      "offered": 0,
+      "unprobed": 0,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "one64": {
+      "line": "Card ready (64 GB).",
+      "offered": 1,
+      "unprobed": 0,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "round-up": {
+      "line": "Card ready (64 GB).",
+      "offered": 1,
+      "unprobed": 0,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "round-down": {
+      "line": "Card ready (64 GB).",
+      "offered": 1,
+      "unprobed": 0,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "binary-limit-decimal-display": {
+      "line": "Card ready (137 GB).",
+      "offered": 1,
+      "unprobed": 0,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "multiple": {
+      "line": "Leave just one card in the computer.",
+      "offered": 2,
+      "unprobed": 0,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "zero-unprobed": {
+      "line": "Put a card in.",
+      "offered": 0,
+      "unprobed": 3,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "one-plus-unprobed": {
+      "line": "Card ready (64 GB).",
+      "offered": 1,
+      "unprobed": 2,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "enum-unavailable": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": "CARDS_ENUM_UNAVAILABLE",
+      "make_enabled": false
+    },
+    "wrong-nonce-failure": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "wrong-version-failure": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "partial-report-failure": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "unknown-report-id": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "valid-stdout-missing-report": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "valid-stdout-wrong-nonce": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "missing-summary": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "summary-mismatch": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "partial-summary": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "duplicate-path": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "invalid-capacity": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "unknown-output-record": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "usage-stale-output": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    },
+    "no-child-exit": {
+      "line": "Something went wrong. Nothing else on your computer was changed.",
+      "offered": null,
+      "unprobed": null,
+      "id_specific": null,
+      "make_enabled": false
+    }
+  },
+  "native_ui": false,
+  "live_enumeration": false,
+  "shipping_fake_switch": false,
+  "stderr_selected_outcome": false,
+  "child": {
+    "sha256": "3cd678cbae5da79a1da99e6bfb2fb91d7ab711568e2557d133e245b4aa8b8ee9",
+    "source": "18f424f66bbd0ad9c9f74c930d524627a3a6cf82",
+    "version": "tapectl-wp15-s2+18f424f66bbd",
+    "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+    "test_build": false,
+    "build_refs": [
+      "child-build.json",
+      "tapectl-build.stdout.txt"
+    ],
+    "accepted_source_crosswalk": [
+      "child-build.json#crosswalk"
+    ]
+  },
+  "request": {
+    "shell": false,
+    "elevated": false,
+    "exe": "D:\\a\\_temp\\target578\\debug\\deps\\tapectl.exe",
+    "executable_dir": "D:\\a\\_temp\\target578\\debug\\deps",
+    "argv": [
+      "D:\\a\\_temp\\target578\\debug\\deps\\tapectl.exe",
+      "cards",
+      "--report",
+      "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150\\jobs\\request-0\\control\\cards-1ebb2c4abd0294fd8674f3b1386ecac9.jsonl",
+      "--report-nonce",
+      "1ebb2c4abd0294fd8674f3b1386ecac9"
+    ],
+    "report": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150\\jobs\\request-0\\control\\cards-1ebb2c4abd0294fd8674f3b1386ecac9.jsonl",
+    "nonce": "1ebb2c4abd0294fd8674f3b1386ecac9",
+    "private_root": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150",
+    "job": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150\\jobs\\request-0",
+    "cwd": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150\\jobs\\request-0",
+    "nonce_ref": "discovery.raw.json#requests",
+    "actual_command_ref": "src/discovery.rs:command"
+  },
+  "poll": {
+    "nominal_interval_ms": 2000,
+    "max_concurrent": 1,
+    "timeout_ms": 10000,
+    "busy_tick_new_workers": 0,
+    "making_tick_new_workers": 0,
+    "stopped_tick_new_workers": 0,
+    "stale_emissions": 0,
+    "duplicate_emissions": 0,
+    "ui_waits_for_child": false,
+    "timeout_order": [
+      "invalidate-current",
+      "cancel",
+      "child-terminal",
+      "remove-owned-job"
+    ],
+    "shutdown_order": [
+      "stop-polls",
+      "invalidate-current",
+      "cancel",
+      "child-terminal",
+      "remove-owned-job"
+    ],
+    "replacement_order": [
+      "old-child-terminal",
+      "old-owned-cleanup",
+      "new-worker-start"
+    ],
+    "current_result_refs": [
+      "src/state.rs:finish_cards",
+      "src/bridge.rs:publish_cards"
+    ],
+    "timer_worker_refs": [
+      "src/discovery.rs:Schedule",
+      "src/bridge.rs:poll"
+    ],
+    "actual_trace_refs": [
+      "discovery.raw.json#traces"
+    ],
+    "schedules": {
+      "regular": [
+        2000,
+        5000
+      ],
+      "slow": [
+        2000,
+        9000
+      ],
+      "making": [
+        6000
+      ],
+      "stopped": []
+    },
+    "request_nonces": [
+      "1ebb2c4abd0294fd8674f3b1386ecac9",
+      "e0d406e0757c7caed531968c3f815119",
+      "42314972e7a7ec9c4f286a0cb1963c09"
+    ],
+    "request_reports": [
+      "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150\\jobs\\request-0\\control\\cards-1ebb2c4abd0294fd8674f3b1386ecac9.jsonl",
+      "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150\\jobs\\request-1\\control\\cards-e0d406e0757c7caed531968c3f815119.jsonl",
+      "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\DigitalTapeDiscovery-capture-b3077105843b60b85e6a6ce90b388150\\jobs\\request-2\\control\\cards-42314972e7a7ec9c4f286a0cb1963c09.jsonl"
+    ]
+  },
+  "valid_music_label_one_hint_make_enabled": false,
+  "displayed_paths": [],
+  "lists": [],
+  "external_cleanup_calls": [],
+  "app_device_calls": false,
+  "make_or_elevation_calls": false,
+  "source_before": "602c947e6b02f4476d197f7f0fd48f968fcb64adf8ce14b667364b0feb8108fa",
+  "source_after": "602c947e6b02f4476d197f7f0fd48f968fcb64adf8ce14b667364b0feb8108fa",
+  "foreign_before": "861bbb9fd984a70f43ae176609ecb9ba7f9d35d2db54ea8af5bafb51d67812e2",
+  "foreign_after": "861bbb9fd984a70f43ae176609ecb9ba7f9d35d2db54ea8af5bafb51d67812e2",
+  "accepted_parser_reuse_refs": [
+    "src/discovery.rs:judge -> src/report.rs:read(Tool::Cards)"
+  ],
+  "card_line_actual_render_refs": [
+    "frontend/screen.mjs:card.textContent = view.card_line",
+    "discovery.raw.json#rows[].view.card_line"
+  ],
+  "failure_clears_hint": true
+}

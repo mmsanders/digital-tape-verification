@@ -1,0 +1,7 @@
+mingw32-make: Entering directory 'D:/a/Digital-Tape/Digital-Tape/host'
+C:/mingw64/bin/mingw32-make.exe -C ../engine all
+mingw32-make[1]: Entering directory 'D:/a/Digital-Tape/Digital-Tape/engine'
+mingw32-make[1]: Nothing to be done for 'all'.
+mingw32-make[1]: Leaving directory 'D:/a/Digital-Tape/Digital-Tape/engine'
+gcc -I../engine/include -I. -Iport -DTAPECTL_BUILD_ID='"18f424f66bbd"' -std=c99 -Wall -Wextra -Werror -pedantic -Wshadow -Wconversion -Wstrict-prototypes -Wmissing-prototypes -Wvla -Wcast-qual -Wpointer-arith -Wwrite-strings -O2 -g tapectl.c wav.c target.c report.c port/discover.c port/hport.c port/mbr.c port/fat.c port/safety.c port/partview.c port/entropy.c port/hport_win.c port/probe_win.c port/discover_win.c ../build/engine/libtape.a -lbcrypt -lpsapi -lshell32 -lsetupapi -o ../build/host/tapectl.exe
+mingw32-make: Leaving directory 'D:/a/Digital-Tape/Digital-Tape/host'
