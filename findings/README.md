@@ -1,5 +1,11 @@
 # Verification findings index
 
+25October2026: [Verification318 Software578 integration/live-1 review](P2-318-LIVE1-2026-10-25/README.md)
+passes exact source integration and the admitted single metadata-only result:
+exit0, offered0/unprobed0. Original stdout/stderr independently retained; admission
+consumed, no retry. Native/UI/G1/Make/fullAPP/G2 and other undisposed holds remain.
+
+
 25October2026: [Verification318 corrected Software578 review](P2-318-CORRECTION1-2026-10-25/README.md)
 clears exact PR580/f9306c2c discovery source/component after both published fixes.
 One specifically pinned metadata-only command is admitted, still unexecuted;

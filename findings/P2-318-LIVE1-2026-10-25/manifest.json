@@ -1,0 +1,30 @@
+{
+  "invocation.json": {
+    "bytes": 1007,
+    "sha256": "ce30e8dfdee242ab167d535f04eb7e69a1c4793295a02678a3c66658c0c21e1d"
+  },
+  "RECEIPT.md": {
+    "bytes": 1946,
+    "sha256": "a9fa8d22ec6624797fc22d79cec9994e403ef0f0c54c9ced0072399e0976b394"
+  },
+  "report.jsonl": {
+    "bytes": 197,
+    "sha256": "adc5dd8f9f02db072714547975c6796c5de1643bb56599ff92532449b31d62b1"
+  },
+  "run578.py": {
+    "bytes": 2867,
+    "sha256": "0fdaf681fbde6d7b619ef273c801f38bb9e1910b4395edef6f028a90f14cee38"
+  },
+  "stderr.bin": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout.bin": {
+    "bytes": 41,
+    "sha256": "8a5de7c42d95751e2a76f41840ffdfb5a3cf807d3366a94dc3a3d81955eccad2"
+  },
+  "terminal.json": {
+    "bytes": 513,
+    "sha256": "3cd66c727ea893b88d16112b20217820532e0684bb6a719afe54d9e7386cbc04"
+  }
+}

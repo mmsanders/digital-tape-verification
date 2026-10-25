@@ -22,6 +22,8 @@ jobs:
         run: python3 -B findings/P2-318-CORRECTION1-2026-10-25/review.py
       - name: Corrected production renderer over retained views (logical test DOM only)
         run: node findings/P2-318-CORRECTION1-2026-10-25/render.mjs
+      - name: Software578 live-1 retained originals (ZERO child/device execution)
+        run: python3 -B findings/P2-318-LIVE1-2026-10-25/review.py
       - name: Screen causal controls (ZERO Product execution)
         run: python3 -B tests/windows_screen_r1/contract.py
       - name: Bridge causal controls (ZERO Product execution)
