@@ -6,6 +6,10 @@ e07292dc75ea183602aacd2cd668036934506c2c, unchanged APP-1/APP-1A.
 318updated25Oct03:10:34Z. Current canonical four/live bodies/comments read;
 Michael manually selected both open Verification issues. No Software578 app
 implementation/private tests inspected; no new interface implementation supplied.
+PRE-CODE Software declaration5786394000771 arrived while PR319 was still unmerged;
+Software explicitly has not implemented. Final tests bind children::TAPECTL,
+DT_TAPECTL_SHA256/DT_TAPECTL_VERSION,12hex build ID,completion+2s scheduling,
+10s timeout and strict current-report freshness before publication/implementation.
 This package freezes missing behavior before new discovery app code. It does not
 clear implementation, child build or live enumeration.318 stays OPEN for actual
 Software interface/source/build/controlled evidence after publication.
@@ -23,9 +27,12 @@ Original bundled tapectl SHA82798af2 predates S2 and is NOT a cards child. Leave
 the authenticated564 bundle untouched. A newly built child needs a new manifest/
 pin/version and source/engine/lock/compiler/protection provenance; do not transfer
 old tapectl binary clearance to it. host/Makefile sets TAPECTL_BUILD_ID to the full
-source HEAD (plus-dirty if modified); report version is
-`tapectl-wp15-s2+<exact full clean source SHA>`. No `unknown`, dirty or old binary
-substitution. No invocation of unrelated provision/load/verify/make or test build.
+source HEAD (plus-dirty if modified) by default. The declared BUILD-only command
+may override HEAD_ID to its source's12hex prefix; report version is then exactly
+`tapectl-wp15-s2+<source SHA first12hex>`, bound to full40hex source and64hex binary
+pin. No `unknown`, dirty or old binary substitution. Capture the exact macro/build
+command and use the explicit non-test tapectl.exe target: default host `all` also
+builds tapectl-test. No invocation of unrelated provision/load/verify/make/test build.
 
 ### Accepted-path source preflight (paper only)
 
@@ -77,10 +84,10 @@ source/raw/adapter/current-build review is mandatory before clearance.
 |---|---|
 | Card line |0offered `Put a card in.`;1offered `Card ready (N GB).`;2+ `Leave just one card in the computer.`. Decimal GB rounding (63.6/64.4→64;128GiB→137), no lists/picker/path text. Tests deliberately avoid unspecified half-ties. Discovery is a hint, never a safe-card/Make authorization. |
 | Unknown/unprobed | Unknown required OS facts never become offered. Preserve aggregate unprobed counts for raw/details, do not display refused disk names or invent sizes. One valid candidate plus unknowns is still one hint, with Make disabled. Policy implementation itself carries existing independent tests. |
-| Exit/report precedence | Reuse accepted report::Tool::Cards validation/version/nonce/ordering/partial semantics. Nonzero/crash/spawn/timeout cannot use stale success stdout. Valid exit0+complete stdout remains enumeration success even if optional report was absent/unusable; report failure does not rewrite actual success, as accepted parser semantics specify. Wrong nonce/version/partial/unknown ID cannot select ID-specific failure text. No stderr word chooses outcome. |
+| Exit/report precedence | Reuse accepted report::Tool::Cards validation/version/nonce/ordering/partial semantics. Nonzero/crash/spawn/timeout cannot use stale success stdout. This NEW app-discovery hint requires exit0+complete stdout+usable current nonce/version report; missing/wrong/partial report means unknown/no hint, while the actual child exit remains unchanged. This is new freshness binding, not a change to accepted INGEST or standalone command semantics. Wrong report cannot select ID-specific failure text. No stderr word chooses outcome. |
 | Output completeness | Exactly one last summary; offered equals unique card rows; positive integer exact sizes, valid counters; no unknown/duplicate/refused/provisioned records, duplicate paths or truncated summary. Malformed output yields generic failure/no retained current hint. No second safety/layout parser in app. |
-| Polling | Nominal2s while not Making; single-flight, no overlapping child or catch-up burst; work outside coordinator/UI lock. Controlled schedules use first due tick2000ms: idle→2000/4000, busy until8000→2000/8000, Making2000/4000→first6000, stopped→none. Logical test time only, not new native wall-clock tolerance. |
-| Lifetime | Current ticket/generation only; stale/wrong-job/duplicate completion cannot publish; fresh distinct nonce/exclusive report per invocation. Timeout invalidates→cancel→child terminal→owned cleanup; shutdown stops polls then same sequence; old terminal/cleanup precedes replacement. No automatic retry after a real capability/permission rejection. |
+| Polling | Nominal2s after previous terminal while not Making; single-flight, no overlapping child/catch-up burst, work outside coordinator/UI lock. Controlled schedules use first due tick2000ms: terminal3000→next5000; slow terminal7000→next9000; Making2000/4000→first6000; stopped→none. Logical test time only, not new native wall-clock tolerance. |
+| Lifetime | Current ticket/generation only; stale/wrong-job/duplicate completion cannot publish; fresh distinct nonce/exclusive report per invocation.10s timeout invalidates→cancel→child terminal→owned cleanup; shutdown stops polls then same sequence; old terminal/cleanup precedes replacement. No retry after actual tool/consent rejection; ordinary enumeration failure remains a reported runtime outcome, not a fabricated tool denial. |
 | Invocation | Pinned newly declared S2 child beside app executable, cwd-independent/nonshell/unelevated. Only `tapectl.exe cards --report PRIVATE --report-nonce FRESH`, options may reorder. Reports/job/control under per-user app-owned root, never source/card; no app device open. |
 | Hard hold | Even valid music+label+one offered hint leaves Make false, no make/elevation/device call or shipping fake flag. Failure clears old hint. Source/foreign sentinels unchanged; cleanup only owning terminated job, no external cleanup call. |
 

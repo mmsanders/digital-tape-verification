@@ -10,10 +10,12 @@ mode; actual tool/skill requirements and denials still apply.
 
 ## Decision: NO native-session admission now
 
-The existing local-Claude actor has not declared a supported actual Digital Tape
-capture/control route, its current app-access consent, or a genuine file-manager
-folder/file/mixed drag gesture to the app. Its available tool schemas/genuine
-gesture binding cannot be inferred from a successful PowerShell startup recorder.
+Software577's explicit PRE-CODE capability return6393997870 reports Claude Code
+desktop/Opus5.5 in existing auto mode with NO desktop computer-use tool. Its only
+GUI tools are built-in browser/Claude in Chrome, which do not target native Tauri
+or perform Explorer→app OS folder drops. No feature/mode/settings change or app
+launch occurred. Record that caller disclosure, not a cross-context tool grant.
+There is no actual native route/gesture to admit; a startup recorder proves none.
 
 The Verification context has the computer-use skill26.1021.31345. It was read in
 full with guidance/api/confirmations; @oai/sky imported successfully in node_repl,
@@ -26,8 +28,8 @@ by off-window coordinates, clipboard, IPC/JS/WM_DROPFILES injection or private A
 No broad inventory/provider search or repeat of298's app-access timeout is needed.
 
 Return317 bounded BLOCKED on that exact prerequisite. No Product defect diagnosed,
-no new native/control/real-child fact. Software577 must supply its actual documented
-current-context provider/tool/capability/gesture and permission-mode evidence for
+no new native/control/real-child fact. Software577/PM must supply an available
+documented current-context native control/gesture and permission-mode evidence for
 future specific admission. No provider or mode change to evade a denial, no new
 install/helper/controller, and no launch from this method. A newly issued follow-up
 under manual selection may use these already published expectations once the

@@ -6,11 +6,11 @@ spec=importlib.util.spec_from_file_location('accepted_app1a',path)
 prior=importlib.util.module_from_spec(spec);spec.loader.exec_module(prior)
 OLD='82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9'
 ENGINE='d96b4245e04d74078f8938744b1394c3018516f7'
-NONCE='a'*32;VERSION='tapectl-wp15-s2+'+'b'*40
+NONCE='a'*32;VERSION='tapectl-wp15-s2+'+'b'*12
 GENERIC='Something went wrong. Nothing else on your computer was changed.'
 SCHEDULES={
- 'regular':dict(ticks=[0,1999,2000,3000,4000],terminal_before=[3000],making=[],stopped=[],started=[2000,4000]),
- 'slow':dict(ticks=[2000,4000,6000,8000],terminal_before=[8000],making=[],stopped=[],started=[2000,8000]),
+ 'regular':dict(ticks=[0,1999,2000,3000,4000,5000],terminal_before=[3000],making=[],stopped=[],started=[2000,5000]),
+ 'slow':dict(ticks=[2000,4000,6000,7000,8000,9000],terminal_before=[7000],making=[],stopped=[],started=[2000,9000]),
  'making':dict(ticks=[2000,4000,6000],terminal_before=[],making=[2000,4000],stopped=[],started=[6000]),
  'stopped':dict(ticks=[2000,4000],terminal_before=[],making=[],stopped=[2000,4000],started=[])}
 def lines(rows):return ''.join(json.dumps(r,separators=(',',':'))+'\n' for r in rows)
@@ -61,9 +61,10 @@ def expected(c):
     parsed=prior.parse(c['report'].encode(),'tapectl cards',VERSION,NONCE,c['exit']) if type(c['exit']) is int else None
     selected=parsed['refusal']['id'] if parsed and parsed['refusal'] else None
     if c['exit']!=0:return dict(line=GENERIC,offered=None,unprobed=None,id_specific=selected,make_enabled=False)
+    if parsed is None:return dict(line=GENERIC,offered=None,unprobed=None,id_specific=None,make_enabled=False)
     try:cards,unprobed=stdout(c['stdout'])
     except (AssertionError,ValueError,KeyError,IndexError,TypeError):return dict(line=GENERIC,offered=None,unprobed=None,id_specific=None,make_enabled=False)
-    # Existing actual-exit precedence carries: report failure cannot rewrite success.
+    # Actual exit remains unchanged; NEW discovery hint also requires current report binding.
     line='Put a card in.' if not cards else ('Leave just one card in the computer.' if len(cards)>1 else 'Card ready ('+str((cards[0]+500000000)//1000000000)+' GB).')
     return dict(line=line,offered=len(cards),unprobed=unprobed,id_specific=None,make_enabled=False)
 def below(p,root):return PureWindowsPath(p).is_absolute() and PureWindowsPath(root) in PureWindowsPath(p).parents
@@ -73,7 +74,7 @@ def qualify(r,head):
     assert r['rows']=={c['id']:expected(c) for c in CASES}
     assert not r['native_ui'] and not r['live_enumeration'] and not r['shipping_fake_switch'] and not r['stderr_selected_outcome']
     q=r['child'];assert re.fullmatch('[0-9a-f]{64}',q['sha256']) and q['sha256']!=OLD
-    assert re.fullmatch('[0-9a-f]{40}',q['source']) and q['version']=='tapectl-wp15-s2+'+q['source']
+    assert re.fullmatch('[0-9a-f]{40}',q['source']) and q['version']=='tapectl-wp15-s2+'+q['source'][:12]
     assert q['engine_tree']==ENGINE and q['test_build'] is False and q['build_refs'] and q['accepted_source_crosswalk']
     req=r['request'];assert req['shell'] is False and req['elevated'] is False
     assert PureWindowsPath(req['exe']).parent==PureWindowsPath(req['executable_dir']) and PureWindowsPath(req['exe']).is_absolute()
@@ -81,7 +82,7 @@ def qualify(r,head):
     for flag,value in [('--report',req['report']),('--report-nonce',req['nonce'])]:assert argv.count(flag)==1 and argv[argv.index(flag)+1]==value
     assert re.fullmatch('[0-9a-f]{32}',req['nonce']) and below(req['job'],req['private_root']) and below(req['report'],req['job'])
     assert req['cwd']==req['job'] and req['nonce_ref'] and req['actual_command_ref']
-    t=r['poll'];assert t['nominal_interval_ms']==2000 and t['max_concurrent']==1
+    t=r['poll'];assert t['nominal_interval_ms']==2000 and t['max_concurrent']==1 and t['timeout_ms']==10000
     assert t['busy_tick_new_workers']==0 and t['making_tick_new_workers']==0 and t['stopped_tick_new_workers']==0
     assert t['stale_emissions']==t['duplicate_emissions']==0 and not t['ui_waits_for_child']
     assert t['timeout_order']==['invalidate-current','cancel','child-terminal','remove-owned-job']
@@ -102,7 +103,7 @@ def fixture():
     return dict(source_head='a'*40,evidence_class='production discovery integration / controlled order',raw_refs=['SYNTHETIC'],adapter_ref='SYNTHETIC',rows={c['id']:expected(c) for c in CASES},native_ui=False,live_enumeration=False,shipping_fake_switch=False,stderr_selected_outcome=False,
       child=dict(sha256='1'*64,source='b'*40,version=VERSION,engine_tree=ENGINE,test_build=False,build_refs=['SYNTHETIC'],accepted_source_crosswalk=['SYNTHETIC']),
       request=dict(shell=False,elevated=False,exe=exe,executable_dir=r'C:\MODEL\bundle',argv=[exe,'cards','--report',job+r'\control\report.jsonl','--report-nonce',NONCE],report=job+r'\control\report.jsonl',nonce=NONCE,private_root=private,job=job,cwd=job,nonce_ref='SYNTHETIC',actual_command_ref='SYNTHETIC'),
-      poll=dict(nominal_interval_ms=2000,max_concurrent=1,busy_tick_new_workers=0,making_tick_new_workers=0,stopped_tick_new_workers=0,stale_emissions=0,duplicate_emissions=0,ui_waits_for_child=False,
+      poll=dict(nominal_interval_ms=2000,max_concurrent=1,timeout_ms=10000,busy_tick_new_workers=0,making_tick_new_workers=0,stopped_tick_new_workers=0,stale_emissions=0,duplicate_emissions=0,ui_waits_for_child=False,
        timeout_order=['invalidate-current','cancel','child-terminal','remove-owned-job'],shutdown_order=['stop-polls','invalidate-current','cancel','child-terminal','remove-owned-job'],replacement_order=['old-child-terminal','old-owned-cleanup','new-worker-start'],current_result_refs=['SYNTHETIC'],timer_worker_refs=['SYNTHETIC'],actual_trace_refs=['SYNTHETIC'],schedules={k:v['started'] for k,v in SCHEDULES.items()},request_nonces=['1'*32,'2'*32,'3'*32],request_reports=['SYNTHETIC1','SYNTHETIC2','SYNTHETIC3']),
       valid_music_label_one_hint_make_enabled=False,displayed_paths=[],lists=[],external_cleanup_calls=[],app_device_calls=False,make_or_elevation_calls=False,source_before='s',source_after='s',foreign_before='f',foreign_after='f',accepted_parser_reuse_refs=['SYNTHETIC'],card_line_actual_render_refs=['SYNTHETIC'],failure_clears_hint=True)
 def controls():
@@ -112,7 +113,7 @@ def controls():
         try:qualify(bad,'a'*40)
         except AssertionError:continue
         raise AssertionError('discovery causal control survived')
-    assert expected(CASES[13])['line']=='Card ready (64 GB).'
+    assert expected(CASES[13])['offered'] is None and expected(CASES[14])['offered'] is None
     assert expected(CASES[9])['id_specific'] is None
     print('PASS discovery integration/exit/report/poll/rounding/disabled-Make causal controls; ZERO Product/device/UI execution')
 if __name__=='__main__':

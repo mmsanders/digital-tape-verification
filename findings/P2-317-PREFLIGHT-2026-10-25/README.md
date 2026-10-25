@@ -5,9 +5,11 @@ live317updated25Oct03:10:29Z, paired577/PM576. Canonical four and applicable
 computer-use skill26.1021.31345/guidance/api/confirmations read. Michael manually
 selected the open Verification issues, including317 and318; no auto next task.
 
-**BLOCKED before launch/control.** Current local-Claude provider/tool schema,
-Digital Tape app-access admission and genuine cross-window folder gesture remain
-undeclared. The available Verification computer-use module imported, but that
+**BLOCKED before launch/control.** Software577 capability return6393997870 reports
+Claude Code desktop/Opus5.5, existing auto mode and Michael's manual authorization,
+but NO desktop computer-use tool; browser-only tools cannot target native Digital
+Tape or deliver Explorer→app OS folder drops. No settings/mode change, enablement
+or launch occurred. No native route/gesture is supplied. The Verification module imported, but that
 does not establish Claude access or Digital Tape consent. Documented DragInput
 has a single Window and relative coordinates; no documented cross-window
 file-payload transfer is supplied. This is a missing qualified method prerequisite,
@@ -27,8 +29,9 @@ Authoritative skill citations:
 - `.../computer-use/26.1021.31345/docs/api.md`: DragInput lines101–108 binds one Window.
 - `.../computer-use/26.1021.31345/docs/guidance.md`: “Use only the Computer Use JS APIs for Windows app automation.”
 
-The independent conclusion is that no *qualified current local-Claude method* was
-returned; it is not a claim that every possible real OS gesture is impossible.
+The conclusion is that the current local-Claude native capability is explicitly
+unavailable in the producer's report, not that all real OS gestures are impossible
+or that Verification independently audited that runtime's tool inventory.
 No undocumented coordinate extrapolation/provider hunt is authorized to fill the
 gap. Preserve real approval mode truth under ADR193; historical307 paperwork is
 not reopened and no new fictional prompt condition is introduced.
