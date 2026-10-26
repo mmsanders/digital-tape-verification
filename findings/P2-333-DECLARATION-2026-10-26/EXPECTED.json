@@ -1,0 +1,10 @@
+{
+  "product_base": "9af79191671b4ce47732dc6cb3da269741ea5e4d",
+  "historical_workflow_blob": "ad82391925c87f72af1b9b780f0cd2e012f9b51a",
+  "expected_workflow_blob": "d49e5983dbcca7492c067ec96a48371240a3e48d",
+  "expected_workflow_sha256": "a7c4090b2d50b46cd6f5c736d0824ce2b6c966db101ef5f0ee509b605609ad99",
+  "host_ingest_tree": "835078995d4e9cc2424f9ea8d6f11304b45f783f",
+  "stage1_tree": "609a4c819076a2b85b26cc4f3cd254b92caef6de",
+  "stage1_publication": "9587317ac4bca4e8164347f0ec62eeb719245cf7",
+  "unchanged_s1_tree": "bdd861b693516db2e5244660b3e99ee400d506de"
+}
