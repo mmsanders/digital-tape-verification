@@ -1,0 +1,2 @@
+ONLY covered controlled interactions; no native/input/IPC/real-child/device/fullAPP acceptance
+qualifier exit 0

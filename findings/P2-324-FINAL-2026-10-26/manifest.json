@@ -1,0 +1,50 @@
+{
+  "contract-emit.json": {
+    "bytes": 25559,
+    "sha256": "ba8f1431698bd958e417d680a07a40fda883b07ac8b243c9c8dbfdd677a7c704"
+  },
+  "current/interactions.json": {
+    "bytes": 61051,
+    "sha256": "143ec3db4fd86876587cfcb36d1036fe102088c3bf519885d0f1294d77c83630"
+  },
+  "current/interactions.raw.json": {
+    "bytes": 455228,
+    "sha256": "096e11a4df43c192917d2584f0161ab0748ca7c2a036b4b59a76851444fa011c"
+  },
+  "current/qualifier.txt": {
+    "bytes": 114,
+    "sha256": "170ba3bbb3645ea947d7218a2aac97f127170e4f53e5fe412a4c1b342a098586"
+  },
+  "current/summary.json": {
+    "bytes": 1167,
+    "sha256": "dd40d2ed1a4e32b2927729faba5cf324edb21744927223409bb4b718aca55dd5"
+  },
+  "discovery-emit.json": {
+    "bytes": 10009,
+    "sha256": "d70f3985470baf04561c9718b378a293b13d82414534df7e8ce549c81c454bdd"
+  },
+  "pre584/interactions.json": {
+    "bytes": 57961,
+    "sha256": "aceb4f82a2ae318aa4ee00ed0c1805313aa93e2c4a02644fa02ba141b6bfc0a1"
+  },
+  "pre584/interactions.raw.json": {
+    "bytes": 442240,
+    "sha256": "9b405c6e84f46b090fd297c8a46fc182aee15413eb2604a8099a1ad44847cea9"
+  },
+  "pre584/qualifier.txt": {
+    "bytes": 693,
+    "sha256": "5f824f2075876b4b978919a11d7e743d8df04b0821fab42653132b818d30f4da"
+  },
+  "pre584/summary.json": {
+    "bytes": 8084,
+    "sha256": "f25687914314416af20e2f8369ac9c467a24001cf06fa93758e466894b83522e"
+  },
+  "selection-direction-probe.json": {
+    "bytes": 468,
+    "sha256": "48d090089422662c687bc11078926bbff2efdcd61971da6ad3ead0ac31ad6fe7"
+  },
+  "source-blobs.txt": {
+    "bytes": 1239,
+    "sha256": "298de8a1238e950cce40be6c80bd00a6d8868f5ccac4fda0eeaafdd01aab9ba7"
+  }
+}

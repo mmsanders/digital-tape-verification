@@ -1,0 +1,935 @@
+{
+  "cases": [
+    {
+      "id": "E-ascii-caret",
+      "family": "editing",
+      "setup": {
+        "label": "Road Trip",
+        "selection": [
+          4,
+          4,
+          "none"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "unchanged cards completion",
+        "settle its snapshot"
+      ],
+      "eq": {
+        "label_value": "Road Trip",
+        "focus": "label",
+        "label_selection": [
+          4,
+          4,
+          "forward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-ascii-backward-selection",
+      "family": "editing",
+      "setup": {
+        "label": "Road Trip",
+        "selection": [
+          0,
+          4,
+          "backward"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "changed cards completion: zero -> one hint",
+        "settle snapshot"
+      ],
+      "eq": {
+        "label_value": "Road Trip",
+        "focus": "label",
+        "label_selection": [
+          0,
+          4,
+          "backward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-two-byte-selection",
+      "family": "editing",
+      "setup": {
+        "label": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9",
+        "selection": [
+          2,
+          10,
+          "forward"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "Checking -> Ready completion with previous label in delayed view"
+      ],
+      "eq": {
+        "label_value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9",
+        "focus": "label",
+        "label_selection": [
+          2,
+          10,
+          "forward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-astral-caret",
+      "family": "editing",
+      "setup": {
+        "label": "\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00",
+        "selection": [
+          6,
+          6,
+          "none"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "Checking -> Problem completion with previous label in delayed view"
+      ],
+      "eq": {
+        "label_value": "\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00",
+        "focus": "label",
+        "label_selection": [
+          6,
+          6,
+          "forward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-paste-exact-limit",
+      "family": "editing",
+      "setup": {
+        "label": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "selection": [
+          32,
+          32,
+          "none"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "paste exact32 bytes through actual handler",
+        "stale cards snapshot, then current check snapshot"
+      ],
+      "eq": {
+        "label_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "focus": "label",
+        "label_selection": [
+          32,
+          32,
+          "forward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-reject-ascii-excess",
+      "family": "editing",
+      "setup": {
+        "label": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "selection": [
+          8,
+          16,
+          "forward"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "attempt entire33byte ASCII value",
+        "unrelated cards snapshot"
+      ],
+      "eq": {
+        "label_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "focus": "label",
+        "label_selection": [
+          8,
+          16,
+          "forward"
+        ],
+        "invalid_label_callbacks": 0
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-reject-multibyte-excess",
+      "family": "editing",
+      "setup": {
+        "label": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9",
+        "selection": [
+          0,
+          8,
+          "backward"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "attempt entire34byte multibyte value",
+        "Ready snapshot"
+      ],
+      "eq": {
+        "label_value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9",
+        "focus": "label",
+        "label_selection": [
+          0,
+          8,
+          "backward"
+        ],
+        "invalid_label_callbacks": 0
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-reject-nul",
+      "family": "editing",
+      "setup": {
+        "label": "Music",
+        "selection": [
+          2,
+          2,
+          "none"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "attempt Music + NUL",
+        "changed cards snapshot"
+      ],
+      "eq": {
+        "label_value": "Music",
+        "focus": "label",
+        "label_selection": [
+          2,
+          2,
+          "forward"
+        ],
+        "invalid_label_callbacks": 0
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-delete-to-empty",
+      "family": "editing",
+      "setup": {
+        "label": "",
+        "selection": [
+          0,
+          0,
+          "none"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "delete last character through actual handler",
+        "older nonempty label acknowledgement arrives"
+      ],
+      "eq": {
+        "label_value": "",
+        "focus": "label",
+        "label_selection": [
+          0,
+          0,
+          "forward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-two-edits-reversed-acks",
+      "family": "editing",
+      "setup": {
+        "label": "Latest \ud83d\ude00",
+        "selection": [
+          9,
+          9,
+          "none"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "send Old then Latest \ud83d\ude00 label edits",
+        "resolve latest acknowledgement first, older last"
+      ],
+      "eq": {
+        "label_value": "Latest \ud83d\ude00",
+        "focus": "label",
+        "label_selection": [
+          9,
+          9,
+          "forward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-late-initial-snapshot",
+      "family": "editing",
+      "setup": {
+        "label": "New label",
+        "selection": [
+          3,
+          7,
+          "forward"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "mount initial snapshot Promise remains pending",
+        "edit before initial snapshot resolves",
+        "resolve initial old label snapshot"
+      ],
+      "eq": {
+        "label_value": "New label",
+        "focus": "label",
+        "label_selection": [
+          3,
+          7,
+          "forward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "E-paste-replaces-astral-selection",
+      "family": "editing",
+      "setup": {
+        "label": "\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00abcd",
+        "selection": [
+          14,
+          18,
+          "backward"
+        ],
+        "focus": "label",
+        "music": "Checking or Ready as named"
+      },
+      "steps": [
+        "replace selected astral character with abcd: total32bytes",
+        "changed unprobed cards and Checking snapshot"
+      ],
+      "eq": {
+        "label_value": "\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00abcd",
+        "focus": "label",
+        "label_selection": [
+          14,
+          18,
+          "backward"
+        ]
+      },
+      "same": [
+        "label_value",
+        "focus",
+        "label_selection"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "D-ingest-poll",
+      "family": "details",
+      "setup": {
+        "music": "current INGEST failure",
+        "cards": "zero",
+        "details": "INGEST-DIAG\n<plain>& text\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\n",
+        "open": true,
+        "focus": "details",
+        "select": "DIAG",
+        "scroll": "nonzero reading position"
+      },
+      "steps": [
+        "three unchanged cards completions at nominal gaps"
+      ],
+      "eq": {
+        "details_visible": true
+      },
+      "same": [
+        "details_visible",
+        "details_text",
+        "focus",
+        "dom_selection",
+        "selection_text",
+        "details_scroll"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "D-cards-check-snapshot",
+      "family": "details",
+      "setup": {
+        "music": "Checking",
+        "cards": "current unavailable failure with40 lines of typed diagnostic stderr",
+        "open": true,
+        "focus": "details",
+        "select": "current diagnostic",
+        "scroll": "nonzero"
+      },
+      "steps": [
+        "unrelated Checking -> Ready snapshot with identical card diagnostic"
+      ],
+      "eq": {
+        "details_visible": true
+      },
+      "same": [
+        "details_visible",
+        "details_text",
+        "focus",
+        "dom_selection",
+        "selection_text",
+        "details_scroll"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "D-combined-unchanged",
+      "family": "details",
+      "setup": {
+        "music": "INGEST-DIAG",
+        "cards": "CARDS-DIAG",
+        "open": true,
+        "focus": "details",
+        "select": "INGEST-DIAG"
+      },
+      "steps": [
+        "unchanged combined diagnostics delivered twice"
+      ],
+      "eq": {
+        "details_visible": true
+      },
+      "same": [
+        "details_visible",
+        "details_text",
+        "focus",
+        "dom_selection",
+        "selection_text",
+        "details_scroll"
+      ],
+      "contains": {
+        "details_text": [
+          "INGEST-DIAG",
+          "CARDS-DIAG"
+        ]
+      },
+      "absent": {}
+    },
+    {
+      "id": "D-copy-plain-selection",
+      "family": "details",
+      "setup": {
+        "music": "failure",
+        "details": "raw\r\n<img>& text\nlast line",
+        "open": true,
+        "focus": "details",
+        "select": "<img>& text"
+      },
+      "steps": [
+        "record Selection.toString (copyable plain-text range; do NOT use OS clipboard)",
+        "unchanged poll",
+        "record same range/text"
+      ],
+      "eq": {
+        "details_visible": true,
+        "selection_text": "<img>& text"
+      },
+      "same": [
+        "details_visible",
+        "details_text",
+        "focus",
+        "dom_selection",
+        "selection_text",
+        "details_scroll"
+      ],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "D-changed-diagnostic",
+      "family": "details",
+      "setup": {
+        "cards": "CARDS-OLD",
+        "open": true
+      },
+      "steps": [
+        "current card diagnostic changes to CARDS-NEW",
+        "open current details if hidden and settle callback"
+      ],
+      "eq": {},
+      "same": [],
+      "contains": {
+        "details_text": [
+          "CARDS-NEW"
+        ]
+      },
+      "absent": {
+        "details_text": [
+          "CARDS-OLD"
+        ]
+      }
+    },
+    {
+      "id": "D-cards-success-keeps-ingest",
+      "family": "details",
+      "setup": {
+        "music": "INGEST-CURRENT",
+        "cards": "CARDS-FAILED",
+        "open": true
+      },
+      "steps": [
+        "fresh successful card result clears card error only",
+        "open current details if needed"
+      ],
+      "eq": {},
+      "same": [],
+      "contains": {
+        "details_text": [
+          "INGEST-CURRENT"
+        ]
+      },
+      "absent": {
+        "details_text": [
+          "CARDS-FAILED"
+        ]
+      }
+    },
+    {
+      "id": "D-ingest-success-keeps-cards",
+      "family": "details",
+      "setup": {
+        "music": "INGEST-FAILED",
+        "cards": "CARDS-CURRENT",
+        "open": true
+      },
+      "steps": [
+        "fresh successful music check replaces music failure only",
+        "open current details if needed"
+      ],
+      "eq": {},
+      "same": [],
+      "contains": {
+        "details_text": [
+          "CARDS-CURRENT"
+        ]
+      },
+      "absent": {
+        "details_text": [
+          "INGEST-FAILED"
+        ]
+      }
+    },
+    {
+      "id": "D-reset-closes-music-details",
+      "family": "details",
+      "setup": {
+        "music": "INGEST-OLD",
+        "cards": "zero no diagnostic",
+        "open": true,
+        "label": "Road Trip"
+      },
+      "steps": [
+        "intentional Start over through actual action",
+        "settle reset view"
+      ],
+      "eq": {
+        "label_value": "",
+        "details_visible": false
+      },
+      "same": [],
+      "contains": {},
+      "absent": {
+        "details_text": [
+          "INGEST-OLD"
+        ]
+      }
+    },
+    {
+      "id": "D-late-details-response",
+      "family": "details",
+      "setup": {
+        "cards": "CARDS-OLD",
+        "open": true,
+        "details_promise": "pending"
+      },
+      "steps": [
+        "replace with current CARDS-NEW",
+        "request current details and resolve it",
+        "resolve older CARDS-OLD response last"
+      ],
+      "eq": {},
+      "same": [],
+      "contains": {
+        "details_text": [
+          "CARDS-NEW"
+        ]
+      },
+      "absent": {
+        "details_text": [
+          "CARDS-OLD"
+        ]
+      }
+    },
+    {
+      "id": "D-dismiss-by-clear",
+      "family": "details",
+      "setup": {
+        "music": "valid",
+        "cards": "CARDS-FAILED",
+        "open": true
+      },
+      "steps": [
+        "fresh card success clears current card diagnostic",
+        "settle view",
+        "late previous details response arrives"
+      ],
+      "eq": {
+        "details_visible": false
+      },
+      "same": [],
+      "contains": {},
+      "absent": {
+        "details_text": [
+          "CARDS-FAILED"
+        ]
+      }
+    },
+    {
+      "id": "O-drop-check-card-ready",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "admit folder A -> Checking",
+        "cards zero -> one hint",
+        "current check succeeds88200frames"
+      ],
+      "eq": {
+        "state": "Ready",
+        "frames": 88200,
+        "card_line": "Card ready (64 GB).",
+        "accepted_folders": [
+          "A"
+        ],
+        "check_requests": 1,
+        "label_unchanged": true
+      },
+      "same": [],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "O-card-then-check-failure",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "admit folder A",
+        "successful one-hint card completion",
+        "current check fails typed INGEST-DIAG",
+        "open details"
+      ],
+      "eq": {
+        "state": "Problem",
+        "card_line": "Card ready (64 GB)."
+      },
+      "same": [],
+      "contains": {
+        "details_text": [
+          "INGEST-DIAG"
+        ]
+      },
+      "absent": {}
+    },
+    {
+      "id": "O-check-failure-then-card",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "current check fails INGEST-DIAG",
+        "fresh card success",
+        "open current details"
+      ],
+      "eq": {
+        "state": "Problem"
+      },
+      "same": [],
+      "contains": {
+        "details_text": [
+          "INGEST-DIAG"
+        ]
+      },
+      "absent": {}
+    },
+    {
+      "id": "O-check-success-card-failure",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "current check succeeds88200frames",
+        "cards current failure CARDS-DIAG",
+        "open details"
+      ],
+      "eq": {
+        "state": "Ready",
+        "frames": 88200
+      },
+      "same": [],
+      "contains": {
+        "details_text": [
+          "CARDS-DIAG"
+        ]
+      },
+      "absent": {}
+    },
+    {
+      "id": "O-reset-while-checking",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "admit A, worker pending",
+        "Start over invalidates before cancellation",
+        "late old check success and duplicate arrive"
+      ],
+      "eq": {
+        "state": "Empty",
+        "label_value": "",
+        "accepted_folders": [],
+        "late_publications": 0,
+        "replacement_before_old_cleanup": 0
+      },
+      "same": [],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "O-reset-due-poll",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "due poll is paused before admission",
+        "Start over resets music/label (not shutdown)",
+        "resume one current poll"
+      ],
+      "eq": {
+        "state": "Empty",
+        "label_value": "",
+        "poll_workers": 1,
+        "max_concurrent": 1,
+        "foreign_cleanup": []
+      },
+      "same": [],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "O-reset-inflight-poll",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "current poll blocked",
+        "Start over resets music/label",
+        "current poll completes with zero offered/unprobed",
+        "duplicate completion delivered"
+      ],
+      "eq": {
+        "state": "Empty",
+        "label_value": "",
+        "duplicate_publications": 0,
+        "max_concurrent": 1,
+        "card_line": "Put a card in."
+      },
+      "same": [],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "O-shutdown-due-poll",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "pause due poll after preliminary stop read",
+        "complete shutdown cancellation pass",
+        "resume poll registration"
+      ],
+      "eq": {
+        "poll_workers_after_stop": 0,
+        "late_publications": 0,
+        "active_cards": null,
+        "foreign_cleanup": []
+      },
+      "same": [],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "O-shutdown-inflight",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "registered typed poll blocked",
+        "shutdown stops polls and invalidates -> cancel -> child terminal -> owned cleanup",
+        "late/duplicate completion"
+      ],
+      "eq": {
+        "late_publications": 0,
+        "cleanup_before_terminal": 0,
+        "new_workers_after_stop": 0,
+        "foreign_cleanup": []
+      },
+      "same": [],
+      "contains": {},
+      "absent": {}
+    },
+    {
+      "id": "O-supersede-and-destroy",
+      "family": "ordering",
+      "setup": {
+        "coordinator": "actual production Bridge; typed outcomes; real emitted View sequence",
+        "renderer": "mountApp over those Views",
+        "active_control": "label edit or open details while named coordinator steps occur; raw callback/selection capture required"
+      },
+      "steps": [
+        "admit A check then append B/C",
+        "old check terminal/cleanup then replacement",
+        "old completion repeats",
+        "destroy binding with details/snapshot Promise pending",
+        "deliver queued event/Promise"
+      ],
+      "eq": {
+        "accepted_folders": [
+          "A",
+          "B",
+          "C"
+        ],
+        "check_requests": 2,
+        "replacement_before_old_cleanup": 0,
+        "late_publications": 0,
+        "mutations_after_destroy": 0,
+        "remaining_subscriptions": 0
+      },
+      "same": [],
+      "contains": {},
+      "absent": {}
+    }
+  ],
+  "scope": "controlled production components only; no runtime admission"
+}

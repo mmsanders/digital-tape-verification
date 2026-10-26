@@ -1,0 +1,220 @@
+{
+  "cases": [
+    {
+      "id": "zero",
+      "exit": 0,
+      "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "one64",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "round-up",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":63600000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "round-down",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64400000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "binary-limit-decimal-display",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":137438953472}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "multiple",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"card\",\"path\":\"MODEL-DISK-1\",\"bytes\":32000000000}\n{\"t\":\"summary\",\"offered\":2,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "zero-unprobed",
+      "exit": 0,
+      "stdout": "{\"t\":\"summary\",\"offered\":0,\"unprobed\":3}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "one-plus-unprobed",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":2}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "enum-unavailable",
+      "exit": 1,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"refusal\",\"id\":\"CARDS_ENUM_UNAVAILABLE\",\"subject\":null,\"os_error\":\"MODEL_QUERY_ERROR\"}\n{\"t\":\"end\",\"exit\":1}\n"
+    },
+    {
+      "id": "wrong-nonce-failure",
+      "exit": 1,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"cccccccccccccccccccccccccccccccc\"}\n{\"t\":\"refusal\",\"id\":\"CARDS_ENUM_UNAVAILABLE\",\"subject\":null,\"os_error\":\"MODEL_QUERY_ERROR\"}\n{\"t\":\"end\",\"exit\":1}\n"
+    },
+    {
+      "id": "wrong-version-failure",
+      "exit": 1,
+      "stdout": "",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"wrong\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"refusal\",\"id\":\"CARDS_ENUM_UNAVAILABLE\",\"subject\":null,\"os_error\":\"MODEL_QUERY_ERROR\"}\n{\"t\":\"end\",\"exit\":1}\n"
+    },
+    {
+      "id": "partial-report-failure",
+      "exit": 1,
+      "stdout": "",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"refusal\",\"id\":\"CARDS_ENUM_UNAVAILABLE\",\"subject\":null,\"os_error\":\"MODEL_QUERY_ERROR\"}\n{\"t\":\"end\",\"exit\":1}"
+    },
+    {
+      "id": "unknown-report-id",
+      "exit": 1,
+      "stdout": "",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"refusal\",\"id\":\"UNISSUED_ID\",\"subject\":null,\"os_error\":\"MODEL_QUERY_ERROR\"}\n{\"t\":\"end\",\"exit\":1}\n"
+    },
+    {
+      "id": "valid-stdout-missing-report",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": ""
+    },
+    {
+      "id": "valid-stdout-wrong-nonce",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"cccccccccccccccccccccccccccccccc\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "missing-summary",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK\",\"bytes\":64000000000}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "summary-mismatch",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":2,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "partial-summary",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "duplicate-path",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":32000000000}\n{\"t\":\"summary\",\"offered\":2,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "invalid-capacity",
+      "exit": 0,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":true}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "unknown-output-record",
+      "exit": 0,
+      "stdout": "{\"t\":\"refused\",\"path\":\"PRIVATE-REFUSED-DISK\"}\n{\"t\":\"summary\",\"offered\":0,\"unprobed\":0}\n",
+      "report": "{\"t\":\"start\",\"tool\":\"tapectl cards\",\"version\":\"tapectl-wp15-s2+bbbbbbbbbbbb\",\"nonce\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}\n{\"t\":\"end\",\"exit\":0}\n"
+    },
+    {
+      "id": "usage-stale-output",
+      "exit": 2,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": ""
+    },
+    {
+      "id": "no-child-exit",
+      "exit": null,
+      "stdout": "{\"t\":\"card\",\"path\":\"MODEL-DISK-0\",\"bytes\":64000000000}\n{\"t\":\"summary\",\"offered\":1,\"unprobed\":0}\n",
+      "report": ""
+    }
+  ],
+  "schedules": {
+    "regular": {
+      "ticks": [
+        0,
+        1999,
+        2000,
+        3000,
+        4000,
+        5000
+      ],
+      "terminal_before": [
+        3000
+      ],
+      "making": [],
+      "stopped": [],
+      "started": [
+        2000,
+        5000
+      ]
+    },
+    "slow": {
+      "ticks": [
+        2000,
+        4000,
+        6000,
+        7000,
+        8000,
+        9000
+      ],
+      "terminal_before": [
+        7000
+      ],
+      "making": [],
+      "stopped": [],
+      "started": [
+        2000,
+        9000
+      ]
+    },
+    "making": {
+      "ticks": [
+        2000,
+        4000,
+        6000
+      ],
+      "terminal_before": [],
+      "making": [
+        2000,
+        4000
+      ],
+      "stopped": [],
+      "started": [
+        6000
+      ]
+    },
+    "stopped": {
+      "ticks": [
+        2000,
+        4000
+      ],
+      "terminal_before": [],
+      "making": [],
+      "stopped": [
+        2000,
+        4000
+      ],
+      "started": []
+    }
+  },
+  "nonce": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "model_report_version": "tapectl-wp15-s2+bbbbbbbbbbbb",
+  "events": [
+    "ticks while idle/busy/Making/stopped",
+    "current/stale/duplicate completion",
+    "timeout/terminal/cleanup/replacement",
+    "shutdown"
+  ],
+  "runtime_admission": "NONE; exact new child and live metadata source/pin/command preflight pending"
+}
