@@ -1,0 +1,145 @@
+{
+  "C03-C17-C18/envelope-success.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "d843136dd0f35a67a1ea663a0cd8b050d2dce79004ba7f455cf89b2fcb22f49d",
+    "records_sha256": "58bb5a5d74b75d7ed67c433c9cd712f02fc32f30d61d31da1e4813e4c42f7848"
+  },
+  "C04/envelope-refusal.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "e7ca6e02dac1324b2d851efee5e80e689e14e9ba482d9c74054213453b6d6165",
+    "records_sha256": "e9e3defd0e03e532a60f37cec81a789383de1b53b120908b2be699dd9944b8e6"
+  },
+  "C05/envelope-missing.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "a514a6fd150fbdc818cab2c8d17ea9efb65c2a3a48a528a6cbaab7814cb1a81a",
+    "records_sha256": "d8a430d886528b936e11cb80dbf5c373e577bf2a9e9f7eee8b1205205adf0160"
+  },
+  "C06/envelope-cancel.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "a037937f887e65d06d029468eca4e2330c3b69cf0cc88555ef0458c3db8ecce2",
+    "records_sha256": "f8cdd20ad23cb52d907066d5a3237d68994390f28b9b26249988ea18a64bbdc1"
+  },
+  "C07/envelope-cancel.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "60490c2e803e1ab94a80b1cc617c345b2cbc9130fc7e2c65b8c38989c1440699",
+    "records_sha256": "5b4b06544f151bbd290e25340d4aa135d6f2dbfdb43bcb2739359dd9c6408e88"
+  },
+  "C10-C26/envelope-first.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "0b6113163af71b5c8c35ccdb2f4d23ebeb87b2183179ba7b287317aeeb96119f",
+    "records_sha256": "ca5b930fd823405a59a29f1485f1fba7207447ca8aacfac7b277f512defdd97c"
+  },
+  "C11/envelope-occupied.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "dd48e8d63063220e8e4e6e5566e1bc7da6f95aac97834453115cc617e455bc72",
+    "records_sha256": "cb2d34ae47dd5e8bef798c6500a43b3e35e1c1f00a18949adeb6ee9e32fffbed"
+  },
+  "C12/envelope-held.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "837bbdaa76a7eec3412e69bc715f568bb9b44f2d3d9f7ab595269759ced71bb6",
+    "records_sha256": "7e317b1c323eee50ae4ade65f8a49def04a290b4c337f298cfc0a0e55c81b5c7"
+  },
+  "C13/envelope-stale.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "cab3a0ac0b388e7dcd75a4510cf4ec1214913430654f54cc5429f2e5f1d4c2f6",
+    "records_sha256": "80b639a7a25e4fce8b46d3de03482e8ca2c45d55fbd319e0b6eb0651617faf52"
+  },
+  "C13-cumulative/envelope-cumulative.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "7fd5162db06682e11b1bf13f9b636e6b8d1a361df878f0ceec1b513ca84e2890",
+    "records_sha256": "05e8a4a2d5aad59cbaf800eb08d879883c23cb7f32d228e546bf926141ee1c95"
+  },
+  "C14/envelope-skipped.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "e6f966c21ff95b6677a11f72c512298e581858f1f99bd42220ed66809051c3af",
+    "records_sha256": "e5b05f86362379f5823c5d205a8a4a5bf8001bfea888ed5788cf52bd6f1d3e96"
+  },
+  "C15-C16/envelope-refusals.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "39c0e71276a72d72add30e0475c256a42445593c180822357bcc73e878243a16",
+    "records_sha256": "c74d9fc8e49b6bf204d4acb644e3ce7ea71b3b3ec033c2c4a642ff24afb8df0f"
+  },
+  "C19/envelope-malformed.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "5f0149b469995f0f968f9012783c9db73c691586695dc7b244e2a9c9a8a4c790",
+    "records_sha256": "ece2bdce4a0d45da9afae5d22cf8f4f59940a29b530c93e963b2a813f5d7b93a"
+  },
+  "C20/envelope-unknown.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "23f9d82b623420da14969459c3201ea96527fc4e2f9bf6ad1fac0c5da43bcde4",
+    "records_sha256": "940fafb437a4b97f81046c08ec4cc7a92c675361b178c18a1b788f2f5f256d18"
+  },
+  "C21/envelope-line.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "55d3e51ee598c317b29711197398bd33426d6f9802a093aa1b7999c9c20bb840",
+    "records_sha256": "7b7c7b0444c91dcf568ca98220ba30f4ccd3df2888f5fd75667482f9293eedb3"
+  },
+  "C22/envelope-blob.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "ab65730d924f80336ef9a08bdc93340e1c594cdb4980087e8dc72a428494528e",
+    "records_sha256": "c7f6f0e9a9cbb843f5e16b7c2835741b34134d5fc82e87bde749127d00326235"
+  },
+  "C23/envelope-total.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "269e6200dfc36e295c8b75db91d2554537d5f90041e946d342e52103e6b9d8da",
+    "records_sha256": "9871606f1c1f4db2fe4a386763d4aff26882fed1cbcb236a5e701733fd10c35c"
+  },
+  "C24-C25/envelope-create.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "b39b0b7d2540ed14fe07f1e5db4217eef1411e79d35416733e3d877f29f77b2d",
+    "records_sha256": "614ea5e983c807f71b2fa9ca6faaf1ba81f095d000aef15da7bffb05a6ab0c83"
+  },
+  "C24-C25/envelope-dead.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "776f5fa98a7acac1e2f78b208a0463b98e4b2ba26886d175c9c932b1d1402d6f",
+    "records_sha256": "16b31a993f53b71ac7f86b7d910ed5e4b6027b5723234643fc37406821b6e845"
+  },
+  "C24-C25/envelope-full.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "b132f20560de63dbbdfda0acef25f2a6d4bf2b817b15a6f3aa136f3b55c190db",
+    "records_sha256": "9820495071d420c63a1cf0e9857ce5a63ff36008bc3944d3e3a1ab8c8a5d8aa3"
+  },
+  "C24-C25/envelope-short-blob.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "49637e9e0bf923d7aa98b1b136b5a86137afa11b272b4a93894f2cf7e5d22337",
+    "records_sha256": "e81260ca8b733fe99e13b67a53482e5c10ae8388e984ef2075605384282d1604"
+  },
+  "C24-C25/envelope-short-record.json": {
+    "expect": "invalid",
+    "outcome": "rejected-invalid",
+    "envelope_sha256": "4507b4983cca6e0aa48bda0865282e174d01781c1a93b7d7364f95fb0e22e103",
+    "records_sha256": "a30850c620ad5903c70548a84839d85cbf80741f4871b26903e6d29bab25c792"
+  },
+  "C22_limit_continuation": [
+    "blob",
+    "blob",
+    "audio",
+    "cleanup",
+    "reset",
+    "session-end"
+  ],
+  "comparison_count": 32,
+  "C02": "UNEXECUTED positive console contrast; both observed helper console associations false",
+  "actual_mutations_rejected": 7
+}

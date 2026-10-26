@@ -1,0 +1,16 @@
+{
+  "base": "9af79191671b4ce47732dc6cb3da269741ea5e4d",
+  "head": "2416972fda46e64954787ea0989432016efd3cc4",
+  "import_commit": "ba938decf61ff8bd850dd4472f8c9329cc0c181d",
+  "root_tree": "de1aaa230509e703941a71b396d2ff5dac26bd38",
+  "trees": {
+    "host/ingest": "835078995d4e9cc2424f9ea8d6f11304b45f783f",
+    "tests/wp16_ingest_stage1": "609a4c819076a2b85b26cc4f3cd254b92caef6de",
+    "tests/wp15_app1a_r1": "bdd861b693516db2e5244660b3e99ee400d506de"
+  },
+  "workflow_blob": "d49e5983dbcca7492c067ec96a48371240a3e48d",
+  "changed_paths": 217,
+  "first_commit_paths": 59,
+  "second_commit_paths": 158,
+  "decision": "EXACT-SOURCE INTEGRATION-ONLY CLEARANCE; Software protected integration; no native/package acceptance"
+}
