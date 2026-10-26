@@ -1,0 +1,153 @@
+{
+  "product_main": "9af79191671b4ce47732dc6cb3da269741ea5e4d",
+  "verification_input": "42619272eef3f7affd17d4d1258abcee4ad2f972",
+  "candidate459": "50bc4160f6da527da8c684d05264f99815aaa870",
+  "candidate454": "b9f430c8c9b33532abf07eea0ed2653310639f2d",
+  "trees": {
+    "459_host": "b4907b2f209080f3ff730f8af0f6da298c13fbeb",
+    "454_host": "835078995d4e9cc2424f9ea8d6f11304b45f783f",
+    "main_host": null,
+    "459_stage1": "609a4c819076a2b85b26cc4f3cd254b92caef6de",
+    "main_stage1": null,
+    "454_app1a": "bdd861b693516db2e5244660b3e99ee400d506de",
+    "main_app1a": "bdd861b693516db2e5244660b3e99ee400d506de"
+  },
+  "s1_source_blobs": {
+    "host/ingest/src/aac.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "b78102f57aede497b090131dcb33baf6cdfaed7e"
+    },
+    "host/ingest/src/common.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "9902dcb41e2004124304008b3c1b50be0d4389bc"
+    },
+    "host/ingest/src/convert.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "c47431f4ff9f2639e77a9e89f3141277d233cecf"
+    },
+    "host/ingest/src/dsp.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "05bf9fb4e61cce977194eb33ca09550abbbe035a"
+    },
+    "host/ingest/src/flac.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "189e61caf6054c1cbfbe1afac8b725d55db1a673"
+    },
+    "host/ingest/src/lib.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "1cee428a75d5c87aa1754e00b99c6b187ea7801d"
+    },
+    "host/ingest/src/main.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "ce2035c1ca9afc73deaef956dcdc97ee7d86bce8"
+    },
+    "host/ingest/src/manifest.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "27b44339ce1f7eabe5313ef8a6bf380552549944"
+    },
+    "host/ingest/src/mem.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "642c27c544a2019e72d379714e4697b5ad8a44c0"
+    },
+    "host/ingest/src/mpeg.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "2f9dbd0af36b8dff72dec703b1ec4f36b138a6ef"
+    },
+    "host/ingest/src/observe.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "bb05689d9717b2b5afa4771c7c2c0723c3df414d"
+    },
+    "host/ingest/src/order.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "e07e05e240bec7f8ff5ae1f3d258caebecb9fe84"
+    },
+    "host/ingest/src/publish.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "7919cebec8e7eb69423ee0c2078abf3d20bbf2e8"
+    },
+    "host/ingest/src/report.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "619abbdbd4c9a05b70df61380bda1387f5665a1f"
+    },
+    "host/ingest/src/sniff.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "7e25432123cb7695ebd5557e28e3e285a8e84a35"
+    },
+    "host/ingest/src/wav.rs": {
+      "mode": "100644",
+      "type": "blob",
+      "blob": "b64d3c084334f1b1527b643f5195a6762d670622"
+    }
+  },
+  "same_blob_paths_on_main": {
+    "host/ingest/src/aac.rs": [],
+    "host/ingest/src/common.rs": [],
+    "host/ingest/src/convert.rs": [],
+    "host/ingest/src/dsp.rs": [],
+    "host/ingest/src/flac.rs": [],
+    "host/ingest/src/lib.rs": [],
+    "host/ingest/src/main.rs": [],
+    "host/ingest/src/manifest.rs": [],
+    "host/ingest/src/mem.rs": [],
+    "host/ingest/src/mpeg.rs": [],
+    "host/ingest/src/observe.rs": [],
+    "host/ingest/src/order.rs": [],
+    "host/ingest/src/publish.rs": [],
+    "host/ingest/src/report.rs": [],
+    "host/ingest/src/sniff.rs": [],
+    "host/ingest/src/wav.rs": []
+  },
+  "independent_reports": {
+    "192": {
+      "path": "findings/P2-192-HOST-2026-10-17/README.md",
+      "blob": "d32523a4eff81101189bfbff17e2c71cbb819b1d",
+      "sha256": "94ef299748c321516576333dec1580e717b11ecd4ff16d92cea127c120978cf1"
+    },
+    "203": {
+      "path": "findings/P2-201-DISPOSITION-2026-10-18/RETURN.md",
+      "blob": "af6ea273ac91417abe66bbcab10a490b2ecc3223",
+      "sha256": "76e9d889397bdb03f9768804f175c109612c1f1925d02c144d3f01aafba9c1c0"
+    },
+    "214": {
+      "path": "findings/P2-208-209-RETURNS-2026-10-19/README.md",
+      "blob": "307172e83c6b7feca5da39dd05d313b14f5fe686",
+      "sha256": "c8037d32e12be5b8017107d615756a78e52dd50f1b3fd1caa5830059b22b1a5e"
+    },
+    "230": {
+      "path": "findings/P2-226-WIN11-2026-10-20/README.md",
+      "blob": "c07575b6895dd33f5ed20c94e0c3603d57806e61",
+      "sha256": "24749bad66c4c61bf4fb2de770d686dfb825ef1f932c93e5f3b1f5642a922a2e"
+    },
+    "234": {
+      "path": "findings/P2-232-RETURN-2026-10-20/README.md",
+      "blob": "dfae9ba8d10d628e6697208bf5ecbc5ff1bcd32d",
+      "sha256": "57608f6268f3906326c78b63b0fd5082aaef641801a57c121080d50d1667e799"
+    },
+    "242": {
+      "path": "findings/P2-242-INTEGRATION-2026-10-20/README.md",
+      "blob": "003d1850ea7bc7c8322c34b34d565dbbb274243a",
+      "sha256": "dfaa358104cf0af675bda29b2ef5f96bbbe5fe550d0eb7e5186fc9623b5f69d2"
+    },
+    "269": {
+      "path": "findings/P2-269-CARDINALITY-2026-10-21/README.md",
+      "blob": "3928a1146c942ad5e8887a0d4b65d2541699c2a5",
+      "sha256": "2110772758d7dc87284df02f9521734b89c2553368769e04ef4011944e0dfa0e"
+    }
+  },
+  "execution": "Git object reads/hash only; no Product build/corpus/runtime or native/observer execution"
+}
