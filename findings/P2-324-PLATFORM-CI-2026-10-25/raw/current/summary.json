@@ -1,0 +1,51 @@
+{
+ "source_head": "2decba2f2d38bcd6add6390ffc285e2864bf22ca",
+ "passed": 26,
+ "total": 32,
+ "failures": {
+  "E-ascii-caret": [
+   "eq label_selection: [4, 4, 'forward'] != [4, 4, 'none']"
+  ],
+  "E-ascii-backward-selection": [],
+  "E-two-byte-selection": [],
+  "E-astral-caret": [
+   "eq label_selection: [6, 6, 'forward'] != [6, 6, 'none']"
+  ],
+  "E-paste-exact-limit": [
+   "eq label_selection: [32, 32, 'forward'] != [32, 32, 'none']"
+  ],
+  "E-reject-ascii-excess": [],
+  "E-reject-multibyte-excess": [],
+  "E-reject-nul": [
+   "eq label_selection: [2, 2, 'forward'] != [2, 2, 'none']"
+  ],
+  "E-delete-to-empty": [
+   "eq label_selection: [0, 0, 'forward'] != [0, 0, 'none']"
+  ],
+  "E-two-edits-reversed-acks": [
+   "eq label_selection: [9, 9, 'forward'] != [9, 9, 'none']"
+  ],
+  "E-late-initial-snapshot": [],
+  "E-paste-replaces-astral-selection": [],
+  "D-ingest-poll": [],
+  "D-cards-check-snapshot": [],
+  "D-combined-unchanged": [],
+  "D-copy-plain-selection": [],
+  "D-changed-diagnostic": [],
+  "D-cards-success-keeps-ingest": [],
+  "D-ingest-success-keeps-cards": [],
+  "D-reset-closes-music-details": [],
+  "D-late-details-response": [],
+  "D-dismiss-by-clear": [],
+  "O-drop-check-card-ready": [],
+  "O-card-then-check-failure": [],
+  "O-check-failure-then-card": [],
+  "O-check-success-card-failure": [],
+  "O-reset-while-checking": [],
+  "O-reset-due-poll": [],
+  "O-reset-inflight-poll": [],
+  "O-shutdown-due-poll": [],
+  "O-shutdown-inflight": [],
+  "O-supersede-and-destroy": []
+ }
+}

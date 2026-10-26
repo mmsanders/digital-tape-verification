@@ -1,0 +1,29 @@
+2026-10-26T03:58:58.3452840Z Traceback (most recent call last):
+2026-10-26T03:58:58.3453968Z   File "D:\a\Digital-Tape\Digital-Tape\tools\app\interactions_summary.py", line 26, in <module>
+2026-10-26T03:58:58.3455874Z     json.dump({'source_head': result['source_head'], 'passed': passed, 'total': len(contract.CASES), 'failures': rows},
+2026-10-26T03:58:58.3457303Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\json\__init__.py", line 180, in dump
+2026-10-26T03:58:58.3522049Z     fp.write(chunk)
+2026-10-26T03:58:58.3522968Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+2026-10-26T03:58:58.3625438Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+2026-10-26T03:58:58.3625879Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-26T03:58:58.3626416Z UnicodeEncodeError: 'charmap' codec can't encode characters in position 24-27: character maps to <undefined>
+2026-10-26T03:58:58.6057295Z [31;1mConvertFrom-Json: [0mD:\a\_temp\655a3de5-3bf3-44d2-8966-507ed42503ba.ps1:12[0m
+2026-10-26T03:58:58.6059080Z [31;1m[0m[36;1mLine |[0m
+2026-10-26T03:58:58.6059898Z [31;1m[0m[36;1m[36;1m  12 | [0m … e=Get-Content evidence584/pre584/summary.json -Raw | [36;1mConvertFrom-Json[0m
+2026-10-26T03:58:58.6061231Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m                                                        ~~~~~~~~~~~~~~~~[0m
+2026-10-26T03:58:58.6062527Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mConversion from JSON failed with error: Unexpected end when reading token. Path 'failures'.[0m
+2026-10-26T03:58:58.6295768Z ##[error]Process completed with exit code 1.
+2026-10-26T03:58:58.6490547Z ##[group]Run actions/upload-artifact@v4
+2026-10-26T03:58:58.6490893Z with:
+2026-10-26T03:58:58.6491129Z   name: software584-interaction-evidence
+2026-10-26T03:58:58.6491391Z   path: evidence584
+2026-10-26T03:58:58.6491591Z   retention-days: 30
+2026-10-26T03:58:58.6491810Z   if-no-files-found: warn
+2026-10-26T03:58:58.6492031Z   compression-level: 6
+2026-10-26T03:58:58.6492245Z   overwrite: false
+2026-10-26T03:58:58.6492441Z   include-hidden-files: false
+2026-10-26T03:58:58.6492661Z env:
+2026-10-26T03:58:58.6492971Z   DT_TAPECTL_SHA256: 44ef26869ba2d01a8a183660a2c7a050d0e7e9ff37c40b727131512739ea6ded
+2026-10-26T03:58:58.6493391Z   DT_TAPECTL_VERSION: tapectl-wp15-s2+f9306c2c5a42
+2026-10-26T03:58:58.6493733Z   PRE584_MAIN: 920f3d0594180ec00fa9e5ac165c06cfa1b76061
+2026-10-26T03:58:58.6494120Z   DT_TEST_EXE: D:\a\_temp\target584\debug\deps\dtapp-d92ef77c60d9d560.exe

@@ -1,0 +1,3 @@
+raw/** -text
+*.json -text
+CI-ERROR-EXCERPT.txt -text
