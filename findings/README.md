@@ -1,5 +1,11 @@
 # Verification findings index
 
+26October2026: [Verification328 human564 pre-run method](P2-328-HUMAN-METHOD-2026-10-26/README.md)
+admits Michael's real visual drag-and-drop checks with a short operator sheet.
+The proposed collector/complete child-IPC/zero-request/cleanup claims stay HELD;
+no runtime observation occurred. Original564 only;585 separate.
+
+
 26October2026: [Verification324 final exact-head disposition](P2-324-FINAL-2026-10-26/README.md)
 clears Product587/3104e04e within32-case controlled interaction coverage; original
 current32/32 versus old-renderer18/32, strict qualifier and120 current-base checks

@@ -1,7 +1,7 @@
 name: Production app component expectations
 on:
   pull_request:
-    paths: ['tests/windows_interactions_r2/**', 'findings/P2-324-*/**', 'tests/windows_interactions_r1/**', 'tests/windows_discovery_candidate_r1/**', 'tests/windows_screen_r1/**', 'tests/windows_bridge_r1/**', 'tests/windows_candidate_r1/**', 'tests/windows_native_flow_r1/**', 'tests/windows_discovery_r1/**', 'findings/P2-318-*/**', 'findings/P2-317-*/**', 'findings/P2-305-*/**', 'findings/P2-306-*/**', 'findings/P2-307-*/**', '.github/workflows/verifier-production-app.yml']
+    paths: ['tests/windows_human_flow_r1/**', 'findings/P2-328-*/**', 'tests/windows_interactions_r2/**', 'findings/P2-324-*/**', 'tests/windows_interactions_r1/**', 'tests/windows_discovery_candidate_r1/**', 'tests/windows_screen_r1/**', 'tests/windows_bridge_r1/**', 'tests/windows_candidate_r1/**', 'tests/windows_native_flow_r1/**', 'tests/windows_discovery_r1/**', 'findings/P2-318-*/**', 'findings/P2-317-*/**', 'findings/P2-305-*/**', 'findings/P2-306-*/**', 'findings/P2-307-*/**', '.github/workflows/verifier-production-app.yml']
 permissions:
   contents: read
 jobs:
@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Human564 partial-evidence attribution controls (ZERO Product or UI execution)
+        run: python3 -B tests/windows_human_flow_r1/contract.py
       - name: Correct Windows selection constant and Unicode summary (ZERO Product or browser execution)
         run: |
           python3 -B tests/windows_interactions_r2/contract.py

@@ -1,0 +1,16 @@
+{
+  "candidate": {
+    "digital-tape.exe": "ee4c84acb03655c4fb1344db1548ab283054eabe9caea9c2482b0181b39fa250",
+    "ingest.exe": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+    "tapectl.exe": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9",
+    "BUILD.json": "0faf28103f4e76d75c392a22d7c8dbe7c33ac9732a7ff62a6a76738a358969f2",
+    "README.txt": "839cf34dfccde339e78e2d595f9e3367ec62dea113a2176f05f25c0b1f5c9ee7"
+  },
+  "fixture_wav_sha256": "48f1b3c7ce7fe27a90469364f841803087a9d274a4af9a4ec8ee195a2846ac18",
+  "fixture_bytes": 352844,
+  "fixture_frames": 88200,
+  "kit_manifest_sha256": "2c13cc74b178925ae46d09d100fd356fecec22b964f0a6218ac8594bd8d05ef2",
+  "labels": "7 natural text attempts exact; eighth NUL unsupported",
+  "empty_folder": "empty",
+  "execution": "NONE; data hashing only"
+}
