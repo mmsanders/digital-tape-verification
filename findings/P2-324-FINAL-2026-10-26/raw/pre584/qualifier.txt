@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "D:\a\Digital-Tape\Digital-Tape\tests\windows_interactions_r2\contract.py", line 137, in <module>
+    elif a.input:print(qualify(json.loads(a.input.read_text(encoding='utf-8-sig')),a.candidate))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\a\Digital-Tape\Digital-Tape\tests\windows_interactions_r2\contract.py", line 96, in qualify
+    for k,want in c['eq'].items():assert after[k]==want,(c['id'],k,after[k],want)
+                                         ^^^^^^^^^^^^^^
+AssertionError: ('E-ascii-caret', 'label_value', 'Roa Trip', 'Road Trip')
+qualifier exit 1 (expected nonzero)

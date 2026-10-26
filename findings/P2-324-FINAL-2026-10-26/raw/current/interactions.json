@@ -1,0 +1,2217 @@
+{
+ "source_head": "3104e04e99a25933a34f0eae38fef6fd39b26802",
+ "evidence_class": "production renderer/binding/coordinator controlled interaction",
+ "adapter_refs": [
+  "tools/app/interactions-dom.cjs",
+  "host/app/tests/interaction_component.rs"
+ ],
+ "raw_refs": [
+  "interactions.raw.json"
+ ],
+ "source_blobs": [
+  {
+   "path": "D:/a/Digital-Tape/Digital-Tape/host/app/frontend/app.mjs",
+   "sha256": "9b7af6a803b778ffe88ce4049237e0a72bfd89fab5fcb0a4f73a17edd30889c6",
+   "git_blob": "756d680aa49e991f41f189b8b6ef68ef60c1532e"
+  },
+  {
+   "path": "D:/a/Digital-Tape/Digital-Tape/host/app/frontend/screen.mjs",
+   "sha256": "db119bd80895548d9af66ce01b30e688d6514a0540515e047681d18edda3aef3",
+   "git_blob": "77bf12f1e16f4b578fd8b1a770fd667204ed2ba4"
+  },
+  {
+   "path": "D:/a/Digital-Tape/Digital-Tape/host/app/frontend/style.css",
+   "sha256": "71840792abbc4a5d38ebe38619115c7f8144b14c70f844a9e0b758a550757709",
+   "git_blob": "a913c97efebabc9276546d6c2507ea5f8641ba34"
+  }
+ ],
+ "commands": [
+  "D:\\a\\Digital-Tape\\Digital-Tape\\tools\\app\\interactions-dom.cjs evidence584/contract-emit.json evidence584/discovery-emit.json D:\\a\\_temp\\target584\\debug\\deps\\dtapp-d92ef77c60d9d560.exe D:\\a\\Digital-Tape\\Digital-Tape/host/app/frontend evidence584/current 3104e04e99a25933a34f0eae38fef6fd39b26802"
+ ],
+ "actual_emission_refs": [
+  "interactions.raw.json#<case>.rpc[].emitted"
+ ],
+ "entry_points": [
+  "mountApp",
+  "mountScreen",
+  "Bridge"
+ ],
+ "native_ui": false,
+ "real_child_runs": 0,
+ "live_metadata_runs": 0,
+ "shipping_fake_route": false,
+ "reference_ui_model": false,
+ "browser": "155.0.4283.62",
+ "cases": {
+  "E-ascii-caret": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "unchanged cards completion",
+    "settle its snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-ascii-caret.steps",
+   "raw_ref": "interactions.raw.json#E-ascii-caret",
+   "actual_production_calls_ref": "interactions.raw.json#E-ascii-caret.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-ascii-backward-selection": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     0,
+     4,
+     "backward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "Card ready (64 GB).",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     0,
+     4,
+     "backward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "changed cards completion: zero -> one hint",
+    "settle snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-ascii-backward-selection.steps",
+   "raw_ref": "interactions.raw.json#E-ascii-backward-selection",
+   "actual_production_calls_ref": "interactions.raw.json#E-ascii-backward-selection.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-two-byte-selection": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "",
+    "message": "",
+    "frames": 88200,
+    "label_value": "éééééééééééééééé",
+    "utf8_bytes": 32,
+    "label_selection": [
+     2,
+     10,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "",
+    "message": "",
+    "frames": 88200,
+    "label_value": "éééééééééééééééé",
+    "utf8_bytes": 32,
+    "label_selection": [
+     2,
+     10,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "Checking -> Ready completion with previous label in delayed view"
+   ],
+   "steps_ref": "interactions.raw.json#E-two-byte-selection.steps",
+   "raw_ref": "interactions.raw.json#E-two-byte-selection",
+   "actual_production_calls_ref": "interactions.raw.json#E-two-byte-selection.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-astral-caret": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Problem",
+    "card_line": "",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "😀😀😀😀😀😀😀😀",
+    "utf8_bytes": 32,
+    "label_selection": [
+     6,
+     6,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Problem",
+    "card_line": "",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "😀😀😀😀😀😀😀😀",
+    "utf8_bytes": 32,
+    "label_selection": [
+     6,
+     6,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "Checking -> Problem completion with previous label in delayed view"
+   ],
+   "steps_ref": "interactions.raw.json#E-astral-caret.steps",
+   "raw_ref": "interactions.raw.json#E-astral-caret",
+   "actual_production_calls_ref": "interactions.raw.json#E-astral-caret.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-paste-exact-limit": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "Put a card in.",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "utf8_bytes": 32,
+    "label_selection": [
+     32,
+     32,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 88200,
+    "label_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "utf8_bytes": 32,
+    "label_selection": [
+     32,
+     32,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "paste exact32 bytes through actual handler",
+    "stale cards snapshot, then current check snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-paste-exact-limit.steps",
+   "raw_ref": "interactions.raw.json#E-paste-exact-limit",
+   "actual_production_calls_ref": "interactions.raw.json#E-paste-exact-limit.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-reject-ascii-excess": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "Put a card in.",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "utf8_bytes": 32,
+    "label_selection": [
+     8,
+     16,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "Put a card in.",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "utf8_bytes": 32,
+    "label_selection": [
+     8,
+     16,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "invalid_label_callbacks": 0
+   },
+   "event_order": [
+    "attempt entire33byte ASCII value",
+    "unrelated cards snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-reject-ascii-excess.steps",
+   "raw_ref": "interactions.raw.json#E-reject-ascii-excess",
+   "actual_production_calls_ref": "interactions.raw.json#E-reject-ascii-excess.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-reject-multibyte-excess": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "Put a card in.",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "éééééééééééééééé",
+    "utf8_bytes": 32,
+    "label_selection": [
+     0,
+     8,
+     "backward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 88200,
+    "label_value": "éééééééééééééééé",
+    "utf8_bytes": 32,
+    "label_selection": [
+     0,
+     8,
+     "backward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "invalid_label_callbacks": 0
+   },
+   "event_order": [
+    "attempt entire34byte multibyte value",
+    "Ready snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-reject-multibyte-excess.steps",
+   "raw_ref": "interactions.raw.json#E-reject-multibyte-excess",
+   "actual_production_calls_ref": "interactions.raw.json#E-reject-multibyte-excess.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-reject-nul": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "Put a card in.",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "Music",
+    "utf8_bytes": 5,
+    "label_selection": [
+     2,
+     2,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "Card ready (64 GB).",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "Music",
+    "utf8_bytes": 5,
+    "label_selection": [
+     2,
+     2,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "invalid_label_callbacks": 0
+   },
+   "event_order": [
+    "attempt Music + NUL",
+    "changed cards snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-reject-nul.steps",
+   "raw_ref": "interactions.raw.json#E-reject-nul",
+   "actual_production_calls_ref": "interactions.raw.json#E-reject-nul.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-delete-to-empty": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "delete last character through actual handler",
+    "older nonempty label acknowledgement arrives"
+   ],
+   "steps_ref": "interactions.raw.json#E-delete-to-empty.steps",
+   "raw_ref": "interactions.raw.json#E-delete-to-empty",
+   "actual_production_calls_ref": "interactions.raw.json#E-delete-to-empty.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-two-edits-reversed-acks": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "Latest 😀",
+    "utf8_bytes": 11,
+    "label_selection": [
+     9,
+     9,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "Latest 😀",
+    "utf8_bytes": 11,
+    "label_selection": [
+     9,
+     9,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "send Old then Latest 😀 label edits",
+    "resolve latest acknowledgement first, older last"
+   ],
+   "steps_ref": "interactions.raw.json#E-two-edits-reversed-acks.steps",
+   "raw_ref": "interactions.raw.json#E-two-edits-reversed-acks",
+   "actual_production_calls_ref": "interactions.raw.json#E-two-edits-reversed-acks.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-late-initial-snapshot": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "Finding cards isn't part of this build yet.",
+    "message": "",
+    "frames": 0,
+    "label_value": "New label",
+    "utf8_bytes": 9,
+    "label_selection": [
+     3,
+     7,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "New label",
+    "utf8_bytes": 9,
+    "label_selection": [
+     3,
+     7,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "mount initial snapshot Promise remains pending",
+    "edit before initial snapshot resolves",
+    "resolve initial old label snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-late-initial-snapshot.steps",
+   "raw_ref": "interactions.raw.json#E-late-initial-snapshot",
+   "actual_production_calls_ref": "interactions.raw.json#E-late-initial-snapshot.calls",
+   "producer_expected_trace_used": false
+  },
+  "E-paste-replaces-astral-selection": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 0,
+    "label_value": "😀😀😀😀😀😀😀abcd",
+    "utf8_bytes": 32,
+    "label_selection": [
+     14,
+     18,
+     "backward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "Put a card in.",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "😀😀😀😀😀😀😀abcd",
+    "utf8_bytes": 32,
+    "label_selection": [
+     14,
+     18,
+     "backward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "replace selected astral character with abcd: total32bytes",
+    "changed unprobed cards and Checking snapshot"
+   ],
+   "steps_ref": "interactions.raw.json#E-paste-replaces-astral-selection.steps",
+   "raw_ref": "interactions.raw.json#E-paste-replaces-astral-selection",
+   "actual_production_calls_ref": "interactions.raw.json#E-paste-replaces-astral-selection.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-ingest-poll": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Problem",
+    "card_line": "Put a card in.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-DIAG\n<plain>& text\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\n\n\nCard check: 0 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 653
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     7,
+     [
+      0
+     ],
+     11
+    ],
+    "selection_text": "DIAG"
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Problem",
+    "card_line": "Put a card in.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-DIAG\n<plain>& text\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\nretained raw diagnostic line\n\n\nCard check: 0 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 653
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     7,
+     [
+      0
+     ],
+     11
+    ],
+    "selection_text": "DIAG"
+   },
+   "event_order": [
+    "three unchanged cards completions at nominal gaps"
+   ],
+   "steps_ref": "interactions.raw.json#D-ingest-poll.steps",
+   "raw_ref": "interactions.raw.json#D-ingest-poll",
+   "actual_production_calls_ref": "interactions.raw.json#D-ingest-poll.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-cards-check-snapshot": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Checking",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": false,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-DIAG current diagnostic\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line",
+    "details_scroll": {
+     "element": 0,
+     "page": 725
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     79,
+     [
+      0
+     ],
+     97
+    ],
+    "selection_text": "current diagnostic"
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Ready",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 88200,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-DIAG current diagnostic\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line\ntyped diagnostic stderr line",
+    "details_scroll": {
+     "element": 0,
+     "page": 725
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     79,
+     [
+      0
+     ],
+     97
+    ],
+    "selection_text": "current diagnostic"
+   },
+   "event_order": [
+    "unrelated Checking -> Ready snapshot with identical card diagnostic"
+   ],
+   "steps_ref": "interactions.raw.json#D-cards-check-snapshot.steps",
+   "raw_ref": "interactions.raw.json#D-cards-check-snapshot",
+   "actual_production_calls_ref": "interactions.raw.json#D-cards-check-snapshot.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-combined-unchanged": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Problem",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-DIAG\n\nCard check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-DIAG",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     0,
+     [
+      0
+     ],
+     11
+    ],
+    "selection_text": "INGEST-DIAG"
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Problem",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-DIAG\n\nCard check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-DIAG",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     0,
+     [
+      0
+     ],
+     11
+    ],
+    "selection_text": "INGEST-DIAG"
+   },
+   "event_order": [
+    "unchanged combined diagnostics delivered twice"
+   ],
+   "steps_ref": "interactions.raw.json#D-combined-unchanged.steps",
+   "raw_ref": "interactions.raw.json#D-combined-unchanged",
+   "actual_production_calls_ref": "interactions.raw.json#D-combined-unchanged.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-copy-plain-selection": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Problem",
+    "card_line": "Put a card in.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "raw\r\n<img>& text\nlast line\n\nCard check: 0 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     5,
+     [
+      0
+     ],
+     16
+    ],
+    "selection_text": "<img>& text"
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "details",
+    "state": "Problem",
+    "card_line": "Put a card in.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "raw\r\n<img>& text\nlast line\n\nCard check: 0 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": [
+     [
+      0
+     ],
+     5,
+     [
+      0
+     ],
+     16
+    ],
+    "selection_text": "<img>& text",
+    "selection_tostring": [
+     "<img>& text",
+     "<img>& text"
+    ]
+   },
+   "event_order": [
+    "record Selection.toString (copyable plain-text range; do NOT use OS clipboard)",
+    "unchanged poll",
+    "record same range/text"
+   ],
+   "steps_ref": "interactions.raw.json#D-copy-plain-selection.steps",
+   "raw_ref": "interactions.raw.json#D-copy-plain-selection",
+   "actual_production_calls_ref": "interactions.raw.json#D-copy-plain-selection.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-changed-diagnostic": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Empty",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": false,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-OLD",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Empty",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": false,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-NEW",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "current card diagnostic changes to CARDS-NEW",
+    "open current details if hidden and settle callback"
+   ],
+   "steps_ref": "interactions.raw.json#D-changed-diagnostic.steps",
+   "raw_ref": "interactions.raw.json#D-changed-diagnostic",
+   "actual_production_calls_ref": "interactions.raw.json#D-changed-diagnostic.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-cards-success-keeps-ingest": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Problem",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-CURRENT\n\nCard check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-FAILED",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Problem",
+    "card_line": "Card ready (64 GB).",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-CURRENT\n\nCard check: 1 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "fresh successful card result clears card error only",
+    "open current details if needed"
+   ],
+   "steps_ref": "interactions.raw.json#D-cards-success-keeps-ingest.steps",
+   "raw_ref": "interactions.raw.json#D-cards-success-keeps-ingest",
+   "actual_production_calls_ref": "interactions.raw.json#D-cards-success-keeps-ingest.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-ingest-success-keeps-cards": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Problem",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-FAILED\n\nCard check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-CURRENT",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Ready",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 88200,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-CURRENT",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "fresh successful music check replaces music failure only",
+    "open current details if needed"
+   ],
+   "steps_ref": "interactions.raw.json#D-ingest-success-keeps-cards.steps",
+   "raw_ref": "interactions.raw.json#D-ingest-success-keeps-cards",
+   "actual_production_calls_ref": "interactions.raw.json#D-ingest-success-keeps-cards.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-reset-closes-music-details": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Problem",
+    "card_line": "Put a card in.",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     9,
+     9,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-OLD\n\nCard check: 0 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "body",
+    "state": "Empty",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "intentional Start over through actual action",
+    "settle reset view"
+   ],
+   "steps_ref": "interactions.raw.json#D-reset-closes-music-details.steps",
+   "raw_ref": "interactions.raw.json#D-reset-closes-music-details",
+   "actual_production_calls_ref": "interactions.raw.json#D-reset-closes-music-details.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-late-details-response": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Empty",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": false,
+    "details_visible": true,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Empty",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": false,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-NEW",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "replace with current CARDS-NEW",
+    "request current details and resolve it",
+    "resolve older CARDS-OLD response last"
+   ],
+   "steps_ref": "interactions.raw.json#D-late-details-response.steps",
+   "raw_ref": "interactions.raw.json#D-late-details-response",
+   "actual_production_calls_ref": "interactions.raw.json#D-late-details-response.calls",
+   "producer_expected_trace_used": false
+  },
+  "D-dismiss-by-clear": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Ready",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 88200,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-FAILED",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "body",
+    "state": "Ready",
+    "card_line": "Card ready (64 GB).",
+    "message": "",
+    "frames": 88200,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "fresh card success clears current card diagnostic",
+    "settle view",
+    "late previous details response arrives"
+   ],
+   "steps_ref": "interactions.raw.json#D-dismiss-by-clear.steps",
+   "raw_ref": "interactions.raw.json#D-dismiss-by-clear",
+   "actual_production_calls_ref": "interactions.raw.json#D-dismiss-by-clear.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-drop-check-card-ready": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "Card ready (64 GB).",
+    "message": "",
+    "frames": 88200,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "accepted_folders": [
+     "A"
+    ],
+    "check_requests": 1,
+    "label_unchanged": true
+   },
+   "event_order": [
+    "admit folder A -> Checking",
+    "cards zero -> one hint",
+    "current check succeeds88200frames"
+   ],
+   "steps_ref": "interactions.raw.json#O-drop-check-card-ready.steps",
+   "raw_ref": "interactions.raw.json#O-drop-check-card-ready",
+   "actual_production_calls_ref": "interactions.raw.json#O-drop-check-card-ready.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-card-then-check-failure": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Problem",
+    "card_line": "Card ready (64 GB).",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-DIAG\n\nCard check: 1 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "admit folder A",
+    "successful one-hint card completion",
+    "current check fails typed INGEST-DIAG",
+    "open details"
+   ],
+   "steps_ref": "interactions.raw.json#O-card-then-check-failure.steps",
+   "raw_ref": "interactions.raw.json#O-card-then-check-failure",
+   "actual_production_calls_ref": "interactions.raw.json#O-card-then-check-failure.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-check-failure-then-card": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Problem",
+    "card_line": "Card ready (64 GB).",
+    "message": "Something went wrong. Nothing else on your computer was changed.",
+    "frames": null,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "INGEST-DIAG\n\nCard check: 1 offered, 0 not checked.",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "current check fails INGEST-DIAG",
+    "fresh card success",
+    "open current details"
+   ],
+   "steps_ref": "interactions.raw.json#O-check-failure-then-card.steps",
+   "raw_ref": "interactions.raw.json#O-check-failure-then-card",
+   "actual_production_calls_ref": "interactions.raw.json#O-check-failure-then-card.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-check-success-card-failure": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Checking",
+    "card_line": "",
+    "message": "Checking the music…",
+    "frames": null,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "show-details",
+    "state": "Ready",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 88200,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": true,
+    "details_visible": true,
+    "details_text": "Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\nCARDS-DIAG",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "event_order": [
+    "current check succeeds88200frames",
+    "cards current failure CARDS-DIAG",
+    "open details"
+   ],
+   "steps_ref": "interactions.raw.json#O-check-success-card-failure.steps",
+   "raw_ref": "interactions.raw.json#O-check-success-card-failure",
+   "actual_production_calls_ref": "interactions.raw.json#O-check-success-card-failure.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-reset-while-checking": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "accepted_folders": [],
+    "late_publications": 0,
+    "replacement_before_old_cleanup": 0,
+    "trace": [
+     "worker-enter",
+     "invalidate-current",
+     "cancel-request",
+     "empty-view",
+     "worker-terminal",
+     "remove-owned-job"
+    ]
+   },
+   "event_order": [
+    "admit A, worker pending",
+    "Start over invalidates before cancellation",
+    "late old check success and duplicate arrive"
+   ],
+   "steps_ref": "interactions.raw.json#O-reset-while-checking.steps",
+   "raw_ref": "interactions.raw.json#O-reset-while-checking",
+   "actual_production_calls_ref": "interactions.raw.json#O-reset-while-checking.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-reset-due-poll": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "",
+    "message": "",
+    "frames": 88200,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "body",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "poll_workers": 1,
+    "max_concurrent": 1,
+    "foreign_cleanup": [],
+    "trace": [
+     "worker-enter",
+     "worker-terminal",
+     "completion-delivered",
+     "remove-owned-job",
+     "invalidate-current",
+     "empty-view",
+     "cards:worker-start",
+     "cards:child-terminal",
+     "cards:published",
+     "cards:remove-owned-job"
+    ]
+   },
+   "event_order": [
+    "due poll is paused before admission",
+    "Start over resets music/label (not shutdown)",
+    "resume one current poll"
+   ],
+   "steps_ref": "interactions.raw.json#O-reset-due-poll.steps",
+   "raw_ref": "interactions.raw.json#O-reset-due-poll",
+   "actual_production_calls_ref": "interactions.raw.json#O-reset-due-poll.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-reset-inflight-poll": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "",
+    "message": "",
+    "frames": 88200,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "body",
+    "state": "Empty",
+    "card_line": "Put a card in.",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "duplicate_publications": 0,
+    "max_concurrent": 1,
+    "trace": [
+     "worker-enter",
+     "worker-terminal",
+     "completion-delivered",
+     "remove-owned-job",
+     "cards:worker-start",
+     "invalidate-current",
+     "empty-view",
+     "cards:child-terminal",
+     "cards:published",
+     "cards:remove-owned-job",
+     "cards:stale-dropped"
+    ]
+   },
+   "event_order": [
+    "current poll blocked",
+    "Start over resets music/label",
+    "current poll completes with zero offered/unprobed",
+    "duplicate completion delivered"
+   ],
+   "steps_ref": "interactions.raw.json#O-reset-inflight-poll.steps",
+   "raw_ref": "interactions.raw.json#O-reset-inflight-poll",
+   "actual_production_calls_ref": "interactions.raw.json#O-reset-inflight-poll.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-shutdown-due-poll": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "poll_workers_after_stop": 0,
+    "late_publications": 0,
+    "active_cards": null,
+    "foreign_cleanup": [],
+    "trace": [
+     "stop-polls",
+     "invalidate-current",
+     "empty-view",
+     "cards:admission-refused"
+    ]
+   },
+   "event_order": [
+    "pause due poll after preliminary stop read",
+    "complete shutdown cancellation pass",
+    "resume poll registration"
+   ],
+   "steps_ref": "interactions.raw.json#O-shutdown-due-poll.steps",
+   "raw_ref": "interactions.raw.json#O-shutdown-due-poll",
+   "actual_production_calls_ref": "interactions.raw.json#O-shutdown-due-poll.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-shutdown-inflight": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Ready",
+    "card_line": "",
+    "message": "",
+    "frames": 88200,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": true,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "",
+    "message": "",
+    "frames": 0,
+    "label_value": "",
+    "utf8_bytes": 0,
+    "label_selection": [
+     0,
+     0,
+     "forward"
+    ],
+    "show_details_visible": false,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": "",
+    "late_publications": 0,
+    "cleanup_before_terminal": 0,
+    "new_workers_after_stop": 0,
+    "foreign_cleanup": [],
+    "trace": [
+     "worker-enter",
+     "worker-terminal",
+     "completion-delivered",
+     "remove-owned-job",
+     "cards:worker-start",
+     "stop-polls",
+     "cards:invalidate-current",
+     "invalidate-current",
+     "empty-view",
+     "cards:cancel",
+     "cards:child-terminal",
+     "cards:stale-dropped",
+     "cards:remove-owned-job",
+     "cards:stale-dropped"
+    ]
+   },
+   "event_order": [
+    "registered typed poll blocked",
+    "shutdown stops polls and invalidates -> cancel -> child terminal -> owned cleanup",
+    "late/duplicate completion"
+   ],
+   "steps_ref": "interactions.raw.json#O-shutdown-inflight.steps",
+   "raw_ref": "interactions.raw.json#O-shutdown-inflight",
+   "actual_production_calls_ref": "interactions.raw.json#O-shutdown-inflight.calls",
+   "producer_expected_trace_used": false
+  },
+  "O-supersede-and-destroy": {
+   "before": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "label",
+    "state": "Empty",
+    "card_line": "Something went wrong. Nothing else on your computer was changed.",
+    "message": "",
+    "frames": 0,
+    "label_value": "Road Trip",
+    "utf8_bytes": 9,
+    "label_selection": [
+     4,
+     4,
+     "forward"
+    ],
+    "show_details_visible": true,
+    "reset_visible": false,
+    "details_visible": false,
+    "details_text": "",
+    "details_scroll": {
+     "element": 0,
+     "page": 0
+    },
+    "dom_selection": null,
+    "selection_text": ""
+   },
+   "after": {
+    "forbidden_nodes": [],
+    "make_enabled": false,
+    "focus": "body",
+    "dom_nodes": 0,
+    "accepted_folders": [
+     "A",
+     "B",
+     "C"
+    ],
+    "check_requests": 2,
+    "replacement_before_old_cleanup": 0,
+    "late_publications": 0,
+    "mutations_after_destroy": 0,
+    "remaining_subscriptions": 0,
+    "last_view": {
+     "view": "ready",
+     "checking": false,
+     "bar": 0.0005555555555555556,
+     "total_frames": 88200,
+     "too_long": false,
+     "message": null,
+     "label": "Road Trip",
+     "card_line": "Something went wrong. Nothing else on your computer was changed.",
+     "make_enabled": false,
+     "details_available": false,
+     "card_details_available": true,
+     "resets": 0
+    },
+    "trace": [
+     "cards:worker-start",
+     "cards:child-terminal",
+     "cards:published",
+     "cards:remove-owned-job",
+     "worker-enter",
+     "cancel-request",
+     "worker-terminal",
+     "remove-owned-job",
+     "worker-enter",
+     "worker-terminal",
+     "completion-delivered",
+     "remove-owned-job"
+    ]
+   },
+   "event_order": [
+    "admit A check then append B/C",
+    "old check terminal/cleanup then replacement",
+    "old completion repeats",
+    "destroy binding with details/snapshot Promise pending",
+    "deliver queued event/Promise"
+   ],
+   "steps_ref": "interactions.raw.json#O-supersede-and-destroy.steps",
+   "raw_ref": "interactions.raw.json#O-supersede-and-destroy",
+   "actual_production_calls_ref": "interactions.raw.json#O-supersede-and-destroy.calls",
+   "producer_expected_trace_used": false
+  }
+ }
+}

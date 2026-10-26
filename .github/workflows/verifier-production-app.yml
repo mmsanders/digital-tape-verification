@@ -18,6 +18,8 @@ jobs:
           python3 -B tests/windows_interactions_r2/compatibility.py
           python3 -B tests/windows_interactions_r2/summary.py
           python3 -B findings/P2-324-PLATFORM-CI-2026-10-25/review.py
+      - name: Final Software584 original-record replay (ZERO Product or browser execution)
+        run: python3 -B findings/P2-324-FINAL-2026-10-26/review.py
       - name: Editing/details/concurrent ordering obligations (ZERO Product or DOM execution)
         run: python3 -B tests/windows_interactions_r1/contract.py
       - name: Additive discovery candidate expectations (ZERO build or Product execution)

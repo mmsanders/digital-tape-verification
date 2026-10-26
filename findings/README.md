@@ -1,5 +1,11 @@
 # Verification findings index
 
+26October2026: [Verification324 final exact-head disposition](P2-324-FINAL-2026-10-26/README.md)
+clears Product587/3104e04e within32-case controlled interaction coverage; original
+current32/32 versus old-renderer18/32, strict qualifier and120 current-base checks
+green. Software owns protected integration;325 artifact review/native holds remain.
+
+
 25October2026: [Verification324 platform/CI unblock](P2-324-PLATFORM-CI-2026-10-25/README.md)
 corrects six Verification-origin Windows direction constants in a new r2 package,
 with Unicode-safe summaries. Retained current32/32 versus old19/32; Product source
