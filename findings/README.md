@@ -1,5 +1,11 @@
 # Verification findings index
 
+26October2026: [Verification328 human564 actual-run close-out](P2-328-HUMAN-RETURN-2026-10-26/README.md)
+accepts bounded shown visual facts with edited-clip/launch/identity/timing limits.
+Show Details/NUL remain UNEXECUTED; an automatic terminal window is recorded.
+No full native/child/IPC/pair/cleanup acceptance or retest request.
+
+
 26October2026: [Verification328 human564 pre-run method](P2-328-HUMAN-METHOD-2026-10-26/README.md)
 admits Michael's real visual drag-and-drop checks with a short operator sheet.
 The proposed collector/complete child-IPC/zero-request/cleanup claims stay HELD;

@@ -1,0 +1,62 @@
+{
+  "private_sources": {
+    "label_test.mp4": {
+      "bytes": 41029133,
+      "sha256": "9f3bfa0d5bb05ffa266f82abca6d1c280f26be4423049907c45b8edf0a75dca8"
+    },
+    "drag_test.mp4": {
+      "bytes": 123445921,
+      "sha256": "cf685429a17714e4539633b8c188e94a92ace3d7e4f551e7f9e4ac712bf73eb5"
+    },
+    "OPERATOR notes.txt": {
+      "bytes": 260,
+      "sha256": "c07bb651d1b61051fae6488a48169430dcbf784ef210f4664c25cd2ddf2a6a9d"
+    },
+    "session-statement.json": {
+      "bytes": 2579,
+      "sha256": "384f83f5d84c0ec092773f096dd2921fbc5b33356d4205261f024f6ce6aae9a9"
+    },
+    "before-receipts.json": {
+      "bytes": 5262,
+      "sha256": "bec7cc02f099a9d6259b4bce315d27ffab3c90dc68df5b246ccaf19308b78ee4"
+    },
+    "after-stop-receipts.json": {
+      "bytes": 3815,
+      "sha256": "160ccc0e2fb4983cccff42e0dacd7e3546b9d84cde0a3f7292747b495611bcf1"
+    },
+    "app-identity-snapshot-1-zero.json": {
+      "bytes": 881,
+      "sha256": "229c2c713e9064f1bbc08e59054cd4f9c4f3040029fe7f921720e341e3508cae"
+    }
+  },
+  "producer_index_sha256": "db58f5005383ff4be9ffe6ffc8bde6a815b437da024552ea4532b3dc617cab81",
+  "before_candidate_pins": {
+    "BUILD.json": "0faf28103f4e76d75c392a22d7c8dbe7c33ac9732a7ff62a6a76738a358969f2",
+    "digital-tape.exe": "ee4c84acb03655c4fb1344db1548ab283054eabe9caea9c2482b0181b39fa250",
+    "ingest.exe": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+    "README.txt": "839cf34dfccde339e78e2d595f9e3367ec62dea113a2176f05f25c0b1f5c9ee7",
+    "tapectl.exe": "82798af2899e9364b9c9bfaa2021daf6cc51ccd0c6562598d50e0a86944bb7a9"
+  },
+  "source_media_status": "Supplied edited clips; hashes authenticate received bytes, not unedited live-session continuity.",
+  "video_metadata": {
+    "label_test": {
+      "duration": 123.366667,
+      "width": 1920,
+      "height": 1080
+    },
+    "drag_test": {
+      "duration": 117.1333,
+      "width": 1918,
+      "height": 1018
+    }
+  },
+  "verification_execution": "Read/hash existing records; decode saved video with already installed tools; NO Digital Tape/INGEST/collector/native input/device execution",
+  "method_result": "PARTIAL visual evidence; no full method compliance, runtime identity, elapsed-session or child/IPC acceptance",
+  "omissions": [
+    "Show Details not clicked or copied",
+    "NUL not attempted",
+    "No running-app PID snapshot",
+    "No exact clock/edit-source mapping"
+  ],
+  "finding": "F328-1 terminal appeared by itself at drag clip about0:59, confirmed by Michael here; process ownership unproved"
+}
