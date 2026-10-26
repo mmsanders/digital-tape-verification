@@ -1,5 +1,11 @@
 # Verification findings index
 
+25October2026: [Verification324/325 Stage A](P2-324-325-PREFLIGHT-2026-10-25/README.md)
+publishes32 pre-code interaction cases plus additive dual-pin/current-bundle
+preflight. Tests ready only; final325 build awaits324 cleared source/no-change PASS.
+No runtime or Software implementation acceptance; both Stage B returns pending.
+
+
 25October2026: [Verification318 Software578 integration/live-1 review](P2-318-LIVE1-2026-10-25/README.md)
 passes exact source integration and the admitted single metadata-only result:
 exit0, offered0/unprobed0. Original stdout/stderr independently retained; admission
