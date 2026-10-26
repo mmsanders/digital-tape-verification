@@ -1,5 +1,12 @@
 # Verification findings index
 
+26October2026: [Verification333 retained INGEST/source ledger](P2-333-INGEST-LEDGER-2026-10-26/README.md)
+proves current main lacks the tool/Stage1 while S1 tests are already present.
+Names the exact clean declaration needed next; no code integration/rung advance
+or unchanged runtime campaign.325's new [PM593 guard](../tests/windows_discovery_candidate_r2/README.md)
+requires integrated332 source and diagnostics default OFF before its one final build.
+
+
 26October2026: [Verification328 human564 actual-run close-out](P2-328-HUMAN-RETURN-2026-10-26/README.md)
 accepts bounded shown visual facts with edited-clip/launch/identity/timing limits.
 Show Details/NUL remain UNEXECUTED; an automatic terminal window is recorded.
