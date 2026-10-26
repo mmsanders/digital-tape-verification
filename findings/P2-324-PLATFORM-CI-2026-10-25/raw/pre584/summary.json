@@ -1,0 +1,16 @@
+{
+ "source_head": "2decba2f2d38bcd6add6390ffc285e2864bf22ca",
+ "passed": 17,
+ "total": 32,
+ "failures": {
+  "E-ascii-caret": [
+   "eq label_selection: [4, 4, 'forward'] != [4, 4, 'none']"
+  ],
+  "E-ascii-backward-selection": [],
+  "E-two-byte-selection": [
+   "eq label_value: 'ייייייייי' != 'יייייייייייייייי'",
+   "eq label_selection: [9, 9, 'forward'] != [2, 10, 'forward']",
+   "same label_value: 'יייייייייי' -> 'ייייייייי'",
+   "same label_selection: [2, 10, 'forward'] -> [9, 9, 'forward']"
+  ],
+  "E-astral-caret": 

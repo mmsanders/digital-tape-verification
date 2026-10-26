@@ -1,0 +1,54 @@
+{
+ "browser": "155.0.4283.62",
+ "platform": "win32",
+ "rows": [
+  {
+   "set": [
+    4,
+    4,
+    "none"
+   ],
+   "read": [
+    4,
+    4,
+    "forward"
+   ]
+  },
+  {
+   "set": [
+    0,
+    4,
+    "none"
+   ],
+   "read": [
+    0,
+    4,
+    "forward"
+   ]
+  },
+  {
+   "set": [
+    0,
+    4,
+    "forward"
+   ],
+   "read": [
+    0,
+    4,
+    "forward"
+   ]
+  },
+  {
+   "set": [
+    0,
+    4,
+    "backward"
+   ],
+   "read": [
+    0,
+    4,
+    "backward"
+   ]
+  }
+ ]
+}

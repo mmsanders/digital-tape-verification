@@ -1,0 +1,112 @@
+{
+ "source_head": "2decba2f2d38bcd6add6390ffc285e2864bf22ca",
+ "passed": 19,
+ "total": 32,
+ "qualified": false,
+ "qualifier_error": "AssertionError(('E-two-byte-selection', 'label_value', '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9', '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9'))",
+ "failures": {
+  "E-ascii-caret": [],
+  "E-ascii-backward-selection": [],
+  "E-two-byte-selection": [
+   "eq label_value: '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9' != '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9'",
+   "eq label_selection: [9, 9, 'forward'] != [2, 10, 'forward']",
+   "same label_value: '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9' -> '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9'",
+   "same label_selection: [2, 10, 'forward'] -> [9, 9, 'forward']"
+  ],
+  "E-astral-caret": [
+   "eq label_value: '\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00' != '\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00'",
+   "eq label_selection: [8, 8, 'forward'] != [6, 6, 'forward']",
+   "same label_value: '\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00' -> '\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00'",
+   "same label_selection: [6, 6, 'forward'] -> [8, 8, 'forward']"
+  ],
+  "E-paste-exact-limit": [],
+  "E-reject-ascii-excess": [
+   "eq label_value: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' != 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'",
+   "eq label_selection: [17, 17, 'forward'] != [8, 16, 'forward']",
+   "same label_value: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' -> 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'",
+   "same label_selection: [8, 16, 'forward'] -> [17, 17, 'forward']"
+  ],
+  "E-reject-multibyte-excess": [
+   "eq label_value: '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9' != '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9'",
+   "eq label_selection: [9, 9, 'forward'] != [0, 8, 'backward']",
+   "same label_value: '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9' -> '\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9'",
+   "same label_selection: [0, 8, 'backward'] -> [9, 9, 'forward']"
+  ],
+  "E-reject-nul": [
+   "eq label_selection: [5, 5, 'forward'] != [2, 2, 'forward']",
+   "same label_selection: [2, 2, 'forward'] -> [5, 5, 'forward']"
+  ],
+  "E-delete-to-empty": [
+   "eq label_value: 'A' != ''",
+   "eq label_selection: [1, 1, 'forward'] != [0, 0, 'forward']",
+   "same label_value: '' -> 'A'",
+   "same label_selection: [0, 0, 'forward'] -> [1, 1, 'forward']"
+  ],
+  "E-two-edits-reversed-acks": [
+   "eq label_value: 'Old' != 'Latest \ud83d\ude00'",
+   "eq label_selection: [3, 3, 'forward'] != [9, 9, 'forward']",
+   "same label_value: 'Latest \ud83d\ude00' -> 'Old'",
+   "same label_selection: [9, 9, 'forward'] -> [3, 3, 'forward']"
+  ],
+  "E-late-initial-snapshot": [
+   "eq label_selection: [9, 9, 'forward'] != [3, 7, 'forward']",
+   "same label_selection: [3, 7, 'forward'] -> [9, 9, 'forward']"
+  ],
+  "E-paste-replaces-astral-selection": [
+   "eq label_value: '\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00abcd' != '\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00\ud83d\ude00abcd'",
+   "eq label_selection: [14, 14, 'forward'] != [14, 18, 'backward']"
+  ],
+  "D-ingest-poll": [
+   "eq details_visible: False != True",
+   "same details_visible: True -> False",
+   "same details_text: 'INGEST-DIAG\\n<plain>& text\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\nretained raw diagnostic line\\n\\n\\nCard check: 0 offered, 0 not checked.' -> ''",
+   "same focus: 'details' -> 'body'",
+   "same dom_selection: [[0], 7, [0], 11] -> [[], 0, [], 0]",
+   "same selection_text: 'DIAG' -> ''",
+   "same details_scroll: {'element': 0, 'page': 653} -> {'element': 0, 'page': 0}"
+  ],
+  "D-cards-check-snapshot": [
+   "eq details_visible: False != True",
+   "same details_visible: True -> False",
+   "same details_text: 'Card check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\\nCARDS-DIAG current diagnostic\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line\\ntyped diagnostic stderr line' -> ''",
+   "same focus: 'details' -> 'body'",
+   "same dom_selection: [[0], 79, [0], 97] -> [[], 0, [], 0]",
+   "same selection_text: 'current diagnostic' -> ''",
+   "same details_scroll: {'element': 0, 'page': 725} -> {'element': 0, 'page': 50}"
+  ],
+  "D-combined-unchanged": [
+   "eq details_visible: False != True",
+   "same details_visible: True -> False",
+   "same details_text: 'INGEST-DIAG\\n\\nCard check failed: tapectl cards exited 1 (CARDS_ENUM_UNAVAILABLE).\\nCARDS-DIAG' -> ''",
+   "same focus: 'details' -> 'body'",
+   "same dom_selection: [[0], 0, [0], 11] -> [[], 0, [], 0]",
+   "same selection_text: 'INGEST-DIAG' -> ''",
+   "contains details_text"
+  ],
+  "D-copy-plain-selection": [
+   "eq details_visible: False != True",
+   "eq selection_text: '' != '<img>& text'",
+   "same details_visible: True -> False",
+   "same details_text: 'raw\\r\\n<img>& text\\nlast line\\n\\nCard check: 0 offered, 0 not checked.' -> ''",
+   "same focus: 'details' -> 'body'",
+   "same dom_selection: [[0], 5, [0], 16] -> [[], 0, [], 0]",
+   "same selection_text: '<img>& text' -> ''"
+  ],
+  "D-changed-diagnostic": [],
+  "D-cards-success-keeps-ingest": [],
+  "D-ingest-success-keeps-cards": [],
+  "D-reset-closes-music-details": [],
+  "D-late-details-response": [],
+  "D-dismiss-by-clear": [],
+  "O-drop-check-card-ready": [],
+  "O-card-then-check-failure": [],
+  "O-check-failure-then-card": [],
+  "O-check-success-card-failure": [],
+  "O-reset-while-checking": [],
+  "O-reset-due-poll": [],
+  "O-reset-inflight-poll": [],
+  "O-shutdown-due-poll": [],
+  "O-shutdown-inflight": [],
+  "O-supersede-and-destroy": []
+ }
+}

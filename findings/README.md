@@ -1,5 +1,11 @@
 # Verification findings index
 
+25October2026: [Verification324 platform/CI unblock](P2-324-PLATFORM-CI-2026-10-25/README.md)
+corrects six Verification-origin Windows direction constants in a new r2 package,
+with Unicode-safe summaries. Retained current32/32 versus old19/32; Product source
+clearance and325 build still await repaired exact-head normal CI.
+
+
 25October2026: [Verification324/325 Stage A](P2-324-325-PREFLIGHT-2026-10-25/README.md)
 publishes32 pre-code interaction cases plus additive dual-pin/current-bundle
 preflight. Tests ready only; final325 build awaits324 cleared source/no-change PASS.
