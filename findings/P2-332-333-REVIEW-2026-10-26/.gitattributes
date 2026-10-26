@@ -1,0 +1,3 @@
+evidence594.zip -text
+*.py text eol=lf
+*.json text eol=lf
