@@ -2,7 +2,9 @@
 
 **Partially admitted: real visible UI checks.** Use the old authenticated564 app
 and prepared590 fixtures. No proposed process collector is needed or admitted.
-The child/IPC/zero-request/output/cleanup claims below stay HELD. This sheet becomes
+The child/IPC/zero-request/output/cleanup claims below stay HELD.
+You have explicitly authorized Music/Empty drops to run564's bundled INGEST;
+normal app processing from those real gestures is allowed. This sheet becomes
 the published method when its Verification PR is merged; it is not a passing result.
 Software supplies the ready path/hash/context receipts before you begin. You alone
 operate the app. No Claude desktop-control feature or agent consent is needed for

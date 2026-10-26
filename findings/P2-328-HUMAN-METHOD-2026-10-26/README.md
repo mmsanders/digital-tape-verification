@@ -72,6 +72,12 @@ automatically polls; this method NEVER authorizes its launch or reuses318 permis
 | Empty folder | Genuine Empty drop, actual plain error and exact COPYABLE displayed Show details text, after visible reset. | Actual exit2/FOLDER_EMPTY report+nonce/current child attribution/OS process exit. Copied details is original DISPLAYED diagnostic text, not an independently retained raw stderr stream. Full317 child-refusal row HELD. |
 | Reset/close | Human Start over, visible fields/details/length reset and disabled Make; normal visual window disappearance. Before/after owned fixture/external-sentinel hashes. | Hidden folder count, old completion suppression, owned-only cleanup/order/foreign job protection and actual OS process exit. External untouched sentinel is NOT evidence about jobs foreign ownership. |
 
+Michael explicitly authorized in this chat: Music/Empty drops may run564's bundled
+INGEST program. The admitted human Music/Empty folder drops may naturally start
+original564's normal pinned INGEST. HELD labels concern evidence and acceptance of
+its internal chain; they do not prohibit ordinary app work from those gestures.
+No direct CLI or alternate child launch is admitted.
+
 No frozen behavioral oracle is relaxed. We split visible subfacts from complete
 rows so a partial observation can be useful without calling the original full row
 passed. The old317 index has only observed/failed/UNEXECUTED: keep a full incomplete
