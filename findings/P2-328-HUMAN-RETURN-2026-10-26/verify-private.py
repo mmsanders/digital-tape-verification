@@ -20,7 +20,7 @@ def verify(raw,kit):
     sys.path.insert(0,str(HERE.parents[1]/'tests/windows_screen_r1'))
     import contract as screen
     notes=(raw/'OPERATOR notes.txt').read_text(encoding='utf-8-sig')
-    for i,row in enumerate(screen.LABELS[:7],1):assert f'{i}. '+row['after'] in notes
+    for i,row in enumerate(screen.LABELS[:7],1):assert f'{i}. '+row['after'] in notes.splitlines()
     print('PASS private supplied-record hashes/index/before-after12 files/label-note bytes/late zero snapshot. NO UI authenticity or full method/child/IPC acceptance follows.')
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--raw',type=Path,required=True);p.add_argument('--kit',type=Path,required=True);a=p.parse_args();verify(a.raw,a.kit)
