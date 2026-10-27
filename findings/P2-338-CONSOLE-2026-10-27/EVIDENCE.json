@@ -1,0 +1,76 @@
+{
+  "head": "d384624ae375ab77368eb01afc146d3d907c6e1e",
+  "manifest_sha256": "2587631c4bdabf8ef6595b80ad788bb941a27544f8aebd7ed25f19ef607247a8",
+  "original_hashes": {
+    "MANIFEST.sha256": "dc2d03569813765f2350bd8ab220c04bb26584c36cd32c2cdfc37e3252c7e596",
+    "build-probe.txt": "69285f1dc414eb5f3c5504b01357393765718d92dda6e003bf0a15c9511cf60c",
+    "build-test.txt": "e8a03f449de8bfa1d183ee4c4ba13da3ce826f83a2300171774536775efe9f8d",
+    "cargo-test.txt": "ce7f18f80ce0f18ef201d27de7b6776d6a206efe09aac802980fc03083e81ce3",
+    "checker-exit.txt": "5bd516fc9c2076bf24496483a68f53f49db6549ba1693fcc49a964441d402140",
+    "checker-summary.json": "986d68b33afb72e394876f1ad846c5468d838f4a95767686074f277d966d075c",
+    "checker.txt": "2afb40cffb7bb6e1a33890f73dfe3b45d8309c3856989160fff10bda98ebe714",
+    "context.txt": "b7a2b7dd0dd3e66312242e3a422e1051745dfeb345dbb17c772cc9eb923ba92c",
+    "exits.txt": "acb7b333727494426dce8148fea3c4116e646490e25a76f0cdeedae149e7609f",
+    "probe_child.sha256": "6578e711414dc035d36b875b2170460b87cd9e827fe0f4ae480797109540ea44",
+    "probe_child.source-blob": "124b7505a42bac347a714ecfc751f4fcda404356014668b3168a04e53e197610",
+    "status.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "test-list.txt": "cebc20d57500f2147be33486d52059f64a47073e8faf3ca27cef685709a83e50",
+    "test-name.txt": "98a2d8dace733dabd4b99f4f0d1d5c5390ae64049661ff5a2142ac3f6eefe74d",
+    "toolchain.txt": "424d7f2a678a11516344ab6e606d02a785330da052f26197816e19182e5e2abc",
+    "raw/C01-C02/command.json": "00a31508f1c03c1d9d0627e291da5bf1f200de75b9dc34812ad65583fddc3a6c",
+    "raw/C01-C02/console.json": "83891e2c235bd048b8fdcb454ff2ecda94ae63dc5f6393f634bf4e6de63d739d"
+  },
+  "helper_sha256": "64fc71733133f5310ad2c3d3a59815c4c6d465f719180fa9b15dca4f640845cc",
+  "runner_sha256": "513796f599e1489f41fd61a7728d5538d98c7f97236ec50599a5f1ad4d9fea76",
+  "runner_console_window": true,
+  "runner_pid": 22940,
+  "compiled_pins": {
+    "DT_INGEST_SHA256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+    "DT_INGEST_VERSION": "0.1.1 INGEST-1 arithmetic-profile INGEST1-AP4",
+    "DT_TAPECTL_SHA256": "44ef26869ba2d01a8a183660a2c7a050d0e7e9ff37c40b727131512739ea6ded",
+    "DT_TAPECTL_VERSION": "tapectl-wp15-s2+f9306c2c5a42"
+  },
+  "depinfo_sha256": "e03eb57c28f055f7a979db13fd751ace0682332ac67c0a92c39bf6c6b0e3649e",
+  "named_test": "bridge::diagnostics_component::c01_c02_console_association",
+  "matched_tests": 1,
+  "passed": 1,
+  "filtered": 47,
+  "contrast": {
+    "C01": {
+      "flag": 134217728,
+      "console_window": false,
+      "pid": 25812,
+      "receipt_pid": 25812,
+      "os_start_ns": 1793117574443175500,
+      "receipt_os_start_ns": 1793117574443175500,
+      "child_argv_sha256": "78676af1f2d7239f362559c22e2faca071c12db66121506ae35c4785faf8730d",
+      "receipt_argv_sha256": "78676af1f2d7239f362559c22e2faca071c12db66121506ae35c4785faf8730d",
+      "child_cwd_sha256": "d10562d17a900757b7afefc3a19243a325b9ddfac90ef57c7edabd78433132d6",
+      "receipt_cwd_sha256": "d10562d17a900757b7afefc3a19243a325b9ddfac90ef57c7edabd78433132d6",
+      "exit": 0,
+      "env_sha256": "3facee981ad5f7e8aafbf0d2e2661a3500c633c63250f2bbe40ecc50f1ea9258",
+      "nonce": "300d560b694741961c24ca5a49e4bdc6"
+    },
+    "C02": {
+      "flag": 0,
+      "console_window": true,
+      "pid": 15616,
+      "receipt_pid": 15616,
+      "os_start_ns": 1793117574525949000,
+      "receipt_os_start_ns": 1793117574525949000,
+      "child_argv_sha256": "fe6a96f8ce9f607868885ec3108714642d5f462580623942a372c9fafa03884e",
+      "receipt_argv_sha256": "fe6a96f8ce9f607868885ec3108714642d5f462580623942a372c9fafa03884e",
+      "child_cwd_sha256": "25d9c3d4cd7799200df97d1c0f6c36498f3dd714e72c1e5fa3a2af18bc6e128b",
+      "receipt_cwd_sha256": "25d9c3d4cd7799200df97d1c0f6c36498f3dd714e72c1e5fa3a2af18bc6e128b",
+      "exit": 0,
+      "env_sha256": "3facee981ad5f7e8aafbf0d2e2661a3500c633c63250f2bbe40ecc50f1ea9258",
+      "nonce": "36f20409104cec683847f599179ebc37"
+    }
+  },
+  "setup_stop": {
+    "raw_records": 0,
+    "test_execution_records": 0,
+    "listing_tests": 48
+  },
+  "judgment": "C01/C02 effective contrast PASS; exact covered source integration clearance subject to normal current-base CI/reviews/protections; no native/package acceptance"
+}
