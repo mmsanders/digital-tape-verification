@@ -1,0 +1,40 @@
+{
+  "authority": "Verification325 measured archive-byte registry; no native/build-count-exception acceptance",
+  "components": {
+    "digital-tape.exe": {
+      "bytes": 5014528,
+      "sha256": "cc7f0e9bd996437b574559184cecb7e63f988e635ff8bb23c5e66aacdcf6f3f9",
+      "source": "1731f6ecef2d6cb72a228f2c88c297cf4b59553f",
+      "publication": "fcad6b0cba06478a54294ea7298e7d3dc0da5819",
+      "scope": "covered integrated source; new binary BUILD/ARCHIVE bytes only"
+    },
+    "ingest.exe": {
+      "bytes": 889856,
+      "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+      "source": "35b23cacae886d9b3693b7104f581d8646ea5667",
+      "publication": "81033e2a20b4fed377fdbbb82963693b10c9b79b",
+      "scope": "exact retained DIRECT P0/P1 only"
+    },
+    "tapectl.exe": {
+      "bytes": 493712,
+      "sha256": "44ef26869ba2d01a8a183660a2c7a050d0e7e9ff37c40b727131512739ea6ded",
+      "source": "f9306c2c5a42ebd039edd67b0b7cef6a7d434b2b",
+      "publication": "fdffea5759c2cf48b37a6960c5ed36d09ab91b98",
+      "scope": "accepted S2 source/child identity only; no new poller execution"
+    }
+  },
+  "allowed_claims": [
+    "direct ingest positive",
+    "direct ingest empty-folder refusal"
+  ],
+  "required_exclusions": [
+    "actual UI",
+    "app-driven child",
+    "fullAPP",
+    "fullINGEST",
+    "CLI A6",
+    "native session",
+    "shipping Make",
+    "G2"
+  ]
+}

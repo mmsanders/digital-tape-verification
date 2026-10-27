@@ -1,0 +1,33 @@
+{
+  "repository": "mmsanders/digital-tape-verification",
+  "release": "evidence-325-603-2026-10-27",
+  "source_artifacts": {
+    "candidate-container.zip": 12763639999,
+    "evidence-container.zip": 12763804847,
+    "failed-evidence-container.zip": 12763774147,
+    "ingest-transport.zip": 12578829894,
+    "tapectl-transport.zip": 12610149859
+  },
+  "assets": {
+    "candidate-container.zip": {
+      "sha256": "8f8772e9fb62d85e37d047706e839a9a39df9e1f73062c7f4e8b4d84a78fd037",
+      "bytes": 2530106
+    },
+    "evidence-container.zip": {
+      "sha256": "4723778c486e75f8c55282f25b08e8d57be6792338d5e71132bb9ba34567f06a",
+      "bytes": 46758
+    },
+    "failed-evidence-container.zip": {
+      "sha256": "fa3445d84c32e5baaf99d127ebc9cfde6e10ea3a58c427cdcc32efbc3b6297c8",
+      "bytes": 46778
+    },
+    "ingest-transport.zip": {
+      "sha256": "a19c47d7d474414cfb0c8cf992fd6e984bf9ff160c5e38efdd7e09a45b12aa94",
+      "bytes": 2431819
+    },
+    "tapectl-transport.zip": {
+      "sha256": "83fa0d72d76948615613c388187a114d9fd03107b85d7842f37ead558f0f3b9b",
+      "bytes": 198103
+    }
+  }
+}
