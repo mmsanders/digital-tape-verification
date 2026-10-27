@@ -1,0 +1,17 @@
+{
+  "product_main": "1695552d059108de12e7cb89a0b851fc51ff4907",
+  "head": "d384624ae375ab77368eb01afc146d3d907c6e1e",
+  "import_commit": "da2963a5615b8206c76d1eccc2988872d3151467",
+  "correction_commit": "ecfaf53763d904fd3351d57ff4d7c50d0fa1603a",
+  "root_tree": "535e15b077bd012cdb0d0110a6e3c2240d71b7f1",
+  "r2_tree": "338796182b0e3979b97a1411c1552848e6649a0b",
+  "corrective_files": {
+    ".github/workflows/windows-diagnostics-594.yml": "2c72bfc7e8dac5a448cb8c17cd217bd71397d3b3",
+    "host/app/examples/probe_child.rs": "f4a2415757beec9ad32936a6fa76e1935d6c03e9",
+    "host/app/src/diagnostics.rs": "102c8891a9bd7b922d1a515c2dea6661c770a8fe",
+    "host/app/tests/diagnostics_component.rs": "263738cd1a41af00ad3bc32634b9fdb4aeee25e5",
+    "tools/app/diagnostics594_check.py": "5f1c05ac5f136b524ca70d86211d44cf475edb50"
+  },
+  "import_union": "exact main entries then immutable r1 and r2",
+  "source_facts": "F332-1/2/3 corrected; C02 remains unexecuted; no overall integration clearance"
+}

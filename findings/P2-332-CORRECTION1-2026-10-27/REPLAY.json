@@ -1,0 +1,181 @@
+{
+  "C03-C17-C18/envelope-success.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "f3822bf7eec0e892ae6a683c84b05f7b678edc85e778a46e522f0873766fe7ad",
+    "records_sha256": "653944fb3131c8b898dc7c9d7376fa27905f855ddc19d2fa0b9df2df98c2cca0"
+  },
+  "C04/envelope-refusal.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "9ce893832603967788d753ba019bfbb5216adbf2ceaf71a9fb3f744e8eba9dd2",
+    "records_sha256": "f389be6a880c9c2918b0b8f1a25eb9e3132a4c4b8ca19b60bb108f8ee80cc4cc"
+  },
+  "C05/envelope-missing.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "3582b42fd69ae9fa2e4ec1c6b28b9b1d2fdc148e08a983fa9facddc0e25e70f1",
+    "records_sha256": "764e303dbdd23e76b070d16fb61d66d0d0305178faa1ce9d7627e3d0018e43f2"
+  },
+  "C06/envelope-cancel.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "8c0ad75b01f5301b7ce6d4d4133f5eaebd4a475d02f71d8eb79ade4e2c73f764",
+    "records_sha256": "806276aadbf26e7d11731343b687db759e64db983ef173e668b7b757ddcd84a0"
+  },
+  "C06-before-report/envelope-cancel.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "97927bac713d9d809e1ae83472ea45d68589025b6c5a094a97775c04bf7602d5",
+    "records_sha256": "a93552e9eb835d2601295cf369283994f4197e052b4c305cfc85645bc26a6841"
+  },
+  "C07/envelope-cancel.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "004c87b1111f7bfb04a9a1939e487639b9c96674923e78bd6d3958a0cc8fd05d",
+    "records_sha256": "26699c91430a41e01019d78e2b7a1d803524e19a4e7b1588b3db58e4000992d3"
+  },
+  "C07-before-report/envelope-cancel.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "bd6533a6af91bdc5a072b8cf2c1d3a5b7eadb140c1f5bdc4ed0769a3aade2c9b",
+    "records_sha256": "63590b1dbf85db1b83111ec2ec40b21060e44afa40a7deea4877f6b8f6d926a3"
+  },
+  "C10-C26/envelope-first.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "bda919fb4c39a761ecbd31a18d025a732cccc2275871824594424b55672380ee",
+    "records_sha256": "7fc0bba60bd16949dd18216d1a3d3de6a750124c572947fc75765d79fee84fd5"
+  },
+  "C11/envelope-occupied.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "327a41f03ea0550c66ef2a448e00f8b1aefa87260052e79d58b85ee9c27d05d1",
+    "records_sha256": "6dc1efde63b558599c376a4d8725a46b12484f19c8fdb15a17f15e0b6a3d8fe6"
+  },
+  "C12/envelope-held.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "b710f7111424643163adfe0cfe7eb4a271aeabbed925ae36820103e3d238d2e3",
+    "records_sha256": "ff389f38a28bcabd6988945c00488cccbdb3bc82a5b220853c9284b90c480be1"
+  },
+  "C13/envelope-stale.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "f3ce0d30c42147f7ed45b4081e93f09492001a146a0c18a44ae007e86c4a8490",
+    "records_sha256": "f708b02a3e9995a1f8e5b74096a150c956db91baf21455d015c8d85738fd9530"
+  },
+  "C13-cumulative/envelope-cumulative.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "0495d74802177906b9731e03d3e4484e213041eec96cb98f4c24ceb5aedcdc9d",
+    "records_sha256": "1a6fe3fa003c00cd4b34ec967423c2e524ef282dca71965db038aedfc01ed410"
+  },
+  "C14/envelope-skipped.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "7d375cfa3bbb730e1416d272f7c667db58145dbeb04578a6bd4b3001a6418947",
+    "records_sha256": "135e2f81e247c25087eff13a4f1f741e160d7211eaceab7a569c7b717d8097d1"
+  },
+  "C15-C16/envelope-refusals.json": {
+    "expect": "complete",
+    "outcome": "valid-complete",
+    "envelope_sha256": "ca1422716fd51b9572bc1bbfe6d3d21b9a054a773f71cad0f1003f6cf7b4c50e",
+    "records_sha256": "8fab58dd707f54cb80bb349173bfa23e5c2eb4889363238213fe2b43e957ab6b"
+  },
+  "C19/envelope-malformed.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "b0d524a010d3ed70334407188d18291cc627b6580b1c5ddd4f3e89a3f85b6dea",
+    "records_sha256": "4cbc7691edb7c7b070263af09aaf1150d3ce7998d5df1c9801fffa123d3d383a"
+  },
+  "C20/envelope-unknown.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "d337c1975ec02b67e84eef22495b90245fc3fbb1b637313c05d4490cbae7446a",
+    "records_sha256": "ba39470ead85e92863fec476128a2d40e98cee55b4cb565ef7b1ff9642e4e935"
+  },
+  "C20-binding/envelope-stale.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "ed9916047c3776c8030f6863171f999f747f8397f520f6c1b25a80e1fb097111",
+    "records_sha256": "fd0385ed6f4d4486ea7db2a3b0e291735eaef376c08cea3f0285c33ec9c1446a"
+  },
+  "C20-binding/envelope-unmeasured.json": {
+    "expect": "invalid",
+    "outcome": "rejected-invalid",
+    "envelope_sha256": "454d18125f273e59fbab940a84e1c09d6c7f5afce4b278eb6e8866e486ac5071",
+    "records_sha256": "3fba4dfab293f058a7190eac30c12c025a689a418fa81eb6a50fa4625fe5e68e"
+  },
+  "C21/envelope-line.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "f3db9947158a367b1914c79d3d5119f2000bb2269df19401f86c06051216256c",
+    "records_sha256": "94216220bbd497118f114174bd20b5e675072211549d4f33c25c687f40228079"
+  },
+  "C21-footer/envelope-exact.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "07e1f87ee6953b68fb2a8ae13223a01820d2dd561e5c3ef536c9a3cbb0da0506",
+    "records_sha256": "3c9255b61db0a935a2b9150a932dcbefe26689b1ef061d9da70943e784a9fe8e"
+  },
+  "C21-footer/envelope-over.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "530f9be19769ffb2126a9333885cccfc7d952a0c988e4cd495ebd0014032c067",
+    "records_sha256": "c0193afd490f0434ab82b9e3f4713742878bda6361df3085416bca0259c8d6a3"
+  },
+  "C22/envelope-blob.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "2de924f431533d67d2de19cd727930d5643e4b80090b5c8ffca33a67c346406c",
+    "records_sha256": "e70a4bc8f730ccd6bfe1162ab20e02dc01f6ba8ca9352a9ecd8ac22c73a3507a"
+  },
+  "C23/envelope-total.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "62ca88913c0403c9b3474a47796355dee18be8ddea6672a30820d8025a6c3a0e",
+    "records_sha256": "77b925d08abe620061859db3d4f6e96dea5a253fc19931f4065d69a4472ca298"
+  },
+  "C24-C25/envelope-create.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "753b5e53e6cb69d70d6ac5a22b093d626146ec4c0729865c9a9dd315299aad86",
+    "records_sha256": "34d24299fc77d5b54a63689d3590f695b3278cd7db01b7b99a492461f2ae7111"
+  },
+  "C24-C25/envelope-dead.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "25bcfc8081c9855930f4b2ceefc751bcdba730dbecfdc2726b54a7c5d2531cb2",
+    "records_sha256": "184bc2a274f56f052f9cbe3b48ce10fb591f6dfabc0d6431b26a6903f1d0b15e"
+  },
+  "C24-C25/envelope-full.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "1398fa2479e4932ed6d0fa2c19cca94c6c0fdfe51ea35e7f4db94c0b995d93d4",
+    "records_sha256": "15ff9a301182d012b9ace1be4508d60bc2b122cd08b84203c57c95aca38c1d8b"
+  },
+  "C24-C25/envelope-short-blob.json": {
+    "expect": "incomplete",
+    "outcome": "valid-incomplete",
+    "envelope_sha256": "3091c9a3a76e228be63e6c60695132bac55dc315f2809c1ba11c1a6314d20b0c",
+    "records_sha256": "0a47d3bd46f3b087d55bc2078954e70c1af15d07b30a6f3fc9a0d4ec68d420a8"
+  },
+  "C24-C25/envelope-short-record.json": {
+    "expect": "invalid",
+    "outcome": "rejected-invalid",
+    "envelope_sha256": "067ce9516d2e5e67a8b1062f294d316fbb746fe3c52a38e97bc2083d99ac4a79",
+    "records_sha256": "92daa00b25e49bc279ebc96dfebe535c788fd67631288058bd50fbda33cf8608"
+  },
+  "C22_limit_continuation": [
+    "incomplete"
+  ],
+  "focused_findings": {
+    "F332-1": "closed at corrected head only",
+    "F332-2": "closed at corrected head only",
+    "F332-3": "closed at corrected head only"
+  },
+  "comparison_count": 36,
+  "C02": "UNEXECUTED positive console contrast; both observed helper console associations false",
+  "actual_mutations_rejected": 7
+}
