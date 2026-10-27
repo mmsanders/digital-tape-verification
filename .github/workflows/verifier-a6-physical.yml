@@ -1,7 +1,7 @@
 name: Physical A6 retained evidence controls
 on:
   pull_request:
-    paths: ['findings/P2-344-METHOD-2026-10-27/**', 'findings/P2-223-METHOD-2026-10-20/**', 'findings/P2-A6-PHYSICAL-2026-10-19/**', '.github/workflows/verifier-a6-physical.yml']
+    paths: ['tests/windows_a6_route1_models_r1/**', 'findings/P2-344-METHOD-2026-10-27/**', 'findings/P2-223-METHOD-2026-10-20/**', 'findings/P2-A6-PHYSICAL-2026-10-19/**', '.github/workflows/verifier-a6-physical.yml']
 permissions:
   contents: read
 jobs:
@@ -26,3 +26,6 @@ jobs:
         run: python3 -B findings/P2-223-METHOD-2026-10-20/supplement.py
       - name: Retained full-scan bounded result consistency
         run: python3 -B findings/P2-223-METHOD-2026-10-20/validate_result.py
+
+      - name: Route1 pre-code synthetic guard and interval-lineage models (NO native decoder or trial)
+        run: python3 -B tests/windows_a6_route1_models_r1/controls.py

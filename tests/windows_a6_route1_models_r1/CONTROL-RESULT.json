@@ -1,0 +1,200 @@
+{
+  "scope": "SYNTHETIC ONLY; no native decoder or execution admission",
+  "positives": [
+    "explicit-parent-child",
+    "identical-request",
+    "explicit-two-edge-chain",
+    "two-disjoint-leaves",
+    "crossing-two-measured-runs"
+  ],
+  "negatives": [
+    {
+      "case": "native-input-is-not-a-model",
+      "result": "NOT_NATIVE_DECODER"
+    },
+    {
+      "case": "admin-inherited-workload",
+      "result": "PERMISSION_UNAVAILABLE"
+    },
+    {
+      "case": "token-unknown",
+      "result": "PERMISSION_UNAVAILABLE"
+    },
+    {
+      "case": "profile-missing-splitio",
+      "result": "PROFILE_UNSUPPORTED"
+    },
+    {
+      "case": "extra-provider",
+      "result": "PROFILE_UNSUPPORTED"
+    },
+    {
+      "case": "undeclared-buffers",
+      "result": "PROFILE_UNSUPPORTED"
+    },
+    {
+      "case": "unknown-event-layout",
+      "result": "SCHEMA_UNKNOWN"
+    },
+    {
+      "case": "OS-x64-not-header-proof",
+      "result": "SCHEMA_UNKNOWN"
+    },
+    {
+      "case": "empty-before-allocation",
+      "result": "ALLOCATION_BASELINE"
+    },
+    {
+      "case": "sparse-file",
+      "result": "FIXTURE_UNSAFE"
+    },
+    {
+      "case": "compressed-file",
+      "result": "FIXTURE_UNSAFE"
+    },
+    {
+      "case": "reparse-output",
+      "result": "FIXTURE_UNSAFE"
+    },
+    {
+      "case": "existing-output",
+      "result": "FIXTURE_UNSAFE"
+    },
+    {
+      "case": "fileid-substituted",
+      "result": "FILE_IDENTITY"
+    },
+    {
+      "case": "cleanup-foreign-id",
+      "result": "FILE_IDENTITY"
+    },
+    {
+      "case": "unaligned-address",
+      "result": "ALIGNMENT"
+    },
+    {
+      "case": "unknown-physical-alignment",
+      "result": "ALIGNMENT"
+    },
+    {
+      "case": "one-extent-dynamic-still-unsupported",
+      "result": "LAYOUT_UNSUPPORTED"
+    },
+    {
+      "case": "multiple-volume-extents",
+      "result": "LAYOUT_UNSUPPORTED"
+    },
+    {
+      "case": "after-mapping-drift",
+      "result": "MAPPING_DRIFT"
+    },
+    {
+      "case": "historical-not-current-coordinate",
+      "result": "MAPPING_DRIFT"
+    },
+    {
+      "case": "missing-lineage",
+      "result": "NO_LINEAGE"
+    },
+    {
+      "case": "same-size-wrong-request",
+      "result": "NO_LINEAGE"
+    },
+    {
+      "case": "wrong-disk",
+      "result": "UNMAPPED"
+    },
+    {
+      "case": "same-disk-other-stream",
+      "result": "IDENTITY"
+    },
+    {
+      "case": "duplicate-counterpart",
+      "result": "AMBIGUOUS"
+    },
+    {
+      "case": "uncompleted-extra-descendant",
+      "result": "NO_LINEAGE"
+    },
+    {
+      "case": "cycle-or-reused-child",
+      "result": "AMBIGUOUS"
+    },
+    {
+      "case": "reused-live-request",
+      "result": "REUSED_REQUEST"
+    },
+    {
+      "case": "child-before-lineage",
+      "result": "LIFECYCLE"
+    },
+    {
+      "case": "completion-only-no-original",
+      "result": "NO_LINEAGE"
+    },
+    {
+      "case": "unknown-coordinate-base",
+      "result": "UNMAPPED"
+    },
+    {
+      "case": "extent-gap",
+      "result": "UNMAPPED"
+    },
+    {
+      "case": "offset-one-byte-wrong",
+      "result": "UNMAPPED"
+    },
+    {
+      "case": "short-write",
+      "result": "COMPLETION"
+    },
+    {
+      "case": "failed-write-status",
+      "result": "COMPLETION"
+    },
+    {
+      "case": "short-read",
+      "result": "COMPLETION"
+    },
+    {
+      "case": "failed-read",
+      "result": "COMPLETION"
+    },
+    {
+      "case": "missing-completion",
+      "result": "COMPLETION"
+    },
+    {
+      "case": "boolean-is-not-native-status",
+      "result": "COMPLETION"
+    },
+    {
+      "case": "post-exit-read",
+      "result": "LIFECYCLE"
+    },
+    {
+      "case": "lost-event",
+      "result": "LOSS"
+    },
+    {
+      "case": "lost-buffer",
+      "result": "LOSS"
+    },
+    {
+      "case": "late-start",
+      "result": "WINDOW"
+    },
+    {
+      "case": "early-stop",
+      "result": "WINDOW"
+    },
+    {
+      "case": "not-drained",
+      "result": "WINDOW"
+    },
+    {
+      "case": "over-60s",
+      "result": "WINDOW"
+    }
+  ]
+}

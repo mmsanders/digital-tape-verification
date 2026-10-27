@@ -1,5 +1,10 @@
 # Verification findings index
 
+27 October2026: [Verification348 Software609 interface review/model controls](../tests/windows_a6_route1_models_r1/README.md)
+freezes5 positive/47 negative SYNTHETIC guard/lineage cases and one consolidated
+interface correction1/2. Native schema/kit implementation clearance remains pending.
+Software608 declaration corroborates347 hold; no runtime admission or query.
+
 27 October2026: [Verification347 exact585 pre-run HELD](P2-347-PREFLIGHT-2026-10-27/PREFLIGHT.md)
 identifies absent production cards-poller receipt retention; no native admission.
 [348 interface dependency/in-box inventory](P2-348-DEPENDENCY-2026-10-27/DEPENDENCY.md)
