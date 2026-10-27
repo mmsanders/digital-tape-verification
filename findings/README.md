@@ -1,5 +1,9 @@
 # Verification findings index
 
+27 October 2026: [Verification325 Stage B Software603 review](P2-325-ARCHIVE-2026-10-27/README.md)
+passes measured archive/source/pins; HELD for PM disposition of two compilations
+versus the one-final-build guard. One uploaded candidate; no rebuild/native admission.
+
 26October2026: [Verification333 retained INGEST/source ledger](P2-333-INGEST-LEDGER-2026-10-26/README.md)
 proves current main lacks the tool/Stage1 while S1 tests are already present.
 Names the exact clean declaration needed next; no code integration/rung advance
