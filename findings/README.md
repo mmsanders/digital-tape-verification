@@ -1,5 +1,10 @@
 # Verification findings index
 
+27 October2026: [Verification347 exact585 pre-run HELD](P2-347-PREFLIGHT-2026-10-27/PREFLIGHT.md)
+identifies absent production cards-poller receipt retention; no native admission.
+[348 interface dependency/in-box inventory](P2-348-DEPENDENCY-2026-10-27/DEPENDENCY.md)
+records present tools without execution and awaits609 public primitives before tests.
+
 27 October2026: [Verification344 nativeA6 method decision](P2-344-METHOD-2026-10-27/METHOD-DECISION.md)
 assesses two sufficient-proof routes; neither is substantiated by the retained
 ledger. Names missing native lineage/coordinate or coverage facts and one bounded
