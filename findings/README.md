@@ -1,5 +1,10 @@
 # Verification findings index
 
+27 October2026: [Verification344 nativeA6 method decision](P2-344-METHOD-2026-10-27/METHOD-DECISION.md)
+assesses two sufficient-proof routes; neither is substantiated by the retained
+ledger. Names missing native lineage/coordinate or coverage facts and one bounded
+off-card feasibility recommendation for PM; design only, no capture or A6 PASS.
+
 27 October2026: [Verification343 exact603 exception closeout](P2-343-EXCEPTION-2026-10-27/DISPOSITION.md)
 expressly clears unchanged packaging/integration scope at7d316025 under PM604
 specific count2/onecandidate exception. Literal old guardFAIL/native holds survive.
