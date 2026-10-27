@@ -4,16 +4,14 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('directory', type=Path)
-parser.add_argument('--fetch', action='store_true', help='Download missing original Actions artifacts using gh')
+parser.add_argument('--fetch', action='store_true', help='Download missing hash-pinned release assets using gh')
 args = parser.parse_args()
 manifest = json.loads(Path(__file__).with_name('ASSETS.json').read_text())
 args.directory.mkdir(parents=True, exist_ok=True)
 for name, expected in manifest['assets'].items():
     target = args.directory / name
     if not target.exists() and args.fetch:
-        artifact = manifest['source_artifacts'][name]
-        with target.open('xb') as output:
-            subprocess.run(['gh', 'api', f'repos/mmsanders/Digital-Tape/actions/artifacts/{artifact}/zip'], stdout=output, check=True)
+        subprocess.run(['gh', 'release', 'download', manifest['release'], '--repo', manifest['repository'], '--pattern', name, '--output', str(target)], check=True)
     data = target.read_bytes()
     assert len(data) == expected['bytes'], name
     assert hashlib.sha256(data).hexdigest() == expected['sha256'], name

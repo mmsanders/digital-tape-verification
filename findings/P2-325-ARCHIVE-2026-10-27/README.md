@@ -65,12 +65,17 @@ this is not a claim that pending checks passed.
 
 ## Evidence and byte-only replay
 
-`ASSETS.json` pins all original Actions artifact transport bytes and IDs. All
-raw transports, including both build records and candidate/INGEST bytes,
-remain at the original Actions artifacts (expiry26 November2026);
-durable release-asset upload was rejected by automatic approval review pending
-explicit payload authorization. No release exists at the proposed tag yet.
-Do not assume Actions retention is permanent. No signed download URLs are published.
+`ASSETS.json` pins all original Actions transport bytes and IDs. Michael explicitly
+approved uploading the five exact archives after the initial automatic approval
+rejection. [Durable evidence release](https://github.com/mmsanders/digital-tape-verification/releases/tag/evidence-325-603-2026-10-27)
+(id425938797) targets the original review33d2e789. All five uploaded archives and
+ASSETS.json were downloaded again and verified byte-identical by SHA-256/size.
+Release asset IDs: candidate682750224, successful evidence682750215, earlier-run
+evidence682750218, INGEST682750223, tapectl682750216; manifest682750246.
+Original Actions IDs remain provenance; their expiry no longer limits this copy.
+No raw binaries enter the Git tree; no signed download URLs are published.
+The fetcher now uses the durable release and checks the committed hash manifest.
+This retention update changes no review disposition, build count or clearance.
 
 With authenticated gh and both Git repositories containing the pinned commits:
 
