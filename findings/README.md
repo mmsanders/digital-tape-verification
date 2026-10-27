@@ -1,5 +1,9 @@
 # Verification findings index
 
+27October2026: [Verification348 corrected609 declaration disposition2/2](P2-348-INTERFACE2-2026-10-27/DISPOSITION.md)
+credits token/allocation/alignment corrections; native export/version qualification
+remains the precise preparation blocker. No implementation or execution clearance.
+
 27 October2026: [Verification348 Software609 interface review/model controls](../tests/windows_a6_route1_models_r1/README.md)
 freezes5 positive/47 negative SYNTHETIC guard/lineage cases and one consolidated
 interface correction1/2. Native schema/kit implementation clearance remains pending.
