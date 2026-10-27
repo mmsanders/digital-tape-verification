@@ -1,0 +1,124 @@
+{
+  "scope": "BUILD/ARCHIVE ONLY",
+  "app_launches": 0,
+  "child_invocations": 0,
+  "metadata_runs": 0,
+  "readiness": "BUILD/ARCHIVE READY, UI METHOD HELD",
+  "ui_method_missing": [
+    "no issued method or admission for launching the new binary, whose discovery poller starts automatically",
+    "no admitted actor/gesture/context for this binary"
+  ],
+  "source_head": "1731f6ecef2d6cb72a228f2c88c297cf4b59553f",
+  "source_tree": "fd97aa0a88da1b7b7dcfdc5930bd28439cb5e33d",
+  "host_app_tree": "7bc0aa2dd3391b7ec80447b1e4a835cff1f2a9cd",
+  "tools_app_tree": "85d164f1a040544d5f324673a4ae0e8d1e120cdd",
+  "current_base": "1731f6ecef2d6cb72a228f2c88c297cf4b59553f",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "interaction_clearance": {
+    "publication": "91815bc1fcceff90a3980db53fe2f0d70d48402e",
+    "product_commit": "679e01ec90b0cf18d79e15aa85387b1c1b3aebca",
+    "kind": "exact source PASS integrated",
+    "exact_source_refs": [
+      "digital-tape-verification@91815bc1fcceff90a3980db53fe2f0d70d48402e V324 FINAL PASS of #584, integrated as 679e01ec90b0cf18d79e15aa85387b1c1b3aebca"
+    ]
+  },
+  "console_receipt_clearance": {
+    "publication": "fcad6b0cba06478a54294ea7298e7d3dc0da5819",
+    "product_commit": "1731f6ecef2d6cb72a228f2c88c297cf4b59553f",
+    "kind": "exact332 source PASS integrated",
+    "exact_source_refs": [
+      "digital-tape-verification@fcad6b0cba06478a54294ea7298e7d3dc0da5819 V338 clearance of PR599 d384624a, integrated as 1731f6ecef2d6cb72a228f2c88c297cf4b59553f"
+    ]
+  },
+  "compile_env": {
+    "DT_INGEST_SHA256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+    "DT_INGEST_VERSION": "0.1.1 INGEST-1 arithmetic-profile INGEST1-AP4",
+    "DT_TAPECTL_SHA256": "44ef26869ba2d01a8a183660a2c7a050d0e7e9ff37c40b727131512739ea6ded",
+    "DT_TAPECTL_VERSION": "tapectl-wp15-s2+f9306c2c5a42"
+  },
+  "build_argv": [
+    "cargo",
+    "build",
+    "--release",
+    "--locked",
+    "--bin",
+    "digital-tape"
+  ],
+  "ingest_transport": {
+    "artifact_id": 12578829894,
+    "container_sha256": "a19c47d7d474414cfb0c8cf992fd6e984bf9ff160c5e38efdd7e09a45b12aa94",
+    "nested_zip": "Digital-Tape-Windows11-x64-candidate.zip",
+    "nested_zip_sha256": "a4b11f750fb7e3d9fd77a0e6dc1009683496ef6881791c1947a03970310b190b",
+    "member_sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+    "member_bytes": 889856
+  },
+  "tapectl_artifact": 12610149859,
+  "tapectl_build_run": 40225724763,
+  "tapectl_bytes": 493712,
+  "tapectl_version": "tapectl-wp15-s2+f9306c2c5a42",
+  "compiler_refs": [
+    "rustc.txt",
+    "cargo.txt"
+  ],
+  "lock_refs": [
+    "Cargo.lock",
+    "Cargo.lock.sha256"
+  ],
+  "pin_source_refs": [
+    "pin-source.txt",
+    "compile-env.json",
+    "pins-in-app.json"
+  ],
+  "actual_build_log_refs": [
+    "app-build.stdout.txt",
+    "app-build.stderr.txt",
+    "build-argv.json"
+  ],
+  "artifact_refs": [
+    "Digital-Tape-Windows11-x64-discovery-candidate.zip",
+    "INVENTORY.json",
+    "MANUAL-TEST-SHEET.txt"
+  ],
+  "member_hash_refs": [
+    "INVENTORY.json",
+    "BUILD.json"
+  ],
+  "source_crosswalk_refs": [
+    "host-app-tree.txt",
+    "facts.json",
+    "transports.json"
+  ],
+  "negative_mismatch_control_refs": [
+    "negative-mismatch.txt"
+  ],
+  "guide_refs": [
+    "README.txt",
+    "MANUAL-TEST-SHEET.txt"
+  ],
+  "old564_unchanged": true,
+  "shipping_fake_route": false,
+  "make_or_elevation_enabled": false,
+  "inventory_location": "outside five-member ZIP",
+  "readme": "Digital Tape - unsigned Windows11 x64 developer preview: discovery candidate (#585)\n\nThis is a NEW build of digital-tape.exe from main 1731f6ec. It includes the\ncleared card discovery (#578), label and details interactions (#584) and the INGEST\nconsole-window fix with opt-in diagnostic receipts (#594). ingest.exe is the\noriginal, unchanged INGEST child. tapectl.exe is the accepted S2 discovery child.\nBoth are pinned by hash in BUILD.json, and both pins are compiled into the app.\n\nExtract all five members into a new, ordinary folder you own and keep them\ntogether. digital-tape.exe is the app. It needs Windows 11 x64 and the Microsoft\nEdge WebView2 runtime that is normally already present on Windows 11; this bundle\ndoes not install it. There is no installer, runtime download, signing step or\nsecurity change. Do not change security settings to run it.\n\nWhat has been shown: only the bundled ingest.exe's direct checks (a music folder\naccepted, an empty folder refused), run directly against that exact file and not\nthrough this app. Nothing has been demonstrated on THIS app binary. Its startup,\nwindow, page, label input, folder drops, Checking, Start over, Problem/Show\ndetails, card discovery and normal close are all UNEXECUTED.\n\nWhen started, this app looks for cards by itself in the background (the discovery\npoller). Running it has not been admitted yet: a separate final-candidate\nadmission is needed first. Card discovery is a hint only. It makes no claim that a\ncard is safe, ready or removable.\n\nMake cartridge is intentionally disabled. Card writing is not part of this build.\nDo not run the bundled tapectl.exe or ingest.exe yourself.\n\nDiagnostics default OFF. The app writes no diagnostic receipts unless it is started\nwith its single opt-in switch, and no session using that switch has been admitted.\nWhen enabled, receipts stay in the app's private per-user CONTROL folder, capped at\n16 MiB per session.\n\nIf no usable window appears, close the attempt and keep any error text. This is a\ndeveloper preview, not a qualified family release. Full APP/INGEST/CLI A6/G2 remain\nheld.\n",
+  "manual_sheet": "Digital Tape - optional no-card UI test sheet for the 585 discovery candidate\n\nThis sheet is OPTIONAL and gives no permission to start any app. The new 585 app\nstarts a card-discovery poller as soon as it opens, so these rows may be done only\nafter a separate final-candidate admission is issued for it. It is not a list of\nrequired captures and does not replace your separate card procedure. There is no\nMake, raw-card or card-handling test here: Make cartridge is disabled in 585.\n\nWhich bundle each test concerns:\n- Original 564 (app ee4c84ac..., from main 266bdcaa): 564 completed partial on\n  26 Oct under Verification328. Those results belong to 564 only. No repeat of 564\n  is needed, and its passed startup/metadata checks are not repeated for paperwork.\n- New 585 (this artifact): every row below concerns 585 only. Nothing is pre-filled.\n  Tick Observed only for what you actually saw on 585; otherwise tick Unexecuted.\n\nFixtures: the frozen 317 rows and the existing DigitalTape-590-kit fixtures (Music\nfolder with two-seconds.wav, Empty folder, Not a song.txt, labels/2.txt-7.txt).\nSource WAV: 352844 bytes, 88200 frames,\nSHA256 48f1b3c7ce7fe27a90469364f841803087a9d274a4af9a4ec8ee195a2846ac18.\n\nRow 1 - Initial page (585). Start the app normally, once.\n  Frozen expectation: one window, empty label, \"0 min 0 s of 60 min\", Make disabled,\n  no music or folder list. The card area shows a discovery hint, not a safety claim.\n  [ ] Observed   [ ] Unexecuted   Notes:\n\nRow 2 - Label (585), the eight frozen 317 label cases:\n  1 empty -> type A -> A\n  2 clear -> paste 32 x (labels/2.txt) -> 32 x\n  3 keep 32 x, select all -> paste 33 x (labels/3.txt) -> previous 32 x unchanged\n  4 clear -> paste 16 e-acute (labels/4.txt) -> 16 e-acute\n  5 keep, select all -> paste 16 e-acute + x (labels/5.txt) -> previous unchanged\n  6 clear -> paste 8 emoji (labels/6.txt) -> 8 emoji\n  7 keep, select all -> paste 8 emoji + x (labels/7.txt) -> previous unchanged\n  8 literal NUL -> not possible naturally: Unexecuted, never injected\n  [ ] Observed   [ ] Unexecuted   Notes:\n\nRow 3 - Rejected drops (585). Drag \"Not a song.txt\" alone, then that file and Music\n  together as one batch.\n  Frozen expectation: \"Drop a folder of music, not single songs.\" each time.\n  [ ] Observed   [ ] Unexecuted   Notes:\n\nRow 4 - Music (585). Drag the Music folder once.\n  Frozen expectation: \"Checking the music...\" (may be too quick to see), then\n  \"0 min 2 s of 60 min\". No console window appears.\n  [ ] Observed   [ ] Unexecuted   Notes:\n\nRow 5 - Empty (585). Click Start over, then drag the Empty folder once. If a problem\n  shows, click Show details and try to select/copy the text.\n  Frozen expectation: a message naming the folder; copyable details. No console window.\n  [ ] Observed   [ ] Unexecuted   Notes:\n\nRow 6 - Reset and close (585). Click Start over, then close the app normally.\n  Frozen expectation: cleared label/details/length, Make still disabled, window closes.\n  [ ] Observed   [ ] Unexecuted   Notes:\n\nWhat you see is visible evidence only. It does not prove child processes, exit\ncodes or cleanup, and a missed short state is recorded as missing, not repeated.\n\nSigned / date (Michael): ____________________\n",
+  "manual_sheet_is_optional": true,
+  "claims_old_startup_for_new_app": false,
+  "claims_native_ui": false,
+  "diagnostics": {
+    "default": "OFF",
+    "control_root": "private per-user CONTROL",
+    "max_session_bytes": 16777216,
+    "default_config_source_refs": [
+      "diagnostics-source.txt"
+    ],
+    "published_schema_refs": [
+      "tests/windows_diagnostics_r2 tree 338796182b0e3979b97a1411c1552848e6649a0b"
+    ],
+    "opt_in_omitted_from_build_environment": true,
+    "native_session_admission": "UNISSUED",
+    "packaged_private_session_data": false
+  },
+  "final_build_count": 2,
+  "receipt_availability_is_native_acceptance": false,
+  "zip_sha256": "3f144cf565e0e195763898a446938c88bace85d9f60dceeb04622efdd3fe6076"
+}

@@ -1,0 +1,68 @@
+{
+  "source": "1731f6ecef2d6cb72a228f2c88c297cf4b59553f",
+  "head": "3bd470aeb059668733c5d0f91ea6f71d16e594d8",
+  "import_commit": "d9b27ab9e75cc14932b3afb0a5785b396816ca3d",
+  "source_trees": {
+    "source_tree": "fd97aa0a88da1b7b7dcfdc5930bd28439cb5e33d",
+    "host_app_tree": "7bc0aa2dd3391b7ec80447b1e4a835cff1f2a9cd",
+    "tools_app_tree": "85d164f1a040544d5f324673a4ae0e8d1e120cdd",
+    "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7"
+  },
+  "package_trees": {
+    "windows_discovery_candidate_r2": "4e65c51879cb4a305f3be2fef79e98f8045fb64c",
+    "windows_discovery_candidate_r1": "c3925a405d992fa02deaf9694d439286eeb75197",
+    "windows_preview_r1": "25282007045b95577d7a8385c2825c2f6de1f74e"
+  },
+  "members": {
+    "BUILD.json": {
+      "bytes": 4346,
+      "sha256": "22164e6cf5945d56a40a542eb2ddc9f2cdb404a35b726f39fa009be49a6fdf58"
+    },
+    "README.txt": {
+      "bytes": 2103,
+      "sha256": "b3372d08d22a1d0fc2af400c056bfebdddeafc7c508f7450e699d40a5bb627b8"
+    },
+    "digital-tape.exe": {
+      "bytes": 5014528,
+      "sha256": "cc7f0e9bd996437b574559184cecb7e63f988e635ff8bb23c5e66aacdcf6f3f9"
+    },
+    "ingest.exe": {
+      "bytes": 889856,
+      "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20"
+    },
+    "tapectl.exe": {
+      "bytes": 493712,
+      "sha256": "44ef26869ba2d01a8a183660a2c7a050d0e7e9ff37c40b727131512739ea6ded"
+    }
+  },
+  "archive_sha256": "3f144cf565e0e195763898a446938c88bace85d9f60dceeb04622efdd3fe6076",
+  "archive_bytes": 2534754,
+  "lock_sha256": "6b406c644ec0701ae288f1ba789cfad4a933b3ae11aea4c4b5abceacb396dff7",
+  "compiled_pins": {
+    "DT_INGEST_SHA256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+    "DT_INGEST_VERSION": "0.1.1 INGEST-1 arithmetic-profile INGEST1-AP4",
+    "DT_TAPECTL_SHA256": "44ef26869ba2d01a8a183660a2c7a050d0e7e9ff37c40b727131512739ea6ded",
+    "DT_TAPECTL_VERSION": "tapectl-wp15-s2+f9306c2c5a42"
+  },
+  "transports": {
+    "ingest": "a19c47d7d474414cfb0c8cf992fd6e984bf9ff160c5e38efdd7e09a45b12aa94",
+    "tapectl": "83fa0d72d76948615613c388187a114d9fd03107b85d7842f37ead558f0f3b9b"
+  },
+  "producer_record_sha256": "e3459094155bd428b8fdd295270134aef67ebeaadae324392ef10abc420a9287",
+  "measured_judgments": {
+    "r1": "PASS archive/source/pin/readiness metadata",
+    "r2_producer_count1": "PASS mechanically, does not authenticate the count",
+    "pin_mismatch": "REJECT tapectl.exe",
+    "actual_compilations": 2,
+    "uploaded_candidate_artifacts": 1,
+    "r2_truthful_count2": "REJECT final_build_count==1 as intended"
+  },
+  "process_disclosure": {
+    "first_run": 40570284830,
+    "first_app_sha256": "6c32a984ac6788310683c377d473ab68319284f45557011d1beec553c2e6fdb7",
+    "final_run": 40571246452,
+    "workflow_only_fix": "explicit exit0 after checking expected negative",
+    "new_build_requested": false
+  },
+  "overall": "HELD: one-final-build scope exceeded; PM disposition required; normal pending CI retained; no rebuild requested"
+}
