@@ -1,0 +1,51 @@
+{
+  "product_main": "6af3daa86328d234ccb97f508d0fea702a5fbd3d",
+  "verification_main": "494f8336f05d7b5ec9d4b8d6bf75151c8d214789",
+  "reviewed_head": "3bd470aeb059668733c5d0f91ea6f71d16e594d8",
+  "cleared_head": "7d316025e858ed585d567b35d679d16c35230f8e",
+  "parents": [
+    "3bd470aeb059668733c5d0f91ea6f71d16e594d8",
+    "6af3daa86328d234ccb97f508d0fea702a5fbd3d"
+  ],
+  "delta_paths": [
+    "docs/FOR-MICHAEL.md",
+    "docs/PACKAGES/README.md",
+    "docs/PACKAGES/WP-14.md",
+    "docs/PACKAGES/WP-15.md",
+    "docs/PACKAGES/WP-16.md",
+    "docs/REVIEW/PM604-LATEST-ROUND.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION-INTEGRATION.md",
+    "site/lead-queue/index.html",
+    "site/lead-queue/test-dashboard.cjs"
+  ],
+  "unchanged_trees": {
+    "tools/app": "b96571db1535dde3d11f89b4b5c2f1114837f5f4",
+    ".github/workflows/windows-candidate-585.yml": "74b3db534e582e142981e0f6f40cb6b70f3ac03e",
+    "tests/IMPORTS.json": "332de38f066b2392af959edb8c728303a06cef58",
+    "tests/windows_preview_r1": "25282007045b95577d7a8385c2825c2f6de1f74e",
+    "tests/windows_discovery_candidate_r1": "c3925a405d992fa02deaf9694d439286eeb75197",
+    "tests/windows_discovery_candidate_r2": "4e65c51879cb4a305f3be2fef79e98f8045fb64c",
+    "host/app": "7bc0aa2dd3391b7ec80447b1e4a835cff1f2a9cd",
+    "engine": "d96b4245e04d74078f8938744b1394c3018516f7"
+  },
+  "artifact_facts": "carried from341/342; no fetch/replay",
+  "build_count": 2,
+  "uploaded_candidates": 1,
+  "pm_exception": "https://github.com/mmsanders/Digital-Tape/issues/604#issuecomment-6452675205",
+  "attestation": "https://github.com/mmsanders/Digital-Tape/pull/603#issuecomment-6453206386",
+  "declaration": "https://github.com/mmsanders/Digital-Tape/issues/605#issuecomment-6453229929",
+  "no_third_build": {
+    "run": 40581507599,
+    "guard": "success",
+    "build": "skipped",
+    "artifacts": 0
+  },
+  "snapshot_ci": {
+    "success": 52,
+    "in_progress": 20,
+    "queued": 41,
+    "skipped": 1
+  },
+  "clearance": "exact packaging/source integration only; Software normal protected merge; native/UI/poller method HELD"
+}

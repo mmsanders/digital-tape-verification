@@ -1,5 +1,9 @@
 # Verification findings index
 
+27 October2026: [Verification343 exact603 exception closeout](P2-343-EXCEPTION-2026-10-27/DISPOSITION.md)
+expressly clears unchanged packaging/integration scope at7d316025 under PM604
+specific count2/onecandidate exception. Literal old guardFAIL/native holds survive.
+
 27 October 2026: [Verification325 Stage B Software603 review](P2-325-ARCHIVE-2026-10-27/README.md)
 passes measured archive/source/pins; HELD for PM disposition of two compilations
 versus the one-final-build guard. One uploaded candidate; no rebuild/native admission.
