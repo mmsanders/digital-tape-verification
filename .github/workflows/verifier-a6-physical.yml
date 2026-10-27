@@ -1,7 +1,7 @@
 name: Physical A6 retained evidence controls
 on:
   pull_request:
-    paths: ['tests/windows_a6_route1_models_r1/**', 'findings/P2-344-METHOD-2026-10-27/**', 'findings/P2-223-METHOD-2026-10-20/**', 'findings/P2-A6-PHYSICAL-2026-10-19/**', '.github/workflows/verifier-a6-physical.yml']
+    paths: ['findings/P2-348-INTERFACE2-2026-10-27/**', 'tests/windows_a6_route1_models_r1/**', 'findings/P2-344-METHOD-2026-10-27/**', 'findings/P2-223-METHOD-2026-10-20/**', 'findings/P2-A6-PHYSICAL-2026-10-19/**', '.github/workflows/verifier-a6-physical.yml']
 permissions:
   contents: read
 jobs:
