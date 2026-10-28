@@ -1,0 +1,13 @@
+{
+  "human":"Michael",
+  "route":"manual-software-resumption-existing-auto-mode",
+  "permission_mode":"auto",
+  "per_command_prompt":false,
+  "command_sha256":"c0ba92f790a4b810882da218dd3e5889c55264a7a84cb23fb808b9ca9885480c",
+  "method_publication":"REPLACE_WITH_FINAL_VERIFICATION_MAIN_COMMIT",
+  "method_sha256":"48522fc6eeda0c55cf4c38af47d75233d2c61e9bec5043f05851c5a06881cd8b",
+  "publication_utc":"REPLACE_WITH_ACTUAL_PUBLICATION_TIME",
+  "manual_resumption_utc":"REPLACE_WITH_LATER_TRUSTED_HUMAN_MESSAGE_TIME",
+  "human_message_ref":"REPLACE_WITH_ACTUAL_TRUSTED_MESSAGE_REFERENCE",
+  "human_message_text":"REPLACE_WITH_ACTUAL_MESSAGE; THIS TEMPLATE IS NOT CONSENT"
+}

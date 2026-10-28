@@ -1,0 +1,46 @@
+name: Verification361 non-native session method controls
+on:
+  pull_request:
+    paths: ['tests/windows_poller_session_r2/**', '.github/workflows/verifier-poller-session.yml']
+permissions:
+  contents: read
+jobs:
+  method-controls:
+    runs-on: windows-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate held input; prepare only (no launcher/collector/native invocation)
+        run: |
+          if ((git rev-parse HEAD:tests/windows_poller_session_r1) -cne '095ba70f01bf954a1c11ca7174ad123fe9879c37') { throw 'Held input changed' }
+          New-Item -ItemType Directory -Path ci361 | Out-Null
+          python -B tests/windows_poller_session_r2/controls.py 2>&1 | Tee-Object ci361/python-corrected.log
+          if ($LASTEXITCODE -ne 0) { throw 'Preparation controls failed' }
+          python -B tests/windows_poller_session_r2/prepare.py --publication 7b80c14b6c7825bd3876c05d9f988b81c23526e3 --held --out ci361/held 2>&1 | Tee-Object ci361/prepare-corrected.log
+          if ($LASTEXITCODE -ne 0) { throw 'Preparation failed' }
+          python -B tests/windows_poller_session_r2/prepare.py --publication 7b80c14b6c7825bd3876c05d9f988b81c23526e3 --out ci361/qualified 2>&1 | Tee-Object ci361/prepare-qualified.log
+          if ($LASTEXITCODE -ne 0) { throw 'Qualified preparation failed' }
+      - name: Corrected held parser/pure/file controls under default runner policy
+        run: |
+          & tests/windows_poller_session_r2/controls.ps1 -PreparedDir ci361/held 2>&1 | Tee-Object ci361/powershell-corrected.log
+          $tokens=$null;$errors=$null
+          [void][Management.Automation.Language.Parser]::ParseInput((Get-Content ci361/qualified/Start-Session.ps1 -Raw),[ref]$tokens,[ref]$errors)
+          if ($errors.Count) { throw 'Qualified variant parse failed' }
+      - name: Small output hashes
+        if: always()
+        run: |
+          Get-ChildItem ci361 -Recurse -File | Sort-Object FullName | ForEach-Object { (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()+'  '+$_.FullName.Substring((Get-Location).Path.Length+1) } | Set-Content ci361/SHA256SUMS -Encoding ascii
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification361-method-controls
+          path: ci361
+          retention-days: 90
