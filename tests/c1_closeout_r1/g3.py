@@ -19,7 +19,7 @@ for phase in ('before-confirm','after-confirm'):
     for change in ('zero','two','different-path','different-capacity'):
         add('recheck-'+phase+'-'+change,'app',f'production make recheck {phase}: {change}',
             None, state='Ready', make_children=0, card_line_current=True)
-for name,trigger,message in [
+for name,tool,trigger,message in [
     ('overage-one','ingest','real one-frame overage at 3600s', 'This music is 1 s too long for a 60-minute cartridge. Take some songs out and drop the folder again.'),
     ('overage-192','ingest','real 8467200-frame excess including gaps','This music is 3 min 12 s too long for a 60-minute cartridge. Take some songs out and drop the folder again.'),
     ('protected','ingest','real protected source named locked.m4a','"locked.m4a" is copy-protected, so it can\'t go on a cartridge. Take it out of the folder.'),
@@ -35,7 +35,7 @@ for name,trigger,message in [
     ('safety-refusal','make','real exit3 refusal on private target',"This card can't be used right now. Check the card and try again."),
     ('generic-make','make','real non-I/O make failure',"The cartridge wasn't finished. Start over and try again."),
     ('discovery-unavailable','cards','real failed discovery query',GENERIC),
-]: add(name,'child',trigger,message,tool=('ingest' if name in ('overage-one','overage-192','protected','corrupt','nonmusic','empty','source-short') else 'cards' if name=='discovery-unavailable' else 'make'))
+]: add(name,'child',trigger,message,tool=tool)
 
 def check(rows):
     assert len(rows)==len(CASES)
