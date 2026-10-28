@@ -1,0 +1,19 @@
+name: C1 outcome controls
+on:
+  pull_request:
+    paths: ['tests/c1_closeout_r1/**', 'findings/P2-364-*/**', '.github/workflows/verifier-c1-closeout.yml']
+  push:
+    branches: [main]
+    paths: ['tests/c1_closeout_r1/**', 'findings/P2-364-*/**', '.github/workflows/verifier-c1-closeout.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B tests/c1_closeout_r1/controls.py
