@@ -1,10 +1,12 @@
 # Pure controls shared by the parameterized recorder; never calls a native API.
 function Get-TerminalCount($Rows,[string]$Session,[int]$AppPid,[string]$AppPath,[string]$AppHash,[decimal]$StartNs) {
-  if ($Rows.Count -lt 2) { return 0 }
+  if ($Rows.Count -eq 0) { return 0 }
   $h=$Rows[0]
   if ($h.kind -cne 'session' -or $h.session -cne $Session -or $h.data.app_pid -ne $AppPid -or $h.data.app_path -ine $AppPath -or $h.data.app_sha256 -cne $AppHash -or [decimal]$h.data.app_os_start_ns -ne $StartNs) { throw 'Live session/parent identity mismatch' }
-  if ($Rows[1].kind -cne 'cards-contract' -or $Rows[1].data.cards_schema -ne 1) { throw 'Missing cards-1 contract' }
   if ($h.data.source_commit -cne 'fce1d644f03ed1220e40133be0c33bd30e519203') { throw 'Live source crosswalk mismatch' }
+  if ($h.schema -ne 1 -or $h.seq -ne 0) { throw 'Bad header envelope' }
+  if ($Rows.Count -eq 1) { return 0 }
+  if ($Rows[1].kind -cne 'cards-contract' -or $Rows[1].data.cards_schema -ne 1) { throw 'Missing cards-1 contract' }
   $launch=@{};$terminal=@{};$admit=@{};$i=0
   foreach ($r in $Rows) {
     if ($r.schema -ne 1 -or $r.session -cne $Session -or $r.seq -ne $i) { throw 'Live envelope sequence/session mismatch' };$i++
@@ -31,13 +33,13 @@ function Get-TerminalCount($Rows,[string]$Session,[int]$AppPid,[string]$AppPath,
 }
 function Test-ManualConsent($Consent,[string]$CommandSha,[string]$Publication,[string]$MethodSha) {
   return ($Consent.human -ceq 'Michael' -and $Consent.route -ceq 'manual-software-resumption-existing-auto-mode' -and
-    $Consent.permission_mode -ceq 'auto' -and $Consent.per_command_prompt -eq $false -and
+    $Consent.permission_mode -ceq 'auto' -and $Consent.per_command_prompt -is [bool] -and $Consent.per_command_prompt -eq $false -and
     $Consent.command_sha256 -ceq $CommandSha -and $Consent.method_publication -ceq $Publication -and
     $Consent.method_sha256 -ceq $MethodSha -and $Consent.human_message_ref -and $Consent.human_message_text -and
     [DateTimeOffset]::Parse($Consent.manual_resumption_utc) -gt [DateTimeOffset]::Parse($Consent.publication_utc))
 }
 function Test-SessionBounds($Facts) {
-  return ($Facts.native_window_ready -and $Facts.ready_elapsed_ms -le 20000 -and $Facts.close_posted -and
+  return ($Facts.native_window_ready -and $Facts.ready_elapsed_ms -ge 0 -and $Facts.ready_elapsed_ms -le 20000 -and $Facts.close_posted -and
     $Facts.close_elapsed_ms -ge $Facts.ready_elapsed_ms -and $Facts.close_elapsed_ms-$Facts.ready_elapsed_ms -le 15000 -and
     $Facts.close_elapsed_ms -le 60000 -and $Facts.graceful_exit -and !$Facts.forced_owned_cleanup -and
     $Facts.exit -eq 0 -and $Facts.capture_complete -and !$Facts.error -and !$Facts.capture_error -and !$Facts.collection_error -and !$Facts.retention_error -and !$Facts.cleanup_error -and

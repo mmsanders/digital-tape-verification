@@ -57,7 +57,7 @@ foreach ($start in @(59000,65000)) {
   $p=[pscustomobject]@{HasExited=$false;ExitCode=0;Waits=@()}
   $p|Add-Member ScriptMethod Kill { $this.HasExited=$true }
   $p|Add-Member ScriptMethod WaitForExit { param($ms) $this.Waits+=@($ms);$clock.ElapsedMilliseconds+=$ms;return $true }
-  $started=$true;$facts=@{};$outTask=[Threading.Tasks.Task]::FromResult(1);$errTask=[Threading.Tasks.Task]::FromResult(1)
+  $started=$true;$facts=@{};$outTask=[Threading.Tasks.Task]::CompletedTask;$errTask=[Threading.Tasks.Task]::CompletedTask
   . ([scriptblock]::Create($cleanup))
   Pass ($facts.forced_owned_cleanup -and $p.Waits.Count -eq 1 -and $p.Waits[0] -le 5000) 'one owned mock-kill wait'
   Pass ($finalDeadline -eq [Math]::Min(70000,$start+10000) -and $clock.ElapsedMilliseconds -le $finalDeadline) 'actual generated shared cleanup deadline'

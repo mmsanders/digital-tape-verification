@@ -7,6 +7,7 @@ function Read-LiveSession([string]$Control,[int]$AppPid,[string]$AppPath,[string
   $dir=Ordinary-Path $dirs[0].FullName $true
   $sid=$dirs[0].Name.Substring(5)
   $marker=Ordinary-Path (Join-Path $dir '.digital-tape-diagnostic-session') $false
+  if ((Get-Item -LiteralPath $marker).Length -gt 65536) { throw 'Live marker bound exceeded' }
   $m=Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json
   if ($m.schema -ne 1 -or $m.session -cne $sid) { throw 'Session marker mismatch' }
   $path=Ordinary-Path (Join-Path $dir 'records.jsonl') $false
@@ -17,6 +18,7 @@ function Read-LiveSession([string]$Control,[int]$AppPid,[string]$AppPath,[string
     while ($at -lt $b.Length) { $n=$f.Read($b,$at,$b.Length-$at);if ($n -eq 0) { break };$at+=$n }
   } finally { $f.Dispose() }
   $end=$at;while ($end -gt 0 -and $b[$end-1] -ne 10) { $end-- }
+  if ($at-$end -gt 65536) { throw 'Live partial line bound exceeded' }
   # A live last line may be torn, including inside UTF8: decode only complete lines.
   $text=[Text.UTF8Encoding]::new($false,$true).GetString($b,0,$end)
   $rows=@();foreach ($line in ($text -split "`n")) {
