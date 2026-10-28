@@ -1,0 +1,16 @@
+name: Finite native layout expectations
+on:
+  pull_request:
+    paths: ['tests/windows_native_layout_r1/**', '.github/workflows/verifier-native-layout.yml']
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: New finite retained-shape controls (ZERO Product/native/full-trace execution)
+        run: python3 -B tests/windows_native_layout_r1/controls.py
