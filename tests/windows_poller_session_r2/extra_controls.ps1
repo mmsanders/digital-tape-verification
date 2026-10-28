@@ -41,3 +41,24 @@ $bound=Join-Path $jobs 'cards-1';[void](New-Item -ItemType Directory -Path $boun
 $post=Get-PostJobs $jobs @($bound);Pass ($post.status -ceq 'bound-leftover' -and $post.entries[0].receipt_bound) 'bound leftover is not removed'
 $post=Get-PostJobs $jobs @();Pass ($post.status -ceq 'unbound-leftover' -and !$post.entries[0].receipt_bound) 'unknown leftover not inspected or erased'
 Pass (Test-Path -LiteralPath $bound) 'post-job observation removes nothing'
+# Detect the last review gaps before the second consolidated correction.
+$x=$facts.Clone();$x.ready_elapsed_ms=-1;Pass (!(Test-SessionBounds $x)) 'negative readiness cannot PASS'
+$x=$consent.Clone();$x.per_command_prompt=0;Pass (!(Test-ManualConsent $x ('c'*64) ('a'*40) ('b'*64))) 'prompt must be truthful boolean false'
+$r=Rows;$r[0].data.app_pid=77;Reject { Count @($r[0]) } 'single header still identity checked'
+[IO.File]::WriteAllText((Join-Path $dir 'records.jsonl'),('x'*65537),[Text.UTF8Encoding]::new($false))
+Reject { Read-LiveSession $control 42 $app $m.app_sha256 100 } 'oversized unterminated line'
+[IO.File]::WriteAllText((Join-Path $dir '.digital-tape-diagnostic-session'),('x'*65537),[Text.UTF8Encoding]::new($false))
+Reject { Read-LiveSession $control 42 $app $m.app_sha256 100 } 'oversized marker'
+# Execute ONLY the actual generated cleanup-budget fragment on a mock object and
+# already completed .NET tasks. No Diagnostics.Process, native code or wait workload.
+$cleanup=$text.Substring($text.IndexOf('  $cleanupStart=$null;'),$text.IndexOf('  if ($null -ne $outFile)')-$text.IndexOf('  $cleanupStart=$null;'))
+foreach ($start in @(59000,65000)) {
+  $clock=[pscustomobject]@{ElapsedMilliseconds=[long]$start}
+  $p=[pscustomobject]@{HasExited=$false;ExitCode=0;Waits=@()}
+  $p|Add-Member ScriptMethod Kill { $this.HasExited=$true }
+  $p|Add-Member ScriptMethod WaitForExit { param($ms) $this.Waits+=@($ms);$clock.ElapsedMilliseconds+=$ms;return $true }
+  $started=$true;$facts=@{};$outTask=[Threading.Tasks.Task]::FromResult(1);$errTask=[Threading.Tasks.Task]::FromResult(1)
+  . ([scriptblock]::Create($cleanup))
+  Pass ($facts.forced_owned_cleanup -and $p.Waits.Count -eq 1 -and $p.Waits[0] -le 5000) 'one owned mock-kill wait'
+  Pass ($finalDeadline -eq [Math]::Min(70000,$start+10000) -and $clock.ElapsedMilliseconds -le $finalDeadline) 'actual generated shared cleanup deadline'
+}
