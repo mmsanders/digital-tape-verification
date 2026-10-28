@@ -24,11 +24,16 @@ jobs:
           New-Item -ItemType Directory -Path ci361 | Out-Null
           python -B tests/windows_poller_session_r2/controls.py 2>&1 | Tee-Object ci361/python-corrected.log
           if ($LASTEXITCODE -ne 0) { throw 'Preparation controls failed' }
-          python -B tests/windows_poller_session_r2/prepare.py --publication 7b80c14b6c7825bd3876c05d9f988b81c23526e3 --out ci361/held 2>&1 | Tee-Object ci361/prepare-corrected.log
+          python -B tests/windows_poller_session_r2/prepare.py --publication 7b80c14b6c7825bd3876c05d9f988b81c23526e3 --held --out ci361/held 2>&1 | Tee-Object ci361/prepare-corrected.log
           if ($LASTEXITCODE -ne 0) { throw 'Preparation failed' }
+          python -B tests/windows_poller_session_r2/prepare.py --publication 7b80c14b6c7825bd3876c05d9f988b81c23526e3 --out ci361/qualified 2>&1 | Tee-Object ci361/prepare-qualified.log
+          if ($LASTEXITCODE -ne 0) { throw 'Qualified preparation failed' }
       - name: Corrected held parser/pure/file controls under default runner policy
         run: |
           & tests/windows_poller_session_r2/controls.ps1 -PreparedDir ci361/held 2>&1 | Tee-Object ci361/powershell-corrected.log
+          $tokens=$null;$errors=$null
+          [void][Management.Automation.Language.Parser]::ParseInput((Get-Content ci361/qualified/Start-Session.ps1 -Raw),[ref]$tokens,[ref]$errors)
+          if ($errors.Count) { throw 'Qualified variant parse failed' }
       - name: Small output hashes
         if: always()
         run: |

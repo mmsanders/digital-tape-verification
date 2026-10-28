@@ -1,7 +1,11 @@
 """Preparation identity checks only; executable helper controls run in Windows CI."""
 import ast,hashlib,json
 import prepare as p
-data,r=p.prepared('a'*40)
+data,r=p.prepared('a'*40,held=True)
+qualified,q=p.prepared('a'*40)
+assert not q['held'] and r['held']
+assert qualified['Start-Session.ps1']==data['Start-Session.ps1'].replace(b"throw 'Verification361 HELD: control variant; NO launch admission'\n",b'')
+assert b'throw \'Verification361 HELD:' not in qualified['Start-Session.ps1']
 for n in ['WindowNative.cs','window_gate.ps1']:
     assert data[n]==(p.TESTS/'windows_app_start_r2'/n).read_bytes().replace(b'\r\n',b'\n')
 s=data['Start-Session.ps1'].decode()

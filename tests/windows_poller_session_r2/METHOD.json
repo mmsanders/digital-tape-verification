@@ -1,6 +1,6 @@
 {
   "case":"native618-one-session",
-  "admission":"HELD: authoring only; PowerShell controls blocked by current script execution policy; generator emits unconditional preflight STOP",
+  "admission":"361 StageA: only after this exact qualified package is on Verification MAIN, later trusted Michael manual Software618 resumption and unchanged current-context preflight; ONE session only; CI is not native runtime evidence",
   "kit":"C:\\Users\\mrtro\\DigitalTape-618-kit",
   "artifact":"C:\\Users\\mrtro\\DigitalTape-618-kit\\Digital-Tape",
   "work":"C:\\Users\\mrtro\\DigitalTape-618-kit\\receipts\\native618-1",

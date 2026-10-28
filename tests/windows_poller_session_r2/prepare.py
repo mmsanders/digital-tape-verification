@@ -6,14 +6,16 @@ TESTS=Path(os.environ.get('VERIFICATION_TESTS',HERE.parent))
 spec=importlib.util.spec_from_file_location('held359',TESTS/'windows_poller_session_r1'/'prepare.py')
 legacy=importlib.util.module_from_spec(spec);spec.loader.exec_module(legacy)
 
-def prepared(publication):
+def prepared(publication,held=False):
     assert re.fullmatch('[0-9a-f]{40}',publication)
     original=legacy.HERE;legacy.HERE=HERE
     try:data,receipt=legacy.prepared(publication)
     finally:legacy.HERE=original
     s=data['Start-Session.ps1'].decode()
-    # Retain the unconditional STOP until this new publication is qualified.
-    s=s.replace('Verification359 HELD: new PowerShell controls did not execute; this authoring publication grants NO launch admission','Verification361 HELD: qualification pending; NO launch admission')
+    # The qualified new output differs from its tested HELD twin only by this guard.
+    guard="throw 'Verification359 HELD: new PowerShell controls did not execute; this authoring publication grants NO launch admission'\n"
+    assert s.count(guard)==1
+    s=s.replace(guard,"throw 'Verification361 HELD: control variant; NO launch admission'\n" if held else '')
     command=receipt['command'].replace('method359','method361')
     command_sha=hashlib.sha256(command.encode()).hexdigest()
     s=s.replace(receipt['command_sha256'],command_sha)
@@ -54,12 +56,12 @@ def prepared(publication):
   if ((Test-NormalQuit $facts) -and (Test-SessionBounds $facts)) { $facts.verdict='PARENT NATIVE WINDOW/CLOSE component observed; first-party poller originals require independent offline disposition' }
   $facts.end_utc=""")
     data['Start-Session.ps1']=s.encode()
-    receipt.update(command=command,command_sha256=command_sha,files={n:hashlib.sha256(b).hexdigest() for n,b in data.items()},scope='361 HELD preparation; no execution during generation')
+    receipt.update(command=command,command_sha256=command_sha,files={n:hashlib.sha256(b).hexdigest() for n,b in data.items()},held=held,scope='361 method generation only; StageA admission requires exact publication on MAIN plus later trusted manual Software resumption; no execution during generation')
     return data,receipt
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--publication',required=True);p.add_argument('--out',required=True,type=Path);a=p.parse_args()
-    data,receipt=prepared(a.publication);assert not a.out.exists();a.out.mkdir()
+    p=argparse.ArgumentParser();p.add_argument('--publication',required=True);p.add_argument('--out',required=True,type=Path);p.add_argument('--held',action='store_true');a=p.parse_args()
+    data,receipt=prepared(a.publication,held=a.held);assert not a.out.exists();a.out.mkdir()
     for n,b in data.items():(a.out/n).write_bytes(b)
     (a.out/'PREPARED.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(receipt,indent=2))
