@@ -22,13 +22,13 @@ jobs:
         run: |
           if ((git rev-parse HEAD:tests/windows_poller_session_r1) -cne '095ba70f01bf954a1c11ca7174ad123fe9879c37') { throw 'Held input changed' }
           New-Item -ItemType Directory -Path ci361 | Out-Null
-          python -B tests/windows_poller_session_r1/controls.py 2>&1 | Tee-Object ci361/python-original.log
+          python -B tests/windows_poller_session_r2/controls.py 2>&1 | Tee-Object ci361/python-corrected.log
           if ($LASTEXITCODE -ne 0) { throw 'Preparation controls failed' }
-          python -B tests/windows_poller_session_r1/prepare.py --publication 7b80c14b6c7825bd3876c05d9f988b81c23526e3 --out ci361/held 2>&1 | Tee-Object ci361/prepare-original.log
+          python -B tests/windows_poller_session_r2/prepare.py --publication 7b80c14b6c7825bd3876c05d9f988b81c23526e3 --out ci361/held 2>&1 | Tee-Object ci361/prepare-corrected.log
           if ($LASTEXITCODE -ne 0) { throw 'Preparation failed' }
-      - name: Original held parser/pure/file controls under default runner policy
+      - name: Corrected held parser/pure/file controls under default runner policy
         run: |
-          & tests/windows_poller_session_r1/controls.ps1 -PreparedDir ci361/held 2>&1 | Tee-Object ci361/powershell-original.log
+          & tests/windows_poller_session_r2/controls.ps1 -PreparedDir ci361/held 2>&1 | Tee-Object ci361/powershell-corrected.log
       - name: Small output hashes
         if: always()
         run: |

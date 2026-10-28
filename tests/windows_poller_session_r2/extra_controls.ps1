@@ -12,7 +12,14 @@ Reject { Get-CloseDecision 2000 1000 0 $false } 'retrograde time'
 foreach ($property in 'error','capture_error','collection_error','retention_error','cleanup_error') {
   $x=$facts.Clone();$x[$property]='synthetic failure';Pass (!(Test-SessionBounds $x)) "failure $property never PASS"
 }
-$x=$facts.Clone();$x.parent_identity=@{pid=0;start_ticks=123;image_sha256=$m.app_sha256};Pass (!(Test-SessionBounds $x)) 'zero parent fails'
+$x=$facts.Clone();$x.parent_identity=$facts.parent_identity.Clone();$x.parent_identity.pid=0;Pass (!(Test-SessionBounds $x)) 'zero parent fails'
+foreach ($pair in @(@('normal_close_wait_ms',10001),@('normal_close_elapsed_ms',10001),@('final_elapsed_ms',60001),@('cleanup_elapsed_ms',10001),@('post_jobs_status','unbound-leftover'),@('diagnostic_copy_complete',$false))) {
+  $x=$facts.Clone();$x[$pair[0]]=$pair[1];Pass (!(Test-SessionBounds $x)) "final bound $($pair[0])"
+}
+foreach ($pair in @(@('image_path','C:\wrong.exe'),@('os_start_ns',0),@('start_ticks',0))) {
+  $x=$facts.Clone();$x.parent_identity=$facts.parent_identity.Clone();$x.parent_identity[$pair[0]]=$pair[1];Pass (!(Test-SessionBounds $x)) "parent $($pair[0])"
+}
+$x=$facts.Clone();$x.argv=@($app);Pass (!(Test-SessionBounds $x)) 'missing diagnostic argv'
 $x=$consent.Clone();$x.human_message_text='';Pass (!(Test-ManualConsent $x ('c'*64) ('a'*40) ('b'*64))) 'empty human text fails'
 # Restore synthetic valid records after prior malformedUTF8 case.
 [IO.File]::WriteAllText((Join-Path $dir 'records.jsonl'),$json,[Text.UTF8Encoding]::new($false))
