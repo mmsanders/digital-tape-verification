@@ -1,0 +1,142 @@
+{
+  "scope": "361 StageB independent OFFLINE review of one actual session; no new execution",
+  "publication": "2ee4b6701e313a37191482a342254eb902c6fc7f",
+  "software_return": 6477282342,
+  "method_exact": true,
+  "manual_resumption": "contextually bound human correction after Not yet; no fictional hash recitation/prompt",
+  "consent_question_record_sha256": "9822bc988ca008510fde4716c7e9c8d3a994788ed1c277363e29fb0f1c2c7c96",
+  "consent_not_yet_record_sha256": "b058db2c542100801cacfc11ef89d3a84557181906a2dcd324d3fb00c909845a",
+  "consent_resume_record_sha256": "d07c695865f8b981b20b5ad1eccee0ad5966b27a02b1cd0cb1a75c95b0898d19",
+  "native_invocation": {
+    "uuid": "adac743e-aacc-41d3-b07f-4fa8c628e1ed",
+    "record_sha256": "5b1c30926cedcc335f3c36ab3ecd1cbb29bbaa69863965db6dfc681825082534",
+    "tool_use_id": "toolu_01LGHuGFHWnYiV3rLZSHpHGe",
+    "timeout": 180000
+  },
+  "parent": {
+    "pid": 14180,
+    "os_start_ns": 1793212091293019700,
+    "ready_ms": 2071,
+    "close_ms": 6000,
+    "after_ready_to_close_ms": 3929,
+    "normal_close_ms": 153,
+    "final_ms": 6349,
+    "exit": 0,
+    "forced_cleanup": false,
+    "blank_title_visible_top_level_also_enumerated": true
+  },
+  "oracle": "CARDS-1 FIRST-PARTY consistency ONLY; raw authenticity/source/native/G1 remain separate",
+  "session": "2be2fd14c57794ed00cde55473f0af24",
+  "records": 22,
+  "retained_leaf_count": 8,
+  "retained_hashes_match_launcher_manifest": true,
+  "live_source_and_jobs_comparison": "NOT ESTABLISHED in Verification context: diagnostic path missing and jobs listing denied; no retry or deletion inference; recorded after-state remains attributed",
+  "runs_source_bound_first_party": [
+    {
+      "run_id": "cards-1",
+      "ticket": 1,
+      "pid_first_party": 25268,
+      "terminal": "exited",
+      "exit": 0,
+      "publication": "published",
+      "cleanup": "removed",
+      "report_sha256": "32406b507a9e774452cbbaf65933f6d8245fe5fb69093438b14412d14c1b7285",
+      "stdout_sha256": "8a5de7c42d95751e2a76f41840ffdfb5a3cf807d3366a94dc3a3d81955eccad2",
+      "offered": 0,
+      "unprobed": 0
+    },
+    {
+      "run_id": "cards-2",
+      "ticket": 2,
+      "pid_first_party": 18220,
+      "terminal": "exited",
+      "exit": 0,
+      "publication": "published",
+      "cleanup": "removed",
+      "report_sha256": "31b3757790b68f495bd012ec05a285c8d3c86cc9200f813ca9dfcb251a4dcfc9",
+      "stdout_sha256": "8a5de7c42d95751e2a76f41840ffdfb5a3cf807d3366a94dc3a3d81955eccad2",
+      "offered": 0,
+      "unprobed": 0
+    }
+  ],
+  "manifests": {
+    "before_entries": 8,
+    "after_entries": 30,
+    "original_hash_entries_unchanged": true
+  },
+  "inventory": {
+    "MANIFEST.before.sha256": {
+      "bytes": 832,
+      "sha256": "c148b0edc5cdd13fb78fd3da791fd8fc0495c4491b1ced843176edd4efff7ce3"
+    },
+    "MANIFEST.after.sha256": {
+      "bytes": 3071,
+      "sha256": "d0a2e2e3435474fe14d8e1101fa64b43f1688ebbc4658ce748fc2ca2b2ac8c22"
+    },
+    "consent618.json": {
+      "bytes": 1145,
+      "sha256": "c8a48dacf2aa6d240d82e1606c3e77499accaf65b32bd121dbef7eb63dec94f7"
+    },
+    "method361/PREPARED.json": {
+      "bytes": 1280,
+      "sha256": "a70210cefdbe2bdb8227958a9740599503cb5b017dfb232b6a7d78b9fc75f88e"
+    },
+    "receipts/native618-1/context.private.json": {
+      "bytes": 846,
+      "sha256": "5253d41a982713cc6b6bb7adf607ab7190e159f594902fe5b6b9df06a1c30c00"
+    },
+    "receipts/native618-1/diagnostic/.digital-tape-diagnostic-session": {
+      "bytes": 57,
+      "sha256": "5310c0c3a92cd3482dab328f97b5b1ed2c87808abd955d95dd5fd7c198c69770"
+    },
+    "receipts/native618-1/diagnostic/blobs/00000007-report.bin": {
+      "bytes": 197,
+      "sha256": "32406b507a9e774452cbbaf65933f6d8245fe5fb69093438b14412d14c1b7285"
+    },
+    "receipts/native618-1/diagnostic/blobs/00000008-stdout.bin": {
+      "bytes": 41,
+      "sha256": "8a5de7c42d95751e2a76f41840ffdfb5a3cf807d3366a94dc3a3d81955eccad2"
+    },
+    "receipts/native618-1/diagnostic/blobs/00000009-stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "receipts/native618-1/diagnostic/blobs/00000016-report.bin": {
+      "bytes": 197,
+      "sha256": "31b3757790b68f495bd012ec05a285c8d3c86cc9200f813ca9dfcb251a4dcfc9"
+    },
+    "receipts/native618-1/diagnostic/blobs/00000017-stdout.bin": {
+      "bytes": 41,
+      "sha256": "8a5de7c42d95751e2a76f41840ffdfb5a3cf807d3366a94dc3a3d81955eccad2"
+    },
+    "receipts/native618-1/diagnostic/blobs/00000018-stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "receipts/native618-1/diagnostic/records.jsonl": {
+      "bytes": 8150,
+      "sha256": "6caa64b850630c6e78508b88c9c77468f946782b6e80ed3c21a576f6181fcf03"
+    },
+    "receipts/native618-1/launch.private.json": {
+      "bytes": 34592,
+      "sha256": "cc0becaecd9040e3b6ca76876f807c10f204bd2a212416161babcc3988240954"
+    },
+    "receipts/native618-1/stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "receipts/native618-1/stdout.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "unsupported": [
+    "visible page/gesture/one-window-only",
+    "independent child/G1/no-device/no-write absence",
+    "current live-source/after-jobs independent confirmation",
+    "native A6/INGEST/S3/fullAPP/own-host/G2;7/12 unchanged"
+  ],
+  "native_executions_by_verification": 0,
+  "preflight_record_sha256": "8f1edf5019e3cb0e91f8eaf686099e210eec2a61db54b05f3aef0a56e51cf71d",
+  "inherited_policy_record_sha256": "7ef2adedeb7596a61baa3bf66dcd3eb4508d5910d1be7e0460df9babcb0decd2"
+}
