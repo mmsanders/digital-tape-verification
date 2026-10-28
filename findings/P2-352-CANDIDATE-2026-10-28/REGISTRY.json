@@ -1,0 +1,37 @@
+{
+  "authority": "Verification352 exact612 BUILD/ARCHIVE byte audit ONLY; source clearance6fa36426 carried; runtime UNISSUED",
+  "components": {
+    "digital-tape.exe": {
+      "bytes": 5057536,
+      "sha256": "ccae0cf5098aed601fd17b4af1c0d62a33ad28dfb734add1c5df3a67df807c96",
+      "source": "fce1d644f03ed1220e40133be0c33bd30e519203",
+      "publication": "6fa36426d865f212174d3df1108766d9902dc435"
+    },
+    "ingest.exe": {
+      "bytes": 889856,
+      "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+      "source": "35b23cacae886d9b3693b7104f581d8646ea5667",
+      "publication": "81033e2a20b4fed377fdbbb82963693b10c9b79b"
+    },
+    "tapectl.exe": {
+      "bytes": 493712,
+      "sha256": "44ef26869ba2d01a8a183660a2c7a050d0e7e9ff37c40b727131512739ea6ded",
+      "source": "f9306c2c5a42ebd039edd67b0b7cef6a7d434b2b",
+      "publication": "fdffea5759c2cf48b37a6960c5ed36d09ab91b98"
+    }
+  },
+  "allowed_claims": [
+    "direct ingest positive",
+    "direct ingest empty-folder refusal"
+  ],
+  "required_exclusions": [
+    "actual UI",
+    "app-driven child",
+    "fullAPP",
+    "fullINGEST",
+    "CLI A6",
+    "native session",
+    "shipping Make",
+    "G2"
+  ]
+}
