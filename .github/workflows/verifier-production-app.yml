@@ -1,7 +1,7 @@
 name: Production app component expectations
 on:
   pull_request:
-    paths: ['tests/windows_cards_receipts_r1/**', 'findings/P2-347-PREFLIGHT-2026-10-27/**', 'findings/P2-348-DEPENDENCY-2026-10-27/**', 'findings/P2-343-EXCEPTION-2026-10-27/**', 'findings/P2-325-ARCHIVE-2026-10-27/**', 'findings/P2-338-CONSOLE-2026-10-27/**', 'findings/P2-332-CORRECTION1-2026-10-27/**', 'tests/windows_diagnostics_r2/**', 'findings/P2-332-333-REVIEW-2026-10-26/**', 'tests/windows_diagnostics_r1/**', 'tests/windows_discovery_candidate_r2/**', 'findings/P2-333-*/**', 'tests/windows_human_flow_r1/**', 'findings/P2-328-*/**', 'tests/windows_interactions_r2/**', 'findings/P2-324-*/**', 'tests/windows_interactions_r1/**', 'tests/windows_discovery_candidate_r1/**', 'tests/windows_screen_r1/**', 'tests/windows_bridge_r1/**', 'tests/windows_candidate_r1/**', 'tests/windows_native_flow_r1/**', 'tests/windows_discovery_r1/**', 'findings/P2-318-*/**', 'findings/P2-317-*/**', 'findings/P2-305-*/**', 'findings/P2-306-*/**', 'findings/P2-307-*/**', '.github/workflows/verifier-production-app.yml']
+    paths: ['findings/P2-352-SOURCE-2026-10-28/**', 'tests/windows_cards_receipts_r1/**', 'findings/P2-347-PREFLIGHT-2026-10-27/**', 'findings/P2-348-DEPENDENCY-2026-10-27/**', 'findings/P2-343-EXCEPTION-2026-10-27/**', 'findings/P2-325-ARCHIVE-2026-10-27/**', 'findings/P2-338-CONSOLE-2026-10-27/**', 'findings/P2-332-CORRECTION1-2026-10-27/**', 'tests/windows_diagnostics_r2/**', 'findings/P2-332-333-REVIEW-2026-10-26/**', 'tests/windows_diagnostics_r1/**', 'tests/windows_discovery_candidate_r2/**', 'findings/P2-333-*/**', 'tests/windows_human_flow_r1/**', 'findings/P2-328-*/**', 'tests/windows_interactions_r2/**', 'findings/P2-324-*/**', 'tests/windows_interactions_r1/**', 'tests/windows_discovery_candidate_r1/**', 'tests/windows_screen_r1/**', 'tests/windows_bridge_r1/**', 'tests/windows_candidate_r1/**', 'tests/windows_native_flow_r1/**', 'tests/windows_discovery_r1/**', 'findings/P2-318-*/**', 'findings/P2-317-*/**', 'findings/P2-305-*/**', 'findings/P2-306-*/**', 'findings/P2-307-*/**', '.github/workflows/verifier-production-app.yml']
 permissions:
   contents: read
 jobs:
@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Verification352 review publication integrity (ZERO Product execution)
+        run: python3 -B findings/P2-352-SOURCE-2026-10-28/audit.py --self-check
       - name: PM611 cards-1 receipt and new612 budget controls (ZERO Product execution)
         run: |
           python3 -B tests/windows_cards_receipts_r1/controls.py
