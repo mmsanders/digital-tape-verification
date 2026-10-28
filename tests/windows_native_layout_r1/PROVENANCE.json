@@ -1,0 +1,255 @@
+{
+  "scope": "SMALL already-published fixture inventory ONLY; no full trace/checker replay",
+  "verification_input": "ed34966c909edb5c9e3aaa4bb753e84f6343152f",
+  "product_input": "a993ba79d32ebde232072485fd1c8b83a95690d5",
+  "native185": {
+    "path": "findings/P2-R1-WP14-WIN-REHEARSAL-2026-10-15-evidence/native-excerpt.xml",
+    "sha256": "28a02766f56222e5b699c5d00b79b7319600822f37de46f4d118c38e29636dcb",
+    "bytes": 6959,
+    "events": 5,
+    "product_copy_equal": true
+  },
+  "physical_compact": {
+    "path": "findings/P2-A6-PHYSICAL-2026-10-19/NATIVE-EXCERPT.json",
+    "sha256": "f3a3e5624cfe97948bd670a5c5fd11a782f26211b63b726891c0dd416e186bb5",
+    "bytes": 29582,
+    "records": 51,
+    "shape_inventory": {
+      "68fdd900-4a3e-11d1-84f4-0000f80464e3/0/v2": {
+        "count": 1,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "BootTime",
+            "BufferSize",
+            "BuffersLost",
+            "BuffersWritten",
+            "CPUSpeed",
+            "EndTime",
+            "EventsLost",
+            "LogFileMode",
+            "LogFileName",
+            "LogFileNameString",
+            "LoggerName",
+            "MaxFileSize",
+            "NumberOfProcessors",
+            "PerfFreq",
+            "PointerSize",
+            "ProviderVersion",
+            "ReservedFlags",
+            "SessionNameString",
+            "StartBuffers",
+            "StartTime",
+            "TimerResolution",
+            "Version"
+          ]
+        ]
+      },
+      "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c/1/v4": {
+        "count": 1,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "ApplicationId",
+            "CommandLine",
+            "DirectoryTableBase",
+            "ExitStatus",
+            "Flags",
+            "ImageFileName",
+            "PackageFullName",
+            "ParentId",
+            "ProcessId",
+            "SessionId",
+            "UniqueProcessKey",
+            "UserSID"
+          ]
+        ]
+      },
+      "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c/1/v3": {
+        "count": 5,
+        "raw_lengths": [
+          74,
+          74,
+          74,
+          74,
+          74
+        ],
+        "named_sets": []
+      },
+      "90cbdc39-4a3e-11d1-84f4-0000f80464e3/64/v3": {
+        "count": 12,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "CreateOptions",
+            "FileAttributes",
+            "FileObject",
+            "IrpPtr",
+            "OpenPath",
+            "ShareAccess",
+            "TTID"
+          ]
+        ]
+      },
+      "90cbdc39-4a3e-11d1-84f4-0000f80464e3/32/v2": {
+        "count": 3,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "FileName",
+            "FileObject"
+          ]
+        ]
+      },
+      "90cbdc39-4a3e-11d1-84f4-0000f80464e3/35/v2": {
+        "count": 3,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "FileName",
+            "FileObject"
+          ]
+        ]
+      },
+      "90cbdc39-4a3e-11d1-84f4-0000f80464e3/67/v3": {
+        "count": 2,
+        "raw_lengths": [
+          48,
+          48
+        ],
+        "named_sets": []
+      },
+      "90cbdc39-4a3e-11d1-84f4-0000f80464e3/76/v3": {
+        "count": 10,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "ExtraInfo",
+            "IrpPtr",
+            "NtStatus"
+          ]
+        ]
+      },
+      "3d6fa8d1-fe05-11d0-9dda-00c04fd7ba7c/2/v3": {
+        "count": 5,
+        "raw_lengths": [
+          74,
+          74,
+          74,
+          74,
+          74
+        ],
+        "named_sets": []
+      },
+      "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c/11/v2": {
+        "count": 1,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "ProcessId"
+          ]
+        ]
+      },
+      "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c/32/v2": {
+        "count": 1,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "HandleCount",
+            "PageFaultCount",
+            "PagefileUsage",
+            "PeakPagefileUsage",
+            "PeakVirtualSize",
+            "PeakWorkingSetSize",
+            "PrivatePageCount",
+            "ProcessId",
+            "QuotaNonPagedPoolUsage",
+            "QuotaPagedPoolUsage",
+            "QuotaPeakNonPagedPoolUsage",
+            "QuotaPeakPagedPoolUsage",
+            "Reserved",
+            "VirtualSize",
+            "WorkingSetSize"
+          ]
+        ]
+      },
+      "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c/2/v4": {
+        "count": 1,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "ApplicationId",
+            "CommandLine",
+            "DirectoryTableBase",
+            "ExitStatus",
+            "Flags",
+            "ImageFileName",
+            "PackageFullName",
+            "ParentId",
+            "ProcessId",
+            "SessionId",
+            "UniqueProcessKey",
+            "UserSID"
+          ]
+        ]
+      },
+      "90cbdc39-4a3e-11d1-84f4-0000f80464e3/68/v3": {
+        "count": 2,
+        "raw_lengths": [
+          48,
+          48
+        ],
+        "named_sets": []
+      },
+      "3d6fa8d4-fe05-11d0-9dda-00c04fd7ba7c/11/v3": {
+        "count": 2,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "ByteOffset",
+            "DiskNumber",
+            "FileObject",
+            "HighResResponseTime",
+            "Irp",
+            "IrpFlags",
+            "IssuingThreadId",
+            "Reserved",
+            "TransferSize"
+          ]
+        ]
+      },
+      "3d6fa8d0-fe05-11d0-9dda-00c04fd7ba7c/39/v5": {
+        "count": 1,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "ApplicationId",
+            "CommandLine",
+            "DirectoryTableBase",
+            "ExitStatus",
+            "ExitTime",
+            "Flags",
+            "ImageFileName",
+            "PackageFullName",
+            "ParentId",
+            "ProcessId",
+            "SessionId",
+            "UniqueProcessKey",
+            "UserSID"
+          ]
+        ]
+      },
+      "90cbdc39-4a3e-11d1-84f4-0000f80464e3/36/v2": {
+        "count": 1,
+        "raw_lengths": [],
+        "named_sets": [
+          [
+            "FileName",
+            "FileObject"
+          ]
+        ]
+      }
+    }
+  },
+  "splitio_actual_records": 0
+}
