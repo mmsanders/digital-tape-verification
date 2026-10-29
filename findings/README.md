@@ -281,3 +281,6 @@ accepted for current Windows 11 scope under ADR-195, with row-by-row evidence an
 negative controls. [C2 checklist](../tests/c1_closeout_r1/C2-CHECKLIST.md) and
 [independent app tests](../tests/c1_closeout_r1/README.md). WP-15/G2 remain open.
 
+[Verification364 Stage 2](P2-364-STAGE2-2026-10-28/DISPOSITION.md): exact `8c142d3b`
+has findings; C2 not cleared. Candidate identity and 41 retained S3 rows pass;
+Software624 returns the corrected head in the same issue.

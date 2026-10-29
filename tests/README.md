@@ -120,4 +120,3 @@ The [Stage2 return](../findings/P2-R2-WP16-STAGE2-2026-10-15/README.md) holds Pr
 production-bridge app-origin tests, lawful S3 judge routing supplement, and
 [Michael's C2 checklist](c1_closeout_r1/C2-CHECKLIST.md). Existing package bytes
 remain immutable; actual package dispositions are in the findings index.
-
