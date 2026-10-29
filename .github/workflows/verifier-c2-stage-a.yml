@@ -1,0 +1,41 @@
+name: C2 Stage A Make readiness supersession
+on:
+  pull_request:
+    paths: ['tests/c2_make_readiness_r1/**', 'findings/P2-370-STAGE-A-2026-10-29/**', '.github/workflows/verifier-c2-stage-a.yml']
+  push:
+    branches: [main]
+    paths: ['tests/c2_make_readiness_r1/**', 'findings/P2-370-STAGE-A-2026-10-29/**', '.github/workflows/verifier-c2-stage-a.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  readiness:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 1d341573989d1d768a718371bd6af2b6c2b74b51
+          path: product
+      - name: Contract cases and causal controls
+        run: |
+          python3 -B tests/c2_make_readiness_r1/contract.py
+          python3 -B tests/c2_make_readiness_r1/contract.py --emit > "$RUNNER_TEMP/c2-cases.json"
+      - name: Attach verifier-owned capture to disposable production Bridge
+        shell: bash
+        run: |
+          cp tests/c2_make_readiness_r1/bridge.rs product/host/app/tests/c2_readiness.rs
+          printf '\n#[cfg(test)]\n#[path="../tests/c2_readiness.rs"]\nmod c2_readiness;\n' >> product/host/app/src/bridge.rs
+          echo "DT_C2_CASES=$RUNNER_TEMP/c2-cases.json" >> "$GITHUB_ENV"
+          echo "DT_C2_OUTPUT=$RUNNER_TEMP/c2-rows.json" >> "$GITHUB_ENV"
+      - name: Actual Bridge snapshots (no child or device execution)
+        run: cargo test --manifest-path product/host/app/backend-component/Cargo.toml --locked --lib c2_readiness -- --nocapture
+      - name: Qualify actual snapshots and demonstrate both false blanket gates fail
+        run: python3 -B tests/c2_make_readiness_r1/contract.py --input "$RUNNER_TEMP/c2-rows.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c2-make-readiness
+          path: |
+            ${{ runner.temp }}/c2-cases.json
+            ${{ runner.temp }}/c2-rows.json

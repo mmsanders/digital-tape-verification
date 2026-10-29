@@ -1,5 +1,11 @@
 # Verification capability status
 
+**C2 Stage A, 29 October:** [Verification370 supersession](findings/P2-370-STAGE-A-2026-10-29/DISPOSITION.md)
+retires the old global Make-disabled wording. Legacy CI false assertions apply
+only to no-retained-audio fixtures. Current Bridge readiness:72/72, including the
+fully ready enabled case and71 disabled neighbors; both blanket gates rejected.
+The cleared candidate is unchanged. Stage B awaits Michael's C2 return on Product628.
+
 **Current: [final C1 clearance, 29 October](findings/P2-364-CLEARANCE-2026-10-29/DISPOSITION.md).**
 Software624 exact5101e3f3 is CLEARED for integration and Michael's C2 checklist with
 the pinned candidate. F364-1/2/3 closed on that head. The A4 qualification resolves

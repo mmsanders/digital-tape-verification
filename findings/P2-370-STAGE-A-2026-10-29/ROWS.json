@@ -1,0 +1,290 @@
+[
+  {
+    "id": "cards0-label0-check0-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check0-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check0-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check0-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check0-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check0-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check1-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check1-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check1-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check1-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check1-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label0-check1-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check0-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check0-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check0-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check0-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check0-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check0-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check1-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check1-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check1-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check1-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check1-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards0-label1-check1-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check0-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check0-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check0-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check0-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check0-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check0-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check1-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check1-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check1-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check1-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check1-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label0-check1-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check0-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check0-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check0-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check0-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check0-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check0-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check1-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check1-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check1-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check1-audio1-idle",
+    "make_enabled": true
+  },
+  {
+    "id": "cards1-label1-check1-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards1-label1-check1-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check0-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check0-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check0-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check0-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check0-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check0-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check1-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check1-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check1-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check1-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check1-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label0-check1-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check0-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check0-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check0-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check0-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check0-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check0-audio1-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check1-audio0-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check1-audio0-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check1-audio0-making",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check1-audio1-idle",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check1-audio1-confirm",
+    "make_enabled": false
+  },
+  {
+    "id": "cards2-label1-check1-audio1-making",
+    "make_enabled": false
+  }
+]
