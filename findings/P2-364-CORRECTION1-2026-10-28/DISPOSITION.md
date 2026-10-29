@@ -12,8 +12,11 @@ No Product edits, native app launch, physical card, lead wakeup or subworker.
 are satisfied within the CI/component scope below. F364-1 is improved for the
 tested disk-length/open-geometry cases, but remains open for the Windows mounted-
 volume census. The independent regression below reproduces the missed query.
-WP-14/WP-16 Stage1 dispositions stand within their published evidence boundaries;
-this review does not infer every possible OS-failure branch was previously tested.
+Stage1's physical/CI observations and WP-16 acceptance stand. The newly reproduced
+gap is in the shared Windows probe also used by standalone provision, so **A4 and
+full WP-14 acceptance are now qualified at this required-query failure path pending
+correction**. This supersedes only the unconditional A4/full-package status, not
+the passed physical records or other ledger rows. No physical rerun is requested.
 
 ## [P1] F364-1 remains: failed Windows mount-path query is treated as no mount
 
@@ -31,6 +34,12 @@ unknown safety facts never become safe. WP-14 A4 still outranks the app. The
 correction's new `query_error` field cannot meet that rule while these failures
 are omitted. This is the remaining part of the original F364-1, not a new tracing
 or method-qualification requirement.
+
+The census skip predates this correction and is present in the shared probe on
+Product main. This review identifies it while checking F364-1's claimed coverage;
+it is not a newly introduced regression or a claim that earlier tests exercised it.
+Unknown mount facts must fail closed in standalone commands as well. Make
+additionally owes the APP-1A HOST_QUERY_FAILED outcome.
 
 ### Independently reproduced on exact candidate source
 
@@ -71,7 +80,9 @@ the volume before the fault. Actual regression bytes and hashes are retained.
 query failures (including mount-path retrieval, extent lookup and abnormal
 enumeration termination) as query errors before authorization. Keep a legitimate
 successful empty path list distinct. Required buffer sizing may be handled or
-fail closed with its OS error. Return the failing-query/known-fact neighbors and
+fail closed with its OS error. Ensure the shared policy cannot authorize from the
+incomplete census, including standalone provision; known-fact command behavior
+must stay unchanged. Return the failing-query/known-fact neighbors and
 HOST_QUERY_FAILED report/app mapping in CI; no physical run or kernel observer.
 The existing independent boundary-query oracle remains authoritative.
 
