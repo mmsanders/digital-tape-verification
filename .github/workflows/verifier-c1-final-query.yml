@@ -1,0 +1,36 @@
+name: C1 final exact-head query regression
+on:
+  pull_request:
+    paths: ['findings/P2-364-CLEARANCE-2026-10-29/**', '.github/workflows/verifier-c1-final-query.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-probe:
+    runs-on: windows-latest
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 5101e3f32f259beeca91dd829f83d60edd6c2a22
+          fetch-depth: 0
+          path: product
+      - run: python -B tests/c1_volume_query_r2/prepare.py
+      - name: Compile unchanged independent controller over old and corrected source
+        shell: bash
+        run: |
+          export PATH="/c/mingw64/bin:$PATH"
+          mkdir old-probe
+          git -C product show 3963689230cd96e34dd0ee05e160bff6b172c774:host/port/probe_win.c > old-probe/probe_win.c
+          gcc -std=c99 -O0 -Iold-probe -Iproduct/engine/include -Iproduct/host/port probe-not-ready.c product/host/port/safety.c product/host/port/mbr.c -lpsapi -o probe-old.exe
+          gcc -std=c99 -O0 -Iproduct/engine/include -Iproduct/host/port probe-not-ready.c product/host/port/safety.c product/host/port/mbr.c -lpsapi -o probe-new.exe
+      - name: Known failing control versus exact corrected query outcome on private VHDs
+        shell: pwsh
+        run: findings/P2-364-CLEARANCE-2026-10-29/probe-regression.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c1-final-query-regression
+          path: ${{ runner.temp }}/verifier364-final

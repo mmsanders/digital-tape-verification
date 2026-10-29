@@ -1,0 +1,21 @@
+name: C1 final exact-head evidence clearance
+on:
+  pull_request:
+    paths: ['findings/P2-364-CLEARANCE-2026-10-29/**', '.github/workflows/verifier-c1-clearance.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -B findings/P2-364-CLEARANCE-2026-10-29/fetch.py /tmp/final-inputs
+      - run: python3 -B findings/P2-364-CLEARANCE-2026-10-29/audit.py /tmp/final-inputs --out /tmp/clearance.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c1-final-clearance
+          path: /tmp/clearance.json
