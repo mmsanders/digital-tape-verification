@@ -9,6 +9,12 @@ and G2 remain open; the [C2 checklist](tests/c1_closeout_r1/C2-CHECKLIST.md) req
 Stage 2 clearance of its exact candidate first. Product status synchronization
 belongs to PM. The remainder preserves the older snapshot and provenance.
 
+[Stage 2 exact-head findings](findings/P2-364-STAGE2-2026-10-28/DISPOSITION.md)
+hold Software624 `8c142d3b`: required-query error mapping, real child-origin G3
+completion evidence, and the lawful own-p1 positive need correction/return.
+Candidate bytes and 41 retained S3 rows pass; **C2 is not cleared**. Verification364
+stays open for the corrected exact head in the same task.
+
 **Snapshot: 17 October 2026 UTC.** Verification original input `fc80e0ece3f84f8c7ad468c695cb22b3d6abd21d`;
 Product input `05315e2d464376400e122cd982dbb93dc084c1fb`.
 18 October update: [Verification206 readiness](findings/P2-206-READY-2026-10-18/RETURN.md)

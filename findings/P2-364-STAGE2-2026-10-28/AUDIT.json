@@ -1,0 +1,500 @@
+{
+  "head": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c",
+  "scope": "bounded retained-command and byte/source disposition; C2 NOT CLEARED",
+  "source_tree": "82e1a1491d789c6e23a97990a1878a5a785b8b32",
+  "host_tree": "2bee12051a397a54c09b5129e68090df4e307a37",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "zip_sha256": "20221d65592334baaf5c51b4ab958cc1d6c4e59b70e5caddea1cae10fc97db77",
+  "members": {
+    "digital-tape.exe": {
+      "sha256": "869ba8c48b676a6422fbe49ca6c21efd05a65f9e13a72fbfb729ba11797cfd5a",
+      "bytes": 5112832,
+      "policy": "no-elevation-request; default-invoker",
+      "manifests": [
+        {
+          "resource": [
+            24,
+            1,
+            1033
+          ],
+          "sha256": "b1cb832f790c153aa0e9a66f76e75460263cf1d41971d2dbcc9a4d87ec18b7d8",
+          "levels": [],
+          "xml": " <assembly xmlns=\"urn:schemas-microsoft-com:asm.v1\" manifestVersion=\"1.0\">  <dependency>  <dependentAssembly>  <assemblyIdentity  type=\"win32\"  name=\"Microsoft.Windows.Common-Controls\"  version=\"6.0.0.0\"  processorArchitecture=\"*\"  publicKeyToken=\"6595b64144ccf1df\"  language=\"*\"  />  </dependentAssembly>  </dependency>  </assembly> "
+        }
+      ],
+      "levels": []
+    },
+    "tapectl.exe": {
+      "sha256": "5186a1e05e0df753512baadf102be9d19fa8b315336c1286dfbb7cc82d85e24a",
+      "bytes": 542141,
+      "policy": "no-elevation-request; default-invoker",
+      "manifests": [],
+      "levels": []
+    },
+    "ingest.exe": {
+      "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+      "bytes": 889856,
+      "policy": "no-elevation-request; default-invoker",
+      "manifests": [],
+      "levels": []
+    }
+  },
+  "s3": {
+    "linux": {
+      "bundle_sha256": "5d3e99ccf9bfab16565a24637ada2092f40a68e1e2d004cec8899dbe35232a6b",
+      "files_authenticated": 252,
+      "positive_control": {
+        "kind": "compiled-test trace (host/port/trace_test.c)",
+        "positive_control": "control/positive.trace.json",
+        "positive_control_seen": true
+      },
+      "judgment": {
+        "scope": "bounded actual observation judgments, not overall/native acceptance",
+        "source": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c",
+        "binary": "8f18e4b43bb525af711da1a27ce665c95fc7a340099d22c0a5c73204f078c2d6",
+        "rows": [
+          {
+            "name": "equivalent-1-frames",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "equivalent-1023-frames",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "equivalent-1024-frames",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "equivalent-1025-frames",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "raw-unmounted-positive",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "label-32-UTF8-bytes",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "exact-fit",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "one-frame-over",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "bad-WAV",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "WAV-truncated-after-start",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+            "result": "observed"
+          },
+          {
+            "name": "refuse-not-whole",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "refuse-not-removable",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "refuse-too-large",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "refuse-system-disk",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "refuse-foreign-mount",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "refuse-erase-not-confirmed",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "combined-not-whole-and-not-removable",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "combined-system-and-foreign",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "OS-own-hint-byte-invalid",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "bare-CRC-55AA-mounted",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "own-p1-unmount-failed",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+            "result": "refused"
+          },
+          {
+            "name": "unknown-facts-refuse",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); empty facts file",
+            "result": "refused"
+          },
+          {
+            "name": "geometry-before-write",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); GEOMETRY refused before any write",
+            "result": "observed"
+          },
+          {
+            "name": "verify-findings",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); real failed OS read during verify (read-error:2048@verify)",
+            "result": "observed"
+          },
+          {
+            "name": "generic-EIO-not-card-changed",
+            "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); dm error target at the load boundary: plain EIO",
+            "result": "observed"
+          },
+          {
+            "name": "ordinary-exclusive-report",
+            "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "existing-leaf",
+            "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "dangling-link-leaf",
+            "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "symlink-leaf",
+            "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "substituted-parent",
+            "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "reparse-parent",
+            "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          }
+        ]
+      },
+      "unjudged": [
+        {
+          "name": "shipped/loop-refused",
+          "why": "shipped tapectl, real probe, no seam: exit 3; bytes unchanged; probe facts are not the oracle's injected facts",
+          "exit": 3,
+          "argv": [
+            "/home/runner/work/Digital-Tape/Digital-Tape/build/host/tapectl",
+            "make",
+            "/dev/loop0",
+            "--label",
+            "Make",
+            "--length-s",
+            "9",
+            "--wav",
+            "/home/runner/work/_temp/s3-work/w1024.wav",
+            "--erase",
+            "/dev/loop0",
+            "--report",
+            "/home/runner/work/_temp/s3/control/051/make.jsonl",
+            "--report-nonce",
+            "00112233445566778899aabbccddeeff"
+          ],
+          "files": "unjudged/000"
+        },
+        {
+          "name": "label-33-UTF8-bytes",
+          "why": "LABEL_INVALID exits 2 before any device open; session() requires either a policy refusal or one authorized open. Bytes unchanged",
+          "exit": 2,
+          "argv": [
+            "/home/runner/work/Digital-Tape/Digital-Tape/build/host/tapectl-test",
+            "make",
+            "/dev/loop0",
+            "--label",
+            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "--length-s",
+            "9",
+            "--wav",
+            "/home/runner/work/_temp/s3-work/w1024.wav",
+            "--erase",
+            "/dev/loop0",
+            "--report",
+            "/home/runner/work/_temp/s3/control/055/make.jsonl",
+            "--report-nonce",
+            "00112233445566778899aabbccddeeff"
+          ],
+          "files": "unjudged/001"
+        }
+      ]
+    },
+    "windows": {
+      "bundle_sha256": "d682c4e4a1eecbb7f7c5b129312ccf564f1219ade95bab7439d515706ea83735",
+      "files_authenticated": 57,
+      "positive_control": {
+        "kind": "compiled-test trace (host/port/trace_test.c)",
+        "positive_control": "control/positive.trace.json",
+        "positive_control_seen": true
+      },
+      "judgment": {
+        "scope": "bounded actual observation judgments, not overall/native acceptance",
+        "source": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c",
+        "binary": "44c39e66261f52b57be28f0e52aed339d5c46876d46675f6ee1673e932b4fd52",
+        "rows": [
+          {
+            "name": "no-change",
+            "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); success, one retained session, NULL-write verify; raw disk bytes compared with standalone provision/load/verify (automount off)",
+            "result": "observed"
+          },
+          {
+            "name": "detected-remove-load",
+            "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD detached at the load boundary",
+            "result": "changed"
+          },
+          {
+            "name": "detected-remove-commit",
+            "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD detached at the commit boundary",
+            "result": "changed"
+          },
+          {
+            "name": "remove-reinsert-load",
+            "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD detached and re-attached (same path) at the load boundary",
+            "result": "changed"
+          },
+          {
+            "name": "equal-size-change-detected",
+            "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD A detached, equal-size VHD B attached at the same path, during verify",
+            "result": "changed"
+          },
+          {
+            "name": "CARD_CHANGED-precedence",
+            "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); detach during verify: CARD_CHANGED, never READ_ERROR findings",
+            "result": "changed"
+          },
+          {
+            "name": "ordinary-exclusive-report",
+            "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "existing-leaf",
+            "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "substituted-parent",
+            "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          },
+          {
+            "name": "reparse-parent",
+            "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+            "result": null
+          }
+        ]
+      },
+      "unjudged": [
+        {
+          "name": "shipped/vhd-refused",
+          "why": "shipped tapectl, real probe, no seam: exit 3; VHD file unchanged; probe facts are not the oracle's injected facts",
+          "exit": 3,
+          "argv": [
+            "D:\\a\\Digital-Tape\\Digital-Tape\\build\\host\\tapectl.exe",
+            "make",
+            "\\\\.\\PhysicalDrive2",
+            "--label",
+            "Make",
+            "--length-s",
+            "9",
+            "--wav",
+            "D:\\a\\_temp\\s3-work\\w.wav",
+            "--erase",
+            "\\\\.\\PhysicalDrive2",
+            "--report",
+            "D:\\a\\_temp\\s3\\control\\011\\make.jsonl",
+            "--report-nonce",
+            "00112233445566778899aabbccddeeff"
+          ],
+          "files": "unjudged/000"
+        }
+      ]
+    },
+    "negative": {
+      "exit": 1,
+      "stderr": "Traceback (most recent call last):\r\n  File \"<verification>\\tests\\wp15_cards_make_r1\\runner.py\", line 37, in <module>\r\n    p=argparse.ArgumentParser();p.add_argument('packet',type=Path);p.add_argument('--out',type=Path,required=True);a=p.parse_args();a.out.write_text(json.dumps(run(a.packet),indent=2)+'\\n')\r\n  File \"<verification>\\tests\\wp15_cards_make_r1\\runner.py\", line 33, in run\r\n    result=getattr(oracle,{'cards':'cards','session':'session','parent':'parent_binding'}[kind])(r)\r\n  File \"<verification>\\tests\\wp15_cards_make_r1\\oracle.py\", line 93, in session\r\n    if phase=='verify':assert e['write_callback_null'] is True;verify_null=True\r\nAssertionError\r\n"
+    }
+  },
+  "g1": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "G1 static gate: 19 files, 0 findings: clean\n",
+      "stderr": ""
+    },
+    "ordinary-positive": {
+      "exit": 0,
+      "stdout": "G1 static gate: 19 files, 0 findings: clean\n",
+      "stderr": ""
+    },
+    "unix-read-negative": {
+      "exit": 1,
+      "stdout": "G1 device-path: src/lib.rs:17: a device or raw-disk path in app source: fn verification_g1_control() { let target = \"/dev/rdisk99\"; let _ = std::fs::File::open(target); }\nG1 card-flow: src/lib.rs:17: the card path reaches a file-system call: fn verification_g1_control() { let target = \"/dev/rdisk99\"; let _ = std::fs::File::open(target); }\nG1 static gate: 19 files, 2 findings: device access in app source\n",
+      "stderr": ""
+    },
+    "windows-alias-negative": {
+      "exit": 1,
+      "stdout": "G1 device-path: src/lib.rs:17: a device or raw-disk path in app source: fn verification_g1_control() { use std::fs::OpenOptions as Alias; let target = r\"\\\\.\\PhysicalDrive99\"; let _ = Alias::new().read(true).open(target); }\nG1 static gate: 19 files, 1 findings: device access in app source\n",
+      "stderr": ""
+    },
+    "partition-write-negative": {
+      "exit": 1,
+      "stdout": "G1 device-path: src/lib.rs:17: a device or raw-disk path in app source: fn verification_g1_control() { let target = \"/dev/disk99s1\"; let _ = std::fs::OpenOptions::new().write(true).open(target); }\nG1 card-flow: src/lib.rs:17: the card path reaches a file-system call: fn verification_g1_control() { let target = \"/dev/disk99s1\"; let _ = std::fs::OpenOptions::new().write(true).open(target); }\nG1 static gate: 19 files, 2 findings: device access in app source\n",
+      "stderr": ""
+    }
+  },
+  "product_check_states": {
+    "SUCCESS": 129
+  },
+  "artifact_metadata": {
+    "make": {
+      "total_count": 3,
+      "artifacts": [
+        {
+          "id": 12848561181,
+          "node_id": "MDg6QXJ0aWZhY3QxMjg0ODU2MTE4MQ==",
+          "name": "wp15-make-624-linux",
+          "size_in_bytes": 47854924,
+          "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848561181",
+          "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848561181/zip",
+          "expired": false,
+          "digest": "sha256:2a57f206248e58b556233175931e49d8b71052f8041566e74ab3cfee68e26686",
+          "created_at": "2026-10-28T20:15:24Z",
+          "updated_at": "2026-10-28T20:15:24Z",
+          "expires_at": "2027-01-26T20:14:18Z",
+          "workflow_run": {
+            "id": 40761455133,
+            "repository_id": 1351805822,
+            "head_repository_id": 1351805822,
+            "head_branch": "software624-make",
+            "head_sha": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c"
+          }
+        },
+        {
+          "id": 12848417569,
+          "node_id": "MDg6QXJ0aWZhY3QxMjg0ODQxNzU2OQ==",
+          "name": "wp15-make-624-windows",
+          "size_in_bytes": 211456,
+          "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848417569",
+          "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848417569/zip",
+          "expired": false,
+          "digest": "sha256:e29c6c651e2875fd94ec0b626ba17854bd1f16de862fbc9a085005ef3ffd975b",
+          "created_at": "2026-10-28T20:16:44Z",
+          "updated_at": "2026-10-28T20:16:44Z",
+          "expires_at": "2027-01-26T20:14:18Z",
+          "workflow_run": {
+            "id": 40761455133,
+            "repository_id": 1351805822,
+            "head_repository_id": 1351805822,
+            "head_branch": "software624-make",
+            "head_sha": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c"
+          }
+        },
+        {
+          "id": 12847813806,
+          "node_id": "MDg6QXJ0aWZhY3QxMjg0NzgxMzgwNg==",
+          "name": "wp15-make-624-g1",
+          "size_in_bytes": 885,
+          "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12847813806",
+          "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12847813806/zip",
+          "expired": false,
+          "digest": "sha256:2b084542c5325b1e8d36e72692254b1594e0ad5f752ac597b7ecd68192d5a7bd",
+          "created_at": "2026-10-28T20:14:27Z",
+          "updated_at": "2026-10-28T20:14:27Z",
+          "expires_at": "2027-01-26T20:14:18Z",
+          "workflow_run": {
+            "id": 40761455133,
+            "repository_id": 1351805822,
+            "head_repository_id": 1351805822,
+            "head_branch": "software624-make",
+            "head_sha": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c"
+          }
+        }
+      ]
+    },
+    "candidate": {
+      "total_count": 2,
+      "artifacts": [
+        {
+          "id": 12848706152,
+          "node_id": "MDg6QXJ0aWZhY3QxMjg0ODcwNjE1Mg==",
+          "name": "software624-build-evidence-8c142d3b9d38",
+          "size_in_bytes": 18061,
+          "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848706152",
+          "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848706152/zip",
+          "expired": false,
+          "digest": "sha256:a04062360a25f223de3681cf0788d2f33dfaaa44ad6b61bee839b4b17ba22ffd",
+          "created_at": "2026-10-28T20:19:32Z",
+          "updated_at": "2026-10-28T20:19:32Z",
+          "expires_at": "2026-11-27T20:19:32Z",
+          "workflow_run": {
+            "id": 40761454767,
+            "repository_id": 1351805822,
+            "head_repository_id": 1351805822,
+            "head_branch": "software624-make",
+            "head_sha": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c"
+          }
+        },
+        {
+          "id": 12848137682,
+          "node_id": "MDg6QXJ0aWZhY3QxMjg0ODEzNzY4Mg==",
+          "name": "software624-windows-candidate-8c142d3b9d38",
+          "size_in_bytes": 2585838,
+          "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848137682",
+          "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/12848137682/zip",
+          "expired": false,
+          "digest": "sha256:a664d34efd045023bf38a82fdb2fa08850ddd3f6cf47eb898e37d07ed960b9c7",
+          "created_at": "2026-10-28T20:19:31Z",
+          "updated_at": "2026-10-28T20:19:31Z",
+          "expires_at": "2026-11-27T20:19:31Z",
+          "workflow_run": {
+            "id": 40761454767,
+            "repository_id": 1351805822,
+            "head_repository_id": 1351805822,
+            "head_branch": "software624-make",
+            "head_sha": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c"
+          }
+        }
+      ]
+    }
+  }
+}
