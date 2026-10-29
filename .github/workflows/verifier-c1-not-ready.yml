@@ -1,0 +1,34 @@
+name: C1 census not-ready exception control
+on:
+  pull_request:
+    paths: ['tests/c1_volume_query_r2/**', 'findings/P2-364-CORRECTION2-2026-10-28/**', '.github/workflows/verifier-c1-not-ready.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce-exception:
+    runs-on: windows-latest
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 3963689230cd96e34dd0ee05e160bff6b172c774
+          path: product
+      - run: python -B tests/c1_volume_query_r2/prepare.py
+      - name: Compile independent typed-error driver over candidate source
+        shell: bash
+        run: |
+          export PATH="/c/mingw64/bin:$PATH"
+          gcc -std=c99 -O0 -Wall -Wextra -Iproduct/engine/include -Iproduct/host/port probe-not-ready.c product/host/port/safety.c product/host/port/mbr.c -lpsapi -o probe.exe
+      - name: Reproduce remaining exception gap, not Product acceptance
+        shell: pwsh
+        run: tests/c1_volume_query_r1/run.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c1-not-ready-control
+          path: |
+            ${{ runner.temp }}/verifier364-volume-query
+            probe-not-ready.c
