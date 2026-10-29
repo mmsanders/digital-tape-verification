@@ -1,0 +1,446 @@
+{
+  "head": "e36ea4922ef845dd6754456db874541a71992ebc",
+  "clearance": false,
+  "s3": {
+    "linux": {
+      "scope": "bounded actual observation judgments, not overall/native acceptance",
+      "source": "e36ea4922ef845dd6754456db874541a71992ebc",
+      "binary": "d26e4fded08e16a92cb512b8d5ca9fe32e5e781b5a614333add488b36c96e7bc",
+      "rows": [
+        {
+          "name": "equivalent-1-frames",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "equivalent-1023-frames",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "equivalent-1024-frames",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "equivalent-1025-frames",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "raw-unmounted-positive",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "label-32-UTF8-bytes",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "exact-fit",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "one-frame-over",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "bad-WAV",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "WAV-truncated-after-start",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); byte/output equivalence against standalone provision/load/verify",
+          "result": "observed"
+        },
+        {
+          "name": "refuse-not-whole",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "refuse-not-removable",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "refuse-too-large",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "refuse-system-disk",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "refuse-foreign-mount",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "refuse-erase-not-confirmed",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "combined-not-whole-and-not-removable",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "combined-system-and-foreign",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "OS-own-hint-byte-invalid",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "bare-CRC-55AA-mounted",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "own-p1-unmount-failed",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); policy refusal, zero writes",
+          "result": "refused"
+        },
+        {
+          "name": "unknown-facts-refuse",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); empty facts file",
+          "result": "refused"
+        },
+        {
+          "name": "geometry-before-write",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); GEOMETRY refused before any write",
+          "result": "observed"
+        },
+        {
+          "name": "verify-findings",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); real failed OS read during verify (read-error:2048@verify)",
+          "result": "observed"
+        },
+        {
+          "name": "generic-EIO-not-card-changed",
+          "scope": "compiled-test: tapectl-test make on a Linux loop device (real raw I/O; injected card facts); dm error target at the load boundary: plain EIO",
+          "result": "observed"
+        },
+        {
+          "name": "ordinary-exclusive-report",
+          "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "existing-leaf",
+          "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "dangling-link-leaf",
+          "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "symlink-leaf",
+          "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "substituted-parent",
+          "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "reparse-parent",
+          "scope": "actual linux filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        }
+      ]
+    },
+    "windows": {
+      "scope": "bounded actual observation judgments, not overall/native acceptance",
+      "source": "e36ea4922ef845dd6754456db874541a71992ebc",
+      "binary": "5235e18d4ad9e349f29f4c9fc0d33f6d7affe3f2cc0cf3ae84068712ee4afe5e",
+      "rows": [
+        {
+          "name": "no-change",
+          "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); success, one retained session, NULL-write verify; raw disk bytes compared with standalone provision/load/verify (automount off)",
+          "result": "observed"
+        },
+        {
+          "name": "detected-remove-load",
+          "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD detached at the load boundary",
+          "result": "changed"
+        },
+        {
+          "name": "detected-remove-commit",
+          "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD detached at the commit boundary",
+          "result": "changed"
+        },
+        {
+          "name": "remove-reinsert-load",
+          "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD detached and re-attached (same path) at the load boundary",
+          "result": "changed"
+        },
+        {
+          "name": "equal-size-change-detected",
+          "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); VHD A detached, equal-size VHD B attached at the same path, during verify",
+          "result": "changed"
+        },
+        {
+          "name": "CARD_CHANGED-precedence",
+          "scope": "compiled-test: tapectl-test make on a Windows Server VHD (real raw I/O and OS errors; injected card facts); detach during verify: CARD_CHANGED, never READ_ERROR findings",
+          "result": "changed"
+        },
+        {
+          "name": "ordinary-exclusive-report",
+          "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "existing-leaf",
+          "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "substituted-parent",
+          "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        },
+        {
+          "name": "reparse-parent",
+          "scope": "actual windows filesystem; tapectl-test make with passing facts on a real device node",
+          "result": null
+        }
+      ]
+    }
+  },
+  "supplement": {
+    "linux": [
+      {
+        "name": "label-33-UTF8-bytes",
+        "result": "input-refused-before-device"
+      },
+      {
+        "name": "own-p1-valid-exact",
+        "result": "observed"
+      }
+    ],
+    "windows": []
+  },
+  "queries": {
+    "linux": [
+      {
+        "name": "host-query-initial-disk-length",
+        "result": {
+          "id": "HOST_QUERY_FAILED",
+          "exit": 1,
+          "app_category": "card-interrupted"
+        }
+      },
+      {
+        "name": "host-query-neighbor-known-refusal",
+        "result": {
+          "id": "REFUSE_NOT_WHOLE_DEVICE",
+          "exit": 3,
+          "app_category": "card-refused"
+        }
+      },
+      {
+        "name": "host-query-open-geometry",
+        "result": {
+          "id": "HOST_QUERY_FAILED",
+          "exit": 1,
+          "app_category": "card-interrupted"
+        }
+      }
+    ],
+    "windows": [
+      {
+        "name": "host-query-initial-disk-length",
+        "result": {
+          "id": "HOST_QUERY_FAILED",
+          "exit": 1,
+          "app_category": "card-interrupted"
+        }
+      },
+      {
+        "name": "host-query-neighbor-known-refusal",
+        "result": {
+          "id": "REFUSE_NOT_REMOVABLE",
+          "exit": 3,
+          "app_category": "card-refused"
+        }
+      },
+      {
+        "name": "host-query-open-geometry",
+        "result": {
+          "id": "HOST_QUERY_FAILED",
+          "exit": 1,
+          "app_category": "card-interrupted"
+        }
+      }
+    ]
+  },
+  "g3": {
+    "rows": 28,
+    "child_rows": [
+      {
+        "id": "overage-one",
+        "exit": 2,
+        "refusal": "INGEST_TOO_LONG",
+        "message": "This music is 1 s too long for a 60-minute cartridge. Take some songs out and drop the folder again.",
+        "report_sha256": "37413cb731f63a2ad51c06da87f5636fb5e6e860e61a3a0c4ab3cc9e397e0e8a"
+      },
+      {
+        "id": "overage-192",
+        "exit": 2,
+        "refusal": "INGEST_TOO_LONG",
+        "message": "This music is 3 min 12 s too long for a 60-minute cartridge. Take some songs out and drop the folder again.",
+        "report_sha256": "25e009fd0234ec2314c4ee3dbcc7306717dafda5d09805d678568184ab98d439"
+      },
+      {
+        "id": "protected",
+        "exit": 2,
+        "refusal": "SOURCE_PROTECTED",
+        "message": "\"locked.m4a\" is copy-protected, so it can't go on a cartridge. Take it out of the folder.",
+        "report_sha256": "7185820bcd95c04b13941c98c94061f87c6a9d360d7f1037b34c09c966a694ff"
+      },
+      {
+        "id": "corrupt",
+        "exit": 2,
+        "refusal": "SOURCE_CORRUPT",
+        "message": "\"broken.wav\" can't be used. Take it out of the folder.",
+        "report_sha256": "e84f0cf17b13fba11f593145a543c7f5a004c83924e2bbd59f230277eeaebdd3"
+      },
+      {
+        "id": "nonmusic",
+        "exit": 2,
+        "refusal": "SOURCE_NOT_AUDIO",
+        "message": "The folder \"Music\" has something in it that isn't music. Use a folder with only songs in it.",
+        "report_sha256": "b0feab8d215689834d27f362327d9b92b1ac3e27df5b0ec91f4d2d2b7df95fa5"
+      },
+      {
+        "id": "empty",
+        "exit": 2,
+        "refusal": "FOLDER_EMPTY",
+        "message": "The folder \"Music\" has something in it that isn't music. Use a folder with only songs in it.",
+        "report_sha256": "869f60fa671260af8b95f712250db3d7343480c571edf5524a4ba753122b246d"
+      },
+      {
+        "id": "source-short",
+        "exit": 2,
+        "refusal": "SOURCE_TOO_SHORT",
+        "message": "\"short.wav\" can't be used. Take it out of the folder.",
+        "report_sha256": "6900e834174853748c5cfc7447cca1048d2d3ce83009712e037940285102d953"
+      },
+      {
+        "id": "small",
+        "exit": 1,
+        "refusal": "ENGINE",
+        "message": "This card is too small. Use a bigger card.",
+        "report_sha256": "7bbbc36e6f5b6c794e128e40b85f6bba6b10b7630d4cf043760a93610771187b"
+      },
+      {
+        "id": "removed",
+        "exit": 1,
+        "refusal": "CARD_CHANGED",
+        "message": "The card was taken out before it was finished. Put it back in and press Make cartridge again.",
+        "report_sha256": "7d486c456b888c9adf206ebe29e8c059085951fb847ff4b57b76f11fb05b76d5"
+      },
+      {
+        "id": "device-io",
+        "exit": 1,
+        "refusal": "ENGINE",
+        "message": "The card was taken out before it was finished. Put it back in and press Make cartridge again.",
+        "report_sha256": "ad370373c7caa5a30202f9ec4527f0f185b221ba2f1bcc6b2ed21395eaa30557"
+      },
+      {
+        "id": "host-query",
+        "exit": 1,
+        "refusal": "HOST_QUERY_FAILED",
+        "message": "The card was taken out before it was finished. Put it back in and press Make cartridge again.",
+        "report_sha256": "48bf936040d840db55feff5ddbd83d39b17b994c8cda046ae50023557b40bd49"
+      },
+      {
+        "id": "verify-findings",
+        "exit": 1,
+        "refusal": "VERIFY_FINDINGS",
+        "message": "Something went wrong writing this card. Press Make cartridge to try again.",
+        "report_sha256": "d0e1f38dcdacf7b625cefab3253167cbcb74f3b531224b5f3627f5d79580a5b2"
+      },
+      {
+        "id": "wav-truncated",
+        "exit": 2,
+        "refusal": "WAV_TRUNCATED",
+        "message": "The music file changed while the cartridge was being made. Start over and drop the folder again.",
+        "report_sha256": "0840aabefee22bf801e4ff1495100ff47386ca942561335044506adae14cb41f"
+      },
+      {
+        "id": "safety-refusal",
+        "exit": 3,
+        "refusal": "REFUSE_NOT_REMOVABLE",
+        "message": "This card can't be used right now. Check the card and try again.",
+        "report_sha256": "8a82f99613e50404431b002b2b61fba34ec16e1b31d7586b2b7992bd9aac6515"
+      },
+      {
+        "id": "generic-make",
+        "exit": 2,
+        "refusal": "LABEL_INVALID",
+        "message": "The cartridge wasn't finished. Start over and try again.",
+        "report_sha256": "0de67be488d270f52c875f42cc176759aa163be0d47eb263a971e782e1901256"
+      },
+      {
+        "id": "discovery-unavailable",
+        "exit": 1,
+        "refusal": "CARDS_ENUM_UNAVAILABLE",
+        "message": "Something went wrong. Nothing else on your computer was changed.",
+        "report_sha256": "771f15322a9021ef98bd39bd3449f464a25db5644c66b9f3e2eaef13ff570ce6"
+      }
+    ],
+    "app_rows": 12,
+    "verifier_correction": "empty diagnostics permitted only for zero-child rejected drops; native Show-details control not disposed"
+  },
+  "candidate": {
+    "zip_sha256": "65f252dc2b505b9ab5ab6cfe1cf862042525e369dfdbedd30b34b58dd43186c6",
+    "members": {
+      "digital-tape.exe": {
+        "sha256": "5c2bd1716881d78fadf0d2043534501a3ffb2bf530b1b8227bdab8d0c69bb887",
+        "bytes": 5112832,
+        "policy": "no-elevation-request; default-invoker"
+      },
+      "tapectl.exe": {
+        "sha256": "0ade9f16f2e24931f1146266957b843b5bac9ab2cbcccb00b91653dc714d3ca5",
+        "bytes": 549370,
+        "policy": "no-elevation-request; default-invoker"
+      },
+      "ingest.exe": {
+        "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+        "bytes": 889856,
+        "policy": "no-elevation-request; default-invoker"
+      }
+    },
+    "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7"
+  },
+  "remaining_finding": {
+    "scope": "actual VHD probe; removable-policy model only; no raw writes",
+    "baseline_mounts": 1,
+    "failed_calls": 1,
+    "actual_os_error": 234,
+    "failed_mounts": 0,
+    "query_error_recorded": false,
+    "baseline_removable_model_policy": 5,
+    "failed_removable_model_policy": 0,
+    "required_query_fail_stop_pass": false
+  },
+  "product_checks": {
+    "SUCCESS": 130
+  }
+}
