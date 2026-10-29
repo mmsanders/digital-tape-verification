@@ -34,6 +34,8 @@ jobs:
           printf '\n#[cfg(test)]\n#[path="../tests/c1_independent.rs"]\nmod c1_independent;\n' >> product/host/app/src/bridge.rs
       - name: Run actual bridge app-origin tests (typed dependencies, no native UI or device)
         run: cargo test --manifest-path product/host/app/backend-component/Cargo.toml --locked --lib c1_independent -- --test-threads=1 --nocapture
+      - name: Own-host integrated ingest static check and detecting controls
+        run: python3 -B tests/c1_closeout_r1/static_check.py product/host/ingest --controls
   a6-offset-control:
     runs-on: ubuntu-24.04
     steps:

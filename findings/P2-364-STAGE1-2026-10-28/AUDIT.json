@@ -1,0 +1,320 @@
+{
+  "product_input": "262466d354dac779b0fda9d712a2d75b73eeec33",
+  "verification_input": "5512a2d0d7bd8135f4a10016d9469c612340737a",
+  "ingest_tree": "835078995d4e9cc2424f9ea8d6f11304b45f783f",
+  "static": {
+    "baseline": {
+      "files": [
+        "build.rs",
+        "examples/decode_dump.rs",
+        "examples/fir_dump.rs",
+        "examples/make_corpus.rs",
+        "examples/profile_file.rs",
+        "examples/tp_sweep.rs",
+        "src/aac.rs",
+        "src/common.rs",
+        "src/convert.rs",
+        "src/dsp.rs",
+        "src/flac.rs",
+        "src/lib.rs",
+        "src/main.rs",
+        "src/manifest.rs",
+        "src/mem.rs",
+        "src/mpeg.rs",
+        "src/observe.rs",
+        "src/order.rs",
+        "src/publish.rs",
+        "src/report.rs",
+        "src/sniff.rs",
+        "src/wav.rs"
+      ],
+      "hits": []
+    },
+    "ordinary": {
+      "files": [
+        "build.rs",
+        "examples/decode_dump.rs",
+        "examples/fir_dump.rs",
+        "examples/make_corpus.rs",
+        "examples/profile_file.rs",
+        "examples/tp_sweep.rs",
+        "src/aac.rs",
+        "src/common.rs",
+        "src/convert.rs",
+        "src/dsp.rs",
+        "src/flac.rs",
+        "src/lib.rs",
+        "src/main.rs",
+        "src/manifest.rs",
+        "src/mem.rs",
+        "src/mpeg.rs",
+        "src/observe.rs",
+        "src/order.rs",
+        "src/publish.rs",
+        "src/report.rs",
+        "src/sniff.rs",
+        "src/wav.rs"
+      ],
+      "hits": []
+    },
+    "raw-windows": {
+      "files": [
+        "build.rs",
+        "examples/decode_dump.rs",
+        "examples/fir_dump.rs",
+        "examples/make_corpus.rs",
+        "examples/profile_file.rs",
+        "examples/tp_sweep.rs",
+        "src/aac.rs",
+        "src/common.rs",
+        "src/convert.rs",
+        "src/dsp.rs",
+        "src/flac.rs",
+        "src/lib.rs",
+        "src/main.rs",
+        "src/manifest.rs",
+        "src/mem.rs",
+        "src/mpeg.rs",
+        "src/observe.rs",
+        "src/order.rs",
+        "src/publish.rs",
+        "src/report.rs",
+        "src/sniff.rs",
+        "src/wav.rs"
+      ],
+      "hits": [
+        {
+          "path": "src/main.rs",
+          "line": 579,
+          "rule": "raw-windows-device"
+        }
+      ]
+    },
+    "raw-posix": {
+      "files": [
+        "build.rs",
+        "examples/decode_dump.rs",
+        "examples/fir_dump.rs",
+        "examples/make_corpus.rs",
+        "examples/profile_file.rs",
+        "examples/tp_sweep.rs",
+        "src/aac.rs",
+        "src/common.rs",
+        "src/convert.rs",
+        "src/dsp.rs",
+        "src/flac.rs",
+        "src/lib.rs",
+        "src/main.rs",
+        "src/manifest.rs",
+        "src/mem.rs",
+        "src/mpeg.rs",
+        "src/observe.rs",
+        "src/order.rs",
+        "src/publish.rs",
+        "src/report.rs",
+        "src/sniff.rs",
+        "src/wav.rs"
+      ],
+      "hits": [
+        {
+          "path": "src/main.rs",
+          "line": 579,
+          "rule": "raw-posix-device"
+        }
+      ]
+    },
+    "device-api": {
+      "files": [
+        "build.rs",
+        "examples/decode_dump.rs",
+        "examples/fir_dump.rs",
+        "examples/make_corpus.rs",
+        "examples/profile_file.rs",
+        "examples/tp_sweep.rs",
+        "src/aac.rs",
+        "src/common.rs",
+        "src/convert.rs",
+        "src/dsp.rs",
+        "src/flac.rs",
+        "src/lib.rs",
+        "src/main.rs",
+        "src/manifest.rs",
+        "src/mem.rs",
+        "src/mpeg.rs",
+        "src/observe.rs",
+        "src/order.rs",
+        "src/publish.rs",
+        "src/report.rs",
+        "src/sniff.rs",
+        "src/wav.rs"
+      ],
+      "hits": [
+        {
+          "path": "src/main.rs",
+          "line": 579,
+          "rule": "device-control"
+        }
+      ]
+    }
+  },
+  "source_inventory": {
+    "build.rs": "06bf0b6fb3a5dfba76f525017cb5f32fa84ab5f4890cdfa44f2e63e3a5345c3e",
+    "examples/decode_dump.rs": "db765cfc3e847da80b8fc630b8343824c1c773943388c75b273a82e8d0ae936a",
+    "examples/fir_dump.rs": "e95658f34b369416ab5a52d9420d354f0636716fcad961bb7fe076e9bff0ec80",
+    "examples/make_corpus.rs": "3a1e2662e7676baa3028b8d83b90d3252798faa83037ab12476fd1333cc175ba",
+    "examples/profile_file.rs": "6d3d956b72e1fd2dd0c94ed3746e2e841416a2aff020c0e53f57daaec7bb5152",
+    "examples/tp_sweep.rs": "d118b574d4e96d39cfc6e2e81202658e191533a190b3b87f709adc49fb393c6d",
+    "src/aac.rs": "7929bdc982fac53a94498cbe397377f86b51471d0c5073d30cff6eea40e1d907",
+    "src/common.rs": "06ffa83c903d0bd9f8c3a912843b0445564a716bee3c6d3f1688e6331514f5e0",
+    "src/convert.rs": "ad945d0e325a2c4066e5716b88a553d1cc927fc456ca14f631a69adc96dac021",
+    "src/dsp.rs": "fb77778e7f271f2acb1c385ee9e8235e0752f3f1318caf3e7fddcc410a230ffc",
+    "src/flac.rs": "c97dae1ed2dce55a636c7e254a25b340ae6a69d7c562b383175376c1b0b0a5d7",
+    "src/lib.rs": "5f143376fe93f8748de2c5ce0134a076c14be0efaea7a73ea07e448ac05ce0bd",
+    "src/main.rs": "4de9f5f42e4ce407cea14b2e6832c8db48ef58fa980bb4b0dfd39fc90f378951",
+    "src/manifest.rs": "7db2a1e70f6fc434d4186e0283d265ebdebea9e5fa7a7fd6107800c89255428b",
+    "src/mem.rs": "76a801430c2abeb0f204baae6113ac9edbe2f292984514f3b01ec8775bc71cb3",
+    "src/mpeg.rs": "e8ed7bc5486799cb0e9b29531b07771cac8c389e5334690f7dc0b1dc1740c4a0",
+    "src/observe.rs": "361426be3b310600392d5be94de4b60814c7b1bbee7d3dcd0e9f8fde41022f9d",
+    "src/order.rs": "6aaf9f29cba424d343593904a8f2ddea30941f59dfaa0ca9e45a6fda6418a6fa",
+    "src/publish.rs": "0dc80f42eaefd905e06ccdb84e728b4b15ea9f846ff5e33b2646729c7f31fe61",
+    "src/report.rs": "52de80b7253eacbdef53d67ea862c62d0c4c6b4d7151a4d0b4da8be328bb4831",
+    "src/sniff.rs": "6907bcd60e0e1d78b618d19b9b6ca0be28a5ae7fe9848d18a26ef5f8e70270c7",
+    "src/wav.rs": "740f100623f0f4709f0475c923bd229749e8d13f4cbd61a22c610a38c64f7fd4",
+    "tests/cli.rs": "aad88f81f0550acda55280f5ea6365455c358865cd622260fa397b1dc6de5e9c",
+    "tests/fixtures/fdkgen.rs": "ce05efbeebb3dba7ba8c7fa6e1f3e8f70a9517eb4e13ddc115d3ff12a208c0e7"
+  },
+  "candidate_head": "8c142d3b9d382d5d48fd648ec53a11b0d59a805c",
+  "zip_sha256": "20221d65592334baaf5c51b4ab958cc1d6c4e59b70e5caddea1cae10fc97db77",
+  "members": {
+    "digital-tape.exe": {
+      "sha256": "869ba8c48b676a6422fbe49ca6c21efd05a65f9e13a72fbfb729ba11797cfd5a",
+      "bytes": 5112832,
+      "policy": "no-elevation-request; default-invoker",
+      "manifests": [
+        {
+          "resource": [
+            24,
+            1,
+            1033
+          ],
+          "sha256": "b1cb832f790c153aa0e9a66f76e75460263cf1d41971d2dbcc9a4d87ec18b7d8",
+          "levels": [],
+          "xml": " <assembly xmlns=\"urn:schemas-microsoft-com:asm.v1\" manifestVersion=\"1.0\">  <dependency>  <dependentAssembly>  <assemblyIdentity  type=\"win32\"  name=\"Microsoft.Windows.Common-Controls\"  version=\"6.0.0.0\"  processorArchitecture=\"*\"  publicKeyToken=\"6595b64144ccf1df\"  language=\"*\"  />  </dependentAssembly>  </dependency>  </assembly> "
+        }
+      ],
+      "levels": []
+    },
+    "tapectl.exe": {
+      "sha256": "5186a1e05e0df753512baadf102be9d19fa8b315336c1286dfbb7cc82d85e24a",
+      "bytes": 542141,
+      "policy": "no-elevation-request; default-invoker",
+      "manifests": [],
+      "levels": []
+    },
+    "ingest.exe": {
+      "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20",
+      "bytes": 889856,
+      "policy": "no-elevation-request; default-invoker",
+      "manifests": [],
+      "levels": []
+    }
+  },
+  "a6_workflow": 40791300942,
+  "a6": {
+    "scope": "private sparse 64GB image and real narrowed-read negative control",
+    "mirror_offset": 63999999488,
+    "control": "killed",
+    "observations": [
+      {
+        "binary_sha256": "2a29398cf9349f2d92ce25b3846170bad8b8c37a3468e597c65f5589bbcd4800",
+        "argv": [
+          "provision",
+          "/tmp/c1-a6-uqohu2n9/large.img",
+          "--image-bytes",
+          "64000000000",
+          "--label",
+          "C1 A6",
+          "--length-s",
+          "60",
+          "--uuid",
+          "0123456789abcdef0123456789abcdef",
+          "--epoch",
+          "315532800"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "binary_sha256": "2a29398cf9349f2d92ce25b3846170bad8b8c37a3468e597c65f5589bbcd4800",
+        "argv": [
+          "load",
+          "/tmp/c1-a6-uqohu2n9/large.img",
+          "/tmp/c1-a6-uqohu2n9/source.wav"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "binary_sha256": "2a29398cf9349f2d92ce25b3846170bad8b8c37a3468e597c65f5589bbcd4800",
+        "argv": [
+          "verify",
+          "/tmp/c1-a6-uqohu2n9/large.img"
+        ],
+        "exit": 0,
+        "stdout": "OK\n",
+        "stderr": ""
+      },
+      {
+        "binary_sha256": "2a29398cf9349f2d92ce25b3846170bad8b8c37a3468e597c65f5589bbcd4800",
+        "argv": [
+          "verify",
+          "/tmp/c1-a6-uqohu2n9/large.img"
+        ],
+        "exit": 0,
+        "stdout": "OK\n",
+        "stderr": ""
+      },
+      {
+        "binary_sha256": "2a29398cf9349f2d92ce25b3846170bad8b8c37a3468e597c65f5589bbcd4800",
+        "argv": [
+          "dump",
+          "/tmp/c1-a6-uqohu2n9/large.img",
+          "--side",
+          "A",
+          "-o",
+          "/tmp/c1-a6-uqohu2n9/A.wav"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "binary_sha256": "2a29398cf9349f2d92ce25b3846170bad8b8c37a3468e597c65f5589bbcd4800",
+        "argv": [
+          "dump",
+          "/tmp/c1-a6-uqohu2n9/large.img",
+          "--side",
+          "B",
+          "-o",
+          "/tmp/c1-a6-uqohu2n9/B.wav"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "binary_sha256": "205d21fa64f6e4d8bcc2f310b7cfe8da7f594ade2772ab693ef32c436445bdf7",
+        "argv": [
+          "verify",
+          "/tmp/c1-a6-uqohu2n9/large.img"
+        ],
+        "exit": 1,
+        "stdout": "NEEDS_REPAIR\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "scope": "offline/source and private-image controls; no physical or native experiment"
+}

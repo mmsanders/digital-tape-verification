@@ -37,6 +37,16 @@ def inspect(data):
                 assert target&0x80000000; walk(target&0x7fffffff,[24])
     return dict(manifests=leaves,levels=[v for leaf in leaves for v in leaf['levels']])
 
+def invoker(result):
+    # Absence is recorded as absence, not an invented explicit manifest node.
+    # Ordinary CreateProcess inherits its Medium parent; ShellExecute runas is
+    # separately restricted to make. C2 confirms normal app launch on Win11.
+    assert all(x.get('level')=='asInvoker' and x.get('uiAccess','false')=='false' for x in result['levels'])
+    for m in result['manifests']:
+        xml=ET.fromstring(m['xml'])
+        assert not any(e.tag.split('}')[-1]=='autoElevate' and (e.text or '').strip().lower()=='true' for e in xml.iter())
+    return 'explicit-asInvoker' if result['levels'] else 'no-elevation-request; default-invoker'
+
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('binary',type=Path);a=p.parse_args()
     b=a.binary.read_bytes();print(json.dumps(dict(name=a.binary.name,sha256=hashlib.sha256(b).hexdigest(),**inspect(b)),indent=2))

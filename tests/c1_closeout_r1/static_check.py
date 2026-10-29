@@ -1,5 +1,5 @@
 """Bounded own-host/G1 source gate. Never executes Product or opens a device."""
-import argparse, json, re
+import argparse, json, re, shutil, tempfile
 from pathlib import Path
 
 RULES = {
@@ -24,6 +24,22 @@ def scan(root):
                     hits.append(dict(path=p.relative_to(root).as_posix(), line=line, rule=rule))
     return dict(files=[p.relative_to(root).as_posix() for p in files], hits=hits)
 
+def qualify(root):
+    baseline=scan(root); assert not baseline['hits'],baseline['hits']
+    results={'baseline':baseline}
+    for name,snippet in [('ordinary','std::fs::File::open("ordinary.wav");'),
+                         ('raw-windows','std::fs::File::open(r"\\\\.\\PhysicalDrive99");'),
+                         ('raw-posix','std::fs::File::open("/dev/disk99s1");'),
+                         ('device-api','DeviceIoControl(handle);')]:
+        with tempfile.TemporaryDirectory(prefix='c1-static-') as tmp:
+            dst=Path(tmp)/'source';shutil.copytree(root,dst,ignore=shutil.ignore_patterns('vendor','target','.git','node_modules'))
+            entry=dst/'src/main.rs';assert entry.is_file()
+            with entry.open('a',encoding='utf-8') as f:f.write('\nfn c1_source_control() { '+snippet+' }\n')
+            result=scan(dst); assert bool(result['hits'])==(name!='ordinary'),name
+            results[name]=result
+    return results
+
 if __name__ == '__main__':
-    p=argparse.ArgumentParser(); p.add_argument('root',type=Path); a=p.parse_args()
-    result=scan(a.root); print(json.dumps(result,indent=2)); raise SystemExit(bool(result['hits']))
+    p=argparse.ArgumentParser(); p.add_argument('root',type=Path);p.add_argument('--controls',action='store_true');a=p.parse_args()
+    result=qualify(a.root) if a.controls else scan(a.root)
+    print(json.dumps(result,indent=2));raise SystemExit(0 if a.controls else bool(result['hits']))

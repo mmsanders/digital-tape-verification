@@ -1,7 +1,7 @@
 """Causal controls qualify only the independent checks, never Product acceptance."""
 import copy, json, tempfile
 from pathlib import Path
-import static_check, g3
+import static_check, g3, pe_manifest
 
 def rejected(f,*args):
     try: f(*args)
@@ -27,4 +27,9 @@ for index,c in enumerate(g3.CASES):
     else: r[index]['make_children']=1
     rejected(g3.check,r)
 rejected(g3.check,rows[:-1])
+assert pe_manifest.invoker(dict(levels=[],manifests=[]))=='no-elevation-request; default-invoker'
+assert pe_manifest.invoker(dict(levels=[dict(level='asInvoker',uiAccess='false')],manifests=[]))=='explicit-asInvoker'
+for level in ('requireAdministrator','highestAvailable'):
+    rejected(pe_manifest.invoker,dict(levels=[dict(level=level)],manifests=[]))
+rejected(pe_manifest.invoker,dict(levels=[dict(level='asInvoker',uiAccess='true')],manifests=[]))
 print(json.dumps(dict(method_controls='PASS',static_mutants=5,bridge_message_or_launch_mutants=len(rows),synthetic=True)))

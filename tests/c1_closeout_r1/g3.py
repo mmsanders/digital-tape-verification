@@ -30,10 +30,11 @@ for name,tool,trigger,message in [
     ('small','make','real geometry or capacity refusal on private target','This card is too small. Use a bigger card.'),
     ('removed','make','real CI target removal during make',PULLED),
     ('device-io','make','real device I/O failure on CI target',PULLED),
+    ('host-query','make','real required boundary-query OS failure on CI target',PULLED),
     ('verify-findings','make','real verify finding on CI target','Something went wrong writing this card. Press Make cartridge to try again.'),
     ('wav-truncated','make','real source truncation after make starts','The music file changed while the cartridge was being made. Start over and drop the folder again.'),
     ('safety-refusal','make','real exit3 refusal on private target',"This card can't be used right now. Check the card and try again."),
-    ('generic-make','make','real non-I/O make failure',"The cartridge wasn't finished. Start over and try again."),
+    ('generic-make','make','real make usage or invalid-label refusal before device work',"The cartridge wasn't finished. Start over and try again."),
     ('discovery-unavailable','cards','real failed discovery query',GENERIC),
 ]: add(name,'child',trigger,message,tool=tool)
 
