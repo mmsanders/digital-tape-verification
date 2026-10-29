@@ -1,5 +1,10 @@
 # Verification capability status
 
+**Latest: [correction2 / 39636892](findings/P2-364-CORRECTION2-2026-10-28/DISPOSITION.md).**
+Earlier census-failure cases now pass, including standalone safety and28 G3 rows.
+The new unconditional NOT_READY-as-no-medium exception remains unsafe; one narrow
+F364-1 correction is required. Integration/C2 not cleared; A4 qualification remains.
+
 **Latest candidate review:** [Software624 correction e36ea492](findings/P2-364-CORRECTION1-2026-10-28/DISPOSITION.md)
 satisfies the real-child G3 and own-p1 correction evidence. A real Windows volume-
 census query failure is still skipped (independently reproduced on hosted VHD).

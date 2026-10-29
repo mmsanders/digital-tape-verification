@@ -1,0 +1,21 @@
+name: C1 correction2 evidence replay
+on:
+  pull_request:
+    paths: ['findings/P2-364-CORRECTION2-2026-10-28/**', '.github/workflows/verifier-c1-correction2.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -B findings/P2-364-CORRECTION2-2026-10-28/fetch.py /tmp/correction2-inputs
+      - run: python3 -B findings/P2-364-CORRECTION2-2026-10-28/audit.py /tmp/correction2-inputs --out /tmp/review2.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c1-correction2-review
+          path: /tmp/review2.json
