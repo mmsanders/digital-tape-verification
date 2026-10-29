@@ -16,9 +16,9 @@ def run(product):
         p=invoke(baseline,'provision',image,'--image-bytes',64_000_000_000,'--label','C1 A6','--length-s',60,'--uuid','0123456789abcdef0123456789abcdef','--epoch',315532800);assert p.returncode==0,p.stderr
         assert invoke(baseline,'load',image,wav).returncode==0
         assert invoke(baseline,'verify',image).returncode==0
-        # Force mount/verify/dump to depend on the final-sector mirror, not primary.
-        with image.open('r+b') as f:
-            f.seek(34816*512); f.write(bytes(512))
+        # Verify checks BOTH superblocks. A narrowed read loses the final-sector
+        # mirror and must fail that same pristine-image OK assertion.
+        with image.open('rb') as f:
             f.seek(64_000_000_000-512); mirror=f.read(512)
             f.seek((64_000_000_000-512)&0xffffffff); wrapped=f.read(512)
         assert mirror[:8]==b'TAPEFS\0\x01' and wrapped!=mirror

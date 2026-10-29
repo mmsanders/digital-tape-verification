@@ -14,7 +14,7 @@ def own_p1(r):
     unmounts=[e for e in events[:opens[0]] if e['op']=='unmount']
     assert len(unmounts)==1 and unmounts[0]['partition']==1
     # Validate everything except the one lawful unmount with the immutable judge.
-    x=copy.deepcopy(r);x['events']=[e for e in x['events'] if e is not None]
+    x=copy.deepcopy(r)
     prefix=True; filtered=[]
     for e in x['events']:
         if e['op']=='open' and e.get('role')=='authorized':prefix=False
