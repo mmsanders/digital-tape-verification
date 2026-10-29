@@ -1,5 +1,10 @@
 # Verification findings index
 
+29 October2026: [Verification370 Stage A](P2-370-STAGE-A-2026-10-29/DISPOSITION.md)
+supersedes S2's global Make-disabled wording with fixture-scoped legacy checks and
+72 current production-Bridge readiness rows. C2 native/physical observations remain
+pending Michael628; no candidate or old-package bytes changed.
+
 27October2026: [Verification348 corrected609 declaration disposition2/2](P2-348-INTERFACE2-2026-10-27/DISPOSITION.md)
 credits token/allocation/alignment corrections; native export/version qualification
 remains the precise preparation blocker. No implementation or execution clearance.
