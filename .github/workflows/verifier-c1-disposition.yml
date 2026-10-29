@@ -1,0 +1,28 @@
+name: C1 exact-head retained evidence
+on:
+  pull_request:
+    paths: ['findings/P2-364-STAGE2-2026-10-28/**', '.github/workflows/verifier-c1-disposition.yml']
+  push:
+    branches: [main]
+    paths: ['findings/P2-364-STAGE2-2026-10-28/**', '.github/workflows/verifier-c1-disposition.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-evidence:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch and authenticate retained original CI bytes
+        run: python3 -B findings/P2-364-STAGE2-2026-10-28/fetch.py /tmp/c1-inputs
+      - name: Independently rejudge exact-head S3 commands, negative control and candidate bytes
+        run: python3 -B findings/P2-364-STAGE2-2026-10-28/audit.py /tmp/c1-inputs --out /tmp/c1-disposition.json
+      - name: Independent existing HOST_QUERY_FAILED controls
+        run: python3 -B tests/wp15_boundary_query_r1/selftest.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c1-exact-head-disposition
+          path: /tmp/c1-disposition.json

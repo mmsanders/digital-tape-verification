@@ -12,7 +12,7 @@ def own_p1(r):
     opens=[i for i,e in enumerate(events) if e['op']=='open' and e.get('role')=='authorized']
     assert len(opens)==1
     unmounts=[e for e in events[:opens[0]] if e['op']=='unmount']
-    assert len(unmounts)==1 and unmounts[0]['partition']==1
+    assert len(unmounts)==1 and unmounts[0]['partition']==1 and unmounts[0].get('ok') is True
     # Validate everything except the one lawful unmount with the immutable judge.
     x=copy.deepcopy(r)
     prefix=True; filtered=[]
@@ -33,11 +33,11 @@ def input_refusal(r):
 def controls():
     def report():
         return ''.join(json.dumps(v,separators=(',',':'))+'\n' for v in [dict(t='start',tool='tapectl make',version='unit',nonce='0'*32),dict(t='end',exit=0)]).encode().hex()
-    events=[dict(op='safety_pass',device=True),dict(op='unmount',device=True,partition=1),dict(op='open',device=True,role='authorized',access='readwrite',session='s')]
+    events=[dict(op='safety_pass',device=True),dict(op='unmount',device=True,partition=1,ok=True),dict(op='open',device=True,role='authorized',access='readwrite',session='s')]
     events += [dict(op='phase',device=True,session='s',phase=p,write_callback_null=p=='verify') for p in ('provision','load','commit','verify')]
     r=dict(facts=dict(whole=True,removable=True,bytes=64_000_000_000,holds_os=False,mounted=[1],exact_layout=True,erase_matches=True),events=events,exit=0,report_hex=report(),version='unit',nonce='0'*32,trace_complete=True,observer='compiled-test',positive_control_seen=True,equivalent_pair=True,foreign_before='same',foreign_after='same')
     own_p1(r)
-    for field,value in [('partition',2),('partition',0)]:
+    for field,value in [('partition',2),('partition',0),('ok',False)]:
         bad=copy.deepcopy(r);bad['events'][1][field]=value
         try:own_p1(bad)
         except AssertionError:pass
@@ -46,6 +46,6 @@ def controls():
     try:own_p1(bad)
     except AssertionError:pass
     else:raise AssertionError('early write survived')
-    return 'lawful-own-p1 admitted; two foreign unmounts and early write rejected'
+    return 'lawful-own-p1 admitted; two foreign unmounts, failed unmount and early write rejected'
 
 if __name__=='__main__':print(controls())
