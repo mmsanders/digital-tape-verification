@@ -1,5 +1,12 @@
 # Verification capability status
 
+**Current: [final C1 clearance, 29 October](findings/P2-364-CLEARANCE-2026-10-29/DISPOSITION.md).**
+Software624 exact5101e3f3 is CLEARED for integration and Michael's C2 checklist with
+the pinned candidate. F364-1/2/3 closed on that head. The A4 qualification resolves
+on integration of the corrected probe; older Product main remains pending that
+merge. WP16 stands. WP15/G1/G3/G4/G5 still need C2; G2 remains separate. Older
+candidate HOLDs below are historical, superseded for this exact cleared candidate.
+
 **Latest: [correction2 / 39636892](findings/P2-364-CORRECTION2-2026-10-28/DISPOSITION.md).**
 Earlier census-failure cases now pass, including standalone safety and28 G3 rows.
 The new unconditional NOT_READY-as-no-medium exception remains unsafe; one narrow
