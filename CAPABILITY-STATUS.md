@@ -1,5 +1,10 @@
 # Verification capability status
 
+**Latest candidate review:** [Software624 correction e36ea492](findings/P2-364-CORRECTION1-2026-10-28/DISPOSITION.md)
+satisfies the real-child G3 and own-p1 correction evidence. A real Windows volume-
+census query failure is still skipped (independently reproduced on hosted VHD).
+F364-1 remains open; **integration/C2 are not cleared**. Stage1 WP-14/WP-16 stands.
+
 **Current: 28 October 2026, C1 Stage 1 / ADR-195.**
 [Verification364's row-by-row disposition](findings/P2-364-STAGE1-2026-10-28/DISPOSITION.md)
 accepts WP-14 and WP-16 for the current Windows 11 scope. The A6 compiled 32-bit
