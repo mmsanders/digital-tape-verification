@@ -1,0 +1,31 @@
+name: C1 correction required-volume-query regression
+on:
+  pull_request:
+    paths: ['tests/c1_volume_query_r1/**', 'findings/P2-364-CORRECTION1-2026-10-28/**', '.github/workflows/verifier-c1-volume-query.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce-finding:
+    runs-on: windows-latest
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: e36ea4922ef845dd6754456db874541a71992ebc
+          path: product
+      - name: Compile independent probe-only driver over exact candidate source
+        shell: bash
+        run: |
+          export PATH="/c/mingw64/bin:$PATH"
+          gcc -std=c99 -O0 -Wall -Wextra -Iproduct/engine/include -Iproduct/host/port tests/c1_volume_query_r1/probe.c product/host/port/safety.c product/host/port/mbr.c -lpsapi -o probe.exe
+      - name: Actual private-VHD positive and failing required OS-query control
+        shell: pwsh
+        run: tests/c1_volume_query_r1/run.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c1-volume-query-regression
+          path: ${{ runner.temp }}/verifier364-volume-query
