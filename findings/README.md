@@ -274,3 +274,10 @@ only in Product must be fetched and authenticated there before replay.
 - [210 actual743f829 bounded return and fixed next plan](P2-210-RETURN-2026-10-19/README.md): source/PCM/seven pilots/five command rows PASS;397 unexecuted, Stage3 pending.
 - [208 correction-round2 exact0918e7d](P2-208-R3-2026-10-19/README.md): denied/incomplete listings supported; whole-device ENOENT exception still requires final correction3.
 - [210 fixed Stage3 exact55552ad](P2-210-STAGE3-2026-10-19/README.md): bounded fixed lanes PASS,39/404 load faults executed; six absent long cuts, no repeated-LBA epoch or exhaustive-large claim; bounded stop completed.
+# Current C1 closeout (28 October 2026)
+
+[Verification364 Stage 1](P2-364-STAGE1-2026-10-28/DISPOSITION.md): WP-14 and WP-16
+accepted for current Windows 11 scope under ADR-195, with row-by-row evidence and
+negative controls. [C2 checklist](../tests/c1_closeout_r1/C2-CHECKLIST.md) and
+[independent app tests](../tests/c1_closeout_r1/README.md). WP-15/G2 remain open.
+

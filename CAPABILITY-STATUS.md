@@ -1,5 +1,14 @@
 # Verification capability status
 
+**Current: 28 October 2026, C1 Stage 1 / ADR-195.**
+[Verification364's row-by-row disposition](findings/P2-364-STAGE1-2026-10-28/DISPOSITION.md)
+accepts WP-14 and WP-16 for the current Windows 11 scope. The A6 compiled 32-bit
+offset negative control and own-host source controls pass. Earlier A6/own-host
+method holds below are historical and superseded for current acceptance. WP-15
+and G2 remain open; the [C2 checklist](tests/c1_closeout_r1/C2-CHECKLIST.md) requires
+Stage 2 clearance of its exact candidate first. Product status synchronization
+belongs to PM. The remainder preserves the older snapshot and provenance.
+
 **Snapshot: 17 October 2026 UTC.** Verification original input `fc80e0ece3f84f8c7ad468c695cb22b3d6abd21d`;
 Product input `05315e2d464376400e122cd982dbb93dc084c1fb`.
 18 October update: [Verification206 readiness](findings/P2-206-READY-2026-10-18/RETURN.md)

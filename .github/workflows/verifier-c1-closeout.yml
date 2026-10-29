@@ -1,0 +1,54 @@
+name: C1 outcome controls
+on:
+  pull_request:
+    paths: ['tests/c1_closeout_r1/**', 'findings/P2-364-*/**', '.github/workflows/verifier-c1-closeout.yml']
+  push:
+    branches: [main]
+    paths: ['tests/c1_closeout_r1/**', 'findings/P2-364-*/**', '.github/workflows/verifier-c1-closeout.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B tests/c1_closeout_r1/controls.py
+      - run: python -B tests/c1_closeout_r1/make_supplement.py
+  exact-head-bridge:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 8c142d3b9d382d5d48fd648ec53a11b0d59a805c
+          path: product
+      - name: Attach independent tests to disposable production bridge checkout
+        shell: bash
+        run: |
+          cp tests/c1_closeout_r1/bridge_c1.rs product/host/app/tests/c1_independent.rs
+          printf '\n#[cfg(test)]\n#[path="../tests/c1_independent.rs"]\nmod c1_independent;\n' >> product/host/app/src/bridge.rs
+      - name: Run actual bridge app-origin tests (typed dependencies, no native UI or device)
+        run: cargo test --manifest-path product/host/app/backend-component/Cargo.toml --locked --lib c1_independent -- --test-threads=1 --nocapture
+      - name: Own-host integrated ingest static check and detecting controls
+        run: python3 -B tests/c1_closeout_r1/static_check.py product/host/ingest --controls
+  a6-offset-control:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 262466d354dac779b0fda9d712a2d75b73eeec33
+          path: product
+      - run: make -C product/engine all && make -C product/host ../build/host/tapectl
+      - run: python3 -B tests/c1_closeout_r1/a6.py product --out a6-result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c1-a6-offset-control
+          path: a6-result.json
