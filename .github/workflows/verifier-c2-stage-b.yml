@@ -1,0 +1,17 @@
+name: C2 Stage B evidence audit controls
+on:
+  pull_request:
+    paths: ['findings/P2-370-C2-2026-10-29/**', '.github/workflows/verifier-c2-stage-b.yml']
+  push:
+    branches: [main]
+    paths: ['findings/P2-370-C2-2026-10-29/**', '.github/workflows/verifier-c2-stage-b.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Qualify byte/log checks with positive and negative controls
+        run: python3 -B findings/P2-370-C2-2026-10-29/audit.py --selftest

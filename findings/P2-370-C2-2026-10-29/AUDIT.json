@@ -1,0 +1,238 @@
+{
+  "scope": "Read-only private raw-byte audit; screenshot judgments are manual in DISPOSITION.md; no Product execution",
+  "source_head": "5101e3f32f259beeca91dd829f83d60edd6c2a22",
+  "candidate_zip_sha256": "b8a689cfbe926202b6d982dcdc5e5eaaa810d13a180556381d04811f9177ceab",
+  "member_sha256": {
+    "digital-tape.exe": "aafb1f3444a9ddcaee599d3c1efb4dcc7e4d78dae82a0d61913abc25b80ad667",
+    "tapectl.exe": "0d92bee784c25a41b96c7a864a50d8199c1a2ae6361f225e8b54b303b7f53477",
+    "ingest.exe": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20"
+  },
+  "packets": {
+    "Digital-Tape-C2.zip": {
+      "bytes": 120184122,
+      "sha256": "5f7a3a13755c725675ade37dc2fbadc46a54507047e898eb0a03f12d2b8d208f"
+    },
+    "evidence-C2.zip": {
+      "bytes": 838136,
+      "sha256": "dfc39269f34c598d5122a2238182baebc729e9c21638070fd4be59373863f0f8"
+    }
+  },
+  "members": {
+    "BUILD.json": {
+      "bytes": 2288,
+      "sha256": "d3626038a5eb1c084359f17b7d5223d44e9ec08cf66dc1badc4b12129b9640c0"
+    },
+    "C2-A.wav": {
+      "bytes": 31752236,
+      "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad"
+    },
+    "C2-B.wav": {
+      "bytes": 31752236,
+      "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad"
+    },
+    "C2-dump-A.txt": {
+      "bytes": 8,
+      "sha256": "2095d5302e465922147e220c0389f7a923ea0c1509a23097f04b3c220798aef8"
+    },
+    "C2-dump-B.txt": {
+      "bytes": 8,
+      "sha256": "2095d5302e465922147e220c0389f7a923ea0c1509a23097f04b3c220798aef8"
+    },
+    "C2-dump-hashes.txt": {
+      "bytes": 1086,
+      "sha256": "b87cd3189911f76c364c27ee33cccfec08351988f7cbc43397d385b6ee0af3c9"
+    },
+    "C2-dump-lengths.txt": {
+      "bytes": 166,
+      "sha256": "74c45737b43f0dda708d677a52f1c16f5830d67bf39b0fbe497717e99d8e52e8"
+    },
+    "C2-remake-A.wav": {
+      "bytes": 31752236,
+      "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad"
+    },
+    "C2-remake-B.wav": {
+      "bytes": 31752236,
+      "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad"
+    },
+    "C2-remake-dump-A.txt": {
+      "bytes": 8,
+      "sha256": "2095d5302e465922147e220c0389f7a923ea0c1509a23097f04b3c220798aef8"
+    },
+    "C2-remake-dump-B.txt": {
+      "bytes": 8,
+      "sha256": "2095d5302e465922147e220c0389f7a923ea0c1509a23097f04b3c220798aef8"
+    },
+    "C2-remake-dump-hashes.txt": {
+      "bytes": 1086,
+      "sha256": "b87cd3189911f76c364c27ee33cccfec08351988f7cbc43397d385b6ee0af3c9"
+    },
+    "C2-remake-dump-lengths.txt": {
+      "bytes": 222,
+      "sha256": "d667ee1b29f06ef9b40fa700b5a702039f647483f996c7a83d824404521389cf"
+    },
+    "C2-remake-verify.txt": {
+      "bytes": 26,
+      "sha256": "933568d1e21c7160562ed3a20adb1a0ab31347e5ab65fdddf60a90ea849ca287"
+    },
+    "C2-verify.txt": {
+      "bytes": 26,
+      "sha256": "933568d1e21c7160562ed3a20adb1a0ab31347e5ab65fdddf60a90ea849ca287"
+    },
+    "README.txt": {
+      "bytes": 1929,
+      "sha256": "d7cfe724604578cfddc804b7c24403d9512e097fd00890439ea131fc7fd8f50b"
+    },
+    "digital-tape.exe": {
+      "bytes": 5112832,
+      "sha256": "aafb1f3444a9ddcaee599d3c1efb4dcc7e4d78dae82a0d61913abc25b80ad667"
+    },
+    "ingest.exe": {
+      "bytes": 889856,
+      "sha256": "3895f3f356c91b8a9fe870c33694da64bf2765df308bef118d657c1be4bb9a20"
+    },
+    "tapectl.exe": {
+      "bytes": 558280,
+      "sha256": "0d92bee784c25a41b96c7a864a50d8199c1a2ae6361f225e8b54b303b7f53477"
+    }
+  },
+  "screenshots_and_notes": {
+    "cancel-UAC.png": {
+      "bytes": 59887,
+      "sha256": "dacacdf58fe8af5a79b87fcd1da2480022108676e42450922245e4cdc784ad61"
+    },
+    "card-ready.png": {
+      "bytes": 47791,
+      "sha256": "8a25cde818e80b078298aa13247862adf3e1724157d9ca7e3301257f0b1f155f"
+    },
+    "cartridge-made.png": {
+      "bytes": 48067,
+      "sha256": "b25ef27104da5d347b13b17b9b12485d866c2622646e30079b30b6741a97c521"
+    },
+    "close-during-make.png": {
+      "bytes": 44974,
+      "sha256": "b023ee3ab58237b4173c016363288cdd3498258eff93654a01c774303c9bb3b4"
+    },
+    "erase-modal.png": {
+      "bytes": 51335,
+      "sha256": "970fea0d3909f7994eab62f43d5c899237fcfcf2d64a34d7ccd823d216541e19"
+    },
+    "launch-digital-tape-exe.png": {
+      "bytes": 26664,
+      "sha256": "a4419c3e4bb8588cdd2053553ed3fa214c873c4671b16a7f39e9f651d57be30c"
+    },
+    "loading-music.png": {
+      "bytes": 41942,
+      "sha256": "6ec12c85c2a9f3ea61bb71752daab3810431d2dcff8bb458e4112b36acd1f5b9"
+    },
+    "making.png": {
+      "bytes": 43103,
+      "sha256": "e171857e97268a166460fa10865e1cf93b63664a8ac256c71af0b5c1257ca41c"
+    },
+    "music-checked.png": {
+      "bytes": 44236,
+      "sha256": "3ac309fddb738a2e2e7dfef9f3a0aebc347ea9f56df10c84321a3e10c3f526a7"
+    },
+    "no-card.png": {
+      "bytes": 41451,
+      "sha256": "3bcd20326eeeaf21b3b9db394dc75946f5f4fe3b8c506c0ffbe65d90d2f746e5"
+    },
+    "nono-music.png": {
+      "bytes": 52747,
+      "sha256": "a078a4e628d7ad162702afceaf21af1aeb49f87da5c553ab5db2911500a8f8b8"
+    },
+    "notes.txt": {
+      "bytes": 178,
+      "sha256": "d8ec60b0c4e00036aba7124aa7a22fd1e63692282999d5ed86b0b3bc9803aab0"
+    },
+    "post-erase-windows-warning.png": {
+      "bytes": 30160,
+      "sha256": "2f6628f3f0166fa7a68a52b03a00437c86bea597eca8d1bd90f0bec4c0bbb0c4"
+    },
+    "pull-test.png": {
+      "bytes": 86615,
+      "sha256": "cd32724d8dbcb37d3f69a6ca313241d11df3e76d80f76c05d11c3d85dd39790d"
+    },
+    "remake-after-pull.png": {
+      "bytes": 49925,
+      "sha256": "332747b8c5131a07e83d736a9c384be81b1621035ce569236d0911d0f068dd5e"
+    },
+    "run-anyway.png": {
+      "bytes": 33229,
+      "sha256": "1ace52cf40609a6ae2b861ca326f6fc70fbf4fb5fc853d05dcf2e88306dca640"
+    },
+    "single-song.png": {
+      "bytes": 42597,
+      "sha256": "6c3da267cf62732b7ce8d790b3449a52c392551134bdfd469d5de98066c27002"
+    },
+    "too-long.png": {
+      "bytes": 60476,
+      "sha256": "16f143fee686da7109f263384b2236442843e57e3f4419365007262fbf4758b1"
+    },
+    "winver.png": {
+      "bytes": 26493,
+      "sha256": "57cda74f139cfb35d129a6c7b70f5f996119f198d545f09e4819b9e38271a0ad"
+    },
+    "zip-hash.png": {
+      "bytes": 91545,
+      "sha256": "78578635538bcb517f0dbb8e1953f94ca98619f0e7d4fb6cfc9083ab9ad2c726"
+    }
+  },
+  "cartridge": {
+    "C2-": {
+      "verify": "OK",
+      "verify_exit": 0,
+      "dump_exits": [
+        0,
+        0
+      ],
+      "sides_equal": true,
+      "A": {
+        "bytes": 31752236,
+        "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad",
+        "frames": 7938048,
+        "rate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "seconds": 180.00108843537416
+      },
+      "B": {
+        "bytes": 31752236,
+        "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad",
+        "frames": 7938048,
+        "rate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "seconds": 180.00108843537416
+      }
+    },
+    "C2-remake-": {
+      "verify": "OK",
+      "verify_exit": 0,
+      "dump_exits": [
+        0,
+        0
+      ],
+      "sides_equal": true,
+      "A": {
+        "bytes": 31752236,
+        "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad",
+        "frames": 7938048,
+        "rate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "seconds": 180.00108843537416
+      },
+      "B": {
+        "bytes": 31752236,
+        "sha256": "b0da0c23bc8263924d95c2f8bde8072f7c77a69f83b6318b3f841231acb166ad",
+        "frames": 7938048,
+        "rate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "seconds": 180.00108843537416
+      }
+    }
+  },
+  "first_and_remake_equal": true,
+  "result": "PASS: candidate identity, six CLI exits, two A/B pairs, four PCM files and transcripts"
+}
