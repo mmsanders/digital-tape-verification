@@ -1,5 +1,11 @@
 # Verification findings index
 
+29 October2026: [Verification370 C2 Stage B](P2-370-C2-2026-10-29/DISPOSITION.md)
+passes the actual first/remake verify and byte-identical A/B PCM dumps, candidate
+identity, Windows11 launch, error outcomes and pull recovery. F370-1 records absent
+Show details on the file-drop notice; native editing/details stability is
+unconfirmed. PM disposition remains before G2; private raw music/screens stay local.
+
 29 October2026: [Verification370 Stage A](P2-370-STAGE-A-2026-10-29/DISPOSITION.md)
 supersedes S2's global Make-disabled wording with fixture-scoped legacy checks and
 72 current production-Bridge readiness rows. C2 native/physical observations remain

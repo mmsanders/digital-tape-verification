@@ -1,5 +1,12 @@
 # Verification capability status
 
+**C2 Stage B,29 October:** [Verification370 human return](findings/P2-370-C2-2026-10-29/DISPOSITION.md)
+passes real make/verify/dump, physical pull and successful remake on the exact
+cleared candidate. G1/G5 and required G3 outcomes pass; no-lists/four-state screens
+pass. Complete presentation acceptance/G2 clearance stays HELD: F370-1 single-song
+notice lacks Show details, and native editing/details stability is unconfirmed.
+PM owns the bounded disposition; no full card rerun requested. WP14/WP16 stand.
+
 **C2 Stage A, 29 October:** [Verification370 supersession](findings/P2-370-STAGE-A-2026-10-29/DISPOSITION.md)
 retires the old global Make-disabled wording. Legacy CI false assertions apply
 only to no-retained-audio fixtures. Current Bridge readiness:72/72, including the
