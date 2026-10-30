@@ -1,5 +1,9 @@
 # Verification findings index
 
+29 October2026: [C2 polling confirmation](P2-370-C2-2026-10-29/POLLING-ADDENDUM.md)
+passes native label insertion/caret and details selection/copy persistence during
+polling on Michael's direct follow-up. F370-1 is confirmed and remains with PM.
+
 29 October2026: [Verification370 C2 Stage B](P2-370-C2-2026-10-29/DISPOSITION.md)
 passes the actual first/remake verify and byte-identical A/B PCM dumps, candidate
 identity, Windows11 launch, error outcomes and pull recovery. F370-1 records absent

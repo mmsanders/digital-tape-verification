@@ -1,5 +1,10 @@
 # Verification capability status
 
+**C2 human follow-up,29 October:** [polling addendum](findings/P2-370-C2-2026-10-29/POLLING-ADDENDUM.md)
+closes the native label/details polling observation gap: both checks PASS on
+Michael's direct return. F370-1 is confirmed and is the sole remaining C2 review
+item; PM disposition is still required before complete presentation/G2 clearance.
+
 **C2 Stage B,29 October:** [Verification370 human return](findings/P2-370-C2-2026-10-29/DISPOSITION.md)
 passes real make/verify/dump, physical pull and successful remake on the exact
 cleared candidate. G1/G5 and required G3 outcomes pass; no-lists/four-state screens
