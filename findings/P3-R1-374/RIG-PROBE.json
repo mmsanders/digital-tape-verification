@@ -1,0 +1,24 @@
+{
+  "scope": "synthetic method probe, no physical observations",
+  "positive": [
+    true,
+    ""
+  ],
+  "known_late": [
+    false,
+    "busy ended before the cut -- the write had completed"
+  ],
+  "stale_busy_sample": [
+    true,
+    ""
+  ],
+  "finding": "qualifies accepts arbitrarily stale pre-cut busy sample when deassertion is absent; physical edge/protocol proof must be supplied by the rig method",
+  "late_cut_torn_row": {
+    "qualifying": 1000,
+    "production_minimum_unchanged": 1000,
+    "classification": "TORN",
+    "judge_verdict": "PASS",
+    "reported_torn": [],
+    "finding": "non-qualifying rows bypass target/neighbor classification; qualifying-count exclusion must not hide observed corruption"
+  }
+}

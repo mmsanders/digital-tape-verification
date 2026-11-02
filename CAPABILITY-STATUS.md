@@ -13,7 +13,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Q-P2-1 remaining coverage | 365 faults PASS; 6 long cuts proved unavailable | [#374 disposition](findings/P3-R1-374/DISPOSITION.md): all 404 previously missing load faults executed with prior receipts; exact long fixture ends after 3 units. No batching permission inferred |
 | DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
 | WP-17 target F1/F2/F3/F5 | PENDING bench evidence | Host goldens and static sizes do not establish target PCM, stack, timing or physical behavior |
-| Atomicity rig method | Pending Hardware #641 input | Verification review before physical run; zero cards qualified |
+| Atomicity rig method | NOT CLEARED | [#374 Stage B review](findings/P3-R1-374/RIG-METHOD.md) of Hardware 80d26364: judge/cut-proof/electrical gaps; Hardware and PM own correction. Zero cards qualified |
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 

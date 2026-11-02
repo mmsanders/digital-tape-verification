@@ -1,0 +1,8 @@
+{
+  "hardware_head": "80d26364d84ddea4f42ee62a6222318d67d3b3d5",
+  "method_blob": "641dbfe22812faebead895b264a40966999068b3",
+  "criteria_product": "3826018653e504217f37a16d8864fb0d597e22e6",
+  "judge_sha256": "097f48fde6a7196d0ed88991fae224c2d67da23205ef57c069b56df16fabbb9e",
+  "original_tests": "43 passed, 0 failed",
+  "mutant": "36 passed, 7 failed; RED CASE OK"
+}
