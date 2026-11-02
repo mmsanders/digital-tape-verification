@@ -6,6 +6,7 @@ coverage, exclusions and immutable publication identities.
 
 | Current Phase 3 record | Scope |
 |---|---|
+| [#374 Stage B rig-method review](P3-R1-374/RIG-METHOD.md) | Not cleared: reproduced non-qualifying-tear blind spot, cut/busy and electrical proof gaps; no physical run |
 | [#374 Stage A disposition](P3-R1-374/DISPOSITION.md) | 365 actual faults PASS; six long requests proved unavailable; ten host goldens PASS; target/candidate acceptance excluded |
 | [#374 inputs](P3-R1-374/INPUTS.json) | Exact Product/Verification refs and authoritative document hashes |
 | [DRAFT-11 / FW-1 preflight](P3-R1-374/PREFLIGHT.md) | Independent consistency, testability and golden-preservation findings; proposed revision remains not in force |

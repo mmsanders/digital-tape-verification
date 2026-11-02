@@ -21,9 +21,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: mmsanders/Digital-Tape
-          ref: 55552ad4fe57e99827ab8eb016044d0486017877
+          ref: 3826018653e504217f37a16d8864fb0d597e22e6
           path: build/product374
-          sparse-checkout: engine
+          sparse-checkout: |
+            engine
+            hardware/characterisation
+      - name: Reproduce the bounded rig-method counterexample
+        run: |
+          python3 build/product374/hardware/characterisation/test_media_atomicity.py
+          python3 build/product374/hardware/characterisation/test_media_atomicity.py --mutate
+          python3 tests/p3_r1_r374/rig_qualifier_probe.py build/product374/hardware/characterisation/media_atomicity.py > build/evidence374/RIG-PROBE.json
+          cmp build/evidence374/RIG-PROBE.json findings/P3-R1-374/RIG-PROBE.json
       - name: Engine identity and actual port-tree drift control
         run: |
           python3 -B tests/p3_r1_r374/wp17.py enginecheck build/product374
