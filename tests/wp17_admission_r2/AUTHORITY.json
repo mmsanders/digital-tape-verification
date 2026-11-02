@@ -1,0 +1,191 @@
+{
+  "issue": 378,
+  "issue_updated": "2026-11-02T16:44:15Z",
+  "product_decision": "b07d8d4832fb6c4213efa950d47e827c34e6ea65",
+  "candidate": "ee478a913613a16a90e38c85112fb67cbbf53887",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "firmware_tree": "cf46ed64eac396e750fce3a2ba9ff1a30520cf9c",
+  "predecessors": [
+    {
+      "commit": "41995965873e96a76139ffa57f17549d858a759a",
+      "meaning": "Stage A package/preflight"
+    },
+    {
+      "commit": "3d616c14ca2770c0369dda6c3bfb66a60cce68ca",
+      "meaning": "rig method HOLD"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "meaning": "prior exact-head HOLD and off-target facts"
+    }
+  ],
+  "authority_sha256": {
+    "docs/WP17-FIRMWARE-CONTRACT.md": "4680b39852d5f5c048f236641ba5b8e04746886208e8fe865b0f71611b176ede",
+    "docs/REVIEW/PM648-P3-R1-2026-11-02.md": "c128fdd3efeab384270fb2862bfe22cb3cbe08ef185d84492a24fdb83dc93b0a",
+    "docs/DECISIONS.md": "8f7e41b5dd5c9fd361116e48de07ecadf01b6451e5341fa1edc15be2451118e6",
+    "spec/VERSION.md": "57483eb1ea873ec3c1ac07914172d2a927e5a425a2e34feb034c5d086c63b8c9",
+    "docs/SPEC-ERRATA.md": "0cd814527f1c2a2e2d54de0f7a34e7195cb918262632e07d0b194831bade02a1"
+  },
+  "carried_files": [
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/DISPOSITION.md",
+      "sha256": "3c076dade774862ec7695b38a53d70f5714bec4afcc487f666ce062a0e2d477b"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/EVIDENCE.json",
+      "sha256": "ac343e0e0030e13c9792f8bafce3102b8984484066c7b6207598de90b64feef1"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/INPUTS.json",
+      "sha256": "16efcf47da6197966fc0a39d6b58866ac740d7221df35e5b6ecfc9e711df7f17"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/PAYLOAD-AUDIT.json",
+      "sha256": "50908e69e468519bf4e89c4cdd4e3ffbd1b7cffb5b97da715495111636b85510"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/PREFLIGHT.md",
+      "sha256": "ff9f83ddcf94e59ed829523419541a084b7846fcb20ed7335ea05242fe522924"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/RIG-INPUTS.json",
+      "sha256": "2e470f1f6544205e67bcb070d7f3de65f86878c57b6943c098c43296a73cc780"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/RIG-METHOD.md",
+      "sha256": "a88f571a7db15d69c0c617b53f05c1831004d8664d594da50c7da40ddb4ac164"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/RIG-PROBE.json",
+      "sha256": "1278645ef14ea2500fc7f41ad03c638c54d731aa61b06ba3fa8ac68be04a9452"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-374/SUMMARY.json",
+      "sha256": "0a7b09406994b5a3ad0d48637f50681b83a30873596d984b42c52955126e55af"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/CLANG-RESULT.json",
+      "sha256": "9a1501975b795dc127a61f19c52bea5947ee6eab1dd76d17ee4de5c5460d0b5c"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/CLANG.txt",
+      "sha256": "3635b8631d4ebcd8ed7586f4e01e7a6b44407de9d38db6e01daca9c242ed7a53"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/DISPOSITION.md",
+      "sha256": "8335ce1c0a353f5ef6627b4bbe483b4a7ca40bfd4ced44dcd6df0d8beaec07e9"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/GCC-RESULT.json",
+      "sha256": "7b940230f245037a37b936402c469e19691327b49039cbdc45ead4c78665a826"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/GCC.txt",
+      "sha256": "8497f84b2b8334c413d9c6166bd39d009ba55d2ff60a8f23e66dfa5819c2b048"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/INPUTS.json",
+      "sha256": "79bb52cbb88860e2ecad08baec7396c1f4af479a617f9232262d1fcdd631e71f"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/PUBLISHED-HOST.json",
+      "sha256": "45bf477ab60c80d0ac16d56ac6f0dd7995c1bb0a5228b4402e953149d36c7e4e"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/SUMMARY.json",
+      "sha256": "9c0a553d357c04b53721fdb0efb766d6897a4c93059cee46dc0311566d10a5a5"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/WINDOWS-RESULT.json",
+      "sha256": "993239abe6fd975c16d9df63bb8cec0e679adb26f071c04e93edeb2778682cd0"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "findings/P3-R1-SW642/arm-evidence.zip",
+      "sha256": "16bb28c20b700318b95c1b22d9faed951218b2b7a1c377907ed29137337ede52"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/BENCH.md",
+      "sha256": "9d2c51c726ff515a35d7ffcd34885f0581025f64a69ef9dff9ea7bcaae60fabc"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/README.md",
+      "sha256": "f997b6b9074879cd928e32eb7d95e7c7222d8a145206a04ea25a57d5e1829a11"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/crash.py",
+      "sha256": "1db5b1f3832eae1c9d238cc016f3ca8474ffa509738489be7429f10d535f45a8"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/fetch_review.py",
+      "sha256": "9f2cb6129523a1b23c1963f9dbd01aa48bca01137ae52ce5291e47b1e053b580"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/partition_selftest.py",
+      "sha256": "a4f97bfc60bdf1ba09fe20cf169206aeb8cd9227fc96d119ab0dfb5df6c28f36"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/replay.py",
+      "sha256": "fbdba083b64d4d726a979e1d1bcaaeb74c5e4ecbbe55dd378b6d14d01f4d1f2f"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/review_retained.py",
+      "sha256": "bb6d640191bc07834f7057d46390fc6ddaf903070da72613ca2b61e26ad56df7"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/rig_qualifier_probe.py",
+      "sha256": "dfab0c8c86e54c08f24cfd37eb4e33ae1c48382909064fb407d1611f2f4be028"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/static_control.py",
+      "sha256": "6d355ff4014155c7b206f5a798b3102d70d4b7fec49c0d9c8e6b9f60ed9d3bca"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/p3_r1_r374/wp17.py",
+      "sha256": "be4d99f9854d50aa009812e9bba731df5bc1485ed38d71b8ea95b2dfb5164149"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/wp17_candidate_r1/README.md",
+      "sha256": "3ce3043cc1f4db9a303b27e4caac6a1f49dbebc0c135626bba76ea76e7cb1519"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/wp17_candidate_r1/run.py",
+      "sha256": "a243ff81ccde3bfa7662faa3bb631412a60dd8adc576b6d97ba5c076df8ebfb6"
+    },
+    {
+      "commit": "d7540127aa982df5f8716bcc7732f53b171c0386",
+      "path": "tests/wp17_candidate_r1/unpack_arm.py",
+      "sha256": "e1100350bf6930129679e79493d95f686790ec7fa84562c309229547aeeab889"
+    }
+  ]
+}
