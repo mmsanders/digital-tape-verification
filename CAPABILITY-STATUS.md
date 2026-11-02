@@ -9,8 +9,8 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Phase 1 engine | COMPLETE, 36/36 | Existing independent package dispositions carry; engine tree d96b4245 pinned |
 | Phase 2 desktop tools | COMPLETE, 12/12 with G2 deferred | Windows 11 x64; WP-14/WP-16 and WP-15 acceptance as recorded by Product; host scope frozen |
 | G2 unaided app test | DEFERRED, not waived | Michael runs the issued protocol before anyone else uses the app for real work |
-| Phase 3 bench firmware | OPEN | #374 authors independent FW-1 tests; exact firmware-head clearance is separate |
-| Software642 / ee478a91 | HOLD on bootstrap policy | [Exact-head disposition](findings/P3-R1-SW642/DISPOSITION.md): host PCM and static budgets pass; published bootstrap-refusal expectation disagrees with desktop recognition. PM arbitration; no integration clearance |
+| Phase 3 bench firmware | OPEN | FW-1 independent package published; target halves remain pending |
+| Software642 / ee478a91 | CLEARED for authorized off-target integration | [V378 correction/disposition](findings/P3-R1-V378/DISPOSITION.md), ADR-202: 28 admission cases and 4 controls pass; unchanged host/static/tree results carry. Exact head only, required current-base CI; no target/package acceptance |
 | Q-P2-1 remaining coverage | 365 faults PASS; 6 long cuts proved unavailable | [#374 disposition](findings/P3-R1-374/DISPOSITION.md): all 404 previously missing load faults executed with prior receipts; exact long fixture ends after 3 units. No batching permission inferred |
 | DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
 | WP-17 target F1/F2/F3/F5 | PENDING bench evidence | Host goldens and static sizes do not establish target PCM, stack, timing or physical behavior |
@@ -18,7 +18,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Current work: [Verification #374](https://github.com/mmsanders/digital-tape-verification/issues/374).
+Latest return: [Verification #378](https://github.com/mmsanders/digital-tape-verification/issues/378), following #374's preserved publications.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)
