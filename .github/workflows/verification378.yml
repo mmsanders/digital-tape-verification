@@ -1,0 +1,40 @@
+name: Verification378 ADR202 admission correction
+on:
+  pull_request:
+    paths: ['tests/wp17_admission_r2/**', 'findings/P3-R1-V378/**', '.github/workflows/verification378.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  admission:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: ee478a913613a16a90e38c85112fb67cbbf53887
+          path: build/product378
+          sparse-checkout: |
+            engine
+            host
+            firmware/bench
+      - name: Build unchanged host transport, no golden or fault campaigns
+        run: |
+          make -s -C build/product378/engine all
+          make -s -C build/product378/host
+          make -s -C build/product378/firmware/bench/host
+      - name: Authenticate carry-over and execute corrected partition cases only
+        run: |
+          python3 -B tests/wp17_admission_r2/check.py --product build/product378 \
+            --fwhost build/product378/build/fwhost/fwhost --tapectl build/product378/build/host/tapectl \
+            --out build/admission378
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: admission378-evidence
+          path: build/admission378/RESULT.json
+          retention-days: 90
