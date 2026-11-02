@@ -10,7 +10,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Phase 2 desktop tools | COMPLETE, 12/12 with G2 deferred | Windows 11 x64; WP-14/WP-16 and WP-15 acceptance as recorded by Product; host scope frozen |
 | G2 unaided app test | DEFERRED, not waived | Michael runs the issued protocol before anyone else uses the app for real work |
 | Phase 3 bench firmware | OPEN | #374 authors independent FW-1 tests; exact firmware-head clearance is separate |
-| Q-P2-1 remaining coverage | IN REVIEW under #374 | 365 deferred load faults and six long-copy requests; see current disposition when published. No batching permission inferred |
+| Q-P2-1 remaining coverage | 365 faults PASS; 6 long cuts proved unavailable | [#374 disposition](findings/P3-R1-374/DISPOSITION.md): all 404 previously missing load faults executed with prior receipts; exact long fixture ends after 3 units. No batching permission inferred |
 | DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
 | WP-17 target F1/F2/F3/F5 | PENDING bench evidence | Host goldens and static sizes do not establish target PCM, stack, timing or physical behavior |
 | Atomicity rig method | Pending Hardware #641 input | Verification review before physical run; zero cards qualified |

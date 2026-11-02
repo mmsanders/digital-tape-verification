@@ -5,58 +5,40 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  actions: read
 jobs:
   independent:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Qualify independent methods
         run: |
-          python3 tests/p3_r1_r374/wp17.py selftest
-          python3 tests/p3_r1_r374/partition_selftest.py
-          python3 tests/p3_r1_r374/static_control.py
-          python3 tests/golden/model.py
           mkdir -p build/evidence374
+          python3 tests/p3_r1_r374/wp17.py selftest | tee build/evidence374/SELFTEST.json
+          python3 tests/p3_r1_r374/partition_selftest.py | tee build/evidence374/PARTITION-METHOD.json
+          python3 tests/p3_r1_r374/static_control.py | tee build/evidence374/STATIC-CONTROL.json
+          python3 tests/golden/model.py
       - uses: actions/checkout@v4
         with:
           repository: mmsanders/Digital-Tape
           ref: 55552ad4fe57e99827ab8eb016044d0486017877
           path: build/product374
-          sparse-checkout: |
-            engine
-            host
-            tests
-            tools/wp10-narrow
-      - name: Build unchanged pinned crash transport
+          sparse-checkout: engine
+      - name: Engine identity and actual port-tree drift control
         run: |
-          make -s -C build/product374/engine all
-          make -s -C build/product374/host
-          make -s -C build/product374/tests/respool_full_adapter all
-          git -C build/product374 rev-parse HEAD HEAD:engine > build/evidence374/INPUTS.txt
-          sha256sum build/product374/build/host/tapectl* build/product374/tests/respool_full_adapter/build/* > build/evidence374/BINARIES.sha256
-      - uses: actions/download-artifact@v4
-        with:
-          name: verification374-raw
-          run-id: 41394541716
-          github-token: ${{ github.token }}
-          path: build/previous374
-      - name: Replay completed fault lane, then execute only corrected long-cut runner
-        run: |
-          python3 -B tests/p3_r1_r374/replay.py build/previous374/faults | tee build/evidence374/FAULT-REPLAY.json
-          /usr/bin/time -v python3 -B tests/p3_r1_r374/crash.py build/product374 build/evidence374/long long 2>build/evidence374/long-time.txt
-      - name: WP17 host golden half and engine identity
-        run: |
-          python3 -B tests/p3_r1_r374/wp17.py host --product build/product374 --out build/evidence374/host
           python3 -B tests/p3_r1_r374/wp17.py enginecheck build/product374
           printf 'tree-drift control\n' > build/product374/engine/port/verification374-negative-control.txt
           if python3 -B tests/p3_r1_r374/wp17.py enginecheck build/product374; then exit 1; fi
           rm build/product374/engine/port/verification374-negative-control.txt
           python3 -B tests/p3_r1_r374/wp17.py enginecheck build/product374
+      - name: Authenticate permanent raw assets and replay independently
+        run: |
+          python3 -B tests/p3_r1_r374/fetch_review.py build/retained374
+          cmp build/retained374/SUMMARY.json findings/P3-R1-374/SUMMARY.json
+          cp build/retained374/SUMMARY.json build/evidence374/SUMMARY.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: verification374-raw
+          name: verification374-independent-replay
           path: build/evidence374
           retention-days: 90

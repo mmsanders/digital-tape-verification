@@ -15,7 +15,12 @@
     "spec/VERSION.md": "57483eb1ea873ec3c1ac07914172d2a927e5a425a2e34feb034c5d086c63b8c9",
     "spec/engine-api.md": "aa042e41e35b02bf2bb6b3896e59340a947720c27dc5fc52a24d657ccd66b33a",
     "spec/tapefs-v1.md": "2a6a9f7b6fe1e5f9e3fe068b3c6460a81256276082bb7e336c01dbf1e9c17eba",
-    "spec/acceptance.md": "50aa63bd751fdc6b4636de0eb48253887be19b7ec2841768449217b4e9b9e547"
+    "spec/acceptance.md": "50aa63bd751fdc6b4636de0eb48253887be19b7ec2841768449217b4e9b9e547",
+    "docs/SPEC-ERRATA.md": "0cd814527f1c2a2e2d54de0f7a34e7195cb918262632e07d0b194831bade02a1",
+    "docs/SPEC-ERRATA.manifest.json": "de3b455952974b90db19eb90c03564af02e942eb773139adeee233a5fec57f27",
+    "docs/WP14-CLI-CONTRACT.md": "31557bb1e093f3fdd68a034c3377bdc950dcdef14fd176dadf50b9b5500c3316",
+    "docs/WP11-CLI-CONTRACT.md": "cbcad5ce4736ed2572a2cc740ffa98783e5940ec932049e9869742e8544aec05",
+    "docs/DEVICE-DESIGN.md": "a9a3f09899fc15dda77954eb489e61bf63a6fa7c5318bcc36d322f4d637c5148"
   },
   "archived_status_sha256": "7199a6532cf94123ab4f08e8758d6ebde5aab689ed0398ef641c4e6b2dce7cdc"
 }
