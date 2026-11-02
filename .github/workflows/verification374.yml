@@ -1,0 +1,52 @@
+name: Verification374 Phase3 independent package
+on:
+  pull_request:
+    paths: ['tests/p3_r1_r374/**', 'findings/P3-R1-374/**', '.github/workflows/verification374.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Qualify independent methods
+        run: |
+          python3 tests/p3_r1_r374/wp17.py selftest
+          python3 tests/golden/model.py
+          mkdir -p build/evidence374
+          printf 'char oversized_static[204801];\n' > build/oversized.c
+          cc -c build/oversized.c -o build/oversized.o
+          size -A build/oversized.o | tee build/evidence374/oversized-size.txt
+          bytes=$(size -A build/oversized.o | awk '$1==".bss" {print $2}')
+          if python3 tests/p3_r1_r374/wp17.py budget 0 "$bytes" 0 0 --static-only; then exit 1; fi
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 55552ad4fe57e99827ab8eb016044d0486017877
+          path: build/product374
+          sparse-checkout: |
+            engine
+            host
+            tests
+            tools/wp10-narrow
+      - name: Build unchanged pinned crash transport
+        run: |
+          make -s -C build/product374/engine all
+          make -s -C build/product374/host
+          make -s -C build/product374/tests/respool_full_adapter all
+          git -C build/product374 rev-parse HEAD HEAD:engine > build/evidence374/INPUTS.txt
+          sha256sum build/product374/build/host/tapectl* build/product374/tests/respool_full_adapter/build/* > build/evidence374/BINARIES.sha256
+      - name: Remaining explicitly issued Q-P2-1 coordinates
+        run: |
+          /usr/bin/time -v python3 -B tests/p3_r1_r374/crash.py build/product374 build/evidence374/faults 2>build/evidence374/fault-time.txt
+          /usr/bin/time -v python3 -B tests/p3_r1_r374/crash.py build/product374 build/evidence374/long long 2>build/evidence374/long-time.txt
+      - name: WP17 host golden half and engine identity
+        run: python3 -B tests/p3_r1_r374/wp17.py host --product build/product374 --out build/evidence374/host
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification374-raw
+          path: build/evidence374
+          retention-days: 90
