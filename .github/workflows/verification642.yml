@@ -1,0 +1,57 @@
+name: Verification642 exact firmware-head disposition
+on:
+  pull_request:
+    paths: ['tests/wp17_candidate_r1/**', 'findings/P3-R1-SW642/**', '.github/workflows/verification642.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        cc: [gcc, clang]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: ee478a913613a16a90e38c85112fb67cbbf53887
+          path: build/product642
+          sparse-checkout: |
+            engine
+            host
+            firmware/bench
+            tests/golden
+      - name: Build the exact returned portable firmware modules
+        run: |
+          make -s -C build/product642/engine all
+          make -s -C build/product642/host
+          make -s -C build/product642/firmware/bench/host CC=${{ matrix.cc }}
+          mkdir -p build/review642
+          ${{ matrix.cc }} --version > build/review642/compiler.txt
+      - name: Original published package on this head
+        run: |
+          python3 tests/p3_r1_r374/wp17.py selftest
+          python3 tests/p3_r1_r374/wp17.py host --product build/product642 --out build/published642
+          cp build/published642/HOST.json build/review642/PUBLISHED-HOST.json
+          python3 tests/p3_r1_r374/wp17.py enginecheck build/product642
+          printf 'port-tree control\n' > build/product642/engine/port/verifier642-control.txt
+          if python3 tests/p3_r1_r374/wp17.py enginecheck build/product642; then exit 1; fi
+          rm build/product642/engine/port/verifier642-control.txt
+      - name: Independent ARM accounting, partition matrix and firmware PCM
+        run: |
+          python3 tests/wp17_candidate_r1/unpack_arm.py build/arm642
+          python3 -B tests/wp17_candidate_r1/run.py --product build/product642 \
+            --fwhost build/product642/build/fwhost/fwhost --tapectl build/product642/build/host/tapectl \
+            --arm build/arm642 --out build/review642
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: independent642-${{ matrix.cc }}
+          path: |
+            build/review642/*.json
+            build/review642/compiler.txt
+          retention-days: 90
