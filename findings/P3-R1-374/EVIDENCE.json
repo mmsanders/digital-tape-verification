@@ -1,0 +1,34 @@
+{
+  "release": "https://github.com/mmsanders/digital-tape-verification/releases/download/evidence-374-p3-r1",
+  "assets": [
+    {
+      "name": "raw374-faults.zip",
+      "bytes": 53752428,
+      "sha256": "a3f7e7cb5908342f8275675777dc93c60f31804d3dfb031ac06e5821e5995b19"
+    },
+    {
+      "name": "raw374-host-long.zip",
+      "bytes": 6566581,
+      "sha256": "6d3cd4cafc0330c38c9d61e4fd891db3806eaa15bbe37a563b277ec36b71cf5b"
+    }
+  ],
+  "source_runs": [
+    {
+      "id": 41394541716,
+      "head": "78d50383a4dad1c83bc7f8c58ddcca6f9833fcac",
+      "artifact_id": 13119230735,
+      "artifact_bytes": 52015394,
+      "artifact_sha256": "9a6a87ab8905a90abe0915226dc6b3a9a0d12ee3f140a73a80789f599447f9b5",
+      "result": "365 faults PASS; subsequent long runner import failure"
+    },
+    {
+      "id": 41395321522,
+      "head": "072f9ec3184357569f9e650183cfdee3962db6e0",
+      "artifact_id": 13119117824,
+      "artifact_bytes": 6606691,
+      "artifact_sha256": "bf5d5c527525f70b2248db7b8f3ec0c151846ba85cf0a6c00dd9685bda95f864",
+      "result": "PASS: prior fault replay, six long requests, ten host goldens and controls"
+    }
+  ],
+  "repack_note": "ZIPs retain original extracted CI files. Fault ZIP additionally carries exact prior baseline bytes and INITIAL-PROVENANCE.json, reconstructed from hash-pinned historical load1.zip for offline replay. No CI raw observation was rewritten."
+}

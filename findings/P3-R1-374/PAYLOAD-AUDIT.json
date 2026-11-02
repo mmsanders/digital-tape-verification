@@ -1,0 +1,21 @@
+{
+  "destination": "https://github.com/mmsanders/digital-tape-verification/releases/tag/evidence-374-p3-r1",
+  "repository_visibility": "public, verified through GitHub repository API",
+  "authorization": "User: take open Verification issue #374; Stage A explicitly requires publication. CLAUDE.md section 4 mandates release assets for raw evidence over 1 MiB.",
+  "source": "Only generated CI regular-file images on pinned Product test transport; hash-pinned previously public synthetic initial image and existing public WP11 source/reference fixtures. No physical disks, user music, desktop screenshots, user directories, credentials or environment dumps were collected.",
+  "checks": "All ZIP entry names/allowed extensions checked; text checked for known credential/private-key patterns; 366 fault records bind exact public baseline and voice fixture; all archived WAVs equal public frozen references. Offline fault replay reconstructs each image from that baseline and actual fixture writes.",
+  "assets": [
+    {
+      "name": "raw374-faults.zip",
+      "files": 1107,
+      "sha256": "a3f7e7cb5908342f8275675777dc93c60f31804d3dfb031ac06e5821e5995b19",
+      "bytes": 53752428
+    },
+    {
+      "name": "raw374-host-long.zip",
+      "files": 31,
+      "sha256": "6d3cd4cafc0330c38c9d61e4fd891db3806eaa15bbe37a563b277ec36b71cf5b",
+      "bytes": 6566581
+    }
+  ]
+}
