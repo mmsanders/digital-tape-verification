@@ -1,0 +1,50 @@
+{
+  "disposition": "HOLD pending PM bootstrap recognition decision",
+  "independent_ci": 41464928020,
+  "results": [
+    {
+      "platform": "WINDOWS",
+      "head": "ee478a913613a16a90e38c85112fb67cbbf53887",
+      "partition_failures": [
+        "bootstrap"
+      ],
+      "normal_vectors": 7,
+      "mode_count": 2,
+      "controls": 28,
+      "ram": 191600,
+      "rodata": 1040
+    },
+    {
+      "platform": "GCC",
+      "head": "ee478a913613a16a90e38c85112fb67cbbf53887",
+      "partition_failures": [
+        "bootstrap"
+      ],
+      "normal_vectors": 7,
+      "mode_count": 2,
+      "controls": 28,
+      "ram": 191600,
+      "rodata": 1040
+    },
+    {
+      "platform": "CLANG",
+      "head": "ee478a913613a16a90e38c85112fb67cbbf53887",
+      "partition_failures": [
+        "bootstrap"
+      ],
+      "normal_vectors": 7,
+      "mode_count": 2,
+      "controls": 28,
+      "ram": 191600,
+      "rodata": 1040
+    }
+  ],
+  "not_claimed": [
+    "target playback/PCM",
+    "stack high-water",
+    "wake time",
+    "physical removal",
+    "media qualification",
+    "integration clearance"
+  ]
+}

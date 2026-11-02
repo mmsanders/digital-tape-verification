@@ -1,0 +1,1022 @@
+{
+  "head": "ee478a913613a16a90e38c85112fb67cbbf53887",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "binaries": {
+    "fwhost": "28f0c4d19a03d062dfb7a595e85c373c1ea66cde110e767bd1e77ae3bac7e4f4",
+    "tapectl": "43b13bfdc7ff9a907d8c96e45c62e6ad7e99431aee163f3955bbc8b4d6b50892"
+  },
+  "memory": {
+    "sections": {
+      "data": 0,
+      "bss": 0,
+      "rodata": 1040,
+      "common": 0
+    },
+    "instance": 191600,
+    "instance_address": 539099136,
+    "instance_section_index": 9,
+    "gate": {
+      "ram": 191600,
+      "rodata": 1040,
+      "stack": null,
+      "stack_status": "PENDING"
+    },
+    "input_sections": [
+      {
+        "section": ".rodata.IDX_MAGIC",
+        "bytes": 8,
+        "object": ".pio/build/teensy41/lib99e/libtape_engine.a(tapefs.c.o)"
+      },
+      {
+        "section": ".rodata.SB_MAGIC",
+        "bytes": 8,
+        "object": ".pio/build/teensy41/lib99e/libtape_engine.a(tapefs.c.o)"
+      },
+      {
+        "section": ".rodata.crc_table",
+        "bytes": 1024,
+        "object": ".pio/build/teensy41/lib99e/libtape_engine.a(crc32.c.o)"
+      }
+    ],
+    "elf_sha256": "bc2db39cf0fc389e20fb697f74e90b89576e7d33f62ac453383de6240327d00e",
+    "map_sha256": "a8357ac527c56e4575acd1668c6f9fbbdc0b0170e5aa72ee1b25960e521984fd",
+    "stack": "PENDING target measurement"
+  },
+  "partition": {
+    "published": {
+      "result": "FAIL",
+      "assertion": "bootstrap"
+    },
+    "rows": [
+      {
+        "name": "clean",
+        "expected_accepted": true,
+        "actual": {
+          "accepted": true,
+          "start": 34816,
+          "blocks": 6145,
+          "read_hex": [
+            "544150454653000101000000010000000000000000112233445566778899aabbccddeeff44ac0000020010000000080009000000040000000100000000000100080000008800000008010000880100000008000000180000575031340000000000000000000000000000000000000000000000000000000000a6ce120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009b4886f4",
+            "544150454653000101000000010000000000000000112233445566778899aabbccddeeff44ac0000020010000000080009000000040000000100000000000100080000008800000008010000880100000008000000180000575031340000000000000000000000000000000000000000000000000000000000a6ce120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009b4886f4"
+          ],
+          "write_absolute_lba": [
+            34817
+          ],
+          "out_of_range_refused": true
+        },
+        "result": "PASS",
+        "checks": [
+          "first/last read",
+          "write translation",
+          "bounds refused",
+          "all other bytes unchanged"
+        ],
+        "input_sha256": "b02589ffc988fd324e690d846f5e2c0c0ec4814fb6abf999dc55a0db2fe798d4",
+        "output_sha256": "cdf071a329afb8926706c048537d6f53fc220ecf1c37681029c03379abd202d3"
+      },
+      {
+        "name": "disk-signature",
+        "expected_accepted": true,
+        "actual": {
+          "accepted": true,
+          "start": 34816,
+          "blocks": 6145,
+          "read_hex": [
+            "544150454653000101000000010000000000000000112233445566778899aabbccddeeff44ac0000020010000000080009000000040000000100000000000100080000008800000008010000880100000008000000180000575031340000000000000000000000000000000000000000000000000000000000a6ce120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009b4886f4",
+            "544150454653000101000000010000000000000000112233445566778899aabbccddeeff44ac0000020010000000080009000000040000000100000000000100080000008800000008010000880100000008000000180000575031340000000000000000000000000000000000000000000000000000000000a6ce120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009b4886f4"
+          ],
+          "write_absolute_lba": [
+            34817
+          ],
+          "out_of_range_refused": true
+        },
+        "result": "PASS",
+        "checks": [
+          "first/last read",
+          "write translation",
+          "bounds refused",
+          "all other bytes unchanged"
+        ],
+        "input_sha256": "22991195eb92e232ca87e21b2f08e1bd3827e71ccc446891a8c1c00aa07fef28",
+        "output_sha256": "bd4bd88628d9b3cd409f698916a0c488416f814f6d43d3ca7b80718675768891"
+      },
+      {
+        "name": "bootstrap",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": true,
+          "start": 34816,
+          "blocks": 6145,
+          "read_hex": [
+            "544150454653000101000000010000000000000000112233445566778899aabbccddeeff44ac0000020010000000080009000000040000000100000000000100080000008800000008010000880100000008000000180000575031340000000000000000000000000000000000000000000000000000000000a6ce120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009b4886f4",
+            "544150454653000101000000010000000000000000112233445566778899aabbccddeeff44ac0000020010000000080009000000040000000100000000000100080000008800000008010000880100000008000000180000575031340000000000000000000000000000000000000000000000000000000000a6ce120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009b4886f4"
+          ],
+          "write_absolute_lba": [
+            34817
+          ],
+          "out_of_range_refused": true
+        },
+        "result": "FAIL",
+        "checks": [
+          "first/last read",
+          "write translation",
+          "bounds refused",
+          "all other bytes unchanged"
+        ],
+        "input_sha256": "06c9004f2e0bb4309528c981e5e1845d165e8a35b16168d8c0d5b53c6a3ad2d3",
+        "output_sha256": "144b43c3d98a268f7d068c9af4ee28ee6b1da97fae93147ee4b4d01c625f3c3a"
+      },
+      {
+        "name": "signature",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "40b3d1300c49728188d1d2e17b90f4c359a5da6bf4430ec574776e4fe91b54bd",
+        "output_sha256": "40b3d1300c49728188d1d2e17b90f4c359a5da6bf4430ec574776e4fe91b54bd"
+      },
+      {
+        "name": "p1-type",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "0c58392f0019fa2d6cda8f868936ae7015f7f8696aa39f93ac8b2ababa8994b9",
+        "output_sha256": "0c58392f0019fa2d6cda8f868936ae7015f7f8696aa39f93ac8b2ababa8994b9"
+      },
+      {
+        "name": "p2-type",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "e6c1961cfedd42d04027cc537b270075e51560b98b3d86340e738f421ac66e55",
+        "output_sha256": "e6c1961cfedd42d04027cc537b270075e51560b98b3d86340e738f421ac66e55"
+      },
+      {
+        "name": "p1-start",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "3f01058978312680ea51a4851c6c5f5397c4aeb8727446dd36cff1ff20ec82ef",
+        "output_sha256": "3f01058978312680ea51a4851c6c5f5397c4aeb8727446dd36cff1ff20ec82ef"
+      },
+      {
+        "name": "p1-size",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "2541ae4eb2429f313570dd29699fdbb044e994b5ec1da4f972add5439de12a27",
+        "output_sha256": "2541ae4eb2429f313570dd29699fdbb044e994b5ec1da4f972add5439de12a27"
+      },
+      {
+        "name": "p2-start",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "2fba945c58adbea50b0977ed71cd4295f619c15272be60fe1f18f529683210c6",
+        "output_sha256": "2fba945c58adbea50b0977ed71cd4295f619c15272be60fe1f18f529683210c6"
+      },
+      {
+        "name": "p2-size",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "8d825bb45d97a7e4e2830269fcc4b9e945b12368667ee4012b95d4acb3e9b439",
+        "output_sha256": "8d825bb45d97a7e4e2830269fcc4b9e945b12368667ee4012b95d4acb3e9b439"
+      },
+      {
+        "name": "extra-entry",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "2612c5b791468c9df1ab5e2b636fb37498e95c316dd312836098920c2aab2b71",
+        "output_sha256": "2612c5b791468c9df1ab5e2b636fb37498e95c316dd312836098920c2aab2b71"
+      },
+      {
+        "name": "p2-boot",
+        "expected_accepted": false,
+        "actual": {
+          "accepted": false,
+          "part": "NOT_PROVISIONED"
+        },
+        "result": "PASS",
+        "checks": [
+          "refused without byte changes"
+        ],
+        "input_sha256": "88b8d5accb4a55fbf2acaeb99fe499845d1e065343ff64744c9efb468c7ff065",
+        "output_sha256": "88b8d5accb4a55fbf2acaeb99fe499845d1e065343ff64744c9efb468c7ff065"
+      }
+    ],
+    "disposition": "HOLD on bootstrap spec/test disagreement; no expectation changed"
+  },
+  "firmware_host": {
+    "results": [
+      {
+        "name": "play-1x-quiet",
+        "mode": "det",
+        "reference_sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c",
+        "pcm_sha256": "4a707c4280fbadcb510ac30f7aa4d363bc94bdde495e9f913e7aa8c1eca6f05c",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "4a707c4280fbadcb510ac30f7aa4d363bc94bdde495e9f913e7aa8c1eca6f05c"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "b7ea63362b59547562024a745df8f360c73181d4b4b0c78b0dc4697d7a0b34ef"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "0000000000000000",
+            "actual_hex": "0100000000000000"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "2f8840dc702612d026db90f8ac869041c5084abc36b68c74f4f6530268ca9958"
+            },
+            "mismatch_offset": 25308,
+            "expected_hex": "0100000000000000",
+            "actual_hex": "0000000000000000"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "play-1x-quiet",
+        "mode": "live",
+        "reference_sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c",
+        "pcm_sha256": "4a707c4280fbadcb510ac30f7aa4d363bc94bdde495e9f913e7aa8c1eca6f05c",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "4a707c4280fbadcb510ac30f7aa4d363bc94bdde495e9f913e7aa8c1eca6f05c"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "b7ea63362b59547562024a745df8f360c73181d4b4b0c78b0dc4697d7a0b34ef"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "0000000000000000",
+            "actual_hex": "0100000000000000"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "2f8840dc702612d026db90f8ac869041c5084abc36b68c74f4f6530268ca9958"
+            },
+            "mismatch_offset": 25308,
+            "expected_hex": "0100000000000000",
+            "actual_hex": "0000000000000000"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "play-1x-fortissimo",
+        "mode": "det",
+        "reference_sha256": "d505af6d69173bef1e5b7ab30add7da951329b5c996b3fcb5b550c1fded62159",
+        "pcm_sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "5d22200df1859629d3a5c1299e130ff27e038f767a74a3e3b35d056da72694fb"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "bec423c054ce5ddb0e010d190f4b42fa687eb297d1169da6445f7f6aa2715eaf"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "play-1x-fortissimo",
+        "mode": "live",
+        "reference_sha256": "d505af6d69173bef1e5b7ab30add7da951329b5c996b3fcb5b550c1fded62159",
+        "pcm_sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "5d22200df1859629d3a5c1299e130ff27e038f767a74a3e3b35d056da72694fb"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "bec423c054ce5ddb0e010d190f4b42fa687eb297d1169da6445f7f6aa2715eaf"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "splice",
+        "mode": "det",
+        "reference_sha256": "7d5de16ba06ce37c344e91aedc579dbf6db4641030900239f9bb22a708c92751",
+        "pcm_sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 242550,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242550,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "fc81f8094cdfbf881706c9fd02322d0717280941b5ee08790c185d3510906b29"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242547,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "7ae3beafbb7ad4e68ae64d6811dff29300d52aa1ba63ac3565dcbd0c09e89c1f"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "splice",
+        "mode": "live",
+        "reference_sha256": "7d5de16ba06ce37c344e91aedc579dbf6db4641030900239f9bb22a708c92751",
+        "pcm_sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 242550,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242550,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "fc81f8094cdfbf881706c9fd02322d0717280941b5ee08790c185d3510906b29"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242547,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "7ae3beafbb7ad4e68ae64d6811dff29300d52aa1ba63ac3565dcbd0c09e89c1f"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "overdub",
+        "mode": "det",
+        "reference_sha256": "572b2f95e67a18c7ab0c6804343247c4dd3eca01037b1373786e259c64110ce7",
+        "pcm_sha256": "efdfc3aa5a2a010880ae684c0de30066e7c8794dab7e53bcf81dfdf6bc18f301",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "efdfc3aa5a2a010880ae684c0de30066e7c8794dab7e53bcf81dfdf6bc18f301"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "936b3edc470c5e29e8b4fb4134cf239c891042fc6c6b2b9996fbed69e1a46a83"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "bb034af4b90098ef",
+            "actual_hex": "ba034af4b90098ef"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "93eccaf7c776cbae8ef37c593e5ecb67eff2509ee90e20cab9af087ff8cc15d3"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "b90098ef9ffcd3e7",
+            "actual_hex": "b80097ef9efcd2e7"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "overdub",
+        "mode": "live",
+        "reference_sha256": "572b2f95e67a18c7ab0c6804343247c4dd3eca01037b1373786e259c64110ce7",
+        "pcm_sha256": "efdfc3aa5a2a010880ae684c0de30066e7c8794dab7e53bcf81dfdf6bc18f301",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "efdfc3aa5a2a010880ae684c0de30066e7c8794dab7e53bcf81dfdf6bc18f301"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "936b3edc470c5e29e8b4fb4134cf239c891042fc6c6b2b9996fbed69e1a46a83"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "bb034af4b90098ef",
+            "actual_hex": "ba034af4b90098ef"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "93eccaf7c776cbae8ef37c593e5ecb67eff2509ee90e20cab9af087ff8cc15d3"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "b90098ef9ffcd3e7",
+            "actual_hex": "b80097ef9efcd2e7"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "overwrite",
+        "mode": "det",
+        "reference_sha256": "3e4b99a741e9dbe8f88dd9b785dc3982fbb5bc0a4101cc0c25650adc764181de",
+        "pcm_sha256": "fe28e3e94244061ed2614d742475cc01e4b3a210924848e1dfd05711ccaddabd",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 144100,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "fe28e3e94244061ed2614d742475cc01e4b3a210924848e1dfd05711ccaddabd"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 144100,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "f332189ba93ecaa71ba4d9c1d711127cae93b431870be895860ef684bb237228"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 144098,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "562bd3c395de96d37748180e5c0108498c8aa0c6133f89b05931df775a36819f"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "overwrite",
+        "mode": "live",
+        "reference_sha256": "3e4b99a741e9dbe8f88dd9b785dc3982fbb5bc0a4101cc0c25650adc764181de",
+        "pcm_sha256": "fe28e3e94244061ed2614d742475cc01e4b3a210924848e1dfd05711ccaddabd",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 144100,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "fe28e3e94244061ed2614d742475cc01e4b3a210924848e1dfd05711ccaddabd"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 144100,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "f332189ba93ecaa71ba4d9c1d711127cae93b431870be895860ef684bb237228"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 144098,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "562bd3c395de96d37748180e5c0108498c8aa0c6133f89b05931df775a36819f"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "reset-b",
+        "mode": "det",
+        "reference_sha256": "d505af6d69173bef1e5b7ab30add7da951329b5c996b3fcb5b550c1fded62159",
+        "pcm_sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "5d22200df1859629d3a5c1299e130ff27e038f767a74a3e3b35d056da72694fb"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "bec423c054ce5ddb0e010d190f4b42fa687eb297d1169da6445f7f6aa2715eaf"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "reset-b",
+        "mode": "live",
+        "reference_sha256": "d505af6d69173bef1e5b7ab30add7da951329b5c996b3fcb5b550c1fded62159",
+        "pcm_sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 198450,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198450,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "5d22200df1859629d3a5c1299e130ff27e038f767a74a3e3b35d056da72694fb"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 198447,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "bec423c054ce5ddb0e010d190f4b42fa687eb297d1169da6445f7f6aa2715eaf"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "promote",
+        "mode": "det",
+        "reference_sha256": "7d5de16ba06ce37c344e91aedc579dbf6db4641030900239f9bb22a708c92751",
+        "pcm_sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 242550,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242550,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "fc81f8094cdfbf881706c9fd02322d0717280941b5ee08790c185d3510906b29"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242547,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "7ae3beafbb7ad4e68ae64d6811dff29300d52aa1ba63ac3565dcbd0c09e89c1f"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      },
+      {
+        "name": "promote",
+        "mode": "live",
+        "reference_sha256": "7d5de16ba06ce37c344e91aedc579dbf6db4641030900239f9bb22a708c92751",
+        "pcm_sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021",
+        "facts": {
+          "part": "OK",
+          "base": 34816,
+          "blocks": 65537,
+          "write_bound": false,
+          "result": 0,
+          "frames": 242550,
+          "underruns": 0,
+          "card_writes": 0,
+          "sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021"
+        },
+        "controls": [
+          {
+            "name": "flip",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242550,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "fc81f8094cdfbf881706c9fd02322d0717280941b5ee08790c185d3510906b29"
+            },
+            "mismatch_offset": 0,
+            "expected_hex": "a1eb78fb2be5f4fa",
+            "actual_hex": "a0eb78fb2be5f4fa"
+          },
+          {
+            "name": "rate",
+            "observed": {
+              "part": "OK",
+              "base": 34816,
+              "blocks": 65537,
+              "write_bound": false,
+              "result": 0,
+              "frames": 242547,
+              "underruns": 0,
+              "card_writes": 0,
+              "sha256": "7ae3beafbb7ad4e68ae64d6811dff29300d52aa1ba63ac3565dcbd0c09e89c1f"
+            },
+            "mismatch_offset": 4,
+            "expected_hex": "2be5f4fadde297fa",
+            "actual_hex": "2ae5f3fadde297fa"
+          }
+        ],
+        "image_unchanged": true
+      }
+    ],
+    "normal_vectors": 7,
+    "modes": 2,
+    "negative_controls": 28,
+    "scope": "firmware portable path on host; no target/I2S claim"
+  }
+}

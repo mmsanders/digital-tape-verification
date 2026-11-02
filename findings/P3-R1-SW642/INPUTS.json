@@ -1,0 +1,23 @@
+{
+  "candidate": "ee478a913613a16a90e38c85112fb67cbbf53887",
+  "product_main": "57c605829a402cb68be9d07ed2bcc99ee2d21103",
+  "verification_main": "3d616c14ca2770c0369dda6c3bfb66a60cce68ca",
+  "authorization": "Michael manually resumed only Software Stage B of Verification374 on 2 November",
+  "software_return_comment": 6571202445,
+  "product_pr": 647,
+  "source_run": 41401091513,
+  "artifact_id": 13120969871,
+  "artifact_sha256": "16bb28c20b700318b95c1b22d9faed951218b2b7a1c377907ed29137337ede52",
+  "published_wp17_blob": "8f355db17e1925bc7f72d516adc817c7353ee7a2",
+  "files": {
+    "docs/WP17-FIRMWARE-CONTRACT.md": "32252b08e4626ab9b6cc24dcc6c8b45a8012ac997d0b0836f00507bb9a714933",
+    "docs/WP14-CLI-CONTRACT.md": "31557bb1e093f3fdd68a034c3377bdc950dcdef14fd176dadf50b9b5500c3316",
+    "docs/SPEC-ERRATA.md": "0cd814527f1c2a2e2d54de0f7a34e7195cb918262632e07d0b194831bade02a1",
+    "spec/VERSION.md": "57483eb1ea873ec3c1ac07914172d2a927e5a425a2e34feb034c5d086c63b8c9",
+    "firmware/bench/host/partition_adapter.py": "c0e4af0b8c9f505856848a3db75df982a88c3a8a13c93a089282d739e2273888",
+    "firmware/bench/host/fwhost.c": "6e7ae1b0e6d22e8dbff26c890864d0d825c0192b2ca40b334c5402304ee6ad54",
+    "firmware/bench/src/fw_part.c": "99e35a9a55acd881665108dd3c4d86a5ac72bf7009cd5204450a5367520732a8",
+    "firmware/bench/src/fw_play.c": "7001d6b907d341b37c64e2959aadd3a1f8d5d8be1bf4efdf36158fe583cd188d",
+    "firmware/bench/platformio.ini": "c3150076461bdc82b8f05633fc8bd4e12ff1cfcf38bdbf9b332f35235f7de04c"
+  }
+}

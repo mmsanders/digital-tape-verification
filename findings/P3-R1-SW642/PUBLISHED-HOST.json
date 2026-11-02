@@ -1,0 +1,86 @@
+{
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "goldens": [
+    {
+      "name": "play-1x-quiet",
+      "wav_sha256": "d97a9735a2beb3defc09808b8f33a760c88e1b171eddb988082b8e0a5ad7692c",
+      "pcm_sha256": "4a707c4280fbadcb510ac30f7aa4d363bc94bdde495e9f913e7aa8c1eca6f05c",
+      "frames": 198450,
+      "rate_scope": "1x",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "play-1x-fortissimo",
+      "wav_sha256": "d505af6d69173bef1e5b7ab30add7da951329b5c996b3fcb5b550c1fded62159",
+      "pcm_sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d",
+      "frames": 198450,
+      "rate_scope": "1x",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "scrub-forward",
+      "wav_sha256": "4c93cde00cf8c91e4c8634459c0ef7f31de5264898e9054ca7530d519ed659ea",
+      "pcm_sha256": "b92eef8d72607a51b31f1c946e726fc7ffb93d765c0c4c12ca186b7d1b1c858b",
+      "frames": 144000,
+      "rate_scope": "scrub vector",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "scrub-reverse-1x",
+      "wav_sha256": "ab83378a7cf4b897b088f48f7cb46a11e37440667a67f67ea7027a2953fd827f",
+      "pcm_sha256": "1b851d28897c5b2d34e47e670900849277f8058d596cc66baf002387533aa4fd",
+      "frames": 198450,
+      "rate_scope": "scrub vector",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "scrub-reverse-2x",
+      "wav_sha256": "d20d14ccff00237fd447c1e2652d345d9cc21ffa42b84e7f8fbe2edc039dbfd5",
+      "pcm_sha256": "9261bf3bf5c15428f4e4461e0373c946a25c6426aa7e44ca6688fc56498ad089",
+      "frames": 99226,
+      "rate_scope": "scrub vector",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "splice",
+      "wav_sha256": "7d5de16ba06ce37c344e91aedc579dbf6db4641030900239f9bb22a708c92751",
+      "pcm_sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021",
+      "frames": 242550,
+      "rate_scope": "1x",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "overdub",
+      "wav_sha256": "572b2f95e67a18c7ab0c6804343247c4dd3eca01037b1373786e259c64110ce7",
+      "pcm_sha256": "efdfc3aa5a2a010880ae684c0de30066e7c8794dab7e53bcf81dfdf6bc18f301",
+      "frames": 198450,
+      "rate_scope": "1x",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "overwrite",
+      "wav_sha256": "3e4b99a741e9dbe8f88dd9b785dc3982fbb5bc0a4101cc0c25650adc764181de",
+      "pcm_sha256": "fe28e3e94244061ed2614d742475cc01e4b3a210924848e1dfd05711ccaddabd",
+      "frames": 144100,
+      "rate_scope": "1x",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "reset-b",
+      "wav_sha256": "d505af6d69173bef1e5b7ab30add7da951329b5c996b3fcb5b550c1fded62159",
+      "pcm_sha256": "5b21941cc8e59acd5c46a13cababae5f05fbeed7f223efed3f1c7c0ae5703c5d",
+      "frames": 198450,
+      "rate_scope": "1x",
+      "altered_sample": "REJECTED"
+    },
+    {
+      "name": "promote",
+      "wav_sha256": "7d5de16ba06ce37c344e91aedc579dbf6db4641030900239f9bb22a708c92751",
+      "pcm_sha256": "7d7ffa82e822e8c2db716493d98f42c057267483f594c47f39deaa49763b6021",
+      "frames": 242550,
+      "rate_scope": "1x",
+      "altered_sample": "REJECTED"
+    }
+  ],
+  "target": "PENDING bench capture"
+}

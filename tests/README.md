@@ -6,6 +6,7 @@ started by Michael; old package “pending” text never supplies a new task.
 
 | Package / navigation | Purpose |
 |---|---|
+| [WP-17 exact-candidate execution](wp17_candidate_r1/README.md) | Published FW-1 predicates on Software642, independent firmware-host PCM and ARM evidence accounting; bootstrap HOLD reproduced |
 | [P3-R1 / #374](p3_r1_r374/README.md) | Independent FW-1 PCM, budget, partition and engine-identity acceptance; remaining Q-P2-1 execution/replay; bench checklist |
 | [Frozen WP-11 goldens](golden/README.md) | Immutable reference WAVs, source identities and MANIFEST; no regeneration |
 | [Any-subset model](wp10_subset_r1/README.md) | Independent 512-byte-atomic persistence model; exhaustive small epochs, finite large samples |

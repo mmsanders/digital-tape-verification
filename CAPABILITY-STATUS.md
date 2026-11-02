@@ -10,6 +10,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Phase 2 desktop tools | COMPLETE, 12/12 with G2 deferred | Windows 11 x64; WP-14/WP-16 and WP-15 acceptance as recorded by Product; host scope frozen |
 | G2 unaided app test | DEFERRED, not waived | Michael runs the issued protocol before anyone else uses the app for real work |
 | Phase 3 bench firmware | OPEN | #374 authors independent FW-1 tests; exact firmware-head clearance is separate |
+| Software642 / ee478a91 | HOLD on bootstrap policy | [Exact-head disposition](findings/P3-R1-SW642/DISPOSITION.md): host PCM and static budgets pass; published bootstrap-refusal expectation disagrees with desktop recognition. PM arbitration; no integration clearance |
 | Q-P2-1 remaining coverage | 365 faults PASS; 6 long cuts proved unavailable | [#374 disposition](findings/P3-R1-374/DISPOSITION.md): all 404 previously missing load faults executed with prior receipts; exact long fixture ends after 3 units. No batching permission inferred |
 | DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
 | WP-17 target F1/F2/F3/F5 | PENDING bench evidence | Host goldens and static sizes do not establish target PCM, stack, timing or physical behavior |
