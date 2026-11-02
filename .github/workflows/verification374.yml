@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
   independent:
     runs-on: ubuntu-24.04
@@ -14,13 +15,10 @@ jobs:
       - name: Qualify independent methods
         run: |
           python3 tests/p3_r1_r374/wp17.py selftest
+          python3 tests/p3_r1_r374/partition_selftest.py
+          python3 tests/p3_r1_r374/static_control.py
           python3 tests/golden/model.py
           mkdir -p build/evidence374
-          printf 'char oversized_static[204801];\n' > build/oversized.c
-          cc -c build/oversized.c -o build/oversized.o
-          size -A build/oversized.o | tee build/evidence374/oversized-size.txt
-          bytes=$(size -A build/oversized.o | awk '$1==".bss" {print $2}')
-          if python3 tests/p3_r1_r374/wp17.py budget 0 "$bytes" 0 0 --static-only; then exit 1; fi
       - uses: actions/checkout@v4
         with:
           repository: mmsanders/Digital-Tape
@@ -38,12 +36,24 @@ jobs:
           make -s -C build/product374/tests/respool_full_adapter all
           git -C build/product374 rev-parse HEAD HEAD:engine > build/evidence374/INPUTS.txt
           sha256sum build/product374/build/host/tapectl* build/product374/tests/respool_full_adapter/build/* > build/evidence374/BINARIES.sha256
-      - name: Remaining explicitly issued Q-P2-1 coordinates
+      - uses: actions/download-artifact@v4
+        with:
+          name: verification374-raw
+          run-id: 41394541716
+          github-token: ${{ github.token }}
+          path: build/previous374
+      - name: Replay completed fault lane, then execute only corrected long-cut runner
         run: |
-          /usr/bin/time -v python3 -B tests/p3_r1_r374/crash.py build/product374 build/evidence374/faults 2>build/evidence374/fault-time.txt
+          python3 -B tests/p3_r1_r374/replay.py build/previous374/faults | tee build/evidence374/FAULT-REPLAY.json
           /usr/bin/time -v python3 -B tests/p3_r1_r374/crash.py build/product374 build/evidence374/long long 2>build/evidence374/long-time.txt
       - name: WP17 host golden half and engine identity
-        run: python3 -B tests/p3_r1_r374/wp17.py host --product build/product374 --out build/evidence374/host
+        run: |
+          python3 -B tests/p3_r1_r374/wp17.py host --product build/product374 --out build/evidence374/host
+          python3 -B tests/p3_r1_r374/wp17.py enginecheck build/product374
+          printf 'tree-drift control\n' > build/product374/engine/port/verification374-negative-control.txt
+          if python3 -B tests/p3_r1_r374/wp17.py enginecheck build/product374; then exit 1; fi
+          rm build/product374/engine/port/verification374-negative-control.txt
+          python3 -B tests/p3_r1_r374/wp17.py enginecheck build/product374
       - uses: actions/upload-artifact@v4
         if: always()
         with:

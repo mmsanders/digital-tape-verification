@@ -1,0 +1,21 @@
+{
+  "product": "3826018653e504217f37a16d8864fb0d597e22e6",
+  "verification": "1938e65130d338a11404ba5dedae0b1c471203da",
+  "issue": 374,
+  "issue_updated": "2026-11-02T02:35:58Z",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "transport": "55552ad4fe57e99827ab8eb016044d0486017877",
+  "files": {
+    "AGENTS.md": "567124256c91cfab151ff5ea91fcd73219465af2d99aa36767181c382759500b",
+    "CLAUDE.md": "fc3b40ecad141d396a0968033564b7354eda96c9334712db8fdcc8381256e7ab",
+    "docs/STATUS.md": "b0083f555c11d91c1e2211aba736e258fb36fc7ec59c7a6e748612cd4cd189b4",
+    "docs/ROLES/verification.md": "0f3e588255d03683e06d77ea6c021a700aa3a131a03e6b7a2a675c4ba0379d68",
+    "docs/WP17-FIRMWARE-CONTRACT.md": "32252b08e4626ab9b6cc24dcc6c8b45a8012ac997d0b0836f00507bb9a714933",
+    "docs/SPEC-DRAFT-11-PROPOSAL.md": "6b56fc4e82f9e586630eb1d670cd95aa7006d40bc44fd987c73807fe3a754d09",
+    "spec/VERSION.md": "57483eb1ea873ec3c1ac07914172d2a927e5a425a2e34feb034c5d086c63b8c9",
+    "spec/engine-api.md": "aa042e41e35b02bf2bb6b3896e59340a947720c27dc5fc52a24d657ccd66b33a",
+    "spec/tapefs-v1.md": "2a6a9f7b6fe1e5f9e3fe068b3c6460a81256276082bb7e336c01dbf1e9c17eba",
+    "spec/acceptance.md": "50aa63bd751fdc6b4636de0eb48253887be19b7ec2841768449217b4e9b9e547"
+  },
+  "archived_status_sha256": "7199a6532cf94123ab4f08e8758d6ebde5aab689ed0398ef641c4e6b2dce7cdc"
+}

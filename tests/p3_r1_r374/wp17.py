@@ -21,11 +21,15 @@ def rejects(fn,*args):
     try: fn(*args)
     except AssertionError: return
     raise AssertionError('negative control did not fail')
-def host(product,out):
-    product=Path(product).resolve();out=Path(out).resolve();out.mkdir(parents=True,exist_ok=True)
+def enginecheck(product):
+    product=Path(product).resolve()
     tree=subprocess.check_output(['git','-C',str(product),'rev-parse','HEAD:engine'],text=True).strip()
     assert tree==PIN, 'changed engine tree'
-    assert not subprocess.check_output(['git','-C',str(product),'status','--porcelain','--','engine'],text=True).strip()
+    assert not subprocess.check_output(['git','-C',str(product),'status','--porcelain','--untracked-files=all','--','engine'],text=True).strip(), 'engine worktree differs'
+    return tree
+def host(product,out):
+    product=Path(product).resolve();out=Path(out).resolve();out.mkdir(parents=True,exist_ok=True)
+    tree=enginecheck(product)
     refs=ROOT/'tests/golden'
     for line in (refs/'SHA256SUMS').read_text().splitlines():
         if line.strip():
@@ -53,14 +57,15 @@ def partition(adapter,out):
     out=Path(out);out.mkdir(parents=True,exist_ok=True);rows=[]
     total=oracle.P2_START+fixtures.BLOCKS
     clean=oracle.mbr(total)
-    cases=[('clean',clean,True),('bootstrap',bytes([1])+clean[1:],True)]
+    signature=bytearray(clean);signature[440]^=1
+    cases=[('clean',clean,True),('disk-signature',bytes(signature),True),('bootstrap',bytes([1])+clean[1:],False)]
     for name,offset in [('signature',510),('p1-type',450),('p2-type',466),('p1-start',454),('p1-size',458),('p2-start',470),('p2-size',474),('extra-entry',478),('p2-boot',462)]:
         b=bytearray(clean);b[offset]^=1;cases.append((name,bytes(b),False))
     for name,mbr,ok in cases:
         path=(out/(name+'.img')).resolve();fixtures.build(path,whole=True)
         with path.open('r+b')as f:f.write(mbr)
         before=path.read_bytes();start=oracle.P2_START;n=fixtures.BLOCKS
-        request=dict(image=str(path),sectors=total,reads=[0,n-1,n],writes=[dict(lba=1,hex=('a5'*512)),dict(lba=n,hex=('5a'*512))])
+        request=dict(image=str(path),sectors=total,reads=[0,n-1,-1,n],writes=[dict(lba=1,hex=('a5'*512)),dict(lba=-1,hex=('5a'*512)),dict(lba=n,hex=('5a'*512))])
         p=subprocess.run(shlex.split(adapter),input=json.dumps(request),text=True,capture_output=True,check=True)
         r=json.loads(p.stdout);assert r['accepted']is ok,name
         after=path.read_bytes()
@@ -87,11 +92,13 @@ if __name__=='__main__':
     p=s.add_parser('pcm');p.add_argument('reference');p.add_argument('capture')
     p=s.add_parser('budget');p.add_argument('values',type=int,nargs='+');p.add_argument('--static-only',action='store_true')
     p=s.add_parser('partition');p.add_argument('--adapter',required=True);p.add_argument('--out',required=True)
+    p=s.add_parser('enginecheck');p.add_argument('product')
     x=a.parse_args()
     if x.cmd=='selftest':r=selftest()
     elif x.cmd=='host':r=host(x.product,x.out)
     elif x.cmd=='pcm':compare(pcm(x.reference),Path(x.capture).read_bytes());r='PASS PCM'
     elif x.cmd=='partition':r=partition(x.adapter,x.out)
+    elif x.cmd=='enginecheck':r=enginecheck(x.product)
     else:
         assert len(x.values)==(4 if x.static_only else 5);r=budget(*x.values)
     print(json.dumps(r,indent=2))

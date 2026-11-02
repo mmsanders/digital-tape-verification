@@ -5,6 +5,9 @@ holds and pending work below describe their entry dates, not current assignments
 Later rounds are in [the findings index](findings/README.md); current closure is in
 [CAPABILITY-STATUS](CAPABILITY-STATUS.md). Use live role-labeled issues for work.
 
+Current baseline: Phases 1 and 2 complete (G2 deferred), Phase 3 open.
+This log is retained as history; it supplies no live work directions.
+
 ## 2026-08-31 — DRAFT-1 specifications received; adversarial review started
 
 Received and preserved verifier-side copies of:

@@ -37,8 +37,8 @@ WP-14 independently built whole-image fixtures and mutated MBRs; checks the
 actual first/last partition bytes, write translation, unchanged outside bytes and
 refusal of before/after-view operations. A host CLI alone cannot qualify the
 firmware binding. The adapter must exercise that binding, not duplicate its parser.
-The expected host layout is the issued WP-14 layout (FAT16 0x0e); the frozen
-TAPEFS §3 FAT32 0x0c wording conflicts and is returned to PM, not silently changed.
+The expected layout is the issued WP-14 layout (FAT16 0x0e), applying the
+Michael-approved E-1 normative overlay to the frozen TAPEFS §3 base row.
 
 Q-P2-1: `crash.py PRODUCT OUTPUT` runs exactly PLAN.json's 365 deferred faults
 using the prior test transport and immutable oracles, plus six no-lower-run cuts.

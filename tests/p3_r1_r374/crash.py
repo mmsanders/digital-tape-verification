@@ -1,11 +1,12 @@
 """Execute the explicitly issued remaining coordinates; judge with immutable oracles."""
-import copy,gzip,hashlib,importlib.util,json,resource,subprocess,sys,time
+import copy,gzip,hashlib,importlib.util,json,subprocess,sys,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 def load(path,name):
     s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);sys.modules[name]=m;s.loader.exec_module(m);return m
 def sha(b):return hashlib.sha256(b).hexdigest()
 def cpu():
+    import resource
     return sum(r.ru_utime+r.ru_stime for r in (resource.getrusage(resource.RUSAGE_SELF),resource.getrusage(resource.RUSAGE_CHILDREN)))
 def admit(out,start,estimate=30):
     used=608.49+cpu()-start
@@ -40,6 +41,7 @@ def faults(product,out):
     plan=json.loads((ROOT/'tests/wp10_subset_extension_r1/PLAN.json').read_text());coords=plan['load_remaining_deferred'];assert len(coords)==365
     o=T.Out(out);tmp=out/'working';tmp.mkdir();w=T.rl.make_worker(tmp);initial=w.base.read_bytes()
     assert sha(initial)==T.PLAN['baseline']['initial_sha256']
+    o.put('initial.img.gz',gzip.compress(initial,6))
     source=T.sd.sha_file(T.rl.SOURCE);start=cpu();rows=[];admissions=[]
     name,r=T.run_fault(o,w,tmp,'none',None,initial,source)
     assert fault_review(out/'faults'/name,r,initial,L,O)=='new/new'
@@ -61,8 +63,28 @@ def faults(product,out):
     o.put_json('FAULTS.json',report);o.put_json('FILES.json',o.files)
     import shutil;shutil.rmtree(tmp)
     return report
+def replay_faults(out):
+    sys.path.insert(0,str(ROOT/'findings/P2-SUBSET-ROWS-2026-10-17'))
+    import load_rows as L
+    O=load(ROOT/'tests/wp10_narrow_supplement_r1/oracle.py','independent_fault_oracle')
+    pins=json.loads((out/'FILES.json').read_text())
+    for name,h in pins.items():
+        p=(out/name).resolve();assert p.is_relative_to(out.resolve()) and sha(p.read_bytes())==h
+    report=json.loads((out/'FAULTS.json').read_text());assert report['executed']==365 and report['failures']==0
+    # Reconstruct the pristine baseline using the complete neighbor's actual successful
+    # writes reversed is not sufficient: require the retained exact initial bytes.
+    # The prior transport always creates this same independent provisioned baseline.
+    initial=gzip.decompress((out/'initial.img.gz').read_bytes())
+    plan=json.loads((ROOT/'tests/wp10_subset_extension_r1/PLAN.json').read_text())
+    assert [r['coordinate']for r in report['rows']]==plan['load_remaining_deferred']
+    for row in report['rows']:
+        p=out/row['record'];r=json.loads(p.read_text())
+        assert r['requested']['kind']==row['coordinate']['kind'] and r['requested']['ordinal']==row['coordinate']['ordinal']
+        assert fault_review(p.parent,r,initial,L,O)==row['state']
+    return dict(executed=365,raw_replay='PASS',cpu_seconds=report['cpu_seconds'])
 def longcuts(product,out):
     sys.path.insert(0,str(product/'tests/wp10_subset_binding'));import run_respool as RR;import subset_driver as SD
+    sys.path.insert(0,str(ROOT/'findings/P2-SUBSET-ROWS-2026-10-17'))
     R=load(ROOT/'findings/P2-WP10-SUBSET-R2-2026-10-17/replay.py','independent_replay374')
     CP=load(ROOT/'findings/P2-SUBSET-ROWS-2026-10-17/respool_copy.py','copy374')
     tmp=out/'working';tmp.mkdir(parents=True);ev=out/'lane4';ev.mkdir()
