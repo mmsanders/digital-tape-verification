@@ -1,0 +1,879 @@
+{
+  "scope": "synthetic aggregation regression, no physical evidence",
+  "judge_git_blob": "34d014bff70a4e7421f55a6c4f34bec643e94b22",
+  "judge_sha256": "097f48fde6a7196d0ed88991fae224c2d67da23205ef57c069b56df16fabbb9e",
+  "mode": "historical-baseline",
+  "physical_run": false,
+  "candidate_clearance": false,
+  "predicate_controls_rejected": 6,
+  "candidate_mutations_rejected": [
+    "always-NEW classifier",
+    "production minimum lowered to 1"
+  ],
+  "cases": [
+    {
+      "case": "production-positive-with-late-miss",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": true
+    },
+    {
+      "case": "old-is-lawful",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "OLD": 1,
+          "NEW": 999
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": true
+    },
+    {
+      "case": "below-production-threshold",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 2
+        },
+        "verdicts": {
+          "NEW": 999
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "operator-cannot-lower-threshold",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 2
+        },
+        "verdicts": {
+          "NEW": 999
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "late-torn",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "evidence": [
+          "torn_iterations",
+          1001
+        ]
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": false
+    },
+    {
+      "case": "late-corrupt",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "evidence": [
+          "corrupt_iterations",
+          1001
+        ]
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": false
+    },
+    {
+      "case": "late-neighbour--2",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "evidence": [
+          "neighbour_damage",
+          [
+            1001,
+            "-2"
+          ]
+        ]
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": false
+    },
+    {
+      "case": "late-neighbour--1",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "evidence": [
+          "neighbour_damage",
+          [
+            1001,
+            "-1"
+          ]
+        ]
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": false
+    },
+    {
+      "case": "late-neighbour-+1",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "evidence": [
+          "neighbour_damage",
+          [
+            1001,
+            "+1"
+          ]
+        ]
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": false
+    },
+    {
+      "case": "late-neighbour-+2",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "evidence": [
+          "neighbour_damage",
+          [
+            1001,
+            "+2"
+          ]
+        ]
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "PASS"
+      },
+      "passed": false
+    },
+    {
+      "case": "qualifying-torn",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "evidence": [
+          "torn_iterations",
+          1
+        ]
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "TORN": 1,
+          "NEW": 999
+        },
+        "torn_iterations": [
+          1
+        ],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-planned-row",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1000,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: planned but not reported"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "duplicate-row",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1: duplicate result"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "unplanned-row",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 2000: not in any committed plan"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-sku",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: sku does not match the plan"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-revision",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: revision does not match the plan"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-card_cid",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: card_cid does not match the plan"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-run_id",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1000,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: run_id mismatch",
+          "trial 1001: planned but not reported"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-plan_digest",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: plan_digest does not match the committed plan"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "truncated-readback_hex",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: readback missing or not 512 bytes"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "malformed-readback_hex",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: readback missing or not 512 bytes"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "truncated-precondition_readback_hex",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: precondition readback is not exactly pattern N-1"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "malformed-precondition_readback_hex",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: precondition readback is not exactly pattern N-1"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-neighbour",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: neighbour offsets must be exactly ['-2', '-1', '+1', '+2']"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-neighbour-baseline",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: neighbours/neighbour_baseline missing"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "unproven-precondition",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {},
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "trial 1001: precondition_ok is not true"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    },
+    {
+      "case": "altered-plan",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": null,
+        "evidence": null
+      },
+      "observed": {
+        "run_id": "V380-SIMULATION",
+        "sku": "SYNTHETIC",
+        "revision": "SIM",
+        "card_cid": "NOT-A-PHYSICAL-CID",
+        "planned_attempts": 1001,
+        "reported": 1001,
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "non_qualifying": {
+          "busy ended before the cut -- the write had completed": 1
+        },
+        "verdicts": {
+          "NEW": 1000
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "problems": [
+          "plan V380-SIMULATION: digest does not match its contents"
+        ],
+        "verdict": "FAIL"
+      },
+      "passed": true
+    }
+  ],
+  "failed_cases": [
+    "late-corrupt",
+    "late-neighbour-+1",
+    "late-neighbour-+2",
+    "late-neighbour--1",
+    "late-neighbour--2",
+    "late-torn"
+  ],
+  "harness_success": true,
+  "deferred": "Actual-edge/busy/uncertainty/CID grammar requires Hardware declaration; see EXPECTATIONS.md"
+}

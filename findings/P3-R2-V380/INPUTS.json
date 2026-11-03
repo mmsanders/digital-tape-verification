@@ -1,0 +1,31 @@
+{
+  "issue": 380,
+  "issue_updated": "2026-11-02T23:08:29Z",
+  "product_main": "cc23b87f38a86d44321a99d4147da4529af465f7",
+  "verification_main": "98f46c94dc7fb8185cc920e336566d1edb5cc656",
+  "documents": {
+    "AGENTS.md": "567124256c91cfab151ff5ea91fcd73219465af2d99aa36767181c382759500b",
+    "CLAUDE.md": "fc3b40ecad141d396a0968033564b7354eda96c9334712db8fdcc8381256e7ab",
+    "docs/STATUS.md": "10828f5fc66930485d318151b8189d301784f5dc49ac00e198bc716ecc3071a0",
+    "docs/ROLES/verification.md": "0f3e588255d03683e06d77ea6c021a700aa3a131a03e6b7a2a675c4ba0379d68",
+    "docs/WP17-BENCH-EVIDENCE.md": "e31d71c614385e0fda4731b0de0fe4fa271e4afd2e9c06dd348d4bac2afbad2e",
+    "docs/WP17-FIRMWARE-CONTRACT.md": "4680b39852d5f5c048f236641ba5b8e04746886208e8fe865b0f71611b176ede",
+    "docs/PACKAGES/WP-05.md": "5a16e1f66468f23dd80e063a02f9b621f7226eb4e6082c74e6b13b9f73605a14",
+    "docs/SPEC-DRAFT-11-PROPOSAL.md": "5478324d5b73b36aa7f4cff1942bac0dff157afad8cc7a375fa1f62c83997e03",
+    "docs/PHASE3-LEDGER.md": "c2dd4e9fec42508c384c577f1e203fd5bddfaa5d9438d3815ba141dfc570c951",
+    "docs/DECISIONS.md": "bd0fba38fb46d184c538dce71d79d9cbea57eac8c6030a234d3d6ca09bd95183",
+    "spec/VERSION.md": "57483eb1ea873ec3c1ac07914172d2a927e5a425a2e34feb034c5d086c63b8c9",
+    "spec/acceptance.md": "50aa63bd751fdc6b4636de0eb48253887be19b7ec2841768449217b4e9b9e547",
+    "spec/engine-api.md": "aa042e41e35b02bf2bb6b3896e59340a947720c27dc5fc52a24d657ccd66b33a"
+  },
+  "carried_publications": [
+    "41995965873e96a76139ffa57f17549d858a759a",
+    "3d616c14ca2770c0369dda6c3bfb66a60cce68ca",
+    "d7540127aa982df5f8716bcc7732f53b171c0386",
+    "98f46c94dc7fb8185cc920e336566d1edb5cc656"
+  ],
+  "new_physical_runs": 0,
+  "new_golden_runs": 0,
+  "new_load_fault_runs": 0,
+  "new_long_cut_runs": 0
+}

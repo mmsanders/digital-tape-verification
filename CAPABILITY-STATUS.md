@@ -12,13 +12,14 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Phase 3 bench firmware | OPEN | FW-1 independent package published; target halves remain pending |
 | Software642 / ee478a91 | CLEARED for authorized off-target integration | [V378 correction/disposition](findings/P3-R1-V378/DISPOSITION.md), ADR-202: 28 admission cases and 4 controls pass; unchanged host/static/tree results carry. Exact head only, required current-base CI; no target/package acceptance |
 | Q-P2-1 remaining coverage | 365 faults PASS; 6 long cuts proved unavailable | [#374 disposition](findings/P3-R1-374/DISPOSITION.md): all 404 previously missing load faults executed with prior receipts; exact long fixture ends after 3 units. No batching permission inferred |
+| Round 2 / V380 | Stage A published; interfaces pending | [Return](findings/P3-R2-V380/DISPOSITION.md): rig regressions and BE1/revised proposal preflight; Hardware651/Software652 declarations needed |
 | DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
 | WP-17 target F1/F2/F3/F5 | PENDING bench evidence | Host goldens and static sizes do not establish target PCM, stack, timing or physical behavior |
 | Atomicity rig method | NOT CLEARED | [#374 Stage B review](findings/P3-R1-374/RIG-METHOD.md) of Hardware 80d26364: judge/cut-proof/electrical gaps; Hardware and PM own correction. Zero cards qualified |
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Latest return: [Verification #378](https://github.com/mmsanders/digital-tape-verification/issues/378), following #374's preserved publications.
+Latest return: [Verification #380](https://github.com/mmsanders/digital-tape-verification/issues/380); prior #374/#378 publications preserved.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)

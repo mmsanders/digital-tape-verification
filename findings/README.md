@@ -6,6 +6,7 @@ coverage, exclusions and immutable publication identities.
 
 | Current Phase 3 record | Scope |
 |---|---|
+| [V380 Stage A](P3-R2-V380/DISPOSITION.md) | Rig expectations and revised DRAFT11/BE1 preflight; interface dependencies, no new candidate clearance |
 | [V378 correction and exact-head clearance](P3-R1-V378/DISPOSITION.md) | ADR-202: ee478a91 cleared for authorized off-target integration; 28 admission cases pass, 4 controls reject, prior evidence authenticated and carried |
 | [Software642 exact-head disposition](P3-R1-SW642/DISPOSITION.md) | ee478a91: host PCM/static budgets pass; bootstrap-recognition spec/test disagreement held for PM; target checks pending |
 | [#374 Stage B rig-method review](P3-R1-374/RIG-METHOD.md) | Not cleared: reproduced non-qualifying-tear blind spot, cut/busy and electrical proof gaps; no physical run |

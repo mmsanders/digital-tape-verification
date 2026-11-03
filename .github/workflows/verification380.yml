@@ -1,0 +1,31 @@
+name: Verification380 independent rig Stage A
+on:
+  pull_request:
+    paths: ['tests/rig_correction_r2/**', 'findings/P3-R2-V380/**', '.github/workflows/verification380.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-regression:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: cc23b87f38a86d44321a99d4147da4529af465f7
+          path: build/product380
+          sparse-checkout: hardware/characterisation/media_atomicity.py
+          sparse-checkout-cone-mode: false
+      - name: Reproduce six old gaps and qualify detecting controls
+        run: |
+          python3 -B tests/rig_correction_r2/run.py --baseline-known-gaps \
+            --judge build/product380/hardware/characterisation/media_atomicity.py \
+            --out build/RESULT380.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: V380-historical-regression
+          path: build/RESULT380.json
+          retention-days: 90
