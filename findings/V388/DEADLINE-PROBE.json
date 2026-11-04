@@ -1,0 +1,37 @@
+{
+  "exit": 0,
+  "summary": {
+    "bytes": 91,
+    "command": null,
+    "exit": 0,
+    "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification388-d62e0de0\\deadline-probe\\capture.raw",
+    "port": "V3_FAKE:UNCHANGED",
+    "sha256": "a214f3a1314ce8006df2e5fd67d6ee8464496eddac2a9b0a9b574e56cdd86b62",
+    "stop": "digest",
+    "tool": "bench_capture.py",
+    "version": "BE1-IF/3"
+  },
+  "facts": {
+    "events": [
+      [
+        "import-serial"
+      ],
+      [
+        "open",
+        "V3_FAKE:UNCHANGED",
+        115200,
+        0.05
+      ],
+      [
+        "close"
+      ]
+    ],
+    "violations": [],
+    "elapsed": 0.9100000000000006,
+    "reads": 91,
+    "delivered_sha256": "a214f3a1314ce8006df2e5fd67d6ee8464496eddac2a9b0a9b574e56cdd86b62",
+    "delivered_bytes": 91
+  },
+  "bytes": 91,
+  "configured_timeout": 0.03
+}

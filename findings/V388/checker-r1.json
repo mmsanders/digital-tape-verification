@@ -1,0 +1,445 @@
+{
+  "mode": "candidate-execution",
+  "checker_sha256": "657ba23e822cad6b1e44f6919285bd5801b52268c2e3fca9aa5efb0530bd0fce",
+  "cases": [
+    {
+      "case": "seven-digest-positive",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-wrong-pcm-digest",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-wav-is-not-pcm",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-stream-positive",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-altered-sample-rehashed",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-frames--1",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-frames-+1",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-reference",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-command",
+      "passed": true
+    },
+    {
+      "case": "play-1x-quiet-missing-case",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-wrong-pcm-digest",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-wav-is-not-pcm",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-stream-positive",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-altered-sample-rehashed",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-frames--1",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-frames-+1",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-reference",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-command",
+      "passed": true
+    },
+    {
+      "case": "play-1x-fortissimo-missing-case",
+      "passed": true
+    },
+    {
+      "case": "splice-wrong-pcm-digest",
+      "passed": true
+    },
+    {
+      "case": "splice-wav-is-not-pcm",
+      "passed": true
+    },
+    {
+      "case": "splice-stream-positive",
+      "passed": true
+    },
+    {
+      "case": "splice-altered-sample-rehashed",
+      "passed": true
+    },
+    {
+      "case": "splice-frames--1",
+      "passed": true
+    },
+    {
+      "case": "splice-frames-+1",
+      "passed": true
+    },
+    {
+      "case": "splice-reference",
+      "passed": true
+    },
+    {
+      "case": "splice-command",
+      "passed": true
+    },
+    {
+      "case": "splice-missing-case",
+      "passed": true
+    },
+    {
+      "case": "overdub-wrong-pcm-digest",
+      "passed": true
+    },
+    {
+      "case": "overdub-wav-is-not-pcm",
+      "passed": true
+    },
+    {
+      "case": "overdub-stream-positive",
+      "passed": true
+    },
+    {
+      "case": "overdub-altered-sample-rehashed",
+      "passed": true
+    },
+    {
+      "case": "overdub-frames--1",
+      "passed": true
+    },
+    {
+      "case": "overdub-frames-+1",
+      "passed": true
+    },
+    {
+      "case": "overdub-reference",
+      "passed": true
+    },
+    {
+      "case": "overdub-command",
+      "passed": true
+    },
+    {
+      "case": "overdub-missing-case",
+      "passed": true
+    },
+    {
+      "case": "overwrite-wrong-pcm-digest",
+      "passed": true
+    },
+    {
+      "case": "overwrite-wav-is-not-pcm",
+      "passed": true
+    },
+    {
+      "case": "overwrite-stream-positive",
+      "passed": true
+    },
+    {
+      "case": "overwrite-altered-sample-rehashed",
+      "passed": true
+    },
+    {
+      "case": "overwrite-frames--1",
+      "passed": true
+    },
+    {
+      "case": "overwrite-frames-+1",
+      "passed": true
+    },
+    {
+      "case": "overwrite-reference",
+      "passed": true
+    },
+    {
+      "case": "overwrite-command",
+      "passed": true
+    },
+    {
+      "case": "overwrite-missing-case",
+      "passed": true
+    },
+    {
+      "case": "reset-b-wrong-pcm-digest",
+      "passed": true
+    },
+    {
+      "case": "reset-b-wav-is-not-pcm",
+      "passed": true
+    },
+    {
+      "case": "reset-b-stream-positive",
+      "passed": true
+    },
+    {
+      "case": "reset-b-altered-sample-rehashed",
+      "passed": true
+    },
+    {
+      "case": "reset-b-frames--1",
+      "passed": true
+    },
+    {
+      "case": "reset-b-frames-+1",
+      "passed": true
+    },
+    {
+      "case": "reset-b-reference",
+      "passed": true
+    },
+    {
+      "case": "reset-b-command",
+      "passed": true
+    },
+    {
+      "case": "reset-b-missing-case",
+      "passed": true
+    },
+    {
+      "case": "promote-wrong-pcm-digest",
+      "passed": true
+    },
+    {
+      "case": "promote-wav-is-not-pcm",
+      "passed": true
+    },
+    {
+      "case": "promote-stream-positive",
+      "passed": true
+    },
+    {
+      "case": "promote-altered-sample-rehashed",
+      "passed": true
+    },
+    {
+      "case": "promote-frames--1",
+      "passed": true
+    },
+    {
+      "case": "promote-frames-+1",
+      "passed": true
+    },
+    {
+      "case": "promote-reference",
+      "passed": true
+    },
+    {
+      "case": "promote-command",
+      "passed": true
+    },
+    {
+      "case": "promote-missing-case",
+      "passed": true
+    },
+    {
+      "case": "bare-lf",
+      "passed": true
+    },
+    {
+      "case": "truncated-line",
+      "passed": true
+    },
+    {
+      "case": "unknown-line",
+      "passed": true
+    },
+    {
+      "case": "duplicate-digest",
+      "passed": true
+    },
+    {
+      "case": "engine-error",
+      "passed": true
+    },
+    {
+      "case": "scrub-is-not-f1",
+      "passed": true
+    },
+    {
+      "case": "truncated-stream-run",
+      "passed": true
+    },
+    {
+      "case": "live-positive",
+      "passed": true
+    },
+    {
+      "case": "live-underrun",
+      "passed": true
+    },
+    {
+      "case": "all-absent",
+      "passed": true
+    },
+    {
+      "case": "declared-not-run",
+      "passed": true
+    },
+    {
+      "case": "unrequested-failure-still-nonzero",
+      "passed": true
+    },
+    {
+      "case": "mixed-simulated-remains-nonphysical",
+      "passed": true
+    },
+    {
+      "case": "simulation-actual-marker",
+      "passed": true
+    },
+    {
+      "case": "simulation-witness-marker",
+      "passed": true
+    },
+    {
+      "case": "wrong-engine",
+      "passed": true
+    },
+    {
+      "case": "wrong-toolchain",
+      "passed": true
+    },
+    {
+      "case": "duplicate-sequence",
+      "passed": true
+    },
+    {
+      "case": "dangling-supersede",
+      "passed": true
+    },
+    {
+      "case": "f2-positive",
+      "passed": true
+    },
+    {
+      "case": "f2-stack-zero",
+      "passed": true
+    },
+    {
+      "case": "f2-stack-unaligned",
+      "passed": true
+    },
+    {
+      "case": "f2-stack-over",
+      "passed": true
+    },
+    {
+      "case": "f2-target-missing",
+      "passed": true
+    },
+    {
+      "case": "f2-instance-over-reserve",
+      "passed": true
+    },
+    {
+      "case": "f2-reserve-conflict",
+      "passed": true
+    },
+    {
+      "case": "f2-bad-sum",
+      "passed": true
+    },
+    {
+      "case": "f2-ram-over",
+      "passed": true
+    },
+    {
+      "case": "f2-rodata-over",
+      "passed": true
+    },
+    {
+      "case": "f2-malformed-static",
+      "passed": true
+    },
+    {
+      "case": "f2-candidate-conflict",
+      "passed": true
+    },
+    {
+      "case": "f2-stack-before-workload",
+      "passed": true
+    },
+    {
+      "case": "f2-budget-boundaries",
+      "passed": true
+    },
+    {
+      "case": "f5-no-fabricated-witness",
+      "passed": true
+    },
+    {
+      "case": "f5-position-does-not-advance",
+      "passed": true
+    },
+    {
+      "case": "f5-removal-after-stop",
+      "passed": true
+    },
+    {
+      "case": "f5-sequence-missing",
+      "passed": true
+    },
+    {
+      "case": "file-hash-mismatch",
+      "passed": true
+    },
+    {
+      "case": "file-size-mismatch",
+      "passed": true
+    },
+    {
+      "case": "file-missing",
+      "passed": true
+    },
+    {
+      "case": "file-unlisted",
+      "passed": true
+    },
+    {
+      "case": "unsafe-reference-path",
+      "passed": true
+    },
+    {
+      "case": "manifest-unknown-key",
+      "passed": true
+    },
+    {
+      "case": "manifest-missing",
+      "passed": true
+    },
+    {
+      "case": "manifest-malformed",
+      "passed": true
+    }
+  ],
+  "physical_run": false,
+  "complete": false,
+  "passed": true
+}

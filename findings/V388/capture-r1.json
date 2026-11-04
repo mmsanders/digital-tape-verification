@@ -1,0 +1,63 @@
+{
+  "mode": "candidate-fake-port",
+  "helper_sha256": "f12c209772b04e659f89979de3d6785c5ea608e4c8741a8d509b23372edcfe6a",
+  "cases": [
+    {
+      "case": "digest-byte-fragments",
+      "passed": true,
+      "exit": 0,
+      "expected_sha256": "a214f3a1314ce8006df2e5fd67d6ee8464496eddac2a9b0a9b574e56cdd86b62",
+      "facts": {
+        "violations": [],
+        "ports": [
+          "V382_FAKE_ONLY"
+        ],
+        "command_writes": [],
+        "read_calls": 91
+      }
+    },
+    {
+      "case": "digest-crlf-split",
+      "passed": true,
+      "exit": 0,
+      "expected_sha256": "a214f3a1314ce8006df2e5fd67d6ee8464496eddac2a9b0a9b574e56cdd86b62",
+      "facts": {
+        "violations": [],
+        "ports": [
+          "V382_FAKE_ONLY"
+        ],
+        "command_writes": [],
+        "read_calls": 91
+      }
+    },
+    {
+      "case": "stream-fragments",
+      "passed": true,
+      "exit": 0,
+      "expected_sha256": "9b626f71d19c086ea272d8d4a8cdd69e19f11d25219d4da29f7eaa0a40644c5d",
+      "facts": {
+        "violations": [],
+        "ports": [
+          "V382_FAKE_ONLY"
+        ],
+        "command_writes": [],
+        "read_calls": 131
+      }
+    },
+    {
+      "case": "binary-digest-is-not-terminator",
+      "passed": true,
+      "exit": 0,
+      "expected_sha256": "9b626f71d19c086ea272d8d4a8cdd69e19f11d25219d4da29f7eaa0a40644c5d",
+      "facts": {
+        "violations": [],
+        "ports": [
+          "V382_FAKE_ONLY"
+        ],
+        "command_writes": [],
+        "read_calls": 99
+      }
+    }
+  ],
+  "physical_run": false
+}

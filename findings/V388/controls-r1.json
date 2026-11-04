@@ -1,0 +1,18 @@
+{
+  "mode": "harness-selftest-only",
+  "product_executed": false,
+  "fixture_cases": 109,
+  "controls_detected": [
+    "bundle-write",
+    "network",
+    "serial-import",
+    "subprocess",
+    "false-complete",
+    "false-physical",
+    "wrong-state",
+    "blanket-success",
+    "hidden-reason"
+  ],
+  "physical_run": false,
+  "complete": false
+}

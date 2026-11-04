@@ -1,0 +1,2 @@
+qualification	UNKNOWN STEP	2026-11-04T16:05:17.7845548Z FAIL  abandoned selected  wp14-package
+qualification	UNKNOWN STEP	2026-11-04T16:05:17.7883092Z == qualification: FAIL (13/15 ran) ==

@@ -1,0 +1,19 @@
+{
+  "mode": "harness-selftest-only",
+  "fixture_cases": 53,
+  "controls_detected": [
+    "retry-erases-exit",
+    "retry-erases-overall",
+    "retry-erases-observation",
+    "retry-erases-failure-list",
+    "missing-data-hides-failure",
+    "missing-data-hides-reason",
+    "firmware-conflict-hidden",
+    "false-complete",
+    "wrong-tool-identity",
+    "wrong-bundle-identity"
+  ],
+  "product_executed": false,
+  "physical_run": false,
+  "complete": false
+}
