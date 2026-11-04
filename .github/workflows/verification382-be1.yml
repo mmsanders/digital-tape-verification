@@ -1,0 +1,25 @@
+name: Verification382 BE1 independent binding
+on:
+  pull_request:
+    paths: ['tests/be1_binding_r1/**', 'findings/P3-R2-V382/**', '.github/workflows/verification382-be1.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixture-and-confinement-controls:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate authentic-reference fixtures and qualify runner controls
+        run: |
+          python3 -B tests/be1_binding_r1/run.py --selftest --golden tests/golden --out build/be1-selftest
+          python3 -B tests/be1_binding_r1/capture.py --selftest --out build/capture-selftest
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: V382-BE1-harness-results
+          path: |
+            build/be1-selftest/RESULT.json
+            build/capture-selftest/RESULT.json
+          retention-days: 90
