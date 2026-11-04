@@ -1,0 +1,1116 @@
+{
+  "headRefOid": "e0b6bb024a45fa6921312bb9de13f5df39661b45",
+  "mergeStateStatus": "CLEAN",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:09Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767139109",
+      "name": "classify changes into lanes",
+      "startedAt": "2026-11-04T18:13:53Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:12Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046238/job/126767137203",
+      "name": "evidence integrity",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "evidence integrity"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:00Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046252/job/126767137189",
+      "name": "docs size and line budgets",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "repo hygiene"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:13:59Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046297/job/126767136581",
+      "name": "verifier publications on verification main",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "verifier publication"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:13:58Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767139432",
+      "name": "lead-queue dashboard behaviour",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046238/job/126767137781",
+      "name": "evidence gate can go red",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "evidence integrity"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:05Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046252/job/126767137737",
+      "name": "hygiene gate can go red",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "repo hygiene"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:13:58Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046297/job/126767137235",
+      "name": "verifier publication gate can go red",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "verifier publication"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:09Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767139457",
+      "name": "build (-Werror)",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:04Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767139350",
+      "name": "spec bundle matches VERSION.md",
+      "startedAt": "2026-11-04T18:13:52Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:23Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333914",
+      "name": "independent DRAFT-8 mount package self-checks (not engine acceptance)",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:21Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333958",
+      "name": "independent VT8-001 package self-checks (synthetic, not engine acceptance)",
+      "startedAt": "2026-11-04T18:14:14Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:21Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333852",
+      "name": "independent WP-09 record package \u00e2\u20ac\u201d synthetic self-checks, then product observations",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333876",
+      "name": "independent transport/warm package \u00e2\u20ac\u201d synthetic self-checks, then product observations",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:16:33Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767334001",
+      "name": "independent promote package \u00e2\u20ac\u201d synthetic self-checks, then product observations",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:25Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333489",
+      "name": "independent respool package \u00e2\u20ac\u201d synthetic self-checks, then full 8-case product observations",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:36Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333943",
+      "name": "independent format/dup package \u00e2\u20ac\u201d synthetic self-checks, then product observations",
+      "startedAt": "2026-11-04T18:14:20Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:22Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335177",
+      "name": "independent writability package \u00e2\u20ac\u201d synthetic self-checks, then 8-case product observations",
+      "startedAt": "2026-11-04T18:14:13Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:01Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333644",
+      "name": "independent not-mounted package \u00e2\u20ac\u201d synthetic self-checks, then 34-case product observations",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:32Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335058",
+      "name": "independent WP-36 slot package \u00e2\u20ac\u201d synthetic self-checks, then debug-assert product observations",
+      "startedAt": "2026-11-04T18:14:13Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:43Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767333618",
+      "name": "independent WP-36 100k source-slot fuzz \u00e2\u20ac\u201d debug real-product observations",
+      "startedAt": "2026-11-04T18:14:13Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:17Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335420",
+      "name": "independent WP-13 embedded-readiness audit (DRAFT-9) \u00e2\u20ac\u201d six-gate real-product evidence",
+      "startedAt": "2026-11-04T18:15:03Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:42Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335329",
+      "name": "independent WP-07 allocator/COW \u00e2\u20ac\u201d fixed 10k real-product campaign",
+      "startedAt": "2026-11-04T18:14:15Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:20:38Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335546",
+      "name": "independent WP-10 core crash \u00e2\u20ac\u201d bounded real-product campaign",
+      "startedAt": "2026-11-04T18:14:45Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:53Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335507",
+      "name": "R29-B format/duplicate raw identity + dup long-op \u00e2\u20ac\u201d exact canonical product campaign",
+      "startedAt": "2026-11-04T18:15:02Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:16:06Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335853",
+      "name": "independent full re-spool \u00e2\u20ac\u201d clean/headroom + WP-12a product gate",
+      "startedAt": "2026-11-04T18:15:01Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:29Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335225",
+      "name": "independent WP-06 R44 sequential \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:13Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:17:59Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335105",
+      "name": "independent WP-10 final backlog (#118) \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:13Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:23:37Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335532",
+      "name": "independent WP-10 backlog rows 1-3 \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:25Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335503",
+      "name": "independent WP-09 R52 capacity short accept \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:24Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:35Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335021",
+      "name": "independent WP-12/WP-12a R53 closure gaps \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:13Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:51Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335147",
+      "name": "independent WP-08 R52 two-toolchain playback \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:38Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335457",
+      "name": "independent WP-06 R52 closure gaps \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:32Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:57Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335209",
+      "name": "independent #126 strengthening rows (strengthen_r55) \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:55Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:59Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335149",
+      "name": "independent WP-08 mapped-run rows (#129) \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:13Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:00Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335264",
+      "name": "independent #130 rows (overdub saturation, V-R55-01 trace floor) \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:18:44Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335005",
+      "name": "independent WP-10 backlog r54 (repair crash, dup re-run, dup shape) \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:12Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:32:51Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335259",
+      "name": "independent WP-10 residue destinations (V10-001) \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:23Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:16:21Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335283",
+      "name": "independent WP-10 R53 crash-injection gaps \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:15:05Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:36Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335583",
+      "name": "accepted bindings regenerate on the current engine \u00e2\u20ac\u201d gate can go red",
+      "startedAt": "2026-11-04T18:15:00Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335606",
+      "name": "independent playback/golden package self-checks (synthetic, not engine acceptance)",
+      "startedAt": "2026-11-04T18:14:34Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:33Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335620",
+      "name": "independent complete playback package self-checks (synthetic, not engine acceptance)",
+      "startedAt": "2026-11-04T18:14:51Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:51Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335414",
+      "name": "independent WP-08 R44 cross-run playback \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:23Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:13Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335924",
+      "name": "independent WP-09 R44 seeded record history \u00e2\u20ac\u201d product replay",
+      "startedAt": "2026-11-04T18:14:53Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:50Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335825",
+      "name": "tapectl \u00e2\u20ac\u201d build, unit tests, WP-11 and WP-14 image smoke (Linux)",
+      "startedAt": "2026-11-04T18:14:24Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335701",
+      "name": "WP-14 device round trip \u00e2\u20ac\u201d Linux loop device",
+      "startedAt": "2026-11-04T18:14:27Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:16:26Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335998",
+      "name": "WP-14 tapectl \u00e2\u20ac\u201d Windows build, image smoke, VHD round trip",
+      "startedAt": "2026-11-04T18:14:38Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:22Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335725",
+      "name": "WP-14 package (linux)",
+      "startedAt": "2026-11-04T18:14:23Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:36:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767336914",
+      "name": "WP-14 package (windows)",
+      "startedAt": "2026-11-04T18:14:54Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:00Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335953",
+      "name": "WP-11 portability (host-gcc)",
+      "startedAt": "2026-11-04T18:14:46Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:16:04Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767336105",
+      "name": "WP-11 portability (arm-m3)",
+      "startedAt": "2026-11-04T18:15:27Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:36Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767336003",
+      "name": "WP-11 portability (narrow-int)",
+      "startedAt": "2026-11-04T18:15:20Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:17:49Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335874",
+      "name": "WP-11 mutation gate \u00e2\u20ac\u201d seven mutations, each caught",
+      "startedAt": "2026-11-04T18:15:15Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:49Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767335602",
+      "name": "WP-11 fixture release assets \u00e2\u20ac\u201d fetched and sha256-verified",
+      "startedAt": "2026-11-04T18:14:41Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:14:59Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767336366",
+      "name": "guardrail gates",
+      "startedAt": "2026-11-04T18:14:52Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767336441",
+      "name": "gates can go red",
+      "startedAt": "2026-11-04T18:15:01Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:25Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767336477",
+      "name": "scaffolding + verifier infrastructure",
+      "startedAt": "2026-11-04T18:15:03Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:38Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126767337065",
+      "name": "golden suite \u00e2\u20ac\u201d WP-11 R63 references, byte-exact",
+      "startedAt": "2026-11-04T18:15:23Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:08Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520166",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 0",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:21:39Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520329",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 1",
+      "startedAt": "2026-11-04T18:19:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:17:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520132",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 2",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:25:55Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768521146",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 3",
+      "startedAt": "2026-11-04T18:22:27Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:18:41Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520236",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 4",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:20:03Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520215",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 5",
+      "startedAt": "2026-11-04T18:16:41Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:38Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520288",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 6",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:29Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520298",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 flush_required part 7",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:37Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520608",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 0",
+      "startedAt": "2026-11-04T18:20:07Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:39Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520274",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 1",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:26Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520516",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 2",
+      "startedAt": "2026-11-04T18:20:46Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:21:33Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520386",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 3",
+      "startedAt": "2026-11-04T18:19:05Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:47Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520868",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 4",
+      "startedAt": "2026-11-04T18:20:20Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:23:39Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520762",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 5",
+      "startedAt": "2026-11-04T18:22:05Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520542",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 6",
+      "startedAt": "2026-11-04T18:19:39Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:26Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520317",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass1 write_through part 7",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:38Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520290",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 0",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:23:11Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520438",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 1",
+      "startedAt": "2026-11-04T18:20:01Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:23:26Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520441",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 2",
+      "startedAt": "2026-11-04T18:19:41Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520401",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 3",
+      "startedAt": "2026-11-04T18:18:36Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:51Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520385",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 4",
+      "startedAt": "2026-11-04T18:19:24Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:46Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520514",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 5",
+      "startedAt": "2026-11-04T18:21:02Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:30Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520432",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 6",
+      "startedAt": "2026-11-04T18:16:10Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:31Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520709",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 flush_required part 7",
+      "startedAt": "2026-11-04T18:19:03Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:27Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520887",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 0",
+      "startedAt": "2026-11-04T18:20:41Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:23:29Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520613",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 1",
+      "startedAt": "2026-11-04T18:19:57Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:50Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768521072",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 2",
+      "startedAt": "2026-11-04T18:19:32Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:24:06Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520431",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 3",
+      "startedAt": "2026-11-04T18:20:36Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:24:57Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520962",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 4",
+      "startedAt": "2026-11-04T18:21:36Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:13Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520512",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 5",
+      "startedAt": "2026-11-04T18:18:44Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:06Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520484",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 6",
+      "startedAt": "2026-11-04T18:16:24Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:20:33Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520747",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d v3_003 pass2 write_through part 7",
+      "startedAt": "2026-11-04T18:18:03Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:00Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520487",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 0",
+      "startedAt": "2026-11-04T18:18:36Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:24Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768521012",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 1",
+      "startedAt": "2026-11-04T18:21:41Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:17:14Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520691",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 2",
+      "startedAt": "2026-11-04T18:16:36Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:18:34Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768521022",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 3",
+      "startedAt": "2026-11-04T18:17:51Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:20:18Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520874",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 4",
+      "startedAt": "2026-11-04T18:19:41Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:58Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768521020",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 5",
+      "startedAt": "2026-11-04T18:19:30Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:18:19Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520860",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 6",
+      "startedAt": "2026-11-04T18:17:54Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:17:51Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520623",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 flush_required part 7",
+      "startedAt": "2026-11-04T18:17:17Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:20:43Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520668",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 0",
+      "startedAt": "2026-11-04T18:19:42Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:55Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520781",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 1",
+      "startedAt": "2026-11-04T18:19:18Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:21:00Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768521071",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 2",
+      "startedAt": "2026-11-04T18:20:23Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:20:21Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520838",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 3",
+      "startedAt": "2026-11-04T18:19:41Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:02Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520817",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 4",
+      "startedAt": "2026-11-04T18:18:22Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:18:34Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520954",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 5",
+      "startedAt": "2026-11-04T18:17:52Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:23:18Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768521068",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 6",
+      "startedAt": "2026-11-04T18:22:16Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:19:28Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768520928",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d no_lower_run pass1 write_through part 7",
+      "startedAt": "2026-11-04T18:18:47Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:36:34Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126780322837",
+      "name": "WP-14 package \u00e2\u20ac\u201d Git identity",
+      "startedAt": "2026-11-04T18:36:23Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:15:34Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768093538",
+      "name": "cheap",
+      "startedAt": "2026-11-04T18:15:28Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:22:44Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126768713253",
+      "name": "regression",
+      "startedAt": "2026-11-04T18:22:39Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:26:22Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126774320853",
+      "name": "independent full re-spool crash \u00e2\u20ac\u201d exact 4,209,696-case aggregate",
+      "startedAt": "2026-11-04T18:25:59Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-04T18:36:45Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/mmsanders/Digital-Tape/actions/runs/41885046336/job/126780455380",
+      "name": "qualification",
+      "startedAt": "2026-11-04T18:36:37Z",
+      "status": "COMPLETED",
+      "workflowName": "engine"
+    }
+  ]
+}

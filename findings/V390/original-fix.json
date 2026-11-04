@@ -1,0 +1,97 @@
+{
+  "mode": "candidate-regressions",
+  "judge_git_blob": "3c85cda2db275ce2fd8445ff3af3e260d2062197",
+  "judge_sha256": "61896c2dcfc5b11e1b786d52a6eaa6975291ac86189eb978e0ea0df8c25c237b",
+  "cases": [
+    {
+      "case": "valid-setup-OLD-is-reverted",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "trial 1001: completed_write_reverted (busy ended before rail_open - U, target reads OLD)"
+        ],
+        "qualifying": 1000,
+        "completed_write_reverted": [
+          1001
+        ],
+        "torn_iterations": []
+      },
+      "passed": true
+    },
+    {
+      "case": "failed-E0-has-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "rig manifest: controls.E0: result is 'fail', not 'pass'"
+        ],
+        "qualifying": 0,
+        "completed_write_reverted": [],
+        "torn_iterations": []
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-manifest-has-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "a plan-v4 run needs a loaded rig manifest"
+        ],
+        "qualifying": 0,
+        "completed_write_reverted": [],
+        "torn_iterations": []
+      },
+      "passed": true
+    },
+    {
+      "case": "repointed-bytes-have-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "rig manifest bytes are not the ones the plan binds"
+        ],
+        "qualifying": 0,
+        "completed_write_reverted": [],
+        "torn_iterations": []
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-card-has-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "plan sku/revision/card_cid do not match the manifest's card"
+        ],
+        "qualifying": 0,
+        "completed_write_reverted": [],
+        "torn_iterations": []
+      },
+      "passed": true
+    },
+    {
+      "case": "NUL-ref-is-a-problem-not-exception",
+      "observed": {
+        "problems": [
+          "host_script: path 'host.py\\x00' is not a relative path inside the evidence"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "case": "huge-out-of-window-integer-is-a-problem-not-exception",
+      "observed": {
+        "problems": [
+          "thresholds_measured.a_falling_v: a measurement is outside 2.57-2.61"
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "failed": [],
+  "proof_predicate_controls_detected": 4,
+  "harness_success": true,
+  "candidate_clearance": false,
+  "physical_run": false
+}

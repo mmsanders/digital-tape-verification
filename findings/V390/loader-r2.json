@@ -1,0 +1,75 @@
+{
+  "judge_sha256": "61896c2dcfc5b11e1b786d52a6eaa6975291ac86189eb978e0ea0df8c25c237b",
+  "cases": [
+    {
+      "case": "ordinary-invalid-object",
+      "passed": true,
+      "problems": [
+        "manifest: keys must be exactly ['bus', 'capture', 'card', 'controls', 'firmware', 'host_script', 'judge_sha256', 'method', 'rig_doc', 'skew_measured_ns', 'switch', 'thresholds_measured']"
+      ]
+    },
+    {
+      "case": "missing-file",
+      "passed": true,
+      "problems": [
+        "manifest C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification390-local\\loader-portable\\missing.json cannot be read: No such file or directory"
+      ]
+    },
+    {
+      "case": "NUL-manifest-path",
+      "passed": false,
+      "exception": "ValueError('embedded null character')"
+    },
+    {
+      "case": "deep-json",
+      "passed": false,
+      "exception": "RecursionError('maximum recursion depth exceeded while decoding a JSON array from a unicode string')"
+    },
+    {
+      "case": "invalid-setup-retains-damage",
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 0,
+        "completed_write_reverted": [],
+        "torn_iterations": [
+          1
+        ],
+        "corrupt_iterations": [
+          2
+        ],
+        "neighbour_damage": [
+          [
+            3,
+            "-2"
+          ],
+          [
+            3,
+            "-1"
+          ],
+          [
+            3,
+            "+1"
+          ],
+          [
+            3,
+            "+2"
+          ]
+        ],
+        "damage_on_non_qualifying": [
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ],
+  "failed": [
+    "NUL-manifest-path",
+    "deep-json"
+  ],
+  "controls_detected": 2,
+  "harness_success": true,
+  "clearance": false,
+  "physical_run": false
+}
