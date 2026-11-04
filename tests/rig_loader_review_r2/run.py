@@ -9,7 +9,7 @@ def main():
  if a.record_known_findings:assert digest=='61896c2dcfc5b11e1b786d52a6eaa6975291ac86189eb978e0ea0df8c25c237b'
  s=importlib.util.spec_from_file_location('loader_review_candidate',a.judge.resolve());m=importlib.util.module_from_spec(s);sys.modules[s.name]=m;s.loader.exec_module(m)
  out=a.out.resolve();out.mkdir(parents=True,exist_ok=False)
- (out/'shape.json').write_text('{}');(out/'deep.json').write_text('['*2000+'0'+']'*2000)
+ (out/'shape.json').write_text('{}');(out/'deep.json').write_text('['*10000+'0'+']'*10000)
  cases=[]
  for name,path in [('ordinary-invalid-object',out/'shape.json'),('missing-file',out/'missing.json'),('NUL-manifest-path',str(out/'input')+'\0.json'),('deep-json',out/'deep.json')]:
   try:
