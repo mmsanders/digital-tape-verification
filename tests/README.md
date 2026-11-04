@@ -29,3 +29,5 @@ do not accept Product behavior or target hardware.
 V388: [be1_review_r1](be1_review_r1/README.md), eight review-discovered kit cases; original d62e0de0 HOLD, six failures and six detecting controls.
 
 V390: [CI policy review](ci_policy_r1/README.md) and [loader boundary r2](rig_loader_review_r2/README.md), exact-head HOLD reproductions and detecting controls.
+
+V392: [rig_cli_review_r1](rig_cli_review_r1/README.md),3 declared deep-JSON CLI cases with actual old-head detecting controls.

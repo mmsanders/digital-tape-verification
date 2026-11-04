@@ -1,0 +1,25 @@
+# V392 — Hardware651 c55e5ad correction review
+
+**Bounded artifact-consistency correction CLEARED; required current-base Product CI remains an integration condition. Physical rig/method remains NOT CLEARED.** No new correction finding was found in the reviewed scope. This is an exact-head tooling disposition, not media qualification or permission to merge without required CI/PM scope.
+
+Michael directly requested “review hardware ork”. [Verification392](https://github.com/mmsanders/digital-tape-verification/issues/392), updated2026-11-04T19:31:46Z, records this activation; closed390 stays closed. Hardware651 return6640039752 and required Product entry documents authenticate at unchanged main **aa3b87f9eab583fada697c82cb9fe3226fef80d6**. Document SHA256s are in AUTH.json and match the versions already read this session. Verifier input5b791e02a092c25d0758159cea2b931693800e99.
+
+## Identity and ordering
+
+Reviewed exact Hardware651/PR646 **c55e5ad0e23e39c28224b7c57c3cc7b165f1fd37**. Judge blob **d4ab1866324cc8b87a0f80c2f3b48e3d664c33ee**, canonical LF SHA256 **6edc55f5a70e89489b54604e5d5df873109c21690ef06900653fb08970776cae**. Import-only **e93274b** brings byte-identical tests/rig_loader_review_r2 tree **a5bfeb54a15f68878054611f5f3a89f6e95ef764**, source5c6a5c1a8b1f4b1f1deefe29124869d52a377116 / merge5b791e02, before fix c55e5ad. Manifest and changed paths authenticate. Earlier four trees remain1ca703a4 / ccf9bd21 /0d38fbe2 /a640b1c1 unchanged. Branch scope is hardware only; no engine/firmware/host/spec or shared import change.
+
+## Independent result
+
+Windows canonical-source execution passes **27 aggregation +71 timing +229 records +7 proof +5 loader =339 published cases**. Detecting controls and actual aggregation mutations pass. HW651-R3 now returns loader problems for NUL filenames and deeply nested JSON; ordinary invalid objects and missing files refuse normally. Valid authenticated setup/OLD rollback behavior remains correct, and failed-E0 setup retains TORN/CORRUPT/all four neighbour observations while supplying zero qualifying credit and no completion proof. Prior HW651-R1/R2 corrections remain verified.
+
+Covered source review: the public load_manifest wrapper catches Exception across acquisition/hash/parse/grammar and returns(None,None,nonempty problems). Specific read ValueError and parse RecursionError catches retain useful problem detail; grammar backstop remains. None of these paths can return an empty-problems authenticated success after failure. The judge CLI also catches RecursionError during strict plan/result parsing. The setup/damage/proof logic is unchanged from baf176c. Makefile adds the unchanged loader regression invocation. No blanket success, proof erasure or damage suppression was introduced.
+
+Hardware disclosed that the CLI deep-JSON change already existed without a corresponding test. New **tests/rig_cli_review_r1** independently binds that declared behavior before inspecting the delta; there is no retrospective tests-first claim. Three additional cases pass: valid production1000+lateNEW run is PASS/exit0;10,000-level plan and result JSON each refuse exit2 without traceback. The actual baf176c judge passes the positive and fails exactly both negative cases, so the test detects the pre-fix behavior. Three predicate controls reject false success, traceback and blanket refusal. Total executed candidate scenarios342. Older packages remain immutable. Small result summaries are retained; raw synthetic campaigns are not committed.
+
+The publication workflow repeats these five published suites and the new CLI checks/old-head negative controls on Ubuntu24 against pinned canonical commits. Its exact source/run/merge identity is returned in392/651 after success. Windows and Linux are logical artifact/CLI scope; no real rig/device or calibrated timing was used.
+
+## Integration and remaining holds
+
+Product CI snapshot in PRODUCT-CI.json is for this exact head:53 SUCCESS,15 SKIPPED and1 unfinished check at capture; branch is BEHIND current PM main. Thus this report does not claim all required Product checks green. Software/PM own current-base synchronization and meaningful required CI; a changed behavioral head needs disposition, while unchanged judge/import identities may carry this bounded result through base-only plumbing. CI policy658 has its separate V390/PM661 coverage finding; no waiver is inferred here.
+
+Hardware651 receives the merged report and new CLI test tree for unchanged import/continued regression coverage. This closes the reviewed R3 defect, not the whole physical campaign. No Product code edit or merge by Verification. Rig is unbuilt; E0–E4/dry controls unmeasured; U=1us and500us remain model limits. SPI characterisation is not native-SD/system qualification. Zero cards qualified; no target, physical/electrical/acoustic/media/safety acceptance, purchase, energising, rig firmware, batching or DRAFT11. Fabrication and charging remain CLOSED. Stop after published return; no polling for future inputs.
