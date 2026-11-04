@@ -1,0 +1,36 @@
+{
+  "issue": 382,
+  "issue_updated": "2026-11-04T03:17:51Z",
+  "product_main": "51d0f8f812fe6ffbba71c2bf9a7426ee5d23ed78",
+  "verification_input": "d23a90f71b88662b6fe08a5bca96b90931bc8dd8",
+  "documents": {
+    "AGENTS.md": "567124256c91cfab151ff5ea91fcd73219465af2d99aa36767181c382759500b",
+    "CLAUDE.md": "fc3b40ecad141d396a0968033564b7354eda96c9334712db8fdcc8381256e7ab",
+    "docs/ROLES/verification.md": "0f3e588255d03683e06d77ea6c021a700aa3a131a03e6b7a2a675c4ba0379d68",
+    "docs/STATUS.md": "0f5c90e122e08764f05953891ccaf7d59ad51728a442b9ec24dbcfdff9be2657",
+    "docs/WP17-BENCH-EVIDENCE.md": "e31d71c614385e0fda4731b0de0fe4fa271e4afd2e9c06dd348d4bac2afbad2e",
+    "docs/WP17-FIRMWARE-CONTRACT.md": "4680b39852d5f5c048f236641ba5b8e04746886208e8fe865b0f71611b176ede",
+    "docs/PACKAGES/WP-05.md": "dc7097b1347ff9c60da6acb9b8eff207b684ae97a8cac7ebbfa0f349a7d42701",
+    "docs/REVIEW/PM655-P3-R2-2026-11-03.md": "2bbad3d4675f47cbe81382a4101abaa6206bd774e5e00209c81354605490196d"
+  },
+  "declarations": {
+    "docs/WP17-BE1-INTERFACE.md": {
+      "commit": "97a5502216d1822d1708edad922e856b08dc909b",
+      "sha256": "d2a41dbdee9ee8654bbaa465c2cd358ef840b12b9c80a28845cc9008548faffa"
+    },
+    "hardware/characterisation/ATOMICITY-SCHEMA-R2.md": {
+      "commit": "2faa1180c6f12eb4598d1f25351766f550064055",
+      "sha256": "a948f290c733b14a9caa0c012db8ae2df8e3ede7c655db530b123d81f27d8fdc"
+    },
+    "hardware/characterisation/ATOMICITY-RIG.md": {
+      "commit": "2faa1180c6f12eb4598d1f25351766f550064055",
+      "sha256": "88baace2cec1d06631318e9912d6ef51eacdbf014d650a670ddb5368a15eb0c0"
+    }
+  },
+  "r374_1_import": {
+    "commit": "9f611c4945a34e1a56708bcb8a99859f656b7774",
+    "implementation_commit": "dc38a4d9d7d5c42c4d8759273df5cce8078d0d1b",
+    "tree": "1ca703a44cdffc940201068b24b9ad8673fee644",
+    "ancestor_check_exit": 0
+  }
+}

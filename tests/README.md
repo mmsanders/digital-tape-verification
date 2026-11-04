@@ -6,6 +6,7 @@ started by Michael; old package “pending” text never supplies a new task.
 
 | Package / navigation | Purpose |
 |---|---|
+| [BE1 binding r1](be1_binding_r1/README.md) / [rig timing r1](rig_timing_r1/README.md) | V382 ready executable subsets; exact remaining declaration conflicts explicit |
 | [Rig correction r2](rig_correction_r2/README.md) | V380 Stage A, production-threshold regressions; six old gaps retained; new method schema pending |
 | [FW-1 admission correction r2](wp17_admission_r2/README.md) | Explicit ADR-202 recognition rule, 28 partition/view/diagnostic cases; previous expectation/report bytes preserved |
 | [WP-17 exact-candidate execution](wp17_candidate_r1/README.md) | Published FW-1 predicates on Software642, independent firmware-host PCM and ARM evidence accounting; bootstrap HOLD reproduced |
