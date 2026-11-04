@@ -1,0 +1,29 @@
+name: Verification394 independent policy bindings
+on:
+  pull_request:
+    paths: ['tests/wp14_supported_r1/**', 'tests/review_order_r1/**', 'findings/V394-POLICY/**', '.github/workflows/verification394-policy.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install PyYAML==6.0.3
+      - name: Preserved per-platform oracle and real saved-byte controls
+        run: python3 -B tests/wp14_supported_r1/selftest.py > census-SELFTEST.json
+      - name: Required supported-census DAG negative controls
+        run: python3 -B tests/wp14_supported_r1/dag.py --selftest > dag-SELFTEST.json
+      - name: Real history/manifest/publication fixtures and detecting harness controls
+        run: python3 -B tests/review_order_r1/run.py --selftest --out build/order
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: V394-independent-policy-bindings
+          path: |
+            census-SELFTEST.json
+            dag-SELFTEST.json
+            build/order/RESULT.json
+          retention-days: 90

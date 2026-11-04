@@ -17,6 +17,8 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Software658 / e0b6bb02 | HOLD: supported-platform census removed | [V390](findings/V390/DISPOSITION.md): manual macOS/selection controls pass; Windows/Linux retained-evidence audit must remain required or receive explicit PM scope disposition. |
 | Hardware651 / 18852b5 | HOLD | [Review](findings/HW651-18852B5/DISPOSITION.md): unauthenticated setup awards proof/credit; invalid manifests raise; Product CI not green. Existing27/71/229 pass |
 | Hardware651 correction1 | Remaining record bindings published | [Records return](findings/HW651-RECORDS/DISPOSITION.md): plan4/loader/rollback ready for import; exact implemented-head and physical method review pending |
+| Software652 /0db6ce5c | Bounded behavioral corrections CLEARED | [V394 laneA](findings/V394-KIT/DISPOSITION.md); original/import/fix lineage retained, red ordering CI still blocks integration. |
+| Census / review-order policy | Independent NEW packages ready | [V394 B/C](findings/V394-POLICY/DISPOSITION.md); immutable companion oracle/fixtures before Software658 changes; returned adapter/gate disposition pending. |
 | Software652 / d62e0de0 | HOLD: deadline, resolved confinement, malformed types | [V388 review](findings/V388/DISPOSITION.md); existing109/4/53/47 pass; six new failures ready for unchanged import. |
 | Software652 IF/3 | Remaining Software bindings published | [IF/3 return](findings/SW652-IF3/DISPOSITION.md): 53 checker/47 capture cases; import then exact implemented-head review pending |
 | Round 2 / V382 | Ready executable subsets published; corrected declarations/heads pending | [Return](findings/P3-R2-V382/DISPOSITION.md): BE1 109 bundles/4 fake-port cases, 71 rig rows; exact2faa1180 R374-1 passes27; no whole-method clearance |
@@ -26,7 +28,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Latest return: [Verification #392](https://github.com/mmsanders/digital-tape-verification/issues/392); prior publications preserved.
+Latest return: [Verification #394](https://github.com/mmsanders/digital-tape-verification/issues/394); prior publications preserved.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)
