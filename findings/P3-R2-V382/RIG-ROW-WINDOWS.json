@@ -1,0 +1,17 @@
+{
+  "scope": "declared-model row tests only; no calibrated timing or physical evidence",
+  "cases": 71,
+  "controls_detected": [
+    "always-qualify",
+    "never-qualify",
+    "lower-equality-misclassified-completed",
+    "lower-equality-counted",
+    "upper-equality-counted",
+    "operator-shrunk-U",
+    "unobserved-opening-counted"
+  ],
+  "physical_run": false,
+  "method_clearance": false,
+  "mode": "harness-selftest-only",
+  "product_executed": false
+}

@@ -1,0 +1,34 @@
+name: Verification382 rig binding and bounded R374-1 disposition
+on:
+  pull_request:
+    paths: ['tests/rig_timing_r1/**', 'findings/P3-R2-V382/**', '.github/workflows/verification382-rig.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  row-controls-and-aggregation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 2faa1180c6f12eb4598d1f25351766f550064055
+          path: build/hardware382
+          sparse-checkout: hardware/characterisation/media_atomicity.py
+          sparse-checkout-cone-mode: false
+      - name: Existing published 27 cases on exact corrected R374-1 head
+        run: |
+          python3 -B tests/rig_correction_r2/run.py --judge build/hardware382/hardware/characterisation/media_atomicity.py --out build/R374-1-LINUX.json
+      - name: New row-binding controls only, no uncovered implementation execution
+        run: |
+          python3 -B tests/rig_timing_r1/run.py --selftest --out build/row-controls.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: V382-rig-results
+          path: |
+            build/R374-1-LINUX.json
+            build/row-controls.json
+          retention-days: 90
