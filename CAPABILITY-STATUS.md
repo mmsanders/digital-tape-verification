@@ -1,7 +1,7 @@
 # Verification capability status
 
 **Phase 3 open. Phases 1 and 2 complete.** Baseline authenticated against Product
-`3826018653e504217f37a16d8864fb0d597e22e6` (ADR-198â€“201).
+`3826018653e504217f37a16d8864fb0d597e22e6` (ADR-198–201).
 Current assignments come only from live `verification-lead` issues started by Michael.
 
 | Area | Current state | Independent boundary / next owner |
@@ -14,7 +14,6 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Q-P2-1 remaining coverage | 365 faults PASS; 6 long cuts proved unavailable | [#374 disposition](findings/P3-R1-374/DISPOSITION.md): all 404 previously missing load faults executed with prior receipts; exact long fixture ends after 3 units. No batching permission inferred |
 | Hardware651 / 18852b5 | HOLD | [Review](findings/HW651-18852B5/DISPOSITION.md): unauthenticated setup awards proof/credit; invalid manifests raise; Product CI not green. Existing27/71/229 pass |
 | Hardware651 correction1 | Remaining record bindings published | [Records return](findings/HW651-RECORDS/DISPOSITION.md): plan4/loader/rollback ready for import; exact implemented-head and physical method review pending |
-| Software652 / d62e0de0 | HOLD: deadline, resolved confinement, malformed types | [V388 review](findings/V388/DISPOSITION.md); existing109/4/53/47 pass; new six failures published for unchanged import. |
 | Software652 / d62e0de0 | HOLD: deadline, resolved confinement, malformed types | [V388 review](findings/V388/DISPOSITION.md); existing109/4/53/47 pass; six new failures ready for unchanged import. |
 | Software652 IF/3 | Remaining Software bindings published | [IF/3 return](findings/SW652-IF3/DISPOSITION.md): 53 checker/47 capture cases; import then exact implemented-head review pending |
 | Round 2 / V382 | Ready executable subsets published; corrected declarations/heads pending | [Return](findings/P3-R2-V382/DISPOSITION.md): BE1 109 bundles/4 fake-port cases, 71 rig rows; exact2faa1180 R374-1 passes27; no whole-method clearance |
