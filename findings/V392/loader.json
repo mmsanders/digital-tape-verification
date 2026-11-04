@@ -1,0 +1,76 @@
+{
+  "judge_sha256": "6edc55f5a70e89489b54604e5d5df873109c21690ef06900653fb08970776cae",
+  "cases": [
+    {
+      "case": "ordinary-invalid-object",
+      "passed": true,
+      "problems": [
+        "manifest: keys must be exactly ['bus', 'capture', 'card', 'controls', 'firmware', 'host_script', 'judge_sha256', 'method', 'rig_doc', 'skew_measured_ns', 'switch', 'thresholds_measured']"
+      ]
+    },
+    {
+      "case": "missing-file",
+      "passed": true,
+      "problems": [
+        "manifest WindowsPath('C:/Users/mrtro/Documents/ChatGPT/Digital-Tape Verification 2/verification392-local/loader/missing.json') cannot be read: No such file or directory"
+      ]
+    },
+    {
+      "case": "NUL-manifest-path",
+      "passed": true,
+      "problems": [
+        "manifest 'C:\\\\Users\\\\mrtro\\\\Documents\\\\ChatGPT\\\\Digital-Tape Verification 2\\\\verification392-local\\\\loader\\\\input\\x00.json' cannot be read: embedded null character"
+      ]
+    },
+    {
+      "case": "deep-json",
+      "passed": true,
+      "problems": [
+        "manifest is not strict UTF-8 JSON: nested too deeply"
+      ]
+    },
+    {
+      "case": "invalid-setup-retains-damage",
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 0,
+        "completed_write_reverted": [],
+        "torn_iterations": [
+          1
+        ],
+        "corrupt_iterations": [
+          2
+        ],
+        "neighbour_damage": [
+          [
+            3,
+            "-2"
+          ],
+          [
+            3,
+            "-1"
+          ],
+          [
+            3,
+            "+1"
+          ],
+          [
+            3,
+            "+2"
+          ]
+        ],
+        "damage_on_non_qualifying": [
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ],
+  "failed": [],
+  "controls_detected": 2,
+  "harness_success": true,
+  "clearance": false,
+  "physical_run": false
+}

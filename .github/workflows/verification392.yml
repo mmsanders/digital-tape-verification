@@ -1,0 +1,48 @@
+name: Verification392 Hardware loader correction
+on:
+  pull_request:
+    paths: ['tests/rig_cli_review_r1/**', 'findings/V392/**', '.github/workflows/verification392.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-loader-correction:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: c55e5ad0e23e39c28224b7c57c3cc7b165f1fd37
+          path: build/candidate
+          sparse-checkout: hardware/characterisation/media_atomicity.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: baf176c0a38b9bdf9642c312d4f351aa86c3fa01
+          path: build/negative
+          sparse-checkout: hardware/characterisation/media_atomicity.py
+          sparse-checkout-cone-mode: false
+      - name: Published bounded suites and detecting controls
+        run: |
+          python3 -B tests/rig_correction_r2/run.py --judge build/candidate/hardware/characterisation/media_atomicity.py --out build/aggregation.json
+          python3 -B tests/rig_timing_r1/run.py --qualifier build/candidate/hardware/characterisation/media_atomicity.py --out build/timing.json
+          python3 -B tests/rig_records_r1/run.py --judge build/candidate/hardware/characterisation/media_atomicity.py --out build/records
+          python3 -B tests/rig_review_r1/run.py --judge build/candidate/hardware/characterisation/media_atomicity.py --out build/proof
+          python3 -B tests/rig_loader_review_r2/run.py --judge build/candidate/hardware/characterisation/media_atomicity.py --out build/loader
+      - name: Declared CLI extension with actual previous-head negative controls
+        run: python3 -B tests/rig_cli_review_r1/run.py --judge build/candidate/hardware/characterisation/media_atomicity.py --negative-judge build/negative/hardware/characterisation/media_atomicity.py --out build/cli
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: V392-bounded-correction
+          path: |
+            build/aggregation.json
+            build/timing.json
+            build/records/RESULT.json
+            build/proof/RESULT.json
+            build/loader/RESULT.json
+            build/cli/RESULT.json
+          retention-days: 90

@@ -31,3 +31,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V388 exact Software kit HOLD](V388/DISPOSITION.md): Hardware publication; Software deadline/confinement/type findings; absent CI658 and Hardware correction dependencies.
 
 [V390 CI/HW review](V390/DISPOSITION.md): required supported-platform census removed; original Hardware defects corrected, two outer-loader exceptions remain.
+
+[V392 Hardware correction](V392/DISPOSITION.md): c55e5ad bounded artifact-consistency correction cleared; current-base required CI and physical holds remain.
