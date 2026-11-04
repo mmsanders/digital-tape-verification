@@ -1,0 +1,32 @@
+{
+  "mode": "harness-selftest-only",
+  "manifest_cases": 133,
+  "complete_judge_cases": 85,
+  "predicate_cases": 9,
+  "cli_scenarios_authored": 11,
+  "controls_detected": [
+    "accept-bad-manifest",
+    "wrong-exact-manifest-hash",
+    "blanket-reject-good-manifest",
+    "lower-minimum",
+    "miss-counted",
+    "rollback-report-only",
+    "rollback-erased",
+    "rollback-labelled-TORN",
+    "missing-integrity-problem",
+    "false-native-scope",
+    "false-rollback-ambiguous-OLD-149.0",
+    "false-rollback-ambiguous-OLD-151.0",
+    "false-rollback-OLD-no-completion-proof-chatter",
+    "false-rollback-record-invalid-is-problem-not-rollback",
+    "hide-torn_iterations",
+    "hide-neighbour_damage",
+    "plan-does-not-bind-plan_version",
+    "plan-does-not-bind-method",
+    "plan-does-not-bind-rig_manifest_sha256",
+    "plan-does-not-bind-plan_digest"
+  ],
+  "product_executed": false,
+  "physical_run": false,
+  "method_clearance": false
+}
