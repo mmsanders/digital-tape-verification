@@ -1,0 +1,24 @@
+{
+  "authority": "Michael direct continuation: per-run setup, loading rig records, old-data failure rule",
+  "product_main": "51d0f8f812fe6ffbba71c2bf9a7426ee5d23ed78",
+  "verification_main": "458be603de4fe486da4689759b5937d6415e7ab7",
+  "declaration_head": "577d1776c9b8052f51f9f6eec6b0a33a73d635c8",
+  "documents": {
+    "AGENTS.md": "567124256c91cfab151ff5ea91fcd73219465af2d99aa36767181c382759500b",
+    "CLAUDE.md": "fc3b40ecad141d396a0968033564b7354eda96c9334712db8fdcc8381256e7ab",
+    "docs/ROLES/verification.md": "0f3e588255d03683e06d77ea6c021a700aa3a131a03e6b7a2a675c4ba0379d68",
+    "docs/STATUS.md": "0f5c90e122e08764f05953891ccaf7d59ad51728a442b9ec24dbcfdff9be2657"
+  },
+  "sources": {
+    "hardware/characterisation/ATOMICITY-SCHEMA-R2.md": {
+      "git_blob": "bf362578bc5e3bbed4d8118db73450b331311b84",
+      "sha256": "c6691bc2d701790b71040030dfa62589f164ce75c57c7a1f19d2839ecb399141"
+    },
+    "hardware/characterisation/ATOMICITY-RIG.md": {
+      "git_blob": "bf2e2c91303efe179f0342e122eb35f30c4eb71f",
+      "sha256": "9a917cc1f8be49f7f460dcd73c062509d49eba3c1ab5aa83c9850601183d192a"
+    }
+  },
+  "product_executed": false,
+  "physical_run": false
+}

@@ -1,0 +1,21 @@
+name: Hardware651 independent records binding
+on:
+  pull_request:
+    paths: ['tests/rig_records_r1/**', 'findings/HW651-RECORDS/**', '.github/workflows/hardware651-records.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  manifest-plan-rollback-harness:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Qualify independent synthetic records and detecting controls only
+        run: python3 -B tests/rig_records_r1/run.py --selftest --out build/rig-records
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Hardware651-records-harness
+          path: build/rig-records/RESULT.json
+          retention-days: 90

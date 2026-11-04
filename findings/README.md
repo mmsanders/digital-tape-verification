@@ -6,6 +6,7 @@ coverage, exclusions and immutable publication identities.
 
 | Current Phase 3 record | Scope |
 |---|---|
+| [Hardware651 remaining binding](HW651-RECORDS/DISPOSITION.md) | Saved records, plan4 and qualified completed-write rollback tests; no Product or physical clearance |
 | [Software652 IF/3 binding](SW652-IF3/DISPOSITION.md) | 53 checker/47 fake-port cases; ready for import, no implemented-head or target clearance |
 | [V382 executable bindings/return](P3-R2-V382/DISPOSITION.md) | Ready BE1 and rig row tests; exact R374-1 PASS; whole kit/rig review pending corrected declarations/implementations |
 | [V380 Stage A](P3-R2-V380/DISPOSITION.md) | Rig expectations and revised DRAFT11/BE1 preflight; interface dependencies, no new candidate clearance |
