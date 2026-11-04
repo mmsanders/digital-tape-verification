@@ -33,3 +33,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V390 CI/HW review](V390/DISPOSITION.md): required supported-platform census removed; original Hardware defects corrected, two outer-loader exceptions remain.
 
 [V392 Hardware correction](V392/DISPOSITION.md): c55e5ad bounded artifact-consistency correction cleared; current-base required CI and physical holds remain.
+
+[V394 laneA](V394-KIT/DISPOSITION.md): corrected kit0db6ce5c clears bounded behavioral findings; required ordering-policy CI remains blocked.

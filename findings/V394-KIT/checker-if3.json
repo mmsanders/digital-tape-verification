@@ -1,0 +1,221 @@
+{
+  "mode": "candidate-offline-check",
+  "checker_sha256": "44050059720c71b67d6e7e6b1c1ed36571c5d3e0402d59a4480e8f11b2665752",
+  "cases": [
+    {
+      "case": "missing-witness-only",
+      "passed": true
+    },
+    {
+      "case": "no-transcript",
+      "passed": true
+    },
+    {
+      "case": "no-card",
+      "passed": true
+    },
+    {
+      "case": "no-verify",
+      "passed": true
+    },
+    {
+      "case": "card-change-manufacturer",
+      "passed": true
+    },
+    {
+      "case": "card-change-part_number",
+      "passed": true
+    },
+    {
+      "case": "card-change-capacity_bytes",
+      "passed": true
+    },
+    {
+      "case": "card-change-revision",
+      "passed": true
+    },
+    {
+      "case": "card-change-cid",
+      "passed": true
+    },
+    {
+      "case": "unknown-cid-is-not-qualified",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-0-exit0",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-0-exit1",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-1-exit0",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-1-exit1",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-2-exit0",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-2-exit1",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-3-exit0",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-3-exit1",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-4-exit0",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-4-exit1",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-5-exit0",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-5-exit1",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-6-exit0",
+      "passed": true
+    },
+    {
+      "case": "verify-finding-6-exit1",
+      "passed": true
+    },
+    {
+      "case": "verify-OK-nonzero",
+      "passed": true
+    },
+    {
+      "case": "verify-malformed-no-witness",
+      "passed": true
+    },
+    {
+      "case": "failed-verify-no-transcript",
+      "passed": true
+    },
+    {
+      "case": "failed-verify-no-card",
+      "passed": true
+    },
+    {
+      "case": "malformed-transcript-plus-verify-fail",
+      "passed": true
+    },
+    {
+      "case": "truncated-transcript-plus-verify-fail",
+      "passed": true
+    },
+    {
+      "case": "play-failed-with-missing-sequence",
+      "passed": true
+    },
+    {
+      "case": "render-failed-with-missing-verify",
+      "passed": true
+    },
+    {
+      "case": "self-reported-marker-f5-consistency",
+      "passed": true
+    },
+    {
+      "case": "witness-marker-missing-play_stop",
+      "passed": true
+    },
+    {
+      "case": "witness-marker-missing-removal",
+      "passed": true
+    },
+    {
+      "case": "witness-marker-missing-verify",
+      "passed": true
+    },
+    {
+      "case": "witness-marker-missing-verify-failed",
+      "passed": true
+    },
+    {
+      "case": "simulation-cannot-have-witness",
+      "passed": true
+    },
+    {
+      "case": "retry-retains-False-False",
+      "passed": true
+    },
+    {
+      "case": "retry-retains-False-True",
+      "passed": true
+    },
+    {
+      "case": "retry-retains-True-False",
+      "passed": true
+    },
+    {
+      "case": "retry-retains-True-True",
+      "passed": true
+    },
+    {
+      "case": "retry-chain-worst-retained-error",
+      "passed": true
+    },
+    {
+      "case": "f5-retry-no-witness-still-retains-failure",
+      "passed": true
+    },
+    {
+      "case": "f2-retry-retains-stack-excess",
+      "passed": true
+    },
+    {
+      "case": "firmware-path-positive",
+      "passed": true
+    },
+    {
+      "case": "firmware-exact-path-conflict-rehashed",
+      "passed": true
+    },
+    {
+      "case": "not-image-sub_firmware.hex",
+      "passed": true
+    },
+    {
+      "case": "not-image-firmware.HEX",
+      "passed": true
+    },
+    {
+      "case": "not-image-another.hex",
+      "passed": true
+    },
+    {
+      "case": "firmware-declared-only",
+      "passed": true
+    },
+    {
+      "case": "firmware-measured-only",
+      "passed": true
+    },
+    {
+      "case": "firmware-role-key",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "physical_run": false,
+  "complete": false
+}
