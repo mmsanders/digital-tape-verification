@@ -1,0 +1,12 @@
+{
+  "exit": 0,
+  "overall": "NOT_RUN",
+  "F1": "CONSISTENT",
+  "linked_file": {
+    "declared_sha256": "ac9fc3c8621b11a690906250912300edec250e071f2436b77f4afbcaff7f54ae",
+    "path": "linked/quiet.serial",
+    "reasons": [],
+    "sha256": "ac9fc3c8621b11a690906250912300edec250e071f2436b77f4afbcaff7f54ae",
+    "state": "CONSISTENT"
+  }
+}

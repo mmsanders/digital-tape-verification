@@ -25,3 +25,5 @@ are also in [the archive](../archive/TESTS-INDEX-PRE-P3-374.md), with SHA-256 in
 [the archive index](../archive/README.md). Its dated work directions are superseded.
 Verification owns expectations and dispositions; green infrastructure tests alone
 do not accept Product behavior or target hardware.
+
+V388: [be1_review_r1](be1_review_r1/README.md), eight review-discovered kit cases; original d62e0de0 HOLD, six failures and six detecting controls.

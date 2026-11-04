@@ -1,0 +1,24 @@
+[
+  {
+    "case": "criterion-list",
+    "exit": 97,
+    "report_created": false,
+    "audit": [
+      {
+        "event": "uncaught",
+        "detail": "TypeError(\"unhashable type: 'list'\")"
+      }
+    ]
+  },
+  {
+    "case": "supersede-list",
+    "exit": 97,
+    "report_created": false,
+    "audit": [
+      {
+        "event": "uncaught",
+        "detail": "TypeError(\"unhashable type: 'list'\")"
+      }
+    ]
+  }
+]

@@ -14,6 +14,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Q-P2-1 remaining coverage | 365 faults PASS; 6 long cuts proved unavailable | [#374 disposition](findings/P3-R1-374/DISPOSITION.md): all 404 previously missing load faults executed with prior receipts; exact long fixture ends after 3 units. No batching permission inferred |
 | Hardware651 / 18852b5 | HOLD | [Review](findings/HW651-18852B5/DISPOSITION.md): unauthenticated setup awards proof/credit; invalid manifests raise; Product CI not green. Existing27/71/229 pass |
 | Hardware651 correction1 | Remaining record bindings published | [Records return](findings/HW651-RECORDS/DISPOSITION.md): plan4/loader/rollback ready for import; exact implemented-head and physical method review pending |
+| Software652 / d62e0de0 | HOLD: deadline, resolved confinement, malformed types | [V388 review](findings/V388/DISPOSITION.md); existing109/4/53/47 pass; six new failures ready for unchanged import. |
 | Software652 IF/3 | Remaining Software bindings published | [IF/3 return](findings/SW652-IF3/DISPOSITION.md): 53 checker/47 capture cases; import then exact implemented-head review pending |
 | Round 2 / V382 | Ready executable subsets published; corrected declarations/heads pending | [Return](findings/P3-R2-V382/DISPOSITION.md): BE1 109 bundles/4 fake-port cases, 71 rig rows; exact2faa1180 R374-1 passes27; no whole-method clearance |
 | DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
@@ -22,7 +23,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Latest return: [Verification #382](https://github.com/mmsanders/digital-tape-verification/issues/382); prior publications preserved.
+Latest return: [Verification #388](https://github.com/mmsanders/digital-tape-verification/issues/388); prior publications preserved.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)
