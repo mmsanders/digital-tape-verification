@@ -31,3 +31,5 @@ V388: [be1_review_r1](be1_review_r1/README.md), eight review-discovered kit case
 V390: [CI policy review](ci_policy_r1/README.md) and [loader boundary r2](rig_loader_review_r2/README.md), exact-head HOLD reproductions and detecting controls.
 
 V392: [rig_cli_review_r1](rig_cli_review_r1/README.md),3 declared deep-JSON CLI cases with actual old-head detecting controls.
+
+V394: [supported census companion](wp14_supported_r1/README.md) and [review-order fixtures](review_order_r1/README.md), NEW immutable import paths before Software policy changes.

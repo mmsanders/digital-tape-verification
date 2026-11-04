@@ -1,0 +1,11 @@
+{
+  "mode": "history-fixture-selftest",
+  "generated": 25,
+  "positive": 3,
+  "negative": 22,
+  "harness_controls": [
+    "always-green",
+    "always-red"
+  ],
+  "product_gate_executed": false
+}
