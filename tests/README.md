@@ -6,6 +6,7 @@ started by Michael; old package “pending” text never supplies a new task.
 
 | Package / navigation | Purpose |
 |---|---|
+| [Hardware18852b5 review regressions](rig_review_r1/README.md) | Seven setup-proof/loader cases; old head reproduces six HOLD failures, strict mode rejects it |
 | [Rig records/plan/rollback binding](rig_records_r1/README.md) | Hardware651 correction1: remaining per-run/loading/OLD failure cases ready for import |
 | [BE1 IF/3 binding](be1_if3_r1/README.md) | Software652: remaining F5/retained-failure/image/capture cases, old packages unchanged |
 | [BE1 binding r1](be1_binding_r1/README.md) / [rig timing r1](rig_timing_r1/README.md) | V382 ready executable subsets; exact remaining declaration conflicts explicit |

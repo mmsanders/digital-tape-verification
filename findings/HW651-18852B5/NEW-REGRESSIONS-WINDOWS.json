@@ -1,0 +1,112 @@
+{
+  "mode": "authenticated-known-findings",
+  "judge_git_blob": "03382e6ec422a06048514122db0c2b4557ae46ba",
+  "judge_sha256": "4d199e54673e12dafc5ecf026f5d9fbaf4022bd9d310b9e6e8ee97f49e34a21e",
+  "cases": [
+    {
+      "case": "valid-setup-OLD-is-reverted",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "trial 1001: completed_write_reverted (busy ended before rail_open - U, target reads OLD)"
+        ],
+        "qualifying": 1000,
+        "completed_write_reverted": [
+          1001
+        ],
+        "torn_iterations": []
+      },
+      "passed": true
+    },
+    {
+      "case": "failed-E0-has-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "rig manifest: controls.E0: result is 'fail', not 'pass'",
+          "trial 1001: completed_write_reverted (busy ended before rail_open - U, target reads OLD)"
+        ],
+        "qualifying": 1000,
+        "completed_write_reverted": [
+          1001
+        ],
+        "torn_iterations": []
+      },
+      "passed": false
+    },
+    {
+      "case": "missing-manifest-has-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "a plan-v4 run needs a loaded rig manifest",
+          "trial 1001: completed_write_reverted (busy ended before rail_open - U, target reads OLD)"
+        ],
+        "qualifying": 1000,
+        "completed_write_reverted": [
+          1001
+        ],
+        "torn_iterations": []
+      },
+      "passed": false
+    },
+    {
+      "case": "repointed-bytes-have-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "rig manifest bytes are not the ones the plan binds",
+          "trial 1001: completed_write_reverted (busy ended before rail_open - U, target reads OLD)"
+        ],
+        "qualifying": 1000,
+        "completed_write_reverted": [
+          1001
+        ],
+        "torn_iterations": []
+      },
+      "passed": false
+    },
+    {
+      "case": "wrong-card-has-no-completion-proof",
+      "observed": {
+        "verdict": "FAIL",
+        "problems": [
+          "plan sku/revision/card_cid do not match the manifest's card",
+          "trial 1001: completed_write_reverted (busy ended before rail_open - U, target reads OLD)"
+        ],
+        "qualifying": 1000,
+        "completed_write_reverted": [
+          1001
+        ],
+        "torn_iterations": []
+      },
+      "passed": false
+    },
+    {
+      "case": "NUL-ref-is-a-problem-not-exception",
+      "observed": {
+        "exception": "ValueError('_getfinalpathname: embedded null character in path')"
+      },
+      "passed": false
+    },
+    {
+      "case": "huge-out-of-window-integer-is-a-problem-not-exception",
+      "observed": {
+        "exception": "OverflowError('int too large to convert to float')"
+      },
+      "passed": false
+    }
+  ],
+  "failed": [
+    "NUL-ref-is-a-problem-not-exception",
+    "failed-E0-has-no-completion-proof",
+    "huge-out-of-window-integer-is-a-problem-not-exception",
+    "missing-manifest-has-no-completion-proof",
+    "repointed-bytes-have-no-completion-proof",
+    "wrong-card-has-no-completion-proof"
+  ],
+  "proof_predicate_controls_detected": 4,
+  "harness_success": true,
+  "candidate_clearance": false,
+  "physical_run": false
+}

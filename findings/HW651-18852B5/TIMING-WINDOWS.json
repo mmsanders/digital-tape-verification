@@ -1,0 +1,730 @@
+{
+  "scope": "declared-model row tests only; no calibrated timing or physical evidence",
+  "cases": 71,
+  "controls_detected": [
+    "always-qualify",
+    "never-qualify",
+    "lower-equality-misclassified-completed",
+    "lower-equality-counted",
+    "upper-equality-counted",
+    "operator-shrunk-U",
+    "unobserved-opening-counted"
+  ],
+  "physical_run": false,
+  "method_clearance": false,
+  "mode": "candidate-row-qualification",
+  "qualifier_sha256": "4d199e54673e12dafc5ecf026f5d9fbaf4022bd9d310b9e6e8ee97f49e34a21e",
+  "observations": [
+    {
+      "case": "positive-declared-row",
+      "expected": true,
+      "required_reason": null,
+      "observed": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy-edge-148.999",
+      "expected": false,
+      "required_reason": "before",
+      "observed": [
+        false,
+        "busy ended before the rail opened"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy-edge-149.0",
+      "expected": false,
+      "required_reason": "ambiguous",
+      "observed": [
+        false,
+        "busy end within +/-U of rail opening (ambiguous)"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy-edge-150.0",
+      "expected": false,
+      "required_reason": "ambiguous",
+      "observed": [
+        false,
+        "busy end within +/-U of rail opening (ambiguous)"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy-edge-151.0",
+      "expected": false,
+      "required_reason": "ambiguous",
+      "observed": [
+        false,
+        "busy end within +/-U of rail opening (ambiguous)"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy-edge-151.001",
+      "expected": true,
+      "required_reason": null,
+      "observed": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy-ends-equal-entry",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "busy ended before the rail opened"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture-armed-late",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "busy capture not armed at busy entry"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture-at-entry",
+      "expected": true,
+      "required_reason": null,
+      "observed": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "uncertainty-window-short",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "capture did not cover the uncertainty window"
+      ],
+      "passed": true
+    },
+    {
+      "case": "uncertainty-window-exact",
+      "expected": true,
+      "required_reason": null,
+      "observed": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "no-opening",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rail opening not observed after busy entry"
+      ],
+      "passed": true
+    },
+    {
+      "case": "opening-before-entry",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rail opening not observed after busy entry"
+      ],
+      "passed": true
+    },
+    {
+      "case": "opening-at-entry",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rail opening not observed after busy entry"
+      ],
+      "passed": true
+    },
+    {
+      "case": "delayed-opening",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rail opening outside the cut delay bound"
+      ],
+      "passed": true
+    },
+    {
+      "case": "delay-bound-exact",
+      "expected": true,
+      "required_reason": null,
+      "observed": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "opening-before-command",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rail opening outside the cut delay bound"
+      ],
+      "passed": true
+    },
+    {
+      "case": "gpio-and-old-sample-do-not-replace-edge",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "old-fields-diagnostic-only",
+      "expected": true,
+      "required_reason": null,
+      "observed": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "operator-cannot-shrink-U",
+      "expected": false,
+      "required_reason": "ambiguous",
+      "observed": [
+        false,
+        "busy end within +/-U of rail opening (ambiguous)"
+      ],
+      "passed": true
+    },
+    {
+      "case": "operator-cannot-increase-delay",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rail opening outside the cut delay bound"
+      ],
+      "passed": true
+    },
+    {
+      "case": "payload_complete-false",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "single-block payload not proven complete"
+      ],
+      "passed": true
+    },
+    {
+      "case": "data_response_accepted-false",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "data-response token not accepted"
+      ],
+      "passed": true
+    },
+    {
+      "case": "wrong-busy-line",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "busy_line for spi must be MISO"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-busy_entry_us",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_entry_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-capture_armed_us",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_armed_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-cut_command_us",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: cut_command_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-rail_open_us",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-capture_end_us",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_end_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-rail_edges_us",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_edges_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-busy_end_edges_us",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_end_edges_us missing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_entry_us-nan",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_entry_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_entry_us-inf",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_entry_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_entry_us-negative",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_entry_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_entry_us-bool",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_entry_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_entry_us-string",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_entry_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_armed_us-nan",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_armed_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_armed_us-inf",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_armed_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_armed_us-negative",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_armed_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_armed_us-bool",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_armed_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_armed_us-string",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_armed_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "cut_command_us-nan",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: cut_command_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "cut_command_us-inf",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: cut_command_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "cut_command_us-negative",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: cut_command_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "cut_command_us-bool",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: cut_command_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "cut_command_us-string",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: cut_command_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_open_us-nan",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us is not a finite time >= 0 or null"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_open_us-inf",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us is not a finite time >= 0 or null"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_open_us-negative",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us is not a finite time >= 0 or null"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_open_us-bool",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us is not a finite time >= 0 or null"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_open_us-string",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us is not a finite time >= 0 or null"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_end_us-nan",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_end_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_end_us-inf",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_end_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_end_us-negative",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_end_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_end_us-bool",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_end_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture_end_us-string",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture_end_us is not a finite time >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_edges_us-non-list",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_edges_us is not a list of finite times >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_edges_us-nan",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_edges_us is not a list of finite times >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_edges_us-bool",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_edges_us is not a list of finite times >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_edges_us-before-window",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_edges_us has an edge outside the capture window"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_edges_us-after-window",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_edges_us has an edge outside the capture window"
+      ],
+      "passed": true
+    },
+    {
+      "case": "rail_edges_us-backwards",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_edges_us is not strictly increasing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_end_edges_us-non-list",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_end_edges_us is not a list of finite times >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_end_edges_us-nan",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_end_edges_us is not a list of finite times >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_end_edges_us-bool",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_end_edges_us is not a list of finite times >= 0"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_end_edges_us-before-window",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_end_edges_us has an edge outside the capture window"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_end_edges_us-after-window",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_end_edges_us has an edge outside the capture window"
+      ],
+      "passed": true
+    },
+    {
+      "case": "busy_end_edges_us-backwards",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: busy_end_edges_us is not strictly increasing"
+      ],
+      "passed": true
+    },
+    {
+      "case": "claimed-opening-with-no-edge",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us is not the first recorded rail edge"
+      ],
+      "passed": true
+    },
+    {
+      "case": "claimed-opening-not-recorded",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: rail_open_us is not the first recorded rail edge"
+      ],
+      "passed": true
+    },
+    {
+      "case": "capture-window-before-arm",
+      "expected": false,
+      "required_reason": null,
+      "observed": [
+        false,
+        "rig-r2 record invalid: capture ended before it was armed"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

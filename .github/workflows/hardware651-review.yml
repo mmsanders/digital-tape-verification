@@ -1,0 +1,38 @@
+name: Hardware651 exact-head review findings
+on:
+  pull_request:
+    paths: ['tests/rig_review_r1/**', 'findings/HW651-18852B5/**', '.github/workflows/hardware651-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bounded-head-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 18852b5080419585d0f7300d996af959014bc47a
+          path: build/hardware-review
+          sparse-checkout: hardware/characterisation/media_atomicity.py
+          sparse-checkout-cone-mode: false
+      - name: Existing independently published scopes on exact head
+        run: |
+          python3 -B tests/rig_correction_r2/run.py --judge build/hardware-review/hardware/characterisation/media_atomicity.py --out build/aggregation.json
+          python3 -B tests/rig_timing_r1/run.py --qualifier build/hardware-review/hardware/characterisation/media_atomicity.py --out build/timing.json
+          python3 -B tests/rig_records_r1/run.py --judge build/hardware-review/hardware/characterisation/media_atomicity.py --out build/records
+      - name: Authenticate and reproduce new HOLD findings, not candidate clearance
+        run: |
+          python3 -B tests/rig_review_r1/run.py --judge build/hardware-review/hardware/characterisation/media_atomicity.py --record-known-findings --out build/review-findings
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Hardware18852b5-review
+          path: |
+            build/aggregation.json
+            build/timing.json
+            build/records/RESULT.json
+            build/review-findings/RESULT.json
+          retention-days: 90
