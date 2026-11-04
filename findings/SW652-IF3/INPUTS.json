@@ -1,0 +1,14 @@
+{
+  "authority": "Michael: Please bind the IF/3 cases for software",
+  "product_main": "51d0f8f812fe6ffbba71c2bf9a7426ee5d23ed78",
+  "verification_main": "7df60b1423636dd4eda65cf46a453a1d1769e042",
+  "declaration_commit": "f9db5832194f95d886ad19a9855348c00f5a2da9",
+  "declaration_blob": "20ddc4448f532725b64db639f1b7a98faa8696c4",
+  "declaration_sha256": "e572cb1f72ae591980c2345fa16f06f6494fa0b595659048227ae460174619de",
+  "software_head": "586abc12652a5bd64901e68a017e3f35bed3eb6c",
+  "prior_package_tree": "b094d319e184bd6c410d93604e9ec784c60ba490",
+  "prior_source": "c77a4dfaea7b7d3fe6c69358540a170ebd26e222",
+  "prior_publication": "89bc424e0f71c2035ab166729d93d1bc36c226bd",
+  "product_implementation_executed": false,
+  "physical_run": false
+}

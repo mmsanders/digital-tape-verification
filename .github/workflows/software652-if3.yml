@@ -1,0 +1,25 @@
+name: Software652 IF3 independent binding
+on:
+  pull_request:
+    paths: ['tests/be1_if3_r1/**', 'findings/SW652-IF3/**', '.github/workflows/software652-if3.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  if3-fixtures-and-fake-port-controls:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Qualify new saved-evidence and fake-port bindings only
+        run: |
+          python3 -B tests/be1_if3_r1/run.py --selftest --golden tests/golden --out build/if3-checker
+          python3 -B tests/be1_if3_r1/capture.py --selftest --out build/if3-capture
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: IF3-harness-results
+          path: |
+            build/if3-checker/RESULT.json
+            build/if3-capture/RESULT.json
+          retention-days: 90
