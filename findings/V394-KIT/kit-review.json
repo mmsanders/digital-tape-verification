@@ -1,0 +1,135 @@
+{
+  "mode": "candidate-regressions",
+  "hashes": {
+    "checker": "44050059720c71b67d6e7e6b1c1ed36571c5d3e0402d59a4480e8f11b2665752",
+    "helper": "9929ef5f4bb0c7abd5340892883661e9d38953e075f993584df3d3e60b3e47da"
+  },
+  "cases": [
+    {
+      "case": "digest-before-deadline-positive",
+      "passed": true,
+      "exit": 0,
+      "summary": {
+        "bytes": 91,
+        "command": null,
+        "exit": 0,
+        "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification394-local\\kit-review\\digest-before-deadline-positive\\capture.raw",
+        "port": "V3_FAKE:UNCHANGED",
+        "sha256": "a214f3a1314ce8006df2e5fd67d6ee8464496eddac2a9b0a9b574e56cdd86b62",
+        "stop": "digest",
+        "tool": "bench_capture.py",
+        "version": "BE1-IF/3"
+      },
+      "elapsed": 0.09100000000000007,
+      "configured_timeout": 1.0,
+      "bytes": 91,
+      "violations": []
+    },
+    {
+      "case": "digest-continuous-input-deadline",
+      "passed": true,
+      "exit": 3,
+      "summary": {
+        "bytes": 3,
+        "command": null,
+        "exit": 3,
+        "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification394-local\\kit-review\\digest-continuous-input-deadline\\capture.raw",
+        "port": "V3_FAKE:UNCHANGED",
+        "sha256": "eba1d49220714f7635ac6c4ff979068df338c7eec6cba09d78ee31d28fcae1ba",
+        "stop": "timeout",
+        "tool": "bench_capture.py",
+        "version": "BE1-IF/3"
+      },
+      "elapsed": 0.03,
+      "configured_timeout": 0.03,
+      "bytes": 3,
+      "violations": []
+    },
+    {
+      "case": "info-before-deadline-positive",
+      "passed": true,
+      "exit": 0,
+      "summary": {
+        "bytes": 128,
+        "command": null,
+        "exit": 0,
+        "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification394-local\\kit-review\\info-before-deadline-positive\\capture.raw",
+        "port": "V3_FAKE:UNCHANGED",
+        "sha256": "fd7d266575f64d51f2a404059d160ff16877e10904eab5311ef193fa495f8a22",
+        "stop": "info",
+        "tool": "bench_capture.py",
+        "version": "BE1-IF/3"
+      },
+      "elapsed": 0.12800000000000009,
+      "configured_timeout": 1.0,
+      "bytes": 128,
+      "violations": []
+    },
+    {
+      "case": "info-continuous-input-deadline",
+      "passed": true,
+      "exit": 3,
+      "summary": {
+        "bytes": 3,
+        "command": null,
+        "exit": 3,
+        "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification394-local\\kit-review\\info-continuous-input-deadline\\capture.raw",
+        "port": "V3_FAKE:UNCHANGED",
+        "sha256": "121b078c0b324860d916f4c10d6dc96ebc4885035ea6fbd75f78de5a3d9f8c41",
+        "stop": "timeout",
+        "tool": "bench_capture.py",
+        "version": "BE1-IF/3"
+      },
+      "elapsed": 0.03,
+      "configured_timeout": 0.03,
+      "bytes": 3,
+      "violations": []
+    },
+    {
+      "case": "interrupt-continuous-input-deadline",
+      "passed": true,
+      "exit": 0,
+      "summary": {
+        "bytes": 3,
+        "command": null,
+        "exit": 0,
+        "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification394-local\\kit-review\\interrupt-continuous-input-deadline\\capture.raw",
+        "port": "V3_FAKE:UNCHANGED",
+        "sha256": "eba1d49220714f7635ac6c4ff979068df338c7eec6cba09d78ee31d28fcae1ba",
+        "stop": "timeout",
+        "tool": "bench_capture.py",
+        "version": "BE1-IF/3"
+      },
+      "elapsed": 0.03,
+      "configured_timeout": 0.03,
+      "bytes": 3,
+      "violations": []
+    },
+    {
+      "case": "outside-bundle-alias",
+      "passed": true,
+      "exit": 2,
+      "overall": "INVALID",
+      "violations": []
+    },
+    {
+      "case": "criterion-list",
+      "passed": true,
+      "exit": 2,
+      "overall": "INVALID",
+      "violations": []
+    },
+    {
+      "case": "supersede-list",
+      "passed": true,
+      "exit": 2,
+      "overall": "INVALID",
+      "violations": []
+    }
+  ],
+  "failed": [],
+  "controls_detected": 6,
+  "harness_success": true,
+  "candidate_clearance": false,
+  "physical_run": false
+}

@@ -1,0 +1,337 @@
+{
+  "mode": "candidate-fake-port-execution",
+  "helper_sha256": "9929ef5f4bb0c7abd5340892883661e9d38953e075f993584df3d3e60b3e47da",
+  "cases": [
+    {
+      "case": "digest-fragmented",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 91,
+      "elapsed": 0.09100000000000007
+    },
+    {
+      "case": "digest-LF",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 90,
+      "elapsed": 0.09000000000000007
+    },
+    {
+      "case": "empty-and-short-reads-continue",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 94,
+      "elapsed": 0.09400000000000007
+    },
+    {
+      "case": "digest-stops-on-ERR",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 21,
+      "elapsed": 0.02100000000000001
+    },
+    {
+      "case": "info-terminates",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 128,
+      "elapsed": 0.12800000000000009
+    },
+    {
+      "case": "info-FATAL",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 30,
+      "elapsed": 0.03000000000000002
+    },
+    {
+      "case": "info-ERR",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 30,
+      "elapsed": 0.03000000000000002
+    },
+    {
+      "case": "digest-ignores-info",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 219,
+      "elapsed": 0.21900000000000017
+    },
+    {
+      "case": "info-ignores-digest",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 219,
+      "elapsed": 0.21900000000000017
+    },
+    {
+      "case": "nothing-read-after-stop",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 91,
+      "elapsed": 0.09100000000000007
+    },
+    {
+      "case": "stream-framing-with-digest-ERR-info-in-PCM",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 105,
+      "elapsed": 0.10500000000000008
+    },
+    {
+      "case": "stream-count-byte-fragments",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 228,
+      "elapsed": 0.22800000000000017
+    },
+    {
+      "case": "stream-empty-reads-inside-count",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 145,
+      "elapsed": 0.1450000000000001
+    },
+    {
+      "case": "partial-line",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 250,
+      "elapsed": 0.25000000000000017
+    },
+    {
+      "case": "partial-count",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 250,
+      "elapsed": 0.25000000000000017
+    },
+    {
+      "case": "partial-pcm",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 250,
+      "elapsed": 0.25000000000000017
+    },
+    {
+      "case": "missing-zero-terminator",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 250,
+      "elapsed": 0.25000000000000017
+    },
+    {
+      "case": "missing-digest-after-zero",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 250,
+      "elapsed": 0.25000000000000017
+    },
+    {
+      "case": "info-timeout-keeps-partial",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 250,
+      "elapsed": 0.25000000000000017
+    },
+    {
+      "case": "digest-default-600",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 3,
+      "elapsed": 600.0
+    },
+    {
+      "case": "info-default-10",
+      "passed": true,
+      "exit": 3,
+      "fake_reads": 3,
+      "elapsed": 12.0
+    },
+    {
+      "case": "interrupt-timeout-keeps-bytes",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 4,
+      "elapsed": 0.2
+    },
+    {
+      "case": "ctrl-C-digest",
+      "passed": true,
+      "exit": 130,
+      "fake_reads": 3,
+      "elapsed": 0.002
+    },
+    {
+      "case": "ctrl-C-info",
+      "passed": true,
+      "exit": 130,
+      "fake_reads": 3,
+      "elapsed": 0.002
+    },
+    {
+      "case": "ctrl-C-interrupt",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 3,
+      "elapsed": 0.002
+    },
+    {
+      "case": "interrupt-default-has-no-timeout",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 3,
+      "elapsed": 20000.0
+    },
+    {
+      "case": "port-error-open",
+      "passed": true,
+      "exit": 4,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "port-error-read",
+      "passed": true,
+      "exit": 4,
+      "fake_reads": 3,
+      "elapsed": 0.002
+    },
+    {
+      "case": "port-error-write",
+      "passed": true,
+      "exit": 4,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "port-error-flush",
+      "passed": true,
+      "exit": 4,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "send-one",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 128,
+      "elapsed": 0.12800000000000009
+    },
+    {
+      "case": "send-info",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 128,
+      "elapsed": 0.12800000000000009
+    },
+    {
+      "case": "send-63",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 128,
+      "elapsed": 0.12800000000000009
+    },
+    {
+      "case": "deadline-starts-after-send",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 128,
+      "elapsed": 1000.127999999997
+    },
+    {
+      "case": "reset-discards-pre-send-bytes",
+      "passed": true,
+      "exit": 0,
+      "fake_reads": 128,
+      "elapsed": 0.12800000000000009
+    },
+    {
+      "case": "send-empty",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "send-64",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "send-non-ascii",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "send-CR",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "send-LF",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "send-NUL",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "timeout-invalid-0",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "timeout-invalid--1",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "no-mode",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "multiple-modes",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "unknown-option",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    },
+    {
+      "case": "existing-output-never-overwritten",
+      "passed": true,
+      "exit": 64,
+      "fake_reads": 0,
+      "elapsed": 0.0
+    }
+  ],
+  "passed": true,
+  "physical_run": false
+}
