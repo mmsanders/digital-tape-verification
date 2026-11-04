@@ -1,0 +1,72 @@
+{
+  "product_main": "51d0f8f812fe6ffbba71c2bf9a7426ee5d23ed78",
+  "candidate": "18852b5080419585d0f7300d996af959014bc47a",
+  "verification_main": "84c95d0eda9f6f6c98fa1203edb58ecac5f8d3ad",
+  "judge_sha256": "4d199e54673e12dafc5ecf026f5d9fbaf4022bd9d310b9e6e8ee97f49e34a21e",
+  "judge_git_blob": "03382e6ec422a06048514122db0c2b4557ae46ba",
+  "required_documents": {
+    "AGENTS.md": "567124256c91cfab151ff5ea91fcd73219465af2d99aa36767181c382759500b",
+    "CLAUDE.md": "fc3b40ecad141d396a0968033564b7354eda96c9334712db8fdcc8381256e7ab",
+    "docs/ROLES/verification.md": "0f3e588255d03683e06d77ea6c021a700aa3a131a03e6b7a2a675c4ba0379d68",
+    "docs/STATUS.md": "0f5c90e122e08764f05953891ccaf7d59ad51728a442b9ec24dbcfdff9be2657"
+  },
+  "imports": {
+    "rig_correction_r2": {
+      "tree": "1ca703a44cdffc940201068b24b9ad8673fee644",
+      "source": "bab04466daae68203c41786f8ce6034580fd92bd",
+      "import_commit": "9f611c4945a34e1a56708bcb8a99859f656b7774",
+      "implementation_commit": "dc38a4d9d7d5c42c4d8759273df5cce8078d0d1b",
+      "import_changed_paths": [
+        "hardware/characterisation/verification/IMPORT-rig_correction_r2.json",
+        "hardware/characterisation/verification/rig_correction_r2/EXPECTATIONS.md",
+        "hardware/characterisation/verification/rig_correction_r2/README.md",
+        "hardware/characterisation/verification/rig_correction_r2/run.py"
+      ]
+    },
+    "rig_timing_r1": {
+      "tree": "ccf9bd21860eded07c4a0a6046a4ba644df29262",
+      "source": "8879dbacdc036ac4b9eb224e6b73f6f353030b48",
+      "import_commit": "7832f52f1da0c9c8b9416209ba580508a11daa2f",
+      "implementation_commit": "577d1776c9b8052f51f9f6eec6b0a33a73d635c8",
+      "import_changed_paths": [
+        "hardware/characterisation/verification/IMPORT-rig_timing_r1.json",
+        "hardware/characterisation/verification/rig_timing_r1/README.md",
+        "hardware/characterisation/verification/rig_timing_r1/run.py"
+      ]
+    },
+    "rig_records_r1": {
+      "tree": "0d38fbe24031a142d54a63b4fae3dccb0a7fbf62",
+      "source": "45a6dda095545a437cf65fdd3c6f77d35adcee3c",
+      "import_commit": "fa6417b3299ae5c9f0265f2db5271a19ba01583d",
+      "implementation_commit": "18852b5080419585d0f7300d996af959014bc47a",
+      "import_changed_paths": [
+        "hardware/characterisation/verification/IMPORT-rig_records_r1.json",
+        "hardware/characterisation/verification/rig_records_r1/README.md",
+        "hardware/characterisation/verification/rig_records_r1/fixtures.py",
+        "hardware/characterisation/verification/rig_records_r1/run.py"
+      ]
+    }
+  },
+  "diff_paths": [
+    "hardware/Makefile",
+    "hardware/README.md",
+    "hardware/characterisation/ATOMICITY-RIG.md",
+    "hardware/characterisation/ATOMICITY-SCHEMA-R2.md",
+    "hardware/characterisation/SPEAKER-LIMIT.md",
+    "hardware/characterisation/media_atomicity.py",
+    "hardware/characterisation/verification/IMPORT-rig_correction_r2.json",
+    "hardware/characterisation/verification/IMPORT-rig_records_r1.json",
+    "hardware/characterisation/verification/IMPORT-rig_timing_r1.json",
+    "hardware/characterisation/verification/rig_correction_r2/EXPECTATIONS.md",
+    "hardware/characterisation/verification/rig_correction_r2/README.md",
+    "hardware/characterisation/verification/rig_correction_r2/run.py",
+    "hardware/characterisation/verification/rig_records_r1/README.md",
+    "hardware/characterisation/verification/rig_records_r1/fixtures.py",
+    "hardware/characterisation/verification/rig_records_r1/run.py",
+    "hardware/characterisation/verification/rig_timing_r1/README.md",
+    "hardware/characterisation/verification/rig_timing_r1/run.py",
+    "hardware/controls/COPY-BUTTON.md",
+    "hardware/controls/REW-FF-DEPTH.md",
+    "hardware/sourcing/PHASE3-BENCH.md"
+  ]
+}
