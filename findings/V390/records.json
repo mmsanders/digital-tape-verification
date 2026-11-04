@@ -1,0 +1,925 @@
+{
+  "mode": "candidate-synthetic-records",
+  "judge_sha256": "61896c2dcfc5b11e1b786d52a6eaa6975291ac86189eb978e0ea0df8c25c237b",
+  "cases": [
+    {
+      "case": "load-valid-synthetic-records",
+      "passed": true
+    },
+    {
+      "case": "load-valid-whitespace-hashed-as-bytes",
+      "passed": true
+    },
+    {
+      "case": "load-missing-manifest-file",
+      "passed": true
+    },
+    {
+      "case": "load-nonobject-array",
+      "passed": true
+    },
+    {
+      "case": "load-nonobject-null",
+      "passed": true
+    },
+    {
+      "case": "load-nonobject-number",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-E0",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-E0",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-E0",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-E1",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-E1",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-E1",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-E2",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-E2",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-E2",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-E3",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-E3",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-E3",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-E4",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-E4",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-E4",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-A",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-A",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-A",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-B",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-B",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-B",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-B2",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-B2",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-B2",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-C",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-C",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-C",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-D",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-D",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-D",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-E",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-E",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-E",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-F",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-F",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-F",
+      "passed": true
+    },
+    {
+      "case": "load-missing-control-G",
+      "passed": true
+    },
+    {
+      "case": "load-failed-control-G",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-evidence-G",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-firmware.bin",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-firmware.bin",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-host.py",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-host.py",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-calibration.txt",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-calibration.txt",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-thresholds.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-thresholds.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-skew.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-skew.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-E0.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-E0.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-E1.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-E1.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-E2.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-E2.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-E3.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-E3.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-E4.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-E4.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-A.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-A.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-B.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-B.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-B2.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-B2.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-C.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-C.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-D.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-D.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-E.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-E.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-F.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-F.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-control-G.raw",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-control-G.raw",
+      "passed": true
+    },
+    {
+      "case": "load-changed-file-photo.txt",
+      "passed": true
+    },
+    {
+      "case": "load-missing-file-photo.txt",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-method",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-rig_doc",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-firmware",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-host_script",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-judge_sha256",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-bus",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-capture",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-switch",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-thresholds_measured",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-skew_measured_ns",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-controls",
+      "passed": true
+    },
+    {
+      "case": "load-missing-key-card",
+      "passed": true
+    },
+    {
+      "case": "load-unknown-key",
+      "passed": true
+    },
+    {
+      "case": "load-unknown-control",
+      "passed": true
+    },
+    {
+      "case": "load-empty-control-witness",
+      "passed": true
+    },
+    {
+      "case": "load-missing-decoded-cid-field",
+      "passed": true
+    },
+    {
+      "case": "load-wrong-method",
+      "passed": true
+    },
+    {
+      "case": "load-wrong-judge",
+      "passed": true
+    },
+    {
+      "case": "load-unsafe-ref-parent",
+      "passed": true
+    },
+    {
+      "case": "load-unsafe-ref-absolute",
+      "passed": true
+    },
+    {
+      "case": "load-unsafe-ref-drive",
+      "passed": true
+    },
+    {
+      "case": "load-unsafe-ref-backslash",
+      "passed": true
+    },
+    {
+      "case": "load-bad-ref-hash",
+      "passed": true
+    },
+    {
+      "case": "load-unknown-ref-key",
+      "passed": true
+    },
+    {
+      "case": "load-a_falling_v-inclusive-bounds",
+      "passed": true
+    },
+    {
+      "case": "load-a_falling_v-low",
+      "passed": true
+    },
+    {
+      "case": "load-a_falling_v-high",
+      "passed": true
+    },
+    {
+      "case": "load-a_falling_v-four-values",
+      "passed": true
+    },
+    {
+      "case": "load-a_falling_v-boolean",
+      "passed": true
+    },
+    {
+      "case": "load-b_rising_v-inclusive-bounds",
+      "passed": true
+    },
+    {
+      "case": "load-b_rising_v-low",
+      "passed": true
+    },
+    {
+      "case": "load-b_rising_v-high",
+      "passed": true
+    },
+    {
+      "case": "load-b_rising_v-four-values",
+      "passed": true
+    },
+    {
+      "case": "load-b_rising_v-boolean",
+      "passed": true
+    },
+    {
+      "case": "load-skew-inclusive-bound",
+      "passed": true
+    },
+    {
+      "case": "load-skew-over",
+      "passed": true
+    },
+    {
+      "case": "load-skew-insufficient-edges",
+      "passed": true
+    },
+    {
+      "case": "load-skew-boolean-edges",
+      "passed": true
+    },
+    {
+      "case": "load-clock-not-positive",
+      "passed": true
+    },
+    {
+      "case": "load-sck-not-integer",
+      "passed": true
+    },
+    {
+      "case": "load-unknown-bus",
+      "passed": true
+    },
+    {
+      "case": "load-wrong-busy-line",
+      "passed": true
+    },
+    {
+      "case": "load-capacity-not-positive",
+      "passed": true
+    },
+    {
+      "case": "load-malformed-cid",
+      "passed": true
+    },
+    {
+      "case": "load-bad-UTF8",
+      "passed": true
+    },
+    {
+      "case": "load-truncated-JSON",
+      "passed": true
+    },
+    {
+      "case": "load-duplicate-key",
+      "passed": true
+    },
+    {
+      "case": "load-nonfinite-NaN",
+      "passed": true
+    },
+    {
+      "case": "load-nonfinite-Infinity",
+      "passed": true
+    },
+    {
+      "case": "load-nonfinite--Infinity",
+      "passed": true
+    },
+    {
+      "case": "production-1000-plus-late-NEW",
+      "passed": true
+    },
+    {
+      "case": "OLD-while-busy-is-lawful",
+      "passed": true
+    },
+    {
+      "case": "999-is-short",
+      "passed": true
+    },
+    {
+      "case": "operator-cannot-lower-1000",
+      "passed": true
+    },
+    {
+      "case": "completed-write-OLD-fails",
+      "passed": true
+    },
+    {
+      "case": "ambiguous-OLD-149.0",
+      "passed": true
+    },
+    {
+      "case": "ambiguous-OLD-150.0",
+      "passed": true
+    },
+    {
+      "case": "ambiguous-OLD-151.0",
+      "passed": true
+    },
+    {
+      "case": "just-after-upper-bound-OLD-qualifies",
+      "passed": true
+    },
+    {
+      "case": "OLD-no-completion-proof-unarmed",
+      "passed": true
+    },
+    {
+      "case": "OLD-no-completion-proof-short-window",
+      "passed": true
+    },
+    {
+      "case": "OLD-no-completion-proof-delayed",
+      "passed": true
+    },
+    {
+      "case": "OLD-no-completion-proof-no-payload-proof",
+      "passed": true
+    },
+    {
+      "case": "OLD-no-completion-proof-no-token-proof",
+      "passed": true
+    },
+    {
+      "case": "OLD-no-completion-proof-chatter",
+      "passed": true
+    },
+    {
+      "case": "no-opening-OLD",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-is-problem-not-rollback",
+      "passed": true
+    },
+    {
+      "case": "record-missing-capture_armed_us",
+      "passed": true
+    },
+    {
+      "case": "record-missing-busy_entry_us",
+      "passed": true
+    },
+    {
+      "case": "record-missing-cut_command_us",
+      "passed": true
+    },
+    {
+      "case": "record-missing-capture_end_us",
+      "passed": true
+    },
+    {
+      "case": "record-missing-rail_open_us",
+      "passed": true
+    },
+    {
+      "case": "record-missing-rail_edges_us",
+      "passed": true
+    },
+    {
+      "case": "record-missing-busy_end_edges_us",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-nan",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-infinite",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-negative",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-boolean",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-backwards-edges",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-outside-window",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-opening-contradiction",
+      "passed": true
+    },
+    {
+      "case": "record-invalid-capture-backwards",
+      "passed": true
+    },
+    {
+      "case": "chatter-without-busy-end-is-miss",
+      "passed": true
+    },
+    {
+      "case": "TORN-on-late",
+      "passed": true
+    },
+    {
+      "case": "neighbour--2-on-late",
+      "passed": true
+    },
+    {
+      "case": "neighbour--1-on-late",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+1-on-late",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+2-on-late",
+      "passed": true
+    },
+    {
+      "case": "TORN-on-ambiguous",
+      "passed": true
+    },
+    {
+      "case": "neighbour--2-on-ambiguous",
+      "passed": true
+    },
+    {
+      "case": "neighbour--1-on-ambiguous",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+1-on-ambiguous",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+2-on-ambiguous",
+      "passed": true
+    },
+    {
+      "case": "TORN-on-no-opening",
+      "passed": true
+    },
+    {
+      "case": "neighbour--2-on-no-opening",
+      "passed": true
+    },
+    {
+      "case": "neighbour--1-on-no-opening",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+1-on-no-opening",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+2-on-no-opening",
+      "passed": true
+    },
+    {
+      "case": "TORN-on-delayed",
+      "passed": true
+    },
+    {
+      "case": "neighbour--2-on-delayed",
+      "passed": true
+    },
+    {
+      "case": "neighbour--1-on-delayed",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+1-on-delayed",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+2-on-delayed",
+      "passed": true
+    },
+    {
+      "case": "TORN-on-chatter",
+      "passed": true
+    },
+    {
+      "case": "neighbour--2-on-chatter",
+      "passed": true
+    },
+    {
+      "case": "neighbour--1-on-chatter",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+1-on-chatter",
+      "passed": true
+    },
+    {
+      "case": "neighbour-+2-on-chatter",
+      "passed": true
+    },
+    {
+      "case": "CORRUPT-on-late",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-card_cid_after_cut",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-card_cid",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-sku",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-revision",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-method",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-rig_manifest_sha256",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-sck_hz",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-bus_mode",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-busy_line",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-firmware_source_commit",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-switch_revision",
+      "passed": true
+    },
+    {
+      "case": "row-conflict-rail_high_at_arm",
+      "passed": true
+    },
+    {
+      "case": "row-missing-card_cid_after_cut",
+      "passed": true
+    },
+    {
+      "case": "row-missing-firmware_source_commit",
+      "passed": true
+    },
+    {
+      "case": "row-missing-rail_high_at_arm",
+      "passed": true
+    },
+    {
+      "case": "row-missing-rig_manifest_sha256",
+      "passed": true
+    },
+    {
+      "case": "plan-conflict-sku",
+      "passed": true
+    },
+    {
+      "case": "plan-conflict-revision",
+      "passed": true
+    },
+    {
+      "case": "plan-conflict-card_cid",
+      "passed": true
+    },
+    {
+      "case": "plan-conflict-rig_manifest_sha256",
+      "passed": true
+    },
+    {
+      "case": "plan-conflict-method",
+      "passed": true
+    },
+    {
+      "case": "no-loaded-manifest",
+      "passed": true
+    },
+    {
+      "case": "loaded-manifest-has-problems",
+      "passed": true
+    },
+    {
+      "case": "manifest-bytes-repointed",
+      "passed": true
+    },
+    {
+      "case": "duplicate-row",
+      "passed": true
+    },
+    {
+      "case": "missing-row",
+      "passed": true
+    },
+    {
+      "case": "predicate-rail-high-true",
+      "passed": true
+    },
+    {
+      "case": "predicate-rail-high-omitted-predicate-compatibility",
+      "passed": true
+    },
+    {
+      "case": "predicate-rail-high-False",
+      "passed": true
+    },
+    {
+      "case": "predicate-rail-high-0",
+      "passed": true
+    },
+    {
+      "case": "predicate-rail-high-1",
+      "passed": true
+    },
+    {
+      "case": "predicate-rail-high-None",
+      "passed": true
+    },
+    {
+      "case": "predicate-rail-high-'true'",
+      "passed": true
+    },
+    {
+      "case": "predicate-chatter-2",
+      "passed": true
+    },
+    {
+      "case": "predicate-chatter-3",
+      "passed": true
+    },
+    {
+      "case": "plan4-and-strict-wire-CLI",
+      "passed": true
+    },
+    {
+      "case": "method-rows-cannot-enter-v3-without-manifest",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "physical_run": false,
+  "method_clearance": false
+}

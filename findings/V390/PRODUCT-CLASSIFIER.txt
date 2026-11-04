@@ -1,0 +1,140 @@
+ok    docs-only docs/ file: ['docs/STATUS.md']
+ok    docs-only nested docs/: ['docs/archive/old.md', 'docs/ROLES/README.md']
+ok    docs-only site/: ['site/index.html']
+ok    docs-only root *.md: ['README.md']
+ok    docs-only all three allowed classes: ['CLAUDE.md', 'AGENTS.md', 'docs/DECISIONS.md', 'site/a.css']
+ok    full      empty diff: []
+ok    full      engine/: ['engine/src/tape.c']
+ok    full      *.md under engine/: ['engine/README.md']
+ok    full      tests/: ['tests/IMPORTS.json']
+ok    full      *.md under tests/: ['tests/wp10_backlog_r54/README.md']
+ok    full      spec/: ['spec/tapefs-v1.md']
+ok    full      docs/verification/: ['docs/verification/runs/x/manifest.json']
+ok    full      *.md under docs/verification/: ['docs/verification/README.md']
+ok    full      docs/verification as a file: ['docs/verification']
+ok    full      .github/: ['.github/workflows/ci.yml']
+ok    full      .github/CODEOWNERS: ['.github/CODEOWNERS']
+ok    full      tools/: ['tools/ci/classify-changes.py']
+ok    full      firmware/: ['firmware/main.c']
+ok    full      hardware/: ['hardware/board/notes.md']
+ok    full      root non-markdown file: ['Makefile']
+ok    full      root file that only contains .md: ['README.md.txt']
+ok    full      mixed docs + engine: ['docs/STATUS.md', 'engine/src/tape.c']
+ok    full      mixed docs + tests: ['docs/STATUS.md', 'tests/IMPORTS.json']
+ok    full      mixed root md + spec: ['README.md', 'spec/VERSION.md']
+ok    full      mixed site + .github: ['site/index.html', '.github/workflows/ci.yml']
+ok    full      mixed docs + docs/verification: ['docs/STATUS.md', 'docs/verification/x.md']
+ok    full      dot-dot escape: ['docs/../engine/src/tape.c']
+ok    full      non-canonical ./ path: ['./docs/STATUS.md']
+ok    full      bare docs as a file: ['docs']
+killed   docs-only never_full: 24 case(s) differ, e.g. empty diff
+killed   docs-only any_instead_of_all: 5 case(s) differ, e.g. mixed docs + engine
+killed   docs-only empty_is_docs: 1 case(s) differ, e.g. empty diff
+killed   docs-only admits_docs_verification: 3 case(s) differ, e.g. docs/verification/
+killed   docs-only admits_any_markdown: 8 case(s) differ, e.g. *.md under engine/
+killed   docs-only admits_github: 3 case(s) differ, e.g. .github/
+killed   docs-only prefix_without_slash: 2 case(s) differ, e.g. dot-dot escape
+ok    qualification docs-only    docs-only PR
+ok    qualification docs-only    docs-only main push
+ok    qualification docs-only    site-only main push
+ok    qualification ALL          engine change
+ok    qualification ALL          engine change on main
+ok    qualification ALL          docs + engine
+ok    qualification ALL          spec change
+ok    qualification ALL          tools/ci change
+ok    qualification ALL          tools change
+ok    qualification ALL          ci.yml change
+ok    qualification ALL          file directly under tests/
+ok    qualification ALL          root file
+ok    qualification ALL          firmware (not known inert)
+ok    qualification ALL          docs/verification
+ok    qualification ALL          unrecognised top-level directory
+ok    qualification ALL          non-canonical path
+ok    qualification ALL          empty diff
+ok    qualification ALL          push with unknown base
+ok    qualification ALL          schedule
+ok    qualification ALL          workflow_dispatch
+ok    qualification ALL          phase-gate label
+ok    qualification none         unrelated label
+ok    qualification none         host only
+ok    qualification none         hardware only
+ok    qualification none         other workflow
+ok    qualification none         new test package
+ok    qualification promote-package wp11-mutation-gate changed promote package
+ok    qualification wp10-backlog-package wp10-backlog-r54-package wp10-final-pac package reached by source references
+ok    qualification wp11-mutation-gate regression package that is a mutation suite
+ok    qualification respool-full-functional wp11-mutation-gate package the full re-spool builds
+ok    qualification ALL          package + engine
+killed   selector treats_engine_as_inert: 4 case(s) differ, e.g. engine change
+killed   selector treats_spec_as_inert: 1 case(s) differ, e.g. spec change
+killed   selector treats_tools_as_inert: 2 case(s) differ, e.g. tools/ci change
+killed   selector treats_.github_as_inert: 1 case(s) differ, e.g. ci.yml change
+killed   selector treats_tests_as_inert: 5 case(s) differ, e.g. file directly under tests/
+killed   selector schedule_not_full: 1 case(s) differ, e.g. schedule
+killed   selector ignores_label: 1 case(s) differ, e.g. phase-gate label
+killed   selector no_closure: 4 case(s) differ, e.g. changed promote package
+killed   selector any_test_dir_inert: 4 case(s) differ, e.g. changed promote package
+killed   selector unknown_is_inert: 7 case(s) differ, e.g. file directly under tests/
+killed   selector empty_is_nothing: 2 case(s) differ, e.g. empty diff
+ok    cli pull_request ['docs/STATUS.md', 'README.md'] '' -> 'docs_only=true\nqualify=false\nqualify_jobs=,'
+ok    cli pull_request ['docs/STATUS.md', 'engine/src/tape.c'] '' -> 'docs_only=false\nqualify=true\nqualify_jobs=,'
+ok    cli pull_request [] '' -> 'docs_only=false\nqualify=true\nqualify_jobs=,'
+ok    cli pull_request ['host/tapectl.c'] '' -> 'docs_only=false\nqualify=false\nqualify_jobs=,'
+ok    cli pull_request ['host/tapectl.c'] 'software-lead,qualification' -> 'docs_only=false\nqualify=true\nqualify_jobs=,'
+ok    cli pull_request ['tests/promote_adapter/run_product.py'] '' -> 'docs_only=false\nqualify=false\nqualify_jobs=,promote-package,wp11-mutation-gate,'
+ok    cli schedule ['docs/STATUS.md'] '' -> 'docs_only=false\nqualify=true\nqualify_jobs=,'
+ok    lane wiring: {'cheap': 7, 'regression': 30, 'qualification': 15}; every job in exactly one lane
+killed   workflow drop_from_lane(wp08-mapping-r56-package) -> wp08-mapping-r56-package: in no lane
+killed   workflow drop_from_lane(promote-package) -> promote-package: in no lane
+killed   workflow drop_qualify_gate(wp10-residue-package) -> wp10-residue-package: qualification job lacks the qualify gate naming itself
+killed   workflow misname_qualify_gate(crash-core-package) -> crash-core-package: qualification job lacks the qualify gate naming itself
+killed   workflow drop_docs_gate(golden) -> golden: regression job is not docs-only gated
+killed   workflow gate_cheap_job(spec) -> spec: cheap job is docs-only gated
+killed   workflow rename_aggregate(regression) -> regression: aggregate check name is not exactly 'regression'
+killed   workflow add_unlaned_job(None) -> sneaky: in no lane
+ok    verdict cheap         PASS cheap all green
+ok    verdict cheap         RED  cheap skip is red
+ok    verdict cheap         RED  classifier failure is red
+ok    verdict regression    PASS docs-only skips regression
+ok    verdict regression    PASS code change runs regression
+ok    verdict regression    RED  unexpected regression skip
+ok    verdict regression    RED  regression failure
+ok    verdict regression    RED  regression cancelled
+ok    verdict regression    PASS classifier empty: runs
+ok    verdict regression    RED  classifier empty: skip is red
+ok    verdict qualification PASS qualification not selected
+ok    verdict qualification PASS changed package selected
+ok    verdict qualification RED  selected package skipped
+ok    verdict qualification RED  unselected job ran
+ok    verdict qualification PASS full qualification
+ok    verdict qualification RED  matrix skipped under a selected upstream
+ok    verdict qualification PASS classifier empty: qualification runs
+ok    verdict qualification RED  classifier empty: qualification skip is red
+ok    verdict qualification PASS docs-only beats a stale qualify
+ok    verdict qualification PASS matrix follows its changed upstream
+ok    verdict qualification RED  empty lane
+killed   verdict skip_always_ok: 10 case(s) differ, e.g. cheap skip is red
+killed   verdict ignores_cancelled: 1 case(s) differ, e.g. regression cancelled
+killed   verdict empty_means_not_selected: 4 case(s) differ, e.g. classifier empty: runs
+killed   verdict ran_when_unselected_ok: 1 case(s) differ, e.g. unselected job ran
+killed   verdict no_upstream: 1 case(s) differ, e.g. matrix follows its changed upstream
+ok    macOS deferral: no ci.yml job runs on macOS; every lane nonempty; wp14-macos, wp14-package, wp14-package-census preserved in wp14-macos-manual.yml, workflow_dispatch only, wp14-package steps identical
+killed   macOS readd_macos_leg -> wp14-package: ci.yml job runs on macOS
+killed   macOS readd_macos_job -> wp14-mac: ci.yml job runs on macOS
+killed   macOS manual_on_pull_request -> manual workflow triggers are ['pull_request', 'workflow_dispatch'], not workflow_dispatch only
+killed   macOS manual_on_schedule -> manual workflow triggers are ['workflow_dispatch', 'schedule'], not workflow_dispatch only
+killed   macOS manual_drift -> manual wp14-package steps differ from ci.yml's
+killed   macOS manual_drops_macos_leg -> manual wp14-package legs are ['linux', 'windows'], not linux/macos/windows
+killed   macOS manual_drops_census -> manual workflow lacks wp14-package-census
+killed   macOS manual_missing -> manual macOS workflow is missing
+killed   macOS empty_regression -> regression: lane has no members
+ok    lane-verdict.py regression    exit 0 (want 0) all required members succeeded
+ok    lane-verdict.py regression    exit 1 (want 1) missing required result
+ok    lane-verdict.py regression    exit 1 (want 1) failed required lane
+ok    lane-verdict.py regression    exit 1 (want 1) cancelled required lane
+ok    lane-verdict.py regression    exit 1 (want 1) unexpectedly skipped required lane
+ok    lane-verdict.py qualification exit 0 (want 0) all qualification members succeeded
+ok    lane-verdict.py qualification exit 1 (want 1) cancelled package lane
+ok    lane-verdict.py qualification exit 1 (want 1) missing identity result
+29 docs-only, 31 selection, 7 CLI, 21 verdict, 8 verdict-CLI cases; 40 broken variants
+== change classifier and lanes: PASS ==

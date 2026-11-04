@@ -1,0 +1,58 @@
+name: Verification390 CI policy and Hardware corrections
+on:
+  pull_request:
+    paths: ['tests/ci_policy_r1/**', 'tests/rig_loader_review_r2/**', 'findings/V390/**', '.github/workflows/verification390.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-bounded-reviews:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: e0b6bb024a45fa6921312bb9de13f5df39661b45
+          path: build/software
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: aa3b87f9eab583fada697c82cb9fe3226fef80d6
+          path: build/base
+          sparse-checkout: .github/workflows/ci.yml
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: baf176c0a38b9bdf9642c312d4f351aa86c3fa01
+          path: build/hardware
+          sparse-checkout: hardware/characterisation/media_atomicity.py
+          sparse-checkout-cone-mode: false
+      - run: python3 -m pip install PyYAML==6.0.3
+      - name: Existing Product CI controls on exact Software head
+        working-directory: build/software
+        run: python3 -B tools/ci/verify-change-classifier.py
+      - name: Independent policy DAG and actual CLI controls; reproduce coverage HOLD
+        run: python3 -B tests/ci_policy_r1/run.py --product build/software --base build/base --out build/policy-RESULT.json --record-known-finding
+      - name: Published Hardware scopes and original fix regressions
+        run: |
+          python3 -B tests/rig_correction_r2/run.py --judge build/hardware/hardware/characterisation/media_atomicity.py --out build/aggregation.json
+          python3 -B tests/rig_timing_r1/run.py --qualifier build/hardware/hardware/characterisation/media_atomicity.py --out build/timing.json
+          python3 -B tests/rig_records_r1/run.py --judge build/hardware/hardware/characterisation/media_atomicity.py --out build/records
+          python3 -B tests/rig_review_r1/run.py --judge build/hardware/hardware/characterisation/media_atomicity.py --out build/original-fix
+      - name: Reproduce two new loader HOLD failures and retain damage
+        run: python3 -B tests/rig_loader_review_r2/run.py --judge build/hardware/hardware/characterisation/media_atomicity.py --out build/loader-r2 --record-known-findings
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: V390-bounded-review-summaries
+          path: |
+            build/policy-RESULT.json
+            build/aggregation.json
+            build/timing.json
+            build/records/RESULT.json
+            build/original-fix/RESULT.json
+            build/loader-r2/RESULT.json
+          retention-days: 90

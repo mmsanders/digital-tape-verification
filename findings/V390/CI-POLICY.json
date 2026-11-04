@@ -1,0 +1,175 @@
+{
+  "failed": [
+    "supported-retained-census-required"
+  ],
+  "structural_controls": [
+    "normal-macos",
+    "empty-regression",
+    "missing-windows",
+    "automatic-manual",
+    "manual-command-drift"
+  ],
+  "lane_cli": [
+    {
+      "case": "cheap-success",
+      "exit": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "case": "cheap-failure",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "cheap-cancelled",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "cheap-missing",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "cheap-skipped",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "cheap-uncertain-success",
+      "exit": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "case": "cheap-uncertain-skipped",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "regression-success",
+      "exit": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "case": "regression-failure",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "regression-cancelled",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "regression-missing",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "regression-skipped",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "regression-uncertain-success",
+      "exit": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "case": "regression-uncertain-skipped",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "qualification-success",
+      "exit": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "case": "qualification-failure",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "qualification-cancelled",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "qualification-missing",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "qualification-skipped",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "case": "qualification-uncertain-success",
+      "exit": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "case": "qualification-uncertain-skipped",
+      "exit": 1,
+      "expected": 1,
+      "passed": true
+    }
+  ],
+  "selector_cli": [
+    {
+      "path": "",
+      "event": "pull_request",
+      "passed": true,
+      "outputs": "docs_only=false\nqualify=true\nqualify_jobs=,\n"
+    },
+    {
+      "path": "???",
+      "event": "push",
+      "passed": true,
+      "outputs": "docs_only=false\nqualify=true\nqualify_jobs=,\n"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "event": "schedule",
+      "passed": true,
+      "outputs": "docs_only=false\nqualify=true\nqualify_jobs=,\n"
+    },
+    {
+      "path": "engine/src/tape.c",
+      "event": "pull_request",
+      "passed": true,
+      "outputs": "docs_only=false\nqualify=true\nqualify_jobs=,\n"
+    }
+  ],
+  "hashes": {
+    ".github/workflows/ci.yml": "7734842a9ec4c72bbb0080cc22779de3706f6bd9a8368f0ecddaec796cbcf89b",
+    ".github/workflows/wp14-macos-manual.yml": "500d271565519f0015055c04c4a45b2dada38bba7ee38b755cd317cdec5ecf39",
+    ".github/workflows/wp14-release.yml": "4202d3c35537a1a69bf3e125e99bf9f14caee2a9e14dc87af8de0a9e43a85457",
+    "tools/ci/verify-change-classifier.py": "4a8b33669484aef5a53e2f11a74c09fc8fa3d1a974224b5ae40b7f411bf229d7"
+  },
+  "harness_success": true,
+  "clearance": false,
+  "mode": "original-HOLD-reproduction"
+}
