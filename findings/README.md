@@ -39,3 +39,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V394 independent policy bindings](V394-POLICY/DISPOSITION.md): census companion and real history fixtures/provenance contract ready; corrected Product adapter/gate candidates pending.
 
 [V397 runner restoration](V397-RUNNER/DISPOSITION.md): bounded Ubuntu24.04 restoration clears, existing differential/control identities retained.
+
+[V397 ordering correction](V397-ORDER/DISPOSITION.md): narrow provenance route disposed on actual histories/kit lineage, current-base Product CI remains required.
