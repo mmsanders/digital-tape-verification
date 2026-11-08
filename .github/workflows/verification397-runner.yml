@@ -1,0 +1,33 @@
+name: Verification397 bounded runner evidence
+on:
+  pull_request:
+    paths: ['findings/V397-RUNNER/**', '.github/workflows/verification397-runner.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  authenticate-restoration:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reauthenticate actual pinned execution and detecting-control evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,subprocess
+          def gh(*args):return subprocess.check_output(['gh',*args],text=True)
+          run=json.loads(gh('api','repos/mmsanders/Digital-Tape/actions/runs/42497056519'))
+          assert run['head_sha']=='eaa768b2668fe14bfb51085d27a50ac23f8d8386' and run['conclusion']=='success'
+          for job in (128781598895,128781598978,128781598813):
+              meta=json.loads(gh('api',f'repos/mmsanders/Digital-Tape/actions/jobs/{job}'));assert meta['conclusion']=='success'
+              log=gh('run','view','42497056519','--repo','mmsanders/Digital-Tape','--job',str(job),'--log')
+              assert 'total=11572876 seed=0x63d10a5e' in log
+              if job==128781598813:assert 'late cast (int64_t)(b - a) goes red' in log
+          for job in (128781598833,128781622536,128782016145):
+              meta=json.loads(gh('api',f'repos/mmsanders/Digital-Tape/actions/jobs/{job}'));assert meta['conclusion']=='success'
+          log=gh('run','view','42497056519','--repo','mmsanders/Digital-Tape','--job','128781622536','--log')
+          assert '15/15' in log
+          print('Pinned actual execution, full comparison counts and original detecting gates authenticate')
+          PY
