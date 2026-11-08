@@ -1,0 +1,96 @@
+{
+  "artifact_id": 13623902686,
+  "artifact_sha256": "9f973dab0d00d7f683b2be6f73ae40740a0a67d73386467d69c44239b5da475d",
+  "records": [
+    {
+      "mutation": "01-chunk-boundary-off-by-one",
+      "assertion": "replay.py FAIL (exit 1): AssertionError: copy does not mount on Side A",
+      "actual_commit": "424a3a90cc94090c47e8cc86c50bc66081fe8c43",
+      "raw_matches": [
+        {
+          "path": "01-chunk-boundary-off-by-one\\strengthen-r55-package.log",
+          "sha256": "e49332fcf4e1b57de7388e8c3c00eaf41e48ddd577641bec978ff0d657fb235e"
+        },
+        {
+          "path": "01-chunk-boundary-off-by-one\\strengthen-r55-package\\behavior.log",
+          "sha256": "f5c73fc9588e36c7a456fccdcff57d1acfe9bc96da6bdeeda1678aceb6c690dc"
+        }
+      ]
+    },
+    {
+      "mutation": "02-index-commit-before-chunk-flush",
+      "assertion": "replay.py FAIL (exit 1): AssertionError: accepted prefix not durably flushed",
+      "actual_commit": "2b47d4d92ffab01e4a043491902671fa1f040369",
+      "raw_matches": [
+        {
+          "path": "02-index-commit-before-chunk-flush\\strengthen-r55-package.log",
+          "sha256": "b01cb69575ea02e0d6ddb61d71c88766fce9a5ad1f09dc3b346c06c09c061089"
+        },
+        {
+          "path": "02-index-commit-before-chunk-flush\\strengthen-r55-package\\behavior.log",
+          "sha256": "b1c8fc2276dc7d3b60ff45539bfaf298e1d577cfbac931bea6c6d77942375528"
+        }
+      ]
+    },
+    {
+      "mutation": "03-sequence-not-incremented",
+      "assertion": "  FAIL  splice \u2014 case command exited non-zero",
+      "actual_commit": "425606d82ebbb5e041b7a77179a0dd99e31db27e",
+      "raw_matches": [
+        {
+          "path": "03-sequence-not-incremented\\golden-behavior.log",
+          "sha256": "a1790bf328553d07c9dc66b1e2355c601852ec868968e408e0ff10408ce469ec"
+        }
+      ]
+    },
+    {
+      "mutation": "04-crc-wrong-byte-range",
+      "assertion": "  FAIL  play-1x-quiet \u2014 case command exited non-zero",
+      "actual_commit": "f45f1b5be9cce168ea959bc2c2474a79e3cb428a",
+      "raw_matches": [
+        {
+          "path": "04-crc-wrong-byte-range\\golden-behavior.log",
+          "sha256": "833c6af3a3461fbc6b51b2061a23506b5995c33b9786f034ed348153621946a3"
+        }
+      ]
+    },
+    {
+      "mutation": "05-side-b-allocation-below-a-high-water",
+      "assertion": "FAIL WP09-OW-MID",
+      "actual_commit": "b74a65550149424144ef5c8863b319f341e4305f",
+      "raw_matches": [
+        {
+          "path": "05-side-b-allocation-below-a-high-water\\record-package.log",
+          "sha256": "2b788237f6d3f6bac3b7e3dede31e3d3ad862c607ff61bf3c177e7dc8028a51b"
+        },
+        {
+          "path": "05-side-b-allocation-below-a-high-water\\record-package\\behavior.log",
+          "sha256": "1c7e5825348e898459109c18b0f8755a02bbe3a281acd648f7d66b333a9f1f65"
+        }
+      ]
+    },
+    {
+      "mutation": "06-overdub-clamp-replaced-by-cast",
+      "assertion": "  FAIL  overdub",
+      "actual_commit": "eed93db21af0953d3a2c3125b08c1bcf895937b8",
+      "raw_matches": [
+        {
+          "path": "06-overdub-clamp-replaced-by-cast\\golden-behavior.log",
+          "sha256": "74b952e7b6678ada22f276069c000df5fa9beccd299eaaa95aaf3eacdc1aa7ed"
+        }
+      ]
+    },
+    {
+      "mutation": "07-warm-start-accepted-for-wrong-uuid",
+      "assertion": "FAIL WARM-UUID",
+      "actual_commit": "e23fa9f86250c6edeebca6943b61853fd68e8dfe",
+      "raw_matches": [
+        {
+          "path": "07-warm-start-accepted-for-wrong-uuid\\transport-behavior.log",
+          "sha256": "fa6447f323bd2e9bd10e2b4d79ee302bd3b2efa0d118cb4c47d444f48b3e2c74"
+        }
+      ]
+    }
+  ],
+  "baseline_and_benign_pass": true
+}
