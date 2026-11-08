@@ -1,0 +1,13 @@
+# V397 lane C — bounded WP11 runner restoration
+
+**Exact PR672 eaa768b2668fe14bfb51085d27a50ac23f8d8386 CLEARED for the bounded environment restoration.** Conditional PM scope sign-off under667/ADR207 carries; Software owns Product integration with required current-base CI. No Product merge by Verification.
+
+Michael activated397 on8Nov. Input main978efb2122377140eb89f01bf73cb76385e00a65 includes PM666/ADR207 at8fe336b5 and ADR208. Required current entry documents/live397/667 and returned Software comment6723894552 read. The head's sole parent is that main. Only wp11-portability.runs-on changes ubuntu-latest to ubuntu-24.04; full diff and ancestry retained in AUTH.json. All three matrix legs, script, install/emulator commands, original differential/oracle bytes, lane dependencies and every other job remain identical. No implementation-mirroring test was added for this one-line restoration.
+
+Independent inspection of actual engine42497056519 logs authenticates11,572,876 comparisons in each arm-m3, host-gcc and narrow-int leg (boundary1572852, PRNG10000000, extremes24, seed0x63d10a5e). Narrow-int's late-cast negative control goes red. Original seven-mutant gate128781598833 succeeds with every mutation detected; gates-can-go-red128781622536 reports15/15. Regression128782016145 reports PASS31/31. Exact-head PR checks113/113SUCCESS, no skipped/failed checks. Evidence integrity42497056600, hygiene42497056567 and publication42497056546 succeed. This confirms execution, not merely compilation. IDs/selected raw log lines and SHA256s are retained; no differential campaign is repeated by Verification.
+
+Environment from actual logs: Ubuntu24.04.5LTS, image20261101.360.1; arm-none-eabi-gcc13.2.1 (15:13.2.rel1-2), qemu-user8.2.2+ds-0ubuntu1.18 running qemu-arm -cpu cortex-m3, hostgcc13.3.0/clang18.1.3. No frozen image/toolchain reproducibility or Ubuntu26 kernel/emulator diagnosis is claimed. Prior failed runs remain real red controls, not waived environment failures.
+
+The independent publication workflow reauthenticates the pinned completed run/jobs/comparison lines and original detecting-control output. Publication source/tree/run/merge pins return to667/397 after green merge. This lane need not wait for census/gate disposition; the latter carry their own exact identities and required CI until reviewed. Mechanical base-only sync may carry unchanged accepted artifacts; substantive changes return for disposition.
+
+No WP11 re-acceptance campaign, kit/Hardware replay, target/physical/media/safety/purchase action or criteria advance. ADR208 method changes belong to398 and do not change this CI repair scope. Engine/goldens/DRAFT10 unchanged; fabrication/charging CLOSED, no card qualified or physical session authorized.
