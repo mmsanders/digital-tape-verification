@@ -1,0 +1,36 @@
+{
+  "census": {
+    "head": "d8ead4448cc9e4d33e50c0673288becb8b359a22",
+    "import_commit": "3414fa1b626205ba3e0a39b87da3934cead32f79",
+    "import_tree": "15afc9e29b802a010b0df9486e241e39babe9683",
+    "head_tree": "15afc9e29b802a010b0df9486e241e39babe9683",
+    "import_changed": [
+      ".github/CODEOWNERS",
+      "tests/IMPORTS.json",
+      "tests/wp14_supported_r1/MANUAL-SHA256",
+      "tests/wp14_supported_r1/README.md",
+      "tests/wp14_supported_r1/dag.py",
+      "tests/wp14_supported_r1/qualification_supported.py",
+      "tests/wp14_supported_r1/retained.py",
+      "tests/wp14_supported_r1/run_adapter.py",
+      "tests/wp14_supported_r1/selftest.py"
+    ],
+    "ordered": true
+  },
+  "gate": {
+    "head": "8ce0fe5232403436ec0c7a22d60ecd6f19500579",
+    "import_commit": "1b62e91bb840fc644bf580ccfdea02498eb5ebe2",
+    "import_tree": "bfad9c6bed00cc3fba7bd99ef8df01bd6a8c12a2",
+    "head_tree": "bfad9c6bed00cc3fba7bd99ef8df01bd6a8c12a2",
+    "import_changed": [
+      ".github/CODEOWNERS",
+      "tests/IMPORTS.json",
+      "tests/review_order_r1/CONTRACT.md",
+      "tests/review_order_r1/README.md",
+      "tests/review_order_r1/REVIEW-ATTESTATIONS.json",
+      "tests/review_order_r1/generate.py",
+      "tests/review_order_r1/run.py"
+    ],
+    "ordered": true
+  }
+}
