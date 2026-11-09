@@ -1,0 +1,30 @@
+{
+  "kind": "evidence-completeness",
+  "head": "d8ead4448cc9e4d33e50c0673288becb8b359a22",
+  "counts": {
+    "linux": {
+      "image_cases": 79,
+      "image_controls": 11,
+      "native_cases": 135,
+      "native_static": 97,
+      "replay_cases": 38
+    },
+    "windows": {
+      "image_cases": 79,
+      "image_controls": 11,
+      "native_cases": 134,
+      "native_static": 96,
+      "replay_cases": 38
+    }
+  },
+  "accepted": false,
+  "platforms": [
+    "linux",
+    "windows"
+  ],
+  "deferred": [
+    "macos"
+  ],
+  "remaining": "authenticate CI/artifact identity and raw capture/mutation linkage, A8 Git identities/Phase1 suites, physical and Windows10 holds",
+  "ignored": []
+}

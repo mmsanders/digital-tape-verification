@@ -1,0 +1,40 @@
+{
+  "mode": "independent-oracle-selftest",
+  "checks": [
+    "unchanged-original-per-platform-loop-AST",
+    "named-set-linux,windows",
+    "named-set-linux,macos,windows",
+    "two-platform-real-saved-byte-authentication",
+    "unnamed-evidence-listed"
+  ],
+  "controls_detected": [
+    "removed-per-platform-assertions",
+    "invalid-list-",
+    "invalid-list-windows",
+    "invalid-list-linux",
+    "invalid-list-macos",
+    "invalid-list-windows,linux",
+    "invalid-list-linux,linux,windows",
+    "invalid-list-linux,windows,macos",
+    "invalid-list-linux, windows",
+    "invalid-list-linux,other,windows",
+    "invalid-list-None",
+    "missing-map-linux",
+    "missing-map-windows",
+    "default-still-needs-macos",
+    "omitted-all-native-cases",
+    "mutated-retained-linux",
+    "empty-results-linux",
+    "mutated-retained-windows",
+    "empty-results-windows",
+    "large-index-hash",
+    "snapshot-hash",
+    "dump-missing",
+    "path-escape",
+    "logical-byte-mismatch-large.raw",
+    "logical-byte-mismatch-snapshot.img",
+    "missing-named-artifact"
+  ],
+  "product_executed": false,
+  "accepted": false
+}

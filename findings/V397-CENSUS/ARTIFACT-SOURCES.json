@@ -1,0 +1,82 @@
+[
+  {
+    "id": 13434607618,
+    "node_id": "MDg6QXJ0aWZhY3QxMzQzNDYwNzYxOA==",
+    "name": "wp14-package-linux",
+    "size_in_bytes": 4223190,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13434607618",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13434607618/zip",
+    "expired": false,
+    "digest": "sha256:ccf7370150dcb7fb6b257304630494fe8065137e37a2e15dd75835cbc06470e2",
+    "created_at": "2026-11-05T16:41:31Z",
+    "updated_at": "2026-11-05T16:41:31Z",
+    "expires_at": "2027-02-03T16:35:23Z",
+    "workflow_run": {
+      "id": 42065992517,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software658-macos-manual",
+      "head_sha": "d8ead4448cc9e4d33e50c0673288becb8b359a22"
+    }
+  },
+  {
+    "id": 13436580112,
+    "node_id": "MDg6QXJ0aWZhY3QxMzQzNjU4MDExMg==",
+    "name": "wp14-package-windows",
+    "size_in_bytes": 4298306,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13436580112",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13436580112/zip",
+    "expired": false,
+    "digest": "sha256:7c56dac2534137f23122c32fb92fd89e39af714262683f91a3265b987432588d",
+    "created_at": "2026-11-05T16:58:20Z",
+    "updated_at": "2026-11-05T16:58:20Z",
+    "expires_at": "2027-02-03T16:35:23Z",
+    "workflow_run": {
+      "id": 42065992517,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software658-macos-manual",
+      "head_sha": "d8ead4448cc9e4d33e50c0673288becb8b359a22"
+    }
+  },
+  {
+    "id": 13434108152,
+    "node_id": "MDg6QXJ0aWZhY3QxMzQzNDEwODE1Mg==",
+    "name": "wp14-native-evidence-linux",
+    "size_in_bytes": 31966348,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13434108152",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13434108152/zip",
+    "expired": false,
+    "digest": "sha256:72a27b5568916a311d0d19a994435100c6b18c895edca37f54d454a956a7b819",
+    "created_at": "2026-11-05T16:41:36Z",
+    "updated_at": "2026-11-05T16:41:36Z",
+    "expires_at": "2027-02-03T16:35:23Z",
+    "workflow_run": {
+      "id": 42065992517,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software658-macos-manual",
+      "head_sha": "d8ead4448cc9e4d33e50c0673288becb8b359a22"
+    }
+  },
+  {
+    "id": 13436005428,
+    "node_id": "MDg6QXJ0aWZhY3QxMzQzNjAwNTQyOA==",
+    "name": "wp14-native-evidence-windows",
+    "size_in_bytes": 32170871,
+    "url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13436005428",
+    "archive_download_url": "https://api.github.com/repos/mmsanders/Digital-Tape/actions/artifacts/13436005428/zip",
+    "expired": false,
+    "digest": "sha256:33cd1c0a0a5bb51fc66983baffd048ade780f5371309633ecc34fc92b5da7213",
+    "created_at": "2026-11-05T16:58:28Z",
+    "updated_at": "2026-11-05T16:58:28Z",
+    "expires_at": "2027-02-03T16:35:23Z",
+    "workflow_run": {
+      "id": 42065992517,
+      "repository_id": 1351805822,
+      "head_repository_id": 1351805822,
+      "head_branch": "software658-macos-manual",
+      "head_sha": "d8ead4448cc9e4d33e50c0673288becb8b359a22"
+    }
+  }
+]

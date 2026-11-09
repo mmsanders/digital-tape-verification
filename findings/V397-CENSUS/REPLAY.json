@@ -1,0 +1,158 @@
+{
+  "mode": "actual-adapter-replay",
+  "cases": [
+    {
+      "case": "complete-two-platform",
+      "exit": 0,
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "case": "unnamed-listed",
+      "exit": 0,
+      "passed": true,
+      "stderr": ""
+    },
+    {
+      "case": "default-requires-macos",
+      "exit": 1,
+      "passed": true,
+      "stderr": "(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/digital-tape-verification/digital-tape-verification/build/replay/default-requires-macos/bundle/image-macos.json'\n"
+    },
+    {
+      "case": "usage-3",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "usage-4",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "usage-5",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "usage-6",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "usage-7",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "usage-8",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "usage-9",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "usage-10",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "missing-image-linux",
+      "exit": 1,
+      "passed": true,
+      "stderr": "pen(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/digital-tape-verification/digital-tape-verification/build/replay/missing-image-linux/bundle/image-linux.json'\n"
+    },
+    {
+      "case": "missing-native-linux",
+      "exit": 1,
+      "passed": true,
+      "stderr": "n(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/digital-tape-verification/digital-tape-verification/build/replay/missing-native-linux/bundle/native-linux.json'\n"
+    },
+    {
+      "case": "missing-artifact-linux",
+      "exit": 1,
+      "passed": true,
+      "stderr": "uild/product/tests/wp14_adapter/census.py\", line 93, in main\n    proof.extend(retained_oracle.audit_retained(\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 17, in audit_retained\n    assert all(r.is_dir() for r in roots.values()),'named retained artifact missing'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: named retained artifact missing\n"
+    },
+    {
+      "case": "retained-mismatch-linux",
+      "exit": 1,
+      "passed": true,
+      "stderr": "tal-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 37, in audit_retained\n    bind(a['path'],a['sha256'],p);captured[a['path']]=a['sha256']\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 26, in bind\n    assert sha(path)==expected,'retained hash mismatch'\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: retained hash mismatch\n"
+    },
+    {
+      "case": "empty-results-linux",
+      "exit": 1,
+      "passed": true,
+      "stderr": "y\", line 93, in main\n    proof.extend(retained_oracle.audit_retained(\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 30, in audit_retained\n    rows=natives[p]['results'];assert isinstance(rows,list) and rows,'empty or malformed native results'\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: empty or malformed native results\n"
+    },
+    {
+      "case": "missing-image-windows",
+      "exit": 1,
+      "passed": true,
+      "stderr": "mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/digital-tape-verification/digital-tape-verification/build/replay/missing-image-windows/bundle/image-windows.json'\n"
+    },
+    {
+      "case": "missing-native-windows",
+      "exit": 1,
+      "passed": true,
+      "stderr": "de='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/digital-tape-verification/digital-tape-verification/build/replay/missing-native-windows/bundle/native-windows.json'\n"
+    },
+    {
+      "case": "missing-artifact-windows",
+      "exit": 1,
+      "passed": true,
+      "stderr": "uild/product/tests/wp14_adapter/census.py\", line 93, in main\n    proof.extend(retained_oracle.audit_retained(\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 17, in audit_retained\n    assert all(r.is_dir() for r in roots.values()),'named retained artifact missing'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: named retained artifact missing\n"
+    },
+    {
+      "case": "retained-mismatch-windows",
+      "exit": 1,
+      "passed": true,
+      "stderr": "tal-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 37, in audit_retained\n    bind(a['path'],a['sha256'],p);captured[a['path']]=a['sha256']\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 26, in bind\n    assert sha(path)==expected,'retained hash mismatch'\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: retained hash mismatch\n"
+    },
+    {
+      "case": "empty-results-windows",
+      "exit": 1,
+      "passed": true,
+      "stderr": "y\", line 93, in main\n    proof.extend(retained_oracle.audit_retained(\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/retained.py\", line 30, in audit_retained\n    rows=natives[p]['results'];assert isinstance(rows,list) and rows,'empty or malformed native results'\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: empty or malformed native results\n"
+    },
+    {
+      "case": "usage-missing-argument",
+      "exit": 64,
+      "passed": true,
+      "stderr": "usage: --platforms: sorted unique platforms must include linux and windows\n"
+    },
+    {
+      "case": "empty-image-json",
+      "exit": 1,
+      "passed": true,
+      "stderr": "\", line 155, in main\n    result = qualification_supported.audit_platforms(images, natives, args.head, selected)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_supported_r1/qualification_supported.py\", line 25, in audit_platforms\n    assert image['kind']=='candidate-image-cases' and image['platform']==platform\n           ~~~~~^^^^^^^^\nKeyError: 'kind'\n"
+    },
+    {
+      "case": "removed-windows-case",
+      "exit": 1,
+      "passed": true,
+      "stderr": "sts/wp14_supported_r1/qualification_supported.py\", line 32, in audit_platforms\n    extras=census([r['case'] for r in rows],[r['case'] for r in expected])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/digital-tape-verification/digital-tape-verification/build/product/tests/wp14_r1/qualification.py\", line 11, in census\n    assert set(expected)<=set(completed), 'case omitted'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: case omitted\n"
+    },
+    {
+      "case": "malformed-native-json",
+      "exit": 1,
+      "passed": true,
+      "stderr": "  return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\njson.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\n"
+    }
+  ],
+  "passed": true,
+  "predicate_controls": 3,
+  "accepted": false
+}

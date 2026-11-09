@@ -1,0 +1,96 @@
+name: Verification397 complete downloaded census review
+on:
+  pull_request:
+    paths: ['findings/V397-CENSUS/**', '.github/workflows/verification397-census.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  independent-complete-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Select full replay or authenticate unchanged completed replay
+        id: mode
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          from pathlib import Path
+          p=Path('findings/V397-CENSUS/VERIFIED.json');full=not p.exists()
+          if not full:
+              d=json.loads(p.read_text());run=json.loads(subprocess.check_output(['gh','api',f"repos/mmsanders/digital-tape-verification/actions/runs/{d['run_id']}"],text=True))
+              assert run['conclusion']=='success' and run['head_sha']==d['source'] and run['path']=='.github/workflows/verification397-census.yml'
+              subprocess.run(['git','merge-base','--is-ancestor',d['source'],'HEAD'],check=True)
+              assert subprocess.run(['git','cat-file','-e',d['source']+':'+str(p)],capture_output=True).returncode!=0
+              paths=['.github/workflows/verification397-census.yml','tests/wp14_supported_r1','findings/V397-CENSUS/AUTH.json','findings/V397-CENSUS/IMPORTS.json']
+              subprocess.run(['git','diff','--exit-code',d['source'],'HEAD','--',*paths],check=True)
+              print('Unchanged completed full replay authenticated; report-only update carries exact evidence')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('full='+str(full).lower()+'\n')
+          PY
+      - uses: actions/checkout@v4
+        if: steps.mode.outputs.full == 'true'
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: d8ead4448cc9e4d33e50c0673288becb8b359a22
+          path: build/product
+          fetch-depth: 0
+      - name: Download complete original artifacts and authenticate producer identities
+        if: steps.mode.outputs.full == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,subprocess,shutil
+          from pathlib import Path
+          def gh(*a):return subprocess.check_output(['gh',*a],text=True)
+          run=json.loads(gh('api','repos/mmsanders/Digital-Tape/actions/runs/42065992517'));assert run['head_sha']=='d8ead4448cc9e4d33e50c0673288becb8b359a22'
+          specs=[('wp14-package-linux',13434607618,'build/packages/linux'),('wp14-package-windows',13436580112,'build/packages/windows'),('wp14-native-evidence-linux',13434108152,'build/captures/wp14-native-evidence-linux'),('wp14-native-evidence-windows',13436005428,'build/captures/wp14-native-evidence-windows')]
+          meta=[]
+          for name,i,dest in specs:
+              a=json.loads(gh('api',f'repos/mmsanders/Digital-Tape/actions/artifacts/{i}'))
+              assert a['name']==name and not a['expired'] and a['workflow_run']['id']==42065992517 and a['workflow_run']['head_sha']==run['head_sha'];meta.append(a)
+              gh('run','download','42065992517','--repo','mmsanders/Digital-Tape','--name',name,'--dir',dest)
+          bundle=Path('build/bundle');bundle.mkdir()
+          for p in Path('build/packages').rglob('*.zst'):subprocess.run(['zstd','-q','-d',str(p),'-o',str(p.with_suffix(''))],check=True)
+          for platform in ('linux','windows'):
+              for p in (Path('build/packages')/platform).iterdir():
+                  if p.is_file() and not p.name.endswith('.zst'):shutil.copyfile(p,bundle/p.name)
+          Path('build/ARTIFACT-SOURCES.json').write_text(json.dumps(meta,indent=2))
+          print('All four complete artifact packages downloaded and producer identities authenticated')
+          PY
+      - name: Positive census, independent oracle controls and complete actual-adapter replay
+        if: steps.mode.outputs.full == 'true'
+        run: |
+          python3 -B tests/wp14_supported_r1/selftest.py > build/SELFTEST.json
+          python3 -B build/product/tests/wp14_adapter/census.py --head d8ead4448cc9e4d33e50c0673288becb8b359a22 --platforms linux,windows --captures build/captures --relocations build/relocations.json build/bundle > build/CENSUS.json
+          python3 -B tests/wp14_supported_r1/run_adapter.py --adapter build/product/tests/wp14_adapter/census.py --bundle build/bundle --captures build/captures --head d8ead4448cc9e4d33e50c0673288becb8b359a22 --out build/replay > build/REPLAY.json
+      - name: Real required DAG and aggregate controls
+        if: steps.mode.outputs.full == 'true'
+        run: |
+          python3 -m pip install PyYAML==6.0.3
+          python3 -B tests/wp14_supported_r1/dag.py --product build/product > build/DAG.json
+      - name: Original A8 Git identity audit
+        if: steps.mode.outputs.full == 'true'
+        working-directory: build/product
+        run: |
+          imp=$(git log --format=%H -1 -- tests/wp14_r1)
+          pub=$(python3 -c "import json;print(next(p['source_commit'] for p in json.load(open('tests/IMPORTS.json'))['packages'] if p['path']=='tests/wp14_r1'))")
+          python3 -B tests/wp14_adapter/a8_identity.py --verification ../.. --product . --publication "$pub" --candidate d8ead4448cc9e4d33e50c0673288becb8b359a22 --import-commit "$imp" --import-path tests/wp14_r1 --golden-path tests/golden > ../A8.json
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.mode.outputs.full == 'true'
+        with:
+          name: V397-census-independent-results
+          path: |
+            build/ARTIFACT-SOURCES.json
+            build/SELFTEST.json
+            build/CENSUS.json
+            build/DAG.json
+            build/A8.json
+            build/replay/RESULT.json
+          retention-days: 90
