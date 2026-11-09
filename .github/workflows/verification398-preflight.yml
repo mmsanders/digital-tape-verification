@@ -1,0 +1,33 @@
+name: Verification398 ADR208 preflight provenance
+on:
+  pull_request:
+    paths: ['findings/V398-PREFLIGHT/**', '.github/workflows/verification398-preflight.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unchanged-issued-bundle:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 978efb2122377140eb89f01bf73cb76385e00a65
+          path: build/product
+          fetch-depth: 0
+      - name: Authenticate preflight input, frozen bundle, public API and golden preservation
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          a=json.loads(Path('findings/V398-PREFLIGHT/AUTH.json').read_text());r=Path('build/product')
+          def git(*x):return subprocess.check_output(['git',*x],cwd=r)
+          for p,h in a['method_document_sha256'].items():assert hashlib.sha256(git('show',a['head']+':'+p)).hexdigest()==h
+          for p,h in a['specs'].items():
+              raw=git('show',a['head']+':'+p);assert raw==git('show',a['base']+':'+p) and hashlib.sha256(raw).hexdigest()==h
+          for p in ('engine','engine/include','tests/golden'):
+              assert git('rev-parse',a['head']+':'+p)==git('rev-parse',a['base']+':'+p)
+          assert git('rev-parse',a['head']+':engine').decode().strip()=='d96b4245e04d74078f8938744b1394c3018516f7'
+          print('Exact ADR208 method input and unchanged DRAFT10/API/engine/golden identities authenticate; no method acceptance inferred')
+          PY
