@@ -1,0 +1,30 @@
+name: Verification398 self-run Hardware method review
+on:
+  pull_request:
+    paths: ['tests/power_cut_selfrun_r1/**', 'findings/V398-HARDWARE-METHOD/**', '.github/workflows/verification398-hardware.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-planted-tear-and-judge:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 1d6a13db30540c0d33a0955566e29aa040b3aad6
+          path: build/product
+      - name: Authenticate exact returned method and judge
+        run: |
+          python3 - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          a=json.loads(Path('findings/V398-HARDWARE-METHOD/AUTH.json').read_text())
+          for f,digest in a['files'].items():assert hashlib.sha256((Path('build/product')/f).read_bytes()).hexdigest()==digest,f
+          PY
+      - run: python3 -B tests/power_cut_selfrun_r1/run.py --judge build/product/hardware/characterisation/media_atomicity.py --out build/independent-replay
+      - uses: actions/upload-artifact@v4
+        with:
+          name: V398-selfrun-independent-results
+          path: build/independent-replay/RESULT.json

@@ -24,11 +24,11 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Round 2 / V382 | Ready executable subsets published; corrected declarations/heads pending | [Return](findings/P3-R2-V382/DISPOSITION.md): BE1 109 bundles/4 fake-port cases, 71 rig rows; exact2faa1180 R374-1 passes27; no whole-method clearance |
 | DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
 | WP-17 target F1/F2/F3/F5 | PENDING bench evidence | Host goldens and static sizes do not establish target PCM, stack, timing or physical behavior |
-| Atomicity rig method | NOT CLEARED | [#374 Stage B review](findings/P3-R1-374/RIG-METHOD.md) of Hardware 80d26364: judge/cut-proof/electrical gaps; Hardware and PM own correction. Zero cards qualified |
+| Atomicity self-run method | REVIEWED, implementation/policy held | [V398 method review](findings/V398-HARDWARE-METHOD/DISPOSITION.md): planted-tear control detected; optional-CID/new route, P4 and SPI scope need disposition. ADR208 supersedes old instrument gates. Zero cards qualified |
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Latest return: [Verification #397](https://github.com/mmsanders/digital-tape-verification/issues/397); prior publications preserved.
+Latest return: [Verification #398](https://github.com/mmsanders/digital-tape-verification/issues/398); prior publications preserved.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)
@@ -40,3 +40,5 @@ Older HOLD/pending wording describes its dated input, not a current assignment.
 No old test, oracle, golden, evidence byte or disposition changes with this refresh.
 
 V397: [census/transport](findings/V397-CENSUS/DISPOSITION.md), [ordering](findings/V397-ORDER/DISPOSITION.md) and [runner restoration](findings/V397-RUNNER/DISPOSITION.md) independently cleared within their bounded scopes. Required current-base Product CI remains an integration condition.
+
+V398: [ADR208 existing preflight delta](findings/V398-PREFLIGHT/PREFLIGHT.md), [41 timing semantic fixtures/10 controls](findings/V398-METHOD-TESTS/DISPOSITION.md) and [self-run method review](findings/V398-HARDWARE-METHOD/DISPOSITION.md) published. Software serial binding and Hardware/PM declared self-run policy remain named dependencies. F3/F4 target results remain pending; retired instruments/CID are not gates.

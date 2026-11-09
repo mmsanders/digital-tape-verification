@@ -35,3 +35,5 @@ V392: [rig_cli_review_r1](rig_cli_review_r1/README.md),3 declared deep-JSON CLI 
 V394: [supported census companion](wp14_supported_r1/README.md) and [review-order fixtures](review_order_r1/README.md), NEW immutable import paths before Software policy changes.
 
 [wp17_hands_on_r1](wp17_hands_on_r1/README.md): ADR208 F3/F4 semantic fixtures only; UNBOUND serial interface; no firmware acceptance.
+
+[power_cut_selfrun_r1](power_cut_selfrun_r1/README.md): independent ATOM mapping and production-minimum planted-tear controls; synthetic only.
