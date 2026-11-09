@@ -2,7 +2,7 @@
 
 **Recommendation: apply the adopted hands-on method, revise the wording below before DRAFT11 issuance.** This extends the existing P3-R1-374 preflight; it is not a new paper acceptance round or a revival of superseded instrument findings. ADR208 already governs the named Phase3 methods while DRAFT10 bytes remain frozen. S2's exact speaker limit and Michael's DRAFT11 authorization remain named issuance inputs.
 
-Authority: Verification398, updated2026-11-07T03:07:48Z, manually activated8Nov by Michael. Input Product **978efb2122377140eb89f01bf73cb76385e00a65**, merged PR670; predecessor8fe336b5728fb3a96093240dd7be76728a79156a. Required entry documents and five changed method documents read.397 retains priority; its ready runner/order reports are published and complete census replay is computing. No firmware implementation inspected for this method work.
+Authority: Verification398, updated2026-11-07T03:07:48Z, manually activated8Nov by Michael. Input Product **978efb2122377140eb89f01bf73cb76385e00a65**, merged PR670; predecessor8fe336b5728fb3a96093240dd7be76728a79156a. Required entry documents and five changed method documents read.397 has completed first; all three independent dispositions are published and returned. No firmware implementation inspected for this method work.
 
 ## Four wording findings to PM
 
@@ -34,4 +34,4 @@ AUTH.json proves all three DRAFT10 spec files equal8fe336b5 and their manifest h
 
 F3/F4 semantic test cases can be authored from ADR208 now. Executable firmware/capture binding needs a public declaration of timing command/event/serial fields, units/conversion/wrap behavior, build identifier to binary identity mapping,150ms-injection control,4096-entry/card/counter semantics, and MICHAEL-CHECKS/log linkage. Current main's FW1/BE1 is method-level; the held IF3 declaration at0db6ce5c still reserves F3/F4 as pending/deferred. No new firmware implementation was opened to infer those interfaces. This is a precise binding dependency, not a request for instruments or another decision about the already-adopted method.
 
-Hardware671 Stage2 method is the named input for398 stage3; none was returned at activation. Review it against ADR208 when supplied, with a planted-tear judge control and no re-litigation of the retired lab method. Return stage1 wording to PM669 and398 with merged source/CI/merge pins.
+Hardware671 returned PR673 at1d6a13db30540c0d33a0955566e29aa040b3aad6 after activation; stage3 reviews it separately against ADR208, with a planted-tear judge control and no re-litigation of the retired lab method. Return stage1 wording to PM669 and398 with merged source/CI/merge pins.
