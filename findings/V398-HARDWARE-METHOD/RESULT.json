@@ -10,15 +10,15 @@
         "torn_iterations": []
       },
       "observed": {
-        "problems": [],
-        "verdict": "PASS",
         "torn_iterations": [],
-        "qualifying": 1000
+        "problems": [],
+        "qualifying": 1000,
+        "verdict": "PASS"
       },
       "exit": 0,
       "passed": true,
-      "serial_sha256": "7875a6c969410b4f10ba23f7c9d2f94baf6c3ee3286b0a9ee0a2e0c9e6917570",
-      "mapped_sha256": "70defe95f8799deb82f6a51ceb5985a0948aa86288cf6c17fb41a1103c46f855"
+      "serial_sha256": "ceac28484c62bfa63cad47bb1f713170173f7c541932663dd79e187d3b398ae9",
+      "mapped_sha256": "edce0a54c974ef0e2e1cd7eeae4623b5e4ff9ec3247eb6930fef3f87e33444f5"
     },
     {
       "case": "planted-tear-qualifying",
@@ -29,17 +29,17 @@
         ]
       },
       "observed": {
-        "problems": [],
-        "verdict": "FAIL",
         "torn_iterations": [
           501
         ],
-        "qualifying": 1000
+        "problems": [],
+        "qualifying": 1000,
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "c57163a5cea00ba89e6b9cd115a5b2da839f9d36bc807808a5a29243600e622c",
-      "mapped_sha256": "56ce0fd4b235f68a4dd3aa1a247322e94c4098c74d1d7e690db53a815bbdd2f6"
+      "serial_sha256": "1ca7a03f7a401d6602e4f29d9d8410da81a75d062bb7d2f3de5b5594d8cbb5bb",
+      "mapped_sha256": "82528b6b6ca87754dafb65eee1a7825a4c6c8c099acb18bfe22b73cc7cd64ca1"
     },
     {
       "case": "planted-tear-on-miss",
@@ -54,19 +54,19 @@
       },
       "observed": {
         "problems": [],
-        "verdict": "FAIL",
         "torn_iterations": [
           1001
         ],
         "damage_on_non_qualifying": [
           1001
         ],
-        "qualifying": 1000
+        "qualifying": 1000,
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "763973215fe03946cf9cabcb418850d63b2b0ccaabb91e5f59d8a55519a94ab0",
-      "mapped_sha256": "ba0b149fdb488da3a1d817b0f87bbbd9315d754c7983bcb6b71a50657522f56b"
+      "serial_sha256": "ca8212b9754778f72ccd9452f60d5724725433649869f99e5949964ac120b6d3",
+      "mapped_sha256": "d4b9215616450fa2a3a10e6fd14973ee229e5e8cb98fe9c9e7aaf503d650a21c"
     },
     {
       "case": "corrupt-target",
@@ -78,16 +78,16 @@
       },
       "observed": {
         "problems": [],
+        "qualifying": 1000,
         "verdict": "FAIL",
         "corrupt_iterations": [
           501
-        ],
-        "qualifying": 1000
+        ]
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "d8503f6b1a5ed3315948fb31861c693474c9085f018182fa583569c2164ceb32",
-      "mapped_sha256": "c2c162778a6f005c48f1a7fed7158674601936915194f3b0afb3423b55eb2459"
+      "serial_sha256": "e394519811a10bccbfaaaf32b6ee83ee194336385bf54b5236330a5bc3d90c88",
+      "mapped_sha256": "a1f1884c972f7db653c14054257620a57faa9a84a190ec6bbefa550dfbe9d955"
     },
     {
       "case": "neighbour-damage-on-miss",
@@ -105,22 +105,22 @@
       },
       "observed": {
         "problems": [],
+        "damage_on_non_qualifying": [
+          1001
+        ],
+        "qualifying": 1000,
         "verdict": "FAIL",
         "neighbour_damage": [
           [
             1001,
             "+1"
           ]
-        ],
-        "damage_on_non_qualifying": [
-          1001
-        ],
-        "qualifying": 1000
+        ]
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "89c460d3e1bc518c6c259a28325a18a2ef46819040bbaf69ef2b63083c801675",
-      "mapped_sha256": "9a310b02619afabea07222db3ac7b10e11222827d4affc3eec1507ea64f690d8"
+      "serial_sha256": "b1744b8d9e31fe36b174a88e6507fcc9963f627b58f355b3729c470ccdb60924",
+      "mapped_sha256": "d5b489ba48313f5c1d21c338e3423d5e2cd074f526ef0d98156c7a5b20134245"
     },
     {
       "case": "999-does-not-reach-minimum",
@@ -130,13 +130,13 @@
       },
       "observed": {
         "problems": [],
-        "verdict": "FAIL",
-        "qualifying": 999
+        "qualifying": 999,
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "0efa47c8d42f87150cf97e61e325cd03a302c499374910ec90b134b760b04dc1",
-      "mapped_sha256": "ce9a08e79d04f1643bb40e7ad4f6c5440ef893432c2725602d49e4225d7173d1"
+      "serial_sha256": "7a8a4651bef824e8eaf2239f68bfd91b542e7d52f3705abbf9edf29bfc268903",
+      "mapped_sha256": "1e74d1e2608c3fd298668bde073131095a99bfe278eaf21bb2799c882f552fa4"
     },
     {
       "case": "operator-cannot-shrink-minimum",
@@ -147,14 +147,14 @@
       },
       "observed": {
         "problems": [],
-        "verdict": "FAIL",
+        "qualifying": 999,
         "required_qualifying": 1000,
-        "qualifying": 999
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "0efa47c8d42f87150cf97e61e325cd03a302c499374910ec90b134b760b04dc1",
-      "mapped_sha256": "ce9a08e79d04f1643bb40e7ad4f6c5440ef893432c2725602d49e4225d7173d1"
+      "serial_sha256": "7a8a4651bef824e8eaf2239f68bfd91b542e7d52f3705abbf9edf29bfc268903",
+      "mapped_sha256": "1e74d1e2608c3fd298668bde073131095a99bfe278eaf21bb2799c882f552fa4"
     },
     {
       "case": "duplicate-does-not-earn-credit",
@@ -166,13 +166,13 @@
         "problems": [
           "trial 1: duplicate result"
         ],
-        "verdict": "FAIL",
-        "qualifying": 1000
+        "qualifying": 1000,
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "68de50a8c2e680b3f1b0edfdd19609217c99e89d7dd096a86d37d6e6df34e0cd",
-      "mapped_sha256": "1673e69aef6d44b817029788662616fb4c7eb4881cad0c4cee017ec6a9a7a026"
+      "serial_sha256": "fb49a51bc36631e919af976bb9887ff7130ed143d42790193eab8a194037c2db",
+      "mapped_sha256": "1bfc703390f500328d1443e626f021eb700744f91533311c6a0d14cf0964cab4"
     },
     {
       "case": "missing-attempt-cannot-be-dropped",
@@ -181,17 +181,17 @@
         "reported": 1000
       },
       "observed": {
+        "reported": 1000,
         "problems": [
           "trial 1001: planned but not reported"
         ],
-        "reported": 1000,
-        "verdict": "FAIL",
-        "qualifying": 1000
+        "qualifying": 1000,
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "1e82db5c929ae995ed0631bd85fba4d5032cfff1941360ed9cf083b403a49016",
-      "mapped_sha256": "f62d730b6b7f07f952c2bd9fa42c82f6684f8c0cfca037acb067397e6d026565"
+      "serial_sha256": "86b1be422a6a9fe6b16e1228cf2892416bcebc875eb8ac55bcb47c18c1177549",
+      "mapped_sha256": "b8d6e3132e4eb2551d702d99c5ed2adbdd704f0859cb146990fdf948099d01d0"
     },
     {
       "case": "wrong-plan-link",
@@ -203,13 +203,13 @@
         "problems": [
           "trial 501: plan_digest does not match the committed plan"
         ],
-        "verdict": "FAIL",
-        "qualifying": 999
+        "qualifying": 999,
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "f56a5f2f57c84d014139a5e4a0021614d7da59bf834fb69e11094894c501ec29",
-      "mapped_sha256": "ec4d9ee03bc58fb848db7fea9cc1e1fea494e78b10fa5704d1350725b07dcf45"
+      "serial_sha256": "7d9baa6b2e7d7ac7b4a8c5c60016ba06e46a6e18c63aa35c94a98185653a4c1c",
+      "mapped_sha256": "83951ad7ac8a043e192cf4ce379b81dc4725e5196dc21f7044cabc262bd2633a"
     },
     {
       "case": "no-accepted-data-response",
@@ -219,13 +219,13 @@
       },
       "observed": {
         "problems": [],
-        "verdict": "FAIL",
-        "qualifying": 999
+        "qualifying": 999,
+        "verdict": "FAIL"
       },
       "exit": 2,
       "passed": true,
-      "serial_sha256": "b18bc86389e425fd508961f5e9c35519d3248f732f59f32fab8bddbce385868a",
-      "mapped_sha256": "b007df889890ff2f6b9b99e0dafe98b3fece4e715375bb95f32ec386bfc96701"
+      "serial_sha256": "1ebf9dd4de9c2a465cb4f428b5b55ee78cba8fc25ded3bb57b8b30e13682c0f4",
+      "mapped_sha256": "267d61f22ad42f2b52c010067412246d172e29ac3fcb1ba4728bcbec873c15ce"
     }
   ],
   "passed": true,

@@ -45,7 +45,7 @@ def main():
   actual=json.loads((d/'verdict.json').read_text());passed=agrees(actual,want) and q.returncode==(0 if want['verdict']=='PASS' else 2)
   if name=='duplicate-does-not-earn-credit':passed=passed and any('duplicate' in x for x in actual['problems'])
   if name=='missing-attempt-cannot-be-dropped':passed=passed and any('planned but not reported' in x for x in actual['problems'])
-  observations.append(dict(case=name,expected=want,observed={k:actual[k] for k in set(want)|{'problems','verdict','qualifying'}},exit=q.returncode,passed=passed,serial_sha256=hashlib.sha256(raw.encode()).hexdigest(),mapped_sha256=hashlib.sha256(mapped.encode()).hexdigest()))
+  observations.append(dict(case=name,expected=want,observed={k:actual[k] for k in set(want)|{'problems','verdict','qualifying'}},exit=q.returncode,passed=passed,serial_sha256=hashlib.sha256((d/'serial.log').read_bytes()).hexdigest(),mapped_sha256=hashlib.sha256((d/'run.jsonl').read_bytes()).hexdigest()))
  spec=importlib.util.spec_from_file_location('v398_candidate',a.judge);m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m)
  p,rows=fixture();normal=m.classify;m.classify=lambda data,n:'NEW'
  p1,r1=copy.deepcopy(p),copy.deepcopy(rows);scenarios()[1][1](p1,r1);mutant=m.judge([p1],r1);assert not agrees(mutant,scenarios()[1][2]);m.classify=normal

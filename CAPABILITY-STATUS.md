@@ -28,7 +28,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Latest return: [Verification #397](https://github.com/mmsanders/digital-tape-verification/issues/397); prior publications preserved.
+Latest return: [Verification #398](https://github.com/mmsanders/digital-tape-verification/issues/398); prior publications preserved.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)
