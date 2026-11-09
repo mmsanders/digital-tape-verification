@@ -47,3 +47,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V398 ADR208 preflight delta](V398-PREFLIGHT/PREFLIGHT.md): hands-on method, strict facts, four wording findings and unchanged frozen bundle; no retired lab gates.
 
 [V398 hands-on semantic tests](V398-METHOD-TESTS/DISPOSITION.md):41 fixtures/10 controls; actual serial binding needs Software declaration.
+
+[V398 self-run Hardware method](V398-HARDWARE-METHOD/DISPOSITION.md):11 actual production-judge cases and planted-tear control pass; optional-CID/new-route, policy and implementation dependencies remain.

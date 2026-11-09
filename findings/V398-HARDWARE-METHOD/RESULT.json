@@ -1,0 +1,293 @@
+{
+  "mode": "independent-synthetic-ATOM-mapping-and-production-judge",
+  "judge_sha256": "6edc55f5a70e89489b54604e5d5df873109c21690ef06900653fb08970776cae",
+  "cases": [
+    {
+      "case": "clean-1000-plus-one-miss",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "torn_iterations": []
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "PASS",
+        "torn_iterations": [],
+        "qualifying": 1000
+      },
+      "exit": 0,
+      "passed": true,
+      "serial_sha256": "7875a6c969410b4f10ba23f7c9d2f94baf6c3ee3286b0a9ee0a2e0c9e6917570",
+      "mapped_sha256": "70defe95f8799deb82f6a51ceb5985a0948aa86288cf6c17fb41a1103c46f855"
+    },
+    {
+      "case": "planted-tear-qualifying",
+      "expected": {
+        "verdict": "FAIL",
+        "torn_iterations": [
+          501
+        ]
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "FAIL",
+        "torn_iterations": [
+          501
+        ],
+        "qualifying": 1000
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "c57163a5cea00ba89e6b9cd115a5b2da839f9d36bc807808a5a29243600e622c",
+      "mapped_sha256": "56ce0fd4b235f68a4dd3aa1a247322e94c4098c74d1d7e690db53a815bbdd2f6"
+    },
+    {
+      "case": "planted-tear-on-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "torn_iterations": [
+          1001
+        ],
+        "damage_on_non_qualifying": [
+          1001
+        ]
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "FAIL",
+        "torn_iterations": [
+          1001
+        ],
+        "damage_on_non_qualifying": [
+          1001
+        ],
+        "qualifying": 1000
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "763973215fe03946cf9cabcb418850d63b2b0ccaabb91e5f59d8a55519a94ab0",
+      "mapped_sha256": "ba0b149fdb488da3a1d817b0f87bbbd9315d754c7983bcb6b71a50657522f56b"
+    },
+    {
+      "case": "corrupt-target",
+      "expected": {
+        "verdict": "FAIL",
+        "corrupt_iterations": [
+          501
+        ]
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "FAIL",
+        "corrupt_iterations": [
+          501
+        ],
+        "qualifying": 1000
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "d8503f6b1a5ed3315948fb31861c693474c9085f018182fa583569c2164ceb32",
+      "mapped_sha256": "c2c162778a6f005c48f1a7fed7158674601936915194f3b0afb3423b55eb2459"
+    },
+    {
+      "case": "neighbour-damage-on-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "neighbour_damage": [
+          [
+            1001,
+            "+1"
+          ]
+        ],
+        "damage_on_non_qualifying": [
+          1001
+        ]
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "FAIL",
+        "neighbour_damage": [
+          [
+            1001,
+            "+1"
+          ]
+        ],
+        "damage_on_non_qualifying": [
+          1001
+        ],
+        "qualifying": 1000
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "89c460d3e1bc518c6c259a28325a18a2ef46819040bbaf69ef2b63083c801675",
+      "mapped_sha256": "9a310b02619afabea07222db3ac7b10e11222827d4affc3eec1507ea64f690d8"
+    },
+    {
+      "case": "999-does-not-reach-minimum",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "0efa47c8d42f87150cf97e61e325cd03a302c499374910ec90b134b760b04dc1",
+      "mapped_sha256": "ce9a08e79d04f1643bb40e7ad4f6c5440ef893432c2725602d49e4225d7173d1"
+    },
+    {
+      "case": "operator-cannot-shrink-minimum",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "FAIL",
+        "required_qualifying": 1000,
+        "qualifying": 999
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "0efa47c8d42f87150cf97e61e325cd03a302c499374910ec90b134b760b04dc1",
+      "mapped_sha256": "ce9a08e79d04f1643bb40e7ad4f6c5440ef893432c2725602d49e4225d7173d1"
+    },
+    {
+      "case": "duplicate-does-not-earn-credit",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000
+      },
+      "observed": {
+        "problems": [
+          "trial 1: duplicate result"
+        ],
+        "verdict": "FAIL",
+        "qualifying": 1000
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "68de50a8c2e680b3f1b0edfdd19609217c99e89d7dd096a86d37d6e6df34e0cd",
+      "mapped_sha256": "1673e69aef6d44b817029788662616fb4c7eb4881cad0c4cee017ec6a9a7a026"
+    },
+    {
+      "case": "missing-attempt-cannot-be-dropped",
+      "expected": {
+        "verdict": "FAIL",
+        "reported": 1000
+      },
+      "observed": {
+        "problems": [
+          "trial 1001: planned but not reported"
+        ],
+        "reported": 1000,
+        "verdict": "FAIL",
+        "qualifying": 1000
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "1e82db5c929ae995ed0631bd85fba4d5032cfff1941360ed9cf083b403a49016",
+      "mapped_sha256": "f62d730b6b7f07f952c2bd9fa42c82f6684f8c0cfca037acb067397e6d026565"
+    },
+    {
+      "case": "wrong-plan-link",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "observed": {
+        "problems": [
+          "trial 501: plan_digest does not match the committed plan"
+        ],
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "f56a5f2f57c84d014139a5e4a0021614d7da59bf834fb69e11094894c501ec29",
+      "mapped_sha256": "ec4d9ee03bc58fb848db7fea9cc1e1fea494e78b10fa5704d1350725b07dcf45"
+    },
+    {
+      "case": "no-accepted-data-response",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "observed": {
+        "problems": [],
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "exit": 2,
+      "passed": true,
+      "serial_sha256": "b18bc86389e425fd508961f5e9c35519d3248f732f59f32fab8bddbce385868a",
+      "mapped_sha256": "b007df889890ff2f6b9b99e0dafe98b3fece4e715375bb95f32ec386bfc96701"
+    }
+  ],
+  "passed": true,
+  "controls_detected": [
+    "always-NEW-classifier"
+  ],
+  "method_delta_probes": [
+    {
+      "probe": "stale-busy-sample",
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "completed_write_reverted": []
+    },
+    {
+      "probe": "card-not-powered-off",
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "completed_write_reverted": []
+    },
+    {
+      "probe": "different-after-cut-CID",
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "completed_write_reverted": []
+    },
+    {
+      "probe": "mixed-firmware-build",
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "completed_write_reverted": []
+    },
+    {
+      "probe": "missing-firmware-build",
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "completed_write_reverted": []
+    },
+    {
+      "probe": "CID-unavailable",
+      "verdict": "FAIL",
+      "qualifying": 0,
+      "problems": [
+        "trial 1: card_cid missing",
+        "trial 2: card_cid missing",
+        "trial 3: card_cid missing"
+      ],
+      "completed_write_reverted": []
+    },
+    {
+      "probe": "completed-before-cut-reads-OLD-PM-policy-needed",
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "completed_write_reverted": []
+    }
+  ],
+  "physical_run": false,
+  "accepted": false,
+  "method_clearance": false
+}
