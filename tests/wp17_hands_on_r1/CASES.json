@@ -1,0 +1,1586 @@
+[
+  {
+    "case": "warm-fast-acceptable",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture",
+      "target_met": true
+    }
+  },
+  {
+    "case": "warm-fast-feels-wrong",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "not acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "not_acceptable"
+    }
+  },
+  {
+    "case": "warm-equality-recorded-miss",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 100000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 100000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture",
+      "target_met": false
+    }
+  },
+  {
+    "case": "warm-exactly-twenty-percent-miss",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 120000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 120000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture",
+      "target_met": false
+    }
+  },
+  {
+    "case": "warm-over-twenty-percent",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 120001,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 120001
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "pending_pm"
+    }
+  },
+  {
+    "case": "warm-over-twenty-with-reviewed-PM-context",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 121000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 121000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ],
+      "verified_pm_decision": {
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "elapsed_us": 121000,
+        "reference": "SYNTHETIC PM context; not a real decision"
+      }
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture"
+    }
+  },
+  {
+    "case": "product-PM-boolean-cannot-waive",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 121000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 121000
+        },
+        "verdict": "acceptable"
+      },
+      "pm_approval": true
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "pending_pm"
+    }
+  },
+  {
+    "case": "missing-michael-entry",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation"
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "wrong-michael-build",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "OTHER",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "wrong-log-build",
+    "record": {
+      "build": "OTHER",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "wrong-michael-log-hash",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "wrong-raw-log-hash",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "wrong-michael-numbers",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 1
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "missing-check-date",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "missing-tried-description",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "wrong-check-criterion",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "unknown-verdict",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "probably"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "host-clock-not-firmware",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "host",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "wrong-wake-event",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "capture_started",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "wrong-first-frame-event",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_service_call"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "missing-measurement",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "negative-duration",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": -1,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "boolean-duration",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": true,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "non-numeric-duration",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": "NaN",
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "no-target-observation",
+    "record": null,
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "not_run"
+    }
+  },
+  {
+    "case": "150ms-injection-accurate",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 150000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation"
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ],
+      "injected_delay_us": 150000
+    },
+    "expected": {
+      "rule_outcome": "control_detected",
+      "target_met": false
+    }
+  },
+  {
+    "case": "150ms-injection-underreported",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 149999,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation"
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ],
+      "injected_delay_us": 150000
+    },
+    "expected": {
+      "rule_outcome": "mismatch",
+      "reason": "injected_delay_underreported"
+    }
+  },
+  {
+    "case": "150ms-injection-later-log-is-detecting",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 160000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation"
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ],
+      "injected_delay_us": 150000
+    },
+    "expected": {
+      "rule_outcome": "control_detected"
+    }
+  },
+  {
+    "case": "CID-absent-is-unknown-not-failure",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture"
+    }
+  },
+  {
+    "case": "CID-null-does-not-gate",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F3",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 99000
+        },
+        "verdict": "acceptable"
+      },
+      "cid": null
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture"
+    }
+  },
+  {
+    "case": "debug-instruments-do-not-cure-missing-entry",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F3",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 99000,
+        "origin": "mcu",
+        "start_event": "wake_interrupt",
+        "end_event": "first_non_silent_frame_handed_to_i2s"
+      },
+      "provenance": "simulation",
+      "instrument": "SIM",
+      "calibration": "SIM",
+      "timebase": "SIM"
+    },
+    "context": {
+      "criterion": "F3",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "wake_interrupt",
+        "first_non_silent_frame_handed_to_i2s"
+      ]
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "commit-fast-acceptable",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4096,
+          "underruns_during_commit": 0
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture",
+      "target_met": true
+    }
+  },
+  {
+    "case": "commit-exact-twenty-percent",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 240000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 240000,
+          "entries": 4096,
+          "underruns_during_commit": 0
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "eligible_normalized_fixture",
+      "target_met": false
+    }
+  },
+  {
+    "case": "commit-over-twenty-percent",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 240001,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 240001,
+          "entries": 4096,
+          "underruns_during_commit": 0
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "pending_pm"
+    }
+  },
+  {
+    "case": "commit-below-max-entry-setup",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4095,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4095,
+          "underruns_during_commit": 0
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "commit-wrong-card-context",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "OTHER",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4096,
+          "underruns_during_commit": 0
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "commit-underrun-cannot-be-waived",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 1,
+        "underruns_before": 10,
+        "underruns_after": 11
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4096,
+          "underruns_during_commit": 1
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "not_acceptable",
+      "reason": "strict_underruns"
+    }
+  },
+  {
+    "case": "commit-no-underrun-counter",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4096
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "invalid"
+    }
+  },
+  {
+    "case": "commit-false-zero-counter-delta",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 11
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4096,
+          "underruns_during_commit": 0
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "mismatch"
+    }
+  },
+  {
+    "case": "commit-feels-wrong",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4096,
+          "underruns_during_commit": 0
+        },
+        "verdict": "not acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": true,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "not_acceptable"
+    }
+  },
+  {
+    "case": "current-WP17-recording-deferred",
+    "record": {
+      "build": "SYNTHETIC-BUILD-ID",
+      "criterion": "F4",
+      "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "measured": {
+        "elapsed_us": 199000,
+        "origin": "mcu",
+        "start_event": "tape_commit_enter",
+        "end_event": "tape_commit_return",
+        "entries": 4096,
+        "card": "SYNTHETIC-CARD-B",
+        "underruns_during_commit": 0,
+        "underruns_before": 10,
+        "underruns_after": 10
+      },
+      "provenance": "simulation",
+      "michael_check": {
+        "date": "2026-11-08",
+        "build": "SYNTHETIC-BUILD-ID",
+        "criterion": "F4",
+        "tried": "SYNTHETIC fixture; not a Michael check",
+        "log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+        "numbers": {
+          "elapsed_us": 199000,
+          "entries": 4096,
+          "underruns_during_commit": 0
+        },
+        "verdict": "acceptable"
+      }
+    },
+    "context": {
+      "criterion": "F4",
+      "candidate_build": "SYNTHETIC-BUILD-ID",
+      "raw_log_sha256": "0a835fe7434e1940fb526820311052fd845ef0b4a61fe147f2c5cde84f8b544c",
+      "events": [
+        "tape_commit_enter",
+        "tape_commit_return"
+      ],
+      "future_recording_contract": false,
+      "slowest_card": "SYNTHETIC-CARD-B"
+    },
+    "expected": {
+      "rule_outcome": "not_run"
+    }
+  }
+]
