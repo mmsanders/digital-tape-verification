@@ -1,0 +1,22 @@
+name: Verification398 hands-on semantic expectations
+on:
+  pull_request:
+    paths: ['tests/wp17_hands_on_r1/**', 'findings/V398-METHOD-TESTS/**', '.github/workflows/verification398-method.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-semantic-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -B tests/wp17_hands_on_r1/run.py --selftest --out build/RESULT.json
+      - name: Verify materialized catalog
+        run: |
+          python3 - <<'PY'
+          import sys,json
+          from pathlib import Path
+          sys.path.insert(0,'tests/wp17_hands_on_r1')
+          from cases import catalog
+          assert json.loads(Path('tests/wp17_hands_on_r1/CASES.json').read_text())==json.loads(json.dumps(catalog()))
+          PY

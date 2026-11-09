@@ -1,0 +1,7 @@
+# V398 stage2: semantic expectations published; serial binding blocked
+
+New immutable package tests/wp17_hands_on_r1 contains41 authored F3/F4 semantic fixtures,10 detecting controls, a revised hands-on bench procedure and a precise Software interface request. Local selftest passes; publication CI repeats it. All outputs explicitly say accepted:false/candidate_executed:false/physical_run:false and UNBOUND_SERIAL_DECLARATION. This is not a completed target or real serial-checker test.
+
+Coverage: exact100/200ms target boundaries; exact20% versus greater-than20% PM escalation; acceptable/missing/mismatched/rejected MICHAEL-CHECKS; source/build/raw-log/numeric linkage;150ms injection underreport; mandatory zero actual commit underruns;4096/slowest-card setup; F4 still deferred; missing CID and retired instruments never gate. A Product approval boolean cannot substitute for reviewed PM evidence. No firmware implementation was inspected. Old immutable packages and DRAFT10/engine/goldens remain unchanged.
+
+**Named blocker:** Software must return the public F3/F4 serial/timer/event/build/control/MICHAEL-CHECKS binding listed in tests/wp17_hands_on_r1/BINDING-NEEDED.md. Then Verification can bind actual CLI/serial cases, publish them for unchanged import before implementation and review the exact returned candidate. Semantic selftests alone cannot clear a checker or firmware. No physical work is authorized by this publication.

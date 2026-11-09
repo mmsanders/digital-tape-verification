@@ -1,0 +1,13 @@
+# Hands-on F3/F4 method supplement
+
+Proposed execution procedure only; no physical session, flash, purchase or card write is authorized by this publication. ADR208 changes the method while DRAFT10 remains byte-identical. Preserve every attempt and its original serial log, source/build/binary identities, exact scenario/setup and hashes. Missing evidence stays pending.
+
+F3: use the declared warm-wake trigger. Firmware measures from wake interrupt to the first non-silent frame handed to I2S with its MCU timer and serially reports duration. The100ms target stays; retain the measured miss. Michael tries the actual candidate and records date, firmware build hash, what was tried, logged numbers and acceptable/not acceptable in MICHAEL-CHECKS. Verification checks entry existence, candidate build/raw-log linkage and exact numeric transcription. A fast result with an unacceptable verdict fails; a miss greater than20% requires a matched PM disposition before acceptance.
+
+Measurement control: the declared test seam inserts150ms wake delay. Its raw firmware log must show at least150ms (149.999ms fails); retain raw log, seam/build and expected injection independently. This is a detecting control, not a successful timing criterion or a replacement for Michael's genuine target check.
+
+F4: only when the WP18/19 recording contract is issued and independently bound. Use4096 entries (public TAPE_MAX_ENTRIES) on the declared slowest-card setup, preserving the contract's ring-depth constraint. Log synchronous tape_commit entry/return and actual ring-underrun count for that interval. It must be zero; absent count is not zero, mismatched before/after deltas fail, a human verdict cannot waive a positive count. The200ms target and greater-than20% PM prerequisite remain. Match MICHAEL-CHECKS/build/log exactly as F3. Current WP17 recording evidence remains NOT RUN.
+
+No external GPIO/I2S analyser, instrument identity, calibration certificate, external timebase, uncertainty budget or CID is a prerequisite. CID is recorded when available, otherwise unknown. The MCU timer's encoding/conversion/wrap and start/end semantics must still be declared so its self-measurement is interpretable; that is not an external timing qualification.
+
+F1 target PCM byte comparison and F2 budgets carry unchanged. F5 admission and existing F1/F2/F5 controls remain. Resume is strictly within inclusive[T-12s,T-2s] using last serial-logged live position before removal; copy progress comes from the callback. Cap configuration, boot reassertion and the phone-app limit-minus5dB test remain separate required checks. This supplement does not replace them or authorize recording implementation.

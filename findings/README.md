@@ -45,3 +45,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V397 ordering correction](V397-ORDER/DISPOSITION.md): narrow provenance route disposed on actual histories/kit lineage, current-base Product CI remains required.
 
 [V398 ADR208 preflight delta](V398-PREFLIGHT/PREFLIGHT.md): hands-on method, strict facts, four wording findings and unchanged frozen bundle; no retired lab gates.
+
+[V398 hands-on semantic tests](V398-METHOD-TESTS/DISPOSITION.md):41 fixtures/10 controls; actual serial binding needs Software declaration.

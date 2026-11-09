@@ -1,0 +1,794 @@
+{
+  "mode": "semantic-fixture-selftest-only",
+  "cases": [
+    {
+      "case": "warm-fast-acceptable",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "target_met": true
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "warm-fast-feels-wrong",
+      "expected": {
+        "rule_outcome": "not_acceptable"
+      },
+      "actual": {
+        "rule_outcome": "not_acceptable",
+        "reason": "michael_declined",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "warm-equality-recorded-miss",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "target_met": false
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "warm-exactly-twenty-percent-miss",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "target_met": false
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "warm-over-twenty-percent",
+      "expected": {
+        "rule_outcome": "pending_pm"
+      },
+      "actual": {
+        "rule_outcome": "pending_pm",
+        "reason": "miss_over_twenty_percent",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "warm-over-twenty-with-reviewed-PM-context",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture"
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "product-PM-boolean-cannot-waive",
+      "expected": {
+        "rule_outcome": "pending_pm"
+      },
+      "actual": {
+        "rule_outcome": "pending_pm",
+        "reason": "miss_over_twenty_percent",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-michael-entry",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "michael_entry_missing_or_incomplete",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-michael-build",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "michael_entry_does_not_match",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-log-build",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "candidate_or_raw_log_identity",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-michael-log-hash",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "michael_entry_does_not_match",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-raw-log-hash",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "candidate_or_raw_log_identity",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-michael-numbers",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "michael_entry_does_not_match",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-check-date",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "michael_entry_missing_or_incomplete",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-tried-description",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "michael_entry_missing_or_incomplete",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-check-criterion",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "michael_entry_does_not_match",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "unknown-verdict",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "verdict_value",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "host-clock-not-firmware",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "measurement_boundaries",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-wake-event",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "measurement_boundaries",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong-first-frame-event",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "measurement_boundaries",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "missing-measurement",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "record_shape",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "negative-duration",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "timer_value",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "boolean-duration",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "timer_value",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "non-numeric-duration",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "timer_value",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "no-target-observation",
+      "expected": {
+        "rule_outcome": "not_run"
+      },
+      "actual": {
+        "rule_outcome": "not_run",
+        "reason": "observation_absent_or_recording_deferred",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "150ms-injection-accurate",
+      "expected": {
+        "rule_outcome": "control_detected",
+        "target_met": false
+      },
+      "actual": {
+        "rule_outcome": "control_detected",
+        "reason": "injected_delay_observed",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "150ms-injection-underreported",
+      "expected": {
+        "rule_outcome": "mismatch",
+        "reason": "injected_delay_underreported"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "injected_delay_underreported",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "150ms-injection-later-log-is-detecting",
+      "expected": {
+        "rule_outcome": "control_detected"
+      },
+      "actual": {
+        "rule_outcome": "control_detected",
+        "reason": "injected_delay_observed",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "CID-absent-is-unknown-not-failure",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture"
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "CID-null-does-not-gate",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture"
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "debug-instruments-do-not-cure-missing-entry",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "michael_entry_missing_or_incomplete",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-fast-acceptable",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "target_met": true
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-exact-twenty-percent",
+      "expected": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "target_met": false
+      },
+      "actual": {
+        "rule_outcome": "eligible_normalized_fixture",
+        "reason": "record_matches_method_rules",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-over-twenty-percent",
+      "expected": {
+        "rule_outcome": "pending_pm"
+      },
+      "actual": {
+        "rule_outcome": "pending_pm",
+        "reason": "miss_over_twenty_percent",
+        "target_met": false,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-below-max-entry-setup",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "required_commit_setup",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-wrong-card-context",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "required_commit_setup",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-underrun-cannot-be-waived",
+      "expected": {
+        "rule_outcome": "not_acceptable",
+        "reason": "strict_underruns"
+      },
+      "actual": {
+        "rule_outcome": "not_acceptable",
+        "reason": "strict_underruns",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-no-underrun-counter",
+      "expected": {
+        "rule_outcome": "invalid"
+      },
+      "actual": {
+        "rule_outcome": "invalid",
+        "reason": "underrun_observation_missing",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-false-zero-counter-delta",
+      "expected": {
+        "rule_outcome": "mismatch"
+      },
+      "actual": {
+        "rule_outcome": "mismatch",
+        "reason": "underrun_delta",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "commit-feels-wrong",
+      "expected": {
+        "rule_outcome": "not_acceptable"
+      },
+      "actual": {
+        "rule_outcome": "not_acceptable",
+        "reason": "michael_declined",
+        "target_met": true,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    },
+    {
+      "case": "current-WP17-recording-deferred",
+      "expected": {
+        "rule_outcome": "not_run"
+      },
+      "actual": {
+        "rule_outcome": "not_run",
+        "reason": "observation_absent_or_recording_deferred",
+        "target_met": null,
+        "accepted": false,
+        "physical_run": false,
+        "candidate_executed": false,
+        "binding": "UNBOUND_SERIAL_DECLARATION"
+      },
+      "passed": true
+    }
+  ],
+  "controls_detected": [
+    {
+      "control": "ignore-missing-or-mismatched-human-entry",
+      "detecting_cases": [
+        "warm-fast-feels-wrong",
+        "missing-michael-entry",
+        "wrong-michael-build",
+        "wrong-michael-log-hash",
+        "wrong-michael-numbers",
+        "missing-check-date",
+        "missing-tried-description",
+        "wrong-check-criterion",
+        "unknown-verdict",
+        "debug-instruments-do-not-cure-missing-entry",
+        "commit-feels-wrong"
+      ]
+    },
+    {
+      "control": "waive-strict-underruns",
+      "detecting_cases": [
+        "commit-underrun-cannot-be-waived"
+      ]
+    },
+    {
+      "control": "waive-PM-escalation",
+      "detecting_cases": [
+        "warm-over-twenty-percent",
+        "product-PM-boolean-cannot-waive",
+        "commit-over-twenty-percent"
+      ]
+    },
+    {
+      "control": "accept-149999us-delay",
+      "detecting_cases": [
+        "150ms-injection-underreported"
+      ]
+    },
+    {
+      "control": "retired-CID-gate",
+      "detecting_cases": [
+        "warm-fast-acceptable",
+        "warm-fast-feels-wrong",
+        "warm-equality-recorded-miss",
+        "warm-exactly-twenty-percent-miss",
+        "warm-over-twenty-percent",
+        "warm-over-twenty-with-reviewed-PM-context",
+        "product-PM-boolean-cannot-waive",
+        "wrong-michael-build",
+        "wrong-log-build",
+        "wrong-michael-log-hash",
+        "wrong-raw-log-hash",
+        "wrong-michael-numbers",
+        "wrong-check-criterion",
+        "150ms-injection-accurate",
+        "150ms-injection-underreported",
+        "150ms-injection-later-log-is-detecting",
+        "CID-absent-is-unknown-not-failure",
+        "CID-null-does-not-gate",
+        "commit-fast-acceptable",
+        "commit-exact-twenty-percent",
+        "commit-over-twenty-percent",
+        "commit-below-max-entry-setup",
+        "commit-wrong-card-context",
+        "commit-underrun-cannot-be-waived",
+        "commit-false-zero-counter-delta",
+        "commit-feels-wrong",
+        "current-WP17-recording-deferred"
+      ]
+    },
+    {
+      "control": "retired-instrument-gate",
+      "detecting_cases": [
+        "warm-fast-acceptable",
+        "warm-fast-feels-wrong",
+        "warm-equality-recorded-miss",
+        "warm-exactly-twenty-percent-miss",
+        "warm-over-twenty-percent",
+        "warm-over-twenty-with-reviewed-PM-context",
+        "product-PM-boolean-cannot-waive",
+        "wrong-michael-build",
+        "wrong-log-build",
+        "wrong-michael-log-hash",
+        "wrong-raw-log-hash",
+        "wrong-michael-numbers",
+        "wrong-check-criterion",
+        "150ms-injection-accurate",
+        "150ms-injection-underreported",
+        "150ms-injection-later-log-is-detecting",
+        "CID-absent-is-unknown-not-failure",
+        "CID-null-does-not-gate",
+        "commit-fast-acceptable",
+        "commit-exact-twenty-percent",
+        "commit-over-twenty-percent",
+        "commit-below-max-entry-setup",
+        "commit-wrong-card-context",
+        "commit-underrun-cannot-be-waived",
+        "commit-false-zero-counter-delta",
+        "commit-feels-wrong",
+        "current-WP17-recording-deferred"
+      ]
+    },
+    {
+      "control": "host-clock-accepted",
+      "detecting_cases": [
+        "host-clock-not-firmware"
+      ]
+    },
+    {
+      "control": "wrong-log-identity-accepted",
+      "detecting_cases": [
+        "wrong-raw-log-hash"
+      ]
+    },
+    {
+      "control": "blanket-eligible_normalized_fixture"
+    },
+    {
+      "control": "blanket-invalid"
+    }
+  ],
+  "passed": true,
+  "accepted": false,
+  "physical_run": false,
+  "candidate_executed": false,
+  "binding": "UNBOUND_SERIAL_DECLARATION"
+}
