@@ -1,0 +1,1 @@
+{"failed": [], "lane_cli": [{"state": "success", "passed": true}, {"state": "failure", "passed": true}, {"state": "cancelled", "passed": true}, {"state": "missing", "passed": true}, {"state": "skipped", "passed": true}], "accepted": false}

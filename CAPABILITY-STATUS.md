@@ -28,7 +28,7 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Latest return: [Verification #394](https://github.com/mmsanders/digital-tape-verification/issues/394); prior publications preserved.
+Latest return: [Verification #397](https://github.com/mmsanders/digital-tape-verification/issues/397); prior publications preserved.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)
@@ -38,3 +38,5 @@ The [pre-Phase3 status snapshot](archive/CAPABILITY-STATUS-PRE-P3-374.md) preser
 the superseded round narrative byte-for-byte; its SHA-256 is in [the archive index](archive/README.md).
 Older HOLD/pending wording describes its dated input, not a current assignment.
 No old test, oracle, golden, evidence byte or disposition changes with this refresh.
+
+V397: [census/transport](findings/V397-CENSUS/DISPOSITION.md), [ordering](findings/V397-ORDER/DISPOSITION.md) and [runner restoration](findings/V397-RUNNER/DISPOSITION.md) independently cleared within their bounded scopes. Required current-base Product CI remains an integration condition.

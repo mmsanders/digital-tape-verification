@@ -1,0 +1,21 @@
+{
+  "kind": "A8-git-identity",
+  "publication": "56e25cc1736fdc62a6d9bc4e6cdc09d5f8cac1b2",
+  "candidate": "d8ead4448cc9e4d33e50c0673288becb8b359a22",
+  "import_commit": "7fed08a51dc866958e7f0c5031e4d002427c0059",
+  "verifier_tree": "e1ef171ffdd7464314b4b838a7d904b1a94f5409",
+  "engine_tree": "d96b4245e04d74078f8938744b1394c3018516f7",
+  "golden_tree": {
+    "src": "89b5f4d085c75c299fdc72ed36611608a49fdbb5",
+    "ref": "15a7188955c120ba3deeef548a53edad9822d201",
+    "SHA256SUMS": "375b473b941434ad847377346a2dcdb94b3df873",
+    "SOURCES.json": "dcbb2c4ddfbf9ffddabb41fd99c0247dddc044a6",
+    "MANIFEST": "f04d1d2a7e257404526f800e845ebb6bd961b13f",
+    "model.py": "c230e833b8a5ec656f75d302ef8b059d4bf9ec91",
+    "canonicalize.py": "3b18c2f2b72fdf455bedafb9a9a5152a3075d074"
+  },
+  "accepted": false,
+  "remaining": "authenticate remote refs and full Phase1 replay/CI results; native cases and witnesses",
+  "pin_authority": "842eae65f65bec8baf469377f605a72d7acb6bd9",
+  "original_package_engine_tree": "b80a8e54775c5aabad7bc338a6e30db3596b657b"
+}
