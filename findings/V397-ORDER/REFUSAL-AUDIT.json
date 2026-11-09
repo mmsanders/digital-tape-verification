@@ -1,0 +1,156 @@
+{
+  "cases": [
+    {
+      "case": "ordinary-import-before-implementation",
+      "exit": 0,
+      "intended_reason_verified": true,
+      "stderr": ""
+    },
+    {
+      "case": "review-regression-with-attested-fix",
+      "exit": 0,
+      "intended_reason_verified": true,
+      "stderr": ""
+    },
+    {
+      "case": "late-metadata-preserves-lineage",
+      "exit": 0,
+      "intended_reason_verified": true,
+      "stderr": ""
+    },
+    {
+      "case": "unflagged-late-import",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: missing review_of\n"
+    },
+    {
+      "case": "missing-review-of",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: missing review_of\n"
+    },
+    {
+      "case": "short-review-of",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: review_of is not a full 40-hex SHA\n"
+    },
+    {
+      "case": "forged-review-of",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: review_of is not a held branch commit strictly before the import\n"
+    },
+    {
+      "case": "nonancestor-review-of",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: review_of is not a held branch commit strictly before the import\n"
+    },
+    {
+      "case": "stale-review-of",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (0464a50a3ec6) and is not an attested review-regression import: implementation a083c65c7b61 before the import is not covered by review_of (stale review)\n"
+    },
+    {
+      "case": "preexisting-tree-edit",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (2d57a339bdcc) and is not an attested review-regression import: path existed at the base: a preexisting tree edit, not a new package\n"
+    },
+    {
+      "case": "previous-tree-edited",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/prior changes after implementation (3c449967984d) and is not an attested review-regression import: missing review_of, review_fix, review_attestation\n"
+    },
+    {
+      "case": "no-later-correction",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: review_fix is not a full 40-hex SHA\n"
+    },
+    {
+      "case": "correction-before-import",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (a676505954aa) and is not an attested review-regression import: review_fix is not an implementation commit on the branch after the import\n"
+    },
+    {
+      "case": "simultaneous-import-fix",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  commit 25173cce1d1e changes a verifier package tree AND implementation\n"
+    },
+    {
+      "case": "ordinary-combined-import-implementation",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  commit 83997c1f3484 changes a verifier package tree AND implementation\n"
+    },
+    {
+      "case": "source-not-on-verifier-main",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: source_commit is not reachable from verifier main\n"
+    },
+    {
+      "case": "attestation-absent",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: missing review_attestation\n"
+    },
+    {
+      "case": "attestation-forged",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: attestation review_of does not match\n"
+    },
+    {
+      "case": "attestation-not-on-main",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: attestation source_commit is not reachable from verifier main\n"
+    },
+    {
+      "case": "import-tree-mutated",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: 2 commits touch the package; only its single first import may\n"
+    },
+    {
+      "case": "unrelated-late-import",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/unrelated changes after implementation (d1c79a0c6624) and is not an attested review-regression import: missing review_of, review_fix, review_attestation\n"
+    },
+    {
+      "case": "missing-publication-identity",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: source_commit is not a full 40-hex SHA\n"
+    },
+    {
+      "case": "publication-order-not-attested",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: attestation does not state publication before import and fix\n"
+    },
+    {
+      "case": "unrelated-correction",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/review_pkg changes after implementation (c307b4a18d14) and is not an attested review-regression import: review_fix changes no attested covered path\n"
+    },
+    {
+      "case": "unrelated-earlier-late-import",
+      "exit": 1,
+      "intended_reason_verified": true,
+      "stderr": "  FAIL  tests/earlier changes after implementation (a9d48452fafb) and is not an attested review-regression import: missing review_of, review_fix, review_attestation\n"
+    }
+  ],
+  "all_intended_reasons": true,
+  "note": "The unflagged previous-tree edit fails ordinary late-import ordering before eligibility for the exception; the separately flagged preexisting-tree case reaches the explicit preexisting-path check."
+}

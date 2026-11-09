@@ -1,0 +1,57 @@
+name: Verification397 narrow ordering review
+on:
+  pull_request:
+    paths: ['findings/V397-ORDER/**', '.github/workflows/verification397-order.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-ordering:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 8ce0fe5232403436ec0c7a22d60ecd6f19500579
+          path: build/product
+          fetch-depth: 0
+      - name: Published independent histories against actual gate
+        run: python3 -B tests/review_order_r1/run.py --gate build/product/tools/ci/review_order_gate.py --out build/history > build/HISTORY.json
+      - name: Original outer-auditor integration controls with real refusal reasons
+        working-directory: build/product
+        run: python3 -B tools/ci/verify-structural-rule-1.py | tee ../INTEGRATION.txt
+      - name: Confirm known actual kit lineage using immutable recorded metadata
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          from pathlib import Path
+          source=Path('build/product').resolve();clone=Path('build/kit.git').resolve()
+          subprocess.run(['git','clone','--mirror','--no-hardlinks',str(source),str(clone)],check=True)
+          def git(*args,input=None,env=None):return subprocess.check_output(['git','-C',str(clone),*args],input=input,env=env).decode().strip()
+          original='0db6ce5c58f2c389499d511ef84074e99deef2ce'
+          if subprocess.run(['git','-C',str(clone),'cat-file','-e',original],capture_output=True).returncode:git('fetch','origin',original)
+          record=json.loads(Path('findings/V397-ORDER/ACTUAL-KIT-LINEAGE.json').read_text())
+          doc=json.loads(git('show',original+':tests/IMPORTS.json'));e=next(p for p in doc['packages'] if p['path']=='tests/be1_review_r1')
+          for k in ('review_of','review_fix','review_attestation'):e[k]=record['entry'][k]
+          raw=(json.dumps(doc,indent=2)+'\n').encode();blob=git('hash-object','-w','--stdin',input=raw)
+          env=dict(os.environ,GIT_INDEX_FILE=str(Path('build/kit.index').resolve()),GIT_AUTHOR_NAME='Verification fixture',GIT_AUTHOR_EMAIL='fixture@example.invalid',GIT_COMMITTER_NAME='Verification fixture',GIT_COMMITTER_EMAIL='fixture@example.invalid')
+          git('read-tree',original,env=env);git('update-index','--cacheinfo','100644,'+blob+',tests/IMPORTS.json',env=env);tree=git('write-tree',env=env);head=git('commit-tree',tree,'-p',original,'-m','V397 task-owned final metadata only',env=env)
+          assert git('diff','--name-only',original,head)=='tests/IMPORTS.json'
+          cmd=['python3','-B',str(source/'tools/ci/review_order_gate.py'),'--repo',str(clone),'--base',record['base'],'--head',head,'--verification-repo',str(Path('.').resolve()),'--verification-main','8790e20d0350fefcdf267633d68b5b3ac370a9c3']
+          subprocess.run(cmd,check=True)
+          for flag in ('--verification-repo','--verification-main'):
+              c=cmd.copy();c[c.index(flag)+1]='';p=subprocess.run(c,capture_output=True,text=True);assert p.returncode!=0 and 'no authenticated verifier main' in p.stderr
+          print('Actual kit lineage accepted; missing trusted verifier contexts refused')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: V397-ordering-independent-results
+          path: |
+            build/history/RESULT.json
+            build/INTEGRATION.txt
+          retention-days: 90
