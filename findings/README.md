@@ -43,3 +43,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V397 complete census replay](V397-CENSUS/DISPOSITION.md): 25 actual-adapter cases, complete original retained artifacts, companion/DAG/A8 controls pass; current-base Product CI remains required.
 
 [V397 ordering correction](V397-ORDER/DISPOSITION.md): narrow provenance route disposed on actual histories/kit lineage, current-base Product CI remains required.
+
+[V398 ADR208 preflight delta](V398-PREFLIGHT/PREFLIGHT.md): hands-on method, strict facts, four wording findings and unchanged frozen bundle; no retired lab gates.
