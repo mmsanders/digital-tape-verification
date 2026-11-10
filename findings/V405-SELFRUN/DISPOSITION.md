@@ -1,0 +1,11 @@
+# V405 lane A: ready executable host-side binding published
+
+Hardware675 returned declaration-only PR673 exact8f31d5897e079c5c3fb1870db3d76491e11dcd28; correction2 plus issued ADR209 settles P3B/P4/P1/P2/SPI scope. Those decisions are used directly. No additional arbitration is requested for settled slots. No new Product implementation was inspected.
+
+New immutable tests/selfrun_plan5_r1 binds180 actual declared CLI cases:111 row expectations,41 plan/continuation,23 serial/build/normalization controls and5 plan-digest/mixed-version checks. Local independent oracle selftest passes111 expected outcomes with six detecting controls. CI repeats that selftest/catalog/provenance. No candidate implementation was available or executed; CLI180 is READY, not an actual Product pass. Candidate clearance remains false.
+
+Coverage includes all-null CID/unknown part number positives; before/after/vs-plan diagnostic disagreements; exact5us/200mV boundaries; finite/nonboolean/missing/unknown fields; stale busy/high voltage; completed-before OLD versus NEW, including equality and no auto-TORN; damage on qualifying and missed rows; fixed1000 minimum, duplicate/missing attempts; unit/run/plan/build identity; raw BUILD+ATOM parsing/truncation/normalization; byte/hash/build/hex links; photo authentication and continuation identity. MICHAEL-CHECKS remains an independent human-record check per RECORD-CHECK.md, not a fabricated Product API.
+
+**Next owner Hardware675:** import this published package unchanged before implementing the new host plan5/selfrun-r1 route, preserve legacy routes/packages, then return the exact implemented head and meaningful CI. Software owns shared import/workflow plumbing. Verification then runs the actual180-case driver and reviews that bounded host behavior. Characterisation firmware that drives cuts still needs its own declaration/tests; this host package does not license or qualify it.
+
+Existing V39811-case planted-tear disposition and earlier kit/Hardware loader clearances carry without a new acceptance campaign. AUTH.json authenticates exact docs/policy and unchanged engine/firmware/spec/golden trees. No physical/target/card/cap/purchase acceptance or DRAFT11 issuance. Parts still block actual validation. This lane stops after its merged ready binding return at the absent implemented-candidate dependency.

@@ -37,3 +37,5 @@ V394: [supported census companion](wp14_supported_r1/README.md) and [review-orde
 [wp17_hands_on_r1](wp17_hands_on_r1/README.md): ADR208 F3/F4 semantic fixtures only; UNBOUND serial interface; no firmware acceptance.
 
 [power_cut_selfrun_r1](power_cut_selfrun_r1/README.md): independent ATOM mapping and production-minimum planted-tear controls; synthetic only.
+
+[selfrun_plan5_r1](selfrun_plan5_r1/README.md): V405 public plan5/BUILD+ATOM host-route bindings,180 CLI cases ready; candidate unreturned.
