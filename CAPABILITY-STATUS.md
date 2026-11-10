@@ -17,18 +17,18 @@ Current assignments come only from live `verification-lead` issues started by Mi
 | Software658 / e0b6bb02 | HOLD: supported-platform census removed | [V390](findings/V390/DISPOSITION.md): manual macOS/selection controls pass; Windows/Linux retained-evidence audit must remain required or receive explicit PM scope disposition. |
 | Hardware651 / 18852b5 | HOLD | [Review](findings/HW651-18852B5/DISPOSITION.md): unauthenticated setup awards proof/credit; invalid manifests raise; Product CI not green. Existing27/71/229 pass |
 | Hardware651 correction1 | Remaining record bindings published | [Records return](findings/HW651-RECORDS/DISPOSITION.md): plan4/loader/rollback ready for import; exact implemented-head and physical method review pending |
-| Software652 /0db6ce5c | Bounded behavioral corrections CLEARED | [V394 laneA](findings/V394-KIT/DISPOSITION.md); original/import/fix lineage retained, red ordering CI still blocks integration. |
-| Census / review-order policy | Independent NEW packages ready | [V394 B/C](findings/V394-POLICY/DISPOSITION.md); immutable companion oracle/fixtures before Software658 changes; returned adapter/gate disposition pending. |
+| Software652 /0db6ce5c | Bounded behavioral corrections CLEARED | [V394 laneA](findings/V394-KIT/DISPOSITION.md); original/import/fix lineage retained, ordering correction is disposed by V397 and Product integration8893c99 carries unchanged kit identity. |
+| Census / review-order policy | CLEARED and integrated | [V394 B/C](findings/V394-POLICY/DISPOSITION.md); immutable companion oracle/fixtures before Software658 changes; V397 dispositions and ADR209 current-base integrations carry. |
 | Software652 / d62e0de0 | HOLD: deadline, resolved confinement, malformed types | [V388 review](findings/V388/DISPOSITION.md); existing109/4/53/47 pass; six new failures ready for unchanged import. |
 | Software652 IF/3 | Remaining Software bindings published | [IF/3 return](findings/SW652-IF3/DISPOSITION.md): 53 checker/47 capture cases; import then exact implemented-head review pending |
 | Round 2 / V382 | Ready executable subsets published; corrected declarations/heads pending | [Return](findings/P3-R2-V382/DISPOSITION.md): BE1 109 bundles/4 fake-port cases, 71 rig rows; exact2faa1180 R374-1 passes27; no whole-method clearance |
-| DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); PM resolves findings, Hardware supplies speaker limit, Michael authorizes |
+| DRAFT-11 | PROPOSED, not in force | [Independent preflight](findings/P3-R1-374/PREFLIGHT.md); F398 wording addressed in21b2da3; S2 proposal review and Michael authorization precede issuance |
 | WP-17 target F1/F2/F3/F5 | PENDING bench evidence | Host goldens and static sizes do not establish target PCM, stack, timing or physical behavior |
-| Atomicity self-run method | REVIEWED, implementation/policy held | [V398 method review](findings/V398-HARDWARE-METHOD/DISPOSITION.md): planted-tear control detected; optional-CID/new route, P4 and SPI scope need disposition. ADR208 supersedes old instrument gates. Zero cards qualified |
+| Atomicity self-run method | HOST bindings published; implementation pending | [V405 bindings](findings/V405-SELFRUN/DISPOSITION.md):180 plan5 CLI cases ready against settled ADR209 policy. Hardware675 host implementation unreturned; actual drive firmware/physical record not qualified |
 | Hardware/media/release | Excluded from current software acceptance | Fabrication/charging CLOSED; no physical or acoustic acceptance inferred |
 | macOS and ADR-196 limitations | DEFERRED / retained | Existing PM boundaries stand |
 
-Latest return: [Verification #398](https://github.com/mmsanders/digital-tape-verification/issues/398); prior publications preserved.
+Latest return: [Verification #405](https://github.com/mmsanders/digital-tape-verification/issues/405); prior publications preserved.
 Product [STATUS](https://github.com/mmsanders/Digital-Tape/blob/main/docs/STATUS.md)
 and [Phase 3 ledger](https://github.com/mmsanders/Digital-Tape/blob/main/docs/PHASE3-LEDGER.md)
 record phase gates. The [tests index](tests/README.md) and [findings index](findings/README.md)
@@ -42,3 +42,5 @@ No old test, oracle, golden, evidence byte or disposition changes with this refr
 V397: [census/transport](findings/V397-CENSUS/DISPOSITION.md), [ordering](findings/V397-ORDER/DISPOSITION.md) and [runner restoration](findings/V397-RUNNER/DISPOSITION.md) independently cleared within their bounded scopes. Required current-base Product CI remains an integration condition.
 
 V398: [ADR208 existing preflight delta](findings/V398-PREFLIGHT/PREFLIGHT.md), [41 timing semantic fixtures/10 controls](findings/V398-METHOD-TESTS/DISPOSITION.md) and [self-run method review](findings/V398-HARDWARE-METHOD/DISPOSITION.md) published. Software serial binding and Hardware/PM declared self-run policy remain named dependencies. F3/F4 target results remain pending; retired instruments/CID are not gates.
+
+V405 publishes [180 ready plan5 CLI bindings](findings/V405-SELFRUN/DISPOSITION.md) and [F3 ready subsets](findings/V405-F3/DISPOSITION.md):22 wake-sim scenarios/43 single-build CLI vectors,2 actual unchanged-helper fake-port cases. No new implementation has been disposed; Software residual declarations/candidates and Hardware host candidate remain next inputs. [A1](findings/V405-CARDS-PREFLIGHT/DISPOSITION.md) remains partial (one of three cards photographed); F398 wording is addressed, DRAFT11 still proposed. Parts block actual target validation.

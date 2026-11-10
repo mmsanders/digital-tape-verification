@@ -53,3 +53,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V405 self-run bindings](V405-SELFRUN/DISPOSITION.md): settled ADR209 decisions bound before implementation; no physical/candidate clearance.
 
 [V405 F3 ready subsets](V405-F3/DISPOSITION.md): declaration bound before code; arithmetic/wire selftests, fixture materialization and unchanged-helper fake-port execution separated.
+
+[V405 card record and wording follow-through](V405-CARDS-PREFLIGHT/DISPOSITION.md): one actual photographed unit authenticates; per-card A1 coverage partial; F398 wording addressed, no DRAFT11 issuance.

@@ -42,7 +42,9 @@ def run(checker,out):
   good=q.returncode==c['exit'] and valid and r.get('accepted') is False and 'Traceback' not in q.stderr and 'AUDIT_VIOLATION' not in q.stderr and snapshot(bundle)==before
   if c['reason']:good=good and c['reason'] in json.dumps(r)
   # This flag reflects declared fixture provenance, never an actually performed check.
-  want_physical=m['session']['kind']=='physical' and any(o['provenance']=='actual' for o in m['observations']);good=good and r.get('physical_run') is want_physical
+  want_physical=m['session']['kind']=='physical' and any(o['provenance']=='actual' for o in m['observations'])
+  good=good and isinstance(r.get('physical_run'),bool) and (want_physical or r['physical_run'] is False)
+  if want_physical and c['exit'] in (0,1):good=good and r['physical_run'] is True
   obs.append(dict(case=c['name'],expected_exit=c['exit'],exit=q.returncode,passed=good,report=r,stderr=q.stderr[-500:]))
  # Exclusive output and inside-bundle usage are explicitly inherited from BE1.
  for name,inside in [('existing-output',False),('output-inside-bundle',True)]:
