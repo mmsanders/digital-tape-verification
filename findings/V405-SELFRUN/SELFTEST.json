@@ -1,0 +1,3346 @@
+{
+  "declared_plan_cases": 41,
+  "declared_serial_cases": 23,
+  "declared_plan_integrity_cases": 5,
+  "mode": "independent-oracle-selftest",
+  "cases": [
+    {
+      "case": "all-null-CID-unknown-part-number",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "card_cid": null,
+        "cids_seen": [],
+        "cid_disagreements": []
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "gap-equality-5us",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "gap-over-5us",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "non_qualifying": {
+          "busy sample older than 5 us at the cut": 1,
+          "busy ended before the cut": 1
+        }
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy sample older than 5 us at the cut": 1,
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5.0000009999999975
+      }
+    },
+    {
+      "case": "old-busy-sample-50ms",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy sample older than 5 us at the cut": 1,
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 50000
+      }
+    },
+    {
+      "case": "voltage-equality-200",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "vcard_off_mv_max": 200
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 200,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage-201",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage-3300",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage-4001",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage--1",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage-200.0",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage-True",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage-None",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "voltage-'200'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "completed-OLD-equality",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "completed_before_old": [
+          1
+        ],
+        "torn_iterations": [],
+        "problem_text": "completed write reads OLD"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "trial 1: completed write reads OLD (busy ended before the cut)"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 2
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [
+          1
+        ],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "completed-OLD-strict-before",
+      "expected": {
+        "verdict": "FAIL",
+        "completed_before_old": [
+          1
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "trial 1: completed write reads OLD (busy ended before the cut)"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 2
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [
+          1
+        ],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "completed-NEW-retained-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "completed_before_old": [],
+        "torn_iterations": []
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 2
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "completed-OLD-among-1000-other-qualifying",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "completed_before_old": [
+          1001
+        ],
+        "torn_iterations": []
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [
+          "trial 1001: completed write reads OLD (busy ended before the cut)"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [
+          1001
+        ],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "deassert-equals-last-sample-invalid",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "CID-before-after-diagnostic",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "cids_seen": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        ],
+        "card_cid": null,
+        "cid_disagreements": [
+          {
+            "iteration": 1,
+            "kind": "before_after",
+            "values": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        ],
+        "card_cid": null,
+        "cid_disagreements": [
+          {
+            "iteration": 1,
+            "kind": "before_after",
+            "values": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          }
+        ],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "CID-disagrees-with-plan-only-diagnostic",
+      "expected": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "cids_seen": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "cccccccccccccccccccccccccccccccc"
+        ],
+        "card_cid": null,
+        "cid_disagreements": [
+          {
+            "iteration": 1,
+            "kind": "before_after",
+            "values": [
+              "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "cccccccccccccccccccccccccccccccc"
+            ]
+          },
+          {
+            "iteration": 1,
+            "kind": "vs_plan",
+            "values": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          {
+            "iteration": 1,
+            "kind": "vs_plan",
+            "values": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "cccccccccccccccccccccccccccccccc"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "cccccccccccccccccccccccccccccccc"
+        ],
+        "card_cid": null,
+        "cid_disagreements": [
+          {
+            "iteration": 1,
+            "kind": "before_after",
+            "values": [
+              "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "cccccccccccccccccccccccccccccccc"
+            ]
+          },
+          {
+            "iteration": 1,
+            "kind": "vs_plan",
+            "values": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          {
+            "iteration": 1,
+            "kind": "vs_plan",
+            "values": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "cccccccccccccccccccccccccccccccc"
+            ]
+          }
+        ],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "only-one-observed-CID",
+      "expected": {
+        "verdict": "PASS",
+        "card_cid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "cids_seen": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "PASS",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ],
+        "card_cid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid-malformed-''",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid-malformed-'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid-malformed-'fake'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid-malformed-True",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid-malformed-0",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid_after_cut-malformed-''",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid_after_cut-malformed-'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid_after_cut-malformed-'fake'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid_after_cut-malformed-True",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "card_cid_after_cut-malformed-0",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "planted-tear-busy",
+      "expected": {
+        "verdict": "FAIL",
+        "torn_iterations": [
+          1
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [
+          1
+        ],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "planted-tear-on-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "torn_iterations": [
+          1001
+        ],
+        "damage_on_non_qualifying": [
+          1001
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [
+          1001
+        ],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [
+          1001
+        ],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "neighbour-on-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "neighbour_damage": [
+          [
+            1001,
+            "+1"
+          ]
+        ],
+        "damage_on_non_qualifying": [
+          1001
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [
+          [
+            1001,
+            "+1"
+          ]
+        ],
+        "damage_on_non_qualifying": [
+          1001
+        ],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "corrupt-target",
+      "expected": {
+        "verdict": "FAIL",
+        "corrupt_iterations": [
+          1
+        ]
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [
+          1
+        ],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "identity-method",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "identity-run_id",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "identity-plan_digest",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "identity-card_unit",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "identity-firmware_build",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-method",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-iteration",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "duplicate, malformed or unplanned iteration",
+          "missing attempt"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-run_id",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-plan_digest",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-card_unit",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-firmware_build",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-card_cid",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-card_cid_after_cut",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-bus_mode",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-busy_line",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-sck_hz",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-precondition_ok",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-precondition_readback_hex",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-readback_hex",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-neighbour_baseline",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-neighbours",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-payload_complete",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-data_response_accepted",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-busy_entry_us",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-busy_sampled_us",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-cut_us",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-busy_deassert_us",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-vcard_off_mv",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-row-init_ms",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "unknown-row-field",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_entry_us-bool",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_entry_us-negative",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_entry_us-string",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_entry_us-nan",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_entry_us-inf",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_sampled_us-bool",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_sampled_us-negative",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_sampled_us-string",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_sampled_us-nan",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_sampled_us-inf",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_deassert_us-bool",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_deassert_us-negative",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_deassert_us-string",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_deassert_us-nan",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy_deassert_us-inf",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "cut_us-bool",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "cut_us-negative",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "cut_us-string",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "cut_us-nan",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "cut_us-inf",
+      "expected": {
+        "verdict": "FAIL"
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "nonboolean-payload_complete",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "nonboolean-data_response_accepted",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "nonboolean-precondition_ok",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "entry-without-sample",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "sample-without-entry",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "busy-order-backwards",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "sample-after-cut",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "no-busy-entry-retained-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "completed_before_old": []
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy entry not observed": 1,
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "unaccepted-response-retained-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "data-response token not accepted": 1,
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "payload-incomplete-retained-miss",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "single-block payload not proven complete": 1,
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-bus_mode-'sd4'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-busy_line-'DAT0'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-sck_hz-True",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-sck_hz-0",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-init_ms--1",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-init_ms-True",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-precondition_ok-False",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-precondition_readback_hex-'01000000010",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-readback_hex-'00'",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "malformed-iteration-True",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "duplicate, malformed or unplanned iteration",
+          "missing attempt"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "mixed-sck",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [
+          "mixed clock"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-neighbour",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [
+          "invalid row"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "duplicate-attempt",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [
+          "duplicate, malformed or unplanned iteration"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "missing-attempt",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [
+          "missing attempt"
+        ],
+        "non_qualifying": {},
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "extra-attempt",
+      "expected": {
+        "verdict": "FAIL",
+        "problem": true
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 1000,
+        "required_qualifying": 1000,
+        "problems": [
+          "duplicate, malformed or unplanned iteration"
+        ],
+        "non_qualifying": {
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 5
+      }
+    },
+    {
+      "case": "operator-minimum-zero",
+      "expected": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000
+      },
+      "passed": true,
+      "observed": {
+        "verdict": "FAIL",
+        "qualifying": 999,
+        "required_qualifying": 1000,
+        "problems": [],
+        "non_qualifying": {
+          "busy sample older than 5 us at the cut": 1,
+          "busy ended before the cut": 1
+        },
+        "torn_iterations": [],
+        "corrupt_iterations": [],
+        "neighbour_damage": [],
+        "damage_on_non_qualifying": [],
+        "completed_before_old": [],
+        "cids_seen": [],
+        "card_cid": null,
+        "cid_disagreements": [],
+        "vcard_off_mv_max": 0,
+        "sample_to_cut_us_max": 50000
+      }
+    }
+  ],
+  "controls_detected": [
+    "blanket-PASS",
+    "blanket-FAIL",
+    "erase-completed-OLD",
+    "gate-null-CID",
+    "drop-CID-diagnostic",
+    "hide-qualifying-damage"
+  ],
+  "passed": true,
+  "candidate_executed": false,
+  "accepted": false,
+  "physical_run": false
+}

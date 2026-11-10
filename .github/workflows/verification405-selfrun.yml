@@ -1,0 +1,41 @@
+name: Verification405 selfrun plan5 bindings
+on:
+  pull_request:
+    paths: ['tests/selfrun_plan5_r1/**', 'findings/V405-SELFRUN/**', '.github/workflows/verification405-selfrun.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-binding-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 8f31d5897e079c5c3fb1870db3d76491e11dcd28
+          path: build/product
+      - name: Authenticate declaration, not implementation
+        run: |
+          python3 - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          a=json.loads(Path('findings/V405-SELFRUN/AUTH.json').read_text())
+          assert hashlib.sha256((Path('build/product')/a['declaration_path']).read_bytes()).hexdigest()==a['declaration_sha256']
+          PY
+      - run: python3 -B tests/selfrun_plan5_r1/run.py --selftest --out build/independent-selftest
+      - name: Verify immutable materialized catalog
+        run: |
+          python3 - <<'PY'
+          import sys,json
+          from pathlib import Path
+          sys.path.insert(0,'tests/selfrun_plan5_r1')
+          from fixtures import cases
+          from run import serial_cases
+          import plan_cli
+          a=json.loads(Path('tests/selfrun_plan5_r1/CATALOG.json').read_text())
+          assert a['row_cases']==[dict(case=c['name'],expected=c['wanted']) for c in cases()]
+          assert a['plan_cases']==[dict(case=n,positive=p) for n,e,p in plan_cli.cases()]
+          assert a['serial_cases']==[dict(case=n,positive=p) for n,e,p in serial_cases()]
+          assert len(cases())+len(plan_cli.cases())+5+len(serial_cases())+4+5==180
+          PY
