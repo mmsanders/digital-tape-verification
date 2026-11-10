@@ -1,0 +1,43 @@
+name: Verification405 F3 declared ready subsets
+on:
+  pull_request:
+    paths: ['tests/f3_wake_if1_r1/**', 'findings/V405-F3/**', '.github/workflows/verification405-f3.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-interface-and-capture-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: afdc9b7902830be59e81c098dc16d4dfb4e879c3
+          path: build/product
+      - name: Authenticate public declaration and preserved artifacts
+        run: |
+          python3 - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          a=json.loads(Path('findings/V405-F3/AUTH.json').read_text());r=Path('build/product')
+          assert hashlib.sha256((r/a['declaration_path']).read_bytes()).hexdigest()==a['declaration_sha256']
+          assert hashlib.sha256((r/'docs/WP17-BE1-INTERFACE.md').read_bytes()).hexdigest()==a['inherited_interface_sha256']
+          assert hashlib.sha256((r/'firmware/bench/tools/bench_capture.py').read_bytes()).hexdigest()==a['helper_sha256']
+          for p,d in a['spec_sha256'].items():assert hashlib.sha256((r/p).read_bytes()).hexdigest()==d
+          PY
+      - run: python3 -B tests/f3_wake_if1_r1/run.py --selftest --out build/wire-selftest
+      - run: python3 -B tests/f3_wake_if1_r1/checker.py --selftest --out build/checker-fixtures
+      - run: python3 -B tests/f3_wake_if1_r1/capture.py --helper build/product/firmware/bench/tools/bench_capture.py --out build/fake-port-capture
+      - name: Authenticate materialized inputs
+        run: |
+          python3 - <<'PY'
+          import sys,json
+          from pathlib import Path
+          sys.path.insert(0,'tests/f3_wake_if1_r1')
+          from cases import cases
+          import checker_cases
+          assert json.loads(Path('tests/f3_wake_if1_r1/CASES.json').read_text())==cases()
+          assert json.loads(Path('tests/f3_wake_if1_r1/OFFLINE-CATALOG.json').read_text())==[dict(case=c['name'],expected_exit=c['exit'],reason=c['reason']) for c in checker_cases.cases()]
+          assert len(cases())==22 and len(checker_cases.cases())+2==43
+          PY

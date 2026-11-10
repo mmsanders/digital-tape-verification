@@ -1,0 +1,39 @@
+{
+  "mode": "actual-unchanged-helper-new-payload-fake-port",
+  "cases": [
+    {
+      "case": "complete-F3-lines-retained",
+      "passed": true,
+      "observed": {
+        "bytes": 411,
+        "command": "sleep",
+        "exit": 0,
+        "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-local\\f3-capture-canonical\\complete-F3-lines-retained.raw",
+        "port": "SYNTHETIC-PORT",
+        "sha256": "270e1f1a7aafe7c202900e17cdfd76632ce1ce3e316ace194ade25dac0599f9b",
+        "stop": "interrupt",
+        "tool": "bench_capture.py",
+        "version": "BE1-IF/3"
+      }
+    },
+    {
+      "case": "partial-WAKE-still-retained",
+      "passed": true,
+      "observed": {
+        "bytes": 400,
+        "command": "sleep",
+        "exit": 0,
+        "out": "C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-local\\f3-capture-canonical\\partial-WAKE-still-retained.raw",
+        "port": "SYNTHETIC-PORT",
+        "sha256": "396276f60b4a1be2934e3f108aa70ded6f840e5a837956e0b2be76d338141248",
+        "stop": "interrupt",
+        "tool": "bench_capture.py",
+        "version": "BE1-IF/3"
+      }
+    }
+  ],
+  "passed": true,
+  "candidate_executed": true,
+  "physical_run": false,
+  "accepted": false
+}

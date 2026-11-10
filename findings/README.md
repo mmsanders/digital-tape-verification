@@ -51,3 +51,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V398 self-run Hardware method](V398-HARDWARE-METHOD/DISPOSITION.md):11 actual production-judge cases and planted-tear control pass; optional-CID/new-route, policy and implementation dependencies remain.
 
 [V405 self-run bindings](V405-SELFRUN/DISPOSITION.md): settled ADR209 decisions bound before implementation; no physical/candidate clearance.
+
+[V405 F3 ready subsets](V405-F3/DISPOSITION.md): declaration bound before code; arithmetic/wire selftests, fixture materialization and unchanged-helper fake-port execution separated.
