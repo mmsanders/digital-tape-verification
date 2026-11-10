@@ -1,0 +1,220 @@
+{
+  "mode": "fixture-materialization-only",
+  "cases": [
+    {
+      "case": "single-build-actual-artifact-consistency",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "simulation-no-Michael-record",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "met-target-human-declines",
+      "expected_exit": 1,
+      "passed": true
+    },
+    {
+      "case": "target-equality-is-recorded-miss",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "exact-twenty-percent-miss",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "over-twenty-percent-needs-PM",
+      "expected_exit": 1,
+      "passed": true
+    },
+    {
+      "case": "PM-fields-match-is-consistency-only",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "PM-fields-mismatch",
+      "expected_exit": 1,
+      "passed": true
+    },
+    {
+      "case": "actual-missing-record-stays-NOT-RUN",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "Michael-mismatch-build_id",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "Michael-mismatch-firmware_hex_sha256",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "Michael-mismatch-log_sha256",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "Michael-numbers-mismatch",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "bad-verdict",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "negative-verdict-without-note",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "control-149999",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "control-150000",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "control-150001",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "case": "build-record-mismatch-engine_tree",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "build-record-mismatch-id",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "build-record-mismatch-firmware_hex_sha256",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "toolchain-mismatch",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "candidate-image-hash-mismatch",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "hex-byte-mismatch-with-rehashed-file-table",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-serial-trigger",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-duplicate-BUILD",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-missing-WAKE",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-wrong-order",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-truncated-line",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-non-ASCII",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-unknown-line",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "capture-bad-timer-crosscheck",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "control-offered-as-candidate",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "decoded-image-marker-missing",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "decoded-image-marker-duplicate",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "simulation-session-actual-conflict",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "manifest-unknown-key",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "duplicate-observation-id",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "observation-sequence-duplicate",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "simulation-cannot-carry-Michael-entry",
+      "expected_exit": 2,
+      "passed": true
+    },
+    {
+      "case": "cold-wake-stays-observed",
+      "expected_exit": 0,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "candidate_executed": false,
+  "accepted": false,
+  "physical_run": false,
+  "reserved": [
+    "multi-build-association",
+    "new-state-precedence-and-report-layout",
+    "clock-changed-host-simulation-seam",
+    "production/control-ELF-symbol-proof"
+  ]
+}

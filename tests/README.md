@@ -39,3 +39,5 @@ V394: [supported census companion](wp14_supported_r1/README.md) and [review-orde
 [power_cut_selfrun_r1](power_cut_selfrun_r1/README.md): independent ATOM mapping and production-minimum planted-tear controls; synthetic only.
 
 [selfrun_plan5_r1](selfrun_plan5_r1/README.md): V405 public plan5/BUILD+ATOM host-route bindings,180 CLI cases ready; candidate unreturned.
+
+[f3_wake_if1_r1](f3_wake_if1_r1/README.md): V405 ready22 timing-simulation/43 single-build CLI vectors and2 actual fake-port cases; residual interface slots explicitly reserved.
