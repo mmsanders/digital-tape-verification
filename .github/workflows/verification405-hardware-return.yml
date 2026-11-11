@@ -1,0 +1,37 @@
+name: Verification405 returned Hardware checker
+on:
+  pull_request:
+    paths: ['findings/V405-HARDWARE-RETURN/**', 'tests/selfrun_review_r1/**', '.github/workflows/verification405-hardware-return.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-returned-checker:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: d8b004d251b21cdd3dd757118366d8f147b145dc
+          path: build/product
+          fetch-depth: 0
+      - name: Authenticate unchanged import before implementation
+        run: |
+          python3 - <<'PY'
+          import subprocess,hashlib,json
+          from pathlib import Path
+          a=json.loads(Path('findings/V405-HARDWARE-RETURN/AUTH.json').read_text());r=Path('build/product')
+          def git(*x):return subprocess.check_output(['git',*x],cwd=r).decode().strip()
+          assert git('rev-parse',a['hardware']+'^')==a['hardware_import']
+          for ref in (a['hardware'],a['hardware_import']):assert git('rev-parse',ref+':hardware/characterisation/verification/selfrun_plan5_r1')=='77fa80c6e0507fe23f020b5bc05577fb79c21043'
+          assert hashlib.sha256((r/'hardware/characterisation/media_atomicity.py').read_bytes()).hexdigest()==a['judge_sha256']
+          PY
+      - run: python3 -B tests/selfrun_plan5_r1/run.py --judge build/product/hardware/characterisation/media_atomicity.py --out build/original180
+      - run: python3 -B tests/selfrun_review_r1/run.py --judge build/product/hardware/characterisation/media_atomicity.py --out build/grammar --record-known-findings
+      - uses: actions/upload-artifact@v4
+        with:
+          name: V405-Hardware-independent-return
+          path: |
+            build/original180/RESULT.json
+            build/grammar/RESULT.json

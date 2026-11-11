@@ -55,3 +55,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V405 F3 ready subsets](V405-F3/DISPOSITION.md): declaration bound before code; arithmetic/wire selftests, fixture materialization and unchanged-helper fake-port execution separated.
 
 [V405 card record and wording follow-through](V405-CARDS-PREFLIGHT/DISPOSITION.md): one actual photographed unit authenticates; per-card A1 coverage partial; F398 wording addressed, no DRAFT11 issuance.
+
+[V405 Hardware returned-head HOLD](V405-HARDWARE-RETURN/DISPOSITION.md): plan5 grammar/digest separation, six reproduced failures; new immutable corrective regressions.
