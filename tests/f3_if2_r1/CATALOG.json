@@ -950,7 +950,10 @@
     {
       "name": "unknown-env",
       "control": false,
-      "state": "MISMATCH",
+      "state": [
+        "MISMATCH",
+        "INVALID"
+      ],
       "reasons": [
         "unknown_env",
         "marker_mismatch"

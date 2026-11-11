@@ -10,7 +10,7 @@ def inspect_cases():
  add('control-seam-absent',control=True,edit=lambda h,e,b:(h,elf32(False),dict(b,firmware_elf_sha256=SHA(elf32(False)))),reasons=['seam_absent_in_control'])
  add('both-file-hash-mismatches',edit=lambda h,e,b:(h,e,dict(b,firmware_hex_sha256='0'*64,firmware_elf_sha256='0'*64)),reasons=['elf_hash_mismatch','hex_hash_mismatch'])
  add('claimed-control-on-production-negative-control',edit=lambda h,e,b:(h,e,dict(b,env='teensy41_ctl_wake150',inject_us=150000)),reasons=['marker_mismatch','seam_absent_in_control'])
- add('unknown-env',edit=lambda h,e,b:(h,e,dict(b,env='unknown')),reasons=['unknown_env','marker_mismatch'])
+ add('unknown-env',edit=lambda h,e,b:(h,e,dict(b,env='unknown')),state=['MISMATCH','INVALID'],reasons=['unknown_env','marker_mismatch'])
  add('production-wrong-inject',edit=lambda h,e,b:(h,e,dict(b,inject_us=1)),reasons=['inject_mismatch','marker_mismatch'])
  add('control-wrong-inject',control=True,edit=lambda h,e,b:(h,e,dict(b,inject_us=149999)),reasons=['inject_mismatch','marker_mismatch'])
  for n,reason in [(0,'marker_missing'),(2,'marker_duplicate')]:

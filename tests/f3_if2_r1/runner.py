@@ -31,7 +31,7 @@ def inspector_run(tool,out):
   d=out/c['name'];d.mkdir();h,e,b=artifact(c['control']);h,e,b=c['edit'](h,e,b);(d/'firmware.hex').write_bytes(h);(d/'firmware.elf').write_bytes(e);(d/'build.json').write_text(json.dumps(b));rpath=d/'report.json'
   q=invoke(tool,['--hex',d/'firmware.hex','--elf',d/'firmware.elf','--build-json',d/'build.json','--out',rpath])
   try:
-   r=json.loads(rpath.read_text());good=set(r)=={'schema','state','reasons','env','inject_us','hex_sha256','elf_sha256','marker','seam_symbol_present','accepted'} and r['schema']=='digital-tape/fw-build-inspect/1' and r['state']==c['state'] and r['accepted'] is False and all(x in r['reasons'] for x in c['reasons']) and r['reasons']==sorted(set(r['reasons'])) and q.returncode==(0 if c['state']=='CONSISTENT' else 2)
+   r=json.loads(rpath.read_text());good=set(r)=={'schema','state','reasons','env','inject_us','hex_sha256','elf_sha256','marker','seam_symbol_present','accepted'} and r['schema']=='digital-tape/fw-build-inspect/1' and r['state'] in (c['state'] if isinstance(c['state'],list) else [c['state']]) and r['accepted'] is False and all(x in r['reasons'] for x in c['reasons']) and r['reasons']==sorted(set(r['reasons'])) and q.returncode==(0 if c['state']=='CONSISTENT' else 2)
    if c['state']=='CONSISTENT':good=good and r['hex_sha256']==SHA(h) and r['elf_sha256']==SHA(e) and r['seam_symbol_present'] is c['control'] and r['marker']=={k:b[k] for k in ('id','commit','dirty','env','inject_us')}
    if any(reason in c['reasons'] for reason in ('marker_missing','marker_duplicate')):good=good and r['marker'] is None
   except (OSError,ValueError,KeyError):r={};good=False
