@@ -43,3 +43,5 @@ V394: [supported census companion](wp14_supported_r1/README.md) and [review-orde
 [f3_wake_if1_r1](f3_wake_if1_r1/README.md): V405 ready22 timing-simulation/43 single-build CLI vectors and2 actual fake-port cases; residual interface slots explicitly reserved.
 
 [selfrun_review_r1](selfrun_review_r1/README.md): seven review-discovered plan5 judge grammar controls, import before corrective implementation.
+
+[f3_if2_r1](f3_if2_r1/README.md):81 additional declared G1–G4 bindings; unchanged prior package is a dependency, no new candidate clearance.

@@ -1,0 +1,1148 @@
+{
+  "timing": [
+    {
+      "name": "clock-changed",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true,
+            "cpu_hz": 150000000
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "clock_changed",
+        "elapsed_us": "-",
+        "cycles": "-",
+        "cpu_hz": "600000000",
+        "millis": "99",
+        "engine_us": "-"
+      }
+    },
+    {
+      "name": "unchanged-explicit-clock",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true,
+            "cpu_hz": 600000000
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "ok",
+        "elapsed_us": "99000"
+      }
+    },
+    {
+      "name": "mount-precedes-clock-wrap-timeout",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": -1,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 7100,
+            "engine_frames": 128,
+            "nonzero": true,
+            "cpu_hz": 150000000
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "mount_failed",
+        "elapsed_us": "-",
+        "cycles": "-",
+        "millis": "0",
+        "engine_us": "-"
+      }
+    },
+    {
+      "name": "clock-precedes-wrap-timeout",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 7100,
+            "engine_frames": 128,
+            "nonzero": true,
+            "cpu_hz": 150000000
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "clock_changed",
+        "elapsed_us": "-",
+        "cycles": "-",
+        "millis": "7000",
+        "engine_us": "-"
+      }
+    },
+    {
+      "name": "wrap-precedes-timeout-and-nonzero",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 7100,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "wrap",
+        "elapsed_us": "-",
+        "cycles": "-",
+        "millis": "7000"
+      }
+    },
+    {
+      "name": "timeout-precedes-nonzero",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 2100,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "timeout",
+        "elapsed_us": "-",
+        "cycles": "-",
+        "millis": "2000"
+      }
+    },
+    {
+      "name": "6999ms-is-timeout-not-wrap",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 7099,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "timeout",
+        "millis": "6999"
+      }
+    },
+    {
+      "name": "1999ms-can-close-ok",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 1199401000,
+            "ms": 2099,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "ok",
+        "elapsed_us": "1999000",
+        "millis": "1999"
+      }
+    },
+    {
+      "name": "empty-blocks-timeout",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": []
+      },
+      "usage": false,
+      "wanted": {
+        "status": "timeout",
+        "elapsed_us": "-",
+        "cycles": "-",
+        "millis": "0",
+        "engine_us": "-"
+      }
+    },
+    {
+      "name": "runs-out-retains-first-engine",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 6001000,
+            "ms": 110,
+            "engine_frames": 128,
+            "nonzero": false
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "timeout",
+        "millis": "0",
+        "engine_us": "10000"
+      }
+    },
+    {
+      "name": "earlier-engine-before-clock-change",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 6001000,
+            "ms": 110,
+            "engine_frames": 128,
+            "nonzero": false
+          },
+          {
+            "cycles": 12001000,
+            "ms": 120,
+            "engine_frames": 128,
+            "nonzero": true,
+            "cpu_hz": 150000000
+          }
+        ]
+      },
+      "usage": false,
+      "wanted": {
+        "status": "clock_changed",
+        "engine_us": "10000",
+        "millis": "20"
+      }
+    },
+    {
+      "name": "nonzero-with-zero-engine-frames",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 0,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "unknown-scenario-key",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ],
+        "unknown": 0
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "unknown-block-key",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true,
+            "unknown": 0
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-scenario-cpu_hz",
+      "input": {
+        "cpu_hz": 1.5,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-scenario-t0_cycles",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1.5,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-scenario-t0_ms",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 1.5,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-scenario-inject_us",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 1.5,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-scenario-mount",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 1.5,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-scenario-warm",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1.5,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-scenario-position",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 1.5,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-block-cycles",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 1.5,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-block-ms",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 1.5,
+            "engine_frames": 128,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-block-engine_frames",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 1.5,
+            "nonzero": true
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    },
+    {
+      "name": "noninteger-block-cpu_hz",
+      "input": {
+        "cpu_hz": 600000000,
+        "t0_cycles": 1000,
+        "t0_ms": 100,
+        "inject_us": 0,
+        "trigger": "button",
+        "mount": 0,
+        "warm": 1,
+        "position": 44100,
+        "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "blocks": [
+          {
+            "cycles": 59401000,
+            "ms": 199,
+            "engine_frames": 128,
+            "nonzero": true,
+            "cpu_hz": 1.5
+          }
+        ]
+      },
+      "usage": true,
+      "wanted": {
+        "status": "ok"
+      }
+    }
+  ],
+  "bundles": [
+    {
+      "name": "candidate-plus-control",
+      "overall": "CONTROL_DETECTED",
+      "f3": "CONSISTENT",
+      "exit": 0,
+      "reason": null,
+      "observations": {
+        "SYNTHETIC-F3-1": "CONSISTENT",
+        "SYNTHETIC-CONTROL": "CONTROL_DETECTED"
+      },
+      "control": true
+    },
+    {
+      "name": "root-only-candidate",
+      "overall": "CONSISTENT",
+      "f3": "CONSISTENT",
+      "exit": 0,
+      "reason": null,
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "no-candidate-just-control",
+      "overall": "NOT_RUN",
+      "f3": "NOT_RUN",
+      "exit": 0,
+      "reason": "no_candidate_observation",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "candidate-cannot-cite-sub-build",
+      "overall": "INVALID",
+      "f3": "INVALID",
+      "exit": 2,
+      "reason": "build_not_root",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "unused-control-build",
+      "overall": "INVALID",
+      "f3": null,
+      "exit": 2,
+      "reason": "build_unused",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "missing-sub-build-hex",
+      "overall": "INVALID",
+      "f3": null,
+      "exit": 2,
+      "reason": "build_incomplete",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "duplicate-build-ID",
+      "overall": "INVALID",
+      "f3": null,
+      "exit": 2,
+      "reason": "build_duplicate",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "capture-cites-other-build-ID",
+      "overall": "MISMATCH",
+      "f3": null,
+      "exit": 2,
+      "reason": "build_id_mismatch",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "control-build-wrong-environment",
+      "overall": "MISMATCH",
+      "f3": null,
+      "exit": 2,
+      "reason": "control_env_mismatch",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "requested-not-a-key",
+      "overall": "INVALID",
+      "f3": null,
+      "exit": 2,
+      "reason": "field_unknown",
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "exact-not-run-shape",
+      "overall": "NOT_RUN",
+      "f3": "NOT_RUN",
+      "exit": 0,
+      "reason": null,
+      "observations": {
+        "PENDING": "NOT_RUN"
+      },
+      "control": false
+    },
+    {
+      "name": "not-run-extra-capture-forbidden",
+      "overall": "INVALID",
+      "f3": null,
+      "exit": 2,
+      "reason": "field_unknown",
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "not-run-missing-reason",
+      "overall": "INVALID",
+      "f3": null,
+      "exit": 2,
+      "reason": "field_missing",
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "superseded-mismatch-counts-overall",
+      "overall": "MISMATCH",
+      "f3": "CONSISTENT",
+      "exit": 2,
+      "reason": null,
+      "observations": {
+        "EARLY": "MISMATCH",
+        "LATER": "CONSISTENT"
+      },
+      "control": false
+    },
+    {
+      "name": "mismatch-worse-than-human-decline",
+      "overall": "MISMATCH",
+      "f3": "MISMATCH",
+      "exit": 2,
+      "reason": "michael_record_mismatch",
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "invalid-worse-than-mismatch-and-decline",
+      "overall": "INVALID",
+      "f3": "INVALID",
+      "exit": 2,
+      "reason": "field_unknown",
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "actual-record-absent-NOT-RUN",
+      "overall": "NOT_RUN",
+      "f3": "NOT_RUN",
+      "exit": 0,
+      "reason": "michael_check_absent",
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "pending-PM-worse-than-NOT-RUN",
+      "overall": "PENDING_PM",
+      "f3": "PENDING_PM",
+      "exit": 1,
+      "reason": null,
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "human-decline-worse-than-control",
+      "overall": "NOT_ACCEPTABLE",
+      "f3": "NOT_ACCEPTABLE",
+      "exit": 1,
+      "reason": null,
+      "observations": {},
+      "control": true
+    },
+    {
+      "name": "acceptable-miss-at-exact-20-percent",
+      "overall": "CONSISTENT",
+      "f3": "CONSISTENT",
+      "exit": 0,
+      "reason": null,
+      "observations": {},
+      "control": false
+    },
+    {
+      "name": "decline-worse-than-pending-PM",
+      "overall": "NOT_ACCEPTABLE",
+      "f3": "NOT_ACCEPTABLE",
+      "exit": 1,
+      "reason": null,
+      "observations": {
+        "PENDING-PM": "PENDING_PM",
+        "SYNTHETIC-F3-1": "NOT_ACCEPTABLE"
+      },
+      "control": false
+    },
+    {
+      "name": "mixed-control-does-not-mask-candidate-NOT-RUN",
+      "overall": "NOT_RUN",
+      "f3": "NOT_RUN",
+      "exit": 0,
+      "reason": "michael_check_absent",
+      "observations": {},
+      "control": true
+    }
+  ],
+  "inspectors": [
+    {
+      "name": "production-no-seam",
+      "control": false,
+      "state": "CONSISTENT",
+      "reasons": []
+    },
+    {
+      "name": "control-seam-present",
+      "control": true,
+      "state": "CONSISTENT",
+      "reasons": []
+    },
+    {
+      "name": "production-seam-present",
+      "control": false,
+      "state": "MISMATCH",
+      "reasons": [
+        "seam_present_in_production"
+      ]
+    },
+    {
+      "name": "control-seam-absent",
+      "control": true,
+      "state": "MISMATCH",
+      "reasons": [
+        "seam_absent_in_control"
+      ]
+    },
+    {
+      "name": "both-file-hash-mismatches",
+      "control": false,
+      "state": "MISMATCH",
+      "reasons": [
+        "elf_hash_mismatch",
+        "hex_hash_mismatch"
+      ]
+    },
+    {
+      "name": "claimed-control-on-production-negative-control",
+      "control": false,
+      "state": "MISMATCH",
+      "reasons": [
+        "marker_mismatch",
+        "seam_absent_in_control"
+      ]
+    },
+    {
+      "name": "unknown-env",
+      "control": false,
+      "state": [
+        "MISMATCH",
+        "INVALID"
+      ],
+      "reasons": [
+        "unknown_env",
+        "marker_mismatch"
+      ]
+    },
+    {
+      "name": "production-wrong-inject",
+      "control": false,
+      "state": "MISMATCH",
+      "reasons": [
+        "inject_mismatch",
+        "marker_mismatch"
+      ]
+    },
+    {
+      "name": "control-wrong-inject",
+      "control": true,
+      "state": "MISMATCH",
+      "reasons": [
+        "inject_mismatch",
+        "marker_mismatch"
+      ]
+    },
+    {
+      "name": "marker-count-0",
+      "control": false,
+      "state": "MISMATCH",
+      "reasons": [
+        "marker_missing"
+      ]
+    },
+    {
+      "name": "marker-count-2",
+      "control": false,
+      "state": "MISMATCH",
+      "reasons": [
+        "marker_duplicate"
+      ]
+    },
+    {
+      "name": "marker-ID-mismatch",
+      "control": false,
+      "state": "MISMATCH",
+      "reasons": [
+        "marker_mismatch"
+      ]
+    },
+    {
+      "name": "bad-magic",
+      "control": false,
+      "state": "INVALID",
+      "reasons": [
+        "elf_malformed"
+      ]
+    },
+    {
+      "name": "ELF64-class",
+      "control": false,
+      "state": "INVALID",
+      "reasons": [
+        "elf_malformed"
+      ]
+    },
+    {
+      "name": "wrong-endian",
+      "control": false,
+      "state": "INVALID",
+      "reasons": [
+        "elf_malformed"
+      ]
+    },
+    {
+      "name": "truncated-header",
+      "control": false,
+      "state": "INVALID",
+      "reasons": [
+        "elf_malformed"
+      ]
+    },
+    {
+      "name": "out-of-file-section-table",
+      "control": false,
+      "state": "INVALID",
+      "reasons": [
+        "elf_malformed"
+      ]
+    },
+    {
+      "name": "bad-hex-text",
+      "control": false,
+      "state": "INVALID",
+      "reasons": [
+        "hex_malformed"
+      ]
+    },
+    {
+      "name": "bad-hex-checksum",
+      "control": false,
+      "state": "INVALID",
+      "reasons": [
+        "hex_malformed"
+      ]
+    },
+    {
+      "name": "seam-text-outside-symbol-table-is-not-a-symbol",
+      "control": false,
+      "state": "CONSISTENT",
+      "reasons": []
+    },
+    {
+      "name": "Intel-HEX-type-2",
+      "control": false,
+      "state": "CONSISTENT",
+      "reasons": []
+    },
+    {
+      "name": "Intel-HEX-type-4",
+      "control": false,
+      "state": "CONSISTENT",
+      "reasons": []
+    }
+  ],
+  "build_record": [
+    [
+      "exact-production-metadata",
+      {},
+      true
+    ],
+    [
+      "exact-control-metadata",
+      {
+        "control": true
+      },
+      true
+    ],
+    [
+      "malformed-id",
+      {
+        "bad_key": "id",
+        "bad_value": "BAD"
+      },
+      false
+    ],
+    [
+      "malformed-commit",
+      {
+        "bad_key": "commit",
+        "bad_value": "xyz"
+      },
+      false
+    ],
+    [
+      "malformed-dirty",
+      {
+        "bad_key": "dirty",
+        "bad_value": "2"
+      },
+      false
+    ],
+    [
+      "malformed-inject-us",
+      {
+        "bad_key": "inject-us",
+        "bad_value": "-1"
+      },
+      false
+    ],
+    [
+      "malformed-engine-tree",
+      {
+        "bad_key": "engine-tree",
+        "bad_value": "wrong"
+      },
+      false
+    ],
+    [
+      "wrong-toolchain-shape",
+      {
+        "bad_toolchain": true
+      },
+      false
+    ]
+  ],
+  "describe": [
+    "clean",
+    "pio-only-ignored",
+    "outside-pio-untracked",
+    "tracked-edit",
+    "not-repo"
+  ],
+  "exclusive_outputs": 3
+}

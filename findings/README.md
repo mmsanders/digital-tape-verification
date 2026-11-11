@@ -57,3 +57,5 @@ fabrication/charging gates and Michael's reserved decisions remain separate.
 [V405 card record and wording follow-through](V405-CARDS-PREFLIGHT/DISPOSITION.md): one actual photographed unit authenticates; per-card A1 coverage partial; F398 wording addressed, no DRAFT11 issuance.
 
 [V405 Hardware returned-head HOLD](V405-HARDWARE-RETURN/DISPOSITION.md): plan5 grammar/digest separation, six reproduced failures; new immutable corrective regressions.
+
+[V405 F3-IF/2 return](V405-F3-IF2/DISPOSITION.md): prior import authenticates, four reserved public slots now bound; implementation still unreturned.

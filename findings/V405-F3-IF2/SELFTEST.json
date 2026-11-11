@@ -1,0 +1,294 @@
+{
+  "report_controls_detected": 6,
+  "mode": "fixture-and-wire-predicate-selftest",
+  "cases": [
+    {
+      "case": "G3-clock-changed",
+      "passed": true
+    },
+    {
+      "case": "G3-unchanged-explicit-clock",
+      "passed": true
+    },
+    {
+      "case": "G3-mount-precedes-clock-wrap-timeout",
+      "passed": true
+    },
+    {
+      "case": "G3-clock-precedes-wrap-timeout",
+      "passed": true
+    },
+    {
+      "case": "G3-wrap-precedes-timeout-and-nonzero",
+      "passed": true
+    },
+    {
+      "case": "G3-timeout-precedes-nonzero",
+      "passed": true
+    },
+    {
+      "case": "G3-6999ms-is-timeout-not-wrap",
+      "passed": true
+    },
+    {
+      "case": "G3-1999ms-can-close-ok",
+      "passed": true
+    },
+    {
+      "case": "G3-empty-blocks-timeout",
+      "passed": true
+    },
+    {
+      "case": "G3-runs-out-retains-first-engine",
+      "passed": true
+    },
+    {
+      "case": "G3-earlier-engine-before-clock-change",
+      "passed": true
+    },
+    {
+      "case": "G3-nonzero-with-zero-engine-frames",
+      "passed": true
+    },
+    {
+      "case": "G3-unknown-scenario-key",
+      "passed": true
+    },
+    {
+      "case": "G3-unknown-block-key",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-scenario-cpu_hz",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-scenario-t0_cycles",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-scenario-t0_ms",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-scenario-inject_us",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-scenario-mount",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-scenario-warm",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-scenario-position",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-block-cycles",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-block-ms",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-block-engine_frames",
+      "passed": true
+    },
+    {
+      "case": "G3-noninteger-block-cpu_hz",
+      "passed": true
+    },
+    {
+      "case": "G12-candidate-plus-control",
+      "passed": true
+    },
+    {
+      "case": "G12-root-only-candidate",
+      "passed": true
+    },
+    {
+      "case": "G12-no-candidate-just-control",
+      "passed": true
+    },
+    {
+      "case": "G12-candidate-cannot-cite-sub-build",
+      "passed": true
+    },
+    {
+      "case": "G12-unused-control-build",
+      "passed": true
+    },
+    {
+      "case": "G12-missing-sub-build-hex",
+      "passed": true
+    },
+    {
+      "case": "G12-duplicate-build-ID",
+      "passed": true
+    },
+    {
+      "case": "G12-capture-cites-other-build-ID",
+      "passed": true
+    },
+    {
+      "case": "G12-control-build-wrong-environment",
+      "passed": true
+    },
+    {
+      "case": "G12-requested-not-a-key",
+      "passed": true
+    },
+    {
+      "case": "G12-exact-not-run-shape",
+      "passed": true
+    },
+    {
+      "case": "G12-not-run-extra-capture-forbidden",
+      "passed": true
+    },
+    {
+      "case": "G12-not-run-missing-reason",
+      "passed": true
+    },
+    {
+      "case": "G12-superseded-mismatch-counts-overall",
+      "passed": true
+    },
+    {
+      "case": "G12-mismatch-worse-than-human-decline",
+      "passed": true
+    },
+    {
+      "case": "G12-invalid-worse-than-mismatch-and-decline",
+      "passed": true
+    },
+    {
+      "case": "G12-actual-record-absent-NOT-RUN",
+      "passed": true
+    },
+    {
+      "case": "G12-pending-PM-worse-than-NOT-RUN",
+      "passed": true
+    },
+    {
+      "case": "G12-human-decline-worse-than-control",
+      "passed": true
+    },
+    {
+      "case": "G12-acceptable-miss-at-exact-20-percent",
+      "passed": true
+    },
+    {
+      "case": "G12-decline-worse-than-pending-PM",
+      "passed": true
+    },
+    {
+      "case": "G12-mixed-control-does-not-mask-candidate-NOT-RUN",
+      "passed": true
+    },
+    {
+      "case": "G4-production-no-seam",
+      "passed": true
+    },
+    {
+      "case": "G4-control-seam-present",
+      "passed": true
+    },
+    {
+      "case": "G4-production-seam-present",
+      "passed": true
+    },
+    {
+      "case": "G4-control-seam-absent",
+      "passed": true
+    },
+    {
+      "case": "G4-both-file-hash-mismatches",
+      "passed": true
+    },
+    {
+      "case": "G4-claimed-control-on-production-negative-control",
+      "passed": true
+    },
+    {
+      "case": "G4-unknown-env",
+      "passed": true
+    },
+    {
+      "case": "G4-production-wrong-inject",
+      "passed": true
+    },
+    {
+      "case": "G4-control-wrong-inject",
+      "passed": true
+    },
+    {
+      "case": "G4-marker-count-0",
+      "passed": true
+    },
+    {
+      "case": "G4-marker-count-2",
+      "passed": true
+    },
+    {
+      "case": "G4-marker-ID-mismatch",
+      "passed": true
+    },
+    {
+      "case": "G4-bad-magic",
+      "passed": true
+    },
+    {
+      "case": "G4-ELF64-class",
+      "passed": true
+    },
+    {
+      "case": "G4-wrong-endian",
+      "passed": true
+    },
+    {
+      "case": "G4-truncated-header",
+      "passed": true
+    },
+    {
+      "case": "G4-out-of-file-section-table",
+      "passed": true
+    },
+    {
+      "case": "G4-bad-hex-text",
+      "passed": true
+    },
+    {
+      "case": "G4-bad-hex-checksum",
+      "passed": true
+    },
+    {
+      "case": "G4-seam-text-outside-symbol-table-is-not-a-symbol",
+      "passed": true
+    },
+    {
+      "case": "G4-Intel-HEX-type-2",
+      "passed": true
+    },
+    {
+      "case": "G4-Intel-HEX-type-4",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "counts": {
+    "timing": 25,
+    "bundle": 22,
+    "inspector": 22,
+    "metadata": 8,
+    "describe": 5,
+    "exclusive_outputs": 3
+  },
+  "candidate_executed": false,
+  "physical_run": false,
+  "accepted": false
+}
