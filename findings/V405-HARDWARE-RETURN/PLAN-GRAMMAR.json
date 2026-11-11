@@ -1,0 +1,79 @@
+{
+  "mode": "review-discovered-actual-plan5-CLI",
+  "cases": [
+    {
+      "case": "valid-null-CID-unit-record",
+      "expected_exit": 0,
+      "exit": 0,
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "case": "empty-model-photos",
+      "expected_exit": 2,
+      "exit": 0,
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "stderr": "",
+      "passed": false
+    },
+    {
+      "case": "empty-brand-line",
+      "expected_exit": 2,
+      "exit": 0,
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "stderr": "",
+      "passed": false
+    },
+    {
+      "case": "empty-unit-label",
+      "expected_exit": 2,
+      "exit": 0,
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "stderr": "",
+      "passed": false
+    },
+    {
+      "case": "unit-object-wrong-type",
+      "expected_exit": 2,
+      "exit": 1,
+      "verdict": null,
+      "qualifying": null,
+      "problems": null,
+      "stderr": "ast):\n  File \"C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-return-local\\media_atomicity.py\", line 1421, in <module>\n    raise SystemExit(main())\n  File \"C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-return-local\\media_atomicity.py\", line 1417, in main\n    return a.fn(a)\n  File \"C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-return-local\\media_atomicity.py\", line 825, in cmd_judge\n    return cmd_judge_selfrun(a, plans)\n  File \"C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-return-local\\media_atomicity.py\", line 1353, in cmd_judge_selfrun\n    res = judge_selfrun(plans, rows, serial_problems=sprob, build=build, build_record=brec,\n  File \"C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-return-local\\media_atomicity.py\", line 1252, in judge_selfrun\n    bad = _validate_selfrun(r, n, p)\n  File \"C:\\Users\\mrtro\\Documents\\ChatGPT\\Digital-Tape Verification 2\\verification405-return-local\\media_atomicity.py\", line 1134, in _validate_selfrun\n    (\"card_unit\", plan[\"card_unit\"][\"label\"]),\nTypeError: list indices must be integers or slices, not str\n",
+      "passed": false
+    },
+    {
+      "case": "zero-t-sched",
+      "expected_exit": 2,
+      "exit": 0,
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "stderr": "",
+      "passed": false
+    },
+    {
+      "case": "boolean-t-sched",
+      "expected_exit": 2,
+      "exit": 0,
+      "verdict": "PASS",
+      "qualifying": 1000,
+      "problems": [],
+      "stderr": "",
+      "passed": false
+    }
+  ],
+  "passed": false,
+  "candidate_executed": true,
+  "accepted": false,
+  "physical_run": false
+}
