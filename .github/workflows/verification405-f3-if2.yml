@@ -49,5 +49,5 @@ jobs:
           assert a['timing']==timing()
           assert a['bundles']==[{k:v for k,v in c.items() if k!='edit'} for c in bundles()]
           assert a['inspectors']==[{k:v for k,v in c.items() if k!='edit'} for c in inspect_cases()]
-          assert len(timing())+len(bundles())+len(inspect_cases())+len(build_record_cases())+5+3==81
+          assert len(timing())+len(bundles())+len(inspect_cases())+len(build_record_cases())+5+3==85
           PY
