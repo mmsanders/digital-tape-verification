@@ -1,0 +1,53 @@
+name: Verification405 F3 IF2 extension bindings
+on:
+  pull_request:
+    paths: ['tests/f3_if2_r1/**', 'findings/V405-F3-IF2/**', '.github/workflows/verification405-f3-if2.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-extension-readiness:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: mmsanders/Digital-Tape
+          ref: 33a39d6ebe66c5fea9b05611ea1d42129a3145d8
+          path: build/product
+      - name: Authenticate declaration and prior import
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          a=json.loads(Path('findings/V405-F3-IF2/AUTH.json').read_text());p=Path('build/product')
+          assert hashlib.sha256((p/a['declaration_path']).read_bytes()).hexdigest()==a['declaration_sha256']
+          assert subprocess.check_output(['git','rev-parse','HEAD:tests/f3_wake_if1_r1'],cwd=p,text=True).strip()==a['prior_package_tree']
+          PY
+      - run: python3 -B tests/f3_if2_r1/runner.py --selftest --out build/extension-selftest
+      - name: Independent ELF fixture cross-check
+        run: |
+          python3 - <<'PY'
+          import sys,subprocess
+          from pathlib import Path
+          sys.path.insert(0,'tests/f3_if2_r1')
+          from support import artifact
+          for control in (False,True):
+              h,e,b=artifact(control);p=Path('build')/('control.elf' if control else 'production.elf');p.write_bytes(e)
+              text=subprocess.check_output(['readelf','-Ws',str(p)],text=True)
+              assert ('fw_wake_inject' in text)==control
+          PY
+      - name: Authenticate materialized vectors
+        run: |
+          python3 - <<'PY'
+          import sys,json
+          from pathlib import Path
+          sys.path.insert(0,'tests/f3_if2_r1')
+          from vectors import timing,bundles
+          from build_vectors import inspect_cases,build_record_cases
+          a=json.loads(Path('tests/f3_if2_r1/CATALOG.json').read_text())
+          assert a['timing']==timing()
+          assert a['bundles']==[{k:v for k,v in c.items() if k!='edit'} for c in bundles()]
+          assert a['inspectors']==[{k:v for k,v in c.items() if k!='edit'} for c in inspect_cases()]
+          assert len(timing())+len(bundles())+len(inspect_cases())+len(build_record_cases())+5+3==81
+          PY

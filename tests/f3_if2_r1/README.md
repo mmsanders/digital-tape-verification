@@ -1,0 +1,19 @@
+# F3-IF/2 extension bindings, r1 — V405
+
+Independent Verification authorship, Software674/PR677 declaration33a39d6ebe66c5fea9b05611ea1d42129a3145d8, docs/WP17-F3-INTERFACE-2.md G1–G4. No new firmware/checker/build-tool implementation inspected. This new immutable package depends on unchanged sibling tests/f3_wake_if1_r1 tree9a42b494cc2a68bf552558fe0f5b42339c1ddbaa (already imported by Software); no assertions in that package change. F3-IF/1's22 host/43 offline/2 fake-port cases carry.
+
+**81 new executable CLI cases:**25 host clock/fault/usage scenarios,22 multi-build/report/precedence bundles,22 build inspectors,8 metadata-record calls,5 describe/dirty-repo calls and3 exclusive-output checks. CATALOG.json records expected inputs/outcomes. All generated images, ELF objects, logs, hashes, Michael entries and PM references are SYNTHETIC. No fixture is flashed, a physical check or a genuine sign-off.
+
+Selftest: `python -B tests/f3_if2_r1/runner.py --selftest --out NEW_DIRECTORY`.
+
+Actual returned tools (options may be run separately):
+
+`python -B tests/f3_if2_r1/runner.py --host PATH/fwhost --checker PATH/f3_evidence.py --inspector PATH/fw_build_inspect.py --build-record PATH/build_record.py --build-id PATH/build_id.py --out NEW_DIRECTORY`
+
+Selftest materializes69 new host/bundle/inspector vector expectations, checks file-table hashes/wire predicates, six bad-report controls and bad-rounding/inert-state controls. The8 metadata/5 describe/3 exclusive cases are ready CLI drivers, not selftest-executed Product results. **No actual new Product tool has been executed or cleared.** CI repeats readiness, validates catalog identity and independently checks the generated ELF symbols with readelf. Real --build-id driver uses only a task-owned synthetic Git repository, never Product's checkout; --describe is tested for clean, ignored.pio, untracked/tracked dirty and non-repository states. Inspector reads ELF32 .symtab/.strtab, not a byte-string decoy; the inspector may run no external nm or process. Python tools are guarded against ports/network/processes/input modification/output overwrite; describe permits only its two read-only git invocations.
+
+G1 binds candidate-root/control-sub-build association, missing/unused/duplicate builds, wrong IDs/environment. G2 binds the closed report, NOT_RUN shape, ordered/sorted retained results, control versus candidate states, superseded failures and meaningful precedence. Same-state deciding-observation tie selection is not constrained beyond the declaration. G3 binds clock/mount/wrap/timeout precedence, dash diagnostics and malformed usage while retaining the old22 outcomes. G4 binds metadata/hash/marker/seam/symbol parsing, malformed files, HEX type02/04 positives and production-as-control negative detection. Any correction should be a new publication; import unchanged before implementing these slots.
+
+The small synthetic ELF generator follows primary gABI [ELF header](https://gabi.xinuos.com/elf/02-eheader.html), [section headers](https://gabi.xinuos.com/elf/03-sheader.html) and [symbols](https://gabi.xinuos.com/elf/05-symtab.html). These fixture objects are not Teensy firmware or evidence of an actual build. Inspector expectations come from F3-IF/2, not from implementer code.
+
+No further declaration-only round is requested for G1–G4. Return the exact implemented candidate, unchanged import-before-firmware chronology, actual81+prior-suite execution and real production/control cross-build/inspector results for independent review. PlatformIO randomness/actual backend equivalence and target PCM/stack/timing/caps still require returned implementation/build evidence and later owner-authorized target work; fixture metadata does not prove them. Q1–Q3 keep their PM-owned safe defaults. F4 stays reserved, no recording/copy, no target/card/physical/purchase/flash/charging/DRAFT11 authority. Every outer result remains accepted:false/physical_run:false.
