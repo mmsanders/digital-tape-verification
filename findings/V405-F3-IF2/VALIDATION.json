@@ -1,0 +1,14 @@
+{
+  "validated_source": "9edaf568cec7735d7a2488c52c14cb21b9f7e699",
+  "run_id": 42944450637,
+  "checks": [
+    "public-declaration-hash",
+    "prior-import-tree",
+    "69-fixture-wire-report-predicates",
+    "ELF-symbols-readelf-crosscheck",
+    "85-case-catalog-count"
+  ],
+  "candidate_executed": false,
+  "accepted": false,
+  "physical_run": false
+}
