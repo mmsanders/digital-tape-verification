@@ -4,6 +4,13 @@
 `3826018653e504217f37a16d8864fb0d597e22e6` (ADR-198–201).
 Current assignments come only from live `verification-lead` issues started by Michael.
 
+**16 November 2026: scope narrowed by Product [ADR-210](https://github.com/mmsanders/Digital-Tape/blob/main/docs/DECISIONS.md#adr-210--light-process-outside-the-engine).**
+Independent verification now covers engine and format changes, plus reviews Michael asks
+for. The Phase 3 firmware and bench rows below are a record of work published up to
+10 November; none is an open assignment. The F3 packages (`f3_wake_if1_r1`, `f3_if2_r1`)
+and the self-run plan-5 package stay published and are not imported: Product implemented
+the wake timer directly and will write the power-cut firmware at the bench.
+
 | Area | Current state | Independent boundary / next owner |
 |---|---|---|
 | Phase 1 engine | COMPLETE, 36/36 | Existing independent package dispositions carry; engine tree d96b4245 pinned |
